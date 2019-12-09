@@ -6,12 +6,12 @@
  * @license GPL-3.0
  */
 ?><!DOCTYPE HTML>
-<html class="no-js">
+<html lang="zh-tw">
 	<head>
 		<title><?php wp_title( '-', true, 'right' ); ?></title>
 		<meta charset="<?php bloginfo('charset'); ?>">
+		<meta http-equiv="content-language" content="zh-tw">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="robots" content="index,follow">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<meta name="format-detection" content="telphone=no, email=no">
 		<meta name="description" content="<?php kratos_description(); ?>" />
@@ -24,6 +24,7 @@
 			<style type="text/css">html{filter: grayscale(100%);-webkit-filter: grayscale(100%);-moz-filter: grayscale(100%);-ms-filter: grayscale(100%);-o-filter: grayscale(100%);filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);filter: gray;-webkit-filter: grayscale(1); }
 			</style>
 		<?php endif; ?>
+		
 	</head>
 	<?php flush(); ?>
 	<body data-spy="scroll" data-target=".scrollspy">
