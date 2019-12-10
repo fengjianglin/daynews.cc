@@ -14,8 +14,10 @@
                             <?php if(kratos_option('cd_weixin')) echo '<div id="wechat-img" class="wechat-img"><span class="fa fa-weixin"></span><div id="wechat-pic"><img src="'.kratos_option('weixin_image').'"></div></div>'; ?>
                             <div class="search-box">
                                 <span class="fa fa-search"></span>
-                                <form class="search-form" role="search" method="get" id="searchform" action="<?php echo home_url('/'); ?>">
-                                    <input type="text" name="s" id="search" placeholder="Search..." style="display:none"/>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="Search..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
                                 </form>
                             </div>
                         </div>
