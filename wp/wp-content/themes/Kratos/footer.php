@@ -16,7 +16,7 @@
                                 <span class="fa fa-search"></span>
                                 <form class="search-form" role="search" method="get" id="searchform" 
                                 	  target="_blank" action="https://google.com/search">
-                                    <input type="text" name="q" id="search" placeholder="Search..." style="display:none"/>
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
                                     <input type="hidden" name="sitesearch" value="daynews.cc" />
                                 </form>
                             </div>
