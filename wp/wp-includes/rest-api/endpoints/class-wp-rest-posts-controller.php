@@ -621,6 +621,13 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 		 */
 		do_action( "rest_after_insert_{$this->post_type}", $post, $request, true );
 
+		// 观看数和点赞数
+		$views_count = $request['views_count'];
+		$love_count = $request['love_count'];
+		add_post_meta($post_id, 'views', $views_count, true);
+		add_post_meta($post_id, 'love', $love_count, true);
+		// 观看数和点赞数 end
+
 		$response = $this->prepare_item_for_response( $post, $request );
 		$response = rest_ensure_response( $response );
 
@@ -1108,6 +1115,11 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 		if ( ! empty( $schema['properties']['template'] ) ) {
 			// Force template to null so that it can be handled exclusively by the REST controller.
 			$prepared_post->page_template = null;
+		}
+
+		// Comment count.
+		if ( ! empty( $request['comment_count'] ) ) {
+			$prepared_post->comment_count = $request['comment_count'];
 		}
 
 		/**
