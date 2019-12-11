@@ -2775,7 +2775,7 @@ img.size-smiley {
 }
 
 .cd-tool>div:hover {
-	cursor: url("https://daynews.cc/wp-content/themes/images/pointer.cur"),auto
+	cursor: pointer;
 }
 
 .cd-tool>div {
@@ -3353,7 +3353,6 @@ img.size-smiley {
 	display: inline-block;
 	width: 30px;
 	height: 29px;
-	background-image: url("https://daynews.cc/wp-content/themes/images/download.png");
 	background-size: 30px 29px;
 	text-indent: -999em
 }

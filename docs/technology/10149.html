@@ -1,0 +1,679 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>Linux CPU性能優化方法 - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="在Linux系統中，由於成本的限制，往往會存在資源上的不足，例如 CPU、內存、網路、IO 性能。本文，就對 Linux 進程和 CPU 的原理進行分析，總結出 CPU 性能優化的方法。 1. 分析手段 在理解平均負載之前，先要理清楚 Linux 下的進程狀態。 1.1. 進程狀態 1.1.1. R (TASK_RUNNING)，可執行狀……" />
+		<meta name="keywords" content="Linux CPU性能優化方法天天要聞,科技," />
+		<meta itemprop="image" content="http://p1.pstatp.com/large/pgc-image/c3f660f558fe4bbfb8188650f2f53ce8"/>
+		<meta name="description" itemprop="description" content="在Linux系統中，由於成本的限制，往往會存在資源上的不足，例如 CPU、內存、網路、IO 性能。本文，就對 Linux 進程和 CPU 的原理進行分析，總結出 CPU 性能優化的方法。 1. 分析手段 在理解平均負載之前，先要理清楚 Linux 下的進程狀態。 1.1. 進程狀態 1.1.1. R (TASK_RUNNING)，可執行狀……" />
+		<link rel='stylesheet' id='animate-css'  href='../wp-content/themes/Kratos/css/animate.min-ver=3.5.1.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='../wp-content/themes/Kratos/css/font-awesome.min-ver=4.7.0.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='../wp-content/themes/Kratos/css/bootstrap.min-ver=3.3.7.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='../wp-content/themes/Kratos/css/superfish.min-ver=r7.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='../wp-content/themes/Kratos/css/layer.min-ver=2.8.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='../wp-content/themes/Kratos/style-ver=2.8.css' type='text/css' media='all' />
+<link rel='https://api.w.org/' href='https://daynews.cc/wp-json/' />
+<link rel='shortlink' href='10149.html' />
+<link rel="alternate" type="application/json+oembed" href="https://daynews.cc/wp-json/oembed/1.0/embed?url=https://daynews.cc/technology/10149.html" />
+<link rel="alternate" type="text/xml+oembed" href="https://daynews.cc/wp-json/oembed/1.0/embed?url=https://daynews.cc/technology/10149.html&format=xml" />
+		<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.min-ver=2.1.4.js'></script>
+				
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154207825-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		  gtag('config', 'UA-154207825-1');
+		</script>
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="10149.html#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="../index.html"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="../index.html">首頁</a></li>
+<li><a href="../entertainment.html">娛樂</a></li>
+<li><a href="../emotion.html">情感</a></li>
+<li><a href="../international.html">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="../technology.html">科技</a></li>
+<li><a href="../sports.html">體育</a>
+<ul class="sub-menu">
+	<li><a href="../nba.html">NBA</a></li>
+	<li><a href="../premier.html">英超</a></li>
+</ul>
+</li>
+<li><a href="../history.html">歷史</a></li>
+<li><a href="../game.html">遊戲</a></li>
+<li><a href="../health.html">養生</a>
+<ul class="sub-menu">
+	<li><a href="../lose.html">減肥</a></li>
+</ul>
+</li>
+<li><a href="../constellation.html">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">Linux CPU性能優化方法</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-07				                <i class="fa fa-commenting-o"></i> 2,236條評論
+				                <i class="fa fa-eye"></i> 4,825次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 198人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+</p>
+<p>在Linux系統中，由於成本的限制，往往會存在資源上的不足，例如 CPU、內存、網路、IO 性能。本文，就對 Linux 進程和 CPU 的原理進行分析，總結出 CPU 性能優化的方法。</p>
+<h2><strong>1. </strong>分析手段</h2>
+<p>在理解平均負載之前，先要理清楚 Linux 下的進程狀態。</p>
+<h2>1.1.<strong> </strong>進程狀態</h2>
+<h2>1.1.1. R (TASK_RUNNING)，可執行狀態</h2>
+<p>只有在該狀態的進程才可能在 CPU 上運行。而同一時刻可能有多個進程處於可執行狀態，這些進程的 task_struct 結構（進程式控制制塊）被放入對應 CPU 的可執行隊列中（一個進程最多只能出現在一個 CPU 的可執行隊列中）。進程調度器的任務就是從各個 CPU 的可執行隊列中分別選擇一個進程在該 CPU 上運行。</p>
+<p>很多操作系統教科書將正在 CPU 上執行的進程定義為 RUNNING 狀態、而將可執行但是尚未被調度執行的進程定義為READY狀態，這兩種狀態在linux下統一為 TASK_RUNNING 狀態。</p>
+<h2>1.1.2. S (TASK_INTERRUPTIBLE)，可中斷的睡眠狀態</h2>
+<p>處於這個狀態的進程因為等待某某事件的發生（比如等待 socket 連接、等待信號量），而被掛起。這些進程的 task_struct 結構被放入對應事件的等待隊列中。當這些事件發生時</p>
+<p>（由外部中斷觸發、或由其他進程觸發），對應的等待隊列中的一個或多個進程將被喚醒。通過 ps 命令我們會看到，一般情況下，進程列表中的絕大多數進程都處於 TASK_INTERRUPTIBLE 狀態（除非機器的負載很高）。畢竟 CPU 就這麼一兩個，進程動輒幾十上百個，如果不是絕大多數進程都在睡眠，CPU 又怎麼響應得過來。</p>
+<h2>1.1.3. D (TASK_UNINTERRUPTIBLE)，不可中斷的睡眠狀態</h2>
+<p>與 TASK_INTERRUPTIBLE 狀態類似，進程處於睡眠狀態，但是此刻進程是不可中斷的。</p>
+<p>不可中斷，指的並不是 CPU 不響應外部硬體的中斷，而是指進程不響應非同步信號。</p>
+<p>絕大多數情況下，進程處在睡眠狀態時，總是應該能夠響應非同步信號的。否則你將驚奇的發現，kill -9 竟然殺不死一個正在睡眠的進程了！於是我們也很好理解，為什麼 ps 命令看到的進程幾乎不會出現 TASK_UNINTERRUPTIBLE 狀態，而總是 TASK_INTERRUPTIBLE 狀態。</p>
+<p>而 <strong>TASK_UNINTERRUPTIBLE </strong>狀態存在的意義就在於，內核的某些處理流程是不能被打斷的。如果響應非同步信號，程序的執行流程中就會被插入一段用於處理非同步信號的流程（這個插入的流程可能只存在於內核態，也可能延伸到用戶態），於是原有的流程就被中斷了。</p>
+<p>（參見《linux 內核非同步中斷淺析》） 在進程對某些硬體進行操作時（比如進程調用 read 系統調用對某個設備文件進行讀操作，而 read 系統調用最終執行到對應設備驅動的代碼，並與對應的物理設備進行交互），可能需要使用 TASK_UNINTERRUPTIBLE 狀態對進程進行保護，以避免進程與設備交互的過程被打斷，造成設備陷入不可控的狀態。這種情況下的 TASK_UNINTERRUPTIBLE 狀態總是非常短暫的，通過 ps 命令基本上不可能捕捉到。</p>
+<h2>1.1.4. T (TASK_STOPPED or TASK_TRACED)，暫停狀態或跟蹤狀態</h2>
+<p>向進程發送一個 SIGSTOP 信號，它就會因響應該信號而進入 TASK_STOPPED 狀態（除非該進程本身處於 TASK_UNINTERRUPTIBLE 狀態而不響應信號）。（SIGSTOP 與 SIGKILL 信號一樣，是非常強制的。不允許用戶進程通過 signal 系列的系統調用重新設置對應的信號處理函數。）</p>
+<p>向進程發送一個 SIGCONT 信號，可以讓其從 TASK_STOPPED 狀態恢復到 TASK_RUNNING 狀態。</p>
+<p>當進程正在被跟蹤時，它處於 TASK_TRACED 這個特殊的狀態。&#8221;正在被跟蹤&#8221;指的是進程暫停下來，等待跟蹤它的進程對它進行操作。比如在 gdb 中對被跟蹤的進程下一個斷點，進程在斷點處停下來的時候就處於 TASK_TRACED 狀態。而在其他時候，被跟蹤的進程還是處於前面提到的那些狀態。</p>
+<p>對於進程本身來說，TASK_STOPPED 和 TASK_TRACED 狀態很類似，都是表示進程暫停下來。而 TASK_TRACED 狀態相當於在 TASK_STOPPED 之上多了一層保護，處於 TASK_TRACED 狀態的進程不能響應 SIGCONT 信號而被喚醒。只能等到調試進程通過 ptrace 系統調用執行 PTRACE_CONT、PTRACE_DETACH 等操作（通過 ptrace 系統調用的參數指定操作），或調試進程退出，被調試的進程才能恢復 TASK_RUNNING 狀態。</p>
+<h2>1.1.5. Z (TASK_DEAD &#8211; EXIT_ZOMBIE)，退出狀態，進程成為殭屍進程</h2>
+<p>進程在退出的過程中，處於 TASK_DEAD 狀態。在這個退出過程中，進程佔有的所有資源將被回收，除了 task_struct 結構（以及少數資源）以外。於是進程就只剩下 task_struct 這麼個空殼，故稱為殭屍。之所以保留 task_struct，是因為 task_struct 裡面保存了進程的退出碼、以及一些統計信息。而其父進程很可能會關心這些信息。比如在 shell 中，$?變數就保存了最後一個退出的前台進程的退出碼，而這個退出碼往往被作為 if 語句的判斷條件。</p>
+<p>當然，內核也可以將這些信息保存在別的地方，而將 task_struct 結構釋放掉，以節省一些空間。但是使用 task_struct 結構更為方便，因為在內核中已經建立了從 pid 到 task_struct 查找關係，還有進程間的父子關係。釋放掉 task_struct，則需要建立一些新的數據結構，以便讓父進程找到它的子進程的退出信息。</p>
+<p>父進程可以通過 wait 系列的系統調用（如 wait4、waitid）來等待某個或某些子進程的退出，並獲取它的退出信息。然後 wait 系列的系統調用會順便將子進程的屍體（task_struct）也釋放掉。</p>
+<p>子進程在退出的過程中，內核會給其父進程發送一個信號，通知父進程來&#8221;收屍&#8221;。這個信號默認是 SIGCHLD，但是在通過 clone 系統調用創建子進程時，可以設置這個信號。</p>
+<h2>1.2.<strong> </strong>平均負載</h2>
+<p>單位時間內，系統處於可運行狀態和不可中斷狀態的平均進程數，也就是平均活躍進程數，它和 CPU 使用率並沒有直接關係。</p>
+<p>既然是平均的活躍進程數，那麼最理想的，就是每個cpu 上都剛好運行著一個進程，這樣每個 cpu 都得到了充分利用，比如當平均負載 2時，意味著什麼呢？</p>
+<p>1、 在只有2 個 CPU的系統上，意味著所有的 CPU都剛好被完全佔用</p>
+<p>2、 在 4 個CPU的系統上，意味著 CPU 有 50%的空閑</p>
+<p>3、 而在只有 1 個CPU 的系統上，則意味著有一半的進程競爭不到 CPU</p>
+<h2>1.2.1. 平均負載多少合理？</h2>
+<p>平均負載最理想的情況是等於<strong> CPU </strong>個數。查看系統 CPU 的命令如下：</p>
+<p>cat /proc/cpuinfo</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/c3f660f558fe4bbfb8188650f2f53ce8" src="http://p1.pstatp.com/large/pgc-image/c3f660f558fe4bbfb8188650f2f53ce8" alt="《Linux CPU性能優化方法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>Figure 1 四核 CPU 查看平均負載的命令：</p>
+<p>給了我們三個不同時間間隔的平均值，給我們提供了分析系統負載趨勢的數據來源，讓我們更全面、更立體地理解目前的負載情況。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/9ef2b46cdc4c4a129fcb00344ad6a429" src="http://p1.pstatp.com/large/pgc-image/9ef2b46cdc4c4a129fcb00344ad6a429" alt="《Linux CPU性能優化方法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>· 1 分鐘、5 分鐘、15 分鐘 的三個值基本相同，或者相差不大，說明系統負載很平</p>
+<p>· 如果1 分鐘的值遠小於15 分鐘 的值，說明系統最近 1 分鐘的負載在減少，而過去</p>
+<p>15 分鐘內卻有很大的負載</p>
+<p>· 如果1 分鐘 的值遠大於 15 分鐘的值，就說明最近 1 分鐘的負載在增加。一旦 1 分鐘的平均負載接近或超過了 CPU 的個數，就意味著系統正在發生過載的問題。</p>
+<p>uptime 命令在有些嵌入式設備中，會被裁減掉，但是可以通過 proc 文件系統來獲取。命令：</p>
+<p>cat /proc/loadavg</p>
+<p>很顯然，當前命令展示的平均負載在 CPU 為 4 個時候已經過載</p>
+<h2>1.2.2. 平均負載與 CPU 使用率</h2>
+<p>平均負載不僅包括了正在使用<strong> CPU </strong>的進程，還包括了等待 <strong>CPU </strong>和等待<strong> I/O </strong>的進程。</p>
+<p>CPU 使用率是指單位時間內 CPU 繁忙情況的統計，跟平均負載並不一定完全對應。比如：</p>
+<p>· CPU 密集型進程，使用大量 CPU 會導致平均負載升高，此時這兩者是一致的；</p>
+<p>· I/O 密集型進程，等待 I/O 也會導致平均負載升高，但 CPU 使用率不一定很高</p>
+<p>· 大量等待 CPU 的進程調度也會導致平均負載升高，此時的 CPU 使用率也會比較高。</p>
+</p>
+<h2>1.3.<strong> </strong>CPU 上下文切換</h2>
+<p>在每個任務運行前， CPU 都需要知道任務從哪裡載入、又從哪裡開始運行、也就是說，需要系統事先給他設置好 <strong>CPU </strong>寄存器和程序計數器（Program Counter， PC）</p>
+<p>· <strong>CPU </strong>寄存器：是 CPU 內置的容量小、但速度極快的內存。</p>
+<p>· 程序計數器：是用來存儲 CPU 正在執行的指令位置、或者即將執行的下一條指令位置。</p>
+<p>它們都是 CPU 在運行任何任務前，比如的依賴環境，因此也被叫做 <strong>CPU </strong>上下文。</p>
+<p>· 上下文切換：就是先把前一個任務的 CPU 上下文（也就是 CPU 寄存器和程序計數器）保存起來，然後載入新任務的上下文到這些寄存器和程序計數器，最後再跳轉到程序計數器所指的新位置，運行新任務。</p>
+<p>· CPU 的上下文切換可以分為<strong>進程上下文切換</strong>、<strong>線程上下文切換</strong>以及<strong>中斷上下文切換</strong>。</p>
+<h2>1.3.1. 進程上下文切換</h2>
+<p>Linux 按照特權等級，把進程的運行空間分為內核空間和用戶空間</p>
+<p>· 內核空間（Ring 0）具有最高許可權，可以直接訪問所有資源。</p>
+<p>· 用戶空間（Ring 3）只能訪問受限資源，不能直接訪問內存等硬體設備，必須通過系統調用陷入到內核中，才能訪問這些特權資源。</p>
+<h2>1.3.2. 進程上下文切換和系統調用的區別</h2>
+<p>進程是由內核來管理和調度的，進程的切換隻能發生在內核態。所以，進程的上下文不僅包括了虛擬內存、棧、全局變數等用戶空間的資源，還包括了內核堆棧、寄存器等內核空間的狀態。</p>
+<p>系統調用過程中，並不涉及到虛擬內存等進程用戶態的資源，也不會切換進程。</p>
+<p>· 進程上下文切換，是指從一個進程切換到另一個進程進行。</p>
+<p>· 系統調用過程中一直是同一個進程在運行。</p>
+<p>因此，進程的上下文切換比系統調用時多了一步：在保存當前進程的內核狀態和 CPU 寄存器之前，需要先把該進程的虛擬內存、棧等保存下來；而載入了下一個進程的內核態後，還需要刷新進程的虛擬內存和用戶棧。</p>
+<h2>1.3.3. 什麼時候會切換進程上文</h2>
+<p>· 進程執行終止，它之前使用的 CPU 會釋放出來，這時再從就緒隊列里，拿一個新的進程過來運行。</p>
+<p>· 當某個進程的時間片耗盡了，就會被系統掛起，切換到其他正在等待 CPU 的進程進行</p>
+<p>· 進程在系統資源不足（比如內存不足）時，等到資源滿足後才可以運行，這個時候進程也會被掛起，並由系統調度其他進程運行。</p>
+<p>· 當進程通過睡眠函數 sleep 這樣的方法將自己主動掛起時，自然也會重新調度。</p>
+<p>· 當有優先順序更高的進程運行時，為了保證高優先順序進程的運行，當前進程會被掛起，由高優先順序進程來運行。</p>
+<p>· 發生硬體中斷時，CPU 上的進程會被中斷掛起，轉而執行內核中的中斷程序服務。</p>
+<h2>1.3.4. 線程上下文切換</h2>
+<p>線程和進程的區別</p>
+<p>· 線程是調度的基本單位，而進程則是資源擁有的基本單位。</p>
+<p>· 當進程只有一個線程時，可以認為進程就等於線程。</p>
+<p>· 當進程擁有多個線程時，這些線程會共享相同的虛擬內存和全局變數等資源。這些資源在上下文切換時是不需要修改的。</p>
+<p>· 線程也有自己的私有數據，比如棧和寄存器等，這些在上下文切換時也是需要保存的。</p>
+<p>線程的上下文切換兩種情況</p>
+<p>· 前後兩個線程屬於不同進程。此時，因為資源不共享，所以切換過程就跟進程上下文切換是一樣的。</p>
+<p>· 前後兩個線程屬於同一個進程。此時，因為虛擬內存是共享的，所以在切換時，虛擬內存這些資源就保持不動，只需要切換線程的私有數據、寄存器等不共享的數據。</p>
+<h2>1.3.5. 中斷上下文切換</h2>
+<p>中斷處理會打斷進程的正常調度和執行。在打斷其他進程時，需要將進程當前的狀態保存下來，中斷結束後，進程仍然可以從原來的狀態恢復運行。</p>
+<p>進程上下文切換和中斷上下文切換的區別</p>
+<p>· 中斷上下文切換並不涉及到進程的用戶態。所以，即便中斷過程打斷了一個正處在用戶態的進程，也不需要保存和恢復這個進程的虛擬內存、全局變數等用戶態資源。中斷上下文，其實只包括內核態中斷服務程序執行所必須的狀態，包括 CPU 寄存器、內核堆棧、硬體中斷參數等。</p>
+<p>· 對同一個 CPU 來說，中斷處理比進程擁有更高的優先順序。</p>
+<p>進程上下文切換和中斷上文切換的相同之處</p>
+<p>· 都需要消耗 CPU，切換次數過多會耗費大量 CPU，甚至嚴重降低系統的整體性能。</p>
+<h2>1.3.6. CPU 上下文切換小結</h2>
+<p>· CPU 上下文切換，是保證 Linux 系統正常工作的核心功能之一，一般情況下不需要我們特別關注。</p>
+<p>· 但過多的上下文切換，會把 CPU 時間消耗在寄存器、內核棧以及虛擬內存等數據的保存和恢復上，從而縮短進程真正運行的時間，導致系統的整體性能大幅下降</p>
+</p>
+<h2>1.3.7. 如何查看系統的上下文切換</h2>
+<p>常用的系統性能分析工具，主要用來分析系統的內存使用情況，也常用來分析</p>
+<p>CPU 上下文切換和中斷次數。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/639c59b09017437182f872d00a86bc78" src="http://p1.pstatp.com/large/pgc-image/639c59b09017437182f872d00a86bc78" alt="《Linux CPU性能優化方法》" /></p>
+<p class="pgc-img-caption">Figure 2 每隔 2 秒輸出一組數據</p>
+</p>
+</div>
+</p>
+<p>需要特別關注的四列內容：</p>
+<p>· cs (context switch)：每秒上下文切換的次數。</p>
+<p>· in (interrupt)：每秒中斷的次數。</p>
+<p>· r (Running or Runnable) ：就緒隊列的長度，也就是正在運行和等待 CPU 的進程數。</p>
+<p>· b (Blocked)：處在不可中斷睡眠狀態的進程數。</p>
+</p>
+<p>在嵌入式 Linux 設備中，一般 vmstat 工具是不存在的。所以如果想要 vmstat 工具，可以自己實現代碼，他的原理是獲取/proc/diskstats 和/proc/slabinfo 的信息組合而成。實現代碼見 procps 工具</p>
+</p>
+<p>vmstat 只給出了系統總體的上下文切換情況，並不能查看每個進程的上下文切換情況。</p>
+<p>：查看某個進程中線程的上下文切換情況，下圖查看的是 hicore 進程中所有的線程上下文切換情況。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/ec18ec3f52b240279c22427ae3f34300" src="http://p1.pstatp.com/large/pgc-image/ec18ec3f52b240279c22427ae3f34300" alt="《Linux CPU性能優化方法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>關注兩列內容：</p>
+</p>
+<p>1. 自願上下文切換：進程無法獲取所需資源，導致的上下文切換。比如， I/O、內存等系統資源不足時。</p>
+<p>2. 非自願上下文切換：進程由於時間片已到等原因，被系統強制調度，進而發生的上下文切換。比如，大量進程都在爭搶 CPU 時。</p>
+<h2>1.3.9. Procps 工具</h2>
+<p>procps 是一組命令行和全屏工具，是由內核動態生成的一個 &#8220;偽&#8221; 文件系統，可以提供進程表中條目狀態的信息。該文件系統為內核數據結構提供了一個簡易介面，procps 程序通常就集中在這個描述了系統進程運行狀態的數據結構上。</p>
+<p>procps 包括以下程序：</p>
+<p>· free &#8211; 報告系統中可用內存和已用內存的數量</p>
+<p>· kill &#8211; 基於 PID，向進程發送信號</p>
+<p>· pgrep &#8211; 根據名稱或其他屬性列出進程</p>
+<p>· pkill &#8211; 根據名稱或其他屬性向進程發送信號</p>
+<p>· pmap &#8211; 報告進程的內存映射</p>
+<p>· ps &#8211; 報告進程信息</p>
+<p>· pwdx &#8211; 報告進程的當前目錄</p>
+<p>· skill &#8211; pgrep/pkill 的過時版本</p>
+<p>· slabtop &#8211; 實時顯示內核 slab 緩存信息</p>
+<p>· snice &#8211; Renice 一個進程</p>
+<p>· sysctl -運行時內核參數的讀或寫</p>
+<p>· tload &#8211; 系統負載均值的可視化</p>
+<p>· top &#8211; 正運行進程的實時動態視圖</p>
+<p>· uptime &#8211; 顯示系統的已運行時間和負載情況</p>
+<p>· vmstat &#8211; 報告虛擬內存統計信息</p>
+<p>· w &#8211; 報告登錄用戶，以及他們正在做什麼</p>
+<p>· watch &#8211; 定期執行程序，顯示全屏輸出官網地址：http://procps.sourceforge.net/</p>
+<h2>1.3.10. sysstat 工具</h2>
+<p>在嵌入式 Linux 設備中同樣也不存在該工具，busybox 中也沒有相關命令。需要安裝 Linux 性能監控工具 sysstat，他是一個工具集，包括 sar、sadf、mpstat、iostat、pidstat 等，這些工具可以監控系統性能和使用情況。各工具的作用如下：</p>
+<p>1. iostat &#8211; 提供 CPU 統計，存儲 I/O 統計（磁碟設備，分區及網路文件系統）</p>
+<p>2. mpstat &#8211; 提供單個或組合 CPU 相關統計</p>
+<p>3. pidstat &#8211; 提供 Linux 進程級別統計：I/O、CPU、內存等</p>
+<p>4. sar &#8211; 收集、報告、保存系統活動信息：CPU、內存、磁碟、中斷、網路介面、TTY、內核表等</p>
+<p>5. sadc &#8211; 系統活動數據收集器，作為 sar 後端使用</p>
+<p>6. sa1 &#8211; 收集系統活動日常數據，並二進位格式存儲，它作為 sadc 的工具的前端，可以通過 cron 來調用</p>
+<p>7. sa2 &#8211; 生成系統每日活動報告，同樣可作為 sadc 的工具的前端，可以通過 cron 來調用</p>
+<p>8. sadf &#8211; 可以以 CSV、XML 格式等顯示 sar 收集的性能數據，這樣非常方便的將系統數據導入到資料庫中，或導入到 Excel 中來生成圖表</p>
+<p>9. nfsiostat-sysstat: 提供 NFS I/O 統計</p>
+<p>10. cifsiostat: 提供 CIFS 統計</p>
+<p>sysstat 功能強大，功能也在不斷的增強，每個版本提供了不同的功能，可以到 sysstat 官網了 解 工 具 最 先 發 展 情 況 和 獲 得 相 應 的 幫 助 手 冊 。 官 網 地 址 ：</p>
+</p>
+<h2>1.3.11. 中斷</h2>
+<p>中斷是一種非同步的事件處理機制，可以提高系統的並發處理能力。中斷處理程序會打斷其他進程的運行，為了減少對正常進程運行調度的影響，中斷處理程序就需要儘可能快地運行。</p>
+<p>Linux 將中斷處理過程分成了兩個階段，也就是上半部和下半部。</p>
+<p>· 上半部用來快速處理中斷，它在中斷禁止模式下運行，主要處理跟硬體緊密相關的或時間敏感的工作。</p>
+<p>· 下半部用來延時處理上半部未完成的工作，通常以內核線程的方式運行。</p>
+</p>
+<p>/proc/interrupts：查看硬中斷髮生的類型</p>
+<p>硬體中斷髮生頻繁，是件很消耗 CPU 資源的事情，Linux 默認情況下是將所有的硬體中斷都綁定在 CPU0 上，在多核 CPU 條件下如果有辦法把大量硬體中斷分配給不同的</p>
+<p>CPU (core) 處理顯然能很好的平衡性能。</p>
+<h2>1.3.13. 根據上下文切換的類型做具體分析</h2>
+<p>· 自願上下文切換變多，說明進程都在等待資源，有可能發生 I/O 等其他問題</p>
+<p>· 非自願上下文切換變多，說明進程都在被強制調度，也就是都在爭搶 CPU，說明 CPU 的確成了瓶頸</p>
+<p>· 中斷次數變多，說明 CPU 被中斷處理程序佔用，還需要通過查看 /proc/interrupts 文件來分析具體的中斷類型。</p>
+<h2>1.4.<strong> </strong>CPU 使用率</h2>
+<p>/proc/stat，提供的是系統的 CPU 和任務統計信息。這個信息非常的原始</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/286a023db37b4a40813b40e4bee4d7e7" src="http://p3.pstatp.com/large/pgc-image/286a023db37b4a40813b40e4bee4d7e7" alt="《Linux CPU性能優化方法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p><strong>CPU </strong>使用率相關的重要指標</p>
+<p>· 第一列：user（us），代表用戶態 CPU 時間。</p>
+<p>· 第二列：nice（ni），代表低優先順序用戶態 CPU 時間，也就是進程的 nice 值被調整為 1-</p>
+<p>19 之間時的 CPU 時間。nice 可取值範圍是 -20 到 19， 數值越大，優先順序反而越低</p>
+<p>· 第三列：system (sys)，代表內核態 CPU 時間。</p>
+<p>· 第四列：idle（us），代表空閑時間。注意，這裡它不包括等待 I/O 的時間（iowait）。</p>
+<p>· 第五列：iowait(wa)，代表等待 I/O 的 CPU 時間。</p>
+<p>· 第六列：irq(hi)，代表處理硬中斷的 CPU 時間</p>
+<p>· 第七列：softirq(si)，代表處理軟中斷的 CPU 時間。</p>
+<p>真正查看 CPU 使用率的命令是通過 top 命令</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/b8d70a93684543c2a64c55a27c455b53" src="http://p1.pstatp.com/large/pgc-image/b8d70a93684543c2a64c55a27c455b53" alt="《Linux CPU性能優化方法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<h2>1.5.<strong> </strong>軟中斷</h2>
+<p>提供了軟中斷的運行情況。</p>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/9bb926922ba24b9d955348287f7fe510" src="http://p9.pstatp.com/large/pgc-image/9bb926922ba24b9d955348287f7fe510" alt="《Linux CPU性能優化方法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>· 注意軟中斷的類型，也就是第一列內容。</p>
+<p>· 注意同一種軟中斷在不同 CPU 上的分布情況，也就是同一行內容。</p>
+<p>· 軟中斷實際上是以內核線程的方式運行的，每個 CPU 都對應一個軟中斷內核線程，這個軟中斷內核線程就叫做 ksoftirqd/CPU 編號</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/6af5dbf0674d43cb9c4edd028f4336ff" src="http://p1.pstatp.com/large/pgc-image/6af5dbf0674d43cb9c4edd028f4336ff" alt="《Linux CPU性能優化方法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<h2><strong>2. </strong>優化方法</h2>
+<h2>2.1 CPU 使用率</h2>
+<p>CPU 使用率描述了非空閑時間佔總 CPU 時間的百分比，根據 CPU 上運行任務的不同，又被分為用戶 CPU、系統 CPU、等待 I/O CPU、軟中斷和硬中斷等。</p>
+<p>· 用戶 CPU 使用率，包括用戶態 CPU 使用率(user) 和低優先順序用戶態 CPU 使用率 (nice)，表示 CPU 在用戶態運行的時間百分比。用戶 CPU 使用率高，通常說明有應用程序比較繁忙。</p>
+<p>· 系統 CPU 使用率，表示 CPU 在內核態運行的時間百分比（不包括中斷）。系統 CPU 使用率高，說明內核比較繁忙。</p>
+<p>· 等待 I/O 的 CPU 使用率，通常也稱為 iowait，表示等待 I/O 的時間百分比。iowait 高，通常說明系統與硬體設備的 I/O 交互時間比較長。</p>
+<p>· 軟中斷和硬中斷的 CPU 使用率，分別表示內核調用軟中斷處理程序、硬中斷處理程序的時間百分比。它們的使用率高，通常說明系統發生了大量的中斷。</p>
+<h2>2.2<strong> </strong>平均負載（Load Average）</h2>
+<p>平均負載，也就是系統的平均活躍進程數，它反映了系統的整體負載情況，主要包括三個數值，分別指過去 1 分鐘、過去 5 分鐘和過去 15 分鐘的平均複製子。</p>
+<p>理想情況下，平均負載等於邏輯 CPU 個數，這表示每個 CPU 都恰好被充分利用。如果平均負載大於邏輯 CPU 個數，就表示負載比較重了。</p>
+<h2>2.3<strong> </strong>進程上下文切換</h2>
+<p>· 無法獲取資源而導致的自願上下文切換。</p>
+<p>· 被系統強制調度導致的非自願上下文切換。</p>
+</p>
+<h2>2.4<strong> </strong>CPU 緩存的命中率</h2>
+<p>由於 CPU 發展的速度遠快於內存的發展， CPU 的處理速度就比內存的訪問速度快得多。這樣，CPU 在訪問內存的時候，免不了要等待內存的響應。為了協調這兩者巨大的性能差距，CPU 緩存（通常是多級緩存）就出現了。</p>
+<p>根據不斷增長的熱點數據，這些緩存按照大小不同分為 L1、L2、L3 等三級緩存，其中</p>
+<p>L1 和 L2 常用在單核中，L3 則用在多核中。</p>
+<p>從 L1 到 L3，三級緩存的大小依次增大，相應的，性能依次降低（當然比內存還是好</p>
+<p>得多）。而它們的命中率，衡量的是 CPU 緩存的復用情況，命中率越高，則表示性能越好。</p>
+</p>
+<h2>2.5<strong> </strong>tcmalloc 替換 ptmalloc</h2>
+<h2>2.5.1 ptmalloc</h2>
+<p>Ptmalloc 採用主-從分配區的模式，當一個線程需要分配資源的時候，從鏈表中找到一個沒加鎖的分配區，在進行內存分配。</p>
+</p>
+<p>小內存分配</p>
+<p>在 <strong>ptmalloc </strong>內部，內存塊採用 <strong>chunk </strong>管理，並且將大小相似的 chunk 用鏈表管理，一個鏈表被稱為一個 bin。前 64 個 bin 里，相鄰的 bin 內的 chunk 大小相差 8 位元組，稱為 <strong>small bin</strong>，後面的是 <strong>large bin</strong>，large bin 里的 chunk 按先大小，再最近使用的順序排列，每次分配都找一個最小的能夠使用的 chunk。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/327d121bec02415cb022e3292992d168" src="http://p1.pstatp.com/large/pgc-image/327d121bec02415cb022e3292992d168" alt="《Linux CPU性能優化方法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p><strong>Chunk </strong>的結構如上所示，<strong>A </strong>位表示是不是在主分配區，<strong>M </strong>表示是不是 <strong>mmap </strong>出來的，<strong>P </strong>表示上一個內存緊鄰的 <strong>chunk </strong>是否在使用，如果沒在使用，則 size of previous</p>
+<p>chunk 是上一個 chunk 的大小，否則無意義（而且被用作被分配出去的內存了），正式根據</p>
+<p>P 標記位和 <strong>size of previous chunk </strong>在 free 內存塊的時候來進行 chunk 合併的。當然，如果 chunk 空閑，mem 里還記錄了一些指針用於索引臨近大小的 chunk 的，實現原理就不複述了，知道大致作用就行。</p>
+<p>在 free 的時候，ptmalloc 會檢查附近的 chunk，並嘗試把連續空閑的 chunk 合併成一個大的 chunk，放到 unstored bin 里。但是當很小的 chunk 釋放的時候，ptmalloc 會把它併入 fast bin 中。同樣，某些時候，fast bin 里的連續內存塊會被合併並加入到一個 unsorted bin 里，然後再才進入普通 bin 里。所以 malloc 小內存的時候，是先查找 <strong>fast</strong></p>
+<p><strong>bin</strong>，再查找 <strong>unsorted bin</strong>，最後查找普通的 <strong>bin</strong>，如果 unsorted bin 里的 chunk 不合適，則會把它扔到 bin 里。</p>
+</p>
+<p>大內存分配</p>
+<p><strong>Ptmalloc </strong>的分配的內存頂部還有一個 top chunk，如果前面的 <strong>bin </strong>里的空閑 <strong>chunk </strong>都不足以滿足需要，就是嘗試從 <strong>top chunk </strong>里分配內存。如果 top chunk 里也不夠，就要從操作系統里拿了。</p>
+<p>還有就是特別大的內存，會直接從系統 <strong>mmap </strong>出來，不受 chunk 管理，這樣的內存在回收的時候也會 munmap 還給操作系統。</p>
+</p>
+<p>簡而言之，就是：</p>
+<p>小內存： [獲取分配區(arena)並加鎖] -&gt; fast bin -&gt; unsorted bin -&gt; small bin -&gt; large bin</p>
+<p>-&gt; top chunk -&gt; 擴展堆</p>
+<p>大內存： 直接 mmap</p>
+</p>
+<p>總結</p>
+<p>釋放的時候，幾乎是和分配反過來，再加上可一些 chunk 合併和從一個 bin 轉移到另一個 bin 的操作。並且如果頂部有足夠大的空閑 chunk，則收縮堆頂並還給操作系統。</p>
+<p>介於此，對於 ptmalloc 的內存分配使用有幾個注意事項：</p>
+<p>1. Ptmalloc 默認後分配內存先釋放，因為內存回收是從 top chunk 開始的。</p>
+<p>2. 避免多線程頻繁分配和釋放內存，會造成頻繁加解鎖。</p>
+<p>3. 不要分配長生命周期的內存塊，容易造成內碎片，影響內存回收。</p>
+</p>
+<h2>2.5.2 Tcmalloc</h2>
+<p>具體實現原理不加以贅述，可自行百度學習之，總結以下特點。</p>
+<p>· Tcmalloc 佔用更少的額外空間。例如，分配 N 個 8 位元組對象可能要使用大約 8N * 1.01</p>
+<p>位元組的空間。即，多用百分之一的空間。Ptmalloc2 使用最少 8 位元組描述一個 chunk。</p>
+<p>· 更快。小對象幾乎無鎖， &gt;32KB 的對象從 CentralCache 中分配使用自旋鎖。 並且&gt;32KB 對象都是頁面對齊分配，多線程的時候應盡量避免頻繁分配，否則也會造成自旋鎖的競爭和頁面對齊造成的浪費。</p>
+<h2>2.6<strong> </strong>思維導圖</h2>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/9b17a6c4487a4d728f5cab8eb224124d" src="http://p1.pstatp.com/large/pgc-image/9b17a6c4487a4d728f5cab8eb224124d" alt="《Linux CPU性能優化方法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<h2><strong>3. </strong>分析工具</h2>
+<p>從 CPU 的性能指標出發。當你要查看某個性能指標時，要清楚知道哪些工具可以做到。</p>
+</p>
+<h2><strong>4. </strong>思路</h2>
+<p>性能優化並不是沒有副作用的，通常情況下 Linux 系統是不需要特意調整某些指標。往往性能優化會帶來整體系統的複雜度的上升，降低了可移植性，也可能在調整某個指標的時候導致其他指標異常。</p>
+<p>並不是所有的性能問題都需要去優化，需要對瓶頸點進行優化。比如當前系統有瓶頸，用戶 CPU 使用率升高了 10%，而系統系統 CPU 使用率卻升高了 50%，這個時候就應該首先優化系統 CPU 使用率。</p>
+<h2>4.1<strong> </strong>應用程序優化</h2>
+<p>從應用程序的角度來說，降低 CPU 使用率最好的方法是，排除所有不必要的工作，只保留最核心的邏輯。比如減少循環層次、減少遞歸、減少動態內存分配等等。</p>
+<p>常見的幾種應用程序的性能優化方法：</p>
+<p>· 編譯器優化：很多編譯器都會提供優化選項，適當開啟它們，在編譯階段你就可以獲得編譯器的幫助，來提升性能。目前設備採用的優化選項為 Os，相當於 O2.5</p>
+<p>· 演算法優化：使用非同步處理，可以避免程序因為等待某個資源而一直阻塞，從而提升程序的並發處理能力。</p>
+<p>· 多線程代替多進程：線程的上下文切換並不切換進程地址空間，因此可以降低上下文切換的成本。目前設備採用的是多線程模式。</p>
+<p>· 使用 buffer：經常訪問的數據，可以放在內存中緩存起來，這樣在下次用時可以直接從內存中獲取，加快程序的處理速度。</p>
+<p>· 小內存使用：小內存的申請，在保證棧空間不溢出的情況下，盡量採用棧上申請，少使用動態內存申請，提高程序運行效率。</p>
+</p>
+<h2>4.2<strong> </strong>系統優化</h2>
+<p>從系統的角度來說，優化 CPU 的運行，一方面要充分利用 CPU 緩存的本地性，加速緩存訪問；另一方面，就是要控制進程的 CPU 使用情況，減少進程間的相互影響。</p>
+<p>常見的方法：</p>
+<p>· CPU 綁定：把進程綁定到一個或者多個 CPU 上，可以提高 CPU 緩存的命中率，減少跨 CPU 調度帶來的上下文切換問題。</p>
+<p>· 優先順序調整：使用 nice 調整進程的優先順序，正值調低優先順序，負值調高優先順序。</p>
+<p>· 中斷負載均衡：無論是軟中斷還是硬中斷，它們的中斷處理程序都可能消耗大量的 CPU。</p>
+<p>配置 smp_affinity，就可以把中斷處理過程自動負載均衡到其他 CPU 上</p>
+<p>· 替換 ptmalloc：當前使用的 gblic 庫，其動態內存管理採用就是 ptmalloc。當前應用程序大量使用小尺寸動態內存，可以採用 tcmalloc，在小內存上更快，幾乎無鎖。</p>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="10149" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/10149.html"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/10149.html";
+		var title='%E3%80%90Linux%20CPU%E6%80%A7%E8%83%BD%E5%84%AA%E5%8C%96%E6%96%B9%E6%B3%95%E3%80%91';
+		var qqtitle='%E3%80%90Linux%20CPU%E6%80%A7%E8%83%BD%E5%84%AA%E5%8C%96%E6%96%B9%E6%B3%95%E3%80%91';
+		var excerpt='%E5%9C%A8Linux%E7%B3%BB%E7%B5%B1%E4%B8%AD%EF%BC%8C%E7%94%B1%E6%96%BC%E6%88%90%E6%9C%AC%E7%9A%84%E9%99%90%E5%88%B6%EF%BC%8C%E5%BE%80%E5%BE%80%E6%9C%83%E5%AD%98%E5%9C%A8%E8%B3%87%E6%BA%90%E4%B8%8A%E7%9A%84%E4%B8%8D%E8%B6%B3%EF%BC%8C%E4%BE%8B%E5%A6%82%20CPU%E3%80%81%E5%85%A7%E5%AD%98%E3%80%81%E7%B6%B2%E8%B7%AF%E3%80%81IO%20%E6%80%A7%E8%83%BD%E3%80%82%E6%9C%AC%E6%96%87%EF%BC%8C%E5%B0%B1%E5%B0%8D%20Linux%20%E9%80%B2%E7%A8%8B%E5%92%8C%20CPU%20%E7%9A%84%E5%8E%9F%E7%90%86%E9%80%B2%E8%A1%8C%E5%88%86%E6%9E%90%EF%BC%8C%E7%B8%BD%E7%B5%90%E5%87%BA%20CPU%20%E6%80%A7%E8%83%BD%E5%84%AA%E5%8C%96%E7%9A%84%E6%96%B9%E6%B3%95%E3%80%82%201.%20%E5%88%86%E6%9E%90%E6%89%8B%E6%AE%B5%20%E5%9C%A8%E7%90%86%E8%A7%A3%E5%B9%B3%E5%9D%87%E8%B2%A0%E8%BC%89%E4%B9%8B%E5%89%8D%EF%BC%8C%E5%85%88%E8%A6%81%E7%90%86%E6%B8%85%E6%A5%9A%20Linux%20%E4%B8%8B%E7%9A%84%E9%80%B2%E7%A8%8B%E7%8B%80%E6%85%8B%E3%80%82%201.1.%20%E9%80%B2%E7%A8%8B%E7%8B%80%E6%85%8B%201.1.1.%20R%20%28TASK_RUNNING%29%EF%BC%8C%E5%8F%AF%E5%9F%B7%E8%A1%8C%E7%8B%80%E2%80%A6%E2%80%A6';
+		var wbexcerpt='%E5%9C%A8Linux%E7%B3%BB%E7%B5%B1%E4%B8%AD%EF%BC%8C%E7%94%B1%E6%96%BC%E6%88%90%E6%9C%AC%E7%9A%84%E9%99%90%E5%88%B6%EF%BC%8C%E5%BE%80%E5%BE%80%E6%9C%83%E5%AD%98%E5%9C%A8%E8%B3%87%E6%BA%90%E4%B8%8A%E7%9A%84%E4%B8%8D%E8%B6%B3%EF%BC%8C%E4%BE%8B%E5%A6%82%20CPU%E3%80%81%E5%85%A7%E5%AD%98%E3%80%81%E7%B6%B2%E8%B7%AF%E3%80%81IO%20%E6%80%A7%E8%83%BD%E3%80%82%E6%9C%AC%E6%96%87%EF%BC%8C%E5%B0%B1%E5%B0%8D%20Linux%20%E9%80%B2%E7%A8%8B%E5%92%8C%20CPU%20%E7%9A%84%E5%8E%9F%E7%90%86%E9%80%B2%E8%A1%8C%E5%88%86%E6%9E%90%EF%BC%8C%E7%B8%BD%E7%B5%90%E5%87%BA%20CPU%20%E6%80%A7%E8%83%BD%E5%84%AA%E5%8C%96%E7%9A%84%E6%96%B9%E6%B3%95%E3%80%82%201.%20%E5%88%86%E6%9E%90%E6%89%8B%E6%AE%B5%20%E5%9C%A8%E7%90%86%E8%A7%A3%E5%B9%B3%E5%9D%87%E8%B2%A0%E8%BC%89%E4%B9%8B%E5%89%8D%EF%BC%8C%E5%85%88%E8%A6%81%E7%90%86%E6%B8%85%E6%A5%9A%20Linux%20%E4%B8%8B%E7%9A%84%E9%80%B2%E7%A8%8B%E7%8B%80%E6%85%8B%E3%80%82%201.1.%20%E9%80%B2%E7%A8%8B%E7%8B%80%E6%85%8B%201.1.1.%20R%20%28TASK_RUNNING%29%EF%BC%8C%E5%8F%AF%E5%9F%B7%E8%A1%8C%E7%8B%80%E2%80%A6%E2%80%A6';
+		var pic="http://p1.pstatp.com/large/pgc-image/c3f660f558fe4bbfb8188650f2f53ce8";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="dba+開源工具：面向開發的MySQL圖形可視化監控" href="10151.html">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="暴風影音向樂視學習的結果，告訴我們的三個教訓" href="10148.html">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="10149.html#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="../wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="../wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="../wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="../wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="../wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="../wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="../wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="../wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="../wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="../wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="../wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="../wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="../wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="../wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="../wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="../wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="../wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="../wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="../wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="../wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="../wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="../wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="../wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="../wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="../wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='10149' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="10149.html#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="10149.html#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="10149.html#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="10149.html#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="10149.html#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="10149.html#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="李亞鵬與女友感情生變？深夜送長發美女回家，兩人關係惹猜疑" href="../entertainment/10720.html" rel="bookmark"><i class="fa  fa-book"></i> 李亞鵬與女友感情生變？深夜送長發美女回家，兩人關係惹猜疑                            </a>
+                            <a class="list-group-item visible-md" title="李亞鵬與女友感情生變？深夜送長發美女回家，兩人關係惹猜疑" href="../entertainment/10720.html" rel="bookmark"><i class="fa  fa-book"></i> 李亞鵬與女友感情生變？深夜送長發美女回家，兩人關係惹猜疑                            </a>
+                                                    <a class="list-group-item visible-lg" title="到底是沒演技還是沒顏值？有的好萊塢演員就是拍不了好電影" href="../entertainment/10721.html" rel="bookmark"><i class="fa  fa-book"></i> 到底是沒演技還是沒顏值？有的好萊塢演員就是拍不了好電影                            </a>
+                            <a class="list-group-item visible-md" title="到底是沒演技還是沒顏值？有的好萊塢演員就是拍不了好電影" href="../entertainment/10721.html" rel="bookmark"><i class="fa  fa-book"></i> 到底是沒演技還是沒顏值？有的好萊塢演員就是拍不了好電影                            </a>
+                                                    <a class="list-group-item visible-lg" title="天王劉德華新作《熱血合唱團》來襲，天王出馬必屬精品" href="../entertainment/10722.html" rel="bookmark"><i class="fa  fa-book"></i> 天王劉德華新作《熱血合唱團》來襲，天王出馬必屬精品                            </a>
+                            <a class="list-group-item visible-md" title="天王劉德華新作《熱血合唱團》來襲，天王出馬必屬精品" href="../entertainment/10722.html" rel="bookmark"><i class="fa  fa-book"></i> 天王劉德華新作《熱血合唱團》來襲，天王出馬必屬精品                            </a>
+                                                    <a class="list-group-item visible-lg" title="從1000節瑜珈課上學到的10件事情" href="../lose/10518.html" rel="bookmark"><i class="fa  fa-book"></i> 從1000節瑜珈課上學到的10件事情                            </a>
+                            <a class="list-group-item visible-md" title="從1000節瑜珈課上學到的10件事情" href="../lose/10518.html" rel="bookmark"><i class="fa  fa-book"></i> 從1000節瑜珈課上學到的10件事情                            </a>
+                                                    <a class="list-group-item visible-lg" title="2019年度總結：羽毛球，一個明朗的競技世界" href="../lose/10519.html" rel="bookmark"><i class="fa  fa-book"></i> 2019年度總結：羽毛球，一個明朗的競技世界                            </a>
+                            <a class="list-group-item visible-md" title="2019年度總結：羽毛球，一個明朗的競技世界" href="../lose/10519.html" rel="bookmark"><i class="fa  fa-book"></i> 2019年度總結：羽毛球，一個明朗的競技世界                            </a>
+                                                    <a class="list-group-item visible-lg" title="諾獎得主吉野彰：鋰電十年內仍將主導電池產業" href="9522.html" rel="bookmark"><i class="fa  fa-book"></i> 諾獎得主吉野彰：鋰電十年內仍將主導電池產業                            </a>
+                            <a class="list-group-item visible-md" title="諾獎得主吉野彰：鋰電十年內仍將主導電池產業" href="9522.html" rel="bookmark"><i class="fa  fa-book"></i> 諾獎得主吉野彰：鋰電十年內仍將主導電池產業                            </a>
+                                                    <a class="list-group-item visible-lg" title="《慶余年》這兩人到底做到了什麼？比影帝還吸睛" href="../entertainment/10723.html" rel="bookmark"><i class="fa  fa-book"></i> 《慶余年》這兩人到底做到了什麼？比影帝還吸睛                            </a>
+                            <a class="list-group-item visible-md" title="《慶余年》這兩人到底做到了什麼？比影帝還吸睛" href="../entertainment/10723.html" rel="bookmark"><i class="fa  fa-book"></i> 《慶余年》這兩人到底做到了什麼？比影帝還吸睛                            </a>
+                                                    <a class="list-group-item visible-lg" title="25歲出道，自己從小被稱至帥星二代不算，爸爸還是圈內老熟人" href="../entertainment/10726.html" rel="bookmark"><i class="fa  fa-book"></i> 25歲出道，自己從小被稱至帥星二代不算，爸爸還是圈內老熟人                            </a>
+                            <a class="list-group-item visible-md" title="25歲出道，自己從小被稱至帥星二代不算，爸爸還是圈內老熟人" href="../entertainment/10726.html" rel="bookmark"><i class="fa  fa-book"></i> 25歲出道，自己從小被稱至帥星二代不算，爸爸還是圈內老熟人                            </a>
+                                                    <a class="list-group-item visible-lg" title="淚目！范瑋琪王力宏與高爸歡聚，眾人歡聲笑語過聖誕節送別高以翔" href="../entertainment/10725.html" rel="bookmark"><i class="fa  fa-book"></i> 淚目！范瑋琪王力宏與高爸歡聚，眾人歡聲笑語過聖誕節送別高以翔                            </a>
+                            <a class="list-group-item visible-md" title="淚目！范瑋琪王力宏與高爸歡聚，眾人歡聲笑語過聖誕節送別高以翔" href="../entertainment/10725.html" rel="bookmark"><i class="fa  fa-book"></i> 淚目！范瑋琪王力宏與高爸歡聚，眾人歡聲笑語過聖誕節送別高以翔                            </a>
+                                                    <a class="list-group-item visible-lg" title="黃子韜最想演反派，拍《熱血少年》記錯動作差點刺傷眼" href="../entertainment/10724.html" rel="bookmark"><i class="fa  fa-book"></i> 黃子韜最想演反派，拍《熱血少年》記錯動作差點刺傷眼                            </a>
+                            <a class="list-group-item visible-md" title="黃子韜最想演反派，拍《熱血少年》記錯動作差點刺傷眼" href="../entertainment/10724.html" rel="bookmark"><i class="fa  fa-book"></i> 黃子韜最想演反派，拍《熱血少年》記錯動作差點刺傷眼                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="../international/8854.html" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="../international/8854.html" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="../health/7098.html" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="../health/7098.html" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-lg" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="../entertainment/10879.html" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-md" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="../entertainment/10879.html" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-lg" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="10158.html" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-md" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="10158.html" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-lg" title="撒網式交友，出門不用帶錢包的三種人" href="../constellation/8226.html" rel="bookmark"><i class="fa  fa-book"></i> 撒網式交友，出門不用帶錢包的三種人</a><a class="list-group-item visible-md" title="撒網式交友，出門不用帶錢包的三種人" href="../constellation/8226.html" rel="bookmark"><i class="fa  fa-book"></i> 撒網式交友，出門不用帶錢包的三種人</a><a class="list-group-item visible-lg" title="中醫奇書《四聖心源》解讀：肉眼X光：看外在形體可知五臟盛衰" href="../health/7863.html" rel="bookmark"><i class="fa  fa-book"></i> 中醫奇書《四聖心源》解讀：肉眼X光：看外在形體可知五臟盛衰</a><a class="list-group-item visible-md" title="中醫奇書《四聖心源》解讀：肉眼X光：看外在形體可知五臟盛衰" href="../health/7863.html" rel="bookmark"><i class="fa  fa-book"></i> 中醫奇書《四聖心源》解讀：肉眼X光：看外在形體可知五臟盛衰</a><a class="list-group-item visible-lg" title="遊戲直播:鬥魚虎牙膠著對戰B站8億加碼快手抱緊騰訊" href="10487.html" rel="bookmark"><i class="fa  fa-book"></i> 遊戲直播:鬥魚虎牙膠著對戰B站8億加碼快手抱緊騰訊</a><a class="list-group-item visible-md" title="遊戲直播:鬥魚虎牙膠著對戰B站8億加碼快手抱緊騰訊" href="10487.html" rel="bookmark"><i class="fa  fa-book"></i> 遊戲直播:鬥魚虎牙膠著對戰B站8億加碼快手抱緊騰訊</a><a class="list-group-item visible-lg" title="這3類人最能吃苦，50歲後運勢逆轉，越老就越富裕，晚年幸福富貴" href="../constellation/7905.html" rel="bookmark"><i class="fa  fa-book"></i> 這3類人最能吃苦，50歲後運勢逆轉，越老就越富裕，晚年幸福富貴</a><a class="list-group-item visible-md" title="這3類人最能吃苦，50歲後運勢逆轉，越老就越富裕，晚年幸福富貴" href="../constellation/7905.html" rel="bookmark"><i class="fa  fa-book"></i> 這3類人最能吃苦，50歲後運勢逆轉，越老就越富裕，晚年幸福富貴</a><a class="list-group-item visible-lg" title="三款晚禮服，你覺得哪一款最有氣質？測出你身上哪點最招桃花" href="../constellation/8404.html" rel="bookmark"><i class="fa  fa-book"></i> 三款晚禮服，你覺得哪一款最有氣質？測出你身上哪點最招桃花</a><a class="list-group-item visible-md" title="三款晚禮服，你覺得哪一款最有氣質？測出你身上哪點最招桃花" href="../constellation/8404.html" rel="bookmark"><i class="fa  fa-book"></i> 三款晚禮服，你覺得哪一款最有氣質？測出你身上哪點最招桃花</a><a class="list-group-item visible-lg" title="手機充一次電用一年？這種功能現有技術能實現嗎?" href="9523.html" rel="bookmark"><i class="fa  fa-book"></i> 手機充一次電用一年？這種功能現有技術能實現嗎?</a><a class="list-group-item visible-md" title="手機充一次電用一年？這種功能現有技術能實現嗎?" href="9523.html" rel="bookmark"><i class="fa  fa-book"></i> 手機充一次電用一年？這種功能現有技術能實現嗎?</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="歲月無聲人有緣，人生相伴情在牽" href="../emotion/1681.html" rel="bookmark"><i class="fa  fa-book"></i> 歲月無聲人有緣，人生相伴情在牽                            </a>
+                            <a class="list-group-item visible-md" title="歲月無聲人有緣，人生相伴情在牽" href="../emotion/1681.html" rel="bookmark"><i class="fa  fa-book"></i> 歲月無聲人有緣，人生相伴情在牽                            </a>
+                                                    <a class="list-group-item visible-lg" title="上古以下八大姓氏，看你是不是“上古皇族”" href="../constellation/7988.html" rel="bookmark"><i class="fa  fa-book"></i> 上古以下八大姓氏，看你是不是“上古皇族”                            </a>
+                            <a class="list-group-item visible-md" title="上古以下八大姓氏，看你是不是“上古皇族”" href="../constellation/7988.html" rel="bookmark"><i class="fa  fa-book"></i> 上古以下八大姓氏，看你是不是“上古皇族”                            </a>
+                                                    <a class="list-group-item visible-lg" title="射手座的箭射向箭靶，雙子的風刮向四方，在人群中如何區別出他們" href="../constellation/8157.html" rel="bookmark"><i class="fa  fa-book"></i> 射手座的箭射向箭靶，雙子的風刮向四方，在人群中如何區別出他們                            </a>
+                            <a class="list-group-item visible-md" title="射手座的箭射向箭靶，雙子的風刮向四方，在人群中如何區別出他們" href="../constellation/8157.html" rel="bookmark"><i class="fa  fa-book"></i> 射手座的箭射向箭靶，雙子的風刮向四方，在人群中如何區別出他們                            </a>
+                                                    <a class="list-group-item visible-lg" title="梅威瑟接班人現身！年僅20歲已是拳王，欲掀翻洛馬琴科的統治" href="../sports/2899.html" rel="bookmark"><i class="fa  fa-book"></i> 梅威瑟接班人現身！年僅20歲已是拳王，欲掀翻洛馬琴科的統治                            </a>
+                            <a class="list-group-item visible-md" title="梅威瑟接班人現身！年僅20歲已是拳王，欲掀翻洛馬琴科的統治" href="../sports/2899.html" rel="bookmark"><i class="fa  fa-book"></i> 梅威瑟接班人現身！年僅20歲已是拳王，欲掀翻洛馬琴科的統治                            </a>
+                                                    <a class="list-group-item visible-lg" title="冬天心腦血管病頻發，吃什麼能活血降脂？避免血管堵塞？" href="../health/6981.html" rel="bookmark"><i class="fa  fa-book"></i> 冬天心腦血管病頻發，吃什麼能活血降脂？避免血管堵塞？                            </a>
+                            <a class="list-group-item visible-md" title="冬天心腦血管病頻發，吃什麼能活血降脂？避免血管堵塞？" href="../health/6981.html" rel="bookmark"><i class="fa  fa-book"></i> 冬天心腦血管病頻發，吃什麼能活血降脂？避免血管堵塞？                            </a>
+                                                    <a class="list-group-item visible-lg" title="如何從開車細節認清一個男人？（建議惠存！）" href="../emotion/1682.html" rel="bookmark"><i class="fa  fa-book"></i> 如何從開車細節認清一個男人？（建議惠存！）                            </a>
+                            <a class="list-group-item visible-md" title="如何從開車細節認清一個男人？（建議惠存！）" href="../emotion/1682.html" rel="bookmark"><i class="fa  fa-book"></i> 如何從開車細節認清一個男人？（建議惠存！）                            </a>
+                                                    <a class="list-group-item visible-lg" title="英國考古人員發現四個1700年的蛋，不小心打壞了三個" href="../international/8903.html" rel="bookmark"><i class="fa  fa-book"></i> 英國考古人員發現四個1700年的蛋，不小心打壞了三個                            </a>
+                            <a class="list-group-item visible-md" title="英國考古人員發現四個1700年的蛋，不小心打壞了三個" href="../international/8903.html" rel="bookmark"><i class="fa  fa-book"></i> 英國考古人員發現四個1700年的蛋，不小心打壞了三個                            </a>
+                                                    <a class="list-group-item visible-lg" title="淘集集併購重組失敗，正式啟動破產清算程序" href="9945.html" rel="bookmark"><i class="fa  fa-book"></i> 淘集集併購重組失敗，正式啟動破產清算程序                            </a>
+                            <a class="list-group-item visible-md" title="淘集集併購重組失敗，正式啟動破產清算程序" href="9945.html" rel="bookmark"><i class="fa  fa-book"></i> 淘集集併購重組失敗，正式啟動破產清算程序                            </a>
+                                                    <a class="list-group-item visible-lg" title="渾渾噩噩，埃弗頓或已滿足無欲無求的地位" href="../sports/2367.html" rel="bookmark"><i class="fa  fa-book"></i> 渾渾噩噩，埃弗頓或已滿足無欲無求的地位                            </a>
+                            <a class="list-group-item visible-md" title="渾渾噩噩，埃弗頓或已滿足無欲無求的地位" href="../sports/2367.html" rel="bookmark"><i class="fa  fa-book"></i> 渾渾噩噩，埃弗頓或已滿足無欲無求的地位                            </a>
+                                                    <a class="list-group-item visible-lg" title="3款鳳冠，哪一款你最想戴上試試，測誰能夠給你帶來安全感？" href="../constellation/8304.html" rel="bookmark"><i class="fa  fa-book"></i> 3款鳳冠，哪一款你最想戴上試試，測誰能夠給你帶來安全感？                            </a>
+                            <a class="list-group-item visible-md" title="3款鳳冠，哪一款你最想戴上試試，測誰能夠給你帶來安全感？" href="../constellation/8304.html" rel="bookmark"><i class="fa  fa-book"></i> 3款鳳冠，哪一款你最想戴上試試，測誰能夠給你帶來安全感？                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="kratos_tags-4" class="widget widget_kratos_tags clearfix"><h4 class="widget-title">標籤</h4><div class="tag_clouds"><a href="../tag/mingxing.html" class="tag-cloud-link tag-link-26 tag-link-position-1" style="font-size: 14px;">明星</a></div></aside><aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="../nba.html">NBA</a> (984)
+</li>
+	<li class="cat-item cat-item-23"><a href="../international.html">國際</a> (954)
+</li>
+	<li class="cat-item cat-item-14"><a href="../entertainment.html">娛樂</a> (1,245)
+</li>
+	<li class="cat-item cat-item-15"><a href="../emotion.html">情感</a> (986)
+</li>
+	<li class="cat-item cat-item-22"><a href="../constellation.html">星座</a> (671)
+</li>
+	<li class="cat-item cat-item-17"><a href="../history.html">歷史</a> (940)
+</li>
+	<li class="cat-item cat-item-25"><a href="../lose.html">減肥</a> (201)
+</li>
+	<li class="cat-item cat-item-24"><a href="../technology.html">科技</a> (991)
+</li>
+	<li class="cat-item cat-item-19"><a href="../premier.html">英超</a> (826)
+</li>
+	<li class="cat-item cat-item-18"><a href="../game.html">遊戲</a> (977)
+</li>
+	<li class="cat-item cat-item-21"><a href="../health.html">養生</a> (993)
+</li>
+	<li class="cat-item cat-item-16"><a href="../sports.html">體育</a> (993)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='../date/2019/12.html'>2019 年 12 月</a>&nbsp;(7759)</li>
+	<li><a href='../date/2019/11.html'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='../date/2019/10.html'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="../index.html">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.easing.min-ver=1.3.0.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.qrcode.min-ver=2.8.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/layer.min-ver=3.0.3.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/modernizr.min-ver=2.6.2.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/bootstrap.min-ver=3.3.7.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.waypoints.min-ver=4.0.0.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.stellar.min-ver=0.6.2.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/hoverIntent.min-ver=r7.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/superfish-ver=1.0.0.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/kratos-ver=2.8.js'></script>
+<script type='text/javascript' src='../wp-includes/js/wp-embed.min-ver=5.2.4.js'></script>
+			</body>
+
+</html>

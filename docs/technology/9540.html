@@ -1,0 +1,525 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>業務中台是啥玩意？阿里巴巴架構師告訴你 - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="Photo @ Zach Lucero 文 |王思軒 一切業務數據化，一切數據業務化。 「中台」概念這幾年非常火，特別是阿里、騰訊、百度、京東等互聯網公司最近頻繁的基於中台調整組織架構，把「中台」的熱度又上升到另一個高度，甚至有這樣的聲音， 90 年代不做 ERP 會死，現在不做中台也會定企業生死。中台的概念起源於阿里，也發展於阿里。筆者……" />
+		<meta name="keywords" content="業務中台是啥玩意？阿里巴巴架構師告訴你天天要聞,科技," />
+		<meta itemprop="image" content="http://p3.pstatp.com/large/pgc-image/RkI8kEUI2xWWfy"/>
+		<meta name="description" itemprop="description" content="Photo @ Zach Lucero 文 |王思軒 一切業務數據化，一切數據業務化。 「中台」概念這幾年非常火，特別是阿里、騰訊、百度、京東等互聯網公司最近頻繁的基於中台調整組織架構，把「中台」的熱度又上升到另一個高度，甚至有這樣的聲音， 90 年代不做 ERP 會死，現在不做中台也會定企業生死。中台的概念起源於阿里，也發展於阿里。筆者……" />
+		<link rel='stylesheet' id='animate-css'  href='../wp-content/themes/Kratos/css/animate.min-ver=3.5.1.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='../wp-content/themes/Kratos/css/font-awesome.min-ver=4.7.0.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='../wp-content/themes/Kratos/css/bootstrap.min-ver=3.3.7.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='../wp-content/themes/Kratos/css/superfish.min-ver=r7.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='../wp-content/themes/Kratos/css/layer.min-ver=2.8.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='../wp-content/themes/Kratos/style-ver=2.8.css' type='text/css' media='all' />
+<link rel='https://api.w.org/' href='https://daynews.cc/wp-json/' />
+<link rel='shortlink' href='9540.html' />
+<link rel="alternate" type="application/json+oembed" href="https://daynews.cc/wp-json/oembed/1.0/embed?url=https://daynews.cc/technology/9540.html" />
+<link rel="alternate" type="text/xml+oembed" href="https://daynews.cc/wp-json/oembed/1.0/embed?url=https://daynews.cc/technology/9540.html&format=xml" />
+		<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.min-ver=2.1.4.js'></script>
+				
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154207825-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		  gtag('config', 'UA-154207825-1');
+		</script>
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="9540.html#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="../index.html"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="../index.html">首頁</a></li>
+<li><a href="../entertainment.html">娛樂</a></li>
+<li><a href="../emotion.html">情感</a></li>
+<li><a href="../international.html">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="../technology.html">科技</a></li>
+<li><a href="../sports.html">體育</a>
+<ul class="sub-menu">
+	<li><a href="../nba.html">NBA</a></li>
+	<li><a href="../premier.html">英超</a></li>
+</ul>
+</li>
+<li><a href="../history.html">歷史</a></li>
+<li><a href="../game.html">遊戲</a></li>
+<li><a href="../health.html">養生</a>
+<ul class="sub-menu">
+	<li><a href="../lose.html">減肥</a></li>
+</ul>
+</li>
+<li><a href="../constellation.html">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">業務中台是啥玩意？阿里巴巴架構師告訴你</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-11				                <i class="fa fa-commenting-o"></i> 1,270條評論
+				                <i class="fa fa-eye"></i> 2,287次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 563人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+ <img layer-src="http://p3.pstatp.com/large/pgc-image/RkI8kEUI2xWWfy" src="http://p3.pstatp.com/large/pgc-image/RkI8kEUI2xWWfy" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" /></p>
+<p class="pgc-img-caption">Photo @ Zach Lucero</p>
+<p><strong>文 |</strong><strong toutiao-origin="span" class="highlight-text">王思軒</strong></p>
+<p><strong toutiao-origin="span" class="highlight-text">一切業務數據化，一切數據業務化。</strong></p>
+<p>「中台」概念這幾年非常火，特別是阿里、騰訊、百度、京東等互聯網公司最近頻繁的基於中台調整組織架構，把「中台」的熱度又上升到另一個高度，甚至有這樣的聲音， 90 年代不做 ERP 會死，現在不做中台也會定企業生死。中台的概念起源於阿里，也發展於阿里。筆者有幸參與阿里業務中台方法體系建設，也主導參與一些阿里雲新零售業務中台項目，經常被問到如下問題。本文作為「阿里巴巴業務中台」專題的第一篇，和大家分享一些思考（本文內容僅代表作者個人觀點，歡迎交流）。</p>
+<p> <img layer-src="http://p9.pstatp.com/large/pgc-image/RkI8kFb1mYZ9ac" src="http://p9.pstatp.com/large/pgc-image/RkI8kFb1mYZ9ac" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" /></p>
+<p><strong toutiao-origin="span" class="highlight-text">什麼是業務中台？</strong></p>
+<p>中台起源於阿里，2015年，阿里提出了 「大中台，小前台」戰略，靈感來源於芬蘭的一家遊戲公司Supercell，僅300名員工，卻在短時間推出多個爆款遊戲，成為全球最會賺錢的遊戲公司。其實，阿里早在 2009 年建設「共享事業部」開始，就已經開始了中台的探索，並通過十年上百個客戶的實踐，阿里也將自己的技術和業務能力沉澱成為一整套解決方案和方法論體系。</p>
+<p> <img layer-src="http://p3.pstatp.com/large/pgc-image/RkI8kGB5OoJUAG" src="http://p3.pstatp.com/large/pgc-image/RkI8kGB5OoJUAG" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" /></p>
+<p>中台是什麼？不同的人有不同解讀。我認為，中台是一套結合互聯網技術和行業特性，將企業核心能力以共享服務形式沉澱，形成「大中台、小前台「的組織和業務機制，供企業快速低成本的進行業務創新的企業架構。中台又可以進一步細分，比如業務中台，數據中台，xx中台。本質上，都是對企業通用能力在不同層面的沉澱，並對外能力開放。</p>
+<p>業務中台將企業的核心能力以數字化形式沉澱為各種服務中心。業務中台的目的是「提供企業能夠快速，低成本創新的能力」。業務中台的核心是「構建企業共享服務中心」。業務中台的過程是通過業務板塊之間的鏈接和協同，持續提升業務創新效率，確保關鍵業務鏈路的穩定高效和經濟性兼顧的思想體系，並突出組織和業務機制。業務中台也包含技術和組織兩大部分，通過「方法+工具+業務理解」加以實現。</p>
+<p>數據中台通過數據技術，對海量數據進行採集、計算、存儲、加工，同時統一標準和口徑。數據中台把數據統一之後，會形成標準數據，再進行存儲，形成大數據資產層，進而為客戶提供高效服務。數據中台建設的基礎還是數據倉庫和數據中心。</p>
+<p>那業務中台和技術中台的關係是什麼呢？阿里有句話非常形象，「一切業務數據化，一切數據業務化」。業務中台源源不斷地從業務造數據，把業務實時在線的交易數據進行統一記錄和沉澱，這就是「業務數據化」；而數據中台對沉澱的數據進行二次加工，通過數據標準及演算法，產生進一步的分析型數據服務，這些數據服務反向又服務於業務，將業務固化，形成業務閉環，也就是「數據業務化」。比如天貓淘寶的用戶實時在線的交易信息，存放在業務共享中心的交易中心當中；而數據中台基於這些用戶歷史信息，並通過數據分析後的用戶畫像和標籤屬性，提供服務給到前端，形成千人千面。這就是我們一直講的數據驅動、數據閉環、數據價值。</p>
+</p>
+<h2 toutiao-origin="h4"><strong toutiao-origin="span" class="highlight-text">阿里業務中台核心架構是什麼？</strong></h2>
+<p> <img layer-src="http://p9.pstatp.com/large/pgc-image/RkI8kGTFxcC7q1" src="http://p9.pstatp.com/large/pgc-image/RkI8kGTFxcC7q1" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" /></p>
+<p>阿里巴巴超過數十個業務單元（如淘寶、天貓、聚划算、阿里巴巴）均不是獨立構建在阿里雲之上，在後端阿里雲技術平台和前端業務之間有「共享業務事業部「（也就是這裡講的「業務中台」），將業務當中公共、通用的業務沉澱下來，包括用戶中心、商品中心、交易中心、評價中心等十幾個共享單元，是「厚平台的真正實現「。而後端的阿里雲提供計算資源和中間件PaaS雲服務能力做載體。同時，使用集團近十年的雙11、雙12的高可靠、可穩定的運維保障能力，對整個系統進行支撐。中台的使命是從下到上逐步完善阿里的整個體系，從阿里雲、數據、中間件、演算法，到上面支撐的各種業務解決方案，構建阿里自己核心的能力。</p>
+<p>談到中台，不得不提阿里共享服務事業部的由來，在淘寶初期，主要面向C2C的電商領域，整個系統都是圍繞一套「煙囪式」的淘寶技術框架進行。隨著業務的不斷擴張，集團成立出天貓事業部主抓B2C電商領域，又形成了一套煙囪式發展。這種煙囪式的架構體系帶來了諸多不足，比如成本的重複投入和維護、數據之間打通復用的難度、幾年之後推倒重建的風險。為了解決這些問題，集團已經開始構建共享服務體系，來沉澱和復用業務能力，但是由於沒有過多的業務話語權，共享服務體系的建設一開始並不順利。之後，隨著「聚划算」團購項目的啟動，各種系統的流量都需要通過聚划算，這時，共享服務中心得以大展手腳，逐步將集團核心的業務能力構建成用戶中心、商品中心、交易中心、評價中心、店鋪中心等等數十個共享服務。可以說整個阿里中台的革命也是共享服務中心的革命，各共享服務中心聚焦核心業務單元能力的構建，協助目前集團上百個前台業務的快速創新。</p>
+</p>
+<h2 toutiao-origin="h4"><strong toutiao-origin="span" class="highlight-text">我的企業需要業務中台嗎？</strong></h2>
+<p> <img layer-src="http://p1.pstatp.com/large/pgc-image/RkI8kGmJ1GzBxq" src="http://p1.pstatp.com/large/pgc-image/RkI8kGmJ1GzBxq" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" /></p>
+<p>阿里業務中台如此強大，那對於傳統企業，在做數字化轉型的過程中，是否需要業務中台呢？我認為，如果你的企業有以下問題的任何一個，有必要考慮建設業務中台：</p>
+<ul>
+<li>
+<p>業務具有不確定性：創新困難，無法支撐市場高速變化。如渠道扁平化管理，統一會員營銷，全渠道等。</p>
+</li>
+<li>
+<p>業務不在線：企業信息化程度不足，大量人工統計，核心業務沒有做到實時、在線、統一。比如會員訂單不完整，經銷商進銷存數據不在線等。</p>
+</li>
+<li>
+<p>煙囪式系統多：系統割裂，數據孤島，端到端無法實時協同，更無法基於現有系統進一步構建數據中台。</p>
+</li>
+<li>
+<p>系統重複建設：內部大量重複建設，缺乏業務核心的固化沉澱，系統服役到期只能推倒重建。</p>
+</li>
+<li>
+<p>業務與互聯網緊密：業務與互聯網緊密相關，特別是面向市場消費者，系統的彈性不足，需要支撐不確定的用戶數量。</p>
+</li>
+</ul>
+<p>有些同學認為業務中台是大公司要考慮的，而對於業務不複雜、人員也不太多的中小公司不適合。我有不同的觀點，其實，無論業務複雜與否、人員龐大與否，只要你的業務與互聯網相關，需要快速應對消費者帶來的不確定需求，需要打通煙囪林立的系統，需要業務在線來提高企業創新和協同，都應該考慮建設業務中台；同時，業務中台也不一定徹底推到整個系統，首先要改變意識，分步實施、小步快跑，有很多可落地的途徑和方法。</p>
+<p>那業務中台對企業有什麼價值呢？這裡我們先簡單羅列一下。</p>
+<p> <img layer-src="http://p3.pstatp.com/large/pgc-image/RkI8kX3B430NiE" src="http://p3.pstatp.com/large/pgc-image/RkI8kX3B430NiE" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" /></p>
+<p>1、激發創新：讓企業通過核心能力的沉澱，給予快速創新機會，拉通業務整體的點線，降低了試錯成本；</p>
+<p>2、高效協同：中台側重的是跨部門跨團隊的深入合作，激活了組織創新；</p>
+<p>3、業務在線：服務中心化的構建打破了煙囪式的IT架構，提高核心數據實時/在線/統一；</p>
+<p>4、人員提升：業務沉澱中台提升了IT人員能力，提高業務運營以及全局意識，成為既懂業務又懂技術的核心戰略人才；</p>
+<p>5、變現營銷：會員資產化，全渠道下沉，補全客戶畫像，提升精準營銷；</p>
+<p>6、智能商業：業務數據化+數據業務化的閉環模式，構建了商業智能的基礎；</p>
+<p>可以看出，業務中台無論對企業戰略發展、商業模式創新，還是內部高效協同、人員培養提升等都會帶來很多好處。</p>
+</p>
+<h2 toutiao-origin="h4"><strong toutiao-origin="span" class="highlight-text">如何規劃和建設業務中台？</strong></h2>
+<p> <img layer-src="http://p3.pstatp.com/large/pgc-image/RkI8kXL3bwVIbw" src="http://p3.pstatp.com/large/pgc-image/RkI8kXL3bwVIbw" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" /></p>
+<p>很多人認為業務中台落地難，其實難在具體的規劃和落地實施上，我們對業務中台的建設路徑有這樣的一些看法：</p>
+<p>1、決心變革：企業內達成戰略共識，一把手牽頭，業務/技術等團隊全局共識。做總體戰略規劃、分步實施，找准切入點，解決具體業務問題。比如會員營銷、經銷商門店、全渠道、採購供應鏈，不同的切入點策略不同。</p>
+<p>2、成功試點：通過業務和系統分析調研，明確業務目標和範圍，完成技術平台引入、中台建設方法論宣導，並選擇驗證過的技術平台和實施團隊。進行試點，梳理標杆，積累經驗。比如從新的業務系統嘗試，或者改造現有系統，步步為營。</p>
+<p>3、持續融合：總結出適合企業自身的理念和規範，優化組織、提升中台效率。並全面迭代和構建企業業務能力生態。</p>
+<p><strong toutiao-origin="span" class="highlight-text">現有系統如何改造？</strong></p>
+<p> <img layer-src="http://p9.pstatp.com/large/pgc-image/RkI8kXoCuCqZyc" src="http://p9.pstatp.com/large/pgc-image/RkI8kXoCuCqZyc" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" /></p>
+<p>前文講到業務中台在分步實施中，講究總體規劃、分步實施。面對現有系統，並不一定都要進行中台改造，我們建議「外松內緊」：</p>
+<p><strong>外松：</strong>面向市場和客戶方面，以精細化運營為驅動，這些系統更適合建設業務中台。對外市場，快速應變，敏捷創新。比如電商、客戶管理、全渠道、營銷、創新業務。</p>
+<p><strong>內緊：</strong>面向內部和員工，以標準化流程為驅動，這些系統更適合保持不變，與業務中台進行對接。對內管理，流程嚴謹，標準規範。比如PLM、MES、HR、OA、財務。</p>
+<p><strong toutiao-origin="span" class="highlight-text">共享中心如何建設？</strong></p>
+<p> <img layer-src="http://p3.pstatp.com/large/pgc-image/RkI8kY99i5OdLB" src="http://p3.pstatp.com/large/pgc-image/RkI8kY99i5OdLB" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" /></p>
+<p>在企業的中台能力中心建設中，核心是共享服務中心的建設，不同行業的業務中心有所不同，比如新零售領域，一些參考可以有用戶中心、會員中心、營銷中心、商品中心、庫存中心、交易中心、結算中心、渠道中心。中心設計需要關注如下幾點：</p>
+<p>1、共享中心是核心業務通用能力沉澱，需要考慮能力地圖，產品整體規劃，以及協議標準、業務需求構建標準等；</p>
+<p>2、共享中心目的是復用和協同，需要通過領域模型，對業務場景流程進行有效建模；</p>
+<p>3、共享中心要考慮能力開放，通過API介面、配置管理、或者low-code的高可配置運行機制；</p>
+<p>4、共享中心實現前端應用和後台的解耦，需要一定組織機制和考核傾斜，制定溝通機制和衝突升級機制。</p>
+</p>
+<h2 toutiao-origin="h4"><strong toutiao-origin="span" class="highlight-text">業務中台與前台/後台/平台的關係？</strong></h2>
+<p> <img layer-src="http://p9.pstatp.com/large/pgc-image/RkI8kYIGdy3xOz" src="http://p9.pstatp.com/large/pgc-image/RkI8kYIGdy3xOz" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" /></p>
+<p>業務中台與前台和後台，我認為，主要是這樣的配合關係：</p>
+<p><strong>前台：</strong>敏捷創新，面向不同用戶的觸點，「點」狀繁花似錦。比如2C的電商應用、2B的門店管理等，使用中台開放能力快速變化滿足市場的不同業務場景。</p>
+<p><strong>中台：</strong>核心能力共享沉澱， 「面」狀協同復用。比如交易中心，正常的交易下單、雙十一的預復購、團購秒殺的拼團場景，都可以通過公用的交易中心統一配置。</p>
+<p><strong>後台：</strong>強大的支撐能力，比如支撐系統穩定高效運行的各種後端系統，以及前文提到的面相內部標準化管理的系統，由中台統一協同和對接。</p>
+<p>比較晚前中後台，我們來比較一下中台、平台和中心化。</p>
+<p> <img layer-src="http://p1.pstatp.com/large/pgc-image/RkI8klc83oySpH" src="http://p1.pstatp.com/large/pgc-image/RkI8klc83oySpH" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" /></p>
+<p>中心化類似煙囪式架構，一個中心解決整個技術堆棧，而平台和中台都是為了去中心化而生，具體的區別如下：</p>
+<p>1、中台是面向業務的能力組合和復用，提供集成化的解決方案：中台的目的是提高研發效率、降低創新的成本。中台包括人，組織，平台，數據，標準，規範，是人和系統的一整套體系。</p>
+<p>2、中台是平台的自然演進：平台是單一團隊、部門、系統的效率提升，而中台是多領域、多BU、多系統的負責協同。如果說平台的目標為高內聚、低耦合、職責邊界清晰；中台是平台化的自然演進，這種演進帶來「去中心化「的組織模式，突出復用、協調、業務創新差異化構建。</p>
+<p>3、中台不是系統，中台是一種體系/生態/方法論：中台有標準和機制，解決頂層領域下各業務子域的高效協同和資源復用問題。各部門、業務域共同建設，是中台能力的使用方也是提供方。同時，中台提供整個業務快速響應的一種理念和方法，對上層業務支撐。</p>
+</p>
+<h2 toutiao-origin="h4"><strong toutiao-origin="span" class="highlight-text">業務中台建設的關鍵要素</strong></h2>
+<p> <img layer-src="http://p9.pstatp.com/large/pgc-image/RkI8km4EDD1lEJ" src="http://p9.pstatp.com/large/pgc-image/RkI8km4EDD1lEJ" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" /></p>
+<p>我們認為，企業在業務中台建設當中要關注4個升級：</p>
+<p>1、戰略升級。通過中台建設，落地企業數字化戰略。中台一定是「一把手工程」，整體規劃分步實施。</p>
+<p>2、組織升級。組織架構需要與中台架構相匹配，根據企業實際情況優化組織效率，提升效能，數據化運營，更好支持業務發展和創新</p>
+<p>3、流程升級。將企業現有流程進行梳理，優化及固化企業流程，提高企業共享復用能力，提升企業運作效率。</p>
+<p>4、技術升級。通過互聯網技術，對企業基礎技術設施進行升級，降本增效，達到企業IT部門整體技術升級。</p>
+</p>
+<h2 toutiao-origin="h4"><strong toutiao-origin="span" class="highlight-text">業務中台需要哪些核心技術來支撐？</strong></h2>
+<p>業務中台落地中需要一些核心技術，我們也叫「技術中台」，有一些通用的建議：</p>
+<p>1、儘可能拆分，共享中心建設：企業應該儘可能地拆分自己的應用，進行共享服務中心的建設，將核心的業務能力復用和沉澱。共享中心的拆分也可以有層次，可從從基礎主數據、核心業務、流程規則等角度來進行拆分。</p>
+<p>2、去中心化，線性擴展：企業需要採用去中心化架構，沒有核心流量匯入點，服務中心盡量無狀態，便於水平擴展。這樣平均分擔壓力，負載均衡，對單個中心帶來的負載更小，故障影響的範圍也更小。</p>
+<p>3、數據化運營：去中心化也會面對系統運維和管理成本上升的問題。企業需要對自身的運維運營過程進行積累和沉澱，整理出數據化、自動化運維的經驗，同時增強監控告警、限流降級、性能分析診斷等方面的能力，精準定位目前系統中存在的問題，並提出相應的改善方案。</p>
+<p>4、非同步化，最終一致：在大量的實踐中，大部分業務流程不需要強一致性，而使用最終一致來平衡。我們需要使用非同步解耦，如使用消息隊列來完成業務邏輯，縮短相應周期。</p>
+<p>5、儘可能自動化：企業進行中台改造，要求企業儘可能提高自動化能力，比如自動部署、自動彈性擴容、自動升降級、自動限流降級，降低運營成本，也提高系統的穩定性和業務連續性。</p>
+<p>6、儘可能使用成熟組件：中台的建設要求企業將重心放在服務中心上，對於底層組件，尤其是中間件層面，盡量使用成熟的雲原生組件來提高系統穩定性和性能。目前，阿里巴巴中間件已經將多年經雙十一購物狂歡節的嚴苛考驗的技術沉澱，以阿里雲標準雲服務的方式輸出給外部客戶，其中包括多款阿里云云原生中間件產品（比如K8s/EDAS/MQ/DRDS/ARMS/PTS/CSB/GTS），阿里與流行的雲原生技術完整融合（比如Dubbo/SpringCloud/K8S/RocketMQ）。</p>
+</p>
+<h2 toutiao-origin="h4"><strong toutiao-origin="span" class="highlight-text">阿里在業務中台建設上能提供什麼？ </strong></h2>
+<p>阿里是最早提出中台概念，並成功實施落地，阿里中台所配套的中間件是經過阿里多年雙十一洗禮的成熟產品。阿里內部幾百個業務應用，共享一個技術中台底座，服務新的業務場景，帶來更好的用戶業務體驗。同時，阿里雲通過為上百個外部客戶實施業務中台，培養了一大批具備中台實施交付能力的行業ISV，同時沉澱了大量行業最佳實踐。 </p>
+<p> <img layer-src="http://p1.pstatp.com/large/pgc-image/RkI8kmKGMIwuG8" src="http://p1.pstatp.com/large/pgc-image/RkI8kmKGMIwuG8" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" /></p>
+<p>阿里雲提供一整套「業務中台技術解決方案」可以解決的問題有：</p>
+<ul>
+<li>
+<p>將企業核心能力下沉共享，加速企業創新速度；</p>
+</li>
+<li>
+<p>規範IT全生命周期管理，提升研發效率與質量；</p>
+</li>
+<li>
+<p>提供行業最佳實踐，助力企業快速落地中台戰略。</p>
+</li>
+</ul>
+<p><strong>架構優勢</strong></p>
+<ul>
+<li>
+<p>雲原生：支持彈性調度、微服務化解耦，自動化運維；</p>
+</li>
+<li>
+<p>高可靠：阿里中間件產品支持，歷經多年雙11考驗；</p>
+</li>
+<li>
+<p>高並發：支持按流量線性擴展，支撐海量用戶。</p>
+</li>
+</ul>
+<p>更為重要的，阿里基於近十年的最佳實踐，沉澱了一整套業務中台實施的方法論，包括中台架構設計、微服務架構設計、中台開發規範、全鏈路壓測等方面的最佳實踐。這些全方位的中台建設方法論、阿里商業能力、阿里雲技術支撐，不僅僅是技術紅利的分享，更重要的是整個阿里中台戰略思想的傳播。</p>
+<p> <img layer-src="http://p3.pstatp.com/large/pgc-image/RkI8kmm281qJgJ" src="http://p3.pstatp.com/large/pgc-image/RkI8kmm281qJgJ" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" /></p>
+<p>更多可以參考「阿里雲業務中台技術解決方案官網」。</p>
+</p>
+<h2 toutiao-origin="h4"><strong toutiao-origin="span" class="highlight-text">小結</strong></h2>
+</p>
+<h2 toutiao-origin="h4"><strong>參考資料：</strong></h2>
+<p>1、阿里雲業務中台技術解決方案官網</p>
+<p><strong toutiao-origin="span">https://www.aliyun.com/solution/bme/index</strong></p>
+<p>3、阿里架構總監一次講透中台架構，13頁PPT精華詳解</p>
+<p><strong toutiao-origin="span">https://yq.aliyun.com/articles/717505</strong></p>
+<p>4、互聯網時代的企業必定都要實現中台</p>
+<p><strong toutiao-origin="span">https://yq.aliyun.com/articles/717505</strong></p>
+<p><strong>作者信息：</strong></p>
+<p><strong toutiao-origin="span" class="highlight-text">王思軒，花名宇升，阿里雲業務中台&amp;雲原生架構師，博士留學期間發表論文10餘篇，多年大型分散式系統架構設計經驗，現主要參與阿里雲業務中台方法體系建設，以及新零售業務中台和雲原生技術諮詢工作。</strong></p>
+<p><strong toutiao-origin="span" class="highlight-text">昨天發的招聘的文章依然有效，這次是個機會，心動不如行動。</strong></p>
+<p><strong toutiao-origin="span" class="highlight-text">招人好難啊 -0- </strong></p>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="9540" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/9540.html"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/9540.html";
+		var title='%E3%80%90%E6%A5%AD%E5%8B%99%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%95%A5%E7%8E%A9%E6%84%8F%EF%BC%9F%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%E6%9E%B6%E6%A7%8B%E5%B8%AB%E5%91%8A%E8%A8%B4%E4%BD%A0%E3%80%91';
+		var qqtitle='%E3%80%90%E6%A5%AD%E5%8B%99%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%95%A5%E7%8E%A9%E6%84%8F%EF%BC%9F%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%E6%9E%B6%E6%A7%8B%E5%B8%AB%E5%91%8A%E8%A8%B4%E4%BD%A0%E3%80%91';
+		var excerpt='Photo%20%40%20Zach%20Lucero%20%E6%96%87%20%7C%E7%8E%8B%E6%80%9D%E8%BB%92%20%E4%B8%80%E5%88%87%E6%A5%AD%E5%8B%99%E6%95%B8%E6%93%9A%E5%8C%96%EF%BC%8C%E4%B8%80%E5%88%87%E6%95%B8%E6%93%9A%E6%A5%AD%E5%8B%99%E5%8C%96%E3%80%82%20%E3%80%8C%E4%B8%AD%E5%8F%B0%E3%80%8D%E6%A6%82%E5%BF%B5%E9%80%99%E5%B9%BE%E5%B9%B4%E9%9D%9E%E5%B8%B8%E7%81%AB%EF%BC%8C%E7%89%B9%E5%88%A5%E6%98%AF%E9%98%BF%E9%87%8C%E3%80%81%E9%A8%B0%E8%A8%8A%E3%80%81%E7%99%BE%E5%BA%A6%E3%80%81%E4%BA%AC%E6%9D%B1%E7%AD%89%E4%BA%92%E8%81%AF%E7%B6%B2%E5%85%AC%E5%8F%B8%E6%9C%80%E8%BF%91%E9%A0%BB%E7%B9%81%E7%9A%84%E5%9F%BA%E6%96%BC%E4%B8%AD%E5%8F%B0%E8%AA%BF%E6%95%B4%E7%B5%84%E7%B9%94%E6%9E%B6%E6%A7%8B%EF%BC%8C%E6%8A%8A%E3%80%8C%E4%B8%AD%E5%8F%B0%E3%80%8D%E7%9A%84%E7%86%B1%E5%BA%A6%E5%8F%88%E4%B8%8A%E5%8D%87%E5%88%B0%E5%8F%A6%E4%B8%80%E5%80%8B%E9%AB%98%E5%BA%A6%EF%BC%8C%E7%94%9A%E8%87%B3%E6%9C%89%E9%80%99%E6%A8%A3%E7%9A%84%E8%81%B2%E9%9F%B3%EF%BC%8C%2090%20%E5%B9%B4%E4%BB%A3%E4%B8%8D%E5%81%9A%20ERP%20%E6%9C%83%E6%AD%BB%EF%BC%8C%E7%8F%BE%E5%9C%A8%E4%B8%8D%E5%81%9A%E4%B8%AD%E5%8F%B0%E4%B9%9F%E6%9C%83%E5%AE%9A%E4%BC%81%E6%A5%AD%E7%94%9F%E6%AD%BB%E3%80%82%E4%B8%AD%E5%8F%B0%E7%9A%84%E6%A6%82%E5%BF%B5%E8%B5%B7%E6%BA%90%E6%96%BC%E9%98%BF%E9%87%8C%EF%BC%8C%E4%B9%9F%E7%99%BC%E5%B1%95%E6%96%BC%E9%98%BF%E9%87%8C%E3%80%82%E7%AD%86%E8%80%85%E2%80%A6%E2%80%A6';
+		var wbexcerpt='Photo%20%40%20Zach%20Lucero%20%E6%96%87%20%7C%E7%8E%8B%E6%80%9D%E8%BB%92%20%E4%B8%80%E5%88%87%E6%A5%AD%E5%8B%99%E6%95%B8%E6%93%9A%E5%8C%96%EF%BC%8C%E4%B8%80%E5%88%87%E6%95%B8%E6%93%9A%E6%A5%AD%E5%8B%99%E5%8C%96%E3%80%82%20%E3%80%8C%E4%B8%AD%E5%8F%B0%E3%80%8D%E6%A6%82%E5%BF%B5%E9%80%99%E5%B9%BE%E5%B9%B4%E9%9D%9E%E5%B8%B8%E7%81%AB%EF%BC%8C%E7%89%B9%E5%88%A5%E6%98%AF%E9%98%BF%E9%87%8C%E3%80%81%E9%A8%B0%E8%A8%8A%E3%80%81%E7%99%BE%E5%BA%A6%E3%80%81%E4%BA%AC%E6%9D%B1%E7%AD%89%E4%BA%92%E8%81%AF%E7%B6%B2%E5%85%AC%E5%8F%B8%E6%9C%80%E8%BF%91%E9%A0%BB%E7%B9%81%E7%9A%84%E5%9F%BA%E6%96%BC%E4%B8%AD%E5%8F%B0%E8%AA%BF%E6%95%B4%E7%B5%84%E7%B9%94%E6%9E%B6%E6%A7%8B%EF%BC%8C%E6%8A%8A%E3%80%8C%E4%B8%AD%E5%8F%B0%E3%80%8D%E7%9A%84%E7%86%B1%E5%BA%A6%E5%8F%88%E4%B8%8A%E5%8D%87%E5%88%B0%E5%8F%A6%E4%B8%80%E5%80%8B%E9%AB%98%E5%BA%A6%EF%BC%8C%E7%94%9A%E8%87%B3%E6%9C%89%E9%80%99%E6%A8%A3%E7%9A%84%E8%81%B2%E9%9F%B3%EF%BC%8C%2090%20%E5%B9%B4%E4%BB%A3%E4%B8%8D%E5%81%9A%20ERP%20%E6%9C%83%E6%AD%BB%EF%BC%8C%E7%8F%BE%E5%9C%A8%E4%B8%8D%E5%81%9A%E4%B8%AD%E5%8F%B0%E4%B9%9F%E6%9C%83%E5%AE%9A%E4%BC%81%E6%A5%AD%E7%94%9F%E6%AD%BB%E3%80%82%E4%B8%AD%E5%8F%B0%E7%9A%84%E6%A6%82%E5%BF%B5%E8%B5%B7%E6%BA%90%E6%96%BC%E9%98%BF%E9%87%8C%EF%BC%8C%E4%B9%9F%E7%99%BC%E5%B1%95%E6%96%BC%E9%98%BF%E9%87%8C%E3%80%82%E7%AD%86%E8%80%85%E2%80%A6%E2%80%A6';
+		var pic="http://p3.pstatp.com/large/pgc-image/RkI8kEUI2xWWfy";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="學Redis不透徹？阿里架構師十年經驗總結的這份PDF，網友都收藏了" href="9541.html">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="中國AI創業投資分析：近五年AI投資遞增是13年的7.6倍（可下載）" href="9539.html">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="9540.html#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="../wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="../wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="../wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="../wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="../wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="../wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="../wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="../wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="../wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="../wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="../wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="../wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="../wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="../wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="../wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="../wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="../wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="../wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="../wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="../wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="../wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="../wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="../wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="../wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="../wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='9540' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="9540.html#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="9540.html#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="9540.html#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="9540.html#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="9540.html#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="9540.html#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="李亞鵬與女友感情生變？深夜送長發美女回家，兩人關係惹猜疑" href="../entertainment/10720.html" rel="bookmark"><i class="fa  fa-book"></i> 李亞鵬與女友感情生變？深夜送長發美女回家，兩人關係惹猜疑                            </a>
+                            <a class="list-group-item visible-md" title="李亞鵬與女友感情生變？深夜送長發美女回家，兩人關係惹猜疑" href="../entertainment/10720.html" rel="bookmark"><i class="fa  fa-book"></i> 李亞鵬與女友感情生變？深夜送長發美女回家，兩人關係惹猜疑                            </a>
+                                                    <a class="list-group-item visible-lg" title="到底是沒演技還是沒顏值？有的好萊塢演員就是拍不了好電影" href="../entertainment/10721.html" rel="bookmark"><i class="fa  fa-book"></i> 到底是沒演技還是沒顏值？有的好萊塢演員就是拍不了好電影                            </a>
+                            <a class="list-group-item visible-md" title="到底是沒演技還是沒顏值？有的好萊塢演員就是拍不了好電影" href="../entertainment/10721.html" rel="bookmark"><i class="fa  fa-book"></i> 到底是沒演技還是沒顏值？有的好萊塢演員就是拍不了好電影                            </a>
+                                                    <a class="list-group-item visible-lg" title="天王劉德華新作《熱血合唱團》來襲，天王出馬必屬精品" href="../entertainment/10722.html" rel="bookmark"><i class="fa  fa-book"></i> 天王劉德華新作《熱血合唱團》來襲，天王出馬必屬精品                            </a>
+                            <a class="list-group-item visible-md" title="天王劉德華新作《熱血合唱團》來襲，天王出馬必屬精品" href="../entertainment/10722.html" rel="bookmark"><i class="fa  fa-book"></i> 天王劉德華新作《熱血合唱團》來襲，天王出馬必屬精品                            </a>
+                                                    <a class="list-group-item visible-lg" title="從1000節瑜珈課上學到的10件事情" href="../lose/10518.html" rel="bookmark"><i class="fa  fa-book"></i> 從1000節瑜珈課上學到的10件事情                            </a>
+                            <a class="list-group-item visible-md" title="從1000節瑜珈課上學到的10件事情" href="../lose/10518.html" rel="bookmark"><i class="fa  fa-book"></i> 從1000節瑜珈課上學到的10件事情                            </a>
+                                                    <a class="list-group-item visible-lg" title="2019年度總結：羽毛球，一個明朗的競技世界" href="../lose/10519.html" rel="bookmark"><i class="fa  fa-book"></i> 2019年度總結：羽毛球，一個明朗的競技世界                            </a>
+                            <a class="list-group-item visible-md" title="2019年度總結：羽毛球，一個明朗的競技世界" href="../lose/10519.html" rel="bookmark"><i class="fa  fa-book"></i> 2019年度總結：羽毛球，一個明朗的競技世界                            </a>
+                                                    <a class="list-group-item visible-lg" title="諾獎得主吉野彰：鋰電十年內仍將主導電池產業" href="9522.html" rel="bookmark"><i class="fa  fa-book"></i> 諾獎得主吉野彰：鋰電十年內仍將主導電池產業                            </a>
+                            <a class="list-group-item visible-md" title="諾獎得主吉野彰：鋰電十年內仍將主導電池產業" href="9522.html" rel="bookmark"><i class="fa  fa-book"></i> 諾獎得主吉野彰：鋰電十年內仍將主導電池產業                            </a>
+                                                    <a class="list-group-item visible-lg" title="《慶余年》這兩人到底做到了什麼？比影帝還吸睛" href="../entertainment/10723.html" rel="bookmark"><i class="fa  fa-book"></i> 《慶余年》這兩人到底做到了什麼？比影帝還吸睛                            </a>
+                            <a class="list-group-item visible-md" title="《慶余年》這兩人到底做到了什麼？比影帝還吸睛" href="../entertainment/10723.html" rel="bookmark"><i class="fa  fa-book"></i> 《慶余年》這兩人到底做到了什麼？比影帝還吸睛                            </a>
+                                                    <a class="list-group-item visible-lg" title="25歲出道，自己從小被稱至帥星二代不算，爸爸還是圈內老熟人" href="../entertainment/10726.html" rel="bookmark"><i class="fa  fa-book"></i> 25歲出道，自己從小被稱至帥星二代不算，爸爸還是圈內老熟人                            </a>
+                            <a class="list-group-item visible-md" title="25歲出道，自己從小被稱至帥星二代不算，爸爸還是圈內老熟人" href="../entertainment/10726.html" rel="bookmark"><i class="fa  fa-book"></i> 25歲出道，自己從小被稱至帥星二代不算，爸爸還是圈內老熟人                            </a>
+                                                    <a class="list-group-item visible-lg" title="淚目！范瑋琪王力宏與高爸歡聚，眾人歡聲笑語過聖誕節送別高以翔" href="../entertainment/10725.html" rel="bookmark"><i class="fa  fa-book"></i> 淚目！范瑋琪王力宏與高爸歡聚，眾人歡聲笑語過聖誕節送別高以翔                            </a>
+                            <a class="list-group-item visible-md" title="淚目！范瑋琪王力宏與高爸歡聚，眾人歡聲笑語過聖誕節送別高以翔" href="../entertainment/10725.html" rel="bookmark"><i class="fa  fa-book"></i> 淚目！范瑋琪王力宏與高爸歡聚，眾人歡聲笑語過聖誕節送別高以翔                            </a>
+                                                    <a class="list-group-item visible-lg" title="黃子韜最想演反派，拍《熱血少年》記錯動作差點刺傷眼" href="../entertainment/10724.html" rel="bookmark"><i class="fa  fa-book"></i> 黃子韜最想演反派，拍《熱血少年》記錯動作差點刺傷眼                            </a>
+                            <a class="list-group-item visible-md" title="黃子韜最想演反派，拍《熱血少年》記錯動作差點刺傷眼" href="../entertainment/10724.html" rel="bookmark"><i class="fa  fa-book"></i> 黃子韜最想演反派，拍《熱血少年》記錯動作差點刺傷眼                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="../international/8854.html" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="../international/8854.html" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="../health/7098.html" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="../health/7098.html" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-lg" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="../entertainment/10879.html" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-md" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="../entertainment/10879.html" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-lg" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="10158.html" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-md" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="10158.html" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-lg" title="撒網式交友，出門不用帶錢包的三種人" href="../constellation/8226.html" rel="bookmark"><i class="fa  fa-book"></i> 撒網式交友，出門不用帶錢包的三種人</a><a class="list-group-item visible-md" title="撒網式交友，出門不用帶錢包的三種人" href="../constellation/8226.html" rel="bookmark"><i class="fa  fa-book"></i> 撒網式交友，出門不用帶錢包的三種人</a><a class="list-group-item visible-lg" title="中醫奇書《四聖心源》解讀：肉眼X光：看外在形體可知五臟盛衰" href="../health/7863.html" rel="bookmark"><i class="fa  fa-book"></i> 中醫奇書《四聖心源》解讀：肉眼X光：看外在形體可知五臟盛衰</a><a class="list-group-item visible-md" title="中醫奇書《四聖心源》解讀：肉眼X光：看外在形體可知五臟盛衰" href="../health/7863.html" rel="bookmark"><i class="fa  fa-book"></i> 中醫奇書《四聖心源》解讀：肉眼X光：看外在形體可知五臟盛衰</a><a class="list-group-item visible-lg" title="遊戲直播:鬥魚虎牙膠著對戰B站8億加碼快手抱緊騰訊" href="10487.html" rel="bookmark"><i class="fa  fa-book"></i> 遊戲直播:鬥魚虎牙膠著對戰B站8億加碼快手抱緊騰訊</a><a class="list-group-item visible-md" title="遊戲直播:鬥魚虎牙膠著對戰B站8億加碼快手抱緊騰訊" href="10487.html" rel="bookmark"><i class="fa  fa-book"></i> 遊戲直播:鬥魚虎牙膠著對戰B站8億加碼快手抱緊騰訊</a><a class="list-group-item visible-lg" title="這3類人最能吃苦，50歲後運勢逆轉，越老就越富裕，晚年幸福富貴" href="../constellation/7905.html" rel="bookmark"><i class="fa  fa-book"></i> 這3類人最能吃苦，50歲後運勢逆轉，越老就越富裕，晚年幸福富貴</a><a class="list-group-item visible-md" title="這3類人最能吃苦，50歲後運勢逆轉，越老就越富裕，晚年幸福富貴" href="../constellation/7905.html" rel="bookmark"><i class="fa  fa-book"></i> 這3類人最能吃苦，50歲後運勢逆轉，越老就越富裕，晚年幸福富貴</a><a class="list-group-item visible-lg" title="三款晚禮服，你覺得哪一款最有氣質？測出你身上哪點最招桃花" href="../constellation/8404.html" rel="bookmark"><i class="fa  fa-book"></i> 三款晚禮服，你覺得哪一款最有氣質？測出你身上哪點最招桃花</a><a class="list-group-item visible-md" title="三款晚禮服，你覺得哪一款最有氣質？測出你身上哪點最招桃花" href="../constellation/8404.html" rel="bookmark"><i class="fa  fa-book"></i> 三款晚禮服，你覺得哪一款最有氣質？測出你身上哪點最招桃花</a><a class="list-group-item visible-lg" title="手機充一次電用一年？這種功能現有技術能實現嗎?" href="9523.html" rel="bookmark"><i class="fa  fa-book"></i> 手機充一次電用一年？這種功能現有技術能實現嗎?</a><a class="list-group-item visible-md" title="手機充一次電用一年？這種功能現有技術能實現嗎?" href="9523.html" rel="bookmark"><i class="fa  fa-book"></i> 手機充一次電用一年？這種功能現有技術能實現嗎?</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="像胡歌一樣不幸“毀容”，索賠5000萬後事業陷低谷，女友卻成大牌" href="../entertainment/516.html" rel="bookmark"><i class="fa  fa-book"></i> 像胡歌一樣不幸“毀容”，索賠5000萬後事業陷低谷，女友卻成大牌                            </a>
+                            <a class="list-group-item visible-md" title="像胡歌一樣不幸“毀容”，索賠5000萬後事業陷低谷，女友卻成大牌" href="../entertainment/516.html" rel="bookmark"><i class="fa  fa-book"></i> 像胡歌一樣不幸“毀容”，索賠5000萬後事業陷低谷，女友卻成大牌                            </a>
+                                                    <a class="list-group-item visible-lg" title="不是不喜歡冠軍，只是單單喜歡RNG而已" href="../game/4911.html" rel="bookmark"><i class="fa  fa-book"></i> 不是不喜歡冠軍，只是單單喜歡RNG而已                            </a>
+                            <a class="list-group-item visible-md" title="不是不喜歡冠軍，只是單單喜歡RNG而已" href="../game/4911.html" rel="bookmark"><i class="fa  fa-book"></i> 不是不喜歡冠軍，只是單單喜歡RNG而已                            </a>
+                                                    <a class="list-group-item visible-lg" title="5G寬頻威脅有線網路，美國有線電視公司害怕了嗎？" href="10230.html" rel="bookmark"><i class="fa  fa-book"></i> 5G寬頻威脅有線網路，美國有線電視公司害怕了嗎？                            </a>
+                            <a class="list-group-item visible-md" title="5G寬頻威脅有線網路，美國有線電視公司害怕了嗎？" href="10230.html" rel="bookmark"><i class="fa  fa-book"></i> 5G寬頻威脅有線網路，美國有線電視公司害怕了嗎？                            </a>
+                                                    <a class="list-group-item visible-lg" title="負債16億元，淘集集被創始人張正平宣告破產" href="9869.html" rel="bookmark"><i class="fa  fa-book"></i> 負債16億元，淘集集被創始人張正平宣告破產                            </a>
+                            <a class="list-group-item visible-md" title="負債16億元，淘集集被創始人張正平宣告破產" href="9869.html" rel="bookmark"><i class="fa  fa-book"></i> 負債16億元，淘集集被創始人張正平宣告破產                            </a>
+                                                    <a class="list-group-item visible-lg" title="英錦賽顏丙濤再勝強敵 希金斯極度無奈：我靈魂都要毀滅了" href="../sports/2365.html" rel="bookmark"><i class="fa  fa-book"></i> 英錦賽顏丙濤再勝強敵 希金斯極度無奈：我靈魂都要毀滅了                            </a>
+                            <a class="list-group-item visible-md" title="英錦賽顏丙濤再勝強敵 希金斯極度無奈：我靈魂都要毀滅了" href="../sports/2365.html" rel="bookmark"><i class="fa  fa-book"></i> 英錦賽顏丙濤再勝強敵 希金斯極度無奈：我靈魂都要毀滅了                            </a>
+                                                    <a class="list-group-item visible-lg" title="遠離糖尿病併發症：糖尿病患者不得忽視“湯、糖、躺、燙”" href="../health/7668.html" rel="bookmark"><i class="fa  fa-book"></i> 遠離糖尿病併發症：糖尿病患者不得忽視“湯、糖、躺、燙”                            </a>
+                            <a class="list-group-item visible-md" title="遠離糖尿病併發症：糖尿病患者不得忽視“湯、糖、躺、燙”" href="../health/7668.html" rel="bookmark"><i class="fa  fa-book"></i> 遠離糖尿病併發症：糖尿病患者不得忽視“湯、糖、躺、燙”                            </a>
+                                                    <a class="list-group-item visible-lg" title="16中9全場砍22+7，老鷹爛他卻重生，真別忘了曾經叫板維金斯之人" href="../nba/6719.html" rel="bookmark"><i class="fa  fa-book"></i> 16中9全場砍22+7，老鷹爛他卻重生，真別忘了曾經叫板維金斯之人                            </a>
+                            <a class="list-group-item visible-md" title="16中9全場砍22+7，老鷹爛他卻重生，真別忘了曾經叫板維金斯之人" href="../nba/6719.html" rel="bookmark"><i class="fa  fa-book"></i> 16中9全場砍22+7，老鷹爛他卻重生，真別忘了曾經叫板維金斯之人                            </a>
+                                                    <a class="list-group-item visible-lg" title="騰訊手游打遍全球無敵手？CODM包攬谷歌年度遊戲三項大獎" href="../game/4744.html" rel="bookmark"><i class="fa  fa-book"></i> 騰訊手游打遍全球無敵手？CODM包攬谷歌年度遊戲三項大獎                            </a>
+                            <a class="list-group-item visible-md" title="騰訊手游打遍全球無敵手？CODM包攬谷歌年度遊戲三項大獎" href="../game/4744.html" rel="bookmark"><i class="fa  fa-book"></i> 騰訊手游打遍全球無敵手？CODM包攬谷歌年度遊戲三項大獎                            </a>
+                                                    <a class="list-group-item visible-lg" title="世界頂級射手排名更新：本土一人排名大幅上升！中超2將超過C羅" href="../premier/5197.html" rel="bookmark"><i class="fa  fa-book"></i> 世界頂級射手排名更新：本土一人排名大幅上升！中超2將超過C羅                            </a>
+                            <a class="list-group-item visible-md" title="世界頂級射手排名更新：本土一人排名大幅上升！中超2將超過C羅" href="../premier/5197.html" rel="bookmark"><i class="fa  fa-book"></i> 世界頂級射手排名更新：本土一人排名大幅上升！中超2將超過C羅                            </a>
+                                                    <a class="list-group-item visible-lg" title="拯救睡眠助眠好物合集|睡眠好皮膚好～" href="../health/6926.html" rel="bookmark"><i class="fa  fa-book"></i> 拯救睡眠助眠好物合集|睡眠好皮膚好～                            </a>
+                            <a class="list-group-item visible-md" title="拯救睡眠助眠好物合集|睡眠好皮膚好～" href="../health/6926.html" rel="bookmark"><i class="fa  fa-book"></i> 拯救睡眠助眠好物合集|睡眠好皮膚好～                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="kratos_tags-4" class="widget widget_kratos_tags clearfix"><h4 class="widget-title">標籤</h4><div class="tag_clouds"><a href="../tag/mingxing.html" class="tag-cloud-link tag-link-26 tag-link-position-1" style="font-size: 14px;">明星</a></div></aside><aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="../nba.html">NBA</a> (984)
+</li>
+	<li class="cat-item cat-item-23"><a href="../international.html">國際</a> (954)
+</li>
+	<li class="cat-item cat-item-14"><a href="../entertainment.html">娛樂</a> (1,245)
+</li>
+	<li class="cat-item cat-item-15"><a href="../emotion.html">情感</a> (986)
+</li>
+	<li class="cat-item cat-item-22"><a href="../constellation.html">星座</a> (671)
+</li>
+	<li class="cat-item cat-item-17"><a href="../history.html">歷史</a> (940)
+</li>
+	<li class="cat-item cat-item-25"><a href="../lose.html">減肥</a> (201)
+</li>
+	<li class="cat-item cat-item-24"><a href="../technology.html">科技</a> (991)
+</li>
+	<li class="cat-item cat-item-19"><a href="../premier.html">英超</a> (826)
+</li>
+	<li class="cat-item cat-item-18"><a href="../game.html">遊戲</a> (977)
+</li>
+	<li class="cat-item cat-item-21"><a href="../health.html">養生</a> (993)
+</li>
+	<li class="cat-item cat-item-16"><a href="../sports.html">體育</a> (993)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='../date/2019/12.html'>2019 年 12 月</a>&nbsp;(7759)</li>
+	<li><a href='../date/2019/11.html'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='../date/2019/10.html'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="../index.html">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.easing.min-ver=1.3.0.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.qrcode.min-ver=2.8.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/layer.min-ver=3.0.3.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/modernizr.min-ver=2.6.2.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/bootstrap.min-ver=3.3.7.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.waypoints.min-ver=4.0.0.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.stellar.min-ver=0.6.2.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/hoverIntent.min-ver=r7.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/superfish-ver=1.0.0.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/kratos-ver=2.8.js'></script>
+<script type='text/javascript' src='../wp-includes/js/wp-embed.min-ver=5.2.4.js'></script>
+			</body>
+
+</html>

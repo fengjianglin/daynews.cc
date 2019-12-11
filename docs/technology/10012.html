@@ -1,0 +1,499 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>神經架構搜索在視頻理解中研究進展的綜述 - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="作者 | Michael S. Ryoo 研究員與 AJ Piergiovanni 學生研究員（Google 機器人團隊） 來源 | TensorFlow（ID：TensorFlow_official） 視頻理解一直是項頗具挑戰性的難題。視頻中包含時空數據，因此要提取特徵表示需要同時提取其表面信息與包含的動作信息。無論是對視頻語義內容的自……" />
+		<meta name="keywords" content="神經架構搜索在視頻理解中研究進展的綜述天天要聞,科技," />
+		<meta itemprop="image" content="http://p1.pstatp.com/large/pgc-image/Rjyqi5H761LSgl"/>
+		<meta name="description" itemprop="description" content="作者 | Michael S. Ryoo 研究員與 AJ Piergiovanni 學生研究員（Google 機器人團隊） 來源 | TensorFlow（ID：TensorFlow_official） 視頻理解一直是項頗具挑戰性的難題。視頻中包含時空數據，因此要提取特徵表示需要同時提取其表面信息與包含的動作信息。無論是對視頻語義內容的自……" />
+		<link rel='stylesheet' id='animate-css'  href='../wp-content/themes/Kratos/css/animate.min-ver=3.5.1.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='../wp-content/themes/Kratos/css/font-awesome.min-ver=4.7.0.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='../wp-content/themes/Kratos/css/bootstrap.min-ver=3.3.7.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='../wp-content/themes/Kratos/css/superfish.min-ver=r7.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='../wp-content/themes/Kratos/css/layer.min-ver=2.8.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='../wp-content/themes/Kratos/style-ver=2.8.css' type='text/css' media='all' />
+<link rel='https://api.w.org/' href='https://daynews.cc/wp-json/' />
+<link rel='shortlink' href='10012.html' />
+<link rel="alternate" type="application/json+oembed" href="https://daynews.cc/wp-json/oembed/1.0/embed?url=https://daynews.cc/technology/10012.html" />
+<link rel="alternate" type="text/xml+oembed" href="https://daynews.cc/wp-json/oembed/1.0/embed?url=https://daynews.cc/technology/10012.html&format=xml" />
+		<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.min-ver=2.1.4.js'></script>
+				
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154207825-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		  gtag('config', 'UA-154207825-1');
+		</script>
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="10012.html#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="../index.html"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="../index.html">首頁</a></li>
+<li><a href="../entertainment.html">娛樂</a></li>
+<li><a href="../emotion.html">情感</a></li>
+<li><a href="../international.html">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="../technology.html">科技</a></li>
+<li><a href="../sports.html">體育</a>
+<ul class="sub-menu">
+	<li><a href="../nba.html">NBA</a></li>
+	<li><a href="../premier.html">英超</a></li>
+</ul>
+</li>
+<li><a href="../history.html">歷史</a></li>
+<li><a href="../game.html">遊戲</a></li>
+<li><a href="../health.html">養生</a>
+<ul class="sub-menu">
+	<li><a href="../lose.html">減肥</a></li>
+</ul>
+</li>
+<li><a href="../constellation.html">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">神經架構搜索在視頻理解中研究進展的綜述</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-07				                <i class="fa fa-commenting-o"></i> 302條評論
+				                <i class="fa fa-eye"></i> 1,419次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 446人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+ <img layer-src="http://p1.pstatp.com/large/pgc-image/Rjyqi5H761LSgl" src="http://p1.pstatp.com/large/pgc-image/Rjyqi5H761LSgl" alt="《神經架構搜索在視頻理解中研究進展的綜述》" /></p>
+<p>作者 | Michael S. Ryoo 研究員與 AJ Piergiovanni 學生研究員（Google 機器人團隊）</p>
+<p>來源 | TensorFlow（<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">ID：</i>TensorFlow_official）</p>
+<p>視頻理解一直是項頗具挑戰性的難題。視頻中包含時空數據，因此要提取特徵表示需要同時提取其表面信息與包含的動作信息。無論是對視頻語義內容的自動理解（如網路視頻分類或體育運動識別），還是對機器人的感知和學習而言（與人類一樣，機器人攝像頭的輸入信息大多是連續的動態視頻，少為單張靜態的照片），這都至關重要。</p>
+<p>深度學習模型的能力非常依賴於其神經架構。用於處理視頻的卷積神經網路的常見構建方法是將現有的 2D 架構（例如 Inception 和 ResNet）手動擴展為 3D，或者精心設計融合表面信息和動作信息的雙流卷積神經網路架構 (two-stream CNN architectures)。不過，我們仍在探索如何設計出可充分利用視頻中時空信息的理想視頻架構。雖然我們對用於圖像的神經架構<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>已進行了廣泛的研究（如 Zoph 等人的研究、Real 等人的研究），但用於視頻的神經架構<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>仍缺乏研究，即尚未開發出機器自動優化架構的視頻處理神經網路。處理視頻的卷積神經網路 (Video CNNs) 的構建通常需要大量計算和內存資源，因此很難設計一種既能高效<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>又可捕獲其特徵的方法。</p>
+<p>為應對這些挑戰，我們對自動<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>進行了一系列研究，旨在探索更理想的神經網路架構，從而實現視頻理解。下文我們將展示三種不同的神經網路架構進化演算法：學習層及其模塊配置 (EvaNet)；學習多流連接 (AssembleNet)；構建計算高效的緊湊網路 (TinyVideoNet)。我們開發的視頻架構在多個公開的數據集上的性能遠勝現有的人工模型，並在網路運行時實現了 10 至 100 倍的性能提升。</p>
+<p><strong toutiao-origin="span" class="highlight-text">EvaNet：</strong><strong toutiao-origin="span" class="highlight-text">首個進化的視頻架構</strong></p>
+<p><strong>EvaNet </strong>是我們在構建視頻架構上的首次嘗試（詳情請參閱我們在 ICCV 2019 上發表的<strong>《進化用於視頻的時空神經架構》</strong><strong>(Evolving Space-Time Neural Architectures for Videos)）。</strong></p>
+<p>EvaNet 是一種模塊級架構<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>，側重於尋找時空卷積層的類型，及其最優順序或最優並行配置。此<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>採用帶有變異運算元的進化演算法，以迭代更新架構群。如此一來，我們可以更高效地對<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>空間進行並行<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>，而這正是視頻架構<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>在考慮各種時空層及其組合時所必需的條件。EvaNet 可演化成多個模塊（在網路中的不同位置），進而生成不同架構。</p>
+<p>實驗結果證明，通過進化異構模塊獲得此類 Video CNN 架構具有諸多優點。該方法證明，由多個並行層組成的 Non-Trivial Modules 最高效，因為它們速度更快，展現出更勝於人工設計模塊的性能。</p>
+<p>另一個有趣的方面是，我們在進化中獲得了許多性能同樣出色的不同架構，無需額外計算。如果集成這些架構，我們可以進一步提升性能。由於架構的並行性質，使得即便是一個模型集合，其計算效率也要高於其他標準的視頻網路（例如 (2+1)D ResNet）。我們已開放此項目的源代碼。</p>
+<p> <img layer-src="http://p3.pstatp.com/large/pgc-image/Rjyqi5m6cjKF2P" src="http://p3.pstatp.com/large/pgc-image/Rjyqi5m6cjKF2P" alt="《神經架構搜索在視頻理解中研究進展的綜述》" /></p>
+<p class="pgc-img-caption">各類 EvaNet 架構的示例圖：每個著色框（不論大小）均表示一個層，框的顏色對應其類型：3D 卷積（藍色）、(2+1)D 卷積（橙色）、iTGM（綠色）、最大池化（灰色）、平均（紫色）和 1&#215;1 卷積（粉色）。通常通過對層進行分組來形成模塊（較大框）。每個框中的數字表示過濾器大小。</p>
+<p><strong toutiao-origin="span" class="highlight-text">AssembleNet：</strong><strong toutiao-origin="span" class="highlight-text">構建更強大、更出色的（多流）模型</strong></p>
+<p>在《AssembleNet：在視頻架構中<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>多流神經連接》(AssembleNet: Searching for Multi-Stream Neural Connectivity in Video Architectures)中，我們研究了一種新方法，針對不同的子網路和輸入模態（例如 RGB 和光流）及時間解析度進行融合。</p>
+<p>AssembleNet 是一種會學習的架構，因此可提供通用方法來學習不同模態特徵表示輸入間的「連接」，並針對目標任務進行優化。我們引入了一種綜合機制，能夠將多種形式的多流卷積神經網路表示為有向圖並<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">結合</i>高效的進化演算法，進而探索<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">高層</i>網路連接。通過視頻中的表面信息和動作的視覺線索更好的學習特徵表示。</p>
+<p>不同於先前使用 Late Fusion 或 Fixed Intermediate Fusion 的雙流模型，AssembleNet 在通過連接權重學習指導架構變異的同時，進化出眾多過連接的、多流的、多解析度架構。我們首次研究了帶有不同中間連接的四流架構，其中有 RGB 流和視覺流這 2 種流，而每種流的時間解析度均各不相同。</p>
+<p>通過對隨機初始多流架構池經過 50 至 150 輪的進化，我們發現了下圖所示的 AssembleNet 架構示例。我們在兩個非常流行的視頻識別數據集（Charades 和 Moments-in-Time (MiT)）上測試了 AssembleNet。該架構首次在 MiT 的性能上超過 34%。而在 Charades 的性能上更令人吃驚，平均精度 (mean Average Precision) 為 58.6%，這一數據超過了先前已知的最佳結果（42.5 和 45.2）。</p>
+<p> <img layer-src="http://p3.pstatp.com/large/pgc-image/Rjyqi6GDAHIPLt" src="http://p3.pstatp.com/large/pgc-image/Rjyqi6GDAHIPLt" alt="《神經架構搜索在視頻理解中研究進展的綜述》" /></p>
+<p class="pgc-img-caption">使用 MiT 數據集演化的 AssembleNet 模型：每個節點對應一個時空卷積層塊，而每個箭頭代表卷積層的連接。箭頭顏色越深，表示連接越強。AssembleNet 是一種可學習的多流架構，可針對目標任務進行優化</p>
+<p> <img layer-src="http://p3.pstatp.com/large/pgc-image/Rjyqi6j2pfT5YL" src="http://p3.pstatp.com/large/pgc-image/Rjyqi6j2pfT5YL" alt="《神經架構搜索在視頻理解中研究進展的綜述》" /></p>
+<p class="pgc-img-caption">AssembleNet 與主流人工設計模型對比圖（左側使用 Charades 數據集，右側使用 MiT 數據集）。AssembleNet-50 或 AssembleNet-101 與雙流 ResNet-50 或 ResNet-101 擁有相同數量的參數。</p>
+<p><strong toutiao-origin="span" class="highlight-text">Tiny Video Network：</strong><strong toutiao-origin="span" class="highlight-text">速度最快的視頻理解網路</strong></p>
+<p>為了使 Video CNN 模型適合運行於現實環境（如機器人需要的環境）中的設備，我們必須擁有實時高效的計算。</p>
+<p>不過，如要在處理視頻理解任務時獲得最佳 (state-of-the-art, SOTA) 結果，我們還需要應用許多輸入幀的超大型網路，這些網路通常擁有數十到數百個卷積層。因此，這些網路經常受到運行太慢的影響，具體表現為：在現代 GPU 和 CPU 上，每運行 1 秒視頻剪輯至少分別需要 500 多毫秒和 2000 多毫秒。在 Tiny Video Network 中，我們通過自動設計網路，以一小部分計算成本提供同等性能，進而解決了此問題。我們的 TinyVideoNet 可提供更高的精度，並且能更快速甚至實時地高效運行，具體表現為：在GPU 和 CPU 上，每運行約 1 秒的視頻剪輯分別用時 10 毫秒和 37 至 100 毫秒，此結果比人工設計的現代模型快了數百倍。</p>
+<p>為實現上述性能提升，我們在架構進化過程中明確考慮模型運行時間並強制演算法<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>空間，同時加入空間或時間解析度和通道大小，從而減少計算量。下圖展示了通過 TinyVideoNet 發現的兩種簡單且十分高效的架構。有趣的是，通過學習獲得的模型架構比典型的視頻架構擁有更少的卷積層：Tiny Video Network 更喜歡輕量級元素，例如 2D pooling、Gating Layers和 Squeeze-and-Excitation Layers。此外，TinyVideoNet 還能夠<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">結合</i>優化參數和運行時，從而提供用於未來網路探索的高效網路。</p>
+<p> <img layer-src="http://p1.pstatp.com/large/pgc-image/Rjyqi73ZicF2C" src="http://p1.pstatp.com/large/pgc-image/Rjyqi73ZicF2C" alt="《神經架構搜索在視頻理解中研究進展的綜述》" /></p>
+<p>圖：TVN-1架構（上） TVN-2架構（下）</p>
+<p>進化後，TinyVideoNet (TVN) 架構可以在最大限度提升識別性能的時候，同時保證計算時間不超過期望限制。例如，TVN-1運行在 CPU 和 GPU 上所需的時間分別為 37 毫秒和 10 毫秒。TVN-2運行在 CPU 和 GPU 上所需的時間分別為 65 毫秒和 13 毫秒。</p>
+<p> <img layer-src="http://p1.pstatp.com/large/pgc-image/RjyqiP5IpCXiUZ" src="http://p1.pstatp.com/large/pgc-image/RjyqiP5IpCXiUZ" alt="《神經架構搜索在視頻理解中研究進展的綜述》" /></p>
+<p class="pgc-img-caption">TinyVideoNet 模型與先前模型的 CPU 運行時對比（左圖），以及 TinyVideoNet 與 (2+1)D ResNet 模型的運行時和模型精度對比（右圖）。請注意，TinyVideoNet 提取的是此時間精度空間中不存在其他模型的一部分（即極速但仍精確的部分）。</p>
+<p><strong toutiao-origin="span" class="highlight-text">結論</strong></p>
+<p>據我們所知，這是業界將神經架構<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>應用於視頻理解的首次研究。我們在處理公共數據集時，使用全新進化演算法生成的視頻架構對比人工設計卷積神經網路架構有顯著優勢。此外，我們還可利用架構進化學習的視頻模型 TinyVideoNet。這項研究不但為我們開闢了全新方向，並展示出用於視頻理解的機器進化卷積神經網路的廣闊前景。</p>
+<p>本研究由 Michael S. Ryoo、AJ Piergiovanni 和 Anelia Angelova 共同完成。此外，Alex Toshev 和 Mingxing Tan 也對本研究做出了貢獻。感謝 Vincent Vanhoucke、Juhana Kangaspunta、Esteban Real、Ping Yu 和 Sarah Sirajuddin 以及 Google 機器人團隊積极參与討論，並為我們提供支持。</p>
+<p>如果您想<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">詳細了解</i> 本文提及 的相關內容，請參閱以下文檔。這些文檔深入探討了這篇文章中提及的許多主題：</p>
+<ul>
+<li>
+<p><strong>Inception</strong></p>
+<p>https://<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">www.</i>cv-foundation.org/openaccess/content_cvpr_2016/papers/Szegedy_Rethinking_the_Inception_CVPR_2016_paper.pdf</p>
+</li>
+<li>
+<p><strong>ResNet</strong></p>
+<p>https://arxiv.org/abs/1512.03385</p>
+</li>
+<li>
+<p><strong>Zoph 等人的研究</strong></p>
+<p>https://ai.googleblog<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">.com</i>/2017/05/using-machine-learning-to-explore.html</p>
+</li>
+<li>
+<p><strong>Real 等人的研究</strong></p>
+<p>https://ai.googleblog<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">.com</i>/2018/03/using-evolutionary-automl-to-discover.html</p>
+</li>
+<li>
+<p><strong>EvaNet</strong></p>
+<p>https://arxiv.org/abs/1811.10636</p>
+</li>
+<li>
+<p><strong>AssembleNet</strong></p>
+<p>https://arxiv.org/abs/1905.13209</p>
+</li>
+<li>
+<p><strong>TinyVideoNet</strong></p>
+<p>https://arxiv.org/abs/1910.06961</p>
+</li>
+<li>
+<p><strong>ICCV 2019</strong></p>
+<p><i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">http</i>://iccv2019.thecvf<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">.com</i>/</p>
+</li>
+<li>
+<p><strong>《進化用於視頻的時空神經架構》</strong></p>
+<p>https://arxiv.org/abs/1811.10636</p>
+</li>
+<li>
+<p><strong>進化演算法</strong></p>
+<p>https://ai.googleblog<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">.com</i>/2018/03/using-evolutionary-automl-to-discover.html</p>
+</li>
+<li>
+<p><strong>(2+1)D </strong></p>
+<p>https://arxiv.org/abs/1711.11248</p>
+</li>
+<li>
+<p><strong>項目源代碼</strong></p>
+<p>https://github<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">.com</i>/google-research/google-research/tree/master/evanet</p>
+</li>
+<li>
+<p><strong>《AssembleNet：</strong><strong>在視頻架構中<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>多流神經連接》</strong></p>
+<p>https://arxiv.org/abs/1905.13209</p>
+</li>
+<li>
+<p><strong>雙流模型</strong></p>
+<p>https://arxiv.org/abs/1406.2199</p>
+</li>
+<li>
+<p><strong>連接權重學習</strong></p>
+<p>https://arxiv.org/pdf/1905.13209.pdf</p>
+</li>
+<li>
+<p><strong>Charades</strong></p>
+<p>https://allenai.org/plato/charades/</p>
+</li>
+<li>
+<p><strong>Moments-in-Time</strong></p>
+<p><i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">http</i>://moments.csail.mit.edu/</p>
+</li>
+<li>
+<p><strong>Tiny Video Network</strong></p>
+<p>https://arxiv.org/abs/1910.06961</p>
+</li>
+<li>
+<p><strong>Squeeze-and-Excitation</strong></p>
+<p>https://arxiv.org/abs/1709.01507</p>
+</li>
+</ul>
+<p class="pgc-end-source">【End】</p>
+<p class="pgc-end-source"><em>（*本文為AI科技大本營轉載文章，</em><em>轉載</em><em>請聯繫作者）</em></p>
+<p class="pgc-end-source">精彩公開課</p>
+<p> <img layer-src="http://p1.pstatp.com/large/pgc-image/RjyqiPc9bnTgGp" src="http://p1.pstatp.com/large/pgc-image/RjyqiPc9bnTgGp" alt="《神經架構搜索在視頻理解中研究進展的綜述》" />
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="10012" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/10012.html"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/10012.html";
+		var title='%E3%80%90%E7%A5%9E%E7%B6%93%E6%9E%B6%E6%A7%8B%E6%90%9C%E7%B4%A2%E5%9C%A8%E8%A6%96%E9%A0%BB%E7%90%86%E8%A7%A3%E4%B8%AD%E7%A0%94%E7%A9%B6%E9%80%B2%E5%B1%95%E7%9A%84%E7%B6%9C%E8%BF%B0%E3%80%91';
+		var qqtitle='%E3%80%90%E7%A5%9E%E7%B6%93%E6%9E%B6%E6%A7%8B%E6%90%9C%E7%B4%A2%E5%9C%A8%E8%A6%96%E9%A0%BB%E7%90%86%E8%A7%A3%E4%B8%AD%E7%A0%94%E7%A9%B6%E9%80%B2%E5%B1%95%E7%9A%84%E7%B6%9C%E8%BF%B0%E3%80%91';
+		var excerpt='%E4%BD%9C%E8%80%85%20%7C%20Michael%20S.%20Ryoo%20%E7%A0%94%E7%A9%B6%E5%93%A1%E8%88%87%20AJ%20Piergiovanni%20%E5%AD%B8%E7%94%9F%E7%A0%94%E7%A9%B6%E5%93%A1%EF%BC%88Google%20%E6%A9%9F%E5%99%A8%E4%BA%BA%E5%9C%98%E9%9A%8A%EF%BC%89%20%E4%BE%86%E6%BA%90%20%7C%20TensorFlow%EF%BC%88ID%EF%BC%9ATensorFlow_official%EF%BC%89%20%E8%A6%96%E9%A0%BB%E7%90%86%E8%A7%A3%E4%B8%80%E7%9B%B4%E6%98%AF%E9%A0%85%E9%A0%97%E5%85%B7%E6%8C%91%E6%88%B0%E6%80%A7%E7%9A%84%E9%9B%A3%E9%A1%8C%E3%80%82%E8%A6%96%E9%A0%BB%E4%B8%AD%E5%8C%85%E5%90%AB%E6%99%82%E7%A9%BA%E6%95%B8%E6%93%9A%EF%BC%8C%E5%9B%A0%E6%AD%A4%E8%A6%81%E6%8F%90%E5%8F%96%E7%89%B9%E5%BE%B5%E8%A1%A8%E7%A4%BA%E9%9C%80%E8%A6%81%E5%90%8C%E6%99%82%E6%8F%90%E5%8F%96%E5%85%B6%E8%A1%A8%E9%9D%A2%E4%BF%A1%E6%81%AF%E8%88%87%E5%8C%85%E5%90%AB%E7%9A%84%E5%8B%95%E4%BD%9C%E4%BF%A1%E6%81%AF%E3%80%82%E7%84%A1%E8%AB%96%E6%98%AF%E5%B0%8D%E8%A6%96%E9%A0%BB%E8%AA%9E%E7%BE%A9%E5%85%A7%E5%AE%B9%E7%9A%84%E8%87%AA%E2%80%A6%E2%80%A6';
+		var wbexcerpt='%E4%BD%9C%E8%80%85%20%7C%20Michael%20S.%20Ryoo%20%E7%A0%94%E7%A9%B6%E5%93%A1%E8%88%87%20AJ%20Piergiovanni%20%E5%AD%B8%E7%94%9F%E7%A0%94%E7%A9%B6%E5%93%A1%EF%BC%88Google%20%E6%A9%9F%E5%99%A8%E4%BA%BA%E5%9C%98%E9%9A%8A%EF%BC%89%20%E4%BE%86%E6%BA%90%20%7C%20TensorFlow%EF%BC%88ID%EF%BC%9ATensorFlow_official%EF%BC%89%20%E8%A6%96%E9%A0%BB%E7%90%86%E8%A7%A3%E4%B8%80%E7%9B%B4%E6%98%AF%E9%A0%85%E9%A0%97%E5%85%B7%E6%8C%91%E6%88%B0%E6%80%A7%E7%9A%84%E9%9B%A3%E9%A1%8C%E3%80%82%E8%A6%96%E9%A0%BB%E4%B8%AD%E5%8C%85%E5%90%AB%E6%99%82%E7%A9%BA%E6%95%B8%E6%93%9A%EF%BC%8C%E5%9B%A0%E6%AD%A4%E8%A6%81%E6%8F%90%E5%8F%96%E7%89%B9%E5%BE%B5%E8%A1%A8%E7%A4%BA%E9%9C%80%E8%A6%81%E5%90%8C%E6%99%82%E6%8F%90%E5%8F%96%E5%85%B6%E8%A1%A8%E9%9D%A2%E4%BF%A1%E6%81%AF%E8%88%87%E5%8C%85%E5%90%AB%E7%9A%84%E5%8B%95%E4%BD%9C%E4%BF%A1%E6%81%AF%E3%80%82%E7%84%A1%E8%AB%96%E6%98%AF%E5%B0%8D%E8%A6%96%E9%A0%BB%E8%AA%9E%E7%BE%A9%E5%85%A7%E5%AE%B9%E7%9A%84%E8%87%AA%E2%80%A6%E2%80%A6';
+		var pic="http://p1.pstatp.com/large/pgc-image/Rjyqi5H761LSgl";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="中國工業軟體發展之道（二）——全球工業應用軟體市場縱覽" href="10013.html">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="“低價”傾銷的AMD，會阻礙科技進步的發展嗎？專家揭曉…" href="10011.html">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="10012.html#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="../wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="../wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="../wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="../wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="../wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="../wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="../wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="../wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="../wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="../wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="../wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="../wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="../wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="../wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="../wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="../wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="../wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="../wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="../wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="../wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="../wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="../wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="../wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="../wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="../wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='10012' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="10012.html#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="10012.html#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="10012.html#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="10012.html#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="10012.html#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="10012.html#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="李亞鵬與女友感情生變？深夜送長發美女回家，兩人關係惹猜疑" href="../entertainment/10720.html" rel="bookmark"><i class="fa  fa-book"></i> 李亞鵬與女友感情生變？深夜送長發美女回家，兩人關係惹猜疑                            </a>
+                            <a class="list-group-item visible-md" title="李亞鵬與女友感情生變？深夜送長發美女回家，兩人關係惹猜疑" href="../entertainment/10720.html" rel="bookmark"><i class="fa  fa-book"></i> 李亞鵬與女友感情生變？深夜送長發美女回家，兩人關係惹猜疑                            </a>
+                                                    <a class="list-group-item visible-lg" title="到底是沒演技還是沒顏值？有的好萊塢演員就是拍不了好電影" href="../entertainment/10721.html" rel="bookmark"><i class="fa  fa-book"></i> 到底是沒演技還是沒顏值？有的好萊塢演員就是拍不了好電影                            </a>
+                            <a class="list-group-item visible-md" title="到底是沒演技還是沒顏值？有的好萊塢演員就是拍不了好電影" href="../entertainment/10721.html" rel="bookmark"><i class="fa  fa-book"></i> 到底是沒演技還是沒顏值？有的好萊塢演員就是拍不了好電影                            </a>
+                                                    <a class="list-group-item visible-lg" title="天王劉德華新作《熱血合唱團》來襲，天王出馬必屬精品" href="../entertainment/10722.html" rel="bookmark"><i class="fa  fa-book"></i> 天王劉德華新作《熱血合唱團》來襲，天王出馬必屬精品                            </a>
+                            <a class="list-group-item visible-md" title="天王劉德華新作《熱血合唱團》來襲，天王出馬必屬精品" href="../entertainment/10722.html" rel="bookmark"><i class="fa  fa-book"></i> 天王劉德華新作《熱血合唱團》來襲，天王出馬必屬精品                            </a>
+                                                    <a class="list-group-item visible-lg" title="從1000節瑜珈課上學到的10件事情" href="../lose/10518.html" rel="bookmark"><i class="fa  fa-book"></i> 從1000節瑜珈課上學到的10件事情                            </a>
+                            <a class="list-group-item visible-md" title="從1000節瑜珈課上學到的10件事情" href="../lose/10518.html" rel="bookmark"><i class="fa  fa-book"></i> 從1000節瑜珈課上學到的10件事情                            </a>
+                                                    <a class="list-group-item visible-lg" title="2019年度總結：羽毛球，一個明朗的競技世界" href="../lose/10519.html" rel="bookmark"><i class="fa  fa-book"></i> 2019年度總結：羽毛球，一個明朗的競技世界                            </a>
+                            <a class="list-group-item visible-md" title="2019年度總結：羽毛球，一個明朗的競技世界" href="../lose/10519.html" rel="bookmark"><i class="fa  fa-book"></i> 2019年度總結：羽毛球，一個明朗的競技世界                            </a>
+                                                    <a class="list-group-item visible-lg" title="諾獎得主吉野彰：鋰電十年內仍將主導電池產業" href="9522.html" rel="bookmark"><i class="fa  fa-book"></i> 諾獎得主吉野彰：鋰電十年內仍將主導電池產業                            </a>
+                            <a class="list-group-item visible-md" title="諾獎得主吉野彰：鋰電十年內仍將主導電池產業" href="9522.html" rel="bookmark"><i class="fa  fa-book"></i> 諾獎得主吉野彰：鋰電十年內仍將主導電池產業                            </a>
+                                                    <a class="list-group-item visible-lg" title="《慶余年》這兩人到底做到了什麼？比影帝還吸睛" href="../entertainment/10723.html" rel="bookmark"><i class="fa  fa-book"></i> 《慶余年》這兩人到底做到了什麼？比影帝還吸睛                            </a>
+                            <a class="list-group-item visible-md" title="《慶余年》這兩人到底做到了什麼？比影帝還吸睛" href="../entertainment/10723.html" rel="bookmark"><i class="fa  fa-book"></i> 《慶余年》這兩人到底做到了什麼？比影帝還吸睛                            </a>
+                                                    <a class="list-group-item visible-lg" title="25歲出道，自己從小被稱至帥星二代不算，爸爸還是圈內老熟人" href="../entertainment/10726.html" rel="bookmark"><i class="fa  fa-book"></i> 25歲出道，自己從小被稱至帥星二代不算，爸爸還是圈內老熟人                            </a>
+                            <a class="list-group-item visible-md" title="25歲出道，自己從小被稱至帥星二代不算，爸爸還是圈內老熟人" href="../entertainment/10726.html" rel="bookmark"><i class="fa  fa-book"></i> 25歲出道，自己從小被稱至帥星二代不算，爸爸還是圈內老熟人                            </a>
+                                                    <a class="list-group-item visible-lg" title="淚目！范瑋琪王力宏與高爸歡聚，眾人歡聲笑語過聖誕節送別高以翔" href="../entertainment/10725.html" rel="bookmark"><i class="fa  fa-book"></i> 淚目！范瑋琪王力宏與高爸歡聚，眾人歡聲笑語過聖誕節送別高以翔                            </a>
+                            <a class="list-group-item visible-md" title="淚目！范瑋琪王力宏與高爸歡聚，眾人歡聲笑語過聖誕節送別高以翔" href="../entertainment/10725.html" rel="bookmark"><i class="fa  fa-book"></i> 淚目！范瑋琪王力宏與高爸歡聚，眾人歡聲笑語過聖誕節送別高以翔                            </a>
+                                                    <a class="list-group-item visible-lg" title="黃子韜最想演反派，拍《熱血少年》記錯動作差點刺傷眼" href="../entertainment/10724.html" rel="bookmark"><i class="fa  fa-book"></i> 黃子韜最想演反派，拍《熱血少年》記錯動作差點刺傷眼                            </a>
+                            <a class="list-group-item visible-md" title="黃子韜最想演反派，拍《熱血少年》記錯動作差點刺傷眼" href="../entertainment/10724.html" rel="bookmark"><i class="fa  fa-book"></i> 黃子韜最想演反派，拍《熱血少年》記錯動作差點刺傷眼                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="../international/8854.html" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="../international/8854.html" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="../health/7098.html" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="../health/7098.html" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-lg" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="../entertainment/10879.html" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-md" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="../entertainment/10879.html" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-lg" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="10158.html" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-md" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="10158.html" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-lg" title="撒網式交友，出門不用帶錢包的三種人" href="../constellation/8226.html" rel="bookmark"><i class="fa  fa-book"></i> 撒網式交友，出門不用帶錢包的三種人</a><a class="list-group-item visible-md" title="撒網式交友，出門不用帶錢包的三種人" href="../constellation/8226.html" rel="bookmark"><i class="fa  fa-book"></i> 撒網式交友，出門不用帶錢包的三種人</a><a class="list-group-item visible-lg" title="中醫奇書《四聖心源》解讀：肉眼X光：看外在形體可知五臟盛衰" href="../health/7863.html" rel="bookmark"><i class="fa  fa-book"></i> 中醫奇書《四聖心源》解讀：肉眼X光：看外在形體可知五臟盛衰</a><a class="list-group-item visible-md" title="中醫奇書《四聖心源》解讀：肉眼X光：看外在形體可知五臟盛衰" href="../health/7863.html" rel="bookmark"><i class="fa  fa-book"></i> 中醫奇書《四聖心源》解讀：肉眼X光：看外在形體可知五臟盛衰</a><a class="list-group-item visible-lg" title="遊戲直播:鬥魚虎牙膠著對戰B站8億加碼快手抱緊騰訊" href="10487.html" rel="bookmark"><i class="fa  fa-book"></i> 遊戲直播:鬥魚虎牙膠著對戰B站8億加碼快手抱緊騰訊</a><a class="list-group-item visible-md" title="遊戲直播:鬥魚虎牙膠著對戰B站8億加碼快手抱緊騰訊" href="10487.html" rel="bookmark"><i class="fa  fa-book"></i> 遊戲直播:鬥魚虎牙膠著對戰B站8億加碼快手抱緊騰訊</a><a class="list-group-item visible-lg" title="這3類人最能吃苦，50歲後運勢逆轉，越老就越富裕，晚年幸福富貴" href="../constellation/7905.html" rel="bookmark"><i class="fa  fa-book"></i> 這3類人最能吃苦，50歲後運勢逆轉，越老就越富裕，晚年幸福富貴</a><a class="list-group-item visible-md" title="這3類人最能吃苦，50歲後運勢逆轉，越老就越富裕，晚年幸福富貴" href="../constellation/7905.html" rel="bookmark"><i class="fa  fa-book"></i> 這3類人最能吃苦，50歲後運勢逆轉，越老就越富裕，晚年幸福富貴</a><a class="list-group-item visible-lg" title="三款晚禮服，你覺得哪一款最有氣質？測出你身上哪點最招桃花" href="../constellation/8404.html" rel="bookmark"><i class="fa  fa-book"></i> 三款晚禮服，你覺得哪一款最有氣質？測出你身上哪點最招桃花</a><a class="list-group-item visible-md" title="三款晚禮服，你覺得哪一款最有氣質？測出你身上哪點最招桃花" href="../constellation/8404.html" rel="bookmark"><i class="fa  fa-book"></i> 三款晚禮服，你覺得哪一款最有氣質？測出你身上哪點最招桃花</a><a class="list-group-item visible-lg" title="手機充一次電用一年？這種功能現有技術能實現嗎?" href="9523.html" rel="bookmark"><i class="fa  fa-book"></i> 手機充一次電用一年？這種功能現有技術能實現嗎?</a><a class="list-group-item visible-md" title="手機充一次電用一年？這種功能現有技術能實現嗎?" href="9523.html" rel="bookmark"><i class="fa  fa-book"></i> 手機充一次電用一年？這種功能現有技術能實現嗎?</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="Doinb殘血單殺Faker，25人頭打破全明星紀錄！網友：這人太可怕了" href="../game/4595.html" rel="bookmark"><i class="fa  fa-book"></i> Doinb殘血單殺Faker，25人頭打破全明星紀錄！網友：這人太可怕了                            </a>
+                            <a class="list-group-item visible-md" title="Doinb殘血單殺Faker，25人頭打破全明星紀錄！網友：這人太可怕了" href="../game/4595.html" rel="bookmark"><i class="fa  fa-book"></i> Doinb殘血單殺Faker，25人頭打破全明星紀錄！網友：這人太可怕了                            </a>
+                                                    <a class="list-group-item visible-lg" title="真正成熟的人，都具備哪些美好的內在品質？" href="../emotion/2001.html" rel="bookmark"><i class="fa  fa-book"></i> 真正成熟的人，都具備哪些美好的內在品質？                            </a>
+                            <a class="list-group-item visible-md" title="真正成熟的人，都具備哪些美好的內在品質？" href="../emotion/2001.html" rel="bookmark"><i class="fa  fa-book"></i> 真正成熟的人，都具備哪些美好的內在品質？                            </a>
+                                                    <a class="list-group-item visible-lg" title="美媒評歷史最臟五人組，助攻王在列馬刺兩人，廢倫納德之人落榜" href="../nba/6780.html" rel="bookmark"><i class="fa  fa-book"></i> 美媒評歷史最臟五人組，助攻王在列馬刺兩人，廢倫納德之人落榜                            </a>
+                            <a class="list-group-item visible-md" title="美媒評歷史最臟五人組，助攻王在列馬刺兩人，廢倫納德之人落榜" href="../nba/6780.html" rel="bookmark"><i class="fa  fa-book"></i> 美媒評歷史最臟五人組，助攻王在列馬刺兩人，廢倫納德之人落榜                            </a>
+                                                    <a class="list-group-item visible-lg" title="雲頂之弈法海流一家獨大？一手星媽教做人，秘術雷霆流上分詳解" href="../game/4830.html" rel="bookmark"><i class="fa  fa-book"></i> 雲頂之弈法海流一家獨大？一手星媽教做人，秘術雷霆流上分詳解                            </a>
+                            <a class="list-group-item visible-md" title="雲頂之弈法海流一家獨大？一手星媽教做人，秘術雷霆流上分詳解" href="../game/4830.html" rel="bookmark"><i class="fa  fa-book"></i> 雲頂之弈法海流一家獨大？一手星媽教做人，秘術雷霆流上分詳解                            </a>
+                                                    <a class="list-group-item visible-lg" title="翻轉湖人24分！東契奇不聽“詹皇上課”，一節打爆湖人封神" href="../nba/6385.html" rel="bookmark"><i class="fa  fa-book"></i> 翻轉湖人24分！東契奇不聽“詹皇上課”，一節打爆湖人封神                            </a>
+                            <a class="list-group-item visible-md" title="翻轉湖人24分！東契奇不聽“詹皇上課”，一節打爆湖人封神" href="../nba/6385.html" rel="bookmark"><i class="fa  fa-book"></i> 翻轉湖人24分！東契奇不聽“詹皇上課”，一節打爆湖人封神                            </a>
+                                                    <a class="list-group-item visible-lg" title="身價477億的劉強東，每天會花多少錢？網友：只是王健林的小目標" href="10004.html" rel="bookmark"><i class="fa  fa-book"></i> 身價477億的劉強東，每天會花多少錢？網友：只是王健林的小目標                            </a>
+                            <a class="list-group-item visible-md" title="身價477億的劉強東，每天會花多少錢？網友：只是王健林的小目標" href="10004.html" rel="bookmark"><i class="fa  fa-book"></i> 身價477億的劉強東，每天會花多少錢？網友：只是王健林的小目標                            </a>
+                                                    <a class="list-group-item visible-lg" title="誰來拯救危機重重的阿森納：永貝里，阿萊格里，波切蒂諾？！" href="../premier/5015.html" rel="bookmark"><i class="fa  fa-book"></i> 誰來拯救危機重重的阿森納：永貝里，阿萊格里，波切蒂諾？！                            </a>
+                            <a class="list-group-item visible-md" title="誰來拯救危機重重的阿森納：永貝里，阿萊格里，波切蒂諾？！" href="../premier/5015.html" rel="bookmark"><i class="fa  fa-book"></i> 誰來拯救危機重重的阿森納：永貝里，阿萊格里，波切蒂諾？！                            </a>
+                                                    <a class="list-group-item visible-lg" title="關注 | 自主品牌發力高端車型 勝算幾何？" href="9731.html" rel="bookmark"><i class="fa  fa-book"></i> 關注 | 自主品牌發力高端車型 勝算幾何？                            </a>
+                            <a class="list-group-item visible-md" title="關注 | 自主品牌發力高端車型 勝算幾何？" href="9731.html" rel="bookmark"><i class="fa  fa-book"></i> 關注 | 自主品牌發力高端車型 勝算幾何？                            </a>
+                                                    <a class="list-group-item visible-lg" title="新劇來襲又一古裝大典《劍王朝》來了，來扒一下劇透" href="../entertainment/183.html" rel="bookmark"><i class="fa  fa-book"></i> 新劇來襲又一古裝大典《劍王朝》來了，來扒一下劇透                            </a>
+                            <a class="list-group-item visible-md" title="新劇來襲又一古裝大典《劍王朝》來了，來扒一下劇透" href="../entertainment/183.html" rel="bookmark"><i class="fa  fa-book"></i> 新劇來襲又一古裝大典《劍王朝》來了，來扒一下劇透                            </a>
+                                                    <a class="list-group-item visible-lg" title="水滴籌創始人回應地推亂象：再管不好，願把水滴籌交給公益組織" href="10113.html" rel="bookmark"><i class="fa  fa-book"></i> 水滴籌創始人回應地推亂象：再管不好，願把水滴籌交給公益組織                            </a>
+                            <a class="list-group-item visible-md" title="水滴籌創始人回應地推亂象：再管不好，願把水滴籌交給公益組織" href="10113.html" rel="bookmark"><i class="fa  fa-book"></i> 水滴籌創始人回應地推亂象：再管不好，願把水滴籌交給公益組織                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="kratos_tags-4" class="widget widget_kratos_tags clearfix"><h4 class="widget-title">標籤</h4><div class="tag_clouds"><a href="../tag/mingxing.html" class="tag-cloud-link tag-link-26 tag-link-position-1" style="font-size: 14px;">明星</a></div></aside><aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="../nba.html">NBA</a> (984)
+</li>
+	<li class="cat-item cat-item-23"><a href="../international.html">國際</a> (954)
+</li>
+	<li class="cat-item cat-item-14"><a href="../entertainment.html">娛樂</a> (1,245)
+</li>
+	<li class="cat-item cat-item-15"><a href="../emotion.html">情感</a> (986)
+</li>
+	<li class="cat-item cat-item-22"><a href="../constellation.html">星座</a> (671)
+</li>
+	<li class="cat-item cat-item-17"><a href="../history.html">歷史</a> (940)
+</li>
+	<li class="cat-item cat-item-25"><a href="../lose.html">減肥</a> (201)
+</li>
+	<li class="cat-item cat-item-24"><a href="../technology.html">科技</a> (991)
+</li>
+	<li class="cat-item cat-item-19"><a href="../premier.html">英超</a> (826)
+</li>
+	<li class="cat-item cat-item-18"><a href="../game.html">遊戲</a> (977)
+</li>
+	<li class="cat-item cat-item-21"><a href="../health.html">養生</a> (993)
+</li>
+	<li class="cat-item cat-item-16"><a href="../sports.html">體育</a> (993)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='../date/2019/12.html'>2019 年 12 月</a>&nbsp;(7759)</li>
+	<li><a href='../date/2019/11.html'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='../date/2019/10.html'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="../index.html">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.easing.min-ver=1.3.0.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.qrcode.min-ver=2.8.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/layer.min-ver=3.0.3.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/modernizr.min-ver=2.6.2.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/bootstrap.min-ver=3.3.7.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.waypoints.min-ver=4.0.0.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.stellar.min-ver=0.6.2.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/hoverIntent.min-ver=r7.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/superfish-ver=1.0.0.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/kratos-ver=2.8.js'></script>
+<script type='text/javascript' src='../wp-includes/js/wp-embed.min-ver=5.2.4.js'></script>
+			</body>
+
+</html>

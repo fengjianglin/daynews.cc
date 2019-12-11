@@ -1,0 +1,481 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>了解完Java 12 新特性，是否該拋棄java1.7和1.8了？ - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="Java 12 已如期於 3 月 19 日正式發布，此次更新是 Java 11 這一長期支持版本發布之後的一次常規更新，截至目前，Java 半年為發布周期，並且不會跳票承諾的發布模式，已經成功運行一年多了。通過這樣的方式，Java 開發團隊能夠將一些重要特性儘早的合併到 Java Release 版本中，以便快速得到開發者的反饋，避免出現……" />
+		<meta name="keywords" content="了解完Java 12 新特性，是否該拋棄java1.7和1.8了？天天要聞,科技," />
+		<meta itemprop="image" content="http://p3.pstatp.com/large/pgc-image/3d434375bc1448adbf6f01bb3e782f7b"/>
+		<meta name="description" itemprop="description" content="Java 12 已如期於 3 月 19 日正式發布，此次更新是 Java 11 這一長期支持版本發布之後的一次常規更新，截至目前，Java 半年為發布周期，並且不會跳票承諾的發布模式，已經成功運行一年多了。通過這樣的方式，Java 開發團隊能夠將一些重要特性儘早的合併到 Java Release 版本中，以便快速得到開發者的反饋，避免出現……" />
+		<link rel='stylesheet' id='animate-css'  href='../wp-content/themes/Kratos/css/animate.min-ver=3.5.1.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='../wp-content/themes/Kratos/css/font-awesome.min-ver=4.7.0.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='../wp-content/themes/Kratos/css/bootstrap.min-ver=3.3.7.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='../wp-content/themes/Kratos/css/superfish.min-ver=r7.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='../wp-content/themes/Kratos/css/layer.min-ver=2.8.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='../wp-content/themes/Kratos/style-ver=2.8.css' type='text/css' media='all' />
+<link rel='https://api.w.org/' href='https://daynews.cc/wp-json/' />
+<link rel='shortlink' href='10162.html' />
+<link rel="alternate" type="application/json+oembed" href="https://daynews.cc/wp-json/oembed/1.0/embed?url=https://daynews.cc/technology/10162.html" />
+<link rel="alternate" type="text/xml+oembed" href="https://daynews.cc/wp-json/oembed/1.0/embed?url=https://daynews.cc/technology/10162.html&format=xml" />
+		<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.min-ver=2.1.4.js'></script>
+				
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154207825-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		  gtag('config', 'UA-154207825-1');
+		</script>
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="10162.html#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="../index.html"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="../index.html">首頁</a></li>
+<li><a href="../entertainment.html">娛樂</a></li>
+<li><a href="../emotion.html">情感</a></li>
+<li><a href="../international.html">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="../technology.html">科技</a></li>
+<li><a href="../sports.html">體育</a>
+<ul class="sub-menu">
+	<li><a href="../nba.html">NBA</a></li>
+	<li><a href="../premier.html">英超</a></li>
+</ul>
+</li>
+<li><a href="../history.html">歷史</a></li>
+<li><a href="../game.html">遊戲</a></li>
+<li><a href="../health.html">養生</a>
+<ul class="sub-menu">
+	<li><a href="../lose.html">減肥</a></li>
+</ul>
+</li>
+<li><a href="../constellation.html">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">了解完Java 12 新特性，是否該拋棄java1.7和1.8了？</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-06				                <i class="fa fa-commenting-o"></i> 1,139條評論
+				                <i class="fa fa-eye"></i> 4,286次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 1699人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+<p>Java 12 已如期於 3 月 19 日正式發布，此次更新是 Java 11 這一長期支持版本發布之後的一次常規更新，截至目前，Java 半年為發布周期，並且不會跳票承諾的發布模式，已經成功運行一年多了。通過這樣的方式，Java 開發團隊能夠將一些重要特性儘早的合併到 Java Release 版本中，以便快速得到開發者的反饋，避免出現類似 Java 9 發布時的兩次延期的情況。</p>
+<p>Java 12 早在 2018 年 12 月便進入了 Rampdown Phase One 階段，這意味著該版本所有新的功能特性被凍結，不會再加入更多的 JEP。該階段將持續大概一個月，主要修復 P1-P3 級錯誤。主要時間節點如下：</p>
+<ul class="ibm-bullet-list">
+<li>2018-12-13 Rampdown 第一階段 ( 從主線分離 )</li>
+<li>2019-01-17 Rampdown 第二階段</li>
+<li>2019-02-07 發布候選階段</li>
+<li>2019-03-19 正式發布</li>
+</ul>
+<p>本文主要針對 Java 12 中的新特性展開介紹，讓您快速了解 Java 12 帶來的變化。</p>
+<h2><strong>Shenandoah：一個低停頓垃圾收集器（實驗階段）</strong></h2>
+<p>Java 12 中引入一個新的垃圾收集器：Shenandoah，它是作為一中低停頓時間的垃圾收集器而引入到 Java 12 中的，其工作原理是通過與 Java 應用程序中的執行線程同時運行，用以執行其垃圾收集、內存回收任務，通過這種運行方式，給虛擬機帶來短暫的停頓時間。</p>
+<p>Shenandoah 垃圾回收器是 Red Hat 在 2014 年宣布進行的一項垃圾收集器研究項目，旨在針對 JVM 上的內存收回實現低停頓的需求。該設計將與應用程序線程並發，通過交換 CPU 並發周期和空間以改善停頓時間，使得垃圾回收器執行線程能夠在 Java 線程運行時進行堆壓縮，並且標記和整理能夠同時進行，因此避免了在大多數 JVM 垃圾收集器中所遇到的問題。</p>
+<p>據 Red Hat 研發 Shenandoah 團隊對外宣稱，Shenandoah 垃圾回收器的暫停時間與堆大小無關，這意味著無論將堆設置為 200 MB 還是 200 GB，都將擁有一致的系統暫停時間，不過實際使用性能將取決於實際工作堆的大小和工作負載。</p>
+<p>圖 1. Shenandoah GC 工作周期如下所示</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/3d434375bc1448adbf6f01bb3e782f7b" src="http://p3.pstatp.com/large/pgc-image/3d434375bc1448adbf6f01bb3e782f7b" alt="《了解完Java 12 新特性，是否該拋棄java1.7和1.8了？》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>上圖對應工作周期如下：</p>
+<ol start="1">
+<li>Init Mark 啟動並發標記 階段</li>
+<li>並發標記遍歷堆階段</li>
+<li>並發標記完成階段</li>
+<li>並發整理回收無活動區域階段</li>
+<li>並發 Evacuation 整理內存區域階段</li>
+<li>Init Update Refs 更新引用初始化 階段</li>
+<li>並發更新引用階段</li>
+<li>Final Update Refs 完成引用更新階段</li>
+<li>並發回收無引用區域階段</li>
+</ol>
+<p>需要了解不是唯有 GC 停頓可能導致常規應用程序響應時間比較長。具有較長的 GC 停頓時間會導致系統響應慢的問題，但響應時間慢並非一定是 GC 停頓時間長導致的，隊列延遲、網路延遲、其他依賴服務延遲和操作提供調度程序抖動等都可能導致響應變慢。使用 Shenandoah 時需要全面了解系統運行情況，綜合分析系統響應時間。各種 GC 工作負載對比如下所示：</p>
+<p>圖 2. 各種 GC 工作負載對比</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/dc5ca9357c624114b3d39466ecef286b" src="http://p3.pstatp.com/large/pgc-image/dc5ca9357c624114b3d39466ecef286b" alt="《了解完Java 12 新特性，是否該拋棄java1.7和1.8了？》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>下面推薦幾個配置或調試 Shenandoah 的 JVM 參數:</p>
+<ul class="ibm-bullet-list">
+<li>-XX:+AlwaysPreTouch：使用所有可用的內存分頁，減少系統運行停頓，為避免運行時性能損失。</li>
+<li>-Xmx == -Xmsv：設置初始堆大小與最大值一致，可以減輕伸縮堆大小帶來的壓力，與 AlwaysPreTouch 參數配合使用，在啟動時提交所有內存，避免在最終使用中出現系統停頓。</li>
+<li>-XX:+ UseTransparentHugePages：能夠大大提高大堆的性能，同時建議在 Linux 上使用時將 /sys/kernel/mm/transparent_hugepage/enabled 和/sys/kernel/mm/transparent_hugepage/defragv 設置為：madvise，同時與AlwaysPreTouch 一起使用時，init 和 shutdownv 速度會更快，因為它將使用更大的頁面進行預處理。</li>
+<li>-XX:+UseNUMA：雖然 Shenandoah 尚未明確支持 NUMA（Non-Uniform Memory Access），但最好啟用此功能以在多插槽主機上啟用 NUMA 交錯。與 AlwaysPreTouch 相結合，它提供了比默認配置更好的性能。</li>
+<li>-XX:+DisableExplicitGC：忽略代碼中的 System.gc() 調用。當用戶在代碼中調用 System.gc() 時會強制 Shenandoah 執行 STW Full GC ，應禁用它以防止執行此操作，另外還可以使用 -XX:+ExplicitGCInvokesConcurrent，在 調用 System.gc() 時執行 CMS GC 而不是 Full GC，建議在有 System.gc() 調用的情況下使用。</li>
+</ul>
+<p>不過目前 Shenandoah 垃圾回收器還被標記為實驗項目，需要使用參數：- XX:+UnlockExperimentalVMOptions 啟用。更多有關如何配置、調試 Shenandoah 的信息，請參閱 henandoah wiki。</p>
+<h2><strong>增加一套微基準套件</strong></h2>
+<p>Java 12 中添加一套新的基本的微基準測試套件，該套微基準測試套件基於 JMH（Java Microbenchmark Harness），使開發人員可以輕鬆運行現有的微基準測試並創建新的基準測試，其目標在於提供一個穩定且優化過的基準，其中包括將近 100 個基準測試的初始集合，並且能夠輕鬆添加新基準、更新基準測試和提高查找已有基準測試的便利性。</p>
+<p>微基準套件與 JDK 源代碼位於同一個目錄中，並且在構建後將生成單個 Jar 文件。但它是一個單獨的項目，在支持構建期間不會執行，以方便開發人員和其他對構建微基準套件不感興趣的人在構建時花費比較少的構建時間。</p>
+<p>要構建微基準套件，用戶需要運行命令：make build-microbenchmark，類似的命令還有：make test TEST=&#8221;micro:java.lang.invoke&#8221; 將使用默認設置運行 java.lang.invoke 相關的微基準測試。關於配置本地環境可以參照文檔 docs/testing.md|html。</p>
+<h2><strong>Switch 表達式擴展（預覽功能）</strong></h2>
+<p>Java 11 以及之前 Java 版本中的 Switch 語句是按照類似 C、C++ 這樣的語言來設計的，在默認情況下支持 fall-through 語法。雖然這種傳統的控制流通常用於編寫低級代碼，但 Switch 控制語句通常運用在高級別語言環境下的，因此其容易出錯性掩蓋其靈活性。</p>
+<p>在 Java 12 中重新拓展了 Switch 讓它具備了新的能力，通過擴展現有的 Switch 語句，可將其作為增強版的 Switch 語句或稱為 &#8220;Switch 表達式&#8221;來寫出更加簡化的代碼。</p>
+<p>Switch 表達式也是作為預覽語言功能的第一個語言改動被引入新版 Java 中來的，預覽語言功能的想法是在 2018 年初被引入 Java 中的，本質上講，這是一種引入新特性的測試版的方法。通過這種方式，能夠根據用戶反饋進行升級、更改，在極端情況下，如果沒有被很好的接納，則可以完全刪除該功能。預覽功能的關鍵在於它們沒有被包含在 Java SE 規範中。</p>
+<p>在 Java 11 以及之前版本中傳統形式的 Switch 語句寫法如下：</p>
+<p>清單 1. Switch 語句示例</p>
+<pre>int dayNumber;<br><br>switch (day) {<br><br> case MONDAY:<br><br> case FRIDAY:<br><br> case SUNDAY:<br><br> dayNumber = 6;<br><br> break;<br><br> case TUESDAY:<br><br> dayNumber = 7;<br><br> break;<br><br> case THURSDAY:<br><br> case SATURDAY:<br><br> dayNumber = 8;<br><br> break;<br><br> case WEDNESDAY:<br><br> dayNumber = 9;<br><br> break;<br><br> default:<br><br> throw new IllegalStateException("Huh? " + day);<br><br>}<br><br>上面代碼中多處出現 break 語句，顯得代碼比較冗餘，同時如果某處漏寫一段 break 語句，將導致程序一直向下穿透執行的邏輯錯誤，出現異常結果，同時這種寫法比較繁瑣，也容易出問題。</pre>
+<p>換做 Java 12 中的 Switch 表達式，上述語句寫法如下：</p>
+<p>清單 2. Switch 表達式示例</p>
+<pre>int dayNumber = switch (day) {<br><br> case MONDAY, FRIDAY, SUNDAY -&gt; 6;<br><br> case TUESDAY -&gt; 7;<br><br> case THURSDAY, SATURDAY -&gt; 8;<br><br> case WEDNESDAY -&gt; 9;<br><br> default -&gt; throw new IllegalStateException("Huh? " + day);<br><br>}</pre>
+<p>使用 Java 12 中 Switch 表達式的寫法，省去了 break 語句，避免了因少些 break 而出錯，同時將多個 case 合併到一行，顯得簡潔、清晰也更加優雅的表達邏輯分支，其具體寫法就是將之前的 case 語句表成了：case L -&gt;，即如果條件匹配 case L，則執行 標籤右側的代碼 ，同時標籤右側的代碼段只能是表達式、代碼塊或 throw 語句。為了保持兼容性，case 條件語句中依然可以使用字元 : ，這時 fall-through 規則依然有效的，即不能省略原有的 break 語句，但是同一個 Switch 結構里不能混用 -&gt; 和 : ，否則會有編譯錯誤。並且簡化後的 Switch 代碼塊中定義的局部變數，其作用域就限制在代碼塊中，而不是蔓延到整個 Switch 結構，也不用根據不同的判斷條件來給變數賦值。</p>
+<p>Java 11 以及之前版本中，Switch 表達式支持下面類型： byte、char、short、int、Byte、Character、Short、Integer、enum、tring，在未來的某個 Java 版本有可能會允許支持 float、double 和 long （以及上面類型的封裝類型）。</p>
+<h2><strong>引入 JVM 常量 API</strong></h2>
+<p>Java 12 中引入 JVM 常量 API，用來更容易地對關鍵類文件 (key class-file) 和運行時構件（artefact）的名義描述 (nominal description) 進行建模，特別是對那些從常量池載入的常量，這是一項非常技術性的變化，能夠以更簡單、標準的方式處理可載入常量。</p>
+<p>此項改進主要在新的 java.lang.invoke.constant 包中定義了一系列基於值的符號引用類型，能夠描述每種可載入常量。符號引用以純粹 nominal 的形式描述可載入常量，與類載入或可訪問 性上下文分開。同時有些類可以作為自己的符號引用（例如 String），而對於可鏈接常量，另外定義了一系列符號引用類型，具體包括： ClassDesc (Class 的可載入常量標稱描述符) ，MethodTypeDesc(方法類型常量標稱描述符) ，MethodHandleDesc (方法句柄常量標稱描述符) 和 DynamicConstantDesc (動態常量標稱描述符) ，它們包含描述這些常量的 nominal 信息。</p>
+<h2><strong>改進 AArch64 實現</strong></h2>
+<p>Java 12 中將只保留一套 AArch64 實現，刪除所有與 arm64 實現相關的代碼，只保留 32 位 ARM 埠和 64 位 aarch64 的埠。刪除此套實現將允許所有開發人員將目標集中在剩下的這個 64 位 ARM 實現上，消除維護兩套埠所需的重複工作。</p>
+<p>當前 Java 11 中存在兩套 64 位 AArch64 埠，它們主要存在於 src/hotspot/cpu/arm 和 open/src/hotspot/cpu/aarch64 目錄中。這兩套代碼中都實現了 AArch64，Java 12 中將刪除目錄 open/src/hotspot/cpu/arm 中關於 64-bit 的這套實現，只保留其中有關 32-bit 的實現，餘下目錄的open/src/hotspot/cpu/aarch64 代碼部分就成了 AArch64 的默認實現。</p>
+<h2><strong>使用默認類數據共享（CDS）存檔</strong></h2>
+<p>類數據共享機制 (Class Data Sharing ，簡稱 CDS) ，允許將一組類預處理為共享歸檔文件，以便在運行時能夠進行內存映射以減少 Java 程序的啟動時間，當多個 Java 虛擬機（JVM）共享相同的歸檔文件時，還可以減少動態內存的佔用量，同時減少多個虛擬機在同一個物理或虛擬的機器上運行時的資源佔用。</p>
+<p>自 Java 8 以來，在基本 CDS 功能上進行了許多增強、改進，啟用 CDS 後應用的啟動時間和內存佔用量顯著減少。使用 Java 11 早期版本在 64 位 Linux 平台上運行 HelloWorld 進行測試，測試結果顯示啟動時間縮短有 32 ％，同時在其他 64 位平台上，也有類似或更高的啟動性能提升。</p>
+<p>Java 12 針對 64 位平台下的 JDK 構建過程進行了增強改進，使其默認生成類數據共享（CDS）歸檔，以進一步達到改進應用程序的啟動時間的目的，同時也避免了需要手動運行：-Xshare:dump 的需要，修改後的 JDK 將在 lib/server 目錄中保留構建時生成的 CDS 存檔。</p>
+<p>當然如果需要，也可以添加其他 GC 參數，來調整堆大小等，以獲得更優的內存分布情況，同時用戶也可以像之前一樣創建自定義的 CDS 存檔文件。</p>
+<h2><strong>改善 G1 垃圾收集器，使其能夠中止混合集合</strong></h2>
+<p>G1 是垃圾收集器，設計用於具有大量內存的多處理器機器，提高了垃圾回收效率。該垃圾收集器 設計的主要目標之一是滿足用戶設置的預期的 JVM 停頓時間，G1 採用一個高級分析引擎來選擇在收集期間要處理的工作量，此選擇過程的結果是一組稱為 GC 回收集的區域。一旦收集器確定了 GC 回收集 並且 GC 回收、整理工作已經開始，則 G1 收集器必須完成收集集合集的所有區域中的所有活動對象之後才能停止；但是如果收集器選擇過大的 GC 回收集，可能會導致 G1 回收器停頓時間超過預期時間。</p>
+<p>Java 12 中將把 GC 回收集（混合收集集合）拆分為必需和可選兩部分，使 G1 垃圾回收器能中止垃圾回收過程。其中必需處理的部分包括 G1 垃圾收集器不能遞增處理的 GC 回收集的部分（如：年輕代），同時也可以包含老年代以提高處理效率。將 GC 回收集拆分為必需和可選部分時，需要為可選 GC 回收集部分維護一些其他數據，這會產生輕微的 CPU 開銷，但小於 1 ％的變化，同時在 G1 回收器處理 GC 回收集期間，本機內存使用率也可能會增加，使用上述情況只適用於包含可選 GC 回收部分的 GC 混合回收集合。</p>
+<p>在 G1 垃圾回收器完成收集需要必需回收的部分之後，便開始收集可選的部分，如果還有時間的話，但是粗粒度的處理，可選部分的處理粒度取決於剩餘的時間，一次只能處理可選部分的一個子集區域。在完成可選收集部分的收集後，G1 垃圾回收器可以根據剩餘時間決定是否停止收集。如果在處理完 必需處理的 部分後，屬於時間不足，總時間花銷接近預期時間，G1 垃圾回收器也可以中止可選部分的回收以達到滿足預期停頓時間的目標。</p>
+<h2><strong>增強 G1 垃圾收集器，使其能自動返回未用堆內存給操作系統</strong></h2>
+<p>上節中介紹了 Java 12 中增強了 G1 垃圾收集器關於混合收集集合的處理策略，這節主要介紹在 Java 12 中同時也對 G1 垃圾回收器進行了改進，使其能夠在空閑時自動將 Java 堆內存返還給操作系統，這也是 Java 12 中的另外一項重大改進。</p>
+<p>目前 Java 11 版本中包含的 G1 垃圾收集器 暫時無法及時將已提交的 Java 堆內存返回給操作系統， G1 垃圾收集器僅在進行完整 GC (Full GC) 或並發處理周期時才能將 Java 堆返回內存。由於 G1 回收器儘可能避免完整 GC，並且只觸發基於 Java 堆佔用和分配活動的並發周期，因此在許多情況下 G 1 垃圾回收器不能回收 Java 堆內存，除非有外部強制執行。</p>
+<p>在使用雲平台的容器環境中，這種不利之處特別明顯。即使在虛擬機不活動，但如果仍然使用其分配的內存資源，哪怕是其中的一小部分，G1 回收器也仍將保留所有已分配的 Java 堆內存。而這將導致用戶需要始終為所有資源付費，哪怕是實際並未用到，而雲提供商也無法充分利用其硬體。如果在次期間虛擬機能夠檢測到 Java 堆內存的實際使用情況，並在利用空閑時間自動將 Java 堆內存返還，則兩者都將受益。</p>
+<p>為了儘可能的向操作系統返回空閑內存，G1 垃圾收集器將在應用程序不活動期間定期生成或持續循環檢查整體 Java 堆使用情況，以便 G 1 垃圾收集器能夠更及時的將 Java 堆中不使用內存部分返還給操作系統。對於長時間處於空閑狀態的應用程序，此項改進將使 JVM 的內存利用率更加高效。</p>
+<p>如果應用程序為非活動狀態，在下面兩種情況下，G1 回收器會觸發定期垃圾收集：</p>
+<ul class="ibm-bullet-list">
+<li>自上次垃圾回收完成 以來已超過 G1PeriodicGCInterva l 毫秒， 並且此時沒有正在進行的垃圾回收任務。如果 G1PeriodicGCInterval 值為零表示禁用快速回收內存的定期垃圾收集。</li>
+<li>應用所在主機系統上執行方法 getloadavg()，一分鐘內系統返回的平均負載值低於 G1PeriodicGCSystemLoadThreshold。如果G1PeriodicGCSystemLoadThreshold 值為零，則此條件不生效。</li>
+</ul>
+<p>如果不滿足上述條件中的任何一個，則取消當期的定期垃圾回收。等一個 G1PeriodicGCInterval 時間周期後，將重新考慮是否執行定期垃圾回收。</p>
+<p>G1 定期垃圾收集的類型根據 G1PeriodicGCInvokesConcurrent 參數的值確定：如果設置值了，G1 垃圾回收器將繼續上一個或者啟動一個新並發周期；如果沒有設置值，則 G1 回收器將執行一個完整的 GC。在每次一次 GC 回收末尾，G1 回收器將調整當前的 Java 堆大小，此時便有可能會將未使用內存返還給操作系統。新的 Java 堆內存大小根據現有配置確定，具體包括下列配置：- XX:MinHeapFreeRatio、-XX:MaxHeapFreeRatio、-Xms、-Xmx。</p>
+<p>默認情況下，G1 回收器在定期垃圾回收期間新啟動或繼續上一輪並發周期，將最大限度地減少應用程序的中斷。如果定期垃圾收集嚴重影響程序執行，則需要考慮整個系統 CPU 負載，或讓用戶禁用定期垃圾收集。</p>
+<h2><strong>結束語</strong></h2>
+<p>自上次 Java 11 發布後，很快我們又迎來了 Java 12 版本的更新。Java 12 版本雖然是非 LTS 版本，但是這次更新也帶來了不少 JVM、GC 功能增強、改進，本文主要針對其中幾個影響重大變化以及主要的特性做了介紹。Java 12 已經來了，還跟得上更新的節奏嗎？</p>
+<p>本文只是個人的一點思考，僅代表個人觀點，不代表作者所在單位的意見，如有不足之處，還望各位讀者能夠海涵，如可以，希望讀者們能夠反饋意見，交流心得，一同進步。</p>
+<h2><strong>參考資源</strong></h2>
+<ul class="ibm-bullet-list">
+<li>參考 JDK 12，查看更多有關 Java 12 的最新信息。</li>
+<li>參考 Shenandoah wiki page，查看更多有關 Shenandoah 的最新信息。</li>
+<li>參考 Java 11 新特性介紹</li>
+</ul>
+<p>作者：李 林鋒</p>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="10162" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/10162.html"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/10162.html";
+		var title='%E3%80%90%E4%BA%86%E8%A7%A3%E5%AE%8CJava%2012%20%E6%96%B0%E7%89%B9%E6%80%A7%EF%BC%8C%E6%98%AF%E5%90%A6%E8%A9%B2%E6%8B%8B%E6%A3%84java1.7%E5%92%8C1.8%E4%BA%86%EF%BC%9F%E3%80%91';
+		var qqtitle='%E3%80%90%E4%BA%86%E8%A7%A3%E5%AE%8CJava%2012%20%E6%96%B0%E7%89%B9%E6%80%A7%EF%BC%8C%E6%98%AF%E5%90%A6%E8%A9%B2%E6%8B%8B%E6%A3%84java1.7%E5%92%8C1.8%E4%BA%86%EF%BC%9F%E3%80%91';
+		var excerpt='Java%2012%20%E5%B7%B2%E5%A6%82%E6%9C%9F%E6%96%BC%203%20%E6%9C%88%2019%20%E6%97%A5%E6%AD%A3%E5%BC%8F%E7%99%BC%E5%B8%83%EF%BC%8C%E6%AD%A4%E6%AC%A1%E6%9B%B4%E6%96%B0%E6%98%AF%20Java%2011%20%E9%80%99%E4%B8%80%E9%95%B7%E6%9C%9F%E6%94%AF%E6%8C%81%E7%89%88%E6%9C%AC%E7%99%BC%E5%B8%83%E4%B9%8B%E5%BE%8C%E7%9A%84%E4%B8%80%E6%AC%A1%E5%B8%B8%E8%A6%8F%E6%9B%B4%E6%96%B0%EF%BC%8C%E6%88%AA%E8%87%B3%E7%9B%AE%E5%89%8D%EF%BC%8CJava%20%E5%8D%8A%E5%B9%B4%E7%82%BA%E7%99%BC%E5%B8%83%E5%91%A8%E6%9C%9F%EF%BC%8C%E4%B8%A6%E4%B8%94%E4%B8%8D%E6%9C%83%E8%B7%B3%E7%A5%A8%E6%89%BF%E8%AB%BE%E7%9A%84%E7%99%BC%E5%B8%83%E6%A8%A1%E5%BC%8F%EF%BC%8C%E5%B7%B2%E7%B6%93%E6%88%90%E5%8A%9F%E9%81%8B%E8%A1%8C%E4%B8%80%E5%B9%B4%E5%A4%9A%E4%BA%86%E3%80%82%E9%80%9A%E9%81%8E%E9%80%99%E6%A8%A3%E7%9A%84%E6%96%B9%E5%BC%8F%EF%BC%8CJava%20%E9%96%8B%E7%99%BC%E5%9C%98%E9%9A%8A%E8%83%BD%E5%A4%A0%E5%B0%87%E4%B8%80%E4%BA%9B%E9%87%8D%E8%A6%81%E7%89%B9%E6%80%A7%E5%84%98%E6%97%A9%E7%9A%84%E5%90%88%E4%BD%B5%E5%88%B0%20Java%20Release%20%E7%89%88%E6%9C%AC%E4%B8%AD%EF%BC%8C%E4%BB%A5%E4%BE%BF%E5%BF%AB%E9%80%9F%E5%BE%97%E5%88%B0%E9%96%8B%E7%99%BC%E8%80%85%E7%9A%84%E5%8F%8D%E9%A5%8B%EF%BC%8C%E9%81%BF%E5%85%8D%E5%87%BA%E7%8F%BE%E2%80%A6%E2%80%A6';
+		var wbexcerpt='Java%2012%20%E5%B7%B2%E5%A6%82%E6%9C%9F%E6%96%BC%203%20%E6%9C%88%2019%20%E6%97%A5%E6%AD%A3%E5%BC%8F%E7%99%BC%E5%B8%83%EF%BC%8C%E6%AD%A4%E6%AC%A1%E6%9B%B4%E6%96%B0%E6%98%AF%20Java%2011%20%E9%80%99%E4%B8%80%E9%95%B7%E6%9C%9F%E6%94%AF%E6%8C%81%E7%89%88%E6%9C%AC%E7%99%BC%E5%B8%83%E4%B9%8B%E5%BE%8C%E7%9A%84%E4%B8%80%E6%AC%A1%E5%B8%B8%E8%A6%8F%E6%9B%B4%E6%96%B0%EF%BC%8C%E6%88%AA%E8%87%B3%E7%9B%AE%E5%89%8D%EF%BC%8CJava%20%E5%8D%8A%E5%B9%B4%E7%82%BA%E7%99%BC%E5%B8%83%E5%91%A8%E6%9C%9F%EF%BC%8C%E4%B8%A6%E4%B8%94%E4%B8%8D%E6%9C%83%E8%B7%B3%E7%A5%A8%E6%89%BF%E8%AB%BE%E7%9A%84%E7%99%BC%E5%B8%83%E6%A8%A1%E5%BC%8F%EF%BC%8C%E5%B7%B2%E7%B6%93%E6%88%90%E5%8A%9F%E9%81%8B%E8%A1%8C%E4%B8%80%E5%B9%B4%E5%A4%9A%E4%BA%86%E3%80%82%E9%80%9A%E9%81%8E%E9%80%99%E6%A8%A3%E7%9A%84%E6%96%B9%E5%BC%8F%EF%BC%8CJava%20%E9%96%8B%E7%99%BC%E5%9C%98%E9%9A%8A%E8%83%BD%E5%A4%A0%E5%B0%87%E4%B8%80%E4%BA%9B%E9%87%8D%E8%A6%81%E7%89%B9%E6%80%A7%E5%84%98%E6%97%A9%E7%9A%84%E5%90%88%E4%BD%B5%E5%88%B0%20Java%20Release%20%E7%89%88%E6%9C%AC%E4%B8%AD%EF%BC%8C%E4%BB%A5%E4%BE%BF%E5%BF%AB%E9%80%9F%E5%BE%97%E5%88%B0%E9%96%8B%E7%99%BC%E8%80%85%E7%9A%84%E5%8F%8D%E9%A5%8B%EF%BC%8C%E9%81%BF%E5%85%8D%E5%87%BA%E7%8F%BE%E2%80%A6%E2%80%A6';
+		var pic="http://p3.pstatp.com/large/pgc-image/3d434375bc1448adbf6f01bb3e782f7b";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="作家六六再次發文：我與中國電信爭論的焦點在哪？" href="10163.html">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="帶你了解電動汽車，電池與汽油能量密度對比，季節對續航影響" href="10161.html">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="10162.html#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="../wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="../wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="../wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="../wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="../wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="../wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="../wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="../wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="../wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="../wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="../wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="../wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="../wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="../wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="../wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="../wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="../wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="../wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="../wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="../wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="../wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="../wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="../wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="../wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="../wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='10162' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="10162.html#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="10162.html#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="10162.html#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="10162.html#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="10162.html#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="10162.html#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="李亞鵬與女友感情生變？深夜送長發美女回家，兩人關係惹猜疑" href="../entertainment/10720.html" rel="bookmark"><i class="fa  fa-book"></i> 李亞鵬與女友感情生變？深夜送長發美女回家，兩人關係惹猜疑                            </a>
+                            <a class="list-group-item visible-md" title="李亞鵬與女友感情生變？深夜送長發美女回家，兩人關係惹猜疑" href="../entertainment/10720.html" rel="bookmark"><i class="fa  fa-book"></i> 李亞鵬與女友感情生變？深夜送長發美女回家，兩人關係惹猜疑                            </a>
+                                                    <a class="list-group-item visible-lg" title="到底是沒演技還是沒顏值？有的好萊塢演員就是拍不了好電影" href="../entertainment/10721.html" rel="bookmark"><i class="fa  fa-book"></i> 到底是沒演技還是沒顏值？有的好萊塢演員就是拍不了好電影                            </a>
+                            <a class="list-group-item visible-md" title="到底是沒演技還是沒顏值？有的好萊塢演員就是拍不了好電影" href="../entertainment/10721.html" rel="bookmark"><i class="fa  fa-book"></i> 到底是沒演技還是沒顏值？有的好萊塢演員就是拍不了好電影                            </a>
+                                                    <a class="list-group-item visible-lg" title="天王劉德華新作《熱血合唱團》來襲，天王出馬必屬精品" href="../entertainment/10722.html" rel="bookmark"><i class="fa  fa-book"></i> 天王劉德華新作《熱血合唱團》來襲，天王出馬必屬精品                            </a>
+                            <a class="list-group-item visible-md" title="天王劉德華新作《熱血合唱團》來襲，天王出馬必屬精品" href="../entertainment/10722.html" rel="bookmark"><i class="fa  fa-book"></i> 天王劉德華新作《熱血合唱團》來襲，天王出馬必屬精品                            </a>
+                                                    <a class="list-group-item visible-lg" title="從1000節瑜珈課上學到的10件事情" href="../lose/10518.html" rel="bookmark"><i class="fa  fa-book"></i> 從1000節瑜珈課上學到的10件事情                            </a>
+                            <a class="list-group-item visible-md" title="從1000節瑜珈課上學到的10件事情" href="../lose/10518.html" rel="bookmark"><i class="fa  fa-book"></i> 從1000節瑜珈課上學到的10件事情                            </a>
+                                                    <a class="list-group-item visible-lg" title="2019年度總結：羽毛球，一個明朗的競技世界" href="../lose/10519.html" rel="bookmark"><i class="fa  fa-book"></i> 2019年度總結：羽毛球，一個明朗的競技世界                            </a>
+                            <a class="list-group-item visible-md" title="2019年度總結：羽毛球，一個明朗的競技世界" href="../lose/10519.html" rel="bookmark"><i class="fa  fa-book"></i> 2019年度總結：羽毛球，一個明朗的競技世界                            </a>
+                                                    <a class="list-group-item visible-lg" title="諾獎得主吉野彰：鋰電十年內仍將主導電池產業" href="9522.html" rel="bookmark"><i class="fa  fa-book"></i> 諾獎得主吉野彰：鋰電十年內仍將主導電池產業                            </a>
+                            <a class="list-group-item visible-md" title="諾獎得主吉野彰：鋰電十年內仍將主導電池產業" href="9522.html" rel="bookmark"><i class="fa  fa-book"></i> 諾獎得主吉野彰：鋰電十年內仍將主導電池產業                            </a>
+                                                    <a class="list-group-item visible-lg" title="《慶余年》這兩人到底做到了什麼？比影帝還吸睛" href="../entertainment/10723.html" rel="bookmark"><i class="fa  fa-book"></i> 《慶余年》這兩人到底做到了什麼？比影帝還吸睛                            </a>
+                            <a class="list-group-item visible-md" title="《慶余年》這兩人到底做到了什麼？比影帝還吸睛" href="../entertainment/10723.html" rel="bookmark"><i class="fa  fa-book"></i> 《慶余年》這兩人到底做到了什麼？比影帝還吸睛                            </a>
+                                                    <a class="list-group-item visible-lg" title="25歲出道，自己從小被稱至帥星二代不算，爸爸還是圈內老熟人" href="../entertainment/10726.html" rel="bookmark"><i class="fa  fa-book"></i> 25歲出道，自己從小被稱至帥星二代不算，爸爸還是圈內老熟人                            </a>
+                            <a class="list-group-item visible-md" title="25歲出道，自己從小被稱至帥星二代不算，爸爸還是圈內老熟人" href="../entertainment/10726.html" rel="bookmark"><i class="fa  fa-book"></i> 25歲出道，自己從小被稱至帥星二代不算，爸爸還是圈內老熟人                            </a>
+                                                    <a class="list-group-item visible-lg" title="淚目！范瑋琪王力宏與高爸歡聚，眾人歡聲笑語過聖誕節送別高以翔" href="../entertainment/10725.html" rel="bookmark"><i class="fa  fa-book"></i> 淚目！范瑋琪王力宏與高爸歡聚，眾人歡聲笑語過聖誕節送別高以翔                            </a>
+                            <a class="list-group-item visible-md" title="淚目！范瑋琪王力宏與高爸歡聚，眾人歡聲笑語過聖誕節送別高以翔" href="../entertainment/10725.html" rel="bookmark"><i class="fa  fa-book"></i> 淚目！范瑋琪王力宏與高爸歡聚，眾人歡聲笑語過聖誕節送別高以翔                            </a>
+                                                    <a class="list-group-item visible-lg" title="黃子韜最想演反派，拍《熱血少年》記錯動作差點刺傷眼" href="../entertainment/10724.html" rel="bookmark"><i class="fa  fa-book"></i> 黃子韜最想演反派，拍《熱血少年》記錯動作差點刺傷眼                            </a>
+                            <a class="list-group-item visible-md" title="黃子韜最想演反派，拍《熱血少年》記錯動作差點刺傷眼" href="../entertainment/10724.html" rel="bookmark"><i class="fa  fa-book"></i> 黃子韜最想演反派，拍《熱血少年》記錯動作差點刺傷眼                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="../international/8854.html" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="../international/8854.html" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="../health/7098.html" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="../health/7098.html" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-lg" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="../entertainment/10879.html" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-md" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="../entertainment/10879.html" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-lg" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="10158.html" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-md" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="10158.html" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-lg" title="撒網式交友，出門不用帶錢包的三種人" href="../constellation/8226.html" rel="bookmark"><i class="fa  fa-book"></i> 撒網式交友，出門不用帶錢包的三種人</a><a class="list-group-item visible-md" title="撒網式交友，出門不用帶錢包的三種人" href="../constellation/8226.html" rel="bookmark"><i class="fa  fa-book"></i> 撒網式交友，出門不用帶錢包的三種人</a><a class="list-group-item visible-lg" title="中醫奇書《四聖心源》解讀：肉眼X光：看外在形體可知五臟盛衰" href="../health/7863.html" rel="bookmark"><i class="fa  fa-book"></i> 中醫奇書《四聖心源》解讀：肉眼X光：看外在形體可知五臟盛衰</a><a class="list-group-item visible-md" title="中醫奇書《四聖心源》解讀：肉眼X光：看外在形體可知五臟盛衰" href="../health/7863.html" rel="bookmark"><i class="fa  fa-book"></i> 中醫奇書《四聖心源》解讀：肉眼X光：看外在形體可知五臟盛衰</a><a class="list-group-item visible-lg" title="遊戲直播:鬥魚虎牙膠著對戰B站8億加碼快手抱緊騰訊" href="10487.html" rel="bookmark"><i class="fa  fa-book"></i> 遊戲直播:鬥魚虎牙膠著對戰B站8億加碼快手抱緊騰訊</a><a class="list-group-item visible-md" title="遊戲直播:鬥魚虎牙膠著對戰B站8億加碼快手抱緊騰訊" href="10487.html" rel="bookmark"><i class="fa  fa-book"></i> 遊戲直播:鬥魚虎牙膠著對戰B站8億加碼快手抱緊騰訊</a><a class="list-group-item visible-lg" title="這3類人最能吃苦，50歲後運勢逆轉，越老就越富裕，晚年幸福富貴" href="../constellation/7905.html" rel="bookmark"><i class="fa  fa-book"></i> 這3類人最能吃苦，50歲後運勢逆轉，越老就越富裕，晚年幸福富貴</a><a class="list-group-item visible-md" title="這3類人最能吃苦，50歲後運勢逆轉，越老就越富裕，晚年幸福富貴" href="../constellation/7905.html" rel="bookmark"><i class="fa  fa-book"></i> 這3類人最能吃苦，50歲後運勢逆轉，越老就越富裕，晚年幸福富貴</a><a class="list-group-item visible-lg" title="三款晚禮服，你覺得哪一款最有氣質？測出你身上哪點最招桃花" href="../constellation/8404.html" rel="bookmark"><i class="fa  fa-book"></i> 三款晚禮服，你覺得哪一款最有氣質？測出你身上哪點最招桃花</a><a class="list-group-item visible-md" title="三款晚禮服，你覺得哪一款最有氣質？測出你身上哪點最招桃花" href="../constellation/8404.html" rel="bookmark"><i class="fa  fa-book"></i> 三款晚禮服，你覺得哪一款最有氣質？測出你身上哪點最招桃花</a><a class="list-group-item visible-lg" title="手機充一次電用一年？這種功能現有技術能實現嗎?" href="9523.html" rel="bookmark"><i class="fa  fa-book"></i> 手機充一次電用一年？這種功能現有技術能實現嗎?</a><a class="list-group-item visible-md" title="手機充一次電用一年？這種功能現有技術能實現嗎?" href="9523.html" rel="bookmark"><i class="fa  fa-book"></i> 手機充一次電用一年？這種功能現有技術能實現嗎?</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="“建構新時代中日關係：改革開放以來中日經濟技術合作軌跡與成果”圖片展在清華舉行" href="../international/8732.html" rel="bookmark"><i class="fa  fa-book"></i> “建構新時代中日關係：改革開放以來中日經濟技術合作軌跡與成果”圖片展在清華舉行                            </a>
+                            <a class="list-group-item visible-md" title="“建構新時代中日關係：改革開放以來中日經濟技術合作軌跡與成果”圖片展在清華舉行" href="../international/8732.html" rel="bookmark"><i class="fa  fa-book"></i> “建構新時代中日關係：改革開放以來中日經濟技術合作軌跡與成果”圖片展在清華舉行                            </a>
+                                                    <a class="list-group-item visible-lg" title="我埋怨過媽媽，可她卻用自己的行動化解了我的怨恨" href="../emotion/1857.html" rel="bookmark"><i class="fa  fa-book"></i> 我埋怨過媽媽，可她卻用自己的行動化解了我的怨恨                            </a>
+                            <a class="list-group-item visible-md" title="我埋怨過媽媽，可她卻用自己的行動化解了我的怨恨" href="../emotion/1857.html" rel="bookmark"><i class="fa  fa-book"></i> 我埋怨過媽媽，可她卻用自己的行動化解了我的怨恨                            </a>
+                                                    <a class="list-group-item visible-lg" title="天將雄師，克拉蘇的第一軍團真的逃到了中國嗎" href="../history/3470.html" rel="bookmark"><i class="fa  fa-book"></i> 天將雄師，克拉蘇的第一軍團真的逃到了中國嗎                            </a>
+                            <a class="list-group-item visible-md" title="天將雄師，克拉蘇的第一軍團真的逃到了中國嗎" href="../history/3470.html" rel="bookmark"><i class="fa  fa-book"></i> 天將雄師，克拉蘇的第一軍團真的逃到了中國嗎                            </a>
+                                                    <a class="list-group-item visible-lg" title="小朱｜9戰8勝，羅馬的福星裁判來了" href="../premier/5512.html" rel="bookmark"><i class="fa  fa-book"></i> 小朱｜9戰8勝，羅馬的福星裁判來了                            </a>
+                            <a class="list-group-item visible-md" title="小朱｜9戰8勝，羅馬的福星裁判來了" href="../premier/5512.html" rel="bookmark"><i class="fa  fa-book"></i> 小朱｜9戰8勝，羅馬的福星裁判來了                            </a>
+                                                    <a class="list-group-item visible-lg" title="故事很短，卻赤裸裸的說穿了人性" href="../emotion/1183.html" rel="bookmark"><i class="fa  fa-book"></i> 故事很短，卻赤裸裸的說穿了人性                            </a>
+                            <a class="list-group-item visible-md" title="故事很短，卻赤裸裸的說穿了人性" href="../emotion/1183.html" rel="bookmark"><i class="fa  fa-book"></i> 故事很短，卻赤裸裸的說穿了人性                            </a>
+                                                    <a class="list-group-item visible-lg" title="張飛劉備關羽，對陣呂布張遼高順，為何劉備陣營慘敗而歸" href="../history/3660.html" rel="bookmark"><i class="fa  fa-book"></i> 張飛劉備關羽，對陣呂布張遼高順，為何劉備陣營慘敗而歸                            </a>
+                            <a class="list-group-item visible-md" title="張飛劉備關羽，對陣呂布張遼高順，為何劉備陣營慘敗而歸" href="../history/3660.html" rel="bookmark"><i class="fa  fa-book"></i> 張飛劉備關羽，對陣呂布張遼高順，為何劉備陣營慘敗而歸                            </a>
+                                                    <a class="list-group-item visible-lg" title="什麼樣的深仇大恨，讓詩人們對樓蘭無法釋懷？破樓蘭、斬樓蘭" href="../history/3758.html" rel="bookmark"><i class="fa  fa-book"></i> 什麼樣的深仇大恨，讓詩人們對樓蘭無法釋懷？破樓蘭、斬樓蘭                            </a>
+                            <a class="list-group-item visible-md" title="什麼樣的深仇大恨，讓詩人們對樓蘭無法釋懷？破樓蘭、斬樓蘭" href="../history/3758.html" rel="bookmark"><i class="fa  fa-book"></i> 什麼樣的深仇大恨，讓詩人們對樓蘭無法釋懷？破樓蘭、斬樓蘭                            </a>
+                                                    <a class="list-group-item visible-lg" title="絕地求生SMG戰隊被爆卡隊員合同，隊內選手動手？大京和堡壘回應" href="../game/4930.html" rel="bookmark"><i class="fa  fa-book"></i> 絕地求生SMG戰隊被爆卡隊員合同，隊內選手動手？大京和堡壘回應                            </a>
+                            <a class="list-group-item visible-md" title="絕地求生SMG戰隊被爆卡隊員合同，隊內選手動手？大京和堡壘回應" href="../game/4930.html" rel="bookmark"><i class="fa  fa-book"></i> 絕地求生SMG戰隊被爆卡隊員合同，隊內選手動手？大京和堡壘回應                            </a>
+                                                    <a class="list-group-item visible-lg" title="煮熟的雞蛋可以放幾天？我們該怎麼判斷雞蛋有沒有壞掉" href="../health/7675.html" rel="bookmark"><i class="fa  fa-book"></i> 煮熟的雞蛋可以放幾天？我們該怎麼判斷雞蛋有沒有壞掉                            </a>
+                            <a class="list-group-item visible-md" title="煮熟的雞蛋可以放幾天？我們該怎麼判斷雞蛋有沒有壞掉" href="../health/7675.html" rel="bookmark"><i class="fa  fa-book"></i> 煮熟的雞蛋可以放幾天？我們該怎麼判斷雞蛋有沒有壞掉                            </a>
+                                                    <a class="list-group-item visible-lg" title="華鼎獎戲點多：肖戰斬獲最佳新銳演員，同入圍的是李現千璽一博" href="../entertainment/10774.html" rel="bookmark"><i class="fa  fa-book"></i> 華鼎獎戲點多：肖戰斬獲最佳新銳演員，同入圍的是李現千璽一博                            </a>
+                            <a class="list-group-item visible-md" title="華鼎獎戲點多：肖戰斬獲最佳新銳演員，同入圍的是李現千璽一博" href="../entertainment/10774.html" rel="bookmark"><i class="fa  fa-book"></i> 華鼎獎戲點多：肖戰斬獲最佳新銳演員，同入圍的是李現千璽一博                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="kratos_tags-4" class="widget widget_kratos_tags clearfix"><h4 class="widget-title">標籤</h4><div class="tag_clouds"><a href="../tag/mingxing.html" class="tag-cloud-link tag-link-26 tag-link-position-1" style="font-size: 14px;">明星</a></div></aside><aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="../nba.html">NBA</a> (984)
+</li>
+	<li class="cat-item cat-item-23"><a href="../international.html">國際</a> (954)
+</li>
+	<li class="cat-item cat-item-14"><a href="../entertainment.html">娛樂</a> (1,245)
+</li>
+	<li class="cat-item cat-item-15"><a href="../emotion.html">情感</a> (986)
+</li>
+	<li class="cat-item cat-item-22"><a href="../constellation.html">星座</a> (671)
+</li>
+	<li class="cat-item cat-item-17"><a href="../history.html">歷史</a> (940)
+</li>
+	<li class="cat-item cat-item-25"><a href="../lose.html">減肥</a> (201)
+</li>
+	<li class="cat-item cat-item-24"><a href="../technology.html">科技</a> (991)
+</li>
+	<li class="cat-item cat-item-19"><a href="../premier.html">英超</a> (826)
+</li>
+	<li class="cat-item cat-item-18"><a href="../game.html">遊戲</a> (977)
+</li>
+	<li class="cat-item cat-item-21"><a href="../health.html">養生</a> (993)
+</li>
+	<li class="cat-item cat-item-16"><a href="../sports.html">體育</a> (993)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='../date/2019/12.html'>2019 年 12 月</a>&nbsp;(7759)</li>
+	<li><a href='../date/2019/11.html'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='../date/2019/10.html'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="../index.html">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.easing.min-ver=1.3.0.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.qrcode.min-ver=2.8.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/layer.min-ver=3.0.3.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/modernizr.min-ver=2.6.2.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/bootstrap.min-ver=3.3.7.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.waypoints.min-ver=4.0.0.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.stellar.min-ver=0.6.2.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/hoverIntent.min-ver=r7.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/superfish-ver=1.0.0.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/kratos-ver=2.8.js'></script>
+<script type='text/javascript' src='../wp-includes/js/wp-embed.min-ver=5.2.4.js'></script>
+			</body>
+
+</html>

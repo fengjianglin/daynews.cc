@@ -1,0 +1,451 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>連Nginx怎麼轉發給你請求都不懂，好意思說自己不是CRUD工程師？ - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="目錄 一、Nginx工作原理二、Nginx進程模型三、Nginx處理HTTP請求流程 Nginx 工作原理 Nginx由內核和模塊組成，Nginx本身做的工作實際很少，當它接到一個HTTP請求時，它僅僅是通過查找配置文件將此次請求映射到一個location block。 此location中所配置的各個指令則會啟動不同的模塊去完成工作，因……" />
+		<meta name="keywords" content="連Nginx怎麼轉發給你請求都不懂，好意思說自己不是CRUD工程師？天天要聞,科技," />
+		<meta itemprop="image" content="http://p1.pstatp.com/large/pgc-image/1c764d45e4104d9c8b4e7c6be2a80d32"/>
+		<meta name="description" itemprop="description" content="目錄 一、Nginx工作原理二、Nginx進程模型三、Nginx處理HTTP請求流程 Nginx 工作原理 Nginx由內核和模塊組成，Nginx本身做的工作實際很少，當它接到一個HTTP請求時，它僅僅是通過查找配置文件將此次請求映射到一個location block。 此location中所配置的各個指令則會啟動不同的模塊去完成工作，因……" />
+		<link rel='stylesheet' id='animate-css'  href='../wp-content/themes/Kratos/css/animate.min-ver=3.5.1.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='../wp-content/themes/Kratos/css/font-awesome.min-ver=4.7.0.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='../wp-content/themes/Kratos/css/bootstrap.min-ver=3.3.7.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='../wp-content/themes/Kratos/css/superfish.min-ver=r7.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='../wp-content/themes/Kratos/css/layer.min-ver=2.8.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='../wp-content/themes/Kratos/style-ver=2.8.css' type='text/css' media='all' />
+<link rel='https://api.w.org/' href='https://daynews.cc/wp-json/' />
+<link rel='shortlink' href='10373.html' />
+<link rel="alternate" type="application/json+oembed" href="https://daynews.cc/wp-json/oembed/1.0/embed?url=https://daynews.cc/technology/10373.html" />
+<link rel="alternate" type="text/xml+oembed" href="https://daynews.cc/wp-json/oembed/1.0/embed?url=https://daynews.cc/technology/10373.html&format=xml" />
+		<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.min-ver=2.1.4.js'></script>
+				
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154207825-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		  gtag('config', 'UA-154207825-1');
+		</script>
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="10373.html#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="../index.html"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="../index.html">首頁</a></li>
+<li><a href="../entertainment.html">娛樂</a></li>
+<li><a href="../emotion.html">情感</a></li>
+<li><a href="../international.html">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="../technology.html">科技</a></li>
+<li><a href="../sports.html">體育</a>
+<ul class="sub-menu">
+	<li><a href="../nba.html">NBA</a></li>
+	<li><a href="../premier.html">英超</a></li>
+</ul>
+</li>
+<li><a href="../history.html">歷史</a></li>
+<li><a href="../game.html">遊戲</a></li>
+<li><a href="../health.html">養生</a>
+<ul class="sub-menu">
+	<li><a href="../lose.html">減肥</a></li>
+</ul>
+</li>
+<li><a href="../constellation.html">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">連Nginx怎麼轉發給你請求都不懂，好意思說自己不是CRUD工程師？</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-05				                <i class="fa fa-commenting-o"></i> 801條評論
+				                <i class="fa fa-eye"></i> 2,851次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 1089人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+<p><strong>目錄</strong></p>
+<blockquote>
+<p><strong>一、Nginx工作原理二、Nginx進程模型三、Nginx處理HTTP請求流程</strong></p>
+</blockquote>
+<p><strong>Nginx 工作原理</strong></p>
+<p>Nginx由內核和模塊組成，Nginx本身做的工作實際很少，當它接到一個HTTP請求時，它僅僅是通過查找配置文件將此次請求映射到一個location block。</p>
+<p>此location中所配置的各個指令則會啟動不同的模塊去完成工作，因此模塊可以看做Nginx真正的勞動工作者。</p>
+<p>通常一個location中的指令會涉及一個handler模塊和多個filter模塊（當然，多個location可以復用同一個模塊）。</p>
+<p>handler模塊負責處理請求，完成響應內容的生成，而filter模塊對響應內容進行處理。</p>
+<p>用戶根據自己的需要開發的模塊都屬於第三方模塊，正是有了這麼多模塊的支撐，Nginx的功能才會如此強大。</p>
+<p>Nginx的模塊從結構上分為核心模塊、基礎模塊和第三方模塊：</p>
+<ul class="">
+<li><strong>核心模塊</strong>：HTTP模塊、EVENT模塊和MAIL模塊</li>
+<li><strong>基礎模塊</strong>：HTTP Access模塊、HTTP FastCGI模塊、HTTP Proxy模塊和HTTP Rewrite模塊</li>
+<li><strong>第三方模塊</strong>：HTTP Upstream Request Hash模塊、Notice模塊和HTTP Access Key模塊。</li>
+</ul>
+<p>Nginx的模塊從功能上分為如下三類：</p>
+<ul class="">
+<li><strong>Handlers（處理器模塊）</strong>。此類模塊直接處理請求，並進行輸出內容和修改headers信息等操作。Handlers處理器模塊一般只能有一個。</li>
+<li><strong>Filters （過濾器模塊）</strong>。此類模塊主要對其他處理器模塊輸出的內容進行修改操作，最後由Nginx輸出。</li>
+<li><strong>Proxies （代理類模塊）</strong>。此類模塊是Nginx的HTTP Upstream之類的模塊，這些模塊主要與後端一些服務比如FastCGI等進行交互，實現服務代理和負載均衡等功能。</li>
+</ul>
+<p>下面用一張圖來展示一下：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/1c764d45e4104d9c8b4e7c6be2a80d32" src="http://p1.pstatp.com/large/pgc-image/1c764d45e4104d9c8b4e7c6be2a80d32" alt="《連Nginx怎麼轉發給你請求都不懂，好意思說自己不是CRUD工程師？》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p><strong>Nginx進程模型</strong></p>
+<p>Nginx默認採用多進程工作方式，Nginx啟動後，會運行一個master進程和多個worker進程。</p>
+<p>master進程充當整個進程組與用戶的交互介面，同時對進程進行監護，管理。</p>
+<p>worker進程來實現重啟服務、平滑升級、更換日誌文件、配置文件實時生效等功能。</p>
+<p>worker用來處理基本的網路事件，worker之間是平等的，他們共同競爭來處理來自客戶端的請求。</p>
+<p>nginx的進程模型如圖所示：</p>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/63cbb018855e465da5f266a2324c2575" src="http://p3.pstatp.com/large/pgc-image/63cbb018855e465da5f266a2324c2575" alt="《連Nginx怎麼轉發給你請求都不懂，好意思說自己不是CRUD工程師？》" /></p>
+<p class="pgc-img-caption">
+</div>
+</p>
+<p>在創建master進程時，先建立需要監聽的socket（listenfd）</p>
+<p>然後從master進程中fork()出多個worker進程，如此一來每個worker進程都可以監聽用戶請求的socket。</p>
+<p>一般來說，當一個連接進來後，所有worker都會收到通知，但是只有一個進程可以接受這個連接請求，其它的都失敗，這是所謂的<strong>驚群現象</strong>。</p>
+<p>nginx提供了一個accept_mutex（互斥鎖），有了這把鎖之後，同一時刻，就只會有一個進程在accpet連接，這樣就不會有驚群問題了。</p>
+<p>先打開accept_mutex選項，只有獲得了accept_mutex的進程才會去添加accept事件。</p>
+<p>nginx使用一個叫ngx_accept_disabled的變數來控制是否去競爭accept_mutex鎖。</p>
+<p>ngx_accept_disabled = nginx單進程的所有連接總數 / 8 -空閑連接數量.</p>
+<p>當ngx_accept_disabled大於0時，不會去嘗試獲取accept_mutex鎖</p>
+<p>ngx_accept_disable越大，讓出的機會就越多，其它進程獲取鎖的機會也就越大。不去accept，每個worker進程的連接數就控制下來了，其它進程的連接池就會得到利用，這樣，nginx就控制了多進程間連接的平衡。</p>
+<p>每個worker進程都有一個獨立的連接池，連接池的大小是worker_connections。</p>
+<p>這裡的連接池裡面保存的其實不是真實的連接，它只是一個worker_connections大小的一個ngx_connection_t結構的數組。</p>
+<p>並且nginx會通過一個鏈表free_connections來保存所有的空閑ngx_connection_t.</p>
+<p>每次獲取一個連接時，就從空閑連接鏈表中獲取一個，用完後，再放回空閑連接鏈表裡面。</p>
+<p>一個nginx能建立的最大連接數，應該是worker_connections * worker_processes。</p>
+<p>當然，這裡說的是最大連接數，對於HTTP請求本地資源來說，能夠支持的最大並發數量是worker_connections * worker_processes，</p>
+<p>而如果是HTTP作為反向代理來說，最大並發數量應該是worker_connections * worker_processes / 2。</p>
+<p>因為作為反向代理伺服器，每個並發會建立與客戶端的連接和與後端服務的連接，會佔用兩個連接。</p>
+<hr>
+<p><strong>Nginx處理HTTP請求流程</strong></p>
+<p>http請求是典型的<strong>請求-響應類型</strong>的的網路協議。http是文件協議，所以我們在分析請求行與請求頭，以及輸出響應行與響應頭，往往是一行一行的進行處理。</p>
+<p>通常在一個連接建立好後，讀取一行數據，分析出請求行中包含的method、uri、http_version信息。</p>
+<p>然後再一行一行處理請求頭，並根據請求method與請求頭的信息來決定是否有請求體以及請求體的長度，然後再去讀取請求體。</p>
+<p>得到請求後，我們處理請求產生需要輸出的數據，然後再生成響應行、響應頭以及響應體。</p>
+<p>在將響應發送給客戶端之後，一個完整的請求就處理完了。</p>
+<p>整個處理流程圖如下：</p>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/b8382bf77ee04bd994ba2b8422dbbbc0" src="http://p1.pstatp.com/large/pgc-image/b8382bf77ee04bd994ba2b8422dbbbc0" alt="《連Nginx怎麼轉發給你請求都不懂，好意思說自己不是CRUD工程師？》" /></p>
+<p class="pgc-img-caption">
+</div>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="10373" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/10373.html"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/10373.html";
+		var title='%E3%80%90%E9%80%A3Nginx%E6%80%8E%E9%BA%BC%E8%BD%89%E7%99%BC%E7%B5%A6%E4%BD%A0%E8%AB%8B%E6%B1%82%E9%83%BD%E4%B8%8D%E6%87%82%EF%BC%8C%E5%A5%BD%E6%84%8F%E6%80%9D%E8%AA%AA%E8%87%AA%E5%B7%B1%E4%B8%8D%E6%98%AFCRUD%E5%B7%A5%E7%A8%8B%E5%B8%AB%EF%BC%9F%E3%80%91';
+		var qqtitle='%E3%80%90%E9%80%A3Nginx%E6%80%8E%E9%BA%BC%E8%BD%89%E7%99%BC%E7%B5%A6%E4%BD%A0%E8%AB%8B%E6%B1%82%E9%83%BD%E4%B8%8D%E6%87%82%EF%BC%8C%E5%A5%BD%E6%84%8F%E6%80%9D%E8%AA%AA%E8%87%AA%E5%B7%B1%E4%B8%8D%E6%98%AFCRUD%E5%B7%A5%E7%A8%8B%E5%B8%AB%EF%BC%9F%E3%80%91';
+		var excerpt='%E7%9B%AE%E9%8C%84%20%E4%B8%80%E3%80%81Nginx%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E4%BA%8C%E3%80%81Nginx%E9%80%B2%E7%A8%8B%E6%A8%A1%E5%9E%8B%E4%B8%89%E3%80%81Nginx%E8%99%95%E7%90%86HTTP%E8%AB%8B%E6%B1%82%E6%B5%81%E7%A8%8B%20Nginx%20%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%20Nginx%E7%94%B1%E5%85%A7%E6%A0%B8%E5%92%8C%E6%A8%A1%E5%A1%8A%E7%B5%84%E6%88%90%EF%BC%8CNginx%E6%9C%AC%E8%BA%AB%E5%81%9A%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%AF%A6%E9%9A%9B%E5%BE%88%E5%B0%91%EF%BC%8C%E7%95%B6%E5%AE%83%E6%8E%A5%E5%88%B0%E4%B8%80%E5%80%8BHTTP%E8%AB%8B%E6%B1%82%E6%99%82%EF%BC%8C%E5%AE%83%E5%83%85%E5%83%85%E6%98%AF%E9%80%9A%E9%81%8E%E6%9F%A5%E6%89%BE%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%B0%87%E6%AD%A4%E6%AC%A1%E8%AB%8B%E6%B1%82%E6%98%A0%E5%B0%84%E5%88%B0%E4%B8%80%E5%80%8Blocation%20block%E3%80%82%20%E6%AD%A4location%E4%B8%AD%E6%89%80%E9%85%8D%E7%BD%AE%E7%9A%84%E5%90%84%E5%80%8B%E6%8C%87%E4%BB%A4%E5%89%87%E6%9C%83%E5%95%9F%E5%8B%95%E4%B8%8D%E5%90%8C%E7%9A%84%E6%A8%A1%E5%A1%8A%E5%8E%BB%E5%AE%8C%E6%88%90%E5%B7%A5%E4%BD%9C%EF%BC%8C%E5%9B%A0%E2%80%A6%E2%80%A6';
+		var wbexcerpt='%E7%9B%AE%E9%8C%84%20%E4%B8%80%E3%80%81Nginx%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E4%BA%8C%E3%80%81Nginx%E9%80%B2%E7%A8%8B%E6%A8%A1%E5%9E%8B%E4%B8%89%E3%80%81Nginx%E8%99%95%E7%90%86HTTP%E8%AB%8B%E6%B1%82%E6%B5%81%E7%A8%8B%20Nginx%20%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%20Nginx%E7%94%B1%E5%85%A7%E6%A0%B8%E5%92%8C%E6%A8%A1%E5%A1%8A%E7%B5%84%E6%88%90%EF%BC%8CNginx%E6%9C%AC%E8%BA%AB%E5%81%9A%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%AF%A6%E9%9A%9B%E5%BE%88%E5%B0%91%EF%BC%8C%E7%95%B6%E5%AE%83%E6%8E%A5%E5%88%B0%E4%B8%80%E5%80%8BHTTP%E8%AB%8B%E6%B1%82%E6%99%82%EF%BC%8C%E5%AE%83%E5%83%85%E5%83%85%E6%98%AF%E9%80%9A%E9%81%8E%E6%9F%A5%E6%89%BE%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%B0%87%E6%AD%A4%E6%AC%A1%E8%AB%8B%E6%B1%82%E6%98%A0%E5%B0%84%E5%88%B0%E4%B8%80%E5%80%8Blocation%20block%E3%80%82%20%E6%AD%A4location%E4%B8%AD%E6%89%80%E9%85%8D%E7%BD%AE%E7%9A%84%E5%90%84%E5%80%8B%E6%8C%87%E4%BB%A4%E5%89%87%E6%9C%83%E5%95%9F%E5%8B%95%E4%B8%8D%E5%90%8C%E7%9A%84%E6%A8%A1%E5%A1%8A%E5%8E%BB%E5%AE%8C%E6%88%90%E5%B7%A5%E4%BD%9C%EF%BC%8C%E5%9B%A0%E2%80%A6%E2%80%A6';
+		var pic="http://p1.pstatp.com/large/pgc-image/1c764d45e4104d9c8b4e7c6be2a80d32";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="從無償到有償，農服紅利期何時到來｜專訪禾大科技王育新" href="10375.html">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="比特幣畫門行情再現，市場流動性偏弱謹慎操作；億邦國際正在納斯達克IPO，第三次向資本市場發起衝擊" href="10371.html">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="10373.html#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="../wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="../wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="../wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="../wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="../wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="../wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="../wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="../wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="../wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="../wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="../wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="../wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="../wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="../wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="../wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="../wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="../wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="../wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="../wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="../wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="../wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="../wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="../wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="../wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="../wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='10373' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="10373.html#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="10373.html#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="10373.html#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="10373.html#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="10373.html#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="10373.html#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="李亞鵬與女友感情生變？深夜送長發美女回家，兩人關係惹猜疑" href="../entertainment/10720.html" rel="bookmark"><i class="fa  fa-book"></i> 李亞鵬與女友感情生變？深夜送長發美女回家，兩人關係惹猜疑                            </a>
+                            <a class="list-group-item visible-md" title="李亞鵬與女友感情生變？深夜送長發美女回家，兩人關係惹猜疑" href="../entertainment/10720.html" rel="bookmark"><i class="fa  fa-book"></i> 李亞鵬與女友感情生變？深夜送長發美女回家，兩人關係惹猜疑                            </a>
+                                                    <a class="list-group-item visible-lg" title="到底是沒演技還是沒顏值？有的好萊塢演員就是拍不了好電影" href="../entertainment/10721.html" rel="bookmark"><i class="fa  fa-book"></i> 到底是沒演技還是沒顏值？有的好萊塢演員就是拍不了好電影                            </a>
+                            <a class="list-group-item visible-md" title="到底是沒演技還是沒顏值？有的好萊塢演員就是拍不了好電影" href="../entertainment/10721.html" rel="bookmark"><i class="fa  fa-book"></i> 到底是沒演技還是沒顏值？有的好萊塢演員就是拍不了好電影                            </a>
+                                                    <a class="list-group-item visible-lg" title="天王劉德華新作《熱血合唱團》來襲，天王出馬必屬精品" href="../entertainment/10722.html" rel="bookmark"><i class="fa  fa-book"></i> 天王劉德華新作《熱血合唱團》來襲，天王出馬必屬精品                            </a>
+                            <a class="list-group-item visible-md" title="天王劉德華新作《熱血合唱團》來襲，天王出馬必屬精品" href="../entertainment/10722.html" rel="bookmark"><i class="fa  fa-book"></i> 天王劉德華新作《熱血合唱團》來襲，天王出馬必屬精品                            </a>
+                                                    <a class="list-group-item visible-lg" title="從1000節瑜珈課上學到的10件事情" href="../lose/10518.html" rel="bookmark"><i class="fa  fa-book"></i> 從1000節瑜珈課上學到的10件事情                            </a>
+                            <a class="list-group-item visible-md" title="從1000節瑜珈課上學到的10件事情" href="../lose/10518.html" rel="bookmark"><i class="fa  fa-book"></i> 從1000節瑜珈課上學到的10件事情                            </a>
+                                                    <a class="list-group-item visible-lg" title="2019年度總結：羽毛球，一個明朗的競技世界" href="../lose/10519.html" rel="bookmark"><i class="fa  fa-book"></i> 2019年度總結：羽毛球，一個明朗的競技世界                            </a>
+                            <a class="list-group-item visible-md" title="2019年度總結：羽毛球，一個明朗的競技世界" href="../lose/10519.html" rel="bookmark"><i class="fa  fa-book"></i> 2019年度總結：羽毛球，一個明朗的競技世界                            </a>
+                                                    <a class="list-group-item visible-lg" title="諾獎得主吉野彰：鋰電十年內仍將主導電池產業" href="9522.html" rel="bookmark"><i class="fa  fa-book"></i> 諾獎得主吉野彰：鋰電十年內仍將主導電池產業                            </a>
+                            <a class="list-group-item visible-md" title="諾獎得主吉野彰：鋰電十年內仍將主導電池產業" href="9522.html" rel="bookmark"><i class="fa  fa-book"></i> 諾獎得主吉野彰：鋰電十年內仍將主導電池產業                            </a>
+                                                    <a class="list-group-item visible-lg" title="《慶余年》這兩人到底做到了什麼？比影帝還吸睛" href="../entertainment/10723.html" rel="bookmark"><i class="fa  fa-book"></i> 《慶余年》這兩人到底做到了什麼？比影帝還吸睛                            </a>
+                            <a class="list-group-item visible-md" title="《慶余年》這兩人到底做到了什麼？比影帝還吸睛" href="../entertainment/10723.html" rel="bookmark"><i class="fa  fa-book"></i> 《慶余年》這兩人到底做到了什麼？比影帝還吸睛                            </a>
+                                                    <a class="list-group-item visible-lg" title="25歲出道，自己從小被稱至帥星二代不算，爸爸還是圈內老熟人" href="../entertainment/10726.html" rel="bookmark"><i class="fa  fa-book"></i> 25歲出道，自己從小被稱至帥星二代不算，爸爸還是圈內老熟人                            </a>
+                            <a class="list-group-item visible-md" title="25歲出道，自己從小被稱至帥星二代不算，爸爸還是圈內老熟人" href="../entertainment/10726.html" rel="bookmark"><i class="fa  fa-book"></i> 25歲出道，自己從小被稱至帥星二代不算，爸爸還是圈內老熟人                            </a>
+                                                    <a class="list-group-item visible-lg" title="淚目！范瑋琪王力宏與高爸歡聚，眾人歡聲笑語過聖誕節送別高以翔" href="../entertainment/10725.html" rel="bookmark"><i class="fa  fa-book"></i> 淚目！范瑋琪王力宏與高爸歡聚，眾人歡聲笑語過聖誕節送別高以翔                            </a>
+                            <a class="list-group-item visible-md" title="淚目！范瑋琪王力宏與高爸歡聚，眾人歡聲笑語過聖誕節送別高以翔" href="../entertainment/10725.html" rel="bookmark"><i class="fa  fa-book"></i> 淚目！范瑋琪王力宏與高爸歡聚，眾人歡聲笑語過聖誕節送別高以翔                            </a>
+                                                    <a class="list-group-item visible-lg" title="黃子韜最想演反派，拍《熱血少年》記錯動作差點刺傷眼" href="../entertainment/10724.html" rel="bookmark"><i class="fa  fa-book"></i> 黃子韜最想演反派，拍《熱血少年》記錯動作差點刺傷眼                            </a>
+                            <a class="list-group-item visible-md" title="黃子韜最想演反派，拍《熱血少年》記錯動作差點刺傷眼" href="../entertainment/10724.html" rel="bookmark"><i class="fa  fa-book"></i> 黃子韜最想演反派，拍《熱血少年》記錯動作差點刺傷眼                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="../international/8854.html" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="../international/8854.html" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="../health/7098.html" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="../health/7098.html" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-lg" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="../entertainment/10879.html" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-md" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="../entertainment/10879.html" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-lg" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="10158.html" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-md" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="10158.html" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-lg" title="撒網式交友，出門不用帶錢包的三種人" href="../constellation/8226.html" rel="bookmark"><i class="fa  fa-book"></i> 撒網式交友，出門不用帶錢包的三種人</a><a class="list-group-item visible-md" title="撒網式交友，出門不用帶錢包的三種人" href="../constellation/8226.html" rel="bookmark"><i class="fa  fa-book"></i> 撒網式交友，出門不用帶錢包的三種人</a><a class="list-group-item visible-lg" title="中醫奇書《四聖心源》解讀：肉眼X光：看外在形體可知五臟盛衰" href="../health/7863.html" rel="bookmark"><i class="fa  fa-book"></i> 中醫奇書《四聖心源》解讀：肉眼X光：看外在形體可知五臟盛衰</a><a class="list-group-item visible-md" title="中醫奇書《四聖心源》解讀：肉眼X光：看外在形體可知五臟盛衰" href="../health/7863.html" rel="bookmark"><i class="fa  fa-book"></i> 中醫奇書《四聖心源》解讀：肉眼X光：看外在形體可知五臟盛衰</a><a class="list-group-item visible-lg" title="遊戲直播:鬥魚虎牙膠著對戰B站8億加碼快手抱緊騰訊" href="10487.html" rel="bookmark"><i class="fa  fa-book"></i> 遊戲直播:鬥魚虎牙膠著對戰B站8億加碼快手抱緊騰訊</a><a class="list-group-item visible-md" title="遊戲直播:鬥魚虎牙膠著對戰B站8億加碼快手抱緊騰訊" href="10487.html" rel="bookmark"><i class="fa  fa-book"></i> 遊戲直播:鬥魚虎牙膠著對戰B站8億加碼快手抱緊騰訊</a><a class="list-group-item visible-lg" title="這3類人最能吃苦，50歲後運勢逆轉，越老就越富裕，晚年幸福富貴" href="../constellation/7905.html" rel="bookmark"><i class="fa  fa-book"></i> 這3類人最能吃苦，50歲後運勢逆轉，越老就越富裕，晚年幸福富貴</a><a class="list-group-item visible-md" title="這3類人最能吃苦，50歲後運勢逆轉，越老就越富裕，晚年幸福富貴" href="../constellation/7905.html" rel="bookmark"><i class="fa  fa-book"></i> 這3類人最能吃苦，50歲後運勢逆轉，越老就越富裕，晚年幸福富貴</a><a class="list-group-item visible-lg" title="三款晚禮服，你覺得哪一款最有氣質？測出你身上哪點最招桃花" href="../constellation/8404.html" rel="bookmark"><i class="fa  fa-book"></i> 三款晚禮服，你覺得哪一款最有氣質？測出你身上哪點最招桃花</a><a class="list-group-item visible-md" title="三款晚禮服，你覺得哪一款最有氣質？測出你身上哪點最招桃花" href="../constellation/8404.html" rel="bookmark"><i class="fa  fa-book"></i> 三款晚禮服，你覺得哪一款最有氣質？測出你身上哪點最招桃花</a><a class="list-group-item visible-lg" title="手機充一次電用一年？這種功能現有技術能實現嗎?" href="9523.html" rel="bookmark"><i class="fa  fa-book"></i> 手機充一次電用一年？這種功能現有技術能實現嗎?</a><a class="list-group-item visible-md" title="手機充一次電用一年？這種功能現有技術能實現嗎?" href="9523.html" rel="bookmark"><i class="fa  fa-book"></i> 手機充一次電用一年？這種功能現有技術能實現嗎?</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="NBA誰的投籃最標準？湯普森3分特點滿滿，最後一老前輩是投籃模板" href="../nba/6328.html" rel="bookmark"><i class="fa  fa-book"></i> NBA誰的投籃最標準？湯普森3分特點滿滿，最後一老前輩是投籃模板                            </a>
+                            <a class="list-group-item visible-md" title="NBA誰的投籃最標準？湯普森3分特點滿滿，最後一老前輩是投籃模板" href="../nba/6328.html" rel="bookmark"><i class="fa  fa-book"></i> NBA誰的投籃最標準？湯普森3分特點滿滿，最後一老前輩是投籃模板                            </a>
+                                                    <a class="list-group-item visible-lg" title="初中生：情侶頭像難被發現，高中生：我有情調，大學生：我最秀" href="../emotion/2074.html" rel="bookmark"><i class="fa  fa-book"></i> 初中生：情侶頭像難被發現，高中生：我有情調，大學生：我最秀                            </a>
+                            <a class="list-group-item visible-md" title="初中生：情侶頭像難被發現，高中生：我有情調，大學生：我最秀" href="../emotion/2074.html" rel="bookmark"><i class="fa  fa-book"></i> 初中生：情侶頭像難被發現，高中生：我有情調，大學生：我最秀                            </a>
+                                                    <a class="list-group-item visible-lg" title="她美貌不輸趙雅芝，被男友獨寵24年卻拒絕結婚，如今成為億萬富婆" href="../entertainment/661.html" rel="bookmark"><i class="fa  fa-book"></i> 她美貌不輸趙雅芝，被男友獨寵24年卻拒絕結婚，如今成為億萬富婆                            </a>
+                            <a class="list-group-item visible-md" title="她美貌不輸趙雅芝，被男友獨寵24年卻拒絕結婚，如今成為億萬富婆" href="../entertainment/661.html" rel="bookmark"><i class="fa  fa-book"></i> 她美貌不輸趙雅芝，被男友獨寵24年卻拒絕結婚，如今成為億萬富婆                            </a>
+                                                    <a class="list-group-item visible-lg" title="健康｜為什麼生活中離不開蔥姜蒜？" href="../health/7322.html" rel="bookmark"><i class="fa  fa-book"></i> 健康｜為什麼生活中離不開蔥姜蒜？                            </a>
+                            <a class="list-group-item visible-md" title="健康｜為什麼生活中離不開蔥姜蒜？" href="../health/7322.html" rel="bookmark"><i class="fa  fa-book"></i> 健康｜為什麼生活中離不開蔥姜蒜？                            </a>
+                                                    <a class="list-group-item visible-lg" title="缺鐵性貧血怎麼吃？玩轉“豬肝”食療補鐵" href="../health/7705.html" rel="bookmark"><i class="fa  fa-book"></i> 缺鐵性貧血怎麼吃？玩轉“豬肝”食療補鐵                            </a>
+                            <a class="list-group-item visible-md" title="缺鐵性貧血怎麼吃？玩轉“豬肝”食療補鐵" href="../health/7705.html" rel="bookmark"><i class="fa  fa-book"></i> 缺鐵性貧血怎麼吃？玩轉“豬肝”食療補鐵                            </a>
+                                                    <a class="list-group-item visible-lg" title="帶著不舍和遺憾，理解生活，更新自己" href="../emotion/1583.html" rel="bookmark"><i class="fa  fa-book"></i> 帶著不舍和遺憾，理解生活，更新自己                            </a>
+                            <a class="list-group-item visible-md" title="帶著不舍和遺憾，理解生活，更新自己" href="../emotion/1583.html" rel="bookmark"><i class="fa  fa-book"></i> 帶著不舍和遺憾，理解生活，更新自己                            </a>
+                                                    <a class="list-group-item visible-lg" title="小料：千璽、李沁張若昀、張雪迎、毛不易、孫怡、林妙可、譚松韻" href="../entertainment/353.html" rel="bookmark"><i class="fa  fa-book"></i> 小料：千璽、李沁張若昀、張雪迎、毛不易、孫怡、林妙可、譚松韻                            </a>
+                            <a class="list-group-item visible-md" title="小料：千璽、李沁張若昀、張雪迎、毛不易、孫怡、林妙可、譚松韻" href="../entertainment/353.html" rel="bookmark"><i class="fa  fa-book"></i> 小料：千璽、李沁張若昀、張雪迎、毛不易、孫怡、林妙可、譚松韻                            </a>
+                                                    <a class="list-group-item visible-lg" title="朱彥西隔空擊掌追悼好兄弟吉喆 感動一幕令無數球迷潸然淚下" href="../sports/2161.html" rel="bookmark"><i class="fa  fa-book"></i> 朱彥西隔空擊掌追悼好兄弟吉喆 感動一幕令無數球迷潸然淚下                            </a>
+                            <a class="list-group-item visible-md" title="朱彥西隔空擊掌追悼好兄弟吉喆 感動一幕令無數球迷潸然淚下" href="../sports/2161.html" rel="bookmark"><i class="fa  fa-book"></i> 朱彥西隔空擊掌追悼好兄弟吉喆 感動一幕令無數球迷潸然淚下                            </a>
+                                                    <a class="list-group-item visible-lg" title="「比推早行情」加密市場仍然疲軟，比特幣急漲猛跌" href="10374.html" rel="bookmark"><i class="fa  fa-book"></i> 「比推早行情」加密市場仍然疲軟，比特幣急漲猛跌                            </a>
+                            <a class="list-group-item visible-md" title="「比推早行情」加密市場仍然疲軟，比特幣急漲猛跌" href="10374.html" rel="bookmark"><i class="fa  fa-book"></i> 「比推早行情」加密市場仍然疲軟，比特幣急漲猛跌                            </a>
+                                                    <a class="list-group-item visible-lg" title="東契奇，不在讚譽聲中迷失的少年" href="../nba/6435.html" rel="bookmark"><i class="fa  fa-book"></i> 東契奇，不在讚譽聲中迷失的少年                            </a>
+                            <a class="list-group-item visible-md" title="東契奇，不在讚譽聲中迷失的少年" href="../nba/6435.html" rel="bookmark"><i class="fa  fa-book"></i> 東契奇，不在讚譽聲中迷失的少年                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="kratos_tags-4" class="widget widget_kratos_tags clearfix"><h4 class="widget-title">標籤</h4><div class="tag_clouds"><a href="../tag/mingxing.html" class="tag-cloud-link tag-link-26 tag-link-position-1" style="font-size: 14px;">明星</a></div></aside><aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="../nba.html">NBA</a> (984)
+</li>
+	<li class="cat-item cat-item-23"><a href="../international.html">國際</a> (954)
+</li>
+	<li class="cat-item cat-item-14"><a href="../entertainment.html">娛樂</a> (1,245)
+</li>
+	<li class="cat-item cat-item-15"><a href="../emotion.html">情感</a> (986)
+</li>
+	<li class="cat-item cat-item-22"><a href="../constellation.html">星座</a> (671)
+</li>
+	<li class="cat-item cat-item-17"><a href="../history.html">歷史</a> (940)
+</li>
+	<li class="cat-item cat-item-25"><a href="../lose.html">減肥</a> (201)
+</li>
+	<li class="cat-item cat-item-24"><a href="../technology.html">科技</a> (991)
+</li>
+	<li class="cat-item cat-item-19"><a href="../premier.html">英超</a> (826)
+</li>
+	<li class="cat-item cat-item-18"><a href="../game.html">遊戲</a> (977)
+</li>
+	<li class="cat-item cat-item-21"><a href="../health.html">養生</a> (993)
+</li>
+	<li class="cat-item cat-item-16"><a href="../sports.html">體育</a> (993)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='../date/2019/12.html'>2019 年 12 月</a>&nbsp;(7759)</li>
+	<li><a href='../date/2019/11.html'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='../date/2019/10.html'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="../index.html">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.easing.min-ver=1.3.0.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.qrcode.min-ver=2.8.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/layer.min-ver=3.0.3.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/modernizr.min-ver=2.6.2.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/bootstrap.min-ver=3.3.7.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.waypoints.min-ver=4.0.0.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.stellar.min-ver=0.6.2.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/hoverIntent.min-ver=r7.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/superfish-ver=1.0.0.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/kratos-ver=2.8.js'></script>
+<script type='text/javascript' src='../wp-includes/js/wp-embed.min-ver=5.2.4.js'></script>
+			</body>
+
+</html>
