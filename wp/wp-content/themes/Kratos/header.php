@@ -34,6 +34,9 @@
 		  gtag('config', 'UA-154207825-1');
 		</script>
 		
+		<script data-ad-client="ca-pub-8261739837930821" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+		
 	</head>
 	<?php flush(); ?>
 	<body data-spy="scroll" data-target=".scrollspy">
