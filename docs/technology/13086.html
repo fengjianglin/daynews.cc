@@ -1,0 +1,608 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>一份微服務架構手稿圖，徹底搞定微服務核心原理 - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="微服務的概念最早在 2012 年提出，在 Martin Fowler 的大力推廣下，微服務在 2014 年後得到了大力發展。今天我們通過一組手繪圖來梳理下微服務的核心架構。 什麼是微服務？ 微服務 Microservices 之父，馬丁.福勒，對微服務大概的概述如下： 就目前而言，對於微服務業界並沒有一個統一的、標準的定義（While t……" />
+		<meta name="keywords" content="一份微服務架構手稿圖，徹底搞定微服務核心原理天天要聞,科技," />
+		<meta itemprop="image" content="http://p1.pstatp.com/large/pgc-image/a98d4e8831314f77af68ce8e6c0ef708"/>
+		<meta name="description" itemprop="description" content="微服務的概念最早在 2012 年提出，在 Martin Fowler 的大力推廣下，微服務在 2014 年後得到了大力發展。今天我們通過一組手繪圖來梳理下微服務的核心架構。 什麼是微服務？ 微服務 Microservices 之父，馬丁.福勒，對微服務大概的概述如下： 就目前而言，對於微服務業界並沒有一個統一的、標準的定義（While t……" />
+		<link rel='stylesheet' id='animate-css'  href='../wp-content/themes/Kratos/css/animate.min-ver=3.5.1.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='../wp-content/themes/Kratos/css/font-awesome.min-ver=4.7.0.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='../wp-content/themes/Kratos/css/bootstrap.min-ver=3.3.7.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='../wp-content/themes/Kratos/css/superfish.min-ver=r7.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='../wp-content/themes/Kratos/css/layer.min-ver=2.8.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='../wp-content/themes/Kratos/style-ver=2.8.css' type='text/css' media='all' />
+<link rel='https://api.w.org/' href='https://daynews.cc/wp-json/' />
+<link rel='shortlink' href='13086.html' />
+<link rel="alternate" type="application/json+oembed" href="https://daynews.cc/wp-json/oembed/1.0/embed?url=https://daynews.cc/technology/13086.html" />
+<link rel="alternate" type="text/xml+oembed" href="https://daynews.cc/wp-json/oembed/1.0/embed?url=https://daynews.cc/technology/13086.html&format=xml" />
+		<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.min-ver=2.1.4.js'></script>
+				
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154207825-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		  gtag('config', 'UA-154207825-1');
+		</script>
+		
+		<script data-ad-client="ca-pub-8261739837930821" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="13086.html#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="../index.html"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="../index.html">首頁</a></li>
+<li><a href="../entertainment.html">娛樂</a></li>
+<li><a href="../emotion.html">情感</a></li>
+<li><a href="../international.html">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="../technology.html">科技</a></li>
+<li><a href="../sports.html">體育</a>
+<ul class="sub-menu">
+	<li><a href="../nba.html">NBA</a></li>
+	<li><a href="../premier.html">英超</a></li>
+</ul>
+</li>
+<li><a href="../history.html">歷史</a></li>
+<li><a href="../game.html">遊戲</a></li>
+<li><a href="../health.html">養生</a>
+<ul class="sub-menu">
+	<li><a href="../lose.html">減肥</a></li>
+</ul>
+</li>
+<li><a href="../constellation.html">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">一份微服務架構手稿圖，徹底搞定微服務核心原理</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-11				                <i class="fa fa-commenting-o"></i> 31條評論
+				                <i class="fa fa-eye"></i> 2,599次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 1405人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+<blockquote>
+<p>微服務的概念最早在 2012 年提出，在 Martin Fowler 的大力推廣下，微服務在 2014 年後得到了大力發展。今天我們通過一組手繪圖來梳理下微服務的核心架構。</p>
+</blockquote>
+<h2 class="pgc-h-arrow-right">什麼是微服務？</h2>
+<p>微服務 Microservices 之父，馬丁.福勒，對微服務大概的概述如下：</p>
+<p>就目前而言，對於微服務業界並沒有一個統一的、標準的定義（While there is no precise definition of this architectural style ) 。</p>
+<p>但通常在其而言，微服務架構是一種架構模式或者說是一種架構風格，它提倡將單一應用程序劃分成一組小的服務，每個服務運行獨立的自己的進程中，服務之間互相協調、互相配合，為用戶提供最終價值。</p>
+<p>服務之間採用輕量級的通信機制互相溝通（通常是基於 HTTP 的 RESTful API ) 。每個服務都圍繞著具體業務進行構建，並且能夠被獨立地部署到生產環境、類生產環境等。</p>
+<p>另外，應盡量避免統一的、集中式的服務管理機制，對具體的一個服務而言，應根據業務上下文，選擇合適的語言、工具對其進行構建，可以有一個非常輕量級的集中式管理來協調這些服務。可以使用不同的語言來編寫服務，也可以使用不同的數據存儲。</p>
+<p>根據馬丁.福勒的描述，我總結了以下幾點：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/a98d4e8831314f77af68ce8e6c0ef708" src="http://p1.pstatp.com/large/pgc-image/a98d4e8831314f77af68ce8e6c0ef708" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p><strong>①小服務</strong></p>
+<p>小服務，沒有特定的標準或者規範，但他在總體規範上一定是小的。</p>
+<p><strong>②進程獨立</strong></p>
+<p>每一組服務都是獨立運行的，可能我這個服務運行在 Tomcat 容器，而另一個服務運行在 Jetty 上。可以通過進程方式，不斷的橫向擴展整個服務。</p>
+<p><strong>③通信</strong></p>
+<p>過去的協議都是很重的，就像 ESB，就像 SOAP，輕通信，這意味著相比過去更智能更輕量的服務相互調用，就所謂 smart endpoints and dumb pipes。</p>
+<p>這些 Endpoint 都是解耦的，完成一個業務通信調用串起這些 Micro Service 就像是 Linux 系統中通過管道串起一系列命令業務。</p>
+<p>過去的業務，我們通常會考慮各種各樣的依賴關係，考慮系統耦合帶來的問題。微服務，可以讓開發者更專註於業務的邏輯開發。</p>
+<p><strong>④部署</strong></p>
+<p>不止業務要獨立，部署也要獨立。不過這也意味著，傳統的開發流程會出現一定程度的改變，開發的適合也要有一定的運維職責。</p>
+<p><strong>⑤管理</strong></p>
+<p>傳統的企業級 SOA 服務往往很大，不易於管理，耦合性高，團隊開發成本比較大。</p>
+<p>微服務，可以讓團隊各思其政的選擇技術實現，不同的 Service 可以根據各自的需要選擇不同的技術棧來實現其業務邏輯。</p>
+<h2 class="pgc-h-arrow-right">微服務的利與弊</h2>
+<p>為什麼用微服務呢？因為好玩？不是的。下面是我從網路上找到說的比較全的優點：</p>
+<ul class="list-paddingleft-2">
+<li>優點是每個服務足夠內聚，足夠小，代碼容易理解這樣能聚焦一個指定的業務功能或業務需求。</li>
+<li>開發簡單、開發效率提高，一個服務可能就是專一的只干一件事。</li>
+<li>微服務能夠被小團隊單獨開發，這個小團隊是 2 到 5 人的開發人員組成。</li>
+<li>微服務是松耦合的，是有功能意義的服務，無論是在開發階段或部署階段都是獨立的。</li>
+<li>微服務能使用不同的語言開發。</li>
+<li>易於和第三方集成，微服務允許容易且靈活的方式集成自動部署，通過持續集成工具，如 Jenkins，Hudson，bamboo。</li>
+<li>微服務易於被一個開發人員理解，修改和維護，這樣小團隊能夠更關注自己的工作成果。無需通過合作才能體現價值。微服務允許你利用融合最新技術。</li>
+<li>微服務只是業務邏輯的代碼，不會和 HTML，CSS 或其他界面組件混合。</li>
+<li>每個微服務都有自己的存儲能力，可以有自己的資料庫，也可以有統一資料庫。</li>
+</ul>
+<p>總的來說，微服務的優勢，就是在於，面對大的系統，可以有效的減少複雜程度，使服務架構的邏輯更清晰明了。</p>
+<p>但是這樣也會帶來很多問題，就譬如分散式環境下的數據一致性，測試的複雜性，運維的複雜性。</p>
+<h2 class="pgc-h-arrow-right">什麼組織適合使用微服務？</h2>
+<p>微服務帶了種種優點，種種弊端，那麼什麼組織適合使用微服務？</p>
+<p><strong>①墨菲定律（設計系統）和康威定律（系統劃分）<br /></strong>康威定律，是一個五十多年前就被提出來的微服務概念。在康威的這篇文章中，最有名的一句話就是：</p>
+<blockquote>
+<p>Organizations which design systems are constrained to produce designs which are copies of the communication structures of these organizations.</p>
+<p>-Melvin Conway(1967)</p>
+</blockquote>
+<p>中文直譯大概的意思就是：設計系統的組織，其產生的設計等同於組織之內、組織之間的溝通結構。</p>
+<p>看看下面的圖片，再想想 Apple 的產品、微軟的產品設計，就能形象生動的理解這句話。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/76303789e22846bcb07d0497988934da" src="http://p1.pstatp.com/large/pgc-image/76303789e22846bcb07d0497988934da" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>感興趣的各位可以研究一下！</p>
+<p><strong>②架構演化</strong></p>
+<p>架構是不斷演化出來的，微服務也是這樣，當從各大科技公司，規模大到一定程度，完全需要演化成更進一步管理的技術架構體系。</p>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/9f5d6936bf5f443f8469853e129f50dd" src="http://p9.pstatp.com/large/pgc-image/9f5d6936bf5f443f8469853e129f50dd" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>傳統的團隊，都是面向過程化的，產品想完了去找策劃，策劃完了找開發，接著順著一步一步找。</p>
+<p>我們做技術都是為了產品的，一旦過程出來了什麼問題，回溯尋找問題會非常耗時。</p>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/9f5d6936bf5f443f8469853e129f50dd" src="http://p9.pstatp.com/large/pgc-image/9f5d6936bf5f443f8469853e129f50dd" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>使用了微服務架構體系，團隊組織方式需要轉變成跨職能團隊，即每個團隊都有產品專家，策劃專家，開發專家，運維專家，他們使用 API 方式發布他們的功能，而平台使用他們的功能發布產品。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/29150c8443d34f49b150e83dddc7ec8b" src="http://p1.pstatp.com/large/pgc-image/29150c8443d34f49b150e83dddc7ec8b" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<h2 class="pgc-h-arrow-right">微服務技術架構體系</h2>
+<p>下面我分享一下大部分公司都使用的微服務技術架構體系：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/0d25aa30932742d6a2884cc316e1b179" src="http://p1.pstatp.com/large/pgc-image/0d25aa30932742d6a2884cc316e1b179" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<h2 class="pgc-h-arrow-right">服務發現</h2>
+<p>主流的服務發現，分為三種：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/cb1be5fc4536463e8c8e7420a0c592ab" src="http://p1.pstatp.com/large/pgc-image/cb1be5fc4536463e8c8e7420a0c592ab" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>第一種，開發人員開發了程序以後，會找運維配一個域名，服務的話通過 DNS 就能找到我們對應的服務。</p>
+<p>缺點是，由於服務沒有負載均衡功能，對負載均衡服務，可能會有相當大的性能問題。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/4810a86d0c494fe9a4e2daff98f9b3e5" src="http://p1.pstatp.com/large/pgc-image/4810a86d0c494fe9a4e2daff98f9b3e5" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>第二種，是目前普遍的做法。可以參考 Zuul 網關，每一個服務都通過服務端內置的功能註冊到註冊中心，服務消費者不斷輪詢註冊中心發現對應的服務，使用內置負載均衡調用服務。</p>
+<p>缺點是，對多語言環境不是很好，你需要單獨給消費者的客戶端開發服務發現和負載均衡功能。當然了，這個方法通常都是用在 Spring Cloud 上的。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/e05b4737b6dd4db9b689a7e4ae19c765" src="http://p1.pstatp.com/large/pgc-image/e05b4737b6dd4db9b689a7e4ae19c765" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>第三種，是將客戶端和負載均衡放在同一個主機，而不是同一個進程內。</p>
+<p>這種方法相對第一種第二種方法來說，改善了他們的缺點，但是會極大增加運維成本。</p>
+<h2 class="pgc-h-arrow-right">網關</h2>
+<p>微服務的網關是什麼？我們可以聯繫生活實際想一下。每一個大的公司，都會有一偏屬於自己的建築區，而這建築區內，都有不少的門衛。如果有外來人員進入公司，會先和門衛打好招呼，才能進去。</p>
+<p>將生活實際聯繫到微服務上，就不難理解網關的意思了：</p>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/48a687f0c5d049cca103cde4b9f83995" src="http://p9.pstatp.com/large/pgc-image/48a687f0c5d049cca103cde4b9f83995" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>網關的作用如下：</p>
+<ul class="list-paddingleft-2">
+<li>反向路由：很多時候，公司不想讓外部人員看到我們公司的內部，就需要網關來進行反向路由。即將外部請求轉換成內部具體服務調用。</li>
+<li>安全認證：網路中會有很多惡意訪問，譬如爬蟲，譬如黑客攻擊，網關維護安全功能。</li>
+<li>限流熔斷：當請求很多服務不堪重負，會讓我們的服務自動關閉，導致不能用服務。限流熔斷可以有效的避免這類問題。</li>
+<li>日誌監控：所有的外面的請求都會經過網關，這樣我們就可以使用網關來記錄日誌信息。</li>
+<li>灰度發布，藍綠部署。是指能夠平滑過渡的一種發布方式。在其上可以進行 A/B testing。即讓一部分用戶繼續用產品特性 A，一部分用戶開始用產品特性 B，如果用戶對 B 沒有什麼反對意見，那麼逐步擴大範圍，把所有用戶都遷移到 B 上面來。</li>
+</ul>
+<p>開源網關 Zuul 架構：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/0cc11b53a3c34ee9b576cf08c81d1d27" src="http://p1.pstatp.com/large/pgc-image/0cc11b53a3c34ee9b576cf08c81d1d27" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>Zuul 網關核心其實是一個 Servlet，所有請求都會經過 Zuul Servlet 傳到 ZuulFilter Runner，然後分發到三種過濾器。</p>
+<p>先說說架構圖左半部分，分別是使用 Groovy 實現的前置路由過濾器，路由過濾器，後置路由過濾器。</p>
+<p>一般請求都會先經過前置路由過濾器處理，一般的自定義 Java 封裝邏輯也會在這裡實現。</p>
+<p>路由過濾器，實現的是找到對應的微服務進行調用。調用完了，響應回來，會經過後置路由過濾器，通過後置路由過濾器我們可以封裝日誌審計的處理。</p>
+<p>可以說 Zuul 網關最大的特色就是它的三層過濾器。架構圖右半部分，是 Zuul 網關設計的自定義過濾器載入機制。</p>
+<p>網關內部會有生產者消費者模型，自動的將過濾器腳本發布到 Zuul 網關讀取載入運行。</p>
+<h2 class="pgc-h-arrow-right">配置中心</h2>
+<p>以前，開發人員把配置文件放在開發文件裡面，這樣會有很多隱患。譬如，配置規範不同，無法追溯配置人員。微服務配置中心全面對比，哪個更牛逼？這篇推薦大家看下。</p>
+<p>一旦需要大規模改動配置，改動時間會很長，無法追溯配置人員，從而影響整個產品，後果是我們承擔不起的。</p>
+<p>因此就有配置中心這個嘍！現在的開源中心有百度配置中心 Disconf，Spring Cloud Config，Apollo。</p>
+<p>今天重點說說現在應用質量不錯的配置中心，攜程開源的阿波羅（Apollo）：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/8585c29d38ac42f2b2e91633b36608bd" src="http://p1.pstatp.com/large/pgc-image/8585c29d38ac42f2b2e91633b36608bd" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>Apollo 的配置中心規模比較大，本地應用會有響應的配置中心客戶端，可以定時同步配置中心裡的配置。如果配置中心怠機，會使用緩存來進行配置。</p>
+<h2 class="pgc-h-arrow-right">通訊方式</h2>
+<p>關於通訊方式，一般市面也就是兩種遠程調用方式，我整理了一個表格：</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/534ce48f916341dfa26a29ebc081e947" src="http://p3.pstatp.com/large/pgc-image/534ce48f916341dfa26a29ebc081e947" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<h2 class="pgc-h-arrow-right">監控預警</h2>
+<p>監控預警對於微服務很重要，一個可靠的監控預警體系對微服務運行至關重要。</p>
+<p>一般監控分為如下層次：</p>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/55f641c726d74ed38a6763d4046ca9d6" src="http://p9.pstatp.com/large/pgc-image/55f641c726d74ed38a6763d4046ca9d6" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>從基礎設施到用戶端，層層有監控，全方位，多角度，每一個層面都很重要。</p>
+<p>總體來說，微服務可分為 5 個監控點：</p>
+<ul class="list-paddingleft-2">
+<li>日誌監控</li>
+<li>Metrics 監控</li>
+<li>健康檢查</li>
+<li>調用鏈檢查</li>
+<li>告警系統</li>
+</ul>
+<p><strong>①監控架構</strong></p>
+<p>下面的圖是大部分公司的一種監控架構圖。每一個服務都有一個 Agent，Agent 收集到關鍵信息，會傳到一些 MQ 中，為了解耦。</p>
+<p>同時將日誌傳入 ELK，將 Metrics 傳入 InfluxDB 時間序列庫。而像 Nagios，可以定期向 Agent 發起信息檢查微服務。</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/80f113b38fe542cc86f36f1b88d9be7d" src="http://p3.pstatp.com/large/pgc-image/80f113b38fe542cc86f36f1b88d9be7d" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p><strong>②調用鏈監控 APM</strong></p>
+<p>很多公司都有調用鏈監控，就譬如阿里有鷹眼監控，點評的 Cat，大部分調用鏈監控（沒錯，我指的 Zipkin）架構是這樣的：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/9def4bb73bcc47669b721e3744aba17e" src="http://p1.pstatp.com/large/pgc-image/9def4bb73bcc47669b721e3744aba17e" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>當請求進入 Web 容器的時候，會經過創建 Tracer，連接 Spans（模擬潛在的分散式工作的延遲，該模塊還包含在系統網路間傳遞跟蹤上下文信息的工具包，如通過 HTTP Headers）。</p>
+<p>Spans 有一個上下文，其中包含 Tracer 標識符，將其放在表示分散式操作的樹的正確位置。</p>
+<p>當我們把圖中的各種 Span 放到後端的時候，我們的服務調用鏈會動態的生成調用鏈。</p>
+<p>下面是一些市場上用的比較多的調用鏈監控對比：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/15e39bee05c84eefaf9f0d91aefe3fa9" src="http://p1.pstatp.com/large/pgc-image/15e39bee05c84eefaf9f0d91aefe3fa9" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<h2 class="pgc-h-arrow-right">熔斷、隔離、限流、降級</h2>
+<p>面對巨大的突發流量下，大型公司一般會採用一系列的熔斷（系統自動將服務關閉防止讓出現的問題最大化）、隔離（將服務和服務隔離，防止一個服務掛了其他服務不能訪問）、限流（單位時間內之允許一定數量用戶訪問）、降級（當整個微服務架構整體的負載超出了預設的上限閾值或即將到來的流量預計將會超過預設的閾值時，為了保證重要或基本的服務能正常運行，我們可以將一些不重要或不緊急的服務或任務進行服務的延遲使用或暫停使用）措施。</p>
+<p>下面介紹一下 Hystrix 的運行流程：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/2e150e9f461c4ac98bf40712d668c7cb" src="http://p1.pstatp.com/large/pgc-image/2e150e9f461c4ac98bf40712d668c7cb" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p><strong>Hystrix 停止開發，Spring Cloud 何去何從？</strong></p>
+<p>每一個微服務調用時，都會使用 Hystrix 的 Command 方式（上圖的左上角那個），然後使用 Command 同步的，或者是響應式的，或者是非同步的，判斷電路是否熔斷（順著圖從左往右看），如果斷路則走降級 Fallback。</p>
+<p>如果這個線閉合著，但是線程資源沒了，隊列滿了，則走限流措施（看圖的第 5 步）。</p>
+<p>如果走完了，執行成功了，則走 run() 方法，獲取 Response，但是這個過程如果出錯了，則繼續走降級 Fallback。</p>
+<p>同時，看圖最上面有一個後綴是 Health 的，這是一個計算整個鏈路是否健康的組件，每一步操作都被它記錄著。</p>
+<h2 class="pgc-h-arrow-right">容器與服務編排引擎</h2>
+<p>從物理機到虛擬機，從虛擬機到容器；從物理集群到 OpenStack，OpenStack 到 Kubernetes；科技不斷的變化，我們的認知也沒刷新。</p>
+<p>我們從容器開始說起，它首先是一個相對獨立的運行環境，在這一點有點類似於虛擬機，但是不像虛擬機那樣徹底。</p>
+<p>虛擬機會將虛擬硬體、內核（即操作系統）以及用戶空間打包在新虛擬機當中，虛擬機能夠利用「虛擬機管理程序」運行在物理設備之上。</p>
+<p>虛擬機依賴於 Hypervisor，其通常被安裝在「裸金屬」系統硬體之上，這導致 Hypervisor 在某些方面被認為是一種操作系統。</p>
+<p>一旦 Hypervisor 安裝完成， 就可以從系統可用計算資源當中分配虛擬機實例了，每台虛擬機都能夠獲得唯一的操作系統和負載（應用程序）。</p>
+<p>簡言之，虛擬機先需要虛擬一個物理環境，然後構建一個完整的操作系統，再搭建一層 Runtime，然後供應用程序運行。</p>
+<p>對於容器環境來說，不需要安裝主機操作系統，直接將容器層（比如 LXC 或 Libcontainer）安裝在主機操作系統（通常是 Linux 變種）之上。</p>
+<p>在安裝完容器層之後，就可以從系統可用計算資源當中分配容器實例了，並且企業應用可以被部署在容器當中。</p>
+<p>但是，每個容器化應用都會共享相同的操作系統(單個主機操作系統)。容器可以看成一個裝好了一組特定應用的虛擬機，它直接利用了宿主機的內核，抽象層比虛擬機更少，更加輕量化，啟動速度極快。</p>
+<p>相比於虛擬機，容器擁有更高的資源使用效率，因為它並不需要為每個應用分配單獨的操作系統——實例規模更小、創建和遷移速度也更快。這意味著相比於虛擬機，單個操作系統能夠承載更多的容器。</p>
+<p>雲提供商十分熱衷於容器技術，因為在相同的硬體設備當中，可以部署數量更多的容器實例。</p>
+<p>此外，容器易於遷移，但是只能被遷移到具有兼容操作系統內核的其他伺服器當中，這樣就會給遷移選擇帶來限制。</p>
+<p>因為容器不像虛擬機那樣同樣對內核或者虛擬硬體進行打包，所以每套容器都擁有自己的隔離化用戶空間，從而使得多套容器能夠運行在同一主機系統之上。</p>
+<p>我們可以看到全部操作系統層級的架構都可實現跨容器共享，惟一需要獨立構建的就是二進位文件與庫。</p>
+<p>正因為如此，容器才擁有極為出色的輕量化特性。我們最常用的容器是 Docker。</p>
+<p><strong>①容器編排</strong></p>
+<p>過去虛擬機可以通過雲平台 OpenStack 管理虛擬化，容器時代如何管理容器呢？這就要看看容器編排引擎了。</p>
+<p>Apache Mesos：Mesos 是基於 Master，Slave 架構，框架決定如何利用資源，Master 負責管理機器，Slave 會定期的將機器情況報告給 Master，Master 再將信息給框架。Master 是高可用的，因為 ZK，也有 Leader 的存在。</p>
+<p>下面是架構圖：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/c6a3287405f041caa0c10720947a5f19" src="http://p1.pstatp.com/large/pgc-image/c6a3287405f041caa0c10720947a5f19" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>Kubernetes：Kubernetes 是最近十分火熱的開源容器編排引擎。</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/d0c6072e3ab14190b300742ed1c5b7e9" src="http://p3.pstatp.com/large/pgc-image/d0c6072e3ab14190b300742ed1c5b7e9" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>Kubernetes 設計理念和功能其實就是一個類似 Linux 的分層架構，先說說每一個 Kubernetes 節點內部，kubelet 管理全局全局 pod，而每一個 pod 承載著一個或多個容器，kube-proxy 負責網路代理和負載均衡。</p>
+<p>Kubernetes 節點外部，則是對應的控制管理伺服器，負責統一管理各個節點調度分配與運行。</p>
+<p><strong>②服務網格化</strong></p>
+<p>關於服務網路化，後面會更加深入的為大家進行講解。</p>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="13086" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/13086.html"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/13086.html";
+		var title='%E3%80%90%E4%B8%80%E4%BB%BD%E5%BE%AE%E6%9C%8D%E5%8B%99%E6%9E%B6%E6%A7%8B%E6%89%8B%E7%A8%BF%E5%9C%96%EF%BC%8C%E5%BE%B9%E5%BA%95%E6%90%9E%E5%AE%9A%E5%BE%AE%E6%9C%8D%E5%8B%99%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E3%80%91';
+		var qqtitle='%E3%80%90%E4%B8%80%E4%BB%BD%E5%BE%AE%E6%9C%8D%E5%8B%99%E6%9E%B6%E6%A7%8B%E6%89%8B%E7%A8%BF%E5%9C%96%EF%BC%8C%E5%BE%B9%E5%BA%95%E6%90%9E%E5%AE%9A%E5%BE%AE%E6%9C%8D%E5%8B%99%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E3%80%91';
+		var excerpt='%E5%BE%AE%E6%9C%8D%E5%8B%99%E7%9A%84%E6%A6%82%E5%BF%B5%E6%9C%80%E6%97%A9%E5%9C%A8%202012%20%E5%B9%B4%E6%8F%90%E5%87%BA%EF%BC%8C%E5%9C%A8%20Martin%20Fowler%20%E7%9A%84%E5%A4%A7%E5%8A%9B%E6%8E%A8%E5%BB%A3%E4%B8%8B%EF%BC%8C%E5%BE%AE%E6%9C%8D%E5%8B%99%E5%9C%A8%202014%20%E5%B9%B4%E5%BE%8C%E5%BE%97%E5%88%B0%E4%BA%86%E5%A4%A7%E5%8A%9B%E7%99%BC%E5%B1%95%E3%80%82%E4%BB%8A%E5%A4%A9%E6%88%91%E5%80%91%E9%80%9A%E9%81%8E%E4%B8%80%E7%B5%84%E6%89%8B%E7%B9%AA%E5%9C%96%E4%BE%86%E6%A2%B3%E7%90%86%E4%B8%8B%E5%BE%AE%E6%9C%8D%E5%8B%99%E7%9A%84%E6%A0%B8%E5%BF%83%E6%9E%B6%E6%A7%8B%E3%80%82%20%E4%BB%80%E9%BA%BC%E6%98%AF%E5%BE%AE%E6%9C%8D%E5%8B%99%EF%BC%9F%20%E5%BE%AE%E6%9C%8D%E5%8B%99%20Microservices%20%E4%B9%8B%E7%88%B6%EF%BC%8C%E9%A6%AC%E4%B8%81.%E7%A6%8F%E5%8B%92%EF%BC%8C%E5%B0%8D%E5%BE%AE%E6%9C%8D%E5%8B%99%E5%A4%A7%E6%A6%82%E7%9A%84%E6%A6%82%E8%BF%B0%E5%A6%82%E4%B8%8B%EF%BC%9A%20%E5%B0%B1%E7%9B%AE%E5%89%8D%E8%80%8C%E8%A8%80%EF%BC%8C%E5%B0%8D%E6%96%BC%E5%BE%AE%E6%9C%8D%E5%8B%99%E6%A5%AD%E7%95%8C%E4%B8%A6%E6%B2%92%E6%9C%89%E4%B8%80%E5%80%8B%E7%B5%B1%E4%B8%80%E7%9A%84%E3%80%81%E6%A8%99%E6%BA%96%E7%9A%84%E5%AE%9A%E7%BE%A9%EF%BC%88While%20t%E2%80%A6%E2%80%A6';
+		var wbexcerpt='%E5%BE%AE%E6%9C%8D%E5%8B%99%E7%9A%84%E6%A6%82%E5%BF%B5%E6%9C%80%E6%97%A9%E5%9C%A8%202012%20%E5%B9%B4%E6%8F%90%E5%87%BA%EF%BC%8C%E5%9C%A8%20Martin%20Fowler%20%E7%9A%84%E5%A4%A7%E5%8A%9B%E6%8E%A8%E5%BB%A3%E4%B8%8B%EF%BC%8C%E5%BE%AE%E6%9C%8D%E5%8B%99%E5%9C%A8%202014%20%E5%B9%B4%E5%BE%8C%E5%BE%97%E5%88%B0%E4%BA%86%E5%A4%A7%E5%8A%9B%E7%99%BC%E5%B1%95%E3%80%82%E4%BB%8A%E5%A4%A9%E6%88%91%E5%80%91%E9%80%9A%E9%81%8E%E4%B8%80%E7%B5%84%E6%89%8B%E7%B9%AA%E5%9C%96%E4%BE%86%E6%A2%B3%E7%90%86%E4%B8%8B%E5%BE%AE%E6%9C%8D%E5%8B%99%E7%9A%84%E6%A0%B8%E5%BF%83%E6%9E%B6%E6%A7%8B%E3%80%82%20%E4%BB%80%E9%BA%BC%E6%98%AF%E5%BE%AE%E6%9C%8D%E5%8B%99%EF%BC%9F%20%E5%BE%AE%E6%9C%8D%E5%8B%99%20Microservices%20%E4%B9%8B%E7%88%B6%EF%BC%8C%E9%A6%AC%E4%B8%81.%E7%A6%8F%E5%8B%92%EF%BC%8C%E5%B0%8D%E5%BE%AE%E6%9C%8D%E5%8B%99%E5%A4%A7%E6%A6%82%E7%9A%84%E6%A6%82%E8%BF%B0%E5%A6%82%E4%B8%8B%EF%BC%9A%20%E5%B0%B1%E7%9B%AE%E5%89%8D%E8%80%8C%E8%A8%80%EF%BC%8C%E5%B0%8D%E6%96%BC%E5%BE%AE%E6%9C%8D%E5%8B%99%E6%A5%AD%E7%95%8C%E4%B8%A6%E6%B2%92%E6%9C%89%E4%B8%80%E5%80%8B%E7%B5%B1%E4%B8%80%E7%9A%84%E3%80%81%E6%A8%99%E6%BA%96%E7%9A%84%E5%AE%9A%E7%BE%A9%EF%BC%88While%20t%E2%80%A6%E2%80%A6';
+		var pic="http://p1.pstatp.com/large/pgc-image/a98d4e8831314f77af68ce8e6c0ef708";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="韓元區現“韓跑跑”，比特幣跌破7300美金，二次探底開始了？" href="13087.html">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="有線電視還能自我救贖嗎？還是看看運營商如何作為" href="13085.html">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="13086.html#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="../wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="../wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="../wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="../wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="../wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="../wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="../wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="../wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="../wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="../wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="../wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="../wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="../wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="../wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="../wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="../wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="../wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="../wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="../wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="../wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="../wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="../wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="../wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="../wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="../wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='13086' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="13086.html#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="13086.html#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="13086.html#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="13086.html#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="13086.html#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="13086.html#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="西晉張華：推動滅吳，國難忠臣，最後為何落了族誅的下場？" href="../history/13494.html" rel="bookmark"><i class="fa  fa-book"></i> 西晉張華：推動滅吳，國難忠臣，最後為何落了族誅的下場？                            </a>
+                            <a class="list-group-item visible-md" title="西晉張華：推動滅吳，國難忠臣，最後為何落了族誅的下場？" href="../history/13494.html" rel="bookmark"><i class="fa  fa-book"></i> 西晉張華：推動滅吳，國難忠臣，最後為何落了族誅的下場？                            </a>
+                                                    <a class="list-group-item visible-lg" title="春秋戰國時期諸侯國為何紛紛修築長城？不僅用於互防，還用於邊防" href="../history/13493.html" rel="bookmark"><i class="fa  fa-book"></i> 春秋戰國時期諸侯國為何紛紛修築長城？不僅用於互防，還用於邊防                            </a>
+                            <a class="list-group-item visible-md" title="春秋戰國時期諸侯國為何紛紛修築長城？不僅用於互防，還用於邊防" href="../history/13493.html" rel="bookmark"><i class="fa  fa-book"></i> 春秋戰國時期諸侯國為何紛紛修築長城？不僅用於互防，還用於邊防                            </a>
+                                                    <a class="list-group-item visible-lg" title="為燕國拓地2000餘里的名將秦開，他的後代過得怎麼樣，結局如何？" href="../history/13496.html" rel="bookmark"><i class="fa  fa-book"></i> 為燕國拓地2000餘里的名將秦開，他的後代過得怎麼樣，結局如何？                            </a>
+                            <a class="list-group-item visible-md" title="為燕國拓地2000餘里的名將秦開，他的後代過得怎麼樣，結局如何？" href="../history/13496.html" rel="bookmark"><i class="fa  fa-book"></i> 為燕國拓地2000餘里的名將秦開，他的後代過得怎麼樣，結局如何？                            </a>
+                                                    <a class="list-group-item visible-lg" title="土司制度：區域自治的成功案例，促進了封建社會的穩定發展" href="../history/13495.html" rel="bookmark"><i class="fa  fa-book"></i> 土司制度：區域自治的成功案例，促進了封建社會的穩定發展                            </a>
+                            <a class="list-group-item visible-md" title="土司制度：區域自治的成功案例，促進了封建社會的穩定發展" href="../history/13495.html" rel="bookmark"><i class="fa  fa-book"></i> 土司制度：區域自治的成功案例，促進了封建社會的穩定發展                            </a>
+                                                    <a class="list-group-item visible-lg" title="《形骸騎士》，一款融合彈幕、Furry等多要素Roguelite動作遊戲" href="../game/13763.html" rel="bookmark"><i class="fa  fa-book"></i> 《形骸騎士》，一款融合彈幕、Furry等多要素Roguelite動作遊戲                            </a>
+                            <a class="list-group-item visible-md" title="《形骸騎士》，一款融合彈幕、Furry等多要素Roguelite動作遊戲" href="../game/13763.html" rel="bookmark"><i class="fa  fa-book"></i> 《形骸騎士》，一款融合彈幕、Furry等多要素Roguelite動作遊戲                            </a>
+                                                    <a class="list-group-item visible-lg" title="古人如何避免工程偷工減料？從清朝入手，看看古政府是如何處理的" href="../history/13497.html" rel="bookmark"><i class="fa  fa-book"></i> 古人如何避免工程偷工減料？從清朝入手，看看古政府是如何處理的                            </a>
+                            <a class="list-group-item visible-md" title="古人如何避免工程偷工減料？從清朝入手，看看古政府是如何處理的" href="../history/13497.html" rel="bookmark"><i class="fa  fa-book"></i> 古人如何避免工程偷工減料？從清朝入手，看看古政府是如何處理的                            </a>
+                                                    <a class="list-group-item visible-lg" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="../game/13764.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多                            </a>
+                            <a class="list-group-item visible-md" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="../game/13764.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多                            </a>
+                                                    <a class="list-group-item visible-lg" title="雲頂之弈出現“白給戰術”，主C放在角落給刺客切反而更強" href="../game/13765.html" rel="bookmark"><i class="fa  fa-book"></i> 雲頂之弈出現“白給戰術”，主C放在角落給刺客切反而更強                            </a>
+                            <a class="list-group-item visible-md" title="雲頂之弈出現“白給戰術”，主C放在角落給刺客切反而更強" href="../game/13765.html" rel="bookmark"><i class="fa  fa-book"></i> 雲頂之弈出現“白給戰術”，主C放在角落給刺客切反而更強                            </a>
+                                                    <a class="list-group-item visible-lg" title="遊戲新手教學的5種基本方式及其運用場景研究" href="../game/13766.html" rel="bookmark"><i class="fa  fa-book"></i> 遊戲新手教學的5種基本方式及其運用場景研究                            </a>
+                            <a class="list-group-item visible-md" title="遊戲新手教學的5種基本方式及其運用場景研究" href="../game/13766.html" rel="bookmark"><i class="fa  fa-book"></i> 遊戲新手教學的5種基本方式及其運用場景研究                            </a>
+                                                    <a class="list-group-item visible-lg" title="陰陽師亞服超級福利活動：自選SSR/SP概率UP活動 看完果斷酸了" href="../game/13767.html" rel="bookmark"><i class="fa  fa-book"></i> 陰陽師亞服超級福利活動：自選SSR/SP概率UP活動 看完果斷酸了                            </a>
+                            <a class="list-group-item visible-md" title="陰陽師亞服超級福利活動：自選SSR/SP概率UP活動 看完果斷酸了" href="../game/13767.html" rel="bookmark"><i class="fa  fa-book"></i> 陰陽師亞服超級福利活動：自選SSR/SP概率UP活動 看完果斷酸了                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="../international/8854.html" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="../international/8854.html" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="../international/12134.html" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-md" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="../international/12134.html" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="../health/7098.html" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="../health/7098.html" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-lg" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="../entertainment/10879.html" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-md" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="../entertainment/10879.html" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-lg" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="10158.html" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-md" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="10158.html" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-lg" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="../game/13764.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-md" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="../game/13764.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-lg" title="一隻低位科技股：消費電子+華為（600152），有望繼續突破" href="12846.html" rel="bookmark"><i class="fa  fa-book"></i> 一隻低位科技股：消費電子+華為（600152），有望繼續突破</a><a class="list-group-item visible-md" title="一隻低位科技股：消費電子+華為（600152），有望繼續突破" href="12846.html" rel="bookmark"><i class="fa  fa-book"></i> 一隻低位科技股：消費電子+華為（600152），有望繼續突破</a><a class="list-group-item visible-lg" title="爐石傳說：希爾瓦娜斯皮膚實際測評，獵爹還是獵爹" href="../game/13768.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：希爾瓦娜斯皮膚實際測評，獵爹還是獵爹</a><a class="list-group-item visible-md" title="爐石傳說：希爾瓦娜斯皮膚實際測評，獵爹還是獵爹" href="../game/13768.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：希爾瓦娜斯皮膚實際測評，獵爹還是獵爹</a><a class="list-group-item visible-lg" title="《慶余年》全集資源泄露，官方出VIP付費提前點播做回應！" href="../entertainment/12746.html" rel="bookmark"><i class="fa  fa-book"></i> 《慶余年》全集資源泄露，官方出VIP付費提前點播做回應！</a><a class="list-group-item visible-md" title="《慶余年》全集資源泄露，官方出VIP付費提前點播做回應！" href="../entertainment/12746.html" rel="bookmark"><i class="fa  fa-book"></i> 《慶余年》全集資源泄露，官方出VIP付費提前點播做回應！</a><a class="list-group-item visible-lg" title="撒網式交友，出門不用帶錢包的三種人" href="../constellation/8226.html" rel="bookmark"><i class="fa  fa-book"></i> 撒網式交友，出門不用帶錢包的三種人</a><a class="list-group-item visible-md" title="撒網式交友，出門不用帶錢包的三種人" href="../constellation/8226.html" rel="bookmark"><i class="fa  fa-book"></i> 撒網式交友，出門不用帶錢包的三種人</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="明朝萬曆年間一樁離奇的老婦詐騙案：受害者被騙走兒媳婦兩個" href="../history/3727.html" rel="bookmark"><i class="fa  fa-book"></i> 明朝萬曆年間一樁離奇的老婦詐騙案：受害者被騙走兒媳婦兩個                            </a>
+                            <a class="list-group-item visible-md" title="明朝萬曆年間一樁離奇的老婦詐騙案：受害者被騙走兒媳婦兩個" href="../history/3727.html" rel="bookmark"><i class="fa  fa-book"></i> 明朝萬曆年間一樁離奇的老婦詐騙案：受害者被騙走兒媳婦兩個                            </a>
+                                                    <a class="list-group-item visible-lg" title="鄧亞萍犀利道破馬龍敗北真相，專業與業餘反差，張本智和再無機會" href="../sports/2968.html" rel="bookmark"><i class="fa  fa-book"></i> 鄧亞萍犀利道破馬龍敗北真相，專業與業餘反差，張本智和再無機會                            </a>
+                            <a class="list-group-item visible-md" title="鄧亞萍犀利道破馬龍敗北真相，專業與業餘反差，張本智和再無機會" href="../sports/2968.html" rel="bookmark"><i class="fa  fa-book"></i> 鄧亞萍犀利道破馬龍敗北真相，專業與業餘反差，張本智和再無機會                            </a>
+                                                    <a class="list-group-item visible-lg" title="足壇十宗離奇受傷：維特塞爾摔樓梯 布馮刮鬍子出事 魯能兩將奇葩" href="../sports/11175.html" rel="bookmark"><i class="fa  fa-book"></i> 足壇十宗離奇受傷：維特塞爾摔樓梯 布馮刮鬍子出事 魯能兩將奇葩                            </a>
+                            <a class="list-group-item visible-md" title="足壇十宗離奇受傷：維特塞爾摔樓梯 布馮刮鬍子出事 魯能兩將奇葩" href="../sports/11175.html" rel="bookmark"><i class="fa  fa-book"></i> 足壇十宗離奇受傷：維特塞爾摔樓梯 布馮刮鬍子出事 魯能兩將奇葩                            </a>
+                                                    <a class="list-group-item visible-lg" title="三十年後的傷痕：柏林牆的另一面，足球依然讓人“蒙羞”" href="../premier/5732.html" rel="bookmark"><i class="fa  fa-book"></i> 三十年後的傷痕：柏林牆的另一面，足球依然讓人“蒙羞”                            </a>
+                            <a class="list-group-item visible-md" title="三十年後的傷痕：柏林牆的另一面，足球依然讓人“蒙羞”" href="../premier/5732.html" rel="bookmark"><i class="fa  fa-book"></i> 三十年後的傷痕：柏林牆的另一面，足球依然讓人“蒙羞”                            </a>
+                                                    <a class="list-group-item visible-lg" title="山東男籃簽下NBLMVP哈里斯" href="../sports/11242.html" rel="bookmark"><i class="fa  fa-book"></i> 山東男籃簽下NBLMVP哈里斯                            </a>
+                            <a class="list-group-item visible-md" title="山東男籃簽下NBLMVP哈里斯" href="../sports/11242.html" rel="bookmark"><i class="fa  fa-book"></i> 山東男籃簽下NBLMVP哈里斯                            </a>
+                                                    <a class="list-group-item visible-lg" title="DNF：最帥氣的武器特效，刷圖才能觸發，身後跟隨兩道殘影" href="../game/13919.html" rel="bookmark"><i class="fa  fa-book"></i> DNF：最帥氣的武器特效，刷圖才能觸發，身後跟隨兩道殘影                            </a>
+                            <a class="list-group-item visible-md" title="DNF：最帥氣的武器特效，刷圖才能觸發，身後跟隨兩道殘影" href="../game/13919.html" rel="bookmark"><i class="fa  fa-book"></i> DNF：最帥氣的武器特效，刷圖才能觸發，身後跟隨兩道殘影                            </a>
+                                                    <a class="list-group-item visible-lg" title="這個人發明了1個新式武器，如果當時獻給國家，中國必成世界第一" href="../history/3227.html" rel="bookmark"><i class="fa  fa-book"></i> 這個人發明了1個新式武器，如果當時獻給國家，中國必成世界第一                            </a>
+                            <a class="list-group-item visible-md" title="這個人發明了1個新式武器，如果當時獻給國家，中國必成世界第一" href="../history/3227.html" rel="bookmark"><i class="fa  fa-book"></i> 這個人發明了1個新式武器，如果當時獻給國家，中國必成世界第一                            </a>
+                                                    <a class="list-group-item visible-lg" title="國米有意之人乃是被打臉之王，巴薩曼聯都領教過，內馬爾也調侃過" href="../premier/5719.html" rel="bookmark"><i class="fa  fa-book"></i> 國米有意之人乃是被打臉之王，巴薩曼聯都領教過，內馬爾也調侃過                            </a>
+                            <a class="list-group-item visible-md" title="國米有意之人乃是被打臉之王，巴薩曼聯都領教過，內馬爾也調侃過" href="../premier/5719.html" rel="bookmark"><i class="fa  fa-book"></i> 國米有意之人乃是被打臉之王，巴薩曼聯都領教過，內馬爾也調侃過                            </a>
+                                                    <a class="list-group-item visible-lg" title="NBA奇兵志：巴蒂爾，那個2012年詹姆斯和杜蘭特都爭著想要的男人" href="../nba/6548.html" rel="bookmark"><i class="fa  fa-book"></i> NBA奇兵志：巴蒂爾，那個2012年詹姆斯和杜蘭特都爭著想要的男人                            </a>
+                            <a class="list-group-item visible-md" title="NBA奇兵志：巴蒂爾，那個2012年詹姆斯和杜蘭特都爭著想要的男人" href="../nba/6548.html" rel="bookmark"><i class="fa  fa-book"></i> NBA奇兵志：巴蒂爾，那個2012年詹姆斯和杜蘭特都爭著想要的男人                            </a>
+                                                    <a class="list-group-item visible-lg" title="在路上：我，戀愛了，她，叫四季" href="../emotion/1512.html" rel="bookmark"><i class="fa  fa-book"></i> 在路上：我，戀愛了，她，叫四季                            </a>
+                            <a class="list-group-item visible-md" title="在路上：我，戀愛了，她，叫四季" href="../emotion/1512.html" rel="bookmark"><i class="fa  fa-book"></i> 在路上：我，戀愛了，她，叫四季                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="kratos_tags-4" class="widget widget_kratos_tags clearfix"><h4 class="widget-title">標籤</h4><div class="tag_clouds"></div></aside><aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="../nba.html">NBA</a> (1,112)
+</li>
+	<li class="cat-item cat-item-23"><a href="../international.html">國際</a> (1,422)
+</li>
+	<li class="cat-item cat-item-14"><a href="../entertainment.html">娛樂</a> (1,593)
+</li>
+	<li class="cat-item cat-item-15"><a href="../emotion.html">情感</a> (1,219)
+</li>
+	<li class="cat-item cat-item-22"><a href="../constellation.html">星座</a> (781)
+</li>
+	<li class="cat-item cat-item-17"><a href="../history.html">歷史</a> (1,210)
+</li>
+	<li class="cat-item cat-item-25"><a href="../lose.html">減肥</a> (274)
+</li>
+	<li class="cat-item cat-item-24"><a href="../technology.html">科技</a> (1,351)
+</li>
+	<li class="cat-item cat-item-19"><a href="../premier.html">英超</a> (1,012)
+</li>
+	<li class="cat-item cat-item-18"><a href="../game.html">遊戲</a> (1,453)
+</li>
+	<li class="cat-item cat-item-21"><a href="../health.html">養生</a> (1,074)
+</li>
+	<li class="cat-item cat-item-16"><a href="../sports.html">體育</a> (1,398)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='../date/2019/12.html'>2019 年 12 月</a>&nbsp;(10897)</li>
+	<li><a href='../date/2019/11.html'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='../date/2019/10.html'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="../index.html">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.easing.min-ver=1.3.0.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.qrcode.min-ver=2.8.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/layer.min-ver=3.0.3.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/modernizr.min-ver=2.6.2.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/bootstrap.min-ver=3.3.7.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.waypoints.min-ver=4.0.0.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.stellar.min-ver=0.6.2.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/hoverIntent.min-ver=r7.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/superfish-ver=1.0.0.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/kratos-ver=2.8.js'></script>
+<script type='text/javascript' src='../wp-includes/js/wp-embed.min-ver=5.2.4.js'></script>
+			</body>
+
+</html>

@@ -1,0 +1,510 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>看完2019年阿里巴巴Python面試題詳解，月薪3萬不是夢 - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="很多人想自學Python找工作，下面給大家分享一部分阿里巴巴的Python開發工程師的面試題目： 概念理解類題目： 1.請說一下你對迭代器和生成器的區別？ 答：（1）迭代器是一個更抽象的概念，任何對象，如果它的類有next方法和iter方法返回自己本身。對於string、list、dict、tuple等這類容器對象，使用for循環遍歷是很……" />
+		<meta name="keywords" content="看完2019年阿里巴巴Python面試題詳解，月薪3萬不是夢天天要聞,科技," />
+		<meta itemprop="image" content="http://p3.pstatp.com/large/pgc-image/97b72cddf0b247eca557526b63ab8d5e"/>
+		<meta name="description" itemprop="description" content="很多人想自學Python找工作，下面給大家分享一部分阿里巴巴的Python開發工程師的面試題目： 概念理解類題目： 1.請說一下你對迭代器和生成器的區別？ 答：（1）迭代器是一個更抽象的概念，任何對象，如果它的類有next方法和iter方法返回自己本身。對於string、list、dict、tuple等這類容器對象，使用for循環遍歷是很……" />
+		<link rel='stylesheet' id='animate-css'  href='../wp-content/themes/Kratos/css/animate.min-ver=3.5.1.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='../wp-content/themes/Kratos/css/font-awesome.min-ver=4.7.0.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='../wp-content/themes/Kratos/css/bootstrap.min-ver=3.3.7.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='../wp-content/themes/Kratos/css/superfish.min-ver=r7.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='../wp-content/themes/Kratos/css/layer.min-ver=2.8.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='../wp-content/themes/Kratos/style-ver=2.8.css' type='text/css' media='all' />
+<link rel='https://api.w.org/' href='https://daynews.cc/wp-json/' />
+<link rel='shortlink' href='12998.html' />
+<link rel="alternate" type="application/json+oembed" href="https://daynews.cc/wp-json/oembed/1.0/embed?url=https://daynews.cc/technology/12998.html" />
+<link rel="alternate" type="text/xml+oembed" href="https://daynews.cc/wp-json/oembed/1.0/embed?url=https://daynews.cc/technology/12998.html&format=xml" />
+		<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.min-ver=2.1.4.js'></script>
+				
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154207825-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		  gtag('config', 'UA-154207825-1');
+		</script>
+		
+		<script data-ad-client="ca-pub-8261739837930821" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="12998.html#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="../index.html"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="../index.html">首頁</a></li>
+<li><a href="../entertainment.html">娛樂</a></li>
+<li><a href="../emotion.html">情感</a></li>
+<li><a href="../international.html">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="../technology.html">科技</a></li>
+<li><a href="../sports.html">體育</a>
+<ul class="sub-menu">
+	<li><a href="../nba.html">NBA</a></li>
+	<li><a href="../premier.html">英超</a></li>
+</ul>
+</li>
+<li><a href="../history.html">歷史</a></li>
+<li><a href="../game.html">遊戲</a></li>
+<li><a href="../health.html">養生</a>
+<ul class="sub-menu">
+	<li><a href="../lose.html">減肥</a></li>
+</ul>
+</li>
+<li><a href="../constellation.html">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">看完2019年阿里巴巴Python面試題詳解，月薪3萬不是夢</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-12				                <i class="fa fa-commenting-o"></i> 1,059條評論
+				                <i class="fa fa-eye"></i> 2,412次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 1381人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+<p>很多人想自學Python找工作，下面給大家分享一部分阿里巴巴的Python開發工程師的面試題目：</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/97b72cddf0b247eca557526b63ab8d5e" src="http://p3.pstatp.com/large/pgc-image/97b72cddf0b247eca557526b63ab8d5e" alt="《看完2019年阿里巴巴Python面試題詳解，月薪3萬不是夢》" /></p>
+<p class="pgc-img-caption">
+</div>
+<h2 class="pgc-h-arrow-right">概念理解類題目：</h2>
+<p><strong>1.請說一下你對迭代器和生成器的區別？</strong></p>
+<p>答：（1）迭代器是一個更抽象的概念，任何對象，如果它的類有next方法和iter方法返回自己本身。對於string、list、dict、tuple等這類容器對象，使用for循環遍歷是很方便的。在後台for語句對容器對象調用iter()函數，iter()是python的內置函數。iter()會返回一個定義了next()方法的迭代器對象，它在容器中逐個訪問容器內元素，next()也是python的內置函數。在沒有後續元素時，next()會拋出一個StopIteration異常</p>
+<p>（2）生成器（Generator）是創建迭代器的簡單而強大的工具。它們寫起來就像是正規的函數，只是在需要返回數據的時候使用yield語句。每次next()被調用時，生成器會返回它脫離的位置（它記憶語句最後一次執行的位置和所有的數據值）</p>
+<p>區別：生成器能做到迭代器能做的所有事,而且因為自動創建了__iter__()和next()方法,生成器顯得特別簡潔,而且生成器也是高效的，使用生成器表達式取代列表解析可以同時節省內存。除了創建和保存程序狀態的自動方法,當發生器終結時,還會自動拋出StopIteration異常</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/a3da3ce997114de28d57a2387f41bda7" src="http://p3.pstatp.com/large/pgc-image/a3da3ce997114de28d57a2387f41bda7" alt="《看完2019年阿里巴巴Python面試題詳解，月薪3萬不是夢》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p><strong>2.什麼是線程安全？</strong></p>
+<p>線程安全是在多線程的環境下，能夠保證多個線程同時執行時程序依舊運行正確, 而且要保證對於共享的數據可以由多個線程存取，但是同一時刻只能有一個線程進行存取。多線程環境下解決資源競爭問題的辦法是加鎖來保證存取操作的唯一性。</p>
+<p><strong>3.什麼是私有變數？</strong></p>
+<p>小寫和一個前導下劃線 _private_value</p>
+<p>Python 中不存在私有變數一說，若是遇到需要保護的變數，使用小寫和一個前導下劃線。但這只是程序員之間的一個約定，用於警告說明這是一個私有變數，外部類不要去訪問它。但實際上，外部類還是可以訪問到這個變數。</p>
+<p><strong>4.內置變數</strong></p>
+<p>小寫，兩個前導下劃線和兩個後置下劃線 __class__</p>
+<p>兩個前導下劃線會導致變數在解釋期間被更名。這是為了避免內置變數和其他變數產生衝突。用戶定義的變數要嚴格避免這種風格。以免導致混亂。</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/66715f67c2644b6d9e816a0ef463879d" src="http://p3.pstatp.com/large/pgc-image/66715f67c2644b6d9e816a0ef463879d" alt="《看完2019年阿里巴巴Python面試題詳解，月薪3萬不是夢》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p><strong>5.函數和方法</strong></p>
+<p>總體而言應該使用，小寫和下劃線。但有些比較老的庫使用的是混合大小寫，即首單詞小寫，之後每個單詞第一個字母大寫，其餘小寫。但現在，小寫和下劃線已成為規範。</p>
+<p>私有方法 ：小寫和一個前導下劃線</p>
+<p>這裡和私有變數一樣，並不是真正的私有訪問許可權。同時也應該注意一般函數不要使用兩個前導下劃線(當遇到兩個前導下劃線時，Python 的名稱改編特性將發揮作用)。</p>
+<p>特殊方法 ：小寫和兩個前導下劃線，兩個後置下劃線</p>
+<p>這種風格只應用於特殊函數，比如操作符重載等。</p>
+<p>函數參數 : 小寫和下劃線，預設值等號兩邊無空格</p>
+<p><strong>6.類</strong></p>
+<p>類總是使用駝峰格式命名，即所有單詞首字母大寫其餘字母小寫。類名應該簡明，精確，並足以從中理解類所完成的工作。常見的一個方法是使用表示其類型或者特性的後綴，例如:</p>
+<p>SQLEngine，MimeTypes對於基類而言，可以使用一個 Base 或者 Abstract 前綴BaseCookie，AbstractGroup</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/cbf2621584674c7a9e931b086766d2b6" src="http://p1.pstatp.com/large/pgc-image/cbf2621584674c7a9e931b086766d2b6" alt="《看完2019年阿里巴巴Python面試題詳解，月薪3萬不是夢》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p><strong>7.模塊和包</strong></p>
+<p>除特殊模塊 __init__ 之外，模塊名稱都使用不帶下劃線的小寫字母。</p>
+<p>若是它們實現一個協議，那麼通常使用lib為後綴，例如:</p>
+<p>import smtplib</p>
+<p>import os</p>
+<p>import sys</p>
+<p><strong>8.Python是如何進行內存管理的？</strong></p>
+<p>一、垃圾回收：python不像C++，Java等語言一樣，他們可以不用事先聲明變數類型而直接對變數進行賦值。對Python語言來講，對象的類型和內存都是在運行時確定的。這也是為什麼我們稱Python語言為動態類型的原因（這裡我們把動態類型可以簡單的歸結為對變數內存地址的分配是在運行時自動判斷變數類型並對變數進行賦值）。</p>
+<p>二、引用計數：Python採用了類似Windows內核對象一樣的方式來對內存進行管理。每一個對象，都維護這一個對指向該對對象的引用的計數。當變數被綁定在一個對象上的時候，該變數的引用計數就是1，(還有另外一些情況也會導致變數引用計數的增加),系統會自動維護這些標籤，並定時掃描，當某標籤的引用計數變為0的時候，該對就會被回收。</p>
+<p>三、內存池機制Python的內存機制以金字塔行，-1，-2層主要有操作系統進行操作，</p>
+<p>　　第0層是C中的malloc，free等內存分配和釋放函數進行操作；</p>
+<p>　　第1層和第2層是內存池，有Python的介面函數PyMem_Malloc函數實現，當對象小於256K時有該層直接分配內存；</p>
+<p>　　第3層是最上層，也就是我們對Python對象的直接操作；</p>
+<p>在 C 中如果頻繁的調用 malloc 與 free 時,是會產生性能問題的.再加上頻繁的分配與釋放小塊的內存會產生內存碎片. Python 在這裡主要乾的工作有:</p>
+<p>　　如果請求分配的內存在1~256位元組之間就使用自己的內存管理系統,否則直接使用 malloc.</p>
+<p>　　這裡還是會調用 malloc 分配內存,但每次會分配一塊大小為256k的大塊內存.</p>
+<p>　　經由內存池登記的內存到最後還是會回收到內存池,並不會調用 C 的 free 釋放掉.以便下次使用.對於簡單的Python對象，例如數值、字元串，元組（tuple不允許被更改)採用的是複製的方式(深拷貝?)，也就是說當將另一個變數B賦值給變數A時，雖然A和B的內存空間仍然相同，但當A的值發生變化時，會重新給A分配空間，A和B的地址變得不再相同</p>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/843ed1eacbbf4fcb8cc9c7db4182d879" src="http://p9.pstatp.com/large/pgc-image/843ed1eacbbf4fcb8cc9c7db4182d879" alt="《看完2019年阿里巴巴Python面試題詳解，月薪3萬不是夢》" /></p>
+<p class="pgc-img-caption">
+</div>
+<h2 class="pgc-h-arrow-right">函數方法使用類題目</h2>
+<p><strong>1.Python裡面如何生成隨機數？</strong></p>
+<p>答：random模塊</p>
+<p>隨機整數：random.randint(a,b)：返回隨機整數x,a&lt;=x&lt;=b</p>
+<p>random.randrange(start,stop,[,step])：返回一個範圍在(start,stop,step)之間的隨機整數，不包括結束值。</p>
+<p>隨機實數：random.random( ):返回0到1之間的浮點數</p>
+<p>random.uniform(a,b):返回指定範圍內的浮點數。</p>
+<p><strong>2.有沒有一個工具可以幫助查找python的bug和進行靜態的代碼分析？</strong></p>
+<p>答：PyChecker是一個python代碼的靜態分析工具，它可以幫助查找python代碼的bug, 會對代碼的複雜度和格式提出警告</p>
+<p>Pylint是另外一個工具可以進行codingstandard檢查</p>
+<p><strong>3.如何在一個function裡面設置一個全局的變數？</strong></p>
+<p>答：解決方法是在function的開始插入一個global聲明：</p>
+<pre>def f()<br>global x<br></pre>
+<p><strong>4.單引號，雙引號，三引號的區別</strong></p>
+<p>答：單引號和雙引號是等效的，如果要換行，需要符號(),三引號則可以直接換行，並且可以包含注釋</p>
+<p>如果要表示Let』s go 這個字元串</p>
+<pre>單引號：s4 = 『Let\』s go』<br>雙引號：s5 = 「Let』s go」<br>s6 = 『I realy like「python」!』<br></pre>
+<p>這就是單引號和雙引號都可以表示字元串的原因了</p>
+<p><strong>5.find和grep的區別？</strong></p>
+<p>grep命令是一種強大的文本搜索工具，grep搜索內容串可以是正則表達式，允許對文本文件進行模式查找。如果找到匹配模式， grep列印包含模式的所有行。</p>
+<p>find通常用來在特定的目錄下搜索符合條件的文件，也可以用來搜索特定用戶屬主的文件。</p>
+<p><strong>6.使用 has 或 is 前綴命名布爾元素</strong></p>
+<p>is_connect = True</p>
+<p>has_member = False</p>
+<p><strong>7.用複數形式命名序列</strong></p>
+<p>members = [&#8216;user_1&#8217;, &#8216;user_2&#8217;]</p>
+<p><strong>8. 用顯式名稱命名字典</strong></p>
+<p>person_address = {&#8216;user_1&#8242;:&#8217;10 road WD&#8217;, &#8216;user_2&#8242; : &#8217;20 street huafu&#8217;}</p>
+<p><strong>9.python 中 yield 的用法？</strong></p>
+<p>答： yield簡單說來就是一個生成器，這樣函數它記住上次返 回時在函數體中的位置。對生成器第 二次（或n 次）調用跳轉至該函 次）調用跳轉至該函 數。</p>
+<h2 class="pgc-h-arrow-right">爬蟲和資料庫</h2>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/ff9b3b4ff5604bc498013284adb30016" src="http://p1.pstatp.com/large/pgc-image/ff9b3b4ff5604bc498013284adb30016" alt="《看完2019年阿里巴巴Python面試題詳解，月薪3萬不是夢》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p><strong>1.你用過的爬蟲框架或者模塊有哪些？談談他們的區別或者優缺點？</strong></p>
+<p>Python自帶：urllib，urllib2</p>
+<p>第 三 方：requests</p>
+<p>框 架：Scrapy</p>
+<p>urllib和urllib2模塊都做與請求URL相關的操作，但他們提供不同的功能。</p>
+<p>urllib2.：urllib2.urlopen可以接受一個Request對象或者url，（在接受Request對象時候，並以此可以來設置一個URL 的headers），urllib.urlopen只接收一個url</p>
+<p>urllib 有urlencode,urllib2沒有，因此總是urllib，urllib2常會一起使用的原因</p>
+<p>scrapy是封裝起來的框架，他包含了下載器，解析器，日誌及異常處理，基於多線程， twisted的方式處理，對於固定單個網站的爬取開發，有優勢，但是對於多網站爬取 100個網站，並發及分散式處理方面，不夠靈活，不便調整與括展。</p>
+<p>request 是一個HTTP庫， 它只是用來，進行請求，對於HTTP請求，他是一個強大的庫，下載，解析全部自己處理，靈活性更高，高並發與分散式部署也非常靈活，對於功能可以更好實現.</p>
+<p><strong>2.scrapy和scrapy-redis有什麼區別？為什麼選擇redis資料庫？</strong></p>
+<p>1) scrapy是一個Python爬蟲框架，爬取效率極高，具有高度定製性，但是不支持分散式。而scrapy-redis一套基於redis資料庫、運行在scrapy框架之上的組件，可以讓scrapy支持分散式策略，Slaver端共享Master端redis資料庫里的item隊列、請求隊列和請求指紋集合。</p>
+<p>2) 為什麼選擇redis資料庫，因為redis支持主從同步，而且數據都是緩存在內存中的，所以基於redis的分散式爬蟲，對請求和數據的高頻讀取效率非常高。</p>
+<p><strong>3.資料庫的優化？</strong></p>
+<p>1. 優化索引、SQL 語句、分析慢查詢；</p>
+<p>2. 設計表的時候嚴格根據資料庫的設計範式來設計資料庫；</p>
+<p>3. 使用緩存，把經常訪問到的數據而且不需要經常變化的數據放在緩存中，能</p>
+<p>節約磁碟IO；</p>
+<p>4. 優化硬體；採用SSD，使用磁碟隊列技術(RAID0,RAID1,RDID5)等；</p>
+<p>5. 採用MySQL 內部自帶的表分區技術，把數據分層不同的文件，能夠提高磁</p>
+<p>盤的讀取效率；</p>
+<p>6. 垂直分表；把一些不經常讀的數據放在一張表裡，節約磁碟I/O；</p>
+<p>7. 主從分離讀寫；採用主從複製把資料庫的讀操作和寫入操作分離開來；</p>
+<p>8. 分庫分表分機器（數據量特別大），主要的的原理就是數據路由；</p>
+<p>9. 選擇合適的表引擎，參數上的優化；</p>
+<p>10. 進行架構級別的緩存，靜態化和分散式；</p>
+<p>11. 不採用全文索引；</p>
+<p>12. 採用更快的存儲方式，例如 NoSQL存儲經常訪問的數據</p>
+<h2 class="pgc-h-arrow-right">結尾</h2>
+<p>以上只是一部分題目，關注小編，我這裡有很多Python學習資料，我會每天和大家分享我的學習方法以及根變成有關的趣事。</p>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="12998" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/12998.html"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/12998.html";
+		var title='%E3%80%90%E7%9C%8B%E5%AE%8C2019%E5%B9%B4%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4Python%E9%9D%A2%E8%A9%A6%E9%A1%8C%E8%A9%B3%E8%A7%A3%EF%BC%8C%E6%9C%88%E8%96%AA3%E8%90%AC%E4%B8%8D%E6%98%AF%E5%A4%A2%E3%80%91';
+		var qqtitle='%E3%80%90%E7%9C%8B%E5%AE%8C2019%E5%B9%B4%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4Python%E9%9D%A2%E8%A9%A6%E9%A1%8C%E8%A9%B3%E8%A7%A3%EF%BC%8C%E6%9C%88%E8%96%AA3%E8%90%AC%E4%B8%8D%E6%98%AF%E5%A4%A2%E3%80%91';
+		var excerpt='%E5%BE%88%E5%A4%9A%E4%BA%BA%E6%83%B3%E8%87%AA%E5%AD%B8Python%E6%89%BE%E5%B7%A5%E4%BD%9C%EF%BC%8C%E4%B8%8B%E9%9D%A2%E7%B5%A6%E5%A4%A7%E5%AE%B6%E5%88%86%E4%BA%AB%E4%B8%80%E9%83%A8%E5%88%86%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%E7%9A%84Python%E9%96%8B%E7%99%BC%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E9%9D%A2%E8%A9%A6%E9%A1%8C%E7%9B%AE%EF%BC%9A%20%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3%E9%A1%9E%E9%A1%8C%E7%9B%AE%EF%BC%9A%201.%E8%AB%8B%E8%AA%AA%E4%B8%80%E4%B8%8B%E4%BD%A0%E5%B0%8D%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E7%94%9F%E6%88%90%E5%99%A8%E7%9A%84%E5%8D%80%E5%88%A5%EF%BC%9F%20%E7%AD%94%EF%BC%9A%EF%BC%881%EF%BC%89%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%98%AF%E4%B8%80%E5%80%8B%E6%9B%B4%E6%8A%BD%E8%B1%A1%E7%9A%84%E6%A6%82%E5%BF%B5%EF%BC%8C%E4%BB%BB%E4%BD%95%E5%B0%8D%E8%B1%A1%EF%BC%8C%E5%A6%82%E6%9E%9C%E5%AE%83%E7%9A%84%E9%A1%9E%E6%9C%89next%E6%96%B9%E6%B3%95%E5%92%8Citer%E6%96%B9%E6%B3%95%E8%BF%94%E5%9B%9E%E8%87%AA%E5%B7%B1%E6%9C%AC%E8%BA%AB%E3%80%82%E5%B0%8D%E6%96%BCstring%E3%80%81list%E3%80%81dict%E3%80%81tuple%E7%AD%89%E9%80%99%E9%A1%9E%E5%AE%B9%E5%99%A8%E5%B0%8D%E8%B1%A1%EF%BC%8C%E4%BD%BF%E7%94%A8for%E5%BE%AA%E7%92%B0%E9%81%8D%E6%AD%B7%E6%98%AF%E5%BE%88%E2%80%A6%E2%80%A6';
+		var wbexcerpt='%E5%BE%88%E5%A4%9A%E4%BA%BA%E6%83%B3%E8%87%AA%E5%AD%B8Python%E6%89%BE%E5%B7%A5%E4%BD%9C%EF%BC%8C%E4%B8%8B%E9%9D%A2%E7%B5%A6%E5%A4%A7%E5%AE%B6%E5%88%86%E4%BA%AB%E4%B8%80%E9%83%A8%E5%88%86%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%E7%9A%84Python%E9%96%8B%E7%99%BC%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E9%9D%A2%E8%A9%A6%E9%A1%8C%E7%9B%AE%EF%BC%9A%20%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3%E9%A1%9E%E9%A1%8C%E7%9B%AE%EF%BC%9A%201.%E8%AB%8B%E8%AA%AA%E4%B8%80%E4%B8%8B%E4%BD%A0%E5%B0%8D%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E7%94%9F%E6%88%90%E5%99%A8%E7%9A%84%E5%8D%80%E5%88%A5%EF%BC%9F%20%E7%AD%94%EF%BC%9A%EF%BC%881%EF%BC%89%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%98%AF%E4%B8%80%E5%80%8B%E6%9B%B4%E6%8A%BD%E8%B1%A1%E7%9A%84%E6%A6%82%E5%BF%B5%EF%BC%8C%E4%BB%BB%E4%BD%95%E5%B0%8D%E8%B1%A1%EF%BC%8C%E5%A6%82%E6%9E%9C%E5%AE%83%E7%9A%84%E9%A1%9E%E6%9C%89next%E6%96%B9%E6%B3%95%E5%92%8Citer%E6%96%B9%E6%B3%95%E8%BF%94%E5%9B%9E%E8%87%AA%E5%B7%B1%E6%9C%AC%E8%BA%AB%E3%80%82%E5%B0%8D%E6%96%BCstring%E3%80%81list%E3%80%81dict%E3%80%81tuple%E7%AD%89%E9%80%99%E9%A1%9E%E5%AE%B9%E5%99%A8%E5%B0%8D%E8%B1%A1%EF%BC%8C%E4%BD%BF%E7%94%A8for%E5%BE%AA%E7%92%B0%E9%81%8D%E6%AD%B7%E6%98%AF%E5%BE%88%E2%80%A6%E2%80%A6';
+		var pic="http://p3.pstatp.com/large/pgc-image/97b72cddf0b247eca557526b63ab8d5e";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="支付寶、京東、美團、去哪兒支付系統-架構整體設計詳解" href="12999.html">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="戴威"跪著也要活下去" ofo下一站去哪？" href="12997.html">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="12998.html#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="../wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="../wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="../wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="../wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="../wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="../wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="../wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="../wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="../wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="../wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="../wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="../wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="../wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="../wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="../wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="../wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="../wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="../wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="../wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="../wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="../wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="../wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="../wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="../wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="../wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='12998' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="12998.html#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="12998.html#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="12998.html#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="12998.html#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="12998.html#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="12998.html#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="西晉張華：推動滅吳，國難忠臣，最後為何落了族誅的下場？" href="../history/13494.html" rel="bookmark"><i class="fa  fa-book"></i> 西晉張華：推動滅吳，國難忠臣，最後為何落了族誅的下場？                            </a>
+                            <a class="list-group-item visible-md" title="西晉張華：推動滅吳，國難忠臣，最後為何落了族誅的下場？" href="../history/13494.html" rel="bookmark"><i class="fa  fa-book"></i> 西晉張華：推動滅吳，國難忠臣，最後為何落了族誅的下場？                            </a>
+                                                    <a class="list-group-item visible-lg" title="春秋戰國時期諸侯國為何紛紛修築長城？不僅用於互防，還用於邊防" href="../history/13493.html" rel="bookmark"><i class="fa  fa-book"></i> 春秋戰國時期諸侯國為何紛紛修築長城？不僅用於互防，還用於邊防                            </a>
+                            <a class="list-group-item visible-md" title="春秋戰國時期諸侯國為何紛紛修築長城？不僅用於互防，還用於邊防" href="../history/13493.html" rel="bookmark"><i class="fa  fa-book"></i> 春秋戰國時期諸侯國為何紛紛修築長城？不僅用於互防，還用於邊防                            </a>
+                                                    <a class="list-group-item visible-lg" title="為燕國拓地2000餘里的名將秦開，他的後代過得怎麼樣，結局如何？" href="../history/13496.html" rel="bookmark"><i class="fa  fa-book"></i> 為燕國拓地2000餘里的名將秦開，他的後代過得怎麼樣，結局如何？                            </a>
+                            <a class="list-group-item visible-md" title="為燕國拓地2000餘里的名將秦開，他的後代過得怎麼樣，結局如何？" href="../history/13496.html" rel="bookmark"><i class="fa  fa-book"></i> 為燕國拓地2000餘里的名將秦開，他的後代過得怎麼樣，結局如何？                            </a>
+                                                    <a class="list-group-item visible-lg" title="土司制度：區域自治的成功案例，促進了封建社會的穩定發展" href="../history/13495.html" rel="bookmark"><i class="fa  fa-book"></i> 土司制度：區域自治的成功案例，促進了封建社會的穩定發展                            </a>
+                            <a class="list-group-item visible-md" title="土司制度：區域自治的成功案例，促進了封建社會的穩定發展" href="../history/13495.html" rel="bookmark"><i class="fa  fa-book"></i> 土司制度：區域自治的成功案例，促進了封建社會的穩定發展                            </a>
+                                                    <a class="list-group-item visible-lg" title="《形骸騎士》，一款融合彈幕、Furry等多要素Roguelite動作遊戲" href="../game/13763.html" rel="bookmark"><i class="fa  fa-book"></i> 《形骸騎士》，一款融合彈幕、Furry等多要素Roguelite動作遊戲                            </a>
+                            <a class="list-group-item visible-md" title="《形骸騎士》，一款融合彈幕、Furry等多要素Roguelite動作遊戲" href="../game/13763.html" rel="bookmark"><i class="fa  fa-book"></i> 《形骸騎士》，一款融合彈幕、Furry等多要素Roguelite動作遊戲                            </a>
+                                                    <a class="list-group-item visible-lg" title="古人如何避免工程偷工減料？從清朝入手，看看古政府是如何處理的" href="../history/13497.html" rel="bookmark"><i class="fa  fa-book"></i> 古人如何避免工程偷工減料？從清朝入手，看看古政府是如何處理的                            </a>
+                            <a class="list-group-item visible-md" title="古人如何避免工程偷工減料？從清朝入手，看看古政府是如何處理的" href="../history/13497.html" rel="bookmark"><i class="fa  fa-book"></i> 古人如何避免工程偷工減料？從清朝入手，看看古政府是如何處理的                            </a>
+                                                    <a class="list-group-item visible-lg" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="../game/13764.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多                            </a>
+                            <a class="list-group-item visible-md" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="../game/13764.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多                            </a>
+                                                    <a class="list-group-item visible-lg" title="雲頂之弈出現“白給戰術”，主C放在角落給刺客切反而更強" href="../game/13765.html" rel="bookmark"><i class="fa  fa-book"></i> 雲頂之弈出現“白給戰術”，主C放在角落給刺客切反而更強                            </a>
+                            <a class="list-group-item visible-md" title="雲頂之弈出現“白給戰術”，主C放在角落給刺客切反而更強" href="../game/13765.html" rel="bookmark"><i class="fa  fa-book"></i> 雲頂之弈出現“白給戰術”，主C放在角落給刺客切反而更強                            </a>
+                                                    <a class="list-group-item visible-lg" title="遊戲新手教學的5種基本方式及其運用場景研究" href="../game/13766.html" rel="bookmark"><i class="fa  fa-book"></i> 遊戲新手教學的5種基本方式及其運用場景研究                            </a>
+                            <a class="list-group-item visible-md" title="遊戲新手教學的5種基本方式及其運用場景研究" href="../game/13766.html" rel="bookmark"><i class="fa  fa-book"></i> 遊戲新手教學的5種基本方式及其運用場景研究                            </a>
+                                                    <a class="list-group-item visible-lg" title="陰陽師亞服超級福利活動：自選SSR/SP概率UP活動 看完果斷酸了" href="../game/13767.html" rel="bookmark"><i class="fa  fa-book"></i> 陰陽師亞服超級福利活動：自選SSR/SP概率UP活動 看完果斷酸了                            </a>
+                            <a class="list-group-item visible-md" title="陰陽師亞服超級福利活動：自選SSR/SP概率UP活動 看完果斷酸了" href="../game/13767.html" rel="bookmark"><i class="fa  fa-book"></i> 陰陽師亞服超級福利活動：自選SSR/SP概率UP活動 看完果斷酸了                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="../international/8854.html" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="../international/8854.html" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="../international/12134.html" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-md" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="../international/12134.html" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="../health/7098.html" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="../health/7098.html" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-lg" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="../entertainment/10879.html" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-md" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="../entertainment/10879.html" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-lg" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="10158.html" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-md" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="10158.html" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-lg" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="../game/13764.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-md" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="../game/13764.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-lg" title="一隻低位科技股：消費電子+華為（600152），有望繼續突破" href="12846.html" rel="bookmark"><i class="fa  fa-book"></i> 一隻低位科技股：消費電子+華為（600152），有望繼續突破</a><a class="list-group-item visible-md" title="一隻低位科技股：消費電子+華為（600152），有望繼續突破" href="12846.html" rel="bookmark"><i class="fa  fa-book"></i> 一隻低位科技股：消費電子+華為（600152），有望繼續突破</a><a class="list-group-item visible-lg" title="爐石傳說：希爾瓦娜斯皮膚實際測評，獵爹還是獵爹" href="../game/13768.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：希爾瓦娜斯皮膚實際測評，獵爹還是獵爹</a><a class="list-group-item visible-md" title="爐石傳說：希爾瓦娜斯皮膚實際測評，獵爹還是獵爹" href="../game/13768.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：希爾瓦娜斯皮膚實際測評，獵爹還是獵爹</a><a class="list-group-item visible-lg" title="《慶余年》全集資源泄露，官方出VIP付費提前點播做回應！" href="../entertainment/12746.html" rel="bookmark"><i class="fa  fa-book"></i> 《慶余年》全集資源泄露，官方出VIP付費提前點播做回應！</a><a class="list-group-item visible-md" title="《慶余年》全集資源泄露，官方出VIP付費提前點播做回應！" href="../entertainment/12746.html" rel="bookmark"><i class="fa  fa-book"></i> 《慶余年》全集資源泄露，官方出VIP付費提前點播做回應！</a><a class="list-group-item visible-lg" title="撒網式交友，出門不用帶錢包的三種人" href="../constellation/8226.html" rel="bookmark"><i class="fa  fa-book"></i> 撒網式交友，出門不用帶錢包的三種人</a><a class="list-group-item visible-md" title="撒網式交友，出門不用帶錢包的三種人" href="../constellation/8226.html" rel="bookmark"><i class="fa  fa-book"></i> 撒網式交友，出門不用帶錢包的三種人</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="打中熱刺“死亡防區”鬥志MAX的紅魔惹不起" href="../sports/2573.html" rel="bookmark"><i class="fa  fa-book"></i> 打中熱刺“死亡防區”鬥志MAX的紅魔惹不起                            </a>
+                            <a class="list-group-item visible-md" title="打中熱刺“死亡防區”鬥志MAX的紅魔惹不起" href="../sports/2573.html" rel="bookmark"><i class="fa  fa-book"></i> 打中熱刺“死亡防區”鬥志MAX的紅魔惹不起                            </a>
+                                                    <a class="list-group-item visible-lg" title="為什麼總在深夜兩三點醒來 是咋回事 可能是身體哪裡出了問題" href="../health/13417.html" rel="bookmark"><i class="fa  fa-book"></i> 為什麼總在深夜兩三點醒來 是咋回事 可能是身體哪裡出了問題                            </a>
+                            <a class="list-group-item visible-md" title="為什麼總在深夜兩三點醒來 是咋回事 可能是身體哪裡出了問題" href="../health/13417.html" rel="bookmark"><i class="fa  fa-book"></i> 為什麼總在深夜兩三點醒來 是咋回事 可能是身體哪裡出了問題                            </a>
+                                                    <a class="list-group-item visible-lg" title="為何沒人願意搞青訓？看看“中國阿賈克斯”悲慘命運就知道了" href="../sports/2872.html" rel="bookmark"><i class="fa  fa-book"></i> 為何沒人願意搞青訓？看看“中國阿賈克斯”悲慘命運就知道了                            </a>
+                            <a class="list-group-item visible-md" title="為何沒人願意搞青訓？看看“中國阿賈克斯”悲慘命運就知道了" href="../sports/2872.html" rel="bookmark"><i class="fa  fa-book"></i> 為何沒人願意搞青訓？看看“中國阿賈克斯”悲慘命運就知道了                            </a>
+                                                    <a class="list-group-item visible-lg" title="魏延不想造反、不想投降曹魏，就是單純想要殺死楊儀" href="../history/3630.html" rel="bookmark"><i class="fa  fa-book"></i> 魏延不想造反、不想投降曹魏，就是單純想要殺死楊儀                            </a>
+                            <a class="list-group-item visible-md" title="魏延不想造反、不想投降曹魏，就是單純想要殺死楊儀" href="../history/3630.html" rel="bookmark"><i class="fa  fa-book"></i> 魏延不想造反、不想投降曹魏，就是單純想要殺死楊儀                            </a>
+                                                    <a class="list-group-item visible-lg" title="早報：盧卡庫失良機國米戰平羅馬；藍軍發文質疑FIFA處罰公正性" href="../sports/2380.html" rel="bookmark"><i class="fa  fa-book"></i> 早報：盧卡庫失良機國米戰平羅馬；藍軍發文質疑FIFA處罰公正性                            </a>
+                            <a class="list-group-item visible-md" title="早報：盧卡庫失良機國米戰平羅馬；藍軍發文質疑FIFA處罰公正性" href="../sports/2380.html" rel="bookmark"><i class="fa  fa-book"></i> 早報：盧卡庫失良機國米戰平羅馬；藍軍發文質疑FIFA處罰公正性                            </a>
+                                                    <a class="list-group-item visible-lg" title="“限古令”已取消？12月份上演7部大戲，哪一部最值得期待？" href="../entertainment/301.html" rel="bookmark"><i class="fa  fa-book"></i> “限古令”已取消？12月份上演7部大戲，哪一部最值得期待？                            </a>
+                            <a class="list-group-item visible-md" title="“限古令”已取消？12月份上演7部大戲，哪一部最值得期待？" href="../entertainment/301.html" rel="bookmark"><i class="fa  fa-book"></i> “限古令”已取消？12月份上演7部大戲，哪一部最值得期待？                            </a>
+                                                    <a class="list-group-item visible-lg" title="雞蛋、鴨蛋、鵝蛋、鵪鶉蛋的營養千差萬別，終於懂了" href="../health/7593.html" rel="bookmark"><i class="fa  fa-book"></i> 雞蛋、鴨蛋、鵝蛋、鵪鶉蛋的營養千差萬別，終於懂了                            </a>
+                            <a class="list-group-item visible-md" title="雞蛋、鴨蛋、鵝蛋、鵪鶉蛋的營養千差萬別，終於懂了" href="../health/7593.html" rel="bookmark"><i class="fa  fa-book"></i> 雞蛋、鴨蛋、鵝蛋、鵪鶉蛋的營養千差萬別，終於懂了                            </a>
+                                                    <a class="list-group-item visible-lg" title="周杰倫曬照獲黃子韜追星，董又霖新歌表白李現和易烊千璽" href="../entertainment/10932.html" rel="bookmark"><i class="fa  fa-book"></i> 周杰倫曬照獲黃子韜追星，董又霖新歌表白李現和易烊千璽                            </a>
+                            <a class="list-group-item visible-md" title="周杰倫曬照獲黃子韜追星，董又霖新歌表白李現和易烊千璽" href="../entertainment/10932.html" rel="bookmark"><i class="fa  fa-book"></i> 周杰倫曬照獲黃子韜追星，董又霖新歌表白李現和易烊千璽                            </a>
+                                                    <a class="list-group-item visible-lg" title="埋伏 最好的一部老佳片沒有之一 張嘉譯" href="../entertainment/10804.html" rel="bookmark"><i class="fa  fa-book"></i> 埋伏 最好的一部老佳片沒有之一 張嘉譯                            </a>
+                            <a class="list-group-item visible-md" title="埋伏 最好的一部老佳片沒有之一 張嘉譯" href="../entertainment/10804.html" rel="bookmark"><i class="fa  fa-book"></i> 埋伏 最好的一部老佳片沒有之一 張嘉譯                            </a>
+                                                    <a class="list-group-item visible-lg" title="為啥郭德綱老提于謙媳婦？當看到照片後，網友：謙哥眼光好" href="../entertainment/12538.html" rel="bookmark"><i class="fa  fa-book"></i> 為啥郭德綱老提于謙媳婦？當看到照片後，網友：謙哥眼光好                            </a>
+                            <a class="list-group-item visible-md" title="為啥郭德綱老提于謙媳婦？當看到照片後，網友：謙哥眼光好" href="../entertainment/12538.html" rel="bookmark"><i class="fa  fa-book"></i> 為啥郭德綱老提于謙媳婦？當看到照片後，網友：謙哥眼光好                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="kratos_tags-4" class="widget widget_kratos_tags clearfix"><h4 class="widget-title">標籤</h4><div class="tag_clouds"></div></aside><aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="../nba.html">NBA</a> (1,112)
+</li>
+	<li class="cat-item cat-item-23"><a href="../international.html">國際</a> (1,422)
+</li>
+	<li class="cat-item cat-item-14"><a href="../entertainment.html">娛樂</a> (1,593)
+</li>
+	<li class="cat-item cat-item-15"><a href="../emotion.html">情感</a> (1,219)
+</li>
+	<li class="cat-item cat-item-22"><a href="../constellation.html">星座</a> (781)
+</li>
+	<li class="cat-item cat-item-17"><a href="../history.html">歷史</a> (1,210)
+</li>
+	<li class="cat-item cat-item-25"><a href="../lose.html">減肥</a> (274)
+</li>
+	<li class="cat-item cat-item-24"><a href="../technology.html">科技</a> (1,351)
+</li>
+	<li class="cat-item cat-item-19"><a href="../premier.html">英超</a> (1,012)
+</li>
+	<li class="cat-item cat-item-18"><a href="../game.html">遊戲</a> (1,453)
+</li>
+	<li class="cat-item cat-item-21"><a href="../health.html">養生</a> (1,074)
+</li>
+	<li class="cat-item cat-item-16"><a href="../sports.html">體育</a> (1,398)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='../date/2019/12.html'>2019 年 12 月</a>&nbsp;(10897)</li>
+	<li><a href='../date/2019/11.html'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='../date/2019/10.html'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="../index.html">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.easing.min-ver=1.3.0.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.qrcode.min-ver=2.8.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/layer.min-ver=3.0.3.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/modernizr.min-ver=2.6.2.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/bootstrap.min-ver=3.3.7.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.waypoints.min-ver=4.0.0.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.stellar.min-ver=0.6.2.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/hoverIntent.min-ver=r7.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/superfish-ver=1.0.0.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/kratos-ver=2.8.js'></script>
+<script type='text/javascript' src='../wp-includes/js/wp-embed.min-ver=5.2.4.js'></script>
+			</body>
+
+</html>
