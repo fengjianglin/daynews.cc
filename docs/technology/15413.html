@@ -1,0 +1,433 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>一個字元串中到底能有多少個字元？我竟然算錯了 - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="依照Java的文檔， Java中的字元內部是以UTF-16編碼方式表示的，最小值是 \\u0000 (0),最大值是\\uffff(65535)， 也就是一個字元以2個位元組來表示，難道Java最多只能表示 65535個字元？ char: The char data type is a single 16-bit Unicode char……" />
+		<meta name="keywords" content="一個字元串中到底能有多少個字元？我竟然算錯了天天要聞,科技," />
+		<meta itemprop="image" content="http://p1.pstatp.com/large/pgc-image/6bc97ba0821042df872e2dca794244b6"/>
+		<meta name="description" itemprop="description" content="依照Java的文檔， Java中的字元內部是以UTF-16編碼方式表示的，最小值是 \\u0000 (0),最大值是\\uffff(65535)， 也就是一個字元以2個位元組來表示，難道Java最多只能表示 65535個字元？ char: The char data type is a single 16-bit Unicode char……" />
+		<link rel='stylesheet' id='animate-css'  href='../wp-content/themes/Kratos/css/animate.min-ver=3.5.1.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='../wp-content/themes/Kratos/css/font-awesome.min-ver=4.7.0.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='../wp-content/themes/Kratos/css/bootstrap.min-ver=3.3.7.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='../wp-content/themes/Kratos/css/superfish.min-ver=r7.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='../wp-content/themes/Kratos/css/layer.min-ver=2.8.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='../wp-content/themes/Kratos/style-ver=2.8.css' type='text/css' media='all' />
+<link rel='https://api.w.org/' href='https://daynews.cc/wp-json/' />
+<link rel='shortlink' href='15413.html' />
+<link rel="alternate" type="application/json+oembed" href="https://daynews.cc/wp-json/oembed/1.0/embed?url=https://daynews.cc/technology/15413.html" />
+<link rel="alternate" type="text/xml+oembed" href="https://daynews.cc/wp-json/oembed/1.0/embed?url=https://daynews.cc/technology/15413.html&format=xml" />
+		<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.min-ver=2.1.4.js'></script>
+				
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154207825-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		  gtag('config', 'UA-154207825-1');
+		</script>
+		
+		<script data-ad-client="ca-pub-8261739837930821" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="15413.html#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="../index.html"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="../index.html">首頁</a></li>
+<li><a href="../entertainment.html">娛樂</a></li>
+<li><a href="../emotion.html">情感</a></li>
+<li><a href="../international.html">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="../technology.html">科技</a></li>
+<li><a href="../sports.html">體育</a>
+<ul class="sub-menu">
+	<li><a href="../nba.html">NBA</a></li>
+	<li><a href="../premier.html">英超</a></li>
+</ul>
+</li>
+<li><a href="../history.html">歷史</a></li>
+<li><a href="../game.html">遊戲</a></li>
+<li><a href="../health.html">養生</a>
+<ul class="sub-menu">
+	<li><a href="../lose.html">減肥</a></li>
+</ul>
+</li>
+<li><a href="../constellation.html">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">一個字元串中到底能有多少個字元？我竟然算錯了</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-15				                <i class="fa fa-commenting-o"></i> 463條評論
+				                <i class="fa fa-eye"></i> 1,660次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 203人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+<p>依照Java的文檔， Java中的字元內部是以UTF-16編碼方式表示的，最小值是 \\u0000 (0),最大值是\\uffff(65535)， 也就是一個字元以2個位元組來表示，難道Java最多只能表示 65535個字元？</p>
+<blockquote>
+<p>char: The char data type is a single 16-bit Unicode character. It has a minimum value of &#8216;\\u0000&#8217; (or 0) and a maximum value of &#8216;\\uffff&#8217; (or 65,535 inclusive).</p>
+<p>from The Java™ Tutorials</p>
+</blockquote>
+<p>首先，讓我們先看個例子：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/6bc97ba0821042df872e2dca794244b6" src="http://p1.pstatp.com/large/pgc-image/6bc97ba0821042df872e2dca794244b6" alt="《一個字元串中到底能有多少個字元？我竟然算錯了》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>運行這個程序，你覺得輸出結果是什麼？</p>
+<p>輸出結果：</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/eb13b526e9294bae8b22264f7eff8e16" src="http://p3.pstatp.com/large/pgc-image/eb13b526e9294bae8b22264f7eff8e16" alt="《一個字元串中到底能有多少個字元？我竟然算錯了》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>我們知道， String.getBytes()如果不指定編碼格式，Java會使用操作系統的編碼格式得到位元組數組，在我的MacOS中，默認使用UTF-8作為字元編碼(locale命令可以查看操作系統的編碼)，所以在我的機器運行，String.getBytes()會返回UTF-8編碼的位元組數組。</p>
+<ul class="list-paddingleft-2">
+<li>String.length返回Unicode code units的長度。</li>
+<li>String.toCharArray返回字元數組。</li>
+</ul>
+<p>我們設置的字元串都是兩個unicode字元，輸出結果：</p>
+<ul class="list-paddingleft-2">
+<li><strong>普通的中文字：</strong>字元串的長度是2，每個中文字按UTF-8編碼是三個位元組，字元數組的長度看起來也沒問題</li>
+<li><strong>emojis字元：</strong>我們設置了兩個emojis字元，男女頭像。結果字元串的長度是4, UTF-8編碼8個位元組，字元數組的長度是4</li>
+<li><strong>生僻的中文字：</strong>我們設置了兩個中文字，其中一個是生僻的中文字。結果字元串的長度是3， UTF-8編碼7個位元組，字元數組的長度是3</li>
+</ul>
+<p>看起來字元串的字元數和我們預期的有點不一樣，我們的字元串只有兩個unicode字元, 可是輸出結果有時候是2，有時候是3， 有時候是4，為什麼呢？</p>
+<p>這還得從Java的歷史說起。</p>
+<p>Java最初設計的Charactor用兩個位元組來表示unicode字元，這沒有問題， 因為最初unicode中的字元還比較少， Java 1.1之前採用Unicode version 1.1.5, JDK 1.1中支持Unicode 2.0, JDK 1.1.7支持Unicode 2.1, Java SE 1.4 支持 Unicode 3.0, Java SE 5.0開始支持Unicode 4.0。</p>
+<p>直到Unicode 3.0, Java用兩個位元組來表示unicode字元還沒有問題，因為Unicode 3.0最多49,259個字元， 兩個位元組可以表示65,535個字元，還足夠容的下所有的uicode3.0字元。</p>
+<p>但是Unicode 4.0(事實上自Unicode 3.1), 字符集進行很大的擴充，已經達到了96,447個字元，Unicode 11.0已經包含137,374個字元。</p>
+<p>在Unicode中，為每一個字元對應一個編碼點(一個整數)，用 U+緊跟著十六進位數表示。所有字元按照使用上的頻繁度劃分為 17 個平面（編號為 0-16），即基本的多語言平面和增補平面。基本的多語言平面（英文為 Basic Multilingual Plane，簡稱 BMP）又稱平面 0，收集了使用最廣泛的字元。</p>
+<p>這樣一來，Java的Charactor的兩個位元組的設計，已經不足以容納所有的Unicode 4的字元， 所以可能需要4個位元組才能表示擴展字元，所以現在的Charactor代表的已經不再是一個字元 (代碼點 code point), 而是一個代碼單元(code unit)。</p>
+<ul class="list-paddingleft-2">
+<li><strong>Code Point：</strong>代碼點，一個字元的數字表示。一個字符集一般可以用一張或多張由多個行和多個列所構成的二維表來表示。二維表中行與列交叉的點稱之為代碼點，每個碼點分配一個唯一的編號數字，稱之為碼點值或碼點編號，除開某些特殊區域(比如代理區、專用區)的非字元代碼點和保留代碼點，每個代碼點唯一對應於一個字元。從U+0000 到 U+10FFFF。</li>
+<li><strong>Code Unit：</strong>代碼單元，是指一個已編碼的文本中具有最短的比特組合的單元。對於 UTF-8 來說，代碼單元是 8 比特長；對於 UTF-16 來說，代碼單元是 16 比特長。換一種說法就是 UTF-8 的是以一個位元組為最小單位的，UTF-16 是以兩個位元組為最小單位的。</li>
+</ul>
+<p>Java的字元在內部以UTF-16編碼方式來表示，String.length返回的是Code Unit的長度，而不再是Unicode中字元的長度。對於傳統的BMP平面的代碼點，String.length和我們傳統理解的字元的數量是一致的，對於擴展的字元，String.length可能是我們理解的字元長度的兩倍。</p>
+<p>有可能你會問， 對於一個UTF-16編碼的擴展字元，它以4個位元組來表示，那麼前兩個位元組會不會和BMP平面衝突，導致程序不知道它是擴展字元還是BMP平面的字元？</p>
+<p>其實是不會的， 幸運的是， 在BMP平面中， U+D800到U+DFFF之間的碼位是永久保留不映射到Unicode字元，UTF-16就利用保留下來的0xD800-0xDFFF區塊的碼位來對輔助平面的字元的碼位進行編碼。</p>
+<p>UTF-16編碼中，輔助平面中的碼位從U+10000到U+10FFFF，共計FFFFF個,需要20位來表示。第一個整數（兩個位元組，稱為前導代理）要容納上述20位的前10位，第二個整數（稱為後尾代理）容納上述20位的後10位。前導代理的值的範圍是0xD800到0xDBFF,後尾代理的0xDC00~0xDFFF。</p>
+<p>可以看到前導代理和後尾代理的範圍都落在了BMP平面中不用來映射的碼位，所以不會產生衝突，而且前導代理和後尾代理也沒有重合。這樣我們得到兩個位元組的，就可以直接判斷它是否是BMP平面的字元，還是擴展字元中的前導代理還是後尾代碼。</p>
+<p>國外的有些用戶用emojis字元做自己的昵稱，導致有些系統不能正確的顯示出來，這是因為這些系統粗暴的使用Charactor來表示，在顯示的時候截斷的時候有時候可能不是在正確的代碼點上進行截斷。</p>
+<p>我們在進行字元串截取的時候,比如String.substring有可能會踩到一些坑，尤其經常使用的emojis字元。</p>
+<p>自 Java 1.5 java.lang.String就提供了Code Point方法， 用來獲取完整的Unicode字元和Unicode字元數量:</p>
+<pre>publicintcodePointAt(intindex)<br>publicintcodePointBefore(intindex)<br>publicintcodePointCount(intbeginIndex,intendIndex)</pre>
+<p>注意這些方法中的index使用的是code unit值。</p>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="15413" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/15413.html"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/15413.html";
+		var title='%E3%80%90%E4%B8%80%E5%80%8B%E5%AD%97%E5%85%83%E4%B8%B2%E4%B8%AD%E5%88%B0%E5%BA%95%E8%83%BD%E6%9C%89%E5%A4%9A%E5%B0%91%E5%80%8B%E5%AD%97%E5%85%83%EF%BC%9F%E6%88%91%E7%AB%9F%E7%84%B6%E7%AE%97%E9%8C%AF%E4%BA%86%E3%80%91';
+		var qqtitle='%E3%80%90%E4%B8%80%E5%80%8B%E5%AD%97%E5%85%83%E4%B8%B2%E4%B8%AD%E5%88%B0%E5%BA%95%E8%83%BD%E6%9C%89%E5%A4%9A%E5%B0%91%E5%80%8B%E5%AD%97%E5%85%83%EF%BC%9F%E6%88%91%E7%AB%9F%E7%84%B6%E7%AE%97%E9%8C%AF%E4%BA%86%E3%80%91';
+		var excerpt='%E4%BE%9D%E7%85%A7Java%E7%9A%84%E6%96%87%E6%AA%94%EF%BC%8C%20Java%E4%B8%AD%E7%9A%84%E5%AD%97%E5%85%83%E5%85%A7%E9%83%A8%E6%98%AF%E4%BB%A5UTF-16%E7%B7%A8%E7%A2%BC%E6%96%B9%E5%BC%8F%E8%A1%A8%E7%A4%BA%E7%9A%84%EF%BC%8C%E6%9C%80%E5%B0%8F%E5%80%BC%E6%98%AF%20%5C%5Cu0000%20%280%29%2C%E6%9C%80%E5%A4%A7%E5%80%BC%E6%98%AF%5C%5Cuffff%2865535%29%EF%BC%8C%20%E4%B9%9F%E5%B0%B1%E6%98%AF%E4%B8%80%E5%80%8B%E5%AD%97%E5%85%83%E4%BB%A52%E5%80%8B%E4%BD%8D%E5%85%83%E7%B5%84%E4%BE%86%E8%A1%A8%E7%A4%BA%EF%BC%8C%E9%9B%A3%E9%81%93Java%E6%9C%80%E5%A4%9A%E5%8F%AA%E8%83%BD%E8%A1%A8%E7%A4%BA%2065535%E5%80%8B%E5%AD%97%E5%85%83%EF%BC%9F%20char%3A%20The%20char%20data%20type%20is%20a%20single%2016-bit%20Unicode%20char%E2%80%A6%E2%80%A6';
+		var wbexcerpt='%E4%BE%9D%E7%85%A7Java%E7%9A%84%E6%96%87%E6%AA%94%EF%BC%8C%20Java%E4%B8%AD%E7%9A%84%E5%AD%97%E5%85%83%E5%85%A7%E9%83%A8%E6%98%AF%E4%BB%A5UTF-16%E7%B7%A8%E7%A2%BC%E6%96%B9%E5%BC%8F%E8%A1%A8%E7%A4%BA%E7%9A%84%EF%BC%8C%E6%9C%80%E5%B0%8F%E5%80%BC%E6%98%AF%20%5C%5Cu0000%20%280%29%2C%E6%9C%80%E5%A4%A7%E5%80%BC%E6%98%AF%5C%5Cuffff%2865535%29%EF%BC%8C%20%E4%B9%9F%E5%B0%B1%E6%98%AF%E4%B8%80%E5%80%8B%E5%AD%97%E5%85%83%E4%BB%A52%E5%80%8B%E4%BD%8D%E5%85%83%E7%B5%84%E4%BE%86%E8%A1%A8%E7%A4%BA%EF%BC%8C%E9%9B%A3%E9%81%93Java%E6%9C%80%E5%A4%9A%E5%8F%AA%E8%83%BD%E8%A1%A8%E7%A4%BA%2065535%E5%80%8B%E5%AD%97%E5%85%83%EF%BC%9F%20char%3A%20The%20char%20data%20type%20is%20a%20single%2016-bit%20Unicode%20char%E2%80%A6%E2%80%A6';
+		var pic="http://p1.pstatp.com/large/pgc-image/6bc97ba0821042df872e2dca794244b6";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="光聯CEO黃書展：智能網路打造企業數字化轉型IT核心能力" href="15414.html">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="25歲章澤天長啥樣？路人鏡頭才是照妖鏡，終於理解強哥了" href="15412.html">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="15413.html#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="../wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="../wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="../wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="../wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="../wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="../wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="../wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="../wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="../wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="../wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="../wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="../wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="../wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="../wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="../wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="../wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="../wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="../wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="../wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="../wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="../wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="../wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="../wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="../wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="../wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='15413' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="15413.html#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="15413.html#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="15413.html#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="15413.html#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="15413.html#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="15413.html#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="明世宗：哈密危機如何解？問題在於朝貢，開放嘉峪關即可" href="../history/16494.html" rel="bookmark"><i class="fa  fa-book"></i> 明世宗：哈密危機如何解？問題在於朝貢，開放嘉峪關即可                            </a>
+                            <a class="list-group-item visible-md" title="明世宗：哈密危機如何解？問題在於朝貢，開放嘉峪關即可" href="../history/16494.html" rel="bookmark"><i class="fa  fa-book"></i> 明世宗：哈密危機如何解？問題在於朝貢，開放嘉峪關即可                            </a>
+                                                    <a class="list-group-item visible-lg" title="三國最坑的謀士，出的全是餿主意，為誰獻策誰滅亡" href="../history/16493.html" rel="bookmark"><i class="fa  fa-book"></i> 三國最坑的謀士，出的全是餿主意，為誰獻策誰滅亡                            </a>
+                            <a class="list-group-item visible-md" title="三國最坑的謀士，出的全是餿主意，為誰獻策誰滅亡" href="../history/16493.html" rel="bookmark"><i class="fa  fa-book"></i> 三國最坑的謀士，出的全是餿主意，為誰獻策誰滅亡                            </a>
+                                                    <a class="list-group-item visible-lg" title="魏國中原爭霸戰略是錯誤的嗎？絕不是！魏國東部擴張從未停止" href="../history/16495.html" rel="bookmark"><i class="fa  fa-book"></i> 魏國中原爭霸戰略是錯誤的嗎？絕不是！魏國東部擴張從未停止                            </a>
+                            <a class="list-group-item visible-md" title="魏國中原爭霸戰略是錯誤的嗎？絕不是！魏國東部擴張從未停止" href="../history/16495.html" rel="bookmark"><i class="fa  fa-book"></i> 魏國中原爭霸戰略是錯誤的嗎？絕不是！魏國東部擴張從未停止                            </a>
+                                                    <a class="list-group-item visible-lg" title="農運算元相出朱元璋有天子相！農運算元的真實身份是什麼？" href="../history/16497.html" rel="bookmark"><i class="fa  fa-book"></i> 農運算元相出朱元璋有天子相！農運算元的真實身份是什麼？                            </a>
+                            <a class="list-group-item visible-md" title="農運算元相出朱元璋有天子相！農運算元的真實身份是什麼？" href="../history/16497.html" rel="bookmark"><i class="fa  fa-book"></i> 農運算元相出朱元璋有天子相！農運算元的真實身份是什麼？                            </a>
+                                                    <a class="list-group-item visible-lg" title="晉國殺死太子，逼迫重耳流亡的可能另有其人，驪姬也許是無辜的" href="../history/16496.html" rel="bookmark"><i class="fa  fa-book"></i> 晉國殺死太子，逼迫重耳流亡的可能另有其人，驪姬也許是無辜的                            </a>
+                            <a class="list-group-item visible-md" title="晉國殺死太子，逼迫重耳流亡的可能另有其人，驪姬也許是無辜的" href="../history/16496.html" rel="bookmark"><i class="fa  fa-book"></i> 晉國殺死太子，逼迫重耳流亡的可能另有其人，驪姬也許是無辜的                            </a>
+                                                    <a class="list-group-item visible-lg" title="非洲教堂出土紅寶石戒指和“凸”型護身符，證明古代黑人帝國存在" href="../history/16498.html" rel="bookmark"><i class="fa  fa-book"></i> 非洲教堂出土紅寶石戒指和“凸”型護身符，證明古代黑人帝國存在                            </a>
+                            <a class="list-group-item visible-md" title="非洲教堂出土紅寶石戒指和“凸”型護身符，證明古代黑人帝國存在" href="../history/16498.html" rel="bookmark"><i class="fa  fa-book"></i> 非洲教堂出土紅寶石戒指和“凸”型護身符，證明古代黑人帝國存在                            </a>
+                                                    <a class="list-group-item visible-lg" title="爐石傳說：橘子哥立志要針對薩滿！結果沒過幾天，就開始真香" href="../game/16774.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：橘子哥立志要針對薩滿！結果沒過幾天，就開始真香                            </a>
+                            <a class="list-group-item visible-md" title="爐石傳說：橘子哥立志要針對薩滿！結果沒過幾天，就開始真香" href="../game/16774.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：橘子哥立志要針對薩滿！結果沒過幾天，就開始真香                            </a>
+                                                    <a class="list-group-item visible-lg" title="Jackeylove大概率加入RNG？韓媒記者的這份爆料真實性有幾分？" href="../game/16773.html" rel="bookmark"><i class="fa  fa-book"></i> Jackeylove大概率加入RNG？韓媒記者的這份爆料真實性有幾分？                            </a>
+                            <a class="list-group-item visible-md" title="Jackeylove大概率加入RNG？韓媒記者的這份爆料真實性有幾分？" href="../game/16773.html" rel="bookmark"><i class="fa  fa-book"></i> Jackeylove大概率加入RNG？韓媒記者的這份爆料真實性有幾分？                            </a>
+                                                    <a class="list-group-item visible-lg" title="這是高手！！超寫實次世代遊戲角色作品，你們認為能打多少分？" href="../game/16776.html" rel="bookmark"><i class="fa  fa-book"></i> 這是高手！！超寫實次世代遊戲角色作品，你們認為能打多少分？                            </a>
+                            <a class="list-group-item visible-md" title="這是高手！！超寫實次世代遊戲角色作品，你們認為能打多少分？" href="../game/16776.html" rel="bookmark"><i class="fa  fa-book"></i> 這是高手！！超寫實次世代遊戲角色作品，你們認為能打多少分？                            </a>
+                                                    <a class="list-group-item visible-lg" title="征服者煉金搞人心態？姿態1V4劣勢翻盤，殺人書25層直接拉滿" href="../game/16775.html" rel="bookmark"><i class="fa  fa-book"></i> 征服者煉金搞人心態？姿態1V4劣勢翻盤，殺人書25層直接拉滿                            </a>
+                            <a class="list-group-item visible-md" title="征服者煉金搞人心態？姿態1V4劣勢翻盤，殺人書25層直接拉滿" href="../game/16775.html" rel="bookmark"><i class="fa  fa-book"></i> 征服者煉金搞人心態？姿態1V4劣勢翻盤，殺人書25層直接拉滿                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="../international/8854.html" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="../international/8854.html" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="../international/12134.html" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-md" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="../international/12134.html" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="../health/7098.html" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="../health/7098.html" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-lg" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="../entertainment/10879.html" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-md" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="../entertainment/10879.html" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-lg" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="10158.html" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-md" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="10158.html" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-lg" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="../game/13764.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-md" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="../game/13764.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-lg" title="《逆戰》這份最強逆世界福利指南請查收" href="../game/16855.html" rel="bookmark"><i class="fa  fa-book"></i> 《逆戰》這份最強逆世界福利指南請查收</a><a class="list-group-item visible-md" title="《逆戰》這份最強逆世界福利指南請查收" href="../game/16855.html" rel="bookmark"><i class="fa  fa-book"></i> 《逆戰》這份最強逆世界福利指南請查收</a><a class="list-group-item visible-lg" title="王子文兒時雖是短髮卻不“假小子”，更被馬景濤前妻的童年照美哭" href="../entertainment/14458.html" rel="bookmark"><i class="fa  fa-book"></i> 王子文兒時雖是短髮卻不“假小子”，更被馬景濤前妻的童年照美哭</a><a class="list-group-item visible-md" title="王子文兒時雖是短髮卻不“假小子”，更被馬景濤前妻的童年照美哭" href="../entertainment/14458.html" rel="bookmark"><i class="fa  fa-book"></i> 王子文兒時雖是短髮卻不“假小子”，更被馬景濤前妻的童年照美哭</a><a class="list-group-item visible-lg" title="一隻低位科技股：消費電子+華為（600152），有望繼續突破" href="12846.html" rel="bookmark"><i class="fa  fa-book"></i> 一隻低位科技股：消費電子+華為（600152），有望繼續突破</a><a class="list-group-item visible-md" title="一隻低位科技股：消費電子+華為（600152），有望繼續突破" href="12846.html" rel="bookmark"><i class="fa  fa-book"></i> 一隻低位科技股：消費電子+華為（600152），有望繼續突破</a><a class="list-group-item visible-lg" title="爐石傳說：希爾瓦娜斯皮膚實際測評，獵爹還是獵爹" href="../game/13768.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：希爾瓦娜斯皮膚實際測評，獵爹還是獵爹</a><a class="list-group-item visible-md" title="爐石傳說：希爾瓦娜斯皮膚實際測評，獵爹還是獵爹" href="../game/13768.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：希爾瓦娜斯皮膚實際測評，獵爹還是獵爹</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="唐代才女薛濤的愛情啟蒙人物究竟是誰？（自古紅顏多薄命23）" href="../history/3646.html" rel="bookmark"><i class="fa  fa-book"></i> 唐代才女薛濤的愛情啟蒙人物究竟是誰？（自古紅顏多薄命23）                            </a>
+                            <a class="list-group-item visible-md" title="唐代才女薛濤的愛情啟蒙人物究竟是誰？（自古紅顏多薄命23）" href="../history/3646.html" rel="bookmark"><i class="fa  fa-book"></i> 唐代才女薛濤的愛情啟蒙人物究竟是誰？（自古紅顏多薄命23）                            </a>
+                                                    <a class="list-group-item visible-lg" title="【葯食同源】作為開胃先鋒，這款靚湯甘甜清潤，色彩混合豐富；而且它還有清熱除煩、健胃消食等功效~" href="../health/7830.html" rel="bookmark"><i class="fa  fa-book"></i> 【葯食同源】作為開胃先鋒，這款靚湯甘甜清潤，色彩混合豐富；而且它還有清熱除煩、健胃消食等功效~                            </a>
+                            <a class="list-group-item visible-md" title="【葯食同源】作為開胃先鋒，這款靚湯甘甜清潤，色彩混合豐富；而且它還有清熱除煩、健胃消食等功效~" href="../health/7830.html" rel="bookmark"><i class="fa  fa-book"></i> 【葯食同源】作為開胃先鋒，這款靚湯甘甜清潤，色彩混合豐富；而且它還有清熱除煩、健胃消食等功效~                            </a>
+                                                    <a class="list-group-item visible-lg" title="枸櫞酸西地那非片，多久吃一次最佳？提醒：切勿超過這個用藥劑量" href="../health/7159.html" rel="bookmark"><i class="fa  fa-book"></i> 枸櫞酸西地那非片，多久吃一次最佳？提醒：切勿超過這個用藥劑量                            </a>
+                            <a class="list-group-item visible-md" title="枸櫞酸西地那非片，多久吃一次最佳？提醒：切勿超過這個用藥劑量" href="../health/7159.html" rel="bookmark"><i class="fa  fa-book"></i> 枸櫞酸西地那非片，多久吃一次最佳？提醒：切勿超過這個用藥劑量                            </a>
+                                                    <a class="list-group-item visible-lg" title="法媒：伊拉克動亂槍手向示威者和警察兩邊開火 20示威者4警察喪生" href="../international/8699.html" rel="bookmark"><i class="fa  fa-book"></i> 法媒：伊拉克動亂槍手向示威者和警察兩邊開火 20示威者4警察喪生                            </a>
+                            <a class="list-group-item visible-md" title="法媒：伊拉克動亂槍手向示威者和警察兩邊開火 20示威者4警察喪生" href="../international/8699.html" rel="bookmark"><i class="fa  fa-book"></i> 法媒：伊拉克動亂槍手向示威者和警察兩邊開火 20示威者4警察喪生                            </a>
+                                                    <a class="list-group-item visible-lg" title="華為助力國網山東電力建成全國首個物聯網試點配電室" href="10362.html" rel="bookmark"><i class="fa  fa-book"></i> 華為助力國網山東電力建成全國首個物聯網試點配電室                            </a>
+                            <a class="list-group-item visible-md" title="華為助力國網山東電力建成全國首個物聯網試點配電室" href="10362.html" rel="bookmark"><i class="fa  fa-book"></i> 華為助力國網山東電力建成全國首個物聯網試點配電室                            </a>
+                                                    <a class="list-group-item visible-lg" title="擊球時你被“擠”到了嗎？留出合適的空間是關鍵" href="../lose/17286.html" rel="bookmark"><i class="fa  fa-book"></i> 擊球時你被“擠”到了嗎？留出合適的空間是關鍵                            </a>
+                            <a class="list-group-item visible-md" title="擊球時你被“擠”到了嗎？留出合適的空間是關鍵" href="../lose/17286.html" rel="bookmark"><i class="fa  fa-book"></i> 擊球時你被“擠”到了嗎？留出合適的空間是關鍵                            </a>
+                                                    <a class="list-group-item visible-lg" title="從孤膽英雄到韓國冠軍——關於Fleta的《首爾杯》往事" href="../game/4957.html" rel="bookmark"><i class="fa  fa-book"></i> 從孤膽英雄到韓國冠軍——關於Fleta的《首爾杯》往事                            </a>
+                            <a class="list-group-item visible-md" title="從孤膽英雄到韓國冠軍——關於Fleta的《首爾杯》往事" href="../game/4957.html" rel="bookmark"><i class="fa  fa-book"></i> 從孤膽英雄到韓國冠軍——關於Fleta的《首爾杯》往事                            </a>
+                                                    <a class="list-group-item visible-lg" title="16中4僅得10分！廣廈慘敗夜揪出水貨外援，李春江被首鋼棄將坑慘" href="../sports/2656.html" rel="bookmark"><i class="fa  fa-book"></i> 16中4僅得10分！廣廈慘敗夜揪出水貨外援，李春江被首鋼棄將坑慘                            </a>
+                            <a class="list-group-item visible-md" title="16中4僅得10分！廣廈慘敗夜揪出水貨外援，李春江被首鋼棄將坑慘" href="../sports/2656.html" rel="bookmark"><i class="fa  fa-book"></i> 16中4僅得10分！廣廈慘敗夜揪出水貨外援，李春江被首鋼棄將坑慘                            </a>
+                                                    <a class="list-group-item visible-lg" title="Facebook前瞻：初步禁令浮出水面，Facebook遇“大劫”？" href="15684.html" rel="bookmark"><i class="fa  fa-book"></i> Facebook前瞻：初步禁令浮出水面，Facebook遇“大劫”？                            </a>
+                            <a class="list-group-item visible-md" title="Facebook前瞻：初步禁令浮出水面，Facebook遇“大劫”？" href="15684.html" rel="bookmark"><i class="fa  fa-book"></i> Facebook前瞻：初步禁令浮出水面，Facebook遇“大劫”？                            </a>
+                                                    <a class="list-group-item visible-lg" title="小國越南 為何分出60多個省？可不是只為增加當官數量" href="../international/14959.html" rel="bookmark"><i class="fa  fa-book"></i> 小國越南 為何分出60多個省？可不是只為增加當官數量                            </a>
+                            <a class="list-group-item visible-md" title="小國越南 為何分出60多個省？可不是只為增加當官數量" href="../international/14959.html" rel="bookmark"><i class="fa  fa-book"></i> 小國越南 為何分出60多個省？可不是只為增加當官數量                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="kratos_tags-4" class="widget widget_kratos_tags clearfix"><h4 class="widget-title">標籤</h4><div class="tag_clouds"></div></aside><aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="../nba.html">NBA</a> (1,326)
+</li>
+	<li class="cat-item cat-item-23"><a href="../international.html">國際</a> (1,871)
+</li>
+	<li class="cat-item cat-item-14"><a href="../entertainment.html">娛樂</a> (2,003)
+</li>
+	<li class="cat-item cat-item-15"><a href="../emotion.html">情感</a> (1,360)
+</li>
+	<li class="cat-item cat-item-22"><a href="../constellation.html">星座</a> (920)
+</li>
+	<li class="cat-item cat-item-17"><a href="../history.html">歷史</a> (1,490)
+</li>
+	<li class="cat-item cat-item-25"><a href="../lose.html">減肥</a> (371)
+</li>
+	<li class="cat-item cat-item-24"><a href="../technology.html">科技</a> (1,796)
+</li>
+	<li class="cat-item cat-item-19"><a href="../premier.html">英超</a> (1,172)
+</li>
+	<li class="cat-item cat-item-18"><a href="../game.html">遊戲</a> (1,793)
+</li>
+	<li class="cat-item cat-item-21"><a href="../health.html">養生</a> (1,170)
+</li>
+	<li class="cat-item cat-item-16"><a href="../sports.html">體育</a> (1,831)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='../date/2019/12.html'>2019 年 12 月</a>&nbsp;(14101)</li>
+	<li><a href='../date/2019/11.html'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='../date/2019/10.html'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="../index.html">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.easing.min-ver=1.3.0.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.qrcode.min-ver=2.8.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/layer.min-ver=3.0.3.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/modernizr.min-ver=2.6.2.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/bootstrap.min-ver=3.3.7.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.waypoints.min-ver=4.0.0.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.stellar.min-ver=0.6.2.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/hoverIntent.min-ver=r7.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/superfish-ver=1.0.0.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/kratos-ver=2.8.js'></script>
+<script type='text/javascript' src='../wp-includes/js/wp-embed.min-ver=5.2.4.js'></script>
+			</body>
+
+</html>

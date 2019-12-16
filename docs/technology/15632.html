@@ -1,0 +1,703 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他 - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="索引這個詞，相信大多數人已經相當熟悉了，很多人都知道MySQL的索引主要以B+樹為主，但是要問到為什麼用B+樹，恐怕很少有人能把前因後果講述的很完整。本文就來從頭到尾介紹下資料庫的索引。 索引是一種數據結構，用於幫助我們在大量數據中快速定位到我們想要查找的數據。 索引最形象的比喻就是圖書的目錄了。注意這裡的大量，數據量大了索引才顯得有意義……" />
+		<meta name="keywords" content="再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他 - 天天要聞,科技," />
+		<meta itemprop="image" content="http://p1.pstatp.com/large/dfic-imagehandler/0ee2db15-170e-47f6-9f1e-7d3b98367b9d"/>
+		<meta name="description" itemprop="description" content="索引這個詞，相信大多數人已經相當熟悉了，很多人都知道MySQL的索引主要以B+樹為主，但是要問到為什麼用B+樹，恐怕很少有人能把前因後果講述的很完整。本文就來從頭到尾介紹下資料庫的索引。 索引是一種數據結構，用於幫助我們在大量數據中快速定位到我們想要查找的數據。 索引最形象的比喻就是圖書的目錄了。注意這裡的大量，數據量大了索引才顯得有意義……" />
+		
+<!-- This site is optimized with the Yoast SEO plugin v12.7.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="robots" content="noindex,follow"/>
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他 - 天天要聞" />
+<meta property="og:description" content="索引這個詞，相信大多數人已經相當熟悉了，很多人都知道MySQL的索引主要以B+樹為主，但是要問到為什麼用B+樹，恐怕很少有人能把前因後果講述的很完整。本文就來從頭到尾介紹下資料庫的索引。 索引是一種數據結構，用於幫助我們在大量數據中快速定位到我們想要查找的數據。 索引最形象的比喻就是圖書的目錄了。注意這裡的大量，數據量大了索引才顯得有意義……" />
+<meta property="og:url" content="https://daynews.cc/technology/15632.html" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-13T10:45:13+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="索引這個詞，相信大多數人已經相當熟悉了，很多人都知道MySQL的索引主要以B+樹為主，但是要問到為什麼用B+樹，恐怕很少有人能把前因後果講述的很完整。本文就來從頭到尾介紹下資料庫的索引。 索引是一種數據結構，用於幫助我們在大量數據中快速定位到我們想要查找的數據。 索引最形象的比喻就是圖書的目錄了。注意這裡的大量，數據量大了索引才顯得有意義……" />
+<meta name="twitter:title" content="再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/dfic-imagehandler/0ee2db15-170e-47f6-9f1e-7d3b98367b9d" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/15632.html#primaryimage","url":"http://p1.pstatp.com/large/dfic-imagehandler/0ee2db15-170e-47f6-9f1e-7d3b98367b9d"},{"@type":"WebPage","@id":"https://daynews.cc/technology/15632.html#webpage","url":"https://daynews.cc/technology/15632.html","inLanguage":"zh-TW","name":"\u518d\u6709\u4eba\u554f\u4f60\u70ba\u4ec0\u9ebcMySQL\u7528B+\u6a39\u505a\u7d22\u5f15\uff0c\u5c31\u628a\u9019\u7bc7\u6587\u7ae0\u767c\u7d66\u4ed6 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/15632.html#primaryimage"},"datePublished":"2019-12-13T10:45:13+00:00","dateModified":"2019-12-13T10:45:13+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"fandyvon","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"fandyvon"},"sameAs":[]}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='stylesheet' id='animate-css'  href='../wp-content/themes/Kratos/css/animate.min-ver=3.5.1.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='../wp-content/themes/Kratos/css/font-awesome.min-ver=4.7.0.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='../wp-content/themes/Kratos/css/bootstrap.min-ver=3.3.7.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='../wp-content/themes/Kratos/css/superfish.min-ver=r7.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='../wp-content/themes/Kratos/css/layer.min-ver=2.8.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='../wp-content/themes/Kratos/style-ver=2.8.css' type='text/css' media='all' />
+<link rel='https://api.w.org/' href='https://daynews.cc/wp-json/' />
+<link rel='shortlink' href='15632.html' />
+<link rel="alternate" type="application/json+oembed" href="https://daynews.cc/wp-json/oembed/1.0/embed?url=https://daynews.cc/technology/15632.html" />
+<link rel="alternate" type="text/xml+oembed" href="https://daynews.cc/wp-json/oembed/1.0/embed?url=https://daynews.cc/technology/15632.html&format=xml" />
+		<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.min-ver=2.1.4.js'></script>
+				
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154207825-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		  gtag('config', 'UA-154207825-1');
+		</script>
+		
+		<script data-ad-client="ca-pub-8261739837930821" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="15632.html#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="../index.html"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="../index.html">首頁</a></li>
+<li><a href="../entertainment.html">娛樂</a></li>
+<li><a href="../emotion.html">情感</a></li>
+<li><a href="../international.html">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="../technology.html">科技</a></li>
+<li><a href="../sports.html">體育</a>
+<ul class="sub-menu">
+	<li><a href="../nba.html">NBA</a></li>
+	<li><a href="../premier.html">英超</a></li>
+</ul>
+</li>
+<li><a href="../history.html">歷史</a></li>
+<li><a href="../game.html">遊戲</a></li>
+<li><a href="../health.html">養生</a>
+<ul class="sub-menu">
+	<li><a href="../lose.html">減肥</a></li>
+</ul>
+</li>
+<li><a href="../constellation.html">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-13				                <i class="fa fa-commenting-o"></i> 167條評論
+				                <i class="fa fa-eye"></i> 1,121次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 145人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/dfic-imagehandler/0ee2db15-170e-47f6-9f1e-7d3b98367b9d" src="http://p1.pstatp.com/large/dfic-imagehandler/0ee2db15-170e-47f6-9f1e-7d3b98367b9d" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" /></p>
+<div class="pgc-img-handler">
+<div class="pgc-img-button editorImage fix-android">
+<section></section>
+</p>
+</div>
+<div class="pgc-img-button setImageCover fix-android">
+<section></section>
+</p>
+</div>
+<div class="pgc-img-button deleteImage fix-android">
+<section></section>
+</p>
+</div>
+</div>
+<div class="pgc-img-border "></div>
+</p>
+</div>
+<p>索引這個詞，相信大多數人已經相當熟悉了，很多人都知道MySQL的索引主要以B+樹為主，但是要問到為什麼用B+樹，恐怕很少有人能把前因後果講述的很完整。本文就來從頭到尾介紹下資料庫的索引。</p>
+<p><strong>索引是一種數據結構，用於幫助我們在大量數據中快速定位到我們想要查找的數據。</strong> 索引最形象的比喻就是圖書的目錄了。注意這裡的大量，數據量大了索引才顯得有意義，如果我想要在[1,2,3,4]中找到4這個數據，直接對全數據檢索也很快，沒有必要費力氣建索引再去查找。索引在mysql資料庫中分三類：</p>
+<p>B+樹索引、Hash索引、全文索引</p>
+<p>我們今天要介紹的是工作開發中最常接觸到innodb存儲引擎中的的B+樹索引。</p>
+<p>要介紹B+樹索引，就不得不提二叉查找樹，平衡二叉樹和B樹這三種數據結構。B+樹就是從他們仨演化來的。</p>
+<p>二叉查找樹</p>
+<p>首先，讓我們先看一張圖</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/ab8e63b893d64aaea8b9e75bafff65fc" src="http://p1.pstatp.com/large/pgc-image/ab8e63b893d64aaea8b9e75bafff65fc" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" /></p>
+<div class="pgc-img-handler">
+<div class="pgc-img-button editorImage fix-android">
+<section></section>
+</p>
+</div>
+<div class="pgc-img-button setImageCover fix-android">
+<section></section>
+</p>
+</div>
+<div class="pgc-img-button deleteImage fix-android">
+<section></section>
+</p>
+</div>
+</div>
+<div class="pgc-img-border "></div>
+</p>
+</div>
+<p>￼</p>
+<p>從圖中可以看到，我們為user表（用戶信息表）建立了一個二叉查找樹的索引。圖中的圓為二叉查找樹的節點，節點中存儲了鍵(key)和數據(data)。</p>
+<p>鍵對應user表中的id，數據對應user表中的行數據。二叉查找樹的特點就是<strong>任何節點的左子節點的鍵值都小於當前節點的鍵值，右子節點的鍵值都大於當前節點的鍵值。</strong> 頂端的節點我們稱為根節點，沒有子節點的節點我們稱之為葉節點。</p>
+<p>如果我們需要查找id=12的用戶信息，利用我們創建的二叉查找樹索引，查找流程如下：</p>
+<ul>
+<li>1. 將根節點作為當前節點，把12與當前節點的鍵值10比較，12大於10，接下來我們把當前節點&gt;的右子節點作為當前節點。</li>
+<li>2. 繼續把12和當前節點的鍵值13比較，發現12小於13，把當前節點的左子節點作為當前節點。</li>
+<li>3. 把12和當前節點的鍵值12對比，12等於12，滿足條件，我們從當前節點中取出data，即id=12,name=xm。</li>
+</ul>
+<p>利用二叉查找樹我們只需要3次即可找到匹配的數據。如果在表中一條條的查找的話，我們需要6次才能找到。</p>
+<p>平衡二叉樹</p>
+<p>上面我們講解了利用二叉查找樹可以快速的找到數據。但是，如果上面的二叉查找樹是這樣的構造：</p>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/633df634fe00423a9e3062269ce7bc5d" src="http://p9.pstatp.com/large/pgc-image/633df634fe00423a9e3062269ce7bc5d" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" /></p>
+<div class="pgc-img-handler">
+<div class="pgc-img-button editorImage fix-android">
+<section></section>
+</p>
+</div>
+<div class="pgc-img-button setImageCover fix-android">
+<section></section>
+</p>
+</div>
+<div class="pgc-img-button deleteImage fix-android">
+<section></section>
+</p>
+</div>
+</div>
+<div class="pgc-img-border "></div>
+</p>
+</div>
+<p>這個時候可以看到我們的二叉查找樹變成了一個鏈表。</p>
+<p>如果我們需要查找id=17的用戶信息，我們需要查找7次，也就相當於全表掃描了。</p>
+<p>導致這個現象的原因其實是<strong>二叉查找樹變得不平衡了，也就是高度太高了，從而導致查找效率的不穩定。</strong></p>
+<p>為了解決這個問題，我們需要<strong>保證二叉查找樹一直保持平衡</strong>，就需要用到平衡二叉樹了。</p>
+<p>平衡二叉樹又稱AVL樹，在滿足二叉查找樹特性的基礎上，要求<strong>每個節點的左右子樹的高度差不能超過1。</strong></p>
+<p>下面是平衡二叉樹和非平衡二叉樹的對比：</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/cce51b5d7d604a6baac92eb3c7dbc57f" src="http://p3.pstatp.com/large/pgc-image/cce51b5d7d604a6baac92eb3c7dbc57f" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" /></p>
+<div class="pgc-img-handler">
+<div class="pgc-img-button editorImage fix-android">
+<section></section>
+</p>
+</div>
+<div class="pgc-img-button setImageCover fix-android">
+<section></section>
+</p>
+</div>
+<div class="pgc-img-button deleteImage fix-android">
+<section></section>
+</p>
+</div>
+</div>
+<div class="pgc-img-border "></div>
+</p>
+</div>
+<p>由平衡二叉樹的構造我們可以發現第一張圖中的二叉樹其實就是一棵平衡二叉樹。</p>
+<p>平衡二叉樹保證了樹的構造是平衡的，當我們插入或刪除數據導致不滿足平衡二叉樹不平衡時，平衡二叉樹會進行調整樹上的節點來保持平衡。具體的調整方式這裡就不介紹了。</p>
+<p>平衡二叉樹相比於二叉查找樹來說，查找效率更穩定，總體的查找速度也更快。</p>
+<p>B樹</p>
+<p>因為內存的易失性。一般情況下，我們都會選擇將user表中的數據和索引存儲在磁碟這種外圍設備中。</p>
+<p>但是和內存相比，從磁碟中讀取數據的速度會慢上百倍千倍甚至萬倍，所以，我們應當盡量<strong>減少從磁碟中讀取數據的次數。</strong> <strong>另外，從磁碟中讀取數據時，都是按照磁碟塊來讀取的，並不是一條一條的讀。</strong></p>
+<p>如果我們能把盡量多的數據放進磁碟塊中，那一次磁碟讀取操作就會讀取更多數據，那我們查找數據的時間也會大幅度降低。</p>
+<p>如果我們用樹這種數據結構作為索引的數據結構，那我們每查找一次數據就需要從磁碟中讀取一個節點，也就是我們說的一個磁碟塊，我們都知道平衡二叉樹可是每個節點只存儲一個鍵值和數據的。</p>
+<p>那說明什麼？</p>
+<p>說明每個磁碟塊僅僅存儲一個鍵值和數據！</p>
+<p>那如果我們要存儲海量的數據呢？</p>
+<p>可以想像到二叉樹的節點將會非常多，高度也會及其高，我們查找數據時也會進行很多次磁碟IO，我們查找數據的效率將會極低！</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/cd73f30090c84e1289d6f390ff4b6ea9" src="http://p1.pstatp.com/large/pgc-image/cd73f30090c84e1289d6f390ff4b6ea9" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" /></p>
+<div class="pgc-img-handler">
+<div class="pgc-img-button editorImage fix-android">
+<section></section>
+</p>
+</div>
+<div class="pgc-img-button setImageCover fix-android">
+<section></section>
+</p>
+</div>
+<div class="pgc-img-button deleteImage fix-android">
+<section></section>
+</p>
+</div>
+</div>
+<div class="pgc-img-border "></div>
+</p>
+</div>
+<p>為了解決平衡二叉樹的這個弊端，我們應該尋找一種單個節點可以存儲多個鍵值和數據的平衡樹。也就是我們接下來要說的B樹。</p>
+<p>B樹（Balance Tree）即為平衡樹的意思，下圖即是一顆B樹。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/a03be65ea55f44cca7757df163dd00fc" src="http://p1.pstatp.com/large/pgc-image/a03be65ea55f44cca7757df163dd00fc" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" /></p>
+<div class="pgc-img-handler">
+<div class="pgc-img-button editorImage fix-android">
+<section></section>
+</p>
+</div>
+<div class="pgc-img-button setImageCover fix-android">
+<section></section>
+</p>
+</div>
+<div class="pgc-img-button deleteImage fix-android">
+<section></section>
+</p>
+</div>
+</div>
+<div class="pgc-img-border "></div>
+</p>
+</div>
+<p>￼</p>
+<p>圖中的p節點為指向子節點的指針，二叉查找樹和平衡二叉樹其實也有，因為圖的美觀性，被省略了。- 圖中的每個節點稱為頁，頁就是我們上面說的磁碟塊，在mysql中數據讀取的基本單位都是頁，所以我們這裡叫做頁更符合mysql中索引的底層數據結構。</p>
+<p>從上圖可以看出，<strong>B樹相對於平衡二叉樹，每個節點存儲了更多的鍵值(key)和數據(data)，並且每個節點擁有更多的子節點，子節點的個數一般稱為階，上述圖中的B樹為3階B樹，高度也會很低。</strong></p>
+<p>基於這個特性，B樹查找數據讀取磁碟的次數將會很少，數據的查找效率也會比平衡二叉樹高很多。</p>
+<p>假如我們要查找id=28的用戶信息，那麼我們在上圖B樹中查找的流程如下：</p>
+<ul>
+<li>1. 先找到根節點也就是頁1，判斷28在鍵值17和35之間，我們那麼我們根據頁1中的指針p2找到頁3。</li>
+<li>2. 將28和頁3中的鍵值相比較，28在26和30之間，我們根據頁3中的指針p2找到頁8。</li>
+<li>3. 將28和頁8中的鍵值相比較，發現有匹配的鍵值28，鍵值28對應的用戶信息為(28,bv)。</li>
+</ul>
+<p>B+樹</p>
+<p>B+樹是對B樹的進一步優化。讓我們先來看下B+樹的結構圖：</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/142e67e5a62747838d4b0d862916529f" src="http://p3.pstatp.com/large/pgc-image/142e67e5a62747838d4b0d862916529f" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" /></p>
+<div class="pgc-img-handler">
+<div class="pgc-img-button editorImage fix-android">
+<section></section>
+</p>
+</div>
+<div class="pgc-img-button setImageCover fix-android">
+<section></section>
+</p>
+</div>
+<div class="pgc-img-button deleteImage fix-android">
+<section></section>
+</p>
+</div>
+</div>
+<div class="pgc-img-border "></div>
+</p>
+</div>
+<p>￼根據上圖我們來看下B+樹和B樹有什麼不同。</p>
+<p>1. B+樹非葉子節點上是不存儲數據的，僅存儲鍵值，而B樹節點中不僅存儲鍵值，也會存儲數據。之所以這麼做是因為在資料庫中頁的大小是固定的，innodb中頁的默認大小是16KB。如果不存儲數據，那麼就會存儲更多的鍵值，相應的樹的階數（節點的子節點樹）就會更大，樹就會更矮更胖，如此一來我們查找數據進行磁碟的IO次數有會再次減少，數據查詢的效率也會更快。另外，B+樹的階數是等於鍵值的數量的，如果我們的B+樹一個節點可以存儲1000個鍵值，那麼3層B+樹可以存儲1000×1000×1000=10億個數據。一般根節點是常駐內存的，所以一般我們查找10億數據，只需要2次磁碟IO。</p>
+<p>2. 因為B+樹索引的所有數據均存儲在葉子節點，而且數據是按照順序排列的。那麼B+樹使得範圍查找，排序查找，分組查找以及去重查找變得異常簡單。而B樹因為數據分散在各個節點，要實現這一點是很不容易的。</p>
+<p>有心的讀者可能還發現上圖B+樹中各個頁之間是通過雙向鏈表連接的，葉子節點中的數據是通過單向鏈表連接的。</p>
+<p>其實上面的B樹我們也可以對各個節點加上鏈表。其實這些不是它們之前的區別，是因為在mysql的innodb存儲引擎中，索引就是這樣存儲的。也就是<strong>說上圖中的B+樹索引就是innodb中B+樹索引真正的實現方式，準確的說應該是聚集索引（聚集索引和非聚集索引下面會講到）。</strong></p>
+<p>通過上圖可以看到，在innodb中，我們通過數據頁之間通過雙向鏈表連接以及葉子節點中數據之間通過單向鏈表連接的方式可以找到表中所有的數據。</p>
+<p>MyISAM中的B+樹索引實現與innodb中的略有不同。在MyISAM中，B+樹索引的葉子節點並不存儲數據，而是存儲數據的文件地址。</p>
+<p>聚集索引 VS 非聚集索引</p>
+<p>在上節介紹B+樹索引的時候，我們提到了圖中的索引其實是聚集索引的實現方式。那什麼是聚集索引呢？</p>
+<p>在MySQL中，B+樹索引按照存儲方式的不同分為<strong>聚集索引</strong>和<strong>非聚集索引</strong>。</p>
+<p>這裡我們著重介紹innodb中的聚集索引和非聚集索引。</p>
+<p>1. 聚集索引（聚簇索引）：以innodb作為存儲引擎的表，表中的數據都會有一個主鍵，即使你不創建主鍵，系統也會幫你創建一個隱式的主鍵。這是因為<strong>innodb是把數據存放在B+樹中的</strong>，而B+樹的鍵值就是主鍵，在B+樹的葉子節點中，存儲了表中所有的數據。這種<strong>以主鍵作為B+樹索引的鍵值而構建的B+樹索引，我們稱之為聚集索引</strong>。</p>
+<p>2. 非聚集索引（非聚簇索引）：以主鍵以外的列值作為鍵值構建的B+樹索引，我們稱之為非聚集索引。非聚集索引與聚集索引的區別在於非聚集索引的葉子節點不存儲表中的數據，而是存儲該列對應的主鍵，想要查找數據我們還需要根據主鍵再去聚集索引中進行查找，這個再根據聚集索引查找數據的過程，我們稱為<strong>回表</strong>。 </p>
+<p>明白了聚集索引和非聚集索引的定義，我們應該明白這樣一句話：<strong>數據即索引，索引即數據</strong>。</p>
+<p>利用聚集索引和非聚集索引查找數據</p>
+<p>前面我們講解B+樹索引的時候並沒有去說怎麼在B+樹中進行數據的查找，主要就是因為還沒有引出聚集索引和非聚集索引的概念。下面我們通過講解如何通過聚集索引以及非聚集索引查找數據表中數據的方式介紹一下B+樹索引查找數據方法。</p>
+<p>利用聚集索引查找數據</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/142e67e5a62747838d4b0d862916529f" src="http://p3.pstatp.com/large/pgc-image/142e67e5a62747838d4b0d862916529f" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" /></p>
+<div class="pgc-img-handler">
+<div class="pgc-img-button editorImage fix-android">
+<section></section>
+</p>
+</div>
+<div class="pgc-img-button setImageCover fix-android">
+<section></section>
+</p>
+</div>
+<div class="pgc-img-button deleteImage fix-android">
+<section></section>
+</p>
+</div>
+</div>
+<div class="pgc-img-border "></div>
+</p>
+</div>
+<p>還是這張B+樹索引圖，現在我們應該知道這就是聚集索引，表中的數據存儲在其中。現在假設我們要查找id&gt;=18並且id&lt;40的用戶數據。對應的sql語句為select * from user where id&gt;=18 and id &lt;40，其中id為主鍵。具體的查找過程如下：</p>
+<ul>
+<li>1. 一般根節點都是常駐內存的，也就是說頁1已經在內存中了，此時不需要到磁碟中讀取數據，直接從內存中讀取即可。從內存中讀取到頁1，要查找這個id&gt;=18 and id &lt;40或者範圍值，我們首先需要找到id=18的鍵值。從頁1中我們可以找到鍵值18，此時我們需要根據指針p2，定位到頁3。</li>
+<li>2. 要從頁3中查找數據，我們就需要拿著p2指針去磁碟中進行讀取頁3。從磁碟中讀取頁3後將頁3放入內存中，然後進行查找，我們可以找到鍵值18，然後再拿到頁3中的指針p1，定位到頁8。</li>
+<li>3. 同樣的頁8頁不在內存中，我們需要再去磁碟中將頁8讀取到內存中。將頁8讀取到內存中後。因為頁中的數據是鏈表進行連接的，而且鍵值是按照順序存放的，此時可以根據二分查找法定位到鍵值18。此時因為已經到數據頁了，此時我們已經找到一條滿足條件的數據了，就是鍵值18對應的數據。因為是範圍查找，而且此時所有的數據又都存在葉子節點，並且是有序排列的，那麼我們就可以對頁8中的鍵值依次進行遍歷查找並匹配滿足條件的數據。我們可以一直找到鍵值為22的數據，然後頁8中就沒有數據了，此時我們需要拿著頁8中的p指針去讀取頁9中的數據。</li>
+<li>4. 因為頁9不在內存中，就又會載入頁9到內存中，並通過和頁8中一樣的方式進行數據的查找，直到將頁12載入到內存中，發現41大於40，此時不滿足條件。那麼查找到此終止。最終我們找到滿足條件的所有數據為：(18,kl),(19,kl),(22,hj),(24,io),(25,vg),(29,jk),(31,jk),(33,rt),(34,ty),(35,yu),(37,rt),(39,rt)。總共12條記錄。</li>
+</ul>
+<p>下面看下具體的查找流程圖：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/5720380781324bd987f0454bf63714a8" src="http://p1.pstatp.com/large/pgc-image/5720380781324bd987f0454bf63714a8" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" /></p>
+<div class="pgc-img-handler">
+<div class="pgc-img-button editorImage fix-android">
+<section></section>
+</p>
+</div>
+<div class="pgc-img-button setImageCover fix-android">
+<section></section>
+</p>
+</div>
+<div class="pgc-img-button deleteImage fix-android">
+<section></section>
+</p>
+</div>
+</div>
+<div class="pgc-img-border "></div>
+</p>
+</div>
+<p>利用非聚集索引查找數據</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/517ce5b54dd24daf82137641122950f4" src="http://p3.pstatp.com/large/pgc-image/517ce5b54dd24daf82137641122950f4" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" /></p>
+<div class="pgc-img-handler">
+<div class="pgc-img-button editorImage fix-android">
+<section></section>
+</p>
+</div>
+<div class="pgc-img-button setImageCover fix-android">
+<section></section>
+</p>
+</div>
+<div class="pgc-img-button deleteImage fix-android">
+<section></section>
+</p>
+</div>
+</div>
+<div class="pgc-img-border "></div>
+</p>
+</div>
+<p>讀者看到這張圖的時候可能會蒙，這是啥東西啊？怎麼都是數字。</p>
+<p>如果有這種感覺，請仔細看下圖中紅字的解釋。什麼？還看不懂？那我再來解釋下吧。首先，這個非聚集索引表示的是用戶幸運數字的索引（為什麼是幸運數字？一時興起想起來的:-)），此時表結構是這樣的。</p>
+<p>idnameluckyNum1zs232ls7</p>
+<p>在葉子節點中，不在存儲所有的數據了，存儲的是鍵值和主鍵。</p>
+<p>對於葉子節點中的x-y，比如1-1。左邊的1表示的是索引的鍵值，右邊的1表示的是主鍵值。如果我們要找到幸運數字為33的用戶信息，對應的sql語句為select * from user where luckNum=33。</p>
+<p>查找的流程跟聚集索引一樣，這裡就不詳細介紹了。我們最終會找到主鍵值47，找到主鍵後我們需要再到聚集索引中查找具體對應的數據信息，此時又回到了聚集索引的查找流程。</p>
+<p>下面看下具體的查找流程圖：</p>
+<p>￼</p>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/4f09ce465efc433a905ff7e8228185d6" src="http://p9.pstatp.com/large/pgc-image/4f09ce465efc433a905ff7e8228185d6" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" /></p>
+<div class="pgc-img-handler">
+<div class="pgc-img-button editorImage fix-android">
+<section></section>
+</p>
+</div>
+<div class="pgc-img-button setImageCover fix-android">
+<section></section>
+</p>
+</div>
+<div class="pgc-img-button deleteImage fix-android">
+<section></section>
+</p>
+</div>
+</div>
+<div class="pgc-img-border "></div>
+</p>
+</div>
+<p>在MyISAM中，聚集索引和非聚集索引的葉子節點都會存儲數據的文件地址。</p>
+<p>總結</p>
+<p>本篇文從二叉查找樹，詳細說明了為什麼mysql用B+樹作為數據的索引，以及在innodb中資料庫如何通過B+樹索引來存儲數據以及查找數據。我們一定要記住這句話：<strong>數據即索引，索引即數據</strong>。</p>
+<h2>2019最新Python400集視頻教程免費分享：</h2>
+<h2>轉發+關注，私信小編「資料」馬上領取</h2>
+</p>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="15632" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/15632.html"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/15632.html";
+		var title='%E3%80%90%E5%86%8D%E6%9C%89%E4%BA%BA%E5%95%8F%E4%BD%A0%E7%82%BA%E4%BB%80%E9%BA%BCMySQL%E7%94%A8B%2B%E6%A8%B9%E5%81%9A%E7%B4%A2%E5%BC%95%EF%BC%8C%E5%B0%B1%E6%8A%8A%E9%80%99%E7%AF%87%E6%96%87%E7%AB%A0%E7%99%BC%E7%B5%A6%E4%BB%96%E3%80%91';
+		var qqtitle='%E3%80%90%E5%86%8D%E6%9C%89%E4%BA%BA%E5%95%8F%E4%BD%A0%E7%82%BA%E4%BB%80%E9%BA%BCMySQL%E7%94%A8B%2B%E6%A8%B9%E5%81%9A%E7%B4%A2%E5%BC%95%EF%BC%8C%E5%B0%B1%E6%8A%8A%E9%80%99%E7%AF%87%E6%96%87%E7%AB%A0%E7%99%BC%E7%B5%A6%E4%BB%96%E3%80%91';
+		var excerpt='%E7%B4%A2%E5%BC%95%E9%80%99%E5%80%8B%E8%A9%9E%EF%BC%8C%E7%9B%B8%E4%BF%A1%E5%A4%A7%E5%A4%9A%E6%95%B8%E4%BA%BA%E5%B7%B2%E7%B6%93%E7%9B%B8%E7%95%B6%E7%86%9F%E6%82%89%E4%BA%86%EF%BC%8C%E5%BE%88%E5%A4%9A%E4%BA%BA%E9%83%BD%E7%9F%A5%E9%81%93MySQL%E7%9A%84%E7%B4%A2%E5%BC%95%E4%B8%BB%E8%A6%81%E4%BB%A5B%2B%E6%A8%B9%E7%82%BA%E4%B8%BB%EF%BC%8C%E4%BD%86%E6%98%AF%E8%A6%81%E5%95%8F%E5%88%B0%E7%82%BA%E4%BB%80%E9%BA%BC%E7%94%A8B%2B%E6%A8%B9%EF%BC%8C%E6%81%90%E6%80%95%E5%BE%88%E5%B0%91%E6%9C%89%E4%BA%BA%E8%83%BD%E6%8A%8A%E5%89%8D%E5%9B%A0%E5%BE%8C%E6%9E%9C%E8%AC%9B%E8%BF%B0%E7%9A%84%E5%BE%88%E5%AE%8C%E6%95%B4%E3%80%82%E6%9C%AC%E6%96%87%E5%B0%B1%E4%BE%86%E5%BE%9E%E9%A0%AD%E5%88%B0%E5%B0%BE%E4%BB%8B%E7%B4%B9%E4%B8%8B%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E7%B4%A2%E5%BC%95%E3%80%82%20%E7%B4%A2%E5%BC%95%E6%98%AF%E4%B8%80%E7%A8%AE%E6%95%B8%E6%93%9A%E7%B5%90%E6%A7%8B%EF%BC%8C%E7%94%A8%E6%96%BC%E5%B9%AB%E5%8A%A9%E6%88%91%E5%80%91%E5%9C%A8%E5%A4%A7%E9%87%8F%E6%95%B8%E6%93%9A%E4%B8%AD%E5%BF%AB%E9%80%9F%E5%AE%9A%E4%BD%8D%E5%88%B0%E6%88%91%E5%80%91%E6%83%B3%E8%A6%81%E6%9F%A5%E6%89%BE%E7%9A%84%E6%95%B8%E6%93%9A%E3%80%82%20%E7%B4%A2%E5%BC%95%E6%9C%80%E5%BD%A2%E8%B1%A1%E7%9A%84%E6%AF%94%E5%96%BB%E5%B0%B1%E6%98%AF%E5%9C%96%E6%9B%B8%E7%9A%84%E7%9B%AE%E9%8C%84%E4%BA%86%E3%80%82%E6%B3%A8%E6%84%8F%E9%80%99%E8%A3%A1%E7%9A%84%E5%A4%A7%E9%87%8F%EF%BC%8C%E6%95%B8%E6%93%9A%E9%87%8F%E5%A4%A7%E4%BA%86%E7%B4%A2%E5%BC%95%E6%89%8D%E9%A1%AF%E5%BE%97%E6%9C%89%E6%84%8F%E7%BE%A9%E2%80%A6%E2%80%A6';
+		var wbexcerpt='%E7%B4%A2%E5%BC%95%E9%80%99%E5%80%8B%E8%A9%9E%EF%BC%8C%E7%9B%B8%E4%BF%A1%E5%A4%A7%E5%A4%9A%E6%95%B8%E4%BA%BA%E5%B7%B2%E7%B6%93%E7%9B%B8%E7%95%B6%E7%86%9F%E6%82%89%E4%BA%86%EF%BC%8C%E5%BE%88%E5%A4%9A%E4%BA%BA%E9%83%BD%E7%9F%A5%E9%81%93MySQL%E7%9A%84%E7%B4%A2%E5%BC%95%E4%B8%BB%E8%A6%81%E4%BB%A5B%2B%E6%A8%B9%E7%82%BA%E4%B8%BB%EF%BC%8C%E4%BD%86%E6%98%AF%E8%A6%81%E5%95%8F%E5%88%B0%E7%82%BA%E4%BB%80%E9%BA%BC%E7%94%A8B%2B%E6%A8%B9%EF%BC%8C%E6%81%90%E6%80%95%E5%BE%88%E5%B0%91%E6%9C%89%E4%BA%BA%E8%83%BD%E6%8A%8A%E5%89%8D%E5%9B%A0%E5%BE%8C%E6%9E%9C%E8%AC%9B%E8%BF%B0%E7%9A%84%E5%BE%88%E5%AE%8C%E6%95%B4%E3%80%82%E6%9C%AC%E6%96%87%E5%B0%B1%E4%BE%86%E5%BE%9E%E9%A0%AD%E5%88%B0%E5%B0%BE%E4%BB%8B%E7%B4%B9%E4%B8%8B%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E7%B4%A2%E5%BC%95%E3%80%82%20%E7%B4%A2%E5%BC%95%E6%98%AF%E4%B8%80%E7%A8%AE%E6%95%B8%E6%93%9A%E7%B5%90%E6%A7%8B%EF%BC%8C%E7%94%A8%E6%96%BC%E5%B9%AB%E5%8A%A9%E6%88%91%E5%80%91%E5%9C%A8%E5%A4%A7%E9%87%8F%E6%95%B8%E6%93%9A%E4%B8%AD%E5%BF%AB%E9%80%9F%E5%AE%9A%E4%BD%8D%E5%88%B0%E6%88%91%E5%80%91%E6%83%B3%E8%A6%81%E6%9F%A5%E6%89%BE%E7%9A%84%E6%95%B8%E6%93%9A%E3%80%82%20%E7%B4%A2%E5%BC%95%E6%9C%80%E5%BD%A2%E8%B1%A1%E7%9A%84%E6%AF%94%E5%96%BB%E5%B0%B1%E6%98%AF%E5%9C%96%E6%9B%B8%E7%9A%84%E7%9B%AE%E9%8C%84%E4%BA%86%E3%80%82%E6%B3%A8%E6%84%8F%E9%80%99%E8%A3%A1%E7%9A%84%E5%A4%A7%E9%87%8F%EF%BC%8C%E6%95%B8%E6%93%9A%E9%87%8F%E5%A4%A7%E4%BA%86%E7%B4%A2%E5%BC%95%E6%89%8D%E9%A1%AF%E5%BE%97%E6%9C%89%E6%84%8F%E7%BE%A9%E2%80%A6%E2%80%A6';
+		var pic="http://p1.pstatp.com/large/dfic-imagehandler/0ee2db15-170e-47f6-9f1e-7d3b98367b9d";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="Bakkt比特幣期權完成首筆大宗交易；歐洲央行希望明年確定數字貨幣工作組目標；加拿大央行尚未決定是否發行數字貨幣；" href="15633.html">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="2019年國內通信運營商5G動態盤點之中國聯通" href="15630.html">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="15632.html#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="../wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="../wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="../wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="../wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="../wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="../wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="../wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="../wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="../wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="../wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="../wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="../wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="../wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="../wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="../wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="../wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="../wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="../wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="../wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="../wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="../wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="../wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="../wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="../wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="../wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='15632' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="15632.html#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="15632.html#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="15632.html#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="15632.html#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="15632.html#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="15632.html#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="明世宗：哈密危機如何解？問題在於朝貢，開放嘉峪關即可" href="../history/16494.html" rel="bookmark"><i class="fa  fa-book"></i> 明世宗：哈密危機如何解？問題在於朝貢，開放嘉峪關即可                            </a>
+                            <a class="list-group-item visible-md" title="明世宗：哈密危機如何解？問題在於朝貢，開放嘉峪關即可" href="../history/16494.html" rel="bookmark"><i class="fa  fa-book"></i> 明世宗：哈密危機如何解？問題在於朝貢，開放嘉峪關即可                            </a>
+                                                    <a class="list-group-item visible-lg" title="三國最坑的謀士，出的全是餿主意，為誰獻策誰滅亡" href="../history/16493.html" rel="bookmark"><i class="fa  fa-book"></i> 三國最坑的謀士，出的全是餿主意，為誰獻策誰滅亡                            </a>
+                            <a class="list-group-item visible-md" title="三國最坑的謀士，出的全是餿主意，為誰獻策誰滅亡" href="../history/16493.html" rel="bookmark"><i class="fa  fa-book"></i> 三國最坑的謀士，出的全是餿主意，為誰獻策誰滅亡                            </a>
+                                                    <a class="list-group-item visible-lg" title="魏國中原爭霸戰略是錯誤的嗎？絕不是！魏國東部擴張從未停止" href="../history/16495.html" rel="bookmark"><i class="fa  fa-book"></i> 魏國中原爭霸戰略是錯誤的嗎？絕不是！魏國東部擴張從未停止                            </a>
+                            <a class="list-group-item visible-md" title="魏國中原爭霸戰略是錯誤的嗎？絕不是！魏國東部擴張從未停止" href="../history/16495.html" rel="bookmark"><i class="fa  fa-book"></i> 魏國中原爭霸戰略是錯誤的嗎？絕不是！魏國東部擴張從未停止                            </a>
+                                                    <a class="list-group-item visible-lg" title="農運算元相出朱元璋有天子相！農運算元的真實身份是什麼？" href="../history/16497.html" rel="bookmark"><i class="fa  fa-book"></i> 農運算元相出朱元璋有天子相！農運算元的真實身份是什麼？                            </a>
+                            <a class="list-group-item visible-md" title="農運算元相出朱元璋有天子相！農運算元的真實身份是什麼？" href="../history/16497.html" rel="bookmark"><i class="fa  fa-book"></i> 農運算元相出朱元璋有天子相！農運算元的真實身份是什麼？                            </a>
+                                                    <a class="list-group-item visible-lg" title="晉國殺死太子，逼迫重耳流亡的可能另有其人，驪姬也許是無辜的" href="../history/16496.html" rel="bookmark"><i class="fa  fa-book"></i> 晉國殺死太子，逼迫重耳流亡的可能另有其人，驪姬也許是無辜的                            </a>
+                            <a class="list-group-item visible-md" title="晉國殺死太子，逼迫重耳流亡的可能另有其人，驪姬也許是無辜的" href="../history/16496.html" rel="bookmark"><i class="fa  fa-book"></i> 晉國殺死太子，逼迫重耳流亡的可能另有其人，驪姬也許是無辜的                            </a>
+                                                    <a class="list-group-item visible-lg" title="非洲教堂出土紅寶石戒指和“凸”型護身符，證明古代黑人帝國存在" href="../history/16498.html" rel="bookmark"><i class="fa  fa-book"></i> 非洲教堂出土紅寶石戒指和“凸”型護身符，證明古代黑人帝國存在                            </a>
+                            <a class="list-group-item visible-md" title="非洲教堂出土紅寶石戒指和“凸”型護身符，證明古代黑人帝國存在" href="../history/16498.html" rel="bookmark"><i class="fa  fa-book"></i> 非洲教堂出土紅寶石戒指和“凸”型護身符，證明古代黑人帝國存在                            </a>
+                                                    <a class="list-group-item visible-lg" title="爐石傳說：橘子哥立志要針對薩滿！結果沒過幾天，就開始真香" href="../game/16774.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：橘子哥立志要針對薩滿！結果沒過幾天，就開始真香                            </a>
+                            <a class="list-group-item visible-md" title="爐石傳說：橘子哥立志要針對薩滿！結果沒過幾天，就開始真香" href="../game/16774.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：橘子哥立志要針對薩滿！結果沒過幾天，就開始真香                            </a>
+                                                    <a class="list-group-item visible-lg" title="Jackeylove大概率加入RNG？韓媒記者的這份爆料真實性有幾分？" href="../game/16773.html" rel="bookmark"><i class="fa  fa-book"></i> Jackeylove大概率加入RNG？韓媒記者的這份爆料真實性有幾分？                            </a>
+                            <a class="list-group-item visible-md" title="Jackeylove大概率加入RNG？韓媒記者的這份爆料真實性有幾分？" href="../game/16773.html" rel="bookmark"><i class="fa  fa-book"></i> Jackeylove大概率加入RNG？韓媒記者的這份爆料真實性有幾分？                            </a>
+                                                    <a class="list-group-item visible-lg" title="這是高手！！超寫實次世代遊戲角色作品，你們認為能打多少分？" href="../game/16776.html" rel="bookmark"><i class="fa  fa-book"></i> 這是高手！！超寫實次世代遊戲角色作品，你們認為能打多少分？                            </a>
+                            <a class="list-group-item visible-md" title="這是高手！！超寫實次世代遊戲角色作品，你們認為能打多少分？" href="../game/16776.html" rel="bookmark"><i class="fa  fa-book"></i> 這是高手！！超寫實次世代遊戲角色作品，你們認為能打多少分？                            </a>
+                                                    <a class="list-group-item visible-lg" title="征服者煉金搞人心態？姿態1V4劣勢翻盤，殺人書25層直接拉滿" href="../game/16775.html" rel="bookmark"><i class="fa  fa-book"></i> 征服者煉金搞人心態？姿態1V4劣勢翻盤，殺人書25層直接拉滿                            </a>
+                            <a class="list-group-item visible-md" title="征服者煉金搞人心態？姿態1V4劣勢翻盤，殺人書25層直接拉滿" href="../game/16775.html" rel="bookmark"><i class="fa  fa-book"></i> 征服者煉金搞人心態？姿態1V4劣勢翻盤，殺人書25層直接拉滿                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="../international/8854.html" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="../international/8854.html" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="../international/12134.html" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-md" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="../international/12134.html" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="../health/7098.html" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="../health/7098.html" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-lg" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="../entertainment/10879.html" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-md" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="../entertainment/10879.html" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-lg" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="10158.html" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-md" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="10158.html" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-lg" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="../game/13764.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-md" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="../game/13764.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-lg" title="《逆戰》這份最強逆世界福利指南請查收" href="../game/16855.html" rel="bookmark"><i class="fa  fa-book"></i> 《逆戰》這份最強逆世界福利指南請查收</a><a class="list-group-item visible-md" title="《逆戰》這份最強逆世界福利指南請查收" href="../game/16855.html" rel="bookmark"><i class="fa  fa-book"></i> 《逆戰》這份最強逆世界福利指南請查收</a><a class="list-group-item visible-lg" title="王子文兒時雖是短髮卻不“假小子”，更被馬景濤前妻的童年照美哭" href="../entertainment/14458.html" rel="bookmark"><i class="fa  fa-book"></i> 王子文兒時雖是短髮卻不“假小子”，更被馬景濤前妻的童年照美哭</a><a class="list-group-item visible-md" title="王子文兒時雖是短髮卻不“假小子”，更被馬景濤前妻的童年照美哭" href="../entertainment/14458.html" rel="bookmark"><i class="fa  fa-book"></i> 王子文兒時雖是短髮卻不“假小子”，更被馬景濤前妻的童年照美哭</a><a class="list-group-item visible-lg" title="一隻低位科技股：消費電子+華為（600152），有望繼續突破" href="12846.html" rel="bookmark"><i class="fa  fa-book"></i> 一隻低位科技股：消費電子+華為（600152），有望繼續突破</a><a class="list-group-item visible-md" title="一隻低位科技股：消費電子+華為（600152），有望繼續突破" href="12846.html" rel="bookmark"><i class="fa  fa-book"></i> 一隻低位科技股：消費電子+華為（600152），有望繼續突破</a><a class="list-group-item visible-lg" title="爐石傳說：希爾瓦娜斯皮膚實際測評，獵爹還是獵爹" href="../game/13768.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：希爾瓦娜斯皮膚實際測評，獵爹還是獵爹</a><a class="list-group-item visible-md" title="爐石傳說：希爾瓦娜斯皮膚實際測評，獵爹還是獵爹" href="../game/13768.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：希爾瓦娜斯皮膚實際測評，獵爹還是獵爹</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="三部高分穿越劇，你有沒有都看過，最後一部太甜了" href="../entertainment/149.html" rel="bookmark"><i class="fa  fa-book"></i> 三部高分穿越劇，你有沒有都看過，最後一部太甜了                            </a>
+                            <a class="list-group-item visible-md" title="三部高分穿越劇，你有沒有都看過，最後一部太甜了" href="../entertainment/149.html" rel="bookmark"><i class="fa  fa-book"></i> 三部高分穿越劇，你有沒有都看過，最後一部太甜了                            </a>
+                                                    <a class="list-group-item visible-lg" title="“蹴鞠屢過飛鳥上，鞦韆競出垂楊里”，古代蹴鞠文化的歷史演變" href="../history/13686.html" rel="bookmark"><i class="fa  fa-book"></i> “蹴鞠屢過飛鳥上，鞦韆競出垂楊里”，古代蹴鞠文化的歷史演變                            </a>
+                            <a class="list-group-item visible-md" title="“蹴鞠屢過飛鳥上，鞦韆競出垂楊里”，古代蹴鞠文化的歷史演變" href="../history/13686.html" rel="bookmark"><i class="fa  fa-book"></i> “蹴鞠屢過飛鳥上，鞦韆競出垂楊里”，古代蹴鞠文化的歷史演變                            </a>
+                                                    <a class="list-group-item visible-lg" title="惡意攻擊還是心理戰？瓜迪奧拉稱馬內總愛跳水，馬內則用表現回擊" href="../premier/5216.html" rel="bookmark"><i class="fa  fa-book"></i> 惡意攻擊還是心理戰？瓜迪奧拉稱馬內總愛跳水，馬內則用表現回擊                            </a>
+                            <a class="list-group-item visible-md" title="惡意攻擊還是心理戰？瓜迪奧拉稱馬內總愛跳水，馬內則用表現回擊" href="../premier/5216.html" rel="bookmark"><i class="fa  fa-book"></i> 惡意攻擊還是心理戰？瓜迪奧拉稱馬內總愛跳水，馬內則用表現回擊                            </a>
+                                                    <a class="list-group-item visible-lg" title="李子柒爆紅 馬雲有錢就能"瞎指揮"樂隊?看白岩松咋說" href="15375.html" rel="bookmark"><i class="fa  fa-book"></i> 李子柒爆紅 馬雲有錢就能"瞎指揮"樂隊?看白岩松咋說                            </a>
+                            <a class="list-group-item visible-md" title="李子柒爆紅 馬雲有錢就能"瞎指揮"樂隊?看白岩松咋說" href="15375.html" rel="bookmark"><i class="fa  fa-book"></i> 李子柒爆紅 馬雲有錢就能"瞎指揮"樂隊?看白岩松咋說                            </a>
+                                                    <a class="list-group-item visible-lg" title="《雙面膠》：再好的感情撐不住一個又窮又挑事的婆家" href="../emotion/1843.html" rel="bookmark"><i class="fa  fa-book"></i> 《雙面膠》：再好的感情撐不住一個又窮又挑事的婆家                            </a>
+                            <a class="list-group-item visible-md" title="《雙面膠》：再好的感情撐不住一個又窮又挑事的婆家" href="../emotion/1843.html" rel="bookmark"><i class="fa  fa-book"></i> 《雙面膠》：再好的感情撐不住一個又窮又挑事的婆家                            </a>
+                                                    <a class="list-group-item visible-lg" title="人類歷史上第一個英國紳士？皮爾當人化石大揭秘" href="../history/3547.html" rel="bookmark"><i class="fa  fa-book"></i> 人類歷史上第一個英國紳士？皮爾當人化石大揭秘                            </a>
+                            <a class="list-group-item visible-md" title="人類歷史上第一個英國紳士？皮爾當人化石大揭秘" href="../history/3547.html" rel="bookmark"><i class="fa  fa-book"></i> 人類歷史上第一個英國紳士？皮爾當人化石大揭秘                            </a>
+                                                    <a class="list-group-item visible-lg" title="《玫瑰與黃昏的古城》—遊戲簡評" href="../game/16782.html" rel="bookmark"><i class="fa  fa-book"></i> 《玫瑰與黃昏的古城》—遊戲簡評                            </a>
+                            <a class="list-group-item visible-md" title="《玫瑰與黃昏的古城》—遊戲簡評" href="../game/16782.html" rel="bookmark"><i class="fa  fa-book"></i> 《玫瑰與黃昏的古城》—遊戲簡評                            </a>
+                                                    <a class="list-group-item visible-lg" title="精華！深度剖析：最火的 半導體50ETF，全方位覆蓋 伴行業成長" href="15366.html" rel="bookmark"><i class="fa  fa-book"></i> 精華！深度剖析：最火的 半導體50ETF，全方位覆蓋 伴行業成長                            </a>
+                            <a class="list-group-item visible-md" title="精華！深度剖析：最火的 半導體50ETF，全方位覆蓋 伴行業成長" href="15366.html" rel="bookmark"><i class="fa  fa-book"></i> 精華！深度剖析：最火的 半導體50ETF，全方位覆蓋 伴行業成長                            </a>
+                                                    <a class="list-group-item visible-lg" title="華為21級程序員月薪曝光：270k封神！網友：其實不算很高" href="13038.html" rel="bookmark"><i class="fa  fa-book"></i> 華為21級程序員月薪曝光：270k封神！網友：其實不算很高                            </a>
+                            <a class="list-group-item visible-md" title="華為21級程序員月薪曝光：270k封神！網友：其實不算很高" href="13038.html" rel="bookmark"><i class="fa  fa-book"></i> 華為21級程序員月薪曝光：270k封神！網友：其實不算很高                            </a>
+                                                    <a class="list-group-item visible-lg" title="澳洲一家4口 搭郵輪慶生 遇懷特島火山噴發 至今仍下落不明" href="../international/12090.html" rel="bookmark"><i class="fa  fa-book"></i> 澳洲一家4口 搭郵輪慶生 遇懷特島火山噴發 至今仍下落不明                            </a>
+                            <a class="list-group-item visible-md" title="澳洲一家4口 搭郵輪慶生 遇懷特島火山噴發 至今仍下落不明" href="../international/12090.html" rel="bookmark"><i class="fa  fa-book"></i> 澳洲一家4口 搭郵輪慶生 遇懷特島火山噴發 至今仍下落不明                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="kratos_tags-4" class="widget widget_kratos_tags clearfix"><h4 class="widget-title">標籤</h4><div class="tag_clouds"></div></aside><aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="../nba.html">NBA</a> (1,326)
+</li>
+	<li class="cat-item cat-item-23"><a href="../international.html">國際</a> (1,871)
+</li>
+	<li class="cat-item cat-item-14"><a href="../entertainment.html">娛樂</a> (2,003)
+</li>
+	<li class="cat-item cat-item-15"><a href="../emotion.html">情感</a> (1,360)
+</li>
+	<li class="cat-item cat-item-22"><a href="../constellation.html">星座</a> (920)
+</li>
+	<li class="cat-item cat-item-17"><a href="../history.html">歷史</a> (1,490)
+</li>
+	<li class="cat-item cat-item-25"><a href="../lose.html">減肥</a> (371)
+</li>
+	<li class="cat-item cat-item-24"><a href="../technology.html">科技</a> (1,796)
+</li>
+	<li class="cat-item cat-item-19"><a href="../premier.html">英超</a> (1,172)
+</li>
+	<li class="cat-item cat-item-18"><a href="../game.html">遊戲</a> (1,793)
+</li>
+	<li class="cat-item cat-item-21"><a href="../health.html">養生</a> (1,170)
+</li>
+	<li class="cat-item cat-item-16"><a href="../sports.html">體育</a> (1,831)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='../date/2019/12.html'>2019 年 12 月</a>&nbsp;(14101)</li>
+	<li><a href='../date/2019/11.html'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='../date/2019/10.html'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="../index.html">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.easing.min-ver=1.3.0.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.qrcode.min-ver=2.8.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/layer.min-ver=3.0.3.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/modernizr.min-ver=2.6.2.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/bootstrap.min-ver=3.3.7.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.waypoints.min-ver=4.0.0.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.stellar.min-ver=0.6.2.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/hoverIntent.min-ver=r7.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/superfish-ver=1.0.0.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/kratos-ver=2.8.js'></script>
+<script type='text/javascript' src='../wp-includes/js/wp-embed.min-ver=5.2.4.js'></script>
+			</body>
+
+</html>

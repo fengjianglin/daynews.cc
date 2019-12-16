@@ -1,0 +1,495 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>阿里Dubbo瘋狂更新，關Spring Cloud什麼事？ - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="最近，開源社區發生了一件大事，那個全國 Java 開發者使用最廣的開源服務框架 Dubbo 低調重啟維護，並且 3 個月連續發布了 4 個維護版本。 我上次在寫放棄Dubbo，選擇最流行的Spring Cloud微服務架構實踐與經驗總結這篇文章的時候，就有很多的網友給我留言說，Dubbo 又開始更新了。我當然是清楚的，我也一直在關注著 D……" />
+		<meta name="keywords" content="阿里Dubbo瘋狂更新，關Spring Cloud什麼事？天天要聞,科技," />
+		<meta itemprop="image" content="http://p1.pstatp.com/large/pgc-image/68356b795cae46299d1a89da6b562cd1"/>
+		<meta name="description" itemprop="description" content="最近，開源社區發生了一件大事，那個全國 Java 開發者使用最廣的開源服務框架 Dubbo 低調重啟維護，並且 3 個月連續發布了 4 個維護版本。 我上次在寫放棄Dubbo，選擇最流行的Spring Cloud微服務架構實踐與經驗總結這篇文章的時候，就有很多的網友給我留言說，Dubbo 又開始更新了。我當然是清楚的，我也一直在關注著 D……" />
+		<link rel='stylesheet' id='animate-css'  href='../wp-content/themes/Kratos/css/animate.min-ver=3.5.1.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='../wp-content/themes/Kratos/css/font-awesome.min-ver=4.7.0.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='../wp-content/themes/Kratos/css/bootstrap.min-ver=3.3.7.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='../wp-content/themes/Kratos/css/superfish.min-ver=r7.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='../wp-content/themes/Kratos/css/layer.min-ver=2.8.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='../wp-content/themes/Kratos/style-ver=2.8.css' type='text/css' media='all' />
+<link rel='https://api.w.org/' href='https://daynews.cc/wp-json/' />
+<link rel='shortlink' href='15313.html' />
+<link rel="alternate" type="application/json+oembed" href="https://daynews.cc/wp-json/oembed/1.0/embed?url=https://daynews.cc/technology/15313.html" />
+<link rel="alternate" type="text/xml+oembed" href="https://daynews.cc/wp-json/oembed/1.0/embed?url=https://daynews.cc/technology/15313.html&format=xml" />
+		<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.min-ver=2.1.4.js'></script>
+				
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154207825-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		  gtag('config', 'UA-154207825-1');
+		</script>
+		
+		<script data-ad-client="ca-pub-8261739837930821" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="15313.html#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="../index.html"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="../index.html">首頁</a></li>
+<li><a href="../entertainment.html">娛樂</a></li>
+<li><a href="../emotion.html">情感</a></li>
+<li><a href="../international.html">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="../technology.html">科技</a></li>
+<li><a href="../sports.html">體育</a>
+<ul class="sub-menu">
+	<li><a href="../nba.html">NBA</a></li>
+	<li><a href="../premier.html">英超</a></li>
+</ul>
+</li>
+<li><a href="../history.html">歷史</a></li>
+<li><a href="../game.html">遊戲</a></li>
+<li><a href="../health.html">養生</a>
+<ul class="sub-menu">
+	<li><a href="../lose.html">減肥</a></li>
+</ul>
+</li>
+<li><a href="../constellation.html">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">阿里Dubbo瘋狂更新，關Spring Cloud什麼事？</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-16				                <i class="fa fa-commenting-o"></i> 1,331條評論
+				                <i class="fa fa-eye"></i> 4,001次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 1378人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+<p>最近，開源社區發生了一件大事，那個全國 Java 開發者使用最廣的開源服務框架 Dubbo 低調重啟維護，並且 3 個月連續發布了 4 個維護版本。</p>
+<p>我上次在寫放棄Dubbo，選擇最流行的Spring Cloud微服務架構實踐與經驗總結這篇文章的時候，就有很多的網友給我留言說，Dubbo 又開始更新了。我當然是清楚的，我也一直在關注著 Dubbo 的走向，在幾個月前技術圈裡面就有一個消息說是 Dubbo 又開始更新了，大家議論紛紛不知真偽。我還專門跑到 GitHub 上面進行了留言詢問，最後在 Dubbo 的 gitter 聊天室裡面找到了確信的答案，說是正在組建團隊。雖然稍稍有所期待，但也不知道阿里這次拿出了多少的誠意來做這件事，於是我昨天又到 GitHub 逛了一下，發現從 9 月開始，阿里三個月連著發布了四個版本，還是非常有誠意的，值得關注。</p>
+<h2 class="pgc-h-arrow-right">Dubbo簡介</h2>
+<p>Dubbo 是阿里巴巴公司一個開源的高性能服務框架，致力於提供高性能和透明化的 RPC 遠程服務調用方案，以及 SOA 服務治理方案，使得應用可通過高性能 RPC 實現服務的輸出、輸入功能和 Spring 框架無縫集成。Dubbo 包含遠程通訊、集群容錯和自動發現三個核心部分。</p>
+<p>它提供透明化的遠程方法調用，實現像調用本地方法一樣調用遠程方法，只需簡單配置，沒有任何 API 侵入。同時它具備軟負載均衡及容錯機制，可在內網替代 F5 等硬體負載均衡器，降低成本，減少單點。它可以實現服務自動註冊與發現，不再需要寫死服務提供方地址，註冊中心基於介面名查詢服務提供者的 IP 地址，並且能夠平滑添加或刪除服務提供者。</p>
+<p>2011 年末，阿里巴巴在 GitHub 上開源了基於 Java 的分散式服務治理框架 Dubbo，之後它成為了國內該類開源項目的佼佼者，許多開發者對其表示青睞。同時，先後有不少公司在實踐中基於 Dubbo 進行分散式系統架構。目前在 GitHub 上，它的 fork、star 數均已破萬。</p>
+<p><strong>Dubbo核心功能</strong>:</p>
+<ul class="">
+<li>遠程通訊，提供對多種基於長連接的 NIO 框架抽象封裝，包括多種線程模型，序列化，以及「請求-響應」模式的信息交換方式。</li>
+<li>集群容錯，提供基於介面方法的透明遠程過程調用，包括多協議支持，以及軟負載均衡，失敗容錯，地址路由，動態配置等集群支持。</li>
+<li>自動發現，基於註冊中心目錄服務，使服務消費方能動態的查找服務提供方，使地址透明，使服務提供方可以平滑增加或減少機器。</li>
+</ul>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/68356b795cae46299d1a89da6b562cd1" src="http://p1.pstatp.com/large/pgc-image/68356b795cae46299d1a89da6b562cd1" alt="《阿里Dubbo瘋狂更新，關Spring Cloud什麼事？》" /></p>
+<p class="pgc-img-caption">
+</div>
+<h2 class="pgc-h-arrow-right">Dubbo發展史</h2>
+<p><strong>發展到開源</strong></p>
+<p>2008 年底在阿里內部開始規劃調用，2009 年初開發 1.0 版本；2010 年 04 月在 1.0 的版本之上進行了重構，發布了 2.0 版本；2011 年 10 月阿里宣布將 Dubbo 開源，開源的第一個版本為版本 <strong>dubbo-2.0.7</strong>。</p>
+<p><strong>開源成長</strong></p>
+<p>Dubbo 開源之後，框架發展比較迅速，幾乎兩三個月會發布一個版本，於 2012 年 3 月 14 號發布版本 dubbo-2.1.0。隨後又進入另一個快速發展期，版本發布頻繁，幾乎每一個月會發布好幾次。直到 2013 年 3 月 17 號發布了 dubbo-2.4.10，版本陷入停滯；2014 年 10 月 30 號發布版本 dubbo-2.4.11，修復了一個小 Bug，版本又陷入漫長的停滯到現在。</p>
+<p><strong>阿里之外的發展</strong></p>
+<p>2014 年的 10 月 20 號，噹噹網 Fork 了阿里的一個 Dubbo 版本開始維護，並命名為 dubbox-2.8.0。值得注意的是，噹噹網擴展 Dubbo 服務框架支持 REST 風格遠程調用，並且跟隨著 ZooKeepe 和 Spring 升級了對應的版本。之後 Dubbox 一直在小版本維護，2015 年 3 月 31 號發布了最後一個版本 <strong>dubbox-2.8.4</strong>。</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/3a404b6184ef4e2c9a6ef3c780c00079" src="http://p3.pstatp.com/large/pgc-image/3a404b6184ef4e2c9a6ef3c780c00079" alt="《阿里Dubbo瘋狂更新，關Spring Cloud什麼事？》" /></p>
+<p class="pgc-img-caption">
+</div>
+<h2 class="pgc-h-arrow-right">Dubbo團隊這三個月都做了什麼</h2>
+<p>目前 Dubbo 的主力開發以阿里巴巴中間件團隊為主，同時在阿里內部也招募了一些對 Dubbo 感興趣的同事。大家要知道，Dubbo 距離今年開始維護的上一個版本是什麼時間發布的嗎？是 2014 年 10 月 30 號，差了整整將近 3 年，Dubbo 所依賴的 Jdk、Spring、Zookeeper、Zkclient 等等不知道都更新了多少個版本。因此阿里恢復更新的第一步就是適配所依賴的各組件版本，讓 Dubbo 所依賴的基礎環境不要太落伍，另外也 Fixed 掉了一些嚴重的 Bug。</p>
+<p><strong>dubbo-2.5.4/5版本</strong></p>
+<p>2017 年 9 月，阿里發布了 dubbo-2.5.4/5 版本，更新內容如下：</p>
+<p><strong>依賴升級</strong></p>
+<p>依賴當前版本目標版本影響點spring3.2.16.RELEASE4.3.10.RELEASEschema配置解析；Http RPC協議zookeeper3.3.33.4.9常用註冊中心zkclient0.1 0.10zookeeper客戶端工具curator1.1.162.12.0zookeeper客戶端工具commons-logging1.1.11.2日誌實現集成hessian4.0.64.0.38hessian RPC協議jedis2.1.02.9.0redis註冊中心；緩存RPChttpclient4.1.24.5.3hessian等用http連接池validator1.0.01.1.0.Finaljava validation規範cxf2.6.13.0.14webservicejcache0.41.0.0jcache規範</p>
+<p>這版在升級相關依賴版本的同時，以問題反饋頻率和影響面排定優先順序，優先解決了幾個反饋最多、影響較大的一些缺陷，包括優雅停機、非同步調用、動態配置、MonitorFilter 監控統計等問題。</p>
+<p><strong>dubbo-2.5.6版本</strong></p>
+<p>2017 年 10 月，阿里發布了 dubbo-2.5.6 版本，又 Fixed 掉了一大批嚴重的 Bug。</p>
+<p><strong>發布內容</strong></p>
+<ul class="">
+<li>泛化調用PojoUtils工具類不能正確處理枚舉類型、私有欄位等問題</li>
+<li>provider業務線程池滿後，拒絕請求的異常無法通知到consumer端</li>
+<li>業務返回值payload超閾值時，payload被重複發送回consumer</li>
+<li>slf4jLogger正確輸出log調用實際所在行號</li>
+<li>延遲(delay)暴露存在潛在並發問題，導致不同服務佔用多個埠</li>
+<li>無provider時，consumer端mock邏輯不能生效</li>
+<li>一些小優化：OverrideListener監聽邏輯、provider端關閉心跳請求、Main啟動類停機邏輯等</li>
+<li>一些小bug修復：動態配置不能刪除、telnet支持泛型json調用、monitor統計錯誤等</li>
+</ul>
+<p><strong>dubbo-2.5.7版本</strong></p>
+<p>2017 年 11 月，也就是 12 天前，阿里發布了 dubbo-2.5.7。這次不但修復了一批主要的 Bug，還做了一處小功能的完善。</p>
+<p><strong>發布內容</strong></p>
+<ul class="">
+<li>完善註解配置方式，修復社區反饋的舊版註解bug</li>
+<li>支持啟動時從環境變數讀取註冊ip port、綁定ip port，支持社區反饋的容器化部署場景等</li>
+<li>調整、開放一些不完善的xml配置項，如dump.directory等</li>
+<li>解決啟動階段zk無法連接導致應用無限阻塞的問題</li>
+<li>解決zk無法連接時，MonitorService初次訪問會導致rpc請求阻塞問題 #672</li>
+<li>內部json實現標記deprecate，轉為依賴開源fastjson實現</li>
+<li>RMI協議支持傳遞attachments</li>
+<li>Hessian支持EnumSet類型序列化</li>
+<li>社區反饋的一些小bug修復及優化</li>
+</ul>
+<p>這次版本發布內容較多，因此還給出了升級建議。</p>
+<p><strong>升級請注意</strong></p>
+<ul class="">
+<li>此次升級存在以下不兼容或需要注意點，但對核心功能均無影響，且只需添加依賴或遵守配置規則即可避免。這裡只是把潛在的注意點列出來，如果你沒用到這些功能無需額外關注。</li>
+<li>AccesslogFilter、telnet、mock等部分功能依賴了老版JSON實現，如開啟以上功能，升級後請添加fastjson作為第三方依賴。</li>
+<li>此次升級完善了註解配置方式，同時保留了老的註解配置代碼，如工程從之前的老版本註解配置轉到2.5.7版本，請確保刪除老的註解掃描配置，使用新的配置形式。</li>
+<li>在工程啟動階段，如遇到zk不可達，當前版本的行為是使用註冊中心緩存繼續啟動（具體由check參數決定。 MonitorService初次調用，如遇zk不可達，當前版本會忽略monitor數據上傳，以避免阻塞rpc主流程。</li>
+</ul>
+<p><strong>重點</strong></p>
+<p>在 2.5.7 版本更新的同時還給出了下一步的預告，近期即將提供 dubbo-spring-boot-starter 啟動配置模塊。</p>
+<p>這個提示說明了兩個事情：</p>
+<ul class="">
+<li>Dubbo 還會繼續完善，後續會開發很多的新的功能，所以希望大家關注。</li>
+<li>說明 Spring Boot 的影響力也越來越大，各種牛逼的開源軟體紛紛給出了支持，現在也將包括 Dubbo。</li>
+</ul>
+<h2 class="pgc-h-arrow-right">Dubbo 下一步會做什麼？</h2>
+<p><strong>根據阿里技術的信息，最近三個版本會做的事情如下：</strong></p>
+<ul class="">
+<li>優先解決社區使用過程中的問題和框架的缺陷，吸收社區貢獻的新特性，解決文檔訪問和不全面的問題。</li>
+<li>提供服務延遲暴亂、優雅停機 API 介面支持 RESTFULE 風格服務調用，提供 netty http 的支持，集成高性能序列化協議。</li>
+<li>路由功能優化、消費端非同步功能優化、提供端非同步調用支持註冊中心推送通知非同步、合併處理改造等。</li>
+</ul>
+<p><strong>未來計劃</strong>：</p>
+<p>重構動態配置模塊，動態配置和註冊中心分離，集成流行的開源分散式配置管理框架，服務元數據註冊與註冊中心分離，豐富元數據內容，適配流行的 consul etcd 等註冊中心方案。考慮提供 opentrace、oauth2、metrics、health、gateway 等部分服務化基礎組件的支持，服務治理平台 OPS 重做，除代碼、UI 重構外，期望能提供更強的服務測試、健康檢查、服務動態治理等特性。Dubbo 模塊化，各個模塊可單獨打包、單獨依賴，集群熔斷和自動故障檢測能力。</p>
+<p>繼續在 Dubbo 框架現代化、國際化這兩個大的方向上進行探索。現代化方面主要是考慮到目前微服務架構以及容器化日漸流行的大趨勢，Dubbo 作為 RPC 框架如何很好地融入其中，成為其生態體系中不可或缺的一個組件。<strong>強調的是 Dubbo 未來的定位並不是要成為一個微服務的全面解決方案，而是專註在 RPC 領域，成為微服務生態體系中的一個重要組件。</strong>至於大家關注的微服務化衍生出的服務治理需求， Dubbo 將積極適配開源解決方案，甚至啟動獨立的開源項目予以支持。</p>
+<h2 class="pgc-h-arrow-right">Dubbo和Spring Cloud有何不同？</h2>
+<p>首先做一個簡單的功能對比：</p>
+<p> DubboSpring Cloud服務註冊中心ZookeeperSpring Cloud Netflix Eureka服務調用方式RPCREST API服務監控Dubbo-monitorSpring Boot Admin斷路器不完善Spring Cloud Netflix Hystrix服務網關無Spring Cloud Netflix Zuul分散式配置無Spring Cloud Config服務跟蹤無Spring Cloud Sleuth消息匯流排無Spring Cloud Bus數據流無Spring Cloud Stream批量任務無Spring Cloud Task………………</p>
+<p><strong>從上圖可以看出其實Dubbo的功能只是Spring Cloud體系的一部分。</strong></p>
+<p>這樣對比是不夠公平的，首先 Dubbo 是 SOA 時代的產物，它的關注點主要在於服務的調用，流量分發、流量監控和熔斷。而 Spring Cloud 誕生於微服務架構時代，考慮的是微服務治理的方方面面，另外由於依託了 Spring、Spring Boot 的優勢之上，兩個框架在開始目標就不一致，Dubbo 定位服務治理、Spring Cloud 是一個生態。</p>
+<p><strong>如果僅僅關注於服務治理的這個層面，Dubbo其實還優於Spring Cloud很多：</strong></p>
+<ul class="">
+<li>Dubbo 支持更多的協議，如：rmi、hessian、http、webservice、thrift、memcached、redis 等。</li>
+<li>Dubbo 使用 RPC 協議效率更高，在極端壓力測試下，Dubbo 的效率會高於 Spring Cloud 效率一倍多。</li>
+<li>Dubbo 有更強大的後台管理，Dubbo 提供的後台管理 Dubbo Admin 功能強大，提供了路由規則、動態配置、訪問控制、權重調節、均衡負載等諸多強大的功能。</li>
+<li>可以限制某個 IP 流量的訪問許可權，設置不同伺服器分發不同的流量權重，並且支持多種演算法，利用這些功能我們可以在線上做灰度發布、故障轉移等，Spring Cloud 到現在還不支持灰度發布、流量權重等功能。</li>
+</ul>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/2fe841527740475f9001c4486ae52b45" src="http://p3.pstatp.com/large/pgc-image/2fe841527740475f9001c4486ae52b45" alt="《阿里Dubbo瘋狂更新，關Spring Cloud什麼事？》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p><strong>所以Dubbo專註於服務治理；Spring Cloud關注於微服務架構生態。</strong></p>
+<h2 class="pgc-h-arrow-right">Dubbo發布對Spring Cloud有影響嗎？</h2>
+<p>國內技術人喜歡拿 Dubbo 和 Spring Cloud 進行對比，是因為兩者都是服務治理非常優秀的開源框架。但它們兩者的出發點是不一樣的，Dubbo 關注於服務治理這塊並且以後也會繼續往這個方向去發展。Spring Cloud 關注的是微服務治理的生態。因為微服務治理的方方面面都是它所關注的內容，服務治理也只是微服務生態的一部分而已。因此可以大膽的斷定，Dubbo 未來會在服務治理方面更為出色，而 Spring Cloud 在微服務治理上面無人能敵。</p>
+<p>同時根據 Dubbo 最新的更新技術來看，Dubbo 也會積極的擁抱開源，擁抱新技術。Dubbo 接下來的版本將會很快的支持 Spring Boot，方便我們享受高效開發的同時，也可以支持高效的服務調用。Dubbo 被廣泛應用於中國各互聯網公司，如今阿里又重新重視起來並且發布了新版本和一系列的計劃，對於正在使用 Dubbo 的公司來說是一個喜訊，對於中國廣大的開發者來說更是一件非常喜悅的事情。我們非常樂於看到中國有一款非常優秀的開源框架，讓我們有更多的選擇，有更好的支持。</p>
+<p><strong>兩者其實不一定有競爭關係，如果使用得當甚至可以互補；另外兩個關注的領域也不一致，因此對 Spring Cloud 的影響甚微。</strong></p>
+<h2 class="pgc-h-arrow-right">如何選擇？</h2>
+<p>可能很多人正在猶豫，在服務治理的時候應該選擇那個框架呢？如果公司對效率有極高的要求建議使用 Dubbo，相對比 RPC 的效率會比 HTTP 高很多；如果團隊不想對技術架構做大的改造建議使用 Dubbo，Dubbo 僅僅需要少量的修改就可以融入到內部系統的架構中。但如果技術團隊喜歡挑戰新技術，建議選擇 Spring Cloud，Spring Cloud 架構體系有有趣很酷的技術。如果公司選擇微服務架構去重構整個技術體系，那麼 Spring Cloud 是當仁不讓之選，它可以說是目前最好的微服務框架沒有之一。</p>
+<p>最後，技術選型是一個綜合的問題，需要考慮團隊的情況、業務的發展以及公司的產品特徵。最炫最酷的技術並不一定是最好的，選擇適合自己團隊、符合公司業務的框架才是最佳方案。技術的發展永遠沒有盡頭，因此我們對技術也要保持空杯、保持飢餓、保持敬畏！</p>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="15313" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/15313.html"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/15313.html";
+		var title='%E3%80%90%E9%98%BF%E9%87%8CDubbo%E7%98%8B%E7%8B%82%E6%9B%B4%E6%96%B0%EF%BC%8C%E9%97%9CSpring%20Cloud%E4%BB%80%E9%BA%BC%E4%BA%8B%EF%BC%9F%E3%80%91';
+		var qqtitle='%E3%80%90%E9%98%BF%E9%87%8CDubbo%E7%98%8B%E7%8B%82%E6%9B%B4%E6%96%B0%EF%BC%8C%E9%97%9CSpring%20Cloud%E4%BB%80%E9%BA%BC%E4%BA%8B%EF%BC%9F%E3%80%91';
+		var excerpt='%E6%9C%80%E8%BF%91%EF%BC%8C%E9%96%8B%E6%BA%90%E7%A4%BE%E5%8D%80%E7%99%BC%E7%94%9F%E4%BA%86%E4%B8%80%E4%BB%B6%E5%A4%A7%E4%BA%8B%EF%BC%8C%E9%82%A3%E5%80%8B%E5%85%A8%E5%9C%8B%20Java%20%E9%96%8B%E7%99%BC%E8%80%85%E4%BD%BF%E7%94%A8%E6%9C%80%E5%BB%A3%E7%9A%84%E9%96%8B%E6%BA%90%E6%9C%8D%E5%8B%99%E6%A1%86%E6%9E%B6%20Dubbo%20%E4%BD%8E%E8%AA%BF%E9%87%8D%E5%95%9F%E7%B6%AD%E8%AD%B7%EF%BC%8C%E4%B8%A6%E4%B8%94%203%20%E5%80%8B%E6%9C%88%E9%80%A3%E7%BA%8C%E7%99%BC%E5%B8%83%E4%BA%86%204%20%E5%80%8B%E7%B6%AD%E8%AD%B7%E7%89%88%E6%9C%AC%E3%80%82%20%E6%88%91%E4%B8%8A%E6%AC%A1%E5%9C%A8%E5%AF%AB%E6%94%BE%E6%A3%84Dubbo%EF%BC%8C%E9%81%B8%E6%93%87%E6%9C%80%E6%B5%81%E8%A1%8C%E7%9A%84Spring%20Cloud%E5%BE%AE%E6%9C%8D%E5%8B%99%E6%9E%B6%E6%A7%8B%E5%AF%A6%E8%B8%90%E8%88%87%E7%B6%93%E9%A9%97%E7%B8%BD%E7%B5%90%E9%80%99%E7%AF%87%E6%96%87%E7%AB%A0%E7%9A%84%E6%99%82%E5%80%99%EF%BC%8C%E5%B0%B1%E6%9C%89%E5%BE%88%E5%A4%9A%E7%9A%84%E7%B6%B2%E5%8F%8B%E7%B5%A6%E6%88%91%E7%95%99%E8%A8%80%E8%AA%AA%EF%BC%8CDubbo%20%E5%8F%88%E9%96%8B%E5%A7%8B%E6%9B%B4%E6%96%B0%E4%BA%86%E3%80%82%E6%88%91%E7%95%B6%E7%84%B6%E6%98%AF%E6%B8%85%E6%A5%9A%E7%9A%84%EF%BC%8C%E6%88%91%E4%B9%9F%E4%B8%80%E7%9B%B4%E5%9C%A8%E9%97%9C%E6%B3%A8%E8%91%97%20D%E2%80%A6%E2%80%A6';
+		var wbexcerpt='%E6%9C%80%E8%BF%91%EF%BC%8C%E9%96%8B%E6%BA%90%E7%A4%BE%E5%8D%80%E7%99%BC%E7%94%9F%E4%BA%86%E4%B8%80%E4%BB%B6%E5%A4%A7%E4%BA%8B%EF%BC%8C%E9%82%A3%E5%80%8B%E5%85%A8%E5%9C%8B%20Java%20%E9%96%8B%E7%99%BC%E8%80%85%E4%BD%BF%E7%94%A8%E6%9C%80%E5%BB%A3%E7%9A%84%E9%96%8B%E6%BA%90%E6%9C%8D%E5%8B%99%E6%A1%86%E6%9E%B6%20Dubbo%20%E4%BD%8E%E8%AA%BF%E9%87%8D%E5%95%9F%E7%B6%AD%E8%AD%B7%EF%BC%8C%E4%B8%A6%E4%B8%94%203%20%E5%80%8B%E6%9C%88%E9%80%A3%E7%BA%8C%E7%99%BC%E5%B8%83%E4%BA%86%204%20%E5%80%8B%E7%B6%AD%E8%AD%B7%E7%89%88%E6%9C%AC%E3%80%82%20%E6%88%91%E4%B8%8A%E6%AC%A1%E5%9C%A8%E5%AF%AB%E6%94%BE%E6%A3%84Dubbo%EF%BC%8C%E9%81%B8%E6%93%87%E6%9C%80%E6%B5%81%E8%A1%8C%E7%9A%84Spring%20Cloud%E5%BE%AE%E6%9C%8D%E5%8B%99%E6%9E%B6%E6%A7%8B%E5%AF%A6%E8%B8%90%E8%88%87%E7%B6%93%E9%A9%97%E7%B8%BD%E7%B5%90%E9%80%99%E7%AF%87%E6%96%87%E7%AB%A0%E7%9A%84%E6%99%82%E5%80%99%EF%BC%8C%E5%B0%B1%E6%9C%89%E5%BE%88%E5%A4%9A%E7%9A%84%E7%B6%B2%E5%8F%8B%E7%B5%A6%E6%88%91%E7%95%99%E8%A8%80%E8%AA%AA%EF%BC%8CDubbo%20%E5%8F%88%E9%96%8B%E5%A7%8B%E6%9B%B4%E6%96%B0%E4%BA%86%E3%80%82%E6%88%91%E7%95%B6%E7%84%B6%E6%98%AF%E6%B8%85%E6%A5%9A%E7%9A%84%EF%BC%8C%E6%88%91%E4%B9%9F%E4%B8%80%E7%9B%B4%E5%9C%A8%E9%97%9C%E6%B3%A8%E8%91%97%20D%E2%80%A6%E2%80%A6';
+		var pic="http://p1.pstatp.com/large/pgc-image/68356b795cae46299d1a89da6b562cd1";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="猝不及防！知名科技公司 一夜暴富成黃粱美夢！？| 檀熱點" href="15314.html">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="矽「xī」睿科技CEO孫臻：感測器是未來世界的核心" href="15312.html">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="15313.html#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="../wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="../wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="../wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="../wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="../wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="../wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="../wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="../wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="../wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="../wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="../wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="../wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="../wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="../wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="../wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="../wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="../wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="../wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="../wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="../wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="../wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="../wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="../wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="../wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="../wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='15313' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="15313.html#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="15313.html#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="15313.html#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="15313.html#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="15313.html#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="15313.html#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="明世宗：哈密危機如何解？問題在於朝貢，開放嘉峪關即可" href="../history/16494.html" rel="bookmark"><i class="fa  fa-book"></i> 明世宗：哈密危機如何解？問題在於朝貢，開放嘉峪關即可                            </a>
+                            <a class="list-group-item visible-md" title="明世宗：哈密危機如何解？問題在於朝貢，開放嘉峪關即可" href="../history/16494.html" rel="bookmark"><i class="fa  fa-book"></i> 明世宗：哈密危機如何解？問題在於朝貢，開放嘉峪關即可                            </a>
+                                                    <a class="list-group-item visible-lg" title="三國最坑的謀士，出的全是餿主意，為誰獻策誰滅亡" href="../history/16493.html" rel="bookmark"><i class="fa  fa-book"></i> 三國最坑的謀士，出的全是餿主意，為誰獻策誰滅亡                            </a>
+                            <a class="list-group-item visible-md" title="三國最坑的謀士，出的全是餿主意，為誰獻策誰滅亡" href="../history/16493.html" rel="bookmark"><i class="fa  fa-book"></i> 三國最坑的謀士，出的全是餿主意，為誰獻策誰滅亡                            </a>
+                                                    <a class="list-group-item visible-lg" title="魏國中原爭霸戰略是錯誤的嗎？絕不是！魏國東部擴張從未停止" href="../history/16495.html" rel="bookmark"><i class="fa  fa-book"></i> 魏國中原爭霸戰略是錯誤的嗎？絕不是！魏國東部擴張從未停止                            </a>
+                            <a class="list-group-item visible-md" title="魏國中原爭霸戰略是錯誤的嗎？絕不是！魏國東部擴張從未停止" href="../history/16495.html" rel="bookmark"><i class="fa  fa-book"></i> 魏國中原爭霸戰略是錯誤的嗎？絕不是！魏國東部擴張從未停止                            </a>
+                                                    <a class="list-group-item visible-lg" title="農運算元相出朱元璋有天子相！農運算元的真實身份是什麼？" href="../history/16497.html" rel="bookmark"><i class="fa  fa-book"></i> 農運算元相出朱元璋有天子相！農運算元的真實身份是什麼？                            </a>
+                            <a class="list-group-item visible-md" title="農運算元相出朱元璋有天子相！農運算元的真實身份是什麼？" href="../history/16497.html" rel="bookmark"><i class="fa  fa-book"></i> 農運算元相出朱元璋有天子相！農運算元的真實身份是什麼？                            </a>
+                                                    <a class="list-group-item visible-lg" title="晉國殺死太子，逼迫重耳流亡的可能另有其人，驪姬也許是無辜的" href="../history/16496.html" rel="bookmark"><i class="fa  fa-book"></i> 晉國殺死太子，逼迫重耳流亡的可能另有其人，驪姬也許是無辜的                            </a>
+                            <a class="list-group-item visible-md" title="晉國殺死太子，逼迫重耳流亡的可能另有其人，驪姬也許是無辜的" href="../history/16496.html" rel="bookmark"><i class="fa  fa-book"></i> 晉國殺死太子，逼迫重耳流亡的可能另有其人，驪姬也許是無辜的                            </a>
+                                                    <a class="list-group-item visible-lg" title="非洲教堂出土紅寶石戒指和“凸”型護身符，證明古代黑人帝國存在" href="../history/16498.html" rel="bookmark"><i class="fa  fa-book"></i> 非洲教堂出土紅寶石戒指和“凸”型護身符，證明古代黑人帝國存在                            </a>
+                            <a class="list-group-item visible-md" title="非洲教堂出土紅寶石戒指和“凸”型護身符，證明古代黑人帝國存在" href="../history/16498.html" rel="bookmark"><i class="fa  fa-book"></i> 非洲教堂出土紅寶石戒指和“凸”型護身符，證明古代黑人帝國存在                            </a>
+                                                    <a class="list-group-item visible-lg" title="爐石傳說：橘子哥立志要針對薩滿！結果沒過幾天，就開始真香" href="../game/16774.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：橘子哥立志要針對薩滿！結果沒過幾天，就開始真香                            </a>
+                            <a class="list-group-item visible-md" title="爐石傳說：橘子哥立志要針對薩滿！結果沒過幾天，就開始真香" href="../game/16774.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：橘子哥立志要針對薩滿！結果沒過幾天，就開始真香                            </a>
+                                                    <a class="list-group-item visible-lg" title="Jackeylove大概率加入RNG？韓媒記者的這份爆料真實性有幾分？" href="../game/16773.html" rel="bookmark"><i class="fa  fa-book"></i> Jackeylove大概率加入RNG？韓媒記者的這份爆料真實性有幾分？                            </a>
+                            <a class="list-group-item visible-md" title="Jackeylove大概率加入RNG？韓媒記者的這份爆料真實性有幾分？" href="../game/16773.html" rel="bookmark"><i class="fa  fa-book"></i> Jackeylove大概率加入RNG？韓媒記者的這份爆料真實性有幾分？                            </a>
+                                                    <a class="list-group-item visible-lg" title="這是高手！！超寫實次世代遊戲角色作品，你們認為能打多少分？" href="../game/16776.html" rel="bookmark"><i class="fa  fa-book"></i> 這是高手！！超寫實次世代遊戲角色作品，你們認為能打多少分？                            </a>
+                            <a class="list-group-item visible-md" title="這是高手！！超寫實次世代遊戲角色作品，你們認為能打多少分？" href="../game/16776.html" rel="bookmark"><i class="fa  fa-book"></i> 這是高手！！超寫實次世代遊戲角色作品，你們認為能打多少分？                            </a>
+                                                    <a class="list-group-item visible-lg" title="征服者煉金搞人心態？姿態1V4劣勢翻盤，殺人書25層直接拉滿" href="../game/16775.html" rel="bookmark"><i class="fa  fa-book"></i> 征服者煉金搞人心態？姿態1V4劣勢翻盤，殺人書25層直接拉滿                            </a>
+                            <a class="list-group-item visible-md" title="征服者煉金搞人心態？姿態1V4劣勢翻盤，殺人書25層直接拉滿" href="../game/16775.html" rel="bookmark"><i class="fa  fa-book"></i> 征服者煉金搞人心態？姿態1V4劣勢翻盤，殺人書25層直接拉滿                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="../international/8854.html" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="../international/8854.html" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="../international/12134.html" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-md" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="../international/12134.html" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="../health/7098.html" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="../health/7098.html" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-lg" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="../entertainment/10879.html" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-md" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="../entertainment/10879.html" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-lg" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="10158.html" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-md" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="10158.html" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-lg" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="../game/13764.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-md" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="../game/13764.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-lg" title="《逆戰》這份最強逆世界福利指南請查收" href="../game/16855.html" rel="bookmark"><i class="fa  fa-book"></i> 《逆戰》這份最強逆世界福利指南請查收</a><a class="list-group-item visible-md" title="《逆戰》這份最強逆世界福利指南請查收" href="../game/16855.html" rel="bookmark"><i class="fa  fa-book"></i> 《逆戰》這份最強逆世界福利指南請查收</a><a class="list-group-item visible-lg" title="王子文兒時雖是短髮卻不“假小子”，更被馬景濤前妻的童年照美哭" href="../entertainment/14458.html" rel="bookmark"><i class="fa  fa-book"></i> 王子文兒時雖是短髮卻不“假小子”，更被馬景濤前妻的童年照美哭</a><a class="list-group-item visible-md" title="王子文兒時雖是短髮卻不“假小子”，更被馬景濤前妻的童年照美哭" href="../entertainment/14458.html" rel="bookmark"><i class="fa  fa-book"></i> 王子文兒時雖是短髮卻不“假小子”，更被馬景濤前妻的童年照美哭</a><a class="list-group-item visible-lg" title="一隻低位科技股：消費電子+華為（600152），有望繼續突破" href="12846.html" rel="bookmark"><i class="fa  fa-book"></i> 一隻低位科技股：消費電子+華為（600152），有望繼續突破</a><a class="list-group-item visible-md" title="一隻低位科技股：消費電子+華為（600152），有望繼續突破" href="12846.html" rel="bookmark"><i class="fa  fa-book"></i> 一隻低位科技股：消費電子+華為（600152），有望繼續突破</a><a class="list-group-item visible-lg" title="爐石傳說：希爾瓦娜斯皮膚實際測評，獵爹還是獵爹" href="../game/13768.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：希爾瓦娜斯皮膚實際測評，獵爹還是獵爹</a><a class="list-group-item visible-md" title="爐石傳說：希爾瓦娜斯皮膚實際測評，獵爹還是獵爹" href="../game/13768.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：希爾瓦娜斯皮膚實際測評，獵爹還是獵爹</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="專訪百信銀行張真：AI金融機構不提升智能應用交付率會成空中樓閣" href="9661.html" rel="bookmark"><i class="fa  fa-book"></i> 專訪百信銀行張真：AI金融機構不提升智能應用交付率會成空中樓閣                            </a>
+                            <a class="list-group-item visible-md" title="專訪百信銀行張真：AI金融機構不提升智能應用交付率會成空中樓閣" href="9661.html" rel="bookmark"><i class="fa  fa-book"></i> 專訪百信銀行張真：AI金融機構不提升智能應用交付率會成空中樓閣                            </a>
+                                                    <a class="list-group-item visible-lg" title="水星助你年終總結順利通關:12星座指南" href="../constellation/8133.html" rel="bookmark"><i class="fa  fa-book"></i> 水星助你年終總結順利通關:12星座指南                            </a>
+                            <a class="list-group-item visible-md" title="水星助你年終總結順利通關:12星座指南" href="../constellation/8133.html" rel="bookmark"><i class="fa  fa-book"></i> 水星助你年終總結順利通關:12星座指南                            </a>
+                                                    <a class="list-group-item visible-lg" title="英國圈地運動時期，英國農民是如何反抗圈地的？" href="../history/3564.html" rel="bookmark"><i class="fa  fa-book"></i> 英國圈地運動時期，英國農民是如何反抗圈地的？                            </a>
+                            <a class="list-group-item visible-md" title="英國圈地運動時期，英國農民是如何反抗圈地的？" href="../history/3564.html" rel="bookmark"><i class="fa  fa-book"></i> 英國圈地運動時期，英國農民是如何反抗圈地的？                            </a>
+                                                    <a class="list-group-item visible-lg" title="8401萬枚USDT轉入交易所，多空雙爆的罪魁禍首？" href="10335.html" rel="bookmark"><i class="fa  fa-book"></i> 8401萬枚USDT轉入交易所，多空雙爆的罪魁禍首？                            </a>
+                            <a class="list-group-item visible-md" title="8401萬枚USDT轉入交易所，多空雙爆的罪魁禍首？" href="10335.html" rel="bookmark"><i class="fa  fa-book"></i> 8401萬枚USDT轉入交易所，多空雙爆的罪魁禍首？                            </a>
+                                                    <a class="list-group-item visible-lg" title="八一男籃的現狀，不但沒有高水平隊員，優秀教練們也都紛紛轉業" href="../sports/2940.html" rel="bookmark"><i class="fa  fa-book"></i> 八一男籃的現狀，不但沒有高水平隊員，優秀教練們也都紛紛轉業                            </a>
+                            <a class="list-group-item visible-md" title="八一男籃的現狀，不但沒有高水平隊員，優秀教練們也都紛紛轉業" href="../sports/2940.html" rel="bookmark"><i class="fa  fa-book"></i> 八一男籃的現狀，不但沒有高水平隊員，優秀教練們也都紛紛轉業                            </a>
+                                                    <a class="list-group-item visible-lg" title="混血女孩東南亞運動會上獲跆拳道銀牌，網友卻讓她去參加選美" href="../international/12222.html" rel="bookmark"><i class="fa  fa-book"></i> 混血女孩東南亞運動會上獲跆拳道銀牌，網友卻讓她去參加選美                            </a>
+                            <a class="list-group-item visible-md" title="混血女孩東南亞運動會上獲跆拳道銀牌，網友卻讓她去參加選美" href="../international/12222.html" rel="bookmark"><i class="fa  fa-book"></i> 混血女孩東南亞運動會上獲跆拳道銀牌，網友卻讓她去參加選美                            </a>
+                                                    <a class="list-group-item visible-lg" title="聯賽主場再生事端！常州賽區被通報批評，米楊被辱罵行為不是個例" href="../sports/16086.html" rel="bookmark"><i class="fa  fa-book"></i> 聯賽主場再生事端！常州賽區被通報批評，米楊被辱罵行為不是個例                            </a>
+                            <a class="list-group-item visible-md" title="聯賽主場再生事端！常州賽區被通報批評，米楊被辱罵行為不是個例" href="../sports/16086.html" rel="bookmark"><i class="fa  fa-book"></i> 聯賽主場再生事端！常州賽區被通報批評，米楊被辱罵行為不是個例                            </a>
+                                                    <a class="list-group-item visible-lg" title="魔鬼賽程來臨！湖人將開啟東部5連客，老詹與字母哥對決倒計時" href="../nba/6014.html" rel="bookmark"><i class="fa  fa-book"></i> 魔鬼賽程來臨！湖人將開啟東部5連客，老詹與字母哥對決倒計時                            </a>
+                            <a class="list-group-item visible-md" title="魔鬼賽程來臨！湖人將開啟東部5連客，老詹與字母哥對決倒計時" href="../nba/6014.html" rel="bookmark"><i class="fa  fa-book"></i> 魔鬼賽程來臨！湖人將開啟東部5連客，老詹與字母哥對決倒計時                            </a>
+                                                    <a class="list-group-item visible-lg" title="白羊.金牛.雙子.巨蟹一周運勢(12月9日一12月15日)" href="../constellation/12332.html" rel="bookmark"><i class="fa  fa-book"></i> 白羊.金牛.雙子.巨蟹一周運勢(12月9日一12月15日)                            </a>
+                            <a class="list-group-item visible-md" title="白羊.金牛.雙子.巨蟹一周運勢(12月9日一12月15日)" href="../constellation/12332.html" rel="bookmark"><i class="fa  fa-book"></i> 白羊.金牛.雙子.巨蟹一周運勢(12月9日一12月15日)                            </a>
+                                                    <a class="list-group-item visible-lg" title="火箭湖人領銜！12月14日（周六）NBA比賽視頻直播及時間預告" href="../nba/16293.html" rel="bookmark"><i class="fa  fa-book"></i> 火箭湖人領銜！12月14日（周六）NBA比賽視頻直播及時間預告                            </a>
+                            <a class="list-group-item visible-md" title="火箭湖人領銜！12月14日（周六）NBA比賽視頻直播及時間預告" href="../nba/16293.html" rel="bookmark"><i class="fa  fa-book"></i> 火箭湖人領銜！12月14日（周六）NBA比賽視頻直播及時間預告                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="kratos_tags-4" class="widget widget_kratos_tags clearfix"><h4 class="widget-title">標籤</h4><div class="tag_clouds"></div></aside><aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="../nba.html">NBA</a> (1,326)
+</li>
+	<li class="cat-item cat-item-23"><a href="../international.html">國際</a> (1,871)
+</li>
+	<li class="cat-item cat-item-14"><a href="../entertainment.html">娛樂</a> (2,003)
+</li>
+	<li class="cat-item cat-item-15"><a href="../emotion.html">情感</a> (1,360)
+</li>
+	<li class="cat-item cat-item-22"><a href="../constellation.html">星座</a> (920)
+</li>
+	<li class="cat-item cat-item-17"><a href="../history.html">歷史</a> (1,490)
+</li>
+	<li class="cat-item cat-item-25"><a href="../lose.html">減肥</a> (371)
+</li>
+	<li class="cat-item cat-item-24"><a href="../technology.html">科技</a> (1,796)
+</li>
+	<li class="cat-item cat-item-19"><a href="../premier.html">英超</a> (1,172)
+</li>
+	<li class="cat-item cat-item-18"><a href="../game.html">遊戲</a> (1,793)
+</li>
+	<li class="cat-item cat-item-21"><a href="../health.html">養生</a> (1,170)
+</li>
+	<li class="cat-item cat-item-16"><a href="../sports.html">體育</a> (1,831)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='../date/2019/12.html'>2019 年 12 月</a>&nbsp;(14101)</li>
+	<li><a href='../date/2019/11.html'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='../date/2019/10.html'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="../index.html">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.easing.min-ver=1.3.0.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.qrcode.min-ver=2.8.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/layer.min-ver=3.0.3.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/modernizr.min-ver=2.6.2.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/bootstrap.min-ver=3.3.7.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.waypoints.min-ver=4.0.0.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.stellar.min-ver=0.6.2.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/hoverIntent.min-ver=r7.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/superfish-ver=1.0.0.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/kratos-ver=2.8.js'></script>
+<script type='text/javascript' src='../wp-includes/js/wp-embed.min-ver=5.2.4.js'></script>
+			</body>
+
+</html>

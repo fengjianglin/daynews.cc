@@ -1,0 +1,479 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>詳談4大主流CPU處理器技術架構 - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="作者丨王藝威 編輯丨小新 RISC（精簡指令集計算機）是一種執行較少類型計算機指令的微處理器，起源於80年代的MIPS主機（即RISC機），RISC機中採用的微處理器統稱RISC處理器。這樣一來，它能夠以更快的速度執行操作（每秒執行更多百萬條指令，即MIPS）。因為計算機執行每個指令類型都需要額外的晶體管和電路元件，計算機指令集越大就會使……" />
+		<meta name="keywords" content="詳談4大主流CPU處理器技術架構 - 天天要聞,科技," />
+		<meta itemprop="image" content="http://p1.pstatp.com/large/pgc-image/cc7e4729c43543099562bbdee7a28fc8"/>
+		<meta name="description" itemprop="description" content="作者丨王藝威 編輯丨小新 RISC（精簡指令集計算機）是一種執行較少類型計算機指令的微處理器，起源於80年代的MIPS主機（即RISC機），RISC機中採用的微處理器統稱RISC處理器。這樣一來，它能夠以更快的速度執行操作（每秒執行更多百萬條指令，即MIPS）。因為計算機執行每個指令類型都需要額外的晶體管和電路元件，計算機指令集越大就會使……" />
+		
+<!-- This site is optimized with the Yoast SEO plugin v12.7.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="15316.html" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="詳談4大主流CPU處理器技術架構 - 天天要聞" />
+<meta property="og:description" content="作者丨王藝威 編輯丨小新 RISC（精簡指令集計算機）是一種執行較少類型計算機指令的微處理器，起源於80年代的MIPS主機（即RISC機），RISC機中採用的微處理器統稱RISC處理器。這樣一來，它能夠以更快的速度執行操作（每秒執行更多百萬條指令，即MIPS）。因為計算機執行每個指令類型都需要額外的晶體管和電路元件，計算機指令集越大就會使……" />
+<meta property="og:url" content="https://daynews.cc/technology/15316.html" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-15T18:05:08+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="作者丨王藝威 編輯丨小新 RISC（精簡指令集計算機）是一種執行較少類型計算機指令的微處理器，起源於80年代的MIPS主機（即RISC機），RISC機中採用的微處理器統稱RISC處理器。這樣一來，它能夠以更快的速度執行操作（每秒執行更多百萬條指令，即MIPS）。因為計算機執行每個指令類型都需要額外的晶體管和電路元件，計算機指令集越大就會使……" />
+<meta name="twitter:title" content="詳談4大主流CPU處理器技術架構 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/cc7e4729c43543099562bbdee7a28fc8" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/15316.html#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/cc7e4729c43543099562bbdee7a28fc8"},{"@type":"WebPage","@id":"https://daynews.cc/technology/15316.html#webpage","url":"https://daynews.cc/technology/15316.html","inLanguage":"zh-TW","name":"\u8a73\u8ac74\u5927\u4e3b\u6d41CPU\u8655\u7406\u5668\u6280\u8853\u67b6\u69cb - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/15316.html#primaryimage"},"datePublished":"2019-12-15T18:05:08+00:00","dateModified":"2019-12-15T18:05:08+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"fandyvon","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"fandyvon"},"sameAs":[]}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='stylesheet' id='animate-css'  href='../wp-content/themes/Kratos/css/animate.min-ver=3.5.1.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='../wp-content/themes/Kratos/css/font-awesome.min-ver=4.7.0.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='../wp-content/themes/Kratos/css/bootstrap.min-ver=3.3.7.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='../wp-content/themes/Kratos/css/superfish.min-ver=r7.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='../wp-content/themes/Kratos/css/layer.min-ver=2.8.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='../wp-content/themes/Kratos/style-ver=2.8.css' type='text/css' media='all' />
+<link rel='https://api.w.org/' href='https://daynews.cc/wp-json/' />
+<link rel='shortlink' href='15316.html' />
+<link rel="alternate" type="application/json+oembed" href="https://daynews.cc/wp-json/oembed/1.0/embed?url=https://daynews.cc/technology/15316.html" />
+<link rel="alternate" type="text/xml+oembed" href="https://daynews.cc/wp-json/oembed/1.0/embed?url=https://daynews.cc/technology/15316.html&format=xml" />
+		<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.min-ver=2.1.4.js'></script>
+				
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154207825-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		  gtag('config', 'UA-154207825-1');
+		</script>
+		
+		<script data-ad-client="ca-pub-8261739837930821" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="15316.html#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="../index.html"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="../index.html">首頁</a></li>
+<li><a href="../entertainment.html">娛樂</a></li>
+<li><a href="../emotion.html">情感</a></li>
+<li><a href="../international.html">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="../technology.html">科技</a></li>
+<li><a href="../sports.html">體育</a>
+<ul class="sub-menu">
+	<li><a href="../nba.html">NBA</a></li>
+	<li><a href="../premier.html">英超</a></li>
+</ul>
+</li>
+<li><a href="../history.html">歷史</a></li>
+<li><a href="../game.html">遊戲</a></li>
+<li><a href="../health.html">養生</a>
+<ul class="sub-menu">
+	<li><a href="../lose.html">減肥</a></li>
+</ul>
+</li>
+<li><a href="../constellation.html">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">詳談4大主流CPU處理器技術架構</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-16				                <i class="fa fa-commenting-o"></i> 432條評論
+				                <i class="fa fa-eye"></i> 2,120次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 906人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/cc7e4729c43543099562bbdee7a28fc8" src="http://p1.pstatp.com/large/pgc-image/cc7e4729c43543099562bbdee7a28fc8" alt="《詳談4大主流CPU處理器技術架構》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>作者<strong>丨</strong>王藝威</p>
+<p>編輯<strong>丨</strong>小新</p>
+<hr class="ProseMirror-selectednode">
+<h2 class="pgc-h-arrow-right">RISC（精簡指令集計算機）是一種執行較少類型計算機指令的微處理器，起源於80年代的MIPS主機（即RISC機），RISC機中採用的微處理器統稱RISC處理器。這樣一來，它能夠以更快的速度執行操作（每秒執行更多百萬條指令，即MIPS）。因為計算機執行每個指令類型都需要額外的晶體管和電路元件，計算機指令集越大就會使微處理器更複雜，執行操作也會更慢。　<br /></h2>
+<ul class="list-paddingleft-2">
+<li><strong>性能特點一：</strong>由於指令集簡化後，流水線以及常用指令均可用硬體執行； </li>
+<li><strong>性能特點二：</strong>採用大量的寄存器，使大部分指令操作都在寄存器之間進行，提高了處理速度； </li>
+<li><strong>性能特點三：</strong>採用緩存—主機—外存三級存儲結構，使取數與存數指令分開執行，使處理器可以完成儘可能多的工作，且不因從存儲器存取信息而放慢處理速度。</li>
+</ul>
+<p>其中ARM/MIPS/PowerPC均是基於精簡指令集機器處理器的架構；<br />X86則是基於複雜指令集的架構，Atom是x86或者是x86指令集的精簡版。<br />根據各種新聞，Android在支持各種處理器的現狀：</p>
+</p>
+<ul class="list-paddingleft-2">
+<li>ARM+Android 最早發展、完善的支持，主要在手機市場、上網本、智能等市場；</li>
+<li>X86+Android 有比較完善的發展。有atom+Android的上網本，且支</li>
+<li>Atom+Android 和 Atom+Window7雙系統；</li>
+<li>MIPS+Android 目前在移植、完善過程中；</li>
+<li>Powpc+Android 目前在移植、完善過程中。</li>
+</ul>
+<h2 class="pgc-h-arrow-right">ARM系列處理器</h2>
+<p>ARM架構，過去稱作進階精簡指令集機器（Advanced RISC Machine，更早稱作：Acorn RISC Machine），是一個32位精簡指令集（RISC）處理器架構，其廣泛地使用在許多嵌入式系統設計。<strong>由於節能的特點，ARM處理器非常適用於行動通訊領域，符合其主要設計目標為低耗電的特性。</strong></p>
+<p>在今日，ARM家族佔了所有32位嵌入式處理器<strong>75%</strong>的比例，使它成為佔全世界最多數的32位架構之一。ARM處理器可以在很多消費性電子產品上看到，從可攜式裝置（PDA、行動電話、多媒體播放器、掌上型電子遊戲，和計算機）到電腦外設（硬碟、桌上型路由器）甚至在導彈的彈載計算機等軍用設施中都有他的存在。在此還有一些基於ARM設計的派生產品，重要產品還包括Marvell的XScale架構和德州儀器的OMAP系列。</p>
+<ul class="list-paddingleft-2">
+<li><strong>優勢：</strong>價格低；能耗低；</li>
+<li><strong>ARM 授權方式：</strong>ARM 公司本身並不靠自有的設計來製造或出售 CPU ，而是將處理器架構授權給有興趣的廠家。</li>
+<li><strong>生產廠商：</strong>TI （德州儀器）/Samsung（三星）/Freescale（飛思卡爾）/Marvell（馬維爾）/Nvidia（英偉達）</li>
+</ul>
+<p>ARM 提供了多樣的授權條款，包括售價與散播性等項目。對於授權方來說，ARM 提供了 ARM 內核的整合硬體敘述，包含完整的軟體開發工具（編譯器、debugger、SDK），以及針對內含 ARM CPU 硅晶元的銷售權。對於無晶圓廠的授權方來說，其希望能將 ARM 內核整合到他們自行研發的晶元設計中，通常就僅針對取得一份生產就緒的智財核心技術（IP Core）認證。</p>
+</p>
+<p>對這些客戶來說，ARM 會釋出所選的 ARM 核心的閘極電路圖，連同抽象模擬模型和測試程式，以協助設計整合和驗證。需求更多的客戶，包括整合元件製造商（IDM）和晶圓廠家，就選擇可合成的RTL（暫存器轉移層級，如 Verilog）形式來取得處理器的智財權（IP）。</p>
+</p>
+<p>借著可整合的 RTL，客戶就有能力能進行架構上的最佳化與加強。這個方式能讓設計者完成額外的設計目標（如高震蕩頻率、低能量耗損、指令集延伸等）而不會受限於無法更動的電路圖。雖然 ARM 並不授予授權方再次出售 ARM 架構本身，但授權方可以任意地出售製品（如晶元元件、評估板、完整系統等）。</p>
+<p>商用晶圓廠是特殊例子，因為他們不僅授予能出售包含 ARM 內核的硅晶成品，對其它客戶來講，他們通常也保留重製 ARM 內核的權利。</p>
+<h2 class="pgc-h-arrow-right">x86系列/Atom處理器</h2>
+</p>
+<p>xx86或80&#215;86是英代爾Intel首先開發製造的一種微處理器體系結構的泛稱。<br />x86架構是重要地可變指令長度的CISC（複雜指令集電腦，Complex Instruction Set Computer）。</p>
+</p>
+<p>Intel Atom（中文：凌動，開發代號：Silverthorne）是Intel的一個超低電壓處理器系列。處理器採用45納米工藝製造，集成4700萬個晶體管。L2緩存為512KB，支持SSE3指令集，和VT虛擬化技術（部份型號）。</p>
+</p>
+<p>現時，Atom處理器系列有6個型號，全部都是屬於Z500系列。它們分別是Z500、Z510、Z520、Z530、Z540和Z550。最低端的Z500內核頻率是800MHz，FSB則是400MHz。而最高速的Z550，內核頻率則有2.0GHz，FSB則是533MHz。</p>
+<p>從Z520開始，所有的處理器都支持超線程技術，但只增加了不到10%的耗電。雙內核版本為N系列，依然採用945GC晶元組。雙內核版本仍會支持超線程技術，所以系統會顯示出有4個邏輯處理器。這個版本的兩個內核並非採用本地設計，只是簡單的將兩個單內核封裝起來。</p>
+<h2 class="pgc-h-arrow-right">MIPS系列處理器</h2>
+<p>MIPS是世界上很流行的一種RISC處理器。MIPS的意思是「無內部互鎖流水級的微處理器」(Microprocessor without interlocked piped stages)，其機制是盡量利用軟體辦法避免流水線中的數據相關問題。</p>
+<p>它最早是在80年代初期由斯坦福(Stanford)大學Hennessy教授領導的研究小組研製出來的。MIPS公司的R系列就是在此基礎上開發的RISC工業產品的微處理器。這些系列產品為很多計算機公司採用構成各種工作站和計算機系統。</p>
+<p>MIPS技術公司是美國著名的晶元設計公司，它採用精簡指令系統計算結構(RISC)來設計晶元。和英特爾採用的複雜指令系統計算結構(CISC)相比，RISC具有設計更簡單、設計周期更短等優點，並可以應用更多先進的技術，開發更快的下一代處理器。</p>
+<p><strong>MIPS是出現最早的商業RISC架構晶元之一，新的架構集成了所有原來MIPS指令集，</strong>並增加了許多更強大的功能。MIPS自己只進行CPU的設計，之後把設計方案授權給客戶，使得客戶能夠製造出高性能的CPU。</p>
+<ul class="list-paddingleft-2">
+<li>1984年，MIPS計算機公司成立，開始設計RISC處理器；</li>
+<li>1986年推出R2000處理器。</li>
+<li>1992年，SGI收購了MIPS計算機公司。</li>
+<li>1988年推R3000處理器。</li>
+<li>1991年推出第一款64位商用微處器R4000；之後又陸續推出R8000（於1994年）、R10000（於1996年）和R12000（於1997年）等型號。</li>
+<li>1998年，MIPS脫離SGI，成為MIPS技術公司；隨後，MIPS公司的戰略發生變化，把重點放在嵌入式系統；1998年－MIPS科技股票在美國納斯達克股票交易所公開上市。</li>
+<li>1999年，MIPS公司發布MIPS32和MIPS64架構標準，為未來MIPS處理器的開發奠定了基礎。新的架構集成了所有原來NIPS指令集，並且增加了許多更強大的功能。MIPS公司陸續開發了高性能、低功耗的32位處理器內核（core）MIPS324Kc與高性能64位處理器內核MIPS64 5Kc。</li>
+<li>2000年，MIPS公司發布了針對MIPS32 4Kc的版本以及64位MIPS 64 20Kc處理器內核。 </li>
+<li>2007年8月16日－MIPS科技宣布，中科院計算機研究所的龍芯中央處理器獲得其處理器IP的全部專利和匯流排、指令集授權。</li>
+<li>2007年12月20日－MIPS科技宣布，揚智科技已取得其針對先進多媒體所設計的可定製化系統單晶元（SoC）核心「MIPS32 24KEc Pro」授權。</li>
+</ul>
+<h2 class="pgc-h-arrow-right">PowerPC系列處理器</h2>
+</p>
+<p>PowerPC 是一種精簡指令集（RISC）架構的中央處理器（CPU），其基本的設計源自IBM（國際商用機器公司）的IBM PowerPC 601 微處理器POWER架構。二十世紀九十年代，IBM(國際商用機器公司)、Apple（蘋果公司）和Motorola（摩托羅拉）公司開發PowerPC晶元成功，並製造出基於PowerPC的多處理器計算機。<strong>PowerPC架構的特點是可伸縮性好、方便靈活。</strong></p>
+</p>
+<p>PowerPC 處理器有廣泛的實現範圍，包括從諸如 Power4 那樣的高端伺服器 CPU 到嵌入式 CPU 市場（任天堂 Gamecube 使用了 PowerPC）。</p>
+</p>
+<p>PowerPC 處理器有非常強的嵌入式表現，因為它具有優異的性能、較低的能量損耗以及較低的散熱量。除了象串列和乙太網控制器那樣的集成 I/O，該嵌入式處理器與「台式機」CPU 存在非常顯著的區別。</p>
+<h2 class="pgc-h-arrow-right">實時性(Real Time)DSP架構<br /></h2>
+<p>DSP是微處理器的一種,這種微處理器具有極高的處理速度，因為應用這類處理器的場合要求具有很高的實時性(Real Time)。比如通過行動電話進行通話,如果處理速度不快就只能等待對方停止說話，這一方才能通話。如果雙方同時通話，因為數字信號處理速度不夠,就只能關閉信號連接。在DSP出現之前數字信號處理只能依靠MPU(微處理器)來完成。但MPU較低的處理速度無法滿足高速實時的要求。</p>
+<p>因此，直到70年代，有人才提出了DSP的理論和演算法基礎。那時的DSP僅僅停留在教科書上，即便是研製出來的DSP系統也是由分立元件組成的，其應用領域僅局限於軍事、航空航天部門。</p>
+<p>90年代DSP發展最快，相繼出現了第四代和第五代DSP器件。現在的DSP屬於第五代產品，它與第四代相比，系統集成度更高，將DSP芯核及外圍元件綜合集成在單一晶元上。<strong>這種集成度極高的DSP晶元不僅在通信、計算機領域大顯身手，而且逐漸滲透到人們日常消費領域。</strong></p>
+<p><strong><br /></strong></p>
+<p>文章轉自CSDN</p>
+<p>如有侵權，請聯繫刪除</p>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="15316" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/15316.html"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/15316.html";
+		var title='%E3%80%90%E8%A9%B3%E8%AB%874%E5%A4%A7%E4%B8%BB%E6%B5%81CPU%E8%99%95%E7%90%86%E5%99%A8%E6%8A%80%E8%A1%93%E6%9E%B6%E6%A7%8B%E3%80%91';
+		var qqtitle='%E3%80%90%E8%A9%B3%E8%AB%874%E5%A4%A7%E4%B8%BB%E6%B5%81CPU%E8%99%95%E7%90%86%E5%99%A8%E6%8A%80%E8%A1%93%E6%9E%B6%E6%A7%8B%E3%80%91';
+		var excerpt='%E4%BD%9C%E8%80%85%E4%B8%A8%E7%8E%8B%E8%97%9D%E5%A8%81%20%E7%B7%A8%E8%BC%AF%E4%B8%A8%E5%B0%8F%E6%96%B0%20RISC%EF%BC%88%E7%B2%BE%E7%B0%A1%E6%8C%87%E4%BB%A4%E9%9B%86%E8%A8%88%E7%AE%97%E6%A9%9F%EF%BC%89%E6%98%AF%E4%B8%80%E7%A8%AE%E5%9F%B7%E8%A1%8C%E8%BC%83%E5%B0%91%E9%A1%9E%E5%9E%8B%E8%A8%88%E7%AE%97%E6%A9%9F%E6%8C%87%E4%BB%A4%E7%9A%84%E5%BE%AE%E8%99%95%E7%90%86%E5%99%A8%EF%BC%8C%E8%B5%B7%E6%BA%90%E6%96%BC80%E5%B9%B4%E4%BB%A3%E7%9A%84MIPS%E4%B8%BB%E6%A9%9F%EF%BC%88%E5%8D%B3RISC%E6%A9%9F%EF%BC%89%EF%BC%8CRISC%E6%A9%9F%E4%B8%AD%E6%8E%A1%E7%94%A8%E7%9A%84%E5%BE%AE%E8%99%95%E7%90%86%E5%99%A8%E7%B5%B1%E7%A8%B1RISC%E8%99%95%E7%90%86%E5%99%A8%E3%80%82%E9%80%99%E6%A8%A3%E4%B8%80%E4%BE%86%EF%BC%8C%E5%AE%83%E8%83%BD%E5%A4%A0%E4%BB%A5%E6%9B%B4%E5%BF%AB%E7%9A%84%E9%80%9F%E5%BA%A6%E5%9F%B7%E8%A1%8C%E6%93%8D%E4%BD%9C%EF%BC%88%E6%AF%8F%E7%A7%92%E5%9F%B7%E8%A1%8C%E6%9B%B4%E5%A4%9A%E7%99%BE%E8%90%AC%E6%A2%9D%E6%8C%87%E4%BB%A4%EF%BC%8C%E5%8D%B3MIPS%EF%BC%89%E3%80%82%E5%9B%A0%E7%82%BA%E8%A8%88%E7%AE%97%E6%A9%9F%E5%9F%B7%E8%A1%8C%E6%AF%8F%E5%80%8B%E6%8C%87%E4%BB%A4%E9%A1%9E%E5%9E%8B%E9%83%BD%E9%9C%80%E8%A6%81%E9%A1%8D%E5%A4%96%E7%9A%84%E6%99%B6%E9%AB%94%E7%AE%A1%E5%92%8C%E9%9B%BB%E8%B7%AF%E5%85%83%E4%BB%B6%EF%BC%8C%E8%A8%88%E7%AE%97%E6%A9%9F%E6%8C%87%E4%BB%A4%E9%9B%86%E8%B6%8A%E5%A4%A7%E5%B0%B1%E6%9C%83%E4%BD%BF%E2%80%A6%E2%80%A6';
+		var wbexcerpt='%E4%BD%9C%E8%80%85%E4%B8%A8%E7%8E%8B%E8%97%9D%E5%A8%81%20%E7%B7%A8%E8%BC%AF%E4%B8%A8%E5%B0%8F%E6%96%B0%20RISC%EF%BC%88%E7%B2%BE%E7%B0%A1%E6%8C%87%E4%BB%A4%E9%9B%86%E8%A8%88%E7%AE%97%E6%A9%9F%EF%BC%89%E6%98%AF%E4%B8%80%E7%A8%AE%E5%9F%B7%E8%A1%8C%E8%BC%83%E5%B0%91%E9%A1%9E%E5%9E%8B%E8%A8%88%E7%AE%97%E6%A9%9F%E6%8C%87%E4%BB%A4%E7%9A%84%E5%BE%AE%E8%99%95%E7%90%86%E5%99%A8%EF%BC%8C%E8%B5%B7%E6%BA%90%E6%96%BC80%E5%B9%B4%E4%BB%A3%E7%9A%84MIPS%E4%B8%BB%E6%A9%9F%EF%BC%88%E5%8D%B3RISC%E6%A9%9F%EF%BC%89%EF%BC%8CRISC%E6%A9%9F%E4%B8%AD%E6%8E%A1%E7%94%A8%E7%9A%84%E5%BE%AE%E8%99%95%E7%90%86%E5%99%A8%E7%B5%B1%E7%A8%B1RISC%E8%99%95%E7%90%86%E5%99%A8%E3%80%82%E9%80%99%E6%A8%A3%E4%B8%80%E4%BE%86%EF%BC%8C%E5%AE%83%E8%83%BD%E5%A4%A0%E4%BB%A5%E6%9B%B4%E5%BF%AB%E7%9A%84%E9%80%9F%E5%BA%A6%E5%9F%B7%E8%A1%8C%E6%93%8D%E4%BD%9C%EF%BC%88%E6%AF%8F%E7%A7%92%E5%9F%B7%E8%A1%8C%E6%9B%B4%E5%A4%9A%E7%99%BE%E8%90%AC%E6%A2%9D%E6%8C%87%E4%BB%A4%EF%BC%8C%E5%8D%B3MIPS%EF%BC%89%E3%80%82%E5%9B%A0%E7%82%BA%E8%A8%88%E7%AE%97%E6%A9%9F%E5%9F%B7%E8%A1%8C%E6%AF%8F%E5%80%8B%E6%8C%87%E4%BB%A4%E9%A1%9E%E5%9E%8B%E9%83%BD%E9%9C%80%E8%A6%81%E9%A1%8D%E5%A4%96%E7%9A%84%E6%99%B6%E9%AB%94%E7%AE%A1%E5%92%8C%E9%9B%BB%E8%B7%AF%E5%85%83%E4%BB%B6%EF%BC%8C%E8%A8%88%E7%AE%97%E6%A9%9F%E6%8C%87%E4%BB%A4%E9%9B%86%E8%B6%8A%E5%A4%A7%E5%B0%B1%E6%9C%83%E4%BD%BF%E2%80%A6%E2%80%A6';
+		var pic="http://p1.pstatp.com/large/pgc-image/cc7e4729c43543099562bbdee7a28fc8";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="基於Flink快速開發實時TopN" href="15317.html">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="劉強東案女主發聲：“可能最多10%的人會站我這邊”" href="15315.html">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="15316.html#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="../wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="../wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="../wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="../wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="../wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="../wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="../wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="../wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="../wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="../wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="../wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="../wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="../wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="../wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="../wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="../wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="../wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="../wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="../wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="../wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="../wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="../wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="../wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="../wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="../wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='15316' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="15316.html#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="15316.html#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="15316.html#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="15316.html#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="15316.html#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="15316.html#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="明世宗：哈密危機如何解？問題在於朝貢，開放嘉峪關即可" href="../history/16494.html" rel="bookmark"><i class="fa  fa-book"></i> 明世宗：哈密危機如何解？問題在於朝貢，開放嘉峪關即可                            </a>
+                            <a class="list-group-item visible-md" title="明世宗：哈密危機如何解？問題在於朝貢，開放嘉峪關即可" href="../history/16494.html" rel="bookmark"><i class="fa  fa-book"></i> 明世宗：哈密危機如何解？問題在於朝貢，開放嘉峪關即可                            </a>
+                                                    <a class="list-group-item visible-lg" title="三國最坑的謀士，出的全是餿主意，為誰獻策誰滅亡" href="../history/16493.html" rel="bookmark"><i class="fa  fa-book"></i> 三國最坑的謀士，出的全是餿主意，為誰獻策誰滅亡                            </a>
+                            <a class="list-group-item visible-md" title="三國最坑的謀士，出的全是餿主意，為誰獻策誰滅亡" href="../history/16493.html" rel="bookmark"><i class="fa  fa-book"></i> 三國最坑的謀士，出的全是餿主意，為誰獻策誰滅亡                            </a>
+                                                    <a class="list-group-item visible-lg" title="魏國中原爭霸戰略是錯誤的嗎？絕不是！魏國東部擴張從未停止" href="../history/16495.html" rel="bookmark"><i class="fa  fa-book"></i> 魏國中原爭霸戰略是錯誤的嗎？絕不是！魏國東部擴張從未停止                            </a>
+                            <a class="list-group-item visible-md" title="魏國中原爭霸戰略是錯誤的嗎？絕不是！魏國東部擴張從未停止" href="../history/16495.html" rel="bookmark"><i class="fa  fa-book"></i> 魏國中原爭霸戰略是錯誤的嗎？絕不是！魏國東部擴張從未停止                            </a>
+                                                    <a class="list-group-item visible-lg" title="農運算元相出朱元璋有天子相！農運算元的真實身份是什麼？" href="../history/16497.html" rel="bookmark"><i class="fa  fa-book"></i> 農運算元相出朱元璋有天子相！農運算元的真實身份是什麼？                            </a>
+                            <a class="list-group-item visible-md" title="農運算元相出朱元璋有天子相！農運算元的真實身份是什麼？" href="../history/16497.html" rel="bookmark"><i class="fa  fa-book"></i> 農運算元相出朱元璋有天子相！農運算元的真實身份是什麼？                            </a>
+                                                    <a class="list-group-item visible-lg" title="晉國殺死太子，逼迫重耳流亡的可能另有其人，驪姬也許是無辜的" href="../history/16496.html" rel="bookmark"><i class="fa  fa-book"></i> 晉國殺死太子，逼迫重耳流亡的可能另有其人，驪姬也許是無辜的                            </a>
+                            <a class="list-group-item visible-md" title="晉國殺死太子，逼迫重耳流亡的可能另有其人，驪姬也許是無辜的" href="../history/16496.html" rel="bookmark"><i class="fa  fa-book"></i> 晉國殺死太子，逼迫重耳流亡的可能另有其人，驪姬也許是無辜的                            </a>
+                                                    <a class="list-group-item visible-lg" title="非洲教堂出土紅寶石戒指和“凸”型護身符，證明古代黑人帝國存在" href="../history/16498.html" rel="bookmark"><i class="fa  fa-book"></i> 非洲教堂出土紅寶石戒指和“凸”型護身符，證明古代黑人帝國存在                            </a>
+                            <a class="list-group-item visible-md" title="非洲教堂出土紅寶石戒指和“凸”型護身符，證明古代黑人帝國存在" href="../history/16498.html" rel="bookmark"><i class="fa  fa-book"></i> 非洲教堂出土紅寶石戒指和“凸”型護身符，證明古代黑人帝國存在                            </a>
+                                                    <a class="list-group-item visible-lg" title="爐石傳說：橘子哥立志要針對薩滿！結果沒過幾天，就開始真香" href="../game/16774.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：橘子哥立志要針對薩滿！結果沒過幾天，就開始真香                            </a>
+                            <a class="list-group-item visible-md" title="爐石傳說：橘子哥立志要針對薩滿！結果沒過幾天，就開始真香" href="../game/16774.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：橘子哥立志要針對薩滿！結果沒過幾天，就開始真香                            </a>
+                                                    <a class="list-group-item visible-lg" title="Jackeylove大概率加入RNG？韓媒記者的這份爆料真實性有幾分？" href="../game/16773.html" rel="bookmark"><i class="fa  fa-book"></i> Jackeylove大概率加入RNG？韓媒記者的這份爆料真實性有幾分？                            </a>
+                            <a class="list-group-item visible-md" title="Jackeylove大概率加入RNG？韓媒記者的這份爆料真實性有幾分？" href="../game/16773.html" rel="bookmark"><i class="fa  fa-book"></i> Jackeylove大概率加入RNG？韓媒記者的這份爆料真實性有幾分？                            </a>
+                                                    <a class="list-group-item visible-lg" title="這是高手！！超寫實次世代遊戲角色作品，你們認為能打多少分？" href="../game/16776.html" rel="bookmark"><i class="fa  fa-book"></i> 這是高手！！超寫實次世代遊戲角色作品，你們認為能打多少分？                            </a>
+                            <a class="list-group-item visible-md" title="這是高手！！超寫實次世代遊戲角色作品，你們認為能打多少分？" href="../game/16776.html" rel="bookmark"><i class="fa  fa-book"></i> 這是高手！！超寫實次世代遊戲角色作品，你們認為能打多少分？                            </a>
+                                                    <a class="list-group-item visible-lg" title="征服者煉金搞人心態？姿態1V4劣勢翻盤，殺人書25層直接拉滿" href="../game/16775.html" rel="bookmark"><i class="fa  fa-book"></i> 征服者煉金搞人心態？姿態1V4劣勢翻盤，殺人書25層直接拉滿                            </a>
+                            <a class="list-group-item visible-md" title="征服者煉金搞人心態？姿態1V4劣勢翻盤，殺人書25層直接拉滿" href="../game/16775.html" rel="bookmark"><i class="fa  fa-book"></i> 征服者煉金搞人心態？姿態1V4劣勢翻盤，殺人書25層直接拉滿                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="../international/8854.html" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="../international/8854.html" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="../international/12134.html" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-md" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="../international/12134.html" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="../health/7098.html" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="../health/7098.html" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-lg" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="../entertainment/10879.html" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-md" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="../entertainment/10879.html" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-lg" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="10158.html" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-md" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="10158.html" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-lg" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="../game/13764.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-md" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="../game/13764.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-lg" title="《逆戰》這份最強逆世界福利指南請查收" href="../game/16855.html" rel="bookmark"><i class="fa  fa-book"></i> 《逆戰》這份最強逆世界福利指南請查收</a><a class="list-group-item visible-md" title="《逆戰》這份最強逆世界福利指南請查收" href="../game/16855.html" rel="bookmark"><i class="fa  fa-book"></i> 《逆戰》這份最強逆世界福利指南請查收</a><a class="list-group-item visible-lg" title="王子文兒時雖是短髮卻不“假小子”，更被馬景濤前妻的童年照美哭" href="../entertainment/14458.html" rel="bookmark"><i class="fa  fa-book"></i> 王子文兒時雖是短髮卻不“假小子”，更被馬景濤前妻的童年照美哭</a><a class="list-group-item visible-md" title="王子文兒時雖是短髮卻不“假小子”，更被馬景濤前妻的童年照美哭" href="../entertainment/14458.html" rel="bookmark"><i class="fa  fa-book"></i> 王子文兒時雖是短髮卻不“假小子”，更被馬景濤前妻的童年照美哭</a><a class="list-group-item visible-lg" title="一隻低位科技股：消費電子+華為（600152），有望繼續突破" href="12846.html" rel="bookmark"><i class="fa  fa-book"></i> 一隻低位科技股：消費電子+華為（600152），有望繼續突破</a><a class="list-group-item visible-md" title="一隻低位科技股：消費電子+華為（600152），有望繼續突破" href="12846.html" rel="bookmark"><i class="fa  fa-book"></i> 一隻低位科技股：消費電子+華為（600152），有望繼續突破</a><a class="list-group-item visible-lg" title="爐石傳說：希爾瓦娜斯皮膚實際測評，獵爹還是獵爹" href="../game/13768.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：希爾瓦娜斯皮膚實際測評，獵爹還是獵爹</a><a class="list-group-item visible-md" title="爐石傳說：希爾瓦娜斯皮膚實際測評，獵爹還是獵爹" href="../game/13768.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：希爾瓦娜斯皮膚實際測評，獵爹還是獵爹</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="霍華德亮劍！快船湖人同病相憐，榜首再生懸念，洛城球迷扎心了" href="../nba/6217.html" rel="bookmark"><i class="fa  fa-book"></i> 霍華德亮劍！快船湖人同病相憐，榜首再生懸念，洛城球迷扎心了                            </a>
+                            <a class="list-group-item visible-md" title="霍華德亮劍！快船湖人同病相憐，榜首再生懸念，洛城球迷扎心了" href="../nba/6217.html" rel="bookmark"><i class="fa  fa-book"></i> 霍華德亮劍！快船湖人同病相憐，榜首再生懸念，洛城球迷扎心了                            </a>
+                                                    <a class="list-group-item visible-lg" title="獅子座：天生的強者，也想做個被寵的公主" href="../constellation/8083.html" rel="bookmark"><i class="fa  fa-book"></i> 獅子座：天生的強者，也想做個被寵的公主                            </a>
+                            <a class="list-group-item visible-md" title="獅子座：天生的強者，也想做個被寵的公主" href="../constellation/8083.html" rel="bookmark"><i class="fa  fa-book"></i> 獅子座：天生的強者，也想做個被寵的公主                            </a>
+                                                    <a class="list-group-item visible-lg" title="韓明星話題度爆表的5個獲獎感言，每句話都是人生佳句" href="../entertainment/665.html" rel="bookmark"><i class="fa  fa-book"></i> 韓明星話題度爆表的5個獲獎感言，每句話都是人生佳句                            </a>
+                            <a class="list-group-item visible-md" title="韓明星話題度爆表的5個獲獎感言，每句話都是人生佳句" href="../entertainment/665.html" rel="bookmark"><i class="fa  fa-book"></i> 韓明星話題度爆表的5個獲獎感言，每句話都是人生佳句                            </a>
+                                                    <a class="list-group-item visible-lg" title="「天蠍座」農曆十月，命星大放光芒，桃花花開，財旺福旺家門興旺" href="../constellation/8331.html" rel="bookmark"><i class="fa  fa-book"></i> 「天蠍座」農曆十月，命星大放光芒，桃花花開，財旺福旺家門興旺                            </a>
+                            <a class="list-group-item visible-md" title="「天蠍座」農曆十月，命星大放光芒，桃花花開，財旺福旺家門興旺" href="../constellation/8331.html" rel="bookmark"><i class="fa  fa-book"></i> 「天蠍座」農曆十月，命星大放光芒，桃花花開，財旺福旺家門興旺                            </a>
+                                                    <a class="list-group-item visible-lg" title="波波維奇：湖人還沒贏過地球之外的球隊，所以他們還算不上強隊" href="../sports/2152.html" rel="bookmark"><i class="fa  fa-book"></i> 波波維奇：湖人還沒贏過地球之外的球隊，所以他們還算不上強隊                            </a>
+                            <a class="list-group-item visible-md" title="波波維奇：湖人還沒贏過地球之外的球隊，所以他們還算不上強隊" href="../sports/2152.html" rel="bookmark"><i class="fa  fa-book"></i> 波波維奇：湖人還沒贏過地球之外的球隊，所以他們還算不上強隊                            </a>
+                                                    <a class="list-group-item visible-lg" title="睡得晚起得早，還不會犯困的星座男" href="../constellation/17346.html" rel="bookmark"><i class="fa  fa-book"></i> 睡得晚起得早，還不會犯困的星座男                            </a>
+                            <a class="list-group-item visible-md" title="睡得晚起得早，還不會犯困的星座男" href="../constellation/17346.html" rel="bookmark"><i class="fa  fa-book"></i> 睡得晚起得早，還不會犯困的星座男                            </a>
+                                                    <a class="list-group-item visible-lg" title="草叢三姐妹之一：安琪拉史詩級調整，大招旋轉180度，傷害爆炸" href="../game/4034.html" rel="bookmark"><i class="fa  fa-book"></i> 草叢三姐妹之一：安琪拉史詩級調整，大招旋轉180度，傷害爆炸                            </a>
+                            <a class="list-group-item visible-md" title="草叢三姐妹之一：安琪拉史詩級調整，大招旋轉180度，傷害爆炸" href="../game/4034.html" rel="bookmark"><i class="fa  fa-book"></i> 草叢三姐妹之一：安琪拉史詩級調整，大招旋轉180度，傷害爆炸                            </a>
+                                                    <a class="list-group-item visible-lg" title="英國爵位等級介紹，哪些爵位可以世襲" href="../international/8700.html" rel="bookmark"><i class="fa  fa-book"></i> 英國爵位等級介紹，哪些爵位可以世襲                            </a>
+                            <a class="list-group-item visible-md" title="英國爵位等級介紹，哪些爵位可以世襲" href="../international/8700.html" rel="bookmark"><i class="fa  fa-book"></i> 英國爵位等級介紹，哪些爵位可以世襲                            </a>
+                                                    <a class="list-group-item visible-lg" title="港女星離婚後暴瘦只剩22公斤 賣收藏籌醫藥費" href="../entertainment/115.html" rel="bookmark"><i class="fa  fa-book"></i> 港女星離婚後暴瘦只剩22公斤 賣收藏籌醫藥費                            </a>
+                            <a class="list-group-item visible-md" title="港女星離婚後暴瘦只剩22公斤 賣收藏籌醫藥費" href="../entertainment/115.html" rel="bookmark"><i class="fa  fa-book"></i> 港女星離婚後暴瘦只剩22公斤 賣收藏籌醫藥費                            </a>
+                                                    <a class="list-group-item visible-lg" title="交手18次，獲勝4次！樊振東贏得不容易，也基本鎖定東京單打名額" href="../sports/15744.html" rel="bookmark"><i class="fa  fa-book"></i> 交手18次，獲勝4次！樊振東贏得不容易，也基本鎖定東京單打名額                            </a>
+                            <a class="list-group-item visible-md" title="交手18次，獲勝4次！樊振東贏得不容易，也基本鎖定東京單打名額" href="../sports/15744.html" rel="bookmark"><i class="fa  fa-book"></i> 交手18次，獲勝4次！樊振東贏得不容易，也基本鎖定東京單打名額                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="kratos_tags-4" class="widget widget_kratos_tags clearfix"><h4 class="widget-title">標籤</h4><div class="tag_clouds"></div></aside><aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="../nba.html">NBA</a> (1,326)
+</li>
+	<li class="cat-item cat-item-23"><a href="../international.html">國際</a> (1,871)
+</li>
+	<li class="cat-item cat-item-14"><a href="../entertainment.html">娛樂</a> (2,003)
+</li>
+	<li class="cat-item cat-item-15"><a href="../emotion.html">情感</a> (1,360)
+</li>
+	<li class="cat-item cat-item-22"><a href="../constellation.html">星座</a> (920)
+</li>
+	<li class="cat-item cat-item-17"><a href="../history.html">歷史</a> (1,490)
+</li>
+	<li class="cat-item cat-item-25"><a href="../lose.html">減肥</a> (371)
+</li>
+	<li class="cat-item cat-item-24"><a href="../technology.html">科技</a> (1,796)
+</li>
+	<li class="cat-item cat-item-19"><a href="../premier.html">英超</a> (1,172)
+</li>
+	<li class="cat-item cat-item-18"><a href="../game.html">遊戲</a> (1,793)
+</li>
+	<li class="cat-item cat-item-21"><a href="../health.html">養生</a> (1,170)
+</li>
+	<li class="cat-item cat-item-16"><a href="../sports.html">體育</a> (1,831)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='../date/2019/12.html'>2019 年 12 月</a>&nbsp;(14101)</li>
+	<li><a href='../date/2019/11.html'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='../date/2019/10.html'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="../index.html">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.easing.min-ver=1.3.0.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.qrcode.min-ver=2.8.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/layer.min-ver=3.0.3.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/modernizr.min-ver=2.6.2.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/bootstrap.min-ver=3.3.7.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.waypoints.min-ver=4.0.0.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.stellar.min-ver=0.6.2.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/hoverIntent.min-ver=r7.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/superfish-ver=1.0.0.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/kratos-ver=2.8.js'></script>
+<script type='text/javascript' src='../wp-includes/js/wp-embed.min-ver=5.2.4.js'></script>
+			</body>
+
+</html>

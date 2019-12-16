@@ -1,0 +1,463 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>從比特幣到Polkadot：區塊鏈共識與終結的簡史 - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="這篇文章將探討在區塊鏈網路中對容錯一致性演算法的需求，以及在不久的將來發展的方向。 為了理解為什麼我們需要區塊鏈技術中的一致演算法，我們需要理解比特幣使用區塊鏈技術解決了哪些問題。我認為主要存在兩個關鍵問題: 雙花, 中央集權的貨幣創造。 這篇博文分為三個部分。第一部分將簡要解釋比特幣如何解決這些問題，第二節將討論共識的一些微妙之處，如容……" />
+		<meta name="keywords" content="從比特幣到Polkadot：區塊鏈共識與終結的簡史天天要聞,科技," />
+		<meta itemprop="image" content="http://p1.pstatp.com/large/pgc-image/1984a156830a4efc965ea69231e16fde"/>
+		<meta name="description" itemprop="description" content="這篇文章將探討在區塊鏈網路中對容錯一致性演算法的需求，以及在不久的將來發展的方向。 為了理解為什麼我們需要區塊鏈技術中的一致演算法，我們需要理解比特幣使用區塊鏈技術解決了哪些問題。我認為主要存在兩個關鍵問題: 雙花, 中央集權的貨幣創造。 這篇博文分為三個部分。第一部分將簡要解釋比特幣如何解決這些問題，第二節將討論共識的一些微妙之處，如容……" />
+		<link rel='stylesheet' id='animate-css'  href='../wp-content/themes/Kratos/css/animate.min-ver=3.5.1.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='../wp-content/themes/Kratos/css/font-awesome.min-ver=4.7.0.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='../wp-content/themes/Kratos/css/bootstrap.min-ver=3.3.7.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='../wp-content/themes/Kratos/css/superfish.min-ver=r7.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='../wp-content/themes/Kratos/css/layer.min-ver=2.8.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='../wp-content/themes/Kratos/style-ver=2.8.css' type='text/css' media='all' />
+<link rel='https://api.w.org/' href='https://daynews.cc/wp-json/' />
+<link rel='shortlink' href='15560.html' />
+<link rel="alternate" type="application/json+oembed" href="https://daynews.cc/wp-json/oembed/1.0/embed?url=https://daynews.cc/technology/15560.html" />
+<link rel="alternate" type="text/xml+oembed" href="https://daynews.cc/wp-json/oembed/1.0/embed?url=https://daynews.cc/technology/15560.html&format=xml" />
+		<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.min-ver=2.1.4.js'></script>
+				
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154207825-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		  gtag('config', 'UA-154207825-1');
+		</script>
+		
+		<script data-ad-client="ca-pub-8261739837930821" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="15560.html#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="../index.html"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="../index.html">首頁</a></li>
+<li><a href="../entertainment.html">娛樂</a></li>
+<li><a href="../emotion.html">情感</a></li>
+<li><a href="../international.html">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="../technology.html">科技</a></li>
+<li><a href="../sports.html">體育</a>
+<ul class="sub-menu">
+	<li><a href="../nba.html">NBA</a></li>
+	<li><a href="../premier.html">英超</a></li>
+</ul>
+</li>
+<li><a href="../history.html">歷史</a></li>
+<li><a href="../game.html">遊戲</a></li>
+<li><a href="../health.html">養生</a>
+<ul class="sub-menu">
+	<li><a href="../lose.html">減肥</a></li>
+</ul>
+</li>
+<li><a href="../constellation.html">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">從比特幣到Polkadot：區塊鏈共識與終結的簡史</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-14				                <i class="fa fa-commenting-o"></i> 1,251條評論
+				                <i class="fa fa-eye"></i> 4,156次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 1713人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/1984a156830a4efc965ea69231e16fde" src="http://p1.pstatp.com/large/pgc-image/1984a156830a4efc965ea69231e16fde" alt="《從比特幣到Polkadot：區塊鏈共識與終結的簡史》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p> 這篇文章將探討在區塊鏈網路中對容錯一致性演算法的需求，以及在不久的將來發展的方向。</p>
+<p> 為了理解為什麼我們需要區塊鏈技術中的一致演算法，我們需要理解比特幣使用區塊鏈技術解決了哪些問題。我認為主要存在兩個關鍵問題:</p>
+<p> 雙花,</p>
+<p> 中央集權的貨幣創造。</p>
+<p> 這篇博文分為三個部分。第一部分將簡要解釋比特幣如何解決這些問題，第二節將討論共識的一些微妙之處，如容錯和終局性，第三部分將討論個別項目和未來的方向。</p>
+<p><strong>1.比特幣解決了什麼問題?</strong></p>
+<p> 要理解為什麼容錯對區塊鏈如此重要，有必要解釋一下比特幣解決的兩個問題(雙重支出和集中化貨幣創造)。</p>
+<p> 換句話說，比特幣以一種可預見的、透明的、去中心化的方式創造貨幣，這種方式防止了貨幣的虛假創造。管理髮送和創造貨幣過程的機制是共識演算法，它的工作原理是確保整個交易歷史的一致性。</p>
+<p> 在區塊鏈技術時代，共識演算法並不新鮮，因此，有必要強調一下比特幣為何如此具有創新性:它能夠在一個公開的、未經許可的網路中達成共識，並能在存在潛在惡意行為者的情況下達成共識。</p>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/697712e0963449c1baa4eedb0012c4d2" src="http://p1.pstatp.com/large/pgc-image/697712e0963449c1baa4eedb0012c4d2" alt="《從比特幣到Polkadot：區塊鏈共識與終結的簡史》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p><strong>比特幣的共識演算法</strong></p>
+<p> 我們都知道，PoW區塊鏈中的節點，就像比特幣一樣，通過試圖贏得新區塊創建所帶來的新貨幣獎勵，從而提高了網路的安全性。獎勵提供了一個誠實的行為，同時儘可能快地創造新的區塊。</p>
+<p> 問題是，創建新的塊涉及解決一個獨特的和計算困難的數學難題。這個困難實際上限制了生成新塊的速度，而解決方案的惟一性允許識別獲勝節點(通過它們的地址)。惡意行為不會受到積極的懲罰，而是由於不誠實的行為所帶來的機會成本而受到勸阻。</p>
+<p> 一個問題是，節點之間的通信時間不是瞬時的，因此，網路的不同地理區域可能會接收到不同的塊來解決這個難題(網路分區/分叉)。兩個不同的節點(礦工)有可能合法地找到問題的解決方案，但巧合的是，由於通信不是瞬時的，網路的不同區域將選擇建立在不同的獲勝塊(暫時)上。這將導致一個臨時分支，但是隨著新塊被添加到任何一個分支，最終一個分支將比另一個分支長。</p>
+<p> 遵循最長分塊的規則實際上是比特幣達成共識的規則，被稱為最長鏈規則。短分支上的塊將被丟棄，任何不在主分支上的事務將最終被添加到塊中。請注意，非法交易，例如那些試圖翻倍的花費，將不會被包括在形成最長鏈的塊中。包含此類交易的塊也將被丟棄，因為任何「貨幣」只能使用一次。這裡需要注意的是，大多數節點是誠實的(至少51%)，並且沒有試圖破壞協議。</p>
+<p> 從理論上講，一個新的最長的鏈可以通過更大的採礦力來創造。這種風險在靠近「鏈首」的區塊(最近的區塊)最大。塊在區塊鏈中的位置越深，它被恢復的可能性就越小。</p>
+<p> 這說明PoW鏈中的塊總是有一些被恢復的可能性，並且這些塊的事務可能不會發生。在惡意創建的鏈中，不應該假設將保存事務以將其包含到上面建議的新塊中。</p>
+<p> 在比特幣白皮書中，有建議稱，等待6個區塊的時間足以確保交易不會被拒絕，因為在那個時候，區塊被丟棄的可能性微乎其微。從這裡我們可以建立對「終結性」的理解:不能被還原的塊被稱為終結性。在比特幣和其他PoW區塊鏈中，由於區塊有一些被還原的可能性，所以最終結果並不完美。</p>
+<p> 所有這些都表明，比特幣有很強的抗缺陷性，可以通過一個公共的、無許可的網路以去中心化的方式創造貨幣。通過探索我們可以保證最終結果的方法，確保更大程度的安全是可能的。這個想法將在稍後的容錯一節中討論。</p>
+<p><strong>2.PoS區塊鏈</strong></p>
+<p> 還應該指出的是，一些PoS區塊鏈也以類似於比特幣的方式工作。大多數PoS鏈用塊提議代替挖掘，不是讓獲勝的礦工創建下一個塊，而是由隨機選擇的節點(「leader」)生成新塊。</p>
+<p> 被選中的概率以抵押來加權。這個想法是，擁有更多的貨幣意味著更有興趣看到鏈的成功，因此這樣的節點將有更大的概率產生下一個塊。</p>
+<p> NXT是最早的PoS鏈之一，它使用這種隨機的leader方法來創建塊。NXT內部的共識與比特幣是一樣的:隨著新區塊的產生，它們被添加到最長的鏈條上。任何分叉都是通過遵循這個規則來解決的，節點繼續在最長的鏈上產生塊。</p>
+<p><strong>3.容錯</strong></p>
+<p> 當參與者執行破壞協議的操作時發生錯誤。對於區塊鏈，我們希望有一個安全的協議來防止任意的錯誤，因為可能有惡意的參與者試圖利用協議的弱點。任何對任意錯誤安全的協議也將對隨機錯誤和惡意參與者安全。</p>
+<p> 拜占庭容錯(BFT)協議是一種即使一小部分參與者行為任意也能工作的協議。行為不端的節點可能意外出錯，也可能是惡意的。當然，這假定大多數參與者都正確地遵循了協議。這個短語是在一篇名為「拜占庭將軍問題」的研究論文中提出的，義上的問題涉及到許多行動者就1位信息達成共識的問題。</p>
+<p> 當在BFT協議中發現一致意見時，所一致同意的結果保證是正確的。這意味著一致同意的結果可以被認為是確定性正確的，而不是概率性的。當應用於區塊鏈時，BFT演算法保證了交易的最終結果。這意味著一旦在一個塊上找到協議，該塊就成為最終的，並且該塊內的事務不能被恢復。</p>
+<p> 顯然，這不同於比特幣和其他PoW鏈。如上所述，這些鏈只是在概率上是最終的。比特幣中存在的這種共識通常被稱為「中本共識」(Nakamoto consensus)，很容易看出為什麼它會與BFT混淆，因為兩者都是容錯的，但只有後者才能保證最終結果。更令人困惑的是，區塊生產和比特幣的共識演算法緊密相連。其實並不需要這樣。</p>
+<p> 以太坊未來的發展方向之一是繼續生產區塊，就像他們現在與採礦者所做的一樣，但是通過讓一些節點扮演確認器來提供最終結果來增強共識。驗證器對已經生成的塊進行投票。通過一個區塊的投票，他們表明他們相信這是正確的。一旦三分之二的驗證者投票了，那麼這個區塊就被認為是最終的，提供開採後BFT共識的機制被稱為「最終小工具」。</p>
+<p><strong>4.未來的發展方向</strong></p>
+<p> 大多數正在開發的新項目都是根據共識來劃分區塊的，未來的一些區塊鏈也將採用混合一致演算法，本節將討論正在探索的一些未來方向。</p>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/6518a99b07404f0691cd3d8ebf591271" src="http://p1.pstatp.com/large/pgc-image/6518a99b07404f0691cd3d8ebf591271" alt="《從比特幣到Polkadot：區塊鏈共識與終結的簡史》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>Cosmos</p>
+<p> 區塊生產也是由隨機選擇的領導者來完成的，但是Cosmos並沒有使用最長的鏈式法則來達成一致。相反，它採用了一種名為Tendermint的BFT演算法。這意味著每個塊都保證了最終結果。此外，如果驗證器不能在單個塊上達成一致，Cosmos將被設計為停止，從而避免分叉。</p>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/870e42a98ef646f788e3ea6f7de3e8b6" src="http://p1.pstatp.com/large/pgc-image/870e42a98ef646f788e3ea6f7de3e8b6" alt="《從比特幣到Polkadot：區塊鏈共識與終結的簡史》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>Polkadot</p>
+<p> Polkadot的計劃是採用混合一致演算法。塊將由一個隨機的領導者產生，他將下一個塊添加到最長的鏈上。bp也將達成協議，但不是每一輪都投票，而是在一次投票中敲定多個區塊。</p>
+<p> 使用混合共識機制的好處之一是，鏈可以通過建立在最長的鏈上繼續產生塊，而BFT最終會找到不妨礙活性的最終結果(即鏈將永遠不會停止)。</p>
+<p> 其共識與Cosmos相似。塊由隨機選擇的驗證器節點產生，然後通過BFT協議完成，再移動到下一個塊。</p>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/b717bb074e4943009131f700da4d1f7c" src="http://p9.pstatp.com/large/pgc-image/b717bb074e4943009131f700da4d1f7c" alt="《從比特幣到Polkadot：區塊鏈共識與終結的簡史》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>Cardano</p>
+<p> 簡單地說，Cardano有一個類似於比特幣(最長鏈式法則)的一致演算法。與NXT一樣，區塊生產將由隨機選擇的領導者完成。Cardano背後的團隊已經花了很大的力氣來解決隨機選擇領導者的一些弱點。他們選擇確保領導者選擇的隨機性反映了如今比特幣區塊的生產方式。</p>
+<p> 雖然比特幣是無領導的，但這些區塊是由隨機的礦工生產的。成功的採礦方案的分配將集中在那些擁有最大哈希能力的礦工周圍。</p>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/d02cfbaa5c74439c8ec1d785f806e582" src="http://p1.pstatp.com/large/pgc-image/d02cfbaa5c74439c8ec1d785f806e582" alt="《從比特幣到Polkadot：區塊鏈共識與終結的簡史》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>以太坊</p>
+<p> 以太坊曾經也在尋求增強他們的一致演算法，包括確保最終結果的塊的後處理。塊會像現在一樣通過PoW生成，但是會有一組驗證器節點對生成的塊的正確性進行投票。這就是所謂的「終極小工具」。這意味著有一個組合的最長鏈規則加上BFT:即一個混合的兩種共識演算法。</p>
+<p> 以太坊將用PoS取代PoW，使以太坊與正在開發的新區塊鏈保持一致，區塊將由一個隨機的領導者製作，然後最終由一個定局裝置完成。</p>
+<p><strong>溫馨提示</strong></p>
+<p>本文為譯文，翻譯原文鏈接https://medium.com/polkadot-network/consensus-and-finality-in-blockchains-21b1f634fd00</p>
+<p>譯者：珞珈山神</p>
+</p>
+<p class="pgc-end-literature">備註：</p>
+<p class="pgc-end-literature">本文轉載於幣乎</p>
+<p class="pgc-end-literature">原文鏈接：https://bihu.com/article/1813432667</p>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="15560" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/15560.html"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/15560.html";
+		var title='%E3%80%90%E5%BE%9E%E6%AF%94%E7%89%B9%E5%B9%A3%E5%88%B0Polkadot%EF%BC%9A%E5%8D%80%E5%A1%8A%E9%8F%88%E5%85%B1%E8%AD%98%E8%88%87%E7%B5%82%E7%B5%90%E7%9A%84%E7%B0%A1%E5%8F%B2%E3%80%91';
+		var qqtitle='%E3%80%90%E5%BE%9E%E6%AF%94%E7%89%B9%E5%B9%A3%E5%88%B0Polkadot%EF%BC%9A%E5%8D%80%E5%A1%8A%E9%8F%88%E5%85%B1%E8%AD%98%E8%88%87%E7%B5%82%E7%B5%90%E7%9A%84%E7%B0%A1%E5%8F%B2%E3%80%91';
+		var excerpt='%E9%80%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%B0%87%E6%8E%A2%E8%A8%8E%E5%9C%A8%E5%8D%80%E5%A1%8A%E9%8F%88%E7%B6%B2%E8%B7%AF%E4%B8%AD%E5%B0%8D%E5%AE%B9%E9%8C%AF%E4%B8%80%E8%87%B4%E6%80%A7%E6%BC%94%E7%AE%97%E6%B3%95%E7%9A%84%E9%9C%80%E6%B1%82%EF%BC%8C%E4%BB%A5%E5%8F%8A%E5%9C%A8%E4%B8%8D%E4%B9%85%E7%9A%84%E5%B0%87%E4%BE%86%E7%99%BC%E5%B1%95%E7%9A%84%E6%96%B9%E5%90%91%E3%80%82%20%E7%82%BA%E4%BA%86%E7%90%86%E8%A7%A3%E7%82%BA%E4%BB%80%E9%BA%BC%E6%88%91%E5%80%91%E9%9C%80%E8%A6%81%E5%8D%80%E5%A1%8A%E9%8F%88%E6%8A%80%E8%A1%93%E4%B8%AD%E7%9A%84%E4%B8%80%E8%87%B4%E6%BC%94%E7%AE%97%E6%B3%95%EF%BC%8C%E6%88%91%E5%80%91%E9%9C%80%E8%A6%81%E7%90%86%E8%A7%A3%E6%AF%94%E7%89%B9%E5%B9%A3%E4%BD%BF%E7%94%A8%E5%8D%80%E5%A1%8A%E9%8F%88%E6%8A%80%E8%A1%93%E8%A7%A3%E6%B1%BA%E4%BA%86%E5%93%AA%E4%BA%9B%E5%95%8F%E9%A1%8C%E3%80%82%E6%88%91%E8%AA%8D%E7%82%BA%E4%B8%BB%E8%A6%81%E5%AD%98%E5%9C%A8%E5%85%A9%E5%80%8B%E9%97%9C%E9%8D%B5%E5%95%8F%E9%A1%8C%3A%20%E9%9B%99%E8%8A%B1%2C%20%E4%B8%AD%E5%A4%AE%E9%9B%86%E6%AC%8A%E7%9A%84%E8%B2%A8%E5%B9%A3%E5%89%B5%E9%80%A0%E3%80%82%20%E9%80%99%E7%AF%87%E5%8D%9A%E6%96%87%E5%88%86%E7%82%BA%E4%B8%89%E5%80%8B%E9%83%A8%E5%88%86%E3%80%82%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%E5%B0%87%E7%B0%A1%E8%A6%81%E8%A7%A3%E9%87%8B%E6%AF%94%E7%89%B9%E5%B9%A3%E5%A6%82%E4%BD%95%E8%A7%A3%E6%B1%BA%E9%80%99%E4%BA%9B%E5%95%8F%E9%A1%8C%EF%BC%8C%E7%AC%AC%E4%BA%8C%E7%AF%80%E5%B0%87%E8%A8%8E%E8%AB%96%E5%85%B1%E8%AD%98%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BE%AE%E5%A6%99%E4%B9%8B%E8%99%95%EF%BC%8C%E5%A6%82%E5%AE%B9%E2%80%A6%E2%80%A6';
+		var wbexcerpt='%E9%80%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%B0%87%E6%8E%A2%E8%A8%8E%E5%9C%A8%E5%8D%80%E5%A1%8A%E9%8F%88%E7%B6%B2%E8%B7%AF%E4%B8%AD%E5%B0%8D%E5%AE%B9%E9%8C%AF%E4%B8%80%E8%87%B4%E6%80%A7%E6%BC%94%E7%AE%97%E6%B3%95%E7%9A%84%E9%9C%80%E6%B1%82%EF%BC%8C%E4%BB%A5%E5%8F%8A%E5%9C%A8%E4%B8%8D%E4%B9%85%E7%9A%84%E5%B0%87%E4%BE%86%E7%99%BC%E5%B1%95%E7%9A%84%E6%96%B9%E5%90%91%E3%80%82%20%E7%82%BA%E4%BA%86%E7%90%86%E8%A7%A3%E7%82%BA%E4%BB%80%E9%BA%BC%E6%88%91%E5%80%91%E9%9C%80%E8%A6%81%E5%8D%80%E5%A1%8A%E9%8F%88%E6%8A%80%E8%A1%93%E4%B8%AD%E7%9A%84%E4%B8%80%E8%87%B4%E6%BC%94%E7%AE%97%E6%B3%95%EF%BC%8C%E6%88%91%E5%80%91%E9%9C%80%E8%A6%81%E7%90%86%E8%A7%A3%E6%AF%94%E7%89%B9%E5%B9%A3%E4%BD%BF%E7%94%A8%E5%8D%80%E5%A1%8A%E9%8F%88%E6%8A%80%E8%A1%93%E8%A7%A3%E6%B1%BA%E4%BA%86%E5%93%AA%E4%BA%9B%E5%95%8F%E9%A1%8C%E3%80%82%E6%88%91%E8%AA%8D%E7%82%BA%E4%B8%BB%E8%A6%81%E5%AD%98%E5%9C%A8%E5%85%A9%E5%80%8B%E9%97%9C%E9%8D%B5%E5%95%8F%E9%A1%8C%3A%20%E9%9B%99%E8%8A%B1%2C%20%E4%B8%AD%E5%A4%AE%E9%9B%86%E6%AC%8A%E7%9A%84%E8%B2%A8%E5%B9%A3%E5%89%B5%E9%80%A0%E3%80%82%20%E9%80%99%E7%AF%87%E5%8D%9A%E6%96%87%E5%88%86%E7%82%BA%E4%B8%89%E5%80%8B%E9%83%A8%E5%88%86%E3%80%82%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%E5%B0%87%E7%B0%A1%E8%A6%81%E8%A7%A3%E9%87%8B%E6%AF%94%E7%89%B9%E5%B9%A3%E5%A6%82%E4%BD%95%E8%A7%A3%E6%B1%BA%E9%80%99%E4%BA%9B%E5%95%8F%E9%A1%8C%EF%BC%8C%E7%AC%AC%E4%BA%8C%E7%AF%80%E5%B0%87%E8%A8%8E%E8%AB%96%E5%85%B1%E8%AD%98%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BE%AE%E5%A6%99%E4%B9%8B%E8%99%95%EF%BC%8C%E5%A6%82%E5%AE%B9%E2%80%A6%E2%80%A6';
+		var pic="http://p1.pstatp.com/large/pgc-image/1984a156830a4efc965ea69231e16fde";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="任正非正式卸任華為子公司董事長！ 公司信息變更該怎麼操作？" href="15561.html">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="晶元世界的微觀雕刻者：中國5nm刻蝕機，成功進入台積電供應鏈" href="15559.html">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="15560.html#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="../wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="../wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="../wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="../wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="../wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="../wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="../wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="../wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="../wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="../wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="../wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="../wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="../wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="../wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="../wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="../wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="../wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="../wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="../wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="../wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="../wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="../wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="../wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="../wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="../wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='15560' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="15560.html#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="15560.html#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="15560.html#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="15560.html#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="15560.html#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="15560.html#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="明世宗：哈密危機如何解？問題在於朝貢，開放嘉峪關即可" href="../history/16494.html" rel="bookmark"><i class="fa  fa-book"></i> 明世宗：哈密危機如何解？問題在於朝貢，開放嘉峪關即可                            </a>
+                            <a class="list-group-item visible-md" title="明世宗：哈密危機如何解？問題在於朝貢，開放嘉峪關即可" href="../history/16494.html" rel="bookmark"><i class="fa  fa-book"></i> 明世宗：哈密危機如何解？問題在於朝貢，開放嘉峪關即可                            </a>
+                                                    <a class="list-group-item visible-lg" title="三國最坑的謀士，出的全是餿主意，為誰獻策誰滅亡" href="../history/16493.html" rel="bookmark"><i class="fa  fa-book"></i> 三國最坑的謀士，出的全是餿主意，為誰獻策誰滅亡                            </a>
+                            <a class="list-group-item visible-md" title="三國最坑的謀士，出的全是餿主意，為誰獻策誰滅亡" href="../history/16493.html" rel="bookmark"><i class="fa  fa-book"></i> 三國最坑的謀士，出的全是餿主意，為誰獻策誰滅亡                            </a>
+                                                    <a class="list-group-item visible-lg" title="魏國中原爭霸戰略是錯誤的嗎？絕不是！魏國東部擴張從未停止" href="../history/16495.html" rel="bookmark"><i class="fa  fa-book"></i> 魏國中原爭霸戰略是錯誤的嗎？絕不是！魏國東部擴張從未停止                            </a>
+                            <a class="list-group-item visible-md" title="魏國中原爭霸戰略是錯誤的嗎？絕不是！魏國東部擴張從未停止" href="../history/16495.html" rel="bookmark"><i class="fa  fa-book"></i> 魏國中原爭霸戰略是錯誤的嗎？絕不是！魏國東部擴張從未停止                            </a>
+                                                    <a class="list-group-item visible-lg" title="農運算元相出朱元璋有天子相！農運算元的真實身份是什麼？" href="../history/16497.html" rel="bookmark"><i class="fa  fa-book"></i> 農運算元相出朱元璋有天子相！農運算元的真實身份是什麼？                            </a>
+                            <a class="list-group-item visible-md" title="農運算元相出朱元璋有天子相！農運算元的真實身份是什麼？" href="../history/16497.html" rel="bookmark"><i class="fa  fa-book"></i> 農運算元相出朱元璋有天子相！農運算元的真實身份是什麼？                            </a>
+                                                    <a class="list-group-item visible-lg" title="晉國殺死太子，逼迫重耳流亡的可能另有其人，驪姬也許是無辜的" href="../history/16496.html" rel="bookmark"><i class="fa  fa-book"></i> 晉國殺死太子，逼迫重耳流亡的可能另有其人，驪姬也許是無辜的                            </a>
+                            <a class="list-group-item visible-md" title="晉國殺死太子，逼迫重耳流亡的可能另有其人，驪姬也許是無辜的" href="../history/16496.html" rel="bookmark"><i class="fa  fa-book"></i> 晉國殺死太子，逼迫重耳流亡的可能另有其人，驪姬也許是無辜的                            </a>
+                                                    <a class="list-group-item visible-lg" title="非洲教堂出土紅寶石戒指和“凸”型護身符，證明古代黑人帝國存在" href="../history/16498.html" rel="bookmark"><i class="fa  fa-book"></i> 非洲教堂出土紅寶石戒指和“凸”型護身符，證明古代黑人帝國存在                            </a>
+                            <a class="list-group-item visible-md" title="非洲教堂出土紅寶石戒指和“凸”型護身符，證明古代黑人帝國存在" href="../history/16498.html" rel="bookmark"><i class="fa  fa-book"></i> 非洲教堂出土紅寶石戒指和“凸”型護身符，證明古代黑人帝國存在                            </a>
+                                                    <a class="list-group-item visible-lg" title="爐石傳說：橘子哥立志要針對薩滿！結果沒過幾天，就開始真香" href="../game/16774.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：橘子哥立志要針對薩滿！結果沒過幾天，就開始真香                            </a>
+                            <a class="list-group-item visible-md" title="爐石傳說：橘子哥立志要針對薩滿！結果沒過幾天，就開始真香" href="../game/16774.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：橘子哥立志要針對薩滿！結果沒過幾天，就開始真香                            </a>
+                                                    <a class="list-group-item visible-lg" title="Jackeylove大概率加入RNG？韓媒記者的這份爆料真實性有幾分？" href="../game/16773.html" rel="bookmark"><i class="fa  fa-book"></i> Jackeylove大概率加入RNG？韓媒記者的這份爆料真實性有幾分？                            </a>
+                            <a class="list-group-item visible-md" title="Jackeylove大概率加入RNG？韓媒記者的這份爆料真實性有幾分？" href="../game/16773.html" rel="bookmark"><i class="fa  fa-book"></i> Jackeylove大概率加入RNG？韓媒記者的這份爆料真實性有幾分？                            </a>
+                                                    <a class="list-group-item visible-lg" title="這是高手！！超寫實次世代遊戲角色作品，你們認為能打多少分？" href="../game/16776.html" rel="bookmark"><i class="fa  fa-book"></i> 這是高手！！超寫實次世代遊戲角色作品，你們認為能打多少分？                            </a>
+                            <a class="list-group-item visible-md" title="這是高手！！超寫實次世代遊戲角色作品，你們認為能打多少分？" href="../game/16776.html" rel="bookmark"><i class="fa  fa-book"></i> 這是高手！！超寫實次世代遊戲角色作品，你們認為能打多少分？                            </a>
+                                                    <a class="list-group-item visible-lg" title="征服者煉金搞人心態？姿態1V4劣勢翻盤，殺人書25層直接拉滿" href="../game/16775.html" rel="bookmark"><i class="fa  fa-book"></i> 征服者煉金搞人心態？姿態1V4劣勢翻盤，殺人書25層直接拉滿                            </a>
+                            <a class="list-group-item visible-md" title="征服者煉金搞人心態？姿態1V4劣勢翻盤，殺人書25層直接拉滿" href="../game/16775.html" rel="bookmark"><i class="fa  fa-book"></i> 征服者煉金搞人心態？姿態1V4劣勢翻盤，殺人書25層直接拉滿                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="../international/8854.html" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="../international/8854.html" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="../international/12134.html" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-md" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="../international/12134.html" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="../health/7098.html" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="../health/7098.html" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-lg" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="../entertainment/10879.html" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-md" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="../entertainment/10879.html" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-lg" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="10158.html" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-md" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="10158.html" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-lg" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="../game/13764.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-md" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="../game/13764.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-lg" title="《逆戰》這份最強逆世界福利指南請查收" href="../game/16855.html" rel="bookmark"><i class="fa  fa-book"></i> 《逆戰》這份最強逆世界福利指南請查收</a><a class="list-group-item visible-md" title="《逆戰》這份最強逆世界福利指南請查收" href="../game/16855.html" rel="bookmark"><i class="fa  fa-book"></i> 《逆戰》這份最強逆世界福利指南請查收</a><a class="list-group-item visible-lg" title="王子文兒時雖是短髮卻不“假小子”，更被馬景濤前妻的童年照美哭" href="../entertainment/14458.html" rel="bookmark"><i class="fa  fa-book"></i> 王子文兒時雖是短髮卻不“假小子”，更被馬景濤前妻的童年照美哭</a><a class="list-group-item visible-md" title="王子文兒時雖是短髮卻不“假小子”，更被馬景濤前妻的童年照美哭" href="../entertainment/14458.html" rel="bookmark"><i class="fa  fa-book"></i> 王子文兒時雖是短髮卻不“假小子”，更被馬景濤前妻的童年照美哭</a><a class="list-group-item visible-lg" title="一隻低位科技股：消費電子+華為（600152），有望繼續突破" href="12846.html" rel="bookmark"><i class="fa  fa-book"></i> 一隻低位科技股：消費電子+華為（600152），有望繼續突破</a><a class="list-group-item visible-md" title="一隻低位科技股：消費電子+華為（600152），有望繼續突破" href="12846.html" rel="bookmark"><i class="fa  fa-book"></i> 一隻低位科技股：消費電子+華為（600152），有望繼續突破</a><a class="list-group-item visible-lg" title="爐石傳說：希爾瓦娜斯皮膚實際測評，獵爹還是獵爹" href="../game/13768.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：希爾瓦娜斯皮膚實際測評，獵爹還是獵爹</a><a class="list-group-item visible-md" title="爐石傳說：希爾瓦娜斯皮膚實際測評，獵爹還是獵爹" href="../game/13768.html" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：希爾瓦娜斯皮膚實際測評，獵爹還是獵爹</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="我有一萬種想見你的理由，卻少了一種見你的身份" href="../emotion/1892.html" rel="bookmark"><i class="fa  fa-book"></i> 我有一萬種想見你的理由，卻少了一種見你的身份                            </a>
+                            <a class="list-group-item visible-md" title="我有一萬種想見你的理由，卻少了一種見你的身份" href="../emotion/1892.html" rel="bookmark"><i class="fa  fa-book"></i> 我有一萬種想見你的理由，卻少了一種見你的身份                            </a>
+                                                    <a class="list-group-item visible-lg" title="三分球10投2中，榜眼秀又低迷！今夏湖人交易他，看來沒選錯" href="../nba/6229.html" rel="bookmark"><i class="fa  fa-book"></i> 三分球10投2中，榜眼秀又低迷！今夏湖人交易他，看來沒選錯                            </a>
+                            <a class="list-group-item visible-md" title="三分球10投2中，榜眼秀又低迷！今夏湖人交易他，看來沒選錯" href="../nba/6229.html" rel="bookmark"><i class="fa  fa-book"></i> 三分球10投2中，榜眼秀又低迷！今夏湖人交易他，看來沒選錯                            </a>
+                                                    <a class="list-group-item visible-lg" title="記性最不好的三大星座，做事馬馬虎虎，經常會鬧出笑話" href="../constellation/8292.html" rel="bookmark"><i class="fa  fa-book"></i> 記性最不好的三大星座，做事馬馬虎虎，經常會鬧出笑話                            </a>
+                            <a class="list-group-item visible-md" title="記性最不好的三大星座，做事馬馬虎虎，經常會鬧出笑話" href="../constellation/8292.html" rel="bookmark"><i class="fa  fa-book"></i> 記性最不好的三大星座，做事馬馬虎虎，經常會鬧出笑話                            </a>
+                                                    <a class="list-group-item visible-lg" title="痛風發作結束72小時才可運動，糖友知道嗎？" href="../health/7695.html" rel="bookmark"><i class="fa  fa-book"></i> 痛風發作結束72小時才可運動，糖友知道嗎？                            </a>
+                            <a class="list-group-item visible-md" title="痛風發作結束72小時才可運動，糖友知道嗎？" href="../health/7695.html" rel="bookmark"><i class="fa  fa-book"></i> 痛風發作結束72小時才可運動，糖友知道嗎？                            </a>
+                                                    <a class="list-group-item visible-lg" title="缺爭冠拼圖！火箭倒可瞄準2目標：首選雷迪克，也可搶3100萬新星" href="../nba/6242.html" rel="bookmark"><i class="fa  fa-book"></i> 缺爭冠拼圖！火箭倒可瞄準2目標：首選雷迪克，也可搶3100萬新星                            </a>
+                            <a class="list-group-item visible-md" title="缺爭冠拼圖！火箭倒可瞄準2目標：首選雷迪克，也可搶3100萬新星" href="../nba/6242.html" rel="bookmark"><i class="fa  fa-book"></i> 缺爭冠拼圖！火箭倒可瞄準2目標：首選雷迪克，也可搶3100萬新星                            </a>
+                                                    <a class="list-group-item visible-lg" title="截至昨晚，78部影片破億，票房排名前十位國產片佔8席" href="../entertainment/418.html" rel="bookmark"><i class="fa  fa-book"></i> 截至昨晚，78部影片破億，票房排名前十位國產片佔8席                            </a>
+                            <a class="list-group-item visible-md" title="截至昨晚，78部影片破億，票房排名前十位國產片佔8席" href="../entertainment/418.html" rel="bookmark"><i class="fa  fa-book"></i> 截至昨晚，78部影片破億，票房排名前十位國產片佔8席                            </a>
+                                                    <a class="list-group-item visible-lg" title="德懷特 霍華德——歸來之時身披蓑衣，再次閃耀狀元光芒" href="../nba/6434.html" rel="bookmark"><i class="fa  fa-book"></i> 德懷特 霍華德——歸來之時身披蓑衣，再次閃耀狀元光芒                            </a>
+                            <a class="list-group-item visible-md" title="德懷特 霍華德——歸來之時身披蓑衣，再次閃耀狀元光芒" href="../nba/6434.html" rel="bookmark"><i class="fa  fa-book"></i> 德懷特 霍華德——歸來之時身披蓑衣，再次閃耀狀元光芒                            </a>
+                                                    <a class="list-group-item visible-lg" title="「“愛因斯坦”的控訴」雙魚射手的死穴點" href="../constellation/8238.html" rel="bookmark"><i class="fa  fa-book"></i> 「“愛因斯坦”的控訴」雙魚射手的死穴點                            </a>
+                            <a class="list-group-item visible-md" title="「“愛因斯坦”的控訴」雙魚射手的死穴點" href="../constellation/8238.html" rel="bookmark"><i class="fa  fa-book"></i> 「“愛因斯坦”的控訴」雙魚射手的死穴點                            </a>
+                                                    <a class="list-group-item visible-lg" title="三國此人豪言對決張飛，結果卻慘遭部下射殺？他本該投降劉備" href="../history/3178.html" rel="bookmark"><i class="fa  fa-book"></i> 三國此人豪言對決張飛，結果卻慘遭部下射殺？他本該投降劉備                            </a>
+                            <a class="list-group-item visible-md" title="三國此人豪言對決張飛，結果卻慘遭部下射殺？他本該投降劉備" href="../history/3178.html" rel="bookmark"><i class="fa  fa-book"></i> 三國此人豪言對決張飛，結果卻慘遭部下射殺？他本該投降劉備                            </a>
+                                                    <a class="list-group-item visible-lg" title="新零售走到田間地頭 廣東百家農場聯姻盒馬" href="9735.html" rel="bookmark"><i class="fa  fa-book"></i> 新零售走到田間地頭 廣東百家農場聯姻盒馬                            </a>
+                            <a class="list-group-item visible-md" title="新零售走到田間地頭 廣東百家農場聯姻盒馬" href="9735.html" rel="bookmark"><i class="fa  fa-book"></i> 新零售走到田間地頭 廣東百家農場聯姻盒馬                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="kratos_tags-4" class="widget widget_kratos_tags clearfix"><h4 class="widget-title">標籤</h4><div class="tag_clouds"></div></aside><aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="../nba.html">NBA</a> (1,326)
+</li>
+	<li class="cat-item cat-item-23"><a href="../international.html">國際</a> (1,871)
+</li>
+	<li class="cat-item cat-item-14"><a href="../entertainment.html">娛樂</a> (2,003)
+</li>
+	<li class="cat-item cat-item-15"><a href="../emotion.html">情感</a> (1,360)
+</li>
+	<li class="cat-item cat-item-22"><a href="../constellation.html">星座</a> (920)
+</li>
+	<li class="cat-item cat-item-17"><a href="../history.html">歷史</a> (1,490)
+</li>
+	<li class="cat-item cat-item-25"><a href="../lose.html">減肥</a> (371)
+</li>
+	<li class="cat-item cat-item-24"><a href="../technology.html">科技</a> (1,796)
+</li>
+	<li class="cat-item cat-item-19"><a href="../premier.html">英超</a> (1,172)
+</li>
+	<li class="cat-item cat-item-18"><a href="../game.html">遊戲</a> (1,793)
+</li>
+	<li class="cat-item cat-item-21"><a href="../health.html">養生</a> (1,170)
+</li>
+	<li class="cat-item cat-item-16"><a href="../sports.html">體育</a> (1,831)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='../date/2019/12.html'>2019 年 12 月</a>&nbsp;(14101)</li>
+	<li><a href='../date/2019/11.html'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='../date/2019/10.html'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="../index.html">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.easing.min-ver=1.3.0.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.qrcode.min-ver=2.8.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/layer.min-ver=3.0.3.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/modernizr.min-ver=2.6.2.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/bootstrap.min-ver=3.3.7.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.waypoints.min-ver=4.0.0.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/jquery.stellar.min-ver=0.6.2.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/hoverIntent.min-ver=r7.js'></script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/superfish-ver=1.0.0.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../wp-content/themes/Kratos/js/kratos-ver=2.8.js'></script>
+<script type='text/javascript' src='../wp-includes/js/wp-embed.min-ver=5.2.4.js'></script>
+			</body>
+
+</html>
