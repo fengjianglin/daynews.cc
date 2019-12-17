@@ -1,3 +1,3 @@
 User-agent: *
 
-Sitemap: https://daynews.cc/sitemap.xml
+Sitemap: https://daynews.cc/sitemap_index.xml

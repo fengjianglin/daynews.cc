@@ -25,17 +25,32 @@
 			</style>
 		<?php endif; ?>
 		
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154207825-1"></script>
-		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
-		  gtag('config', 'UA-154207825-1');
-		</script>
 		
-		<script data-ad-client="ca-pub-8261739837930821" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
+		<!-- Google Analytics AMP -->
+		<script async custom-element="amp-analytics" 
+				src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+		<amp-analytics type="gtag" data-credentials="include">
+			<script type="application/json">
+			{
+			  "vars" : {
+				"gtag_id": "UA-154709495-1",
+				"config" : {
+				  "UA-154709495-1": { 
+					"groups": "default" 
+				  }
+				}
+			  }
+			}
+			</script>
+		</amp-analytics>
+		<!-- Google Analytics AMP End-->
+		
+		<!-- Google Adsense AMP -->
+		<script async custom-element="amp-auto-ads" 
+				src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
+		<amp-auto-ads type="adsense" data-ad-client="ca-pub-8261739837930821">
+		</amp-auto-ads>
+		<!-- Google Adsense AMP End-->
 		
 	</head>
 	<?php flush(); ?>
