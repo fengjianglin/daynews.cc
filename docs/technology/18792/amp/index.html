@@ -1,0 +1,882 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/18792#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/Rjqwqa87EohTxP"},{"@type":"WebPage","@id":"https://daynews.cc/technology/18792#webpage","url":"https://daynews.cc/technology/18792","inLanguage":"zh-TW","name":"VS Code \u6210\u4e3b\u5bb0\u3001Vue \u5099\u53d7\u71b1\u6367\uff012019 \u524d\u7aef\u958b\u767c\u8da8\u52e2\u5fc5\u8b80 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/18792#primaryimage"},"datePublished":"2019-12-16T14:05:15+00:00","dateModified":"2019-12-16T14:05:15+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="前端在生產和開發中佔據著越來越重要的地位，PC 端、手機端、桌面端、智能手錶端等等設備都離不開前端的身影。本文將圍繞框架、編程語言、工具、React、Vue 等方面，全面回顧 2019 年前端與 Web 開發的大事。 作者 | Trey Huffine 譯者 | 彎月，責編 | 郭芮 以下為譯文： 在過去的一年中，前端開發再次加快了發展的……" />
+<meta name="twitter:title" content="VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/Rjqwqa87EohTxP" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀 - 天天要聞" />
+<meta property="og:description" content="前端在生產和開發中佔據著越來越重要的地位，PC 端、手機端、桌面端、智能手錶端等等設備都離不開前端的身影。本文將圍繞框架、編程語言、工具、React、Vue 等方面，全面回顧 2019 年前端與 Web 開發的大事。 作者 | Trey Huffine 譯者 | 彎月，責編 | 郭芮 以下為譯文： 在過去的一年中，前端開發再次加快了發展的……" />
+<meta property="og:url" content="https://daynews.cc/technology/18792" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-16T14:05:15+00:00" />
+	<title>VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/18792" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-16T22:05:15+00:00">
+		2 天 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<p>前端在生產和開發中佔據著越來越重要的地位，PC 端、手機端、桌面端、智能手錶端等等設備都離不開前端的身影。本文將圍繞框架、編程語言、工具、React、Vue 等方面，全面回顧 2019 年前端與 Web 開發的大事。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/Rjqwqa87EohTxP" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="640" height="400" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/Rjqwqa87EohTxP" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="640" height="400" class=""></noscript></amp-img></p>
+<p>作者 | Trey Huffine</p>
+<p>譯者 | 彎月，責編 | 郭芮</p>
+<p><strong>以下為譯文：</strong></p>
+<p>在過去的一年中，前端開發再次加快了發展的速度，本文總結了2019年以來的所有大事、新聞和趨勢。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RT4Gwk56bt5iOJ" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RT4Gwk56bt5iOJ" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class=""></noscript></amp-img></p>
+<p><strong>2019年流行前端框架和庫的NPM<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">下載</i></strong></p>
+<p>React 再次榮登前端流行庫的榜首，且用戶的數量仍在增長，而 jQuery 出乎意料地保住了第二名的位置。緊隨其後的是 Angular 和 Vue，一大批飽含熱情的開發人員為二者奠定了強大的用戶基礎。去年，Svelte 收到了很多<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">關注</i>，但還在為獲得更多採用而努力。</p>
+<p> <amp-img src="http://p9.pstatp.com/large/pgc-image/RkoHnka9esr5n5" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="640" height="291" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/RkoHnka9esr5n5" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="640" height="291" class=""></noscript></amp-img><br>
+ <amp-img src="http://p1.pstatp.com/large/pgc-image/RT7S2kzFTfre26" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RT7S2kzFTfre26" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class=""></noscript></amp-img></p>
+<p><strong>WebAssembly 成為了繼 HTML、CSS 和 JavaScript 之後的第四大Web語言</strong></p>
+<p>經過一年的平靜之後，12月初 WebAssembly 出現了一些重大新聞：W3C聯盟正式推薦其為Web語言。（萬維網聯盟（W3C）是互聯網主要的國際標準組織。）</p>
+<p>自2017年發布以來，WebAssembly 引起了廣泛的<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">關注</i>，而且採用也迅速增長。在過去的幾年中，我們看到了WebAssembly 建立了1.0規範，而且所有主流瀏覽器都開始支持WebAssembly。</p>
+<p>2019年，還有一則 WebAssembly 的新聞：位元組碼聯盟（Bytecode Alliance）成立，該聯盟旨在通過協作實施標準和提出新標準，以完善 WebAssembly 在瀏覽器之外的生態。</p>
+<p>我們仍在等待 WebAssembly 真正站穩腳跟，並大面積普及。隨著 WebAssembly 每次的更新，我們離這個目標越來越近。毫無疑問，W3C的聲明是讓各個公司合法使用 WebAssembly 的重要一步，我們需要繼續降低使用 WebAssembly 的入門門檻，讓其更方便構建產品。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/RTJXJ1kBqzfCnu" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/RTJXJ1kBqzfCnu" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class=""></noscript></amp-img></p>
+<p><strong>TypeScript 的使用激增：許多開發人員為之傾倒</strong></p>
+<p>2019年是 TypeScript 之年。TypeScript 不僅成為了在JS代碼中添加類型時的最佳選擇，而且許多開發人員在個人項目和工作中對它的喜愛超過了普通的 JavaScript。</p>
+<p>在2019年初發布的StackOverflow調查中，TypeScript 與 Python 並列第二，成為了最受歡迎的語言，僅次於 Rust。如果在2020年初發布的最新的調查中看到 TypeScript 更上一層樓也不足為奇。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/RkoHnlEHDyR8hL" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="640" height="295" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/RkoHnlEHDyR8hL" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="640" height="295" class=""></noscript></amp-img></p>
+<p>TypeScript 已經開始蠶食Web開發世界——前端和後端皆如此。有些開發人員曾經認為TypeScript 的興起只不過是暫時的，而且他們還認為它會重蹈 Coffeescript的覆轍，但事實證明 TypeScript 可以解決JS開發人員的核心問題，而且其使用率似乎越來越高。</p>
+<p>TypeScript 與所有主流文本編輯器的集成為Web開發人員提供了更好的開發體驗。JavaScript 開發人員將 TypeScript 視為一種工具：它可以減少錯誤，同時由於其提供的文檔說明類型和對象介面，代碼閱讀起來更為輕鬆。</p>
+<p>值得注意的是，2019年 TypeScript 的NPM<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">下載</i>流行度超過了 React。此外，它的<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">下載</i>量也遠遠超過了 Flow 和 Reason 等競爭對手。</p>
+<blockquote>
+<div>
+<p>TypeScript 和 React 解決的是完全不同的問題，因此不應該直接將二者進行比較。下圖只是為了展示 TypeScript 的受歡迎程度。</p>
+
+</div>
+</blockquote>
+<p> <amp-img src="http://p9.pstatp.com/large/pgc-image/RkoHnlhETjUfvm" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="640" height="290" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/RkoHnlhETjUfvm" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="640" height="290" class=""></noscript></amp-img></p>
+<p>TypeScript v3.0 於 2018年末發布，2019年發布到了3.7版，其中包括 ECMAScript 功能的更新，例如Optional Chaining、ish operator以及對類型檢查功能的改進。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RTJXJ7YR5xGDl" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RTJXJ7YR5xGDl" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class=""></noscript></amp-img></p>
+<p><strong>React 繼續保持領先，開發人員為鉤子傾倒</strong></p>
+<p>雖然 Vue 和 Angular 擁有大一批飽含熱情的用戶，Vue 在 GitHub 上的給星數甚至超過了 React，但在個人和專業項目中，React 繼續保持領先地位。</p>
+<p>2018年末，React團隊引入了鉤子。2019年，鉤子吞噬了 React 世界，絕大多數開發人員都將其作為管理狀態和組件生命周期的首選方式。2019年中有關鉤子的文章層出不窮，這方面的模式開始走向穩固，重要的 React 包都開始利用自定義鉤子來導出其函數庫的功能。</p>
+<p>鉤子提供了一種通過簡潔的語法管理功能組件的狀態和生命周期的方法。另外，React 提供了構建自定義鉤子的功能，我們可以利用這個功能創建可重用的代碼和共享的邏輯，而無需創建高階組件或使用render props。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RTJXJ7uHXU5GZc" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RTJXJ7uHXU5GZc" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class=""></noscript></amp-img></p>
+<p><strong>React核心團隊重點<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">關注</i>開發人員的經驗和工具，提高生產力</strong></p>
+<p>在React v16.8 添加了大量鉤子之後，其後的大多數更改都相對較小，2019年發布的最新版本為16.14版。</p>
+<p>在發布了大量鉤子之後，React 團隊隨後將工作重點轉移到通過提供更多工具來改善開發人員的工作。實際上，開發人員的經驗是2019年 React 大會的主要主題。React 大會的主要發言人及 React 團隊經理 Tom Occhino 表示，開發人員的經驗主要依賴於三個方面：降低入門的門檻、提高生產率和改善擴展能力。下面讓我們來看一看為了支持這三方面，React 團隊發布了哪些功能和計劃：</p>
+<ul>
+<li>
+<p>全新版本的 React DevTools</p>
+</li>
+<li>
+<p>全新的 React 性能分析工具</p>
+</li>
+<li>
+<p>創建了 React <i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-5">App</i> v3</p>
+</li>
+<li>
+<p>測試工具的更新</p>
+</li>
+<li>
+<p>Suspense</p>
+</li>
+<li>
+<p>併發模式（即將推出）</p>
+</li>
+<li>
+<p>Facebook 使用的 CSS-in-JS（即將推出）</p>
+</li>
+<li>
+<p>漸進/選擇性頁面hydration（即將進行）</p>
+</li>
+<li>
+<p>React 核心層面支持可訪問性（即將發布）</p>
+</li>
+</ul>
+<p>我們相信，良好的開發人員體驗能帶來良好的用戶體驗，因此這對每個人都有益。有關即將發布的 React 功能，請點擊如下鏈接（https://youtu.be/uXEEL9mrkAQ）觀看2019年 React 大會上Yuzhi Zheng的發言。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RTLSNam5ZxLDlM" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RTLSNam5ZxLDlM" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class=""></noscript></amp-img></p>
+<p><strong>Vue為版本3發行做準備，使用量繼續增長</strong></p>
+<p>Vue 的採用率可能尚未達到最高，但其擁有一大批熱情高漲的用戶。Vue 借鑒了 React 和Angular 的精華，同時還進行了簡化。它的另一個巨大的賣點是：更開放，不像React（Facebook）或 Angular（Google）一樣受大公司的控制。</p>
+<p>Vue 最大的新聞是即將發布的3.0版本，alpha 版有望在第四季度末發布。2019年，Vue 2.x僅在年初收到了一些更新，因為大多數的工作都投入到了v3版本中。</p>
+<p>雖然今年發布的版本不多，但這並不意味著Vue 沒有太多大事發生。當 Evan You 向大眾徵集有關 v3 的<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-6">建議</i>時，這個版本的變動在社區引發了廣泛的爭論，請見 Reddit 和 Hacker News等網站。</p>
+<p>激怒 Vue 開發人員的關鍵問題是對框架API的全面改革。但是，在強烈反對之後，有人指出此次API的變更與 Vue 2 完全兼容。雖然許多開發人員仍在<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">關注</i>該版本的發行，但他們聲稱這些改動可能會讓他們考慮 Svelte，因為他們擔心 Vue 與 React 太相像。儘管社區中仍有許多人對此表示<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">關注</i>，但在他們等待發布的過程中，喧雜聲似乎已平息。</p>
+<p>除了上述有爭論的變更外，Vue 3 還包含其他重大變化：</p>
+<ul>
+<li>
+<p>組合API</p>
+</li>
+<li>
+<p>全局mount/配置API的改動</p>
+</li>
+<li>
+<p>Fragments</p>
+</li>
+<li>
+<p>時間切片支持（實驗性）</p>
+</li>
+<li>
+<p>多個v模型</p>
+</li>
+<li>
+<p>Portal</p>
+</li>
+<li>
+<p>新的自定義指令API</p>
+</li>
+<li>
+<p>反應性的</p>
+</li>
+<li>
+<p>虛擬DOM重寫</p>
+</li>
+<li>
+<p>靜態props hoising</p>
+</li>
+<li>
+<p>鉤子 API（實驗性）</p>
+</li>
+<li>
+<p>slot生成優化（父和子組件的單獨渲染）</p>
+</li>
+<li>
+<p>更好地支持 TypeScript </p>
+</li>
+</ul>
+<p>有關Vue的發布（https://youtu.be/ANtSWq-zI0s），今年另一個值得注意的是CLI的第4版，主要集中在基礎工具的更新上。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/RTRIuPNI7JPB03" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/RTRIuPNI7JPB03" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class=""></noscript></amp-img></p>
+<p><strong>Angular發布版本8和9，以及新的Ivy編譯/渲染管道</strong></p>
+<p>Angular 剛愎自用的哲學為它贏得了龐大的用戶群。由於 Angular 是一個「霸道總裁」式的框架，因此它要求開發人員以 Angular 的方式行事，同時也為開發人員提供了所有必要的工具。</p>
+<p>這可以避免許多有關引入哪些庫和依賴項的爭論，而這些爭議是 React 應用構建團隊中可能需要面對的問題。它還要求開發人員使用 TypeScript 編寫應用程序。由於大多數抉擇已被確立，因此各個公司將其視為一個不錯的選擇，因為開發人員可以專註於構建產品，而不必花費時間考慮軟體包。</p>
+<p>2019年，Angular 發布了版本8，並且還發布了一個新的渲染器/編譯流水線——名叫 Ivy。Ivy 最大的好處在於構建的包更小，但它提供了許多其他巨大的改進。目前，Ivy 是 Angular 9 之前的可選功能。版本8中值得注意的更新包括：</p>
+<ul>
+<li>
+<p>現代JavaScript的差分載入</p>
+</li>
+<li>
+<p>默認支持的 Ivy 預覽</p>
+</li>
+<li>
+<p>Angular Router 的向後兼容性</p>
+</li>
+<li>
+<p>改進後的Web Worker包</p>
+</li>
+<li>
+<p>默認支持的使用情況分享</p>
+</li>
+<li>
+<p>依賴關係更新</p>
+</li>
+</ul>
+<p>2019年12月期間，Angular 團隊為版本9的發布做好了準備，該版本將於2019年底或2020年初正式發布。Angular 9的最大變化是 Ivy 成為了標準渲染器。有關Angular 9的更多詳細信息，請參照如下視頻（https://youtu.be/5wmWtgr7LQ0）。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/RTRIuPaahjHjS" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/RTRIuPaahjHjS" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class=""></noscript></amp-img></p>
+<p><strong>可訪問性和國際化變得越來越重要</strong></p>
+<p>Web應該對所有人開放，且人人可訪問，前端世界一直非常重視這一點。自2015年開始 JavaScript 和 Web 得到了快速發展之後，模式和框架終於得到了鞏固。如今的形式更為穩定，因此開發人員可以將更多的精力放在能夠將應用本地化以及方便更多人訪問的工具上，努力打造更好的Web環境。我們應該為我們所取得的進展感到自豪，但是我們還有很長的路要走。</p>
+<p>可訪問性（Accessibility，簡稱A11y）：讓儘可能多的人使用你的網站，傳統上我們認為這是關於殘疾人的，但實際上它也涵蓋了其他群體，比如使用移動設備的人群，那些網路連接緩慢的人群。—— MDN</p>
+<p>國際化（Internationalization，簡稱i18n）是對應用程序、規範文檔的設計和開發，以確保這些應用和規範等可以更好更容易地適應不同文化、地區、語言的用戶。—— W3C</p>
+<blockquote>
+<div>
+<p>註：Accessibility被簡稱為A11y是因為首字母「A」和最後一個字母「y」之間有11個字母。</p>
+
+</div>
+</blockquote>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RTYlVXmICmMrFE" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RTYlVXmICmMrFE" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class=""></noscript></amp-img></p>
+<p><strong>ES2019新功能</strong></p>
+<p>今年，ECMAScript（JavaScript 的規範）也發表了年度更新，且 ES2019 版本中添加了如下新功能： </p>
+<ul>
+<li>
+<p><strong>Object.fromEntries</strong></p>
+</li>
+<li>
+<p>String.trimStart和 String.trimEnd</p>
+</li>
+<li>
+<p>JSON.stringify中 unicode的處理改善</p>
+</li>
+<li>
+<p>Array.flat</p>
+</li>
+<li>
+<p>Array.flatMap</p>
+</li>
+<li>
+<p>try/catch綁定</p>
+</li>
+<li>
+<p>Symbol.description</p>
+</li>
+</ul>
+<p>儘管ES2019進行了一些重大更新，但即將到來的 ES2020 擁有 ES6 / ES2015 以來最令人期待的功能：</p>
+<ul>
+<li>
+<p>私有類屬性</p>
+</li>
+<li>
+<p>Optional Chaining：<strong>obj.field?.maybe?.exists</strong></p>
+</li>
+<li>
+<p>ish coalescing：</p>
+<blockquote>
+<p>
+    item ?? ‘use this only if item is /undefined’
+   </p>
+</blockquote>
+</li>
+<li>
+<p>BigInts</p>
+</li>
+</ul>
+<p> <amp-img src="http://p9.pstatp.com/large/pgc-image/RTYlVY98d1MEiD" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/RTYlVY98d1MEiD" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class=""></noscript></amp-img></p>
+<p><strong>Flutter 突飛猛進地發展，作為構建跨平台移動應用的另一個絕佳選擇向 React Native 發起了挑戰</strong></p>
+<p>React Native 推出兩年後，Flutter才發布，但 Flutter 的發展非常迅速。Flutter 在GitHub上斬獲了 80,500顆星，幾乎趕上了 React Native 的83,000顆星，照此情形 Flutter 很快就過超越 React Native。</p>
+<p>鑒於 Flutter 沒有開發社區的推波助瀾（React Web開發人員推動了React Native的發展），所以如此迅速的發展實在令人刮目相看。Flutter 正在努力打造最優秀的的跨平台移動框架。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RkoHozvGg0moVe" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="640" height="708" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RkoHozvGg0moVe" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="640" height="708" class=""></noscript></amp-img><br>
+ <amp-img src="http://p1.pstatp.com/large/pgc-image/RTcGEOD4Gd9xON" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RTcGEOD4Gd9xON" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class=""></noscript></amp-img></p>
+<p><strong>Node.js 基金會與 JS 基金會合併成立 OpenJS 基金會：Node版本12遵循了年度長期支持發布策略</strong></p>
+<p>為了支持 JavaScript 生態系統並加速語言的發展，Node.js 基金會與 JS 基金會合併成立了 OpenJS 基金會。該基金會表示，希望通過中立的組織推進協作和發展，如今他們託管了31個開源項目，包括 Node、jQuery 和 Webpack。這一舉動為整個JS社區帶來了積極的影響，並得到了Google、IBM和微軟等大公司的支持。</p>
+<p>今年，Node發布了版本12，該版本遵循長期支持（LTS）策略，可以一直到2023年4月。Node12提供了許多新功能、安全更新和性能改進。一些值得注意的更新包括 import/export 語句的原生支持、私有類屬性、兼容V8 Engine 7.4、對TLS 1.3的支持以及其他診斷工具。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RTcGEORFj9IorY" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RTcGEORFj9IorY" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class=""></noscript></amp-img></p>
+<p><strong>隨著版本3的發布Svelte 獲得了<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">關注</i>，但在採用方面依然落後</strong></p>
+<p>Svelte 在競爭異常激勵的前端框架世界中，找到了自己的躋身之道。但是，正如我們在本文開頭的介紹，Svelte 還沒有得到大量的實際應用。總的來說，Svelte「簡單而強大」。Svelte 網站表明了其三大優點：</p>
+<ul>
+<li>
+<p>需要編寫的代碼量更少</p>
+</li>
+<li>
+<p>沒有虛擬DOM</p>
+</li>
+<li>
+<p>真正的響應式編程</p>
+</li>
+</ul>
+<p>Svelte 嘗試將大部分工作轉移到編譯過程中，減少運行時在瀏覽器中進行的工作。Svelte 具有基於組件的體系結構，可編譯為純 HTML 和原始 JavaScript，同時也承諾減少樣板代碼。它使用響應式編程來直接更新DOM，而不是利用虛擬的DOM。</p>
+<p>Svelte 為前端領域帶來了耳目一新的感覺——即提供更少的功能。2020年，Svelte 的成長和發展很讓人欣慰，希望我們能夠獲得一些實際的例子，證明它確實能夠與 React、Vue 和Angular 等強大的競爭對手一較高低。</p>
+<blockquote>
+<div>
+<p>相關視頻：https://youtu.be/AdNJ3fydeao</p>
+
+</div>
+</blockquote>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/RTcGEOeFnmAxPF" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/RTcGEOeFnmAxPF" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class=""></noscript></amp-img></p>
+<p><strong>靜態網站的使用仍在持續，開發人員開始採用 JAMStack</strong></p>
+<p>隨著 Gatsby 等框架利用率的提高，Netlify 等負責託管靜態網站的公司也得到了快速增長，於是無數headless CMS公司相繼出現，靜態網站證明了自己是Web不可或缺的一部分。</p>
+<p>靜態網站將舊網站與新興的工具、庫和更新<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">結合</i>在一起，提供了無與倫比的體驗。我們能夠使用 React 等現代庫來構建我們的網站，然後在構建時將它們編譯成靜態 HTML 頁面。由於所有頁面都是預先構建的，因此伺服器不需要花費時間利用請求中的數據渲染頁面，這些頁面可以立即提供，並利用CDN中全局緩存的優勢，儘可能迅速地將頁面提供給用戶。</p>
+<p>靜態網站使用的一種流行的編程模式是 JAMStack。這是一種<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">結合</i>了靜態/ SPA的方式，這些頁面都是靜態提供的，但是一旦進入<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-6">客戶端</i>，就會被當成SPA——通過API和用戶交互來推進UI的狀態。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RVB31dG1llFWjv" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RVB31dG1llFWjv" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class=""></noscript></amp-img></p>
+<p><strong>PWA的增長和採用有所增加</strong></p>
+<p>雖然靜態網站的速度無人能及，但也並非適合所有應用，另一個絕佳的選擇是 PWA（漸進式Web應用程序）。我們可以利用 PWA 在瀏覽器中緩存資源，以確保頁面的立即響應與離線支持。此外，在 PWA 方式中，後台工作人員還可以提供推送通知等原生功能。</p>
+<p>甚至有人聲稱 PWA 可以取代原生移動應用。無論最終結果將如何，毫無疑問，在很長一段時間內 PWA 將影響各大公司構建產品的主要方式。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RVB31dWAU5IPJ4" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RVB31dWAU5IPJ4" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class=""></noscript></amp-img></p>
+<p><strong>前端的工具越來越優秀</strong></p>
+<p>近幾年來，前端開發人員總是抱怨厭倦了 JavaScript， 但是我們也慢慢看到，開源項目維護人員的不懈努力減輕了人們對 JavaScript 的厭倦。</p>
+<p>以前，如果我們想構建SPA，則必須利用 Bower 或 NPM 引入依賴關係，還要掌握如何利用 Browserify 或 Webpack 進行編譯，從零開始編寫 Express 伺服器，並在庫發生更新時維護我們的應用。</p>
+<p>多年來，我們經歷了很多痛苦，但如今我們造就了最活躍、最發達的軟體包生態系統。我們有很多工具可以幫助我們抽象化構建應用程序中最痛苦的部分：創建 React 應用、Vue CLI、Angular CLI、用於靜態網站的Gatsby、用於 React Native 移動應用的Expo、用於SSR應用程序的Next / Nuxt、用於創建伺服器的生成器、免卻為GraphQL編寫伺服器的Hasura、使用 GraphQL 代碼生成器自動生成 TypeScript 類型、Webpack不斷得到簡化等等，我們總能找到工具幫我們減輕繁重的工作。</p>
+<p>也許現在我們開始厭倦了工具了？</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RVB31dl3T1uFrm" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RVB31dl3T1uFrm" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class=""></noscript></amp-img></p>
+<p><strong>GraphQL深受開發人員的喜愛，並在科技公司中得到進一步的採用</strong></p>
+<p>GraphQL 有望解決傳統的基於 REST 的應用程序面臨的許多問題。GraphQL 很快就獲得了開發人員的喜愛，而各大科技公司也紛紛開始採用它。幾年前，GitHub 用 GraphQL 編寫了它的最新API，許多其他組織也在做出了同樣的變革。</p>
+<p>GraphQL 應用程序是數據驅動的（不是端點驅動），因此<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-6">客戶端</i>可以聲明所需的確切數據，從伺服器接收相應的JSON響應。GraphQL API提供的文檔記錄了所有的數據及其類型，幫助開發人員更全面地了解API。</p>
+<p>由於GraphQL API 提供了完全類型化的架構，因此它也可以與 TypeScript 應用程序很好地集成。GraphQL 可以通過 GraphQL Code Generator 等工具讀取<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-6">客戶端</i>代碼中的查詢，並將其與架構進行匹配，以提供在整個應用程序中流動的 TypeScript 類型。</p>
+<p>在過去的一年中，GraphQL 的<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">下載</i>量增加了一倍，而 Apollo 也開始朝著使用最廣泛的框架邁進。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RkoHpOjFXh7eUc" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="640" height="290" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RkoHpOjFXh7eUc" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="640" height="290" class=""></noscript></amp-img><br>
+ <amp-img src="http://p1.pstatp.com/large/pgc-image/RVB31m81mK0Qlh" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RVB31m81mK0Qlh" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class=""></noscript></amp-img></p>
+<p><strong>CSS-in-JS的發展勢不可擋</strong></p>
+<p>Web開發的發展大有讓 JavaScript 一統天下的趨勢，CSS-in-JS 的採用充分體現了這一點，因為這些CSS樣式都是使用 JavaScript 字元串創建的。</p>
+<p>在這種方式下，我們可以通過 import/export ，利用常規的 JavaScript 語法共享樣式和依賴項。由於CSS-in-JS組件可以將 props 插入到樣式字元串中，因此簡化了動態樣式。如前所述，Facebook 甚至認為 CSS-in -JS 可能會成為前端的未來，並即將發布自己的庫。</p>
+<p>下面是一個經典的 CSS 與 CSS-in-JS 的示例。如果用普通CSS處理動態樣式，那麼你必須管理組件中的類名稱，並根據 state/props 進行更新。而且你還需要為每種變化建立一個CSS類：</p>
+<pre><code>// Component JS file<br>const MyComp = ({ isActive }) =&gt; {<br>const className = isActive ? 'active' : 'inactive';<br>return &lt;div className={className}&gt;HI&lt;/div&gt;<br>}<br>// CSS file<br>.active { color: green; }<br>.inactive { color: red; }</code></pre>
+<p>在 CSS-in -JS 中，你不再需要管理CSS類。你只需要將 props 傳遞給樣式化的組件，而它會利用聲明式的語法處理動態樣式。這些代碼更為簡潔，而且由CSS管理基於 props 的動態樣式後，我們就可以將樣式與 React 相分離。實際的代碼讀起來與正常的 React 和 JavaScript 代碼並無二樣：</p>
+<pre><code>const Header = styled.div`<br>color: ${({ isActive }) =&gt; isActive ? 'green' : 'red'};<br>`;<br>const MyComp = ({ isActive }} =&gt; (<br>&lt;Header isActive={isActive}&gt;HI&lt;/Header&gt;<br>)</code></pre>
+<p>styled-components 和 emotion 是 CSS-in-JS 的兩個主要庫，而且2019年 emotion 的<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">下載</i>超過了 styled-components。從增長幅度來看，這兩個庫遙遙領先於其他 CSS-in-JS 庫，而且它們還將持續快速增長。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/RkoHpPZD83Zsay" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="640" height="289" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/RkoHpPZD83Zsay" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="640" height="289" class=""></noscript></amp-img><br>
+ <amp-img src="http://p1.pstatp.com/large/pgc-image/RbZ8Vm671KcjdA" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RbZ8Vm671KcjdA" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class=""></noscript></amp-img></p>
+<p><strong>VS Code是文本編輯器市場上的主宰</strong></p>
+<p>開發人員對於IDE /文本編輯器充滿了熱情，他們會沒完沒了地爭論為什麼自己的編輯器才是最佳選擇。然而，前端開發人員不約而同地選擇了 VS Code。VS Code 是一款開源編輯器，它提供的插件為開發人員提供了無與倫比的體驗。</p>
+<p>根據「2018年JS的狀況調查」（地址：https://2018.stateofjs<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">.com</i>/other-tools/），文本編輯器的使用情況如下（2019年的調查發布時，下圖將被更新）：</p>
+<p> <amp-img src="http://p9.pstatp.com/large/pgc-image/RkoHpnQPzOind" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="640" height="420" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/RkoHpnQPzOind" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="640" height="420" class=""></noscript></amp-img><br>
+ <amp-img src="http://p1.pstatp.com/large/pgc-image/RbrMrr895B6HIc" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RbrMrr895B6HIc" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class=""></noscript></amp-img></p>
+<p><strong>Webpack 5 已進入測試階段且即將發布</strong></p>
+<p>Webpack 已成為所有現代 JavaScript 工具鏈的核心組件，而且也是最常用的構建工具。Webpack 一直在提高性能和可用性，努力為開發人員提供更好的工具。Webpack 5 主要側重於以下幾個方面：</p>
+<ul>
+<li>
+<p>通過持久緩存提高構建性能；</p>
+</li>
+<li>
+<p>通過更好的演算法和默認值來改善長期緩存；</p>
+</li>
+<li>
+<p>清理內部模式，同時不會引發任何重大變動。</p>
+</li>
+</ul>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RbrMsg6DcrDslD" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RbrMsg6DcrDslD" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class=""></noscript></amp-img></p>
+<p><strong>Jest 放棄 Flow，轉投 TypeScript 的懷抱</strong></p>
+<p>Facebook 維護著流行的測試庫 Jest 和 Flow，後者是 TypeScript 的競爭對手。2019年初，Facebook 大膽聲明 Jest 將放棄Flow，轉投 TypeScript 的懷抱。這進一步表明 TypeScript 已成為輸入 JavaScript 代碼的標準選擇，2020年及以後 TypeScript 的使用會進一步增加。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RbrMtTKCKYEu7i" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RbrMtTKCKYEu7i" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class=""></noscript></amp-img></p>
+<p><strong>2019年Chrome 發布了穩定版本 72–78</strong></p>
+<p>Chrome 快速迭代的步伐從未停歇，他們正在迅速為Web和開發工具添加新功能。2019年，Chrome 發布了7個穩定版本，其中包括Beta版79、dev版80和canary版81。</p>
+<p>過去一年中有關 Chrome 的重大新增功能，請參照如下鏈接：https://en.wikipedia.org/wiki/Google_Chrome_version_history?source=post_page—–1e7d07966d6c———————-</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RbrMuRyAP4Czse" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RbrMuRyAP4Czse" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class=""></noscript></amp-img></p>
+<p><strong>微軟 Edge 瀏覽器移至 Chromium，並創建了新的標誌</strong></p>
+<p>對 Web開發人員來說，IE及其後續的 Edge 就是個笑話，它們令開發人員苦不堪言。這款瀏覽器在Web功能實現方面一直落後於他人，並且<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-6">眾所周知</i>，為其編寫跨瀏覽器兼容的代碼簡直就是災難。為了贏得開發人員，微軟決定選擇使用Google的開源 Chromium 引擎。2019年中期，這項變更已進入beta階段。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RbrMv53IL4ea06" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RbrMv53IL4ea06" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class=""></noscript></amp-img></p>
+<p><strong>Facebook 發布了 Hermes，這是面向 Android 的 JavaScript 解析器，用於改進 React Native</strong></p>
+<p>Facebook 認為 Android JavaScript 引擎的速度不夠快，所以他們建立了自己的引擎。Facebook全力支持 React Native，此舉表明為了確保其在所有平台上都能儘可能有效地工作，他們願意做出必要的調整。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RbrMv60HUpQdLT" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RbrMv60HUpQdLT" alt="《VS Code 成主宰、Vue 備受熱捧！2019 前端開發趨勢必讀》" width="340" height="57" class=""></noscript></amp-img></p>
+<p><strong>2020年的預測</strong></p>
+<ul>
+<li>
+<p>隨著代碼拆分和 PWA 的進一步使用，性能仍然是Web最關鍵的方面。</p>
+</li>
+<li>
+<p>WebAssembly 會越來越普及，並得到實際採用和應用於產品中。</p>
+</li>
+<li>
+<p>新興<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">創業</i>公司和新項目都會採用 GraphQL，而其他公司也會紛紛從 REST 向 GraphQL 遷移。</p>
+</li>
+<li>
+<p>TypeScript 將成為新興<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">創業</i>公司和項目的默認選擇。</p>
+</li>
+<li>
+<p>我們有望看到沒有伺服器且構建在<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-6">區塊鏈</i>之上的真實應用，這會讓Web更加開放。</p>
+</li>
+<li>
+<p>CSS-in-JS可能取代普通的CSS，會成為默認的樣式設置方式。</p>
+</li>
+<li>
+<p>「無代碼」應用越來越流行。隨著AI的改進和應用抽象層的增加，構建應用程序會越來越容易。2020年，我們有望看到無需編寫代碼即可創建應用的重大轉變。</p>
+</li>
+<li>
+<p>Flutter 可能會取代 React Native，成為構建跨平台移動應用的最佳方式。</p>
+</li>
+<li>
+<p>Svelte 將會用於更多實際項目。</p>
+</li>
+<li>
+<p>Deno（Node 創建者構建的 TypeScript 運行時）將投入實際使用。</p>
+</li>
+<li>
+<p>AR / VR 將取得巨大進步，其中包括使用A-Frame、React VR 和 Google VR 等庫，並改進瀏覽器中原生的 AR / VR 工具。</p>
+</li>
+<li>
+<p>容器化（例如Docker、Kubernetes）的影響在前端開發中越來越普遍。</p>
+</li>
+</ul>
+<p>原文：https://levelup.gitconnected<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">.com</i>/a-recap-of-frontend-development-in-2019-1e7d07966d6c</p>
+<p class="pgc-end-source">本文為 CSDN 翻譯，轉載請註明來源出處。</p>
+<p class="pgc-end-source">【End】</p>
+<p class="pgc-end-source">刷爆技術人朋友圈的DevOps是什麼？《敏捷無敵之DevOps時代》讀書會系列課程來了！第一課由微服務與雲計算技術專家、書籍作者親自授課，掃碼免費學習：https://edu.csdn.net/huiyiCourse/detail/1127</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/18792#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 1.452 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:36:38 -->
+
+<!-- super cache -->

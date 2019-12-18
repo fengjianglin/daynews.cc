@@ -1,0 +1,618 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/15560#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/1984a156830a4efc965ea69231e16fde"},{"@type":"WebPage","@id":"https://daynews.cc/technology/15560#webpage","url":"https://daynews.cc/technology/15560","inLanguage":"zh-TW","name":"\u5f9e\u6bd4\u7279\u5e63\u5230Polkadot\uff1a\u5340\u584a\u93c8\u5171\u8b58\u8207\u7d42\u7d50\u7684\u7c21\u53f2 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/15560#primaryimage"},"datePublished":"2019-12-14T01:55:09+00:00","dateModified":"2019-12-14T01:55:09+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="這篇文章將探討在區塊鏈網路中對容錯一致性演算法的需求，以及在不久的將來發展的方向。 為了理解為什麼我們需要區塊鏈技術中的一致演算法，我們需要理解比特幣使用區塊鏈技術解決了哪些問題。我認為主要存在兩個關鍵問題: 雙花, 中央集權的貨幣創造。 這篇博文分為三個部分。第一部分將簡要解釋比特幣如何解決這些問題，第二節將討論共識的一些微妙之處，如容……" />
+<meta name="twitter:title" content="從比特幣到Polkadot：區塊鏈共識與終結的簡史 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/1984a156830a4efc965ea69231e16fde" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="從比特幣到Polkadot：區塊鏈共識與終結的簡史 - 天天要聞" />
+<meta property="og:description" content="這篇文章將探討在區塊鏈網路中對容錯一致性演算法的需求，以及在不久的將來發展的方向。 為了理解為什麼我們需要區塊鏈技術中的一致演算法，我們需要理解比特幣使用區塊鏈技術解決了哪些問題。我認為主要存在兩個關鍵問題: 雙花, 中央集權的貨幣創造。 這篇博文分為三個部分。第一部分將簡要解釋比特幣如何解決這些問題，第二節將討論共識的一些微妙之處，如容……" />
+<meta property="og:url" content="https://daynews.cc/technology/15560" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-14T01:55:09+00:00" />
+	<title>從比特幣到Polkadot：區塊鏈共識與終結的簡史 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/15560" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">從比特幣到Polkadot：區塊鏈共識與終結的簡史</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-14T09:55:09+00:00">
+		4 天 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/1984a156830a4efc965ea69231e16fde" alt="《從比特幣到Polkadot：區塊鏈共識與終結的簡史》" width="640" height="320" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/1984a156830a4efc965ea69231e16fde" alt="《從比特幣到Polkadot：區塊鏈共識與終結的簡史》" width="640" height="320" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p> 這篇文章將探討在區塊鏈網路中對容錯一致性演算法的需求，以及在不久的將來發展的方向。</p>
+<p> 為了理解為什麼我們需要區塊鏈技術中的一致演算法，我們需要理解比特幣使用區塊鏈技術解決了哪些問題。我認為主要存在兩個關鍵問題:</p>
+<p> 雙花,</p>
+<p> 中央集權的貨幣創造。</p>
+<p> 這篇博文分為三個部分。第一部分將簡要解釋比特幣如何解決這些問題，第二節將討論共識的一些微妙之處，如容錯和終局性，第三部分將討論個別項目和未來的方向。</p>
+<p><strong>1.比特幣解決了什麼問題?</strong></p>
+<p> 要理解為什麼容錯對區塊鏈如此重要，有必要解釋一下比特幣解決的兩個問題(雙重支出和集中化貨幣創造)。</p>
+<p> 換句話說，比特幣以一種可預見的、透明的、去中心化的方式創造貨幣，這種方式防止了貨幣的虛假創造。管理髮送和創造貨幣過程的機制是共識演算法，它的工作原理是確保整個交易歷史的一致性。</p>
+<p> 在區塊鏈技術時代，共識演算法並不新鮮，因此，有必要強調一下比特幣為何如此具有創新性:它能夠在一個公開的、未經許可的網路中達成共識，並能在存在潛在惡意行為者的情況下達成共識。</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/697712e0963449c1baa4eedb0012c4d2" alt="《從比特幣到Polkadot：區塊鏈共識與終結的簡史》" width="504" height="378" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/697712e0963449c1baa4eedb0012c4d2" alt="《從比特幣到Polkadot：區塊鏈共識與終結的簡史》" width="504" height="378" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>比特幣的共識演算法</strong></p>
+<p> 我們都知道，PoW區塊鏈中的節點，就像比特幣一樣，通過試圖贏得新區塊創建所帶來的新貨幣獎勵，從而提高了網路的安全性。獎勵提供了一個誠實的行為，同時儘可能快地創造新的區塊。</p>
+<p> 問題是，創建新的塊涉及解決一個獨特的和計算困難的數學難題。這個困難實際上限制了生成新塊的速度，而解決方案的惟一性允許識別獲勝節點(通過它們的地址)。惡意行為不會受到積極的懲罰，而是由於不誠實的行為所帶來的機會成本而受到勸阻。</p>
+<p> 一個問題是，節點之間的通信時間不是瞬時的，因此，網路的不同地理區域可能會接收到不同的塊來解決這個難題(網路分區/分叉)。兩個不同的節點(礦工)有可能合法地找到問題的解決方案，但巧合的是，由於通信不是瞬時的，網路的不同區域將選擇建立在不同的獲勝塊(暫時)上。這將導致一個臨時分支，但是隨著新塊被添加到任何一個分支，最終一個分支將比另一個分支長。</p>
+<p> 遵循最長分塊的規則實際上是比特幣達成共識的規則，被稱為最長鏈規則。短分支上的塊將被丟棄，任何不在主分支上的事務將最終被添加到塊中。請注意，非法交易，例如那些試圖翻倍的花費，將不會被包括在形成最長鏈的塊中。包含此類交易的塊也將被丟棄，因為任何「貨幣」只能使用一次。這裡需要注意的是，大多數節點是誠實的(至少51%)，並且沒有試圖破壞協議。</p>
+<p> 從理論上講，一個新的最長的鏈可以通過更大的採礦力來創造。這種風險在靠近「鏈首」的區塊(最近的區塊)最大。塊在區塊鏈中的位置越深，它被恢復的可能性就越小。</p>
+<p> 這說明PoW鏈中的塊總是有一些被恢復的可能性，並且這些塊的事務可能不會發生。在惡意創建的鏈中，不應該假設將保存事務以將其包含到上面建議的新塊中。</p>
+<p> 在比特幣白皮書中，有建議稱，等待6個區塊的時間足以確保交易不會被拒絕，因為在那個時候，區塊被丟棄的可能性微乎其微。從這裡我們可以建立對「終結性」的理解:不能被還原的塊被稱為終結性。在比特幣和其他PoW區塊鏈中，由於區塊有一些被還原的可能性，所以最終結果並不完美。</p>
+<p> 所有這些都表明，比特幣有很強的抗缺陷性，可以通過一個公共的、無許可的網路以去中心化的方式創造貨幣。通過探索我們可以保證最終結果的方法，確保更大程度的安全是可能的。這個想法將在稍後的容錯一節中討論。</p>
+<p><strong>2.PoS區塊鏈</strong></p>
+<p> 還應該指出的是，一些PoS區塊鏈也以類似於比特幣的方式工作。大多數PoS鏈用塊提議代替挖掘，不是讓獲勝的礦工創建下一個塊，而是由隨機選擇的節點(「leader」)生成新塊。</p>
+<p> 被選中的概率以抵押來加權。這個想法是，擁有更多的貨幣意味著更有興趣看到鏈的成功，因此這樣的節點將有更大的概率產生下一個塊。</p>
+<p> NXT是最早的PoS鏈之一，它使用這種隨機的leader方法來創建塊。NXT內部的共識與比特幣是一樣的:隨著新區塊的產生，它們被添加到最長的鏈條上。任何分叉都是通過遵循這個規則來解決的，節點繼續在最長的鏈上產生塊。</p>
+<p><strong>3.容錯</strong></p>
+<p> 當參與者執行破壞協議的操作時發生錯誤。對於區塊鏈，我們希望有一個安全的協議來防止任意的錯誤，因為可能有惡意的參與者試圖利用協議的弱點。任何對任意錯誤安全的協議也將對隨機錯誤和惡意參與者安全。</p>
+<p> 拜占庭容錯(BFT)協議是一種即使一小部分參與者行為任意也能工作的協議。行為不端的節點可能意外出錯，也可能是惡意的。當然，這假定大多數參與者都正確地遵循了協議。這個短語是在一篇名為「拜占庭將軍問題」的研究論文中提出的，義上的問題涉及到許多行動者就1位信息達成共識的問題。</p>
+<p> 當在BFT協議中發現一致意見時，所一致同意的結果保證是正確的。這意味著一致同意的結果可以被認為是確定性正確的，而不是概率性的。當應用於區塊鏈時，BFT演算法保證了交易的最終結果。這意味著一旦在一個塊上找到協議，該塊就成為最終的，並且該塊內的事務不能被恢復。</p>
+<p> 顯然，這不同於比特幣和其他PoW鏈。如上所述，這些鏈只是在概率上是最終的。比特幣中存在的這種共識通常被稱為「中本共識」(Nakamoto consensus)，很容易看出為什麼它會與BFT混淆，因為兩者都是容錯的，但只有後者才能保證最終結果。更令人困惑的是，區塊生產和比特幣的共識演算法緊密相連。其實並不需要這樣。</p>
+<p> 以太坊未來的發展方向之一是繼續生產區塊，就像他們現在與採礦者所做的一樣，但是通過讓一些節點扮演確認器來提供最終結果來增強共識。驗證器對已經生成的塊進行投票。通過一個區塊的投票，他們表明他們相信這是正確的。一旦三分之二的驗證者投票了，那麼這個區塊就被認為是最終的，提供開採後BFT共識的機制被稱為「最終小工具」。</p>
+<p><strong>4.未來的發展方向</strong></p>
+<p> 大多數正在開發的新項目都是根據共識來劃分區塊的，未來的一些區塊鏈也將採用混合一致演算法，本節將討論正在探索的一些未來方向。</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/6518a99b07404f0691cd3d8ebf591271" alt="《從比特幣到Polkadot：區塊鏈共識與終結的簡史》" width="500" height="500" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/6518a99b07404f0691cd3d8ebf591271" alt="《從比特幣到Polkadot：區塊鏈共識與終結的簡史》" width="500" height="500" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>Cosmos</p>
+<p> 區塊生產也是由隨機選擇的領導者來完成的，但是Cosmos並沒有使用最長的鏈式法則來達成一致。相反，它採用了一種名為Tendermint的BFT演算法。這意味著每個塊都保證了最終結果。此外，如果驗證器不能在單個塊上達成一致，Cosmos將被設計為停止，從而避免分叉。</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/870e42a98ef646f788e3ea6f7de3e8b6" alt="《從比特幣到Polkadot：區塊鏈共識與終結的簡史》" width="640" height="344" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/870e42a98ef646f788e3ea6f7de3e8b6" alt="《從比特幣到Polkadot：區塊鏈共識與終結的簡史》" width="640" height="344" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>Polkadot</p>
+<p> Polkadot的計劃是採用混合一致演算法。塊將由一個隨機的領導者產生，他將下一個塊添加到最長的鏈上。bp也將達成協議，但不是每一輪都投票，而是在一次投票中敲定多個區塊。</p>
+<p> 使用混合共識機制的好處之一是，鏈可以通過建立在最長的鏈上繼續產生塊，而BFT最終會找到不妨礙活性的最終結果(即鏈將永遠不會停止)。</p>
+<p> 其共識與Cosmos相似。塊由隨機選擇的驗證器節點產生，然後通過BFT協議完成，再移動到下一個塊。</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/b717bb074e4943009131f700da4d1f7c" alt="《從比特幣到Polkadot：區塊鏈共識與終結的簡史》" width="640" height="360" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/b717bb074e4943009131f700da4d1f7c" alt="《從比特幣到Polkadot：區塊鏈共識與終結的簡史》" width="640" height="360" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>Cardano</p>
+<p> 簡單地說，Cardano有一個類似於比特幣(最長鏈式法則)的一致演算法。與NXT一樣，區塊生產將由隨機選擇的領導者完成。Cardano背後的團隊已經花了很大的力氣來解決隨機選擇領導者的一些弱點。他們選擇確保領導者選擇的隨機性反映了如今比特幣區塊的生產方式。</p>
+<p> 雖然比特幣是無領導的，但這些區塊是由隨機的礦工生產的。成功的採礦方案的分配將集中在那些擁有最大哈希能力的礦工周圍。</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/d02cfbaa5c74439c8ec1d785f806e582" alt="《從比特幣到Polkadot：區塊鏈共識與終結的簡史》" width="500" height="394" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/d02cfbaa5c74439c8ec1d785f806e582" alt="《從比特幣到Polkadot：區塊鏈共識與終結的簡史》" width="500" height="394" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>以太坊</p>
+<p> 以太坊曾經也在尋求增強他們的一致演算法，包括確保最終結果的塊的後處理。塊會像現在一樣通過PoW生成，但是會有一組驗證器節點對生成的塊的正確性進行投票。這就是所謂的「終極小工具」。這意味著有一個組合的最長鏈規則加上BFT:即一個混合的兩種共識演算法。</p>
+<p> 以太坊將用PoS取代PoW，使以太坊與正在開發的新區塊鏈保持一致，區塊將由一個隨機的領導者製作，然後最終由一個定局裝置完成。</p>
+<p><strong>溫馨提示</strong></p>
+<p>本文為譯文，翻譯原文鏈接https://medium.com/polkadot-network/consensus-and-finality-in-blockchains-21b1f634fd00</p>
+<p>譯者：珞珈山神</p>
+
+<p class="pgc-end-literature">備註：</p>
+<p class="pgc-end-literature">本文轉載於幣乎</p>
+<p class="pgc-end-literature">原文鏈接：https://bihu.com/article/1813432667</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/15560#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.207 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:04:42 -->
+
+<!-- super cache -->

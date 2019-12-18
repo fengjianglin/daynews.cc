@@ -1,0 +1,632 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/10233#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/a508b7fb701f4a389af6eda12e3428c3"},{"@type":"WebPage","@id":"https://daynews.cc/technology/10233#webpage","url":"https://daynews.cc/technology/10233","inLanguage":"zh-TW","name":"\u201cAI\u672a\u4f86\u8aaa\u00b7\u9752\u5e74\u5b78\u8853\u8ad6\u58c7\u201d\uff1aPOI\u77e5\u8b58\u5716\u8b5c\u7684\u69cb\u5efa\u53ca\u61c9\u7528 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/10233#primaryimage"},"datePublished":"2019-12-06T04:55:06+00:00","dateModified":"2019-12-06T04:55:06+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="不到現場，照樣看最乾貨的學術報告！ 嗨，大家好。這裡是學術報告專欄，讀芯術小編不定期挑選並親自跑會，為大家奉獻科技領域最優秀的學術報告，為同學們記錄報告乾貨，並想方設法搞到一手的PPT和現場視頻——足夠乾貨，足夠新鮮！話不多說，快快看過來，希望這些優秀的青年學者、專家傑青的學術報告 ，能讓您在業餘時間的知識閱讀更有價值。 人工智慧論壇如今……" />
+<meta name="twitter:title" content="“AI未來說·青年學術論壇”：POI知識圖譜的構建及應用 - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/a508b7fb701f4a389af6eda12e3428c3" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="“AI未來說·青年學術論壇”：POI知識圖譜的構建及應用 - 天天要聞" />
+<meta property="og:description" content="不到現場，照樣看最乾貨的學術報告！ 嗨，大家好。這裡是學術報告專欄，讀芯術小編不定期挑選並親自跑會，為大家奉獻科技領域最優秀的學術報告，為同學們記錄報告乾貨，並想方設法搞到一手的PPT和現場視頻——足夠乾貨，足夠新鮮！話不多說，快快看過來，希望這些優秀的青年學者、專家傑青的學術報告 ，能讓您在業餘時間的知識閱讀更有價值。 人工智慧論壇如今……" />
+<meta property="og:url" content="https://daynews.cc/technology/10233" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-06T04:55:06+00:00" />
+	<title>“AI未來說·青年學術論壇”：POI知識圖譜的構建及應用 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/10233" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">“AI未來說·青年學術論壇”：POI知識圖譜的構建及應用</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-06T12:55:06+00:00">
+		2 週 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<p><strong>不到現場，照樣看最乾貨的學術報告！</strong></p>
+<p>嗨，大家好。這裡是學術報告專欄，讀芯術小編不定期挑選並親自跑會，為大家奉獻科技領域最優秀的學術報告，為同學們記錄報告乾貨，並想方設法搞到一手的PPT和現場視頻——足夠乾貨，足夠新鮮！話不多說，快快看過來，希望這些優秀的青年學者、專家傑青的學術報告 ，能讓您在業餘時間的知識閱讀更有價值。</p>
+<hr>
+<p>人工智慧論壇如今浩如煙海，有硬貨、有乾貨的講座卻百里挑一。「AI未來說·青年學術論壇」系列講座由中國科學院大學主辦，承辦單位為中國科學院大學學生會，協辦單位為中國科學院計算所研究生會、網路中心研究生會、人工智慧學院學生會、化學工程學院學生會、公共政策與管理學院學生會、微電子學院學生會，百度為支持單位，讀芯術、PaperWeekly為合作自媒體。「AI未來說·青年學術論壇」第十一期「信息檢索與知識圖譜」專場已於2019年11月24日下午在中科院舉行。百度周景博為大家帶來報告《POI知識圖譜的構建及應用》。</p>
+<p>周景博，現任百度研究院商業智能實驗室資深研究員。主要從事數據挖掘和機器學習相關的研究工作,研究方向包括時空數據分析和知識圖譜等。周景博2014年從新加坡國立大學獲得博士學位，畢業後曾任職於新加坡國立大學人工智慧系統研究院，隨後於2015年底加入百度。他目前已經有多篇論文發表在計算機頂級會議和期刊上，包括SIGMOD,KDD,ICDE,TKDE,AAAI等。</p>
+<p>報告內容：興趣點(Point of Interest, POI) 是地圖中能夠提供信息和服務的位置點的總稱，是構成電子地圖的核心元素之一。通過構建POI知識圖譜，對POI的描述語義和關係語義進行增強和優化，對建模真實世界、理解服務場景和更加智能化的輔助用戶決策具有重要意義。POI知識圖譜在搜索、推薦以及出行等位置相關服務中都發揮著重要作用。本次報告中周景博老師將介紹POI知識圖譜構建和應用過程中的機遇與挑戰，以及在這個領域的探索成果。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/a508b7fb701f4a389af6eda12e3428c3" alt="《“AI未來說·青年學術論壇”：POI知識圖譜的構建及應用》" width="800" height="88" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/a508b7fb701f4a389af6eda12e3428c3" alt="《“AI未來說·青年學術論壇”：POI知識圖譜的構建及應用》" width="800" height="88" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>POI知識圖譜的構建及應用</strong></p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/a9990c83f2e248a395889700f42ae3bb" alt="《“AI未來說·青年學術論壇”：POI知識圖譜的構建及應用》" width="554" height="369" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/a9990c83f2e248a395889700f42ae3bb" alt="《“AI未來說·青年學術論壇”：POI知識圖譜的構建及應用》" width="554" height="369" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>周景博老師首先簡要介紹了自己的研究工作，即POI知識圖譜工作。研究背景可以概括為，基於百度的大量時空大數據（比如，地圖檢索、移動端檢索和相關定位數據等），通過機器學習、機器挖掘等人工智慧技術來實現移動認知計算，增強對現實物理世界的理解。本次報告主要分為三部分：首先是背景簡介，二是正在進行的POI知識圖譜構建的基礎研究工作，三是目前正在探索的應用。</p>
+<p>POI指的是興趣點，其中地圖是非常核心的要素，地圖中任何一個實體都可以作為POI，比如餐館、酒店、旅遊景點等都是POI。要做POI知識圖譜，需要從兩個角度出發，一方面是如何增強POI屬性的描述。之前POI的相關工作更注重位置和名稱等的構建，而在POI知識圖譜中，需要強化POI的更多屬性，比如人群屬性、內容屬性等。另一方面是需要建立POI之間的關係，特別是競爭關係。POI知識圖譜目前已經在地圖上取得了一些應用，對於不同場景，比如景點搜索、停車場搜索等，都可以幫助我們提高信息瀏覽效率。</p>
+<p>周景博老師重點講述了近期發表在KDD2019上的優化POI上的Tag質量的工作。通過對POI的特徵詞串(Tag)的抽取,可以挖掘出其構成要素之間的相互關係,打破了各網路所存在的信息孤島。POI的Tag有非常多挖掘方法，可以簡單歸類為兩種：一種是基於數據挖掘演算法的提取，從評論、新聞、公眾號等文本中嘗試提取相關Tag；另外一種是人工標註。這兩種方法是現在POI的Tag的主要來源。</p>
+<p>上述方法都有兩個共同的缺點，第一是信息不足。有很多POI沒有足夠多的評論信息或者描述信息。在地圖上幾千萬個POI中，可能只有20%的POI的評論信息比較豐富，其他POI則沒有太多的描述信息。所以需要使用更多方法增加對POI理解。第二是模型本身不準確，或者用戶標註會引入錯誤。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/0a6ac4c649ca4397bb8d1facbf67e339" alt="《“AI未來說·青年學術論壇”：POI知識圖譜的構建及應用》" width="554" height="369" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/0a6ac4c649ca4397bb8d1facbf67e339" alt="《“AI未來說·青年學術論壇”：POI知識圖譜的構建及應用》" width="554" height="369" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>POI的tag優化任務的核心是通過機器學習方法提高POI Tag的準確性。如何提高實體標註的準確性，也是知識圖譜領域中經常研究的一個問題。該模型簡單來講，就是從POI基礎屬性、POI用戶畫像、用戶檢索信息中抽取相關特徵，然後通過機器學習方法建模，來優化提高POI Tag的質量。</p>
+<p>接下來周景博老師簡要介紹了POI Tag的特徵提取方法。通過統計特定POI的用戶的分布，我們可以區分出不同POI的人群特點。比如，對於兒童遊樂園和酒吧，他們的用戶分布屬性是完全不一樣的。</p>
+<p>其次是從圖的角度來抽取POI tag的特徵。如果很多用戶既搜索了POI A也搜索了POI B，這樣兩個POI之間有很多共同檢索。通過這種信息，我們可以建立POI的搜索圖。通過搜索圖，我們進一步可以統計到一個用戶在搜索一個POI時，還搜索了哪些其他POI。比如，用戶在搜索星巴克的時候，我們可以看到用戶還會搜索電影院、酒吧、咖啡館等其他的POI。POI之間的關聯可以通過建立Tag分布統計圖方式來呈現。</p>
+<p>POI Tag優化方法的核心是優化POI-tag矩陣，包括矩陣去噪和矩陣補全等操作。對於此問題可以使用三種框架，一個是NMF（Non-negative matrix factorization），一個是Parir—wise 相似匹配，一個是MLE（Maximum likelihood estimation）。我們通過使用一致性正則化約束將三種方法融合在一起。其中NMF比較好理解，非負矩陣分解是在矩陣中所有元素均為非負數約束條件之下的矩陣分解方法。基本思想是給定一個非負矩陣V，NMF能夠找到一個非負矩陣W和一個非負矩陣H，使得矩陣W和H的乘積近似等於矩陣V中的值。通過矩陣分解，可以對POI-tag矩陣進行去噪和補全。第二就是基於神經網路模型Parir—wise相似匹配方法。 通過將POI和Tag放到神經網路中，計算POI和tag的相似度，來建模POI和Tag之間的規律。最後是MLE模型，即目標分類模型，通過一個神經網路模型來預測一個POI的tag分布。最終預測結果會把三個結果融合在一起，來最後得到最優的結果。通過對比所有已有的基準演算法可以發現，該方法果顯著好於現在已有的模型。</p>
+<p>隨後周景博老師簡要介紹了其他正在進行的工作。包括通過使用異構信息網路的方法來實現的POI關係挖掘，和通過POI知識圖譜做特定區域的功能分析來做城市優化。</p>
+<p>最後，周景博老師總結了POI知識圖譜構建方法並對發展趨勢進行了預測。</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/38b81fb5731e4e3ea91032635c2571a5" alt="《“AI未來說·青年學術論壇”：POI知識圖譜的構建及應用》" width="1080" height="120" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/38b81fb5731e4e3ea91032635c2571a5" alt="《“AI未來說·青年學術論壇”：POI知識圖譜的構建及應用》" width="1080" height="120" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>AI未來說*青年學術論壇</strong></p>
+<p>第一期 數據挖掘專場</p>
+<p>1. 李國傑院士：理性認識人工智慧的「頭雁」作用</p>
+<p>2. 百度熊輝教授：大數據智能化人才管理</p>
+<p>3. 清華唐傑教授：網路表示學習理論及應用</p>
+<p>4. 瑞萊智慧劉強博士：深度學習時代的個性化推薦</p>
+<p>5. 清華柴成亮博士：基於人機協作的數據管理</p>
+<p>第二期 自然語言處理專場</p>
+<p>1. 中科院張家俊：面向自然語言生成的同步雙向推斷模型</p>
+<p>2. 北郵李蕾：關於自動文本摘要的分析與討論</p>
+<p>3. 百度孫珂：對話技術的產業化應用與問題探討</p>
+<p>4. 阿里譚繼偉：基於序列到序列模型的文本摘要及淘寶的實踐</p>
+<p>5. 哈工大劉一佳：通過句法分析看上下文相關詞向量</p>
+<p>第三期 計算機視覺專場</p>
+<p>1. 北大彭宇新：跨媒體智能分析與應用</p>
+<p>2. 清華魯繼文：深度強化學習與視覺內容理解</p>
+<p>3. 百度李穎超：百度增強現實技術及應⽤</p>
+<p>4. 中科院張士峰：基於深度學習的通用物體檢測演算法對比探索</p>
+<p>5. 港中文李弘揚 ：物體檢測最新進展</p>
+<p>第四期 語音技術專場</p>
+<p>1. 中科院陶建華：語音技術現狀與未來</p>
+<p>2. 清華大學吳及：音頻信號的深度學習處理方法</p>
+<p>3. 小米王育軍：小愛背後的小米語音技術</p>
+<p>4. 百度康永國：AI 時代的百度語音技術</p>
+<p>5. 中科院劉斌：基於聯合對抗增強訓練的魯棒性端到端語音識別</p>
+<p>第五期 量子計算專場</p>
+<p>1. 清華大學翟薈：Discovering Quantum Mechanics with Machine Learning</p>
+<p>2. 南方科技大學魯大為：量子計算與人工智慧的碰撞</p>
+<p>3. 荷蘭國家數學和計算機科學中心（CWI）李繹楠：大數據時代下的量子計算</p>
+<p>4. 蘇黎世聯邦理工學院（ETH）楊宇翔：量子精密測量</p>
+<p>5. 百度段潤堯：量子架構——機遇與挑戰</p>
+<p>第六期 機器學習專場</p>
+<p>1. 中科院張文生：健康醫療大數據時代的認知計算</p>
+<p>2. 中科院庄福振：基於知識共享的機器學習演算法研究及應用</p>
+<p>3. 百度胡曉光：飛槳（PaddlePaddle）核心技術與應用實踐</p>
+<p>4. 清華大學王奕森：Adversarial Machine Learning: Attack and Defence</p>
+<p>5. 南京大學趙申宜：SCOPE – Scalable Composite Optimization for Learning</p>
+<p>第七期 自動駕駛專場</p>
+<p>1. 北京大學查紅彬：基於數據流處理的SLAM技術</p>
+<p>2. 清華大學鄧志東：自動駕駛的「感」與「知」 – 挑戰與機遇</p>
+<p>3. 百度朱帆：開放時代的自動駕駛 – 百度Apollo計劃</p>
+<p>4. 北理宋文傑：時空域下智能車輛未知區域自主導航技術</p>
+<p>第八期 深度學習專場</p>
+<p>1. 中科院文新：深度學習入門基礎與學習資源</p>
+<p>2. 中科院陳智能：計算機視覺經典——深度學習與目標檢測</p>
+<p>3. 中科院付鵬：深度學習與機器閱讀</p>
+<p>第九期 個性化內容推薦專場</p>
+<p>1. 人民大學趙鑫：基於知識與推理的序列化推薦技術研究</p>
+<p>2. 中科院趙軍：知識圖譜關鍵技術及其在推薦系統中的應用</p>
+<p>第十期 視頻理解與推薦專場</p>
+<p>1. 北京大學袁曉如：智能數據可視分析</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/38b81fb5731e4e3ea91032635c2571a5" alt="《“AI未來說·青年學術論壇”：POI知識圖譜的構建及應用》" width="1080" height="120" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/38b81fb5731e4e3ea91032635c2571a5" alt="《“AI未來說·青年學術論壇”：POI知識圖譜的構建及應用》" width="1080" height="120" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>留言點贊關注</strong></p>
+<p><strong>我們一起分享AI學習與發展的乾貨</strong></p>
+<p>如轉載，請後台留言，遵守轉載規範</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/10233#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.240 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:33:37 -->
+
+<!-- super cache -->

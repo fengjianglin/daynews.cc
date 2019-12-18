@@ -1,0 +1,589 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/10286#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/6ec01bc2fad546fc880dc76e4c4e6d5e"},{"@type":"WebPage","@id":"https://daynews.cc/technology/10286#webpage","url":"https://daynews.cc/technology/10286","inLanguage":"zh-TW","name":"Python\u722c\u87f2\u4e4bpython3\u722c\u53d61024\u5716\u7247 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/10286#primaryimage"},"datePublished":"2019-12-05T19:50:14+00:00","dateModified":"2019-12-05T19:50:14+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="這兩年python特別火，火到博客園現在也是隔三差五的出現一些python的文章。各種開源軟體、各種爬蟲演算法紛紛開路，作為互聯網行業的IT狗自然看的我也是心痒痒，於是趁著這個霧霾橫行的周末瞅了兩眼，作為一名老司機覺得還是應該以練帶學，1024在程序員界這麼流行的網站，當然拿來先練一練。 python自稱是以自然語言的視角來編程，特點是開……" />
+<meta name="twitter:title" content="Python爬蟲之python3爬取1024圖片 - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/6ec01bc2fad546fc880dc76e4c4e6d5e" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Python爬蟲之python3爬取1024圖片 - 天天要聞" />
+<meta property="og:description" content="這兩年python特別火，火到博客園現在也是隔三差五的出現一些python的文章。各種開源軟體、各種爬蟲演算法紛紛開路，作為互聯網行業的IT狗自然看的我也是心痒痒，於是趁著這個霧霾橫行的周末瞅了兩眼，作為一名老司機覺得還是應該以練帶學，1024在程序員界這麼流行的網站，當然拿來先練一練。 python自稱是以自然語言的視角來編程，特點是開……" />
+<meta property="og:url" content="https://daynews.cc/technology/10286" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-05T19:50:14+00:00" />
+	<title>Python爬蟲之python3爬取1024圖片 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/10286" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">Python爬蟲之python3爬取1024圖片</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-06T03:50:14+00:00">
+		2 週 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<p>這兩年python特別火，火到博客園現在也是隔三差五的出現一些python的文章。各種開源軟體、各種爬蟲演算法紛紛開路，作為互聯網行業的IT狗自然看的我也是心痒痒，於是趁著這個霧霾橫行的周末瞅了兩眼，作為一名老司機覺得還是應該以練帶學，1024在程序員界這麼流行的網站，當然拿來先練一練。</p>
+<p>python自稱是以自然語言的視角來編程，特點是開發快，語言簡潔，沒那麼多技巧，大名鼎鼎的豆瓣、youtube都是使用python開發的網站，看來python在大規模使用這個方面來講應該沒有啥子問題；python也不是沒有缺點在性能方面就Java、C++等老前輩還是沒得比的，另外python和nodejs一樣只能使用CPU單核，也是性能方面影響是因素之一。但python在特定領域表現突出，特別是腳本、爬蟲、科學演算法等。</p>
+<blockquote>
+<p>好了,還是說正事如何爬取1024網站的圖片</p>
+</blockquote>
+<h2>分析</h2>
+<h2>列表頁面</h2>
+<p>首先進入1024的導航網站，隨便點擊一個地址進入選擇圖片區或者在網站地址後面添加thread0806.php?fid=16&amp;search=&amp;page=,這就是1024網站的圖片區，這個爬蟲就是主要抓取這個區域的所有圖片，使用瀏覽器debug分析一下這個頁面發現基本都是列表頁,格式如下：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/6ec01bc2fad546fc880dc76e4c4e6d5e" alt="《Python爬蟲之python3爬取1024圖片》" width="640" height="221" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/6ec01bc2fad546fc880dc76e4c4e6d5e" alt="《Python爬蟲之python3爬取1024圖片》" width="640" height="221" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>在地址欄http://xxxxxx.biz/thread0806.php?fid=16&amp;search=&amp;page=後面拼1、2、3等於就是訪問圖片區第一頁、第二頁、第三頁的列表頁。根據這些列表頁就可以爬出具體的每一個圖片頁的地址，類似上圖的地址：htm_data/16/1611/2114702.html 在地址的前面拼接上主站地址就是具體的圖片頁了。所以根據以上的分析：通過循環地址欄找到不同的列表頁在根據列表頁找到具體的圖片頁</p>
+<blockquote>
+<p>地址欄-&gt;圖片列表-&gt;圖片頁地址</p>
+</blockquote>
+<p>獲取列表頁圖片地址代碼如下：</p>
+<pre>import urllib.request,socket,re,sys,os<br><br>baseUrl='http://xxxx.biz/'<br><br>def getContant(Weburl):<br> Webheader= {'Upgrade-Insecure-Requests':'1',<br> 'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36',}<br> req = urllib.request.Request(url = Weburl,headers=Webheader)<br> respose = urllib.request.urlopen(req)<br> _contant = respose.read()<br> respose.close()<br> return str(_contant)<br><br>def getUrl(URL):<br> pageIndex = 1<br> for i in range(1,int(pageIndex)+1):<br> Weburl = URL + str(i)<br> contant = getContant(Weburl)<br> comp = re.compile(r'&lt;a href="htm_data.{0,30}html" target="_blank" id=""&gt;&lt;font color=g')<br> urlList1 = comp.findall(contant)<br> comp = re.compile(r'a href="(.*?)"')<br> urlList2 = comp.findall(str(urlList1))<br> urlList = []<br> for url1 in urlList2:<br> url2 = baseUrl+url1<br> urlList.append(url2)<br> return urlList<br> <br>URL = baseUrl+'thread0806.php?fid=16&amp;search=&amp;page='<br>UrlList = getUrl(URL) <br>print(UrlList)<br></pre>
+<blockquote>
+<p>在這個地址後面拼接1到N就是不同的列表頁</p>
+</blockquote>
+<h2>圖片頁面</h2>
+<p>利用瀏覽器debug一下頁面，圖片基本上都是外鏈地址，以http或者https開頭以jpg、png、gif結尾，寫個正則表達式匹配這些地址，然後交給程序下載就OK了。</p>
+<p>頁面代碼如下：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/ca4ec335db43402ab2e9399ff0db08c4" alt="《Python爬蟲之python3爬取1024圖片》" width="640" height="280" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/ca4ec335db43402ab2e9399ff0db08c4" alt="《Python爬蟲之python3爬取1024圖片》" width="640" height="280" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>在下載過程中遇到了幾個問題，就是有的頁面會報403禁止訪問等，應該是網站加了一些防止爬蟲的手段，網上找了下加上header參數來模擬瀏覽器訪問就解決了;</p>
+<p>下載單個頁面代碼如下：</p>
+<pre>import urllib.request,socket,re,sys,os<br><br>#定義文件保存路徑<br>targetPath = "D:\\temp\\1024\\1"<br><br>def openUrl(url):<br>	headers = {<br>	 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) ' 'Chrome/51.0.2704.63 Safari/537.36'<br>	 }<br><br>	req = urllib.request.Request(url=url, headers=headers)<br>	res = urllib.request.urlopen(req)<br>	data = res.read()<br>	downImg(data)<br><br>def downImg(data):<br>	for link,t in set(re.findall(r'([http|https]:[^\s]*?(jpg|png|gif))', str(data))):<br><br>	 if link.startswith('s'):<br>	 	link='http'+link<br>	 else:<br>	 link='htt'+link<br>	 print(link)<br>	 try:<br>	 opener=urllib.request.build_opener()<br>	 opener.addheaders=[('User-Agent','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1941.0 Safari/537.36')]<br>	 urllib.request.install_opener(opener)<br>	 urllib.request.urlretrieve(link,saveFile(link))<br>	 except:<br>	 print('失敗')<br><br>def saveFile(path):<br> #檢測當前路徑的有效性<br> if not os.path.isdir(targetPath):<br> os.mkdir(targetPath)<br><br> #設置每個圖片的路徑<br> pos = path.rindex('/')<br> t = os.path.join(targetPath,path[pos+1:])<br> return t<br><br>url = "http://xxxx.biz/htm_data/16/1611/2115193.html"<br>openUrl(url)<br><br></pre>
+<h2>批量爬取</h2>
+<p>批量爬取有兩個工作要做，第一for循環目標內的所有列表頁，第二為了避免重複爬取，需要給每個頁面建立唯一的文件夾，下次爬取的時候如果存在直接跳過。最後在理一下所有的爬取步驟：</p>
+<blockquote>
+<p>循環地址欄-&gt;找出圖片頁列表-&gt;圖片頁分析找出圖片地址-&gt;為圖片頁建立唯一的文件夾-&gt;開始下載頁面圖片</p>
+</blockquote>
+<p>完整的代碼如下：</p>
+<pre>import urllib.request,socket,re,sys,os<br><br>baseUrl='http://xxxx.biz/'<br>targetPath = "D:\\temp\\1024\\"<br><br>def getContant(Weburl):<br> Webheader= {'Upgrade-Insecure-Requests':'1',<br> 'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36',}<br> req = urllib.request.Request(url = Weburl,headers=Webheader)<br> respose = urllib.request.urlopen(req)<br> _contant = respose.read()<br> respose.close()<br> return str(_contant)<br><br>def getUrl(URL):<br> pageIndex = 1<br> for i in range(1,int(pageIndex)+1):<br> Weburl = URL + str(i)<br> contant = getContant(Weburl)<br> comp = re.compile(r'&lt;a href="htm_data.{0,30}html" target="_blank" id=""&gt;&lt;font color=g')<br> urlList1 = comp.findall(contant)<br> comp = re.compile(r'a href="(.*?)"')<br> urlList2 = comp.findall(str(urlList1))<br> urlList = []<br> for url1 in urlList2:<br> url2 = baseUrl+url1<br> urlList.append(url2)<br> return urlList<br><br>def openUrl(url):<br> headers = {<br> 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) ' 'Chrome/51.0.2704.63 Safari/537.36'<br> }<br><br> filePath=targetPath+url[-12:-5]<br> #檢測當前路徑的有效性<br> if not os.path.isdir(filePath):<br> os.mkdir(filePath)<br> req = urllib.request.Request(url=url, headers=headers)<br> res = urllib.request.urlopen(req)<br> data = res.read()<br> downImg(data,filePath)<br> else:<br> print("已經下載過的地址跳過："+url)<br> print("filePath "+filePath)<br><br>def downImg(data,filePath):<br> for link,t in set(re.findall(r'([http|https]:[^\s]*?(jpg|png|gif))', str(data))):<br><br> if link.startswith('s'):<br> link='http'+link<br> else:<br> link='htt'+link<br> print(link)<br> try:<br> opener=urllib.request.build_opener()<br> opener.addheaders=[('User-Agent','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1941.0 Safari/537.36')]<br> urllib.request.install_opener(opener)<br> urllib.request.urlretrieve(link,saveFile(link,filePath))<br> except:<br> print('失敗')<br><br>def saveFile(path,filePath):<br> #設置每個圖片的路徑<br> pos = path.rindex('/')<br> t = os.path.join(filePath,path[pos+1:])<br> return t<br><br><br>def openPage(UrlList):<br> for pageUlr in UrlList:<br> try:<br> print('正在下載地址：'+pageUlr)<br> openUrl(pageUlr)<br> except:<br> print('地址：'+pageUlr+'下載失敗')<br><br>URL = baseUrl+'thread0806.php?fid=16&amp;search=&amp;page='<br>for num in range(0,20):#0-20頁<br> print("#######################################")<br> print("##########總目錄下載地址###############")<br> print(URL+str(num))<br> print("#######################################")<br> print("#######################################")<br> UrlList = getUrl(URL+str(num)) <br> openPage(UrlList)<br></pre>
+<p>最後的爬取結果：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/69c25781ba9d4dc38dae36924cb92d9a" alt="《Python爬蟲之python3爬取1024圖片》" width="640" height="263" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/69c25781ba9d4dc38dae36924cb92d9a" alt="《Python爬蟲之python3爬取1024圖片》" width="640" height="263" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<blockquote>
+<p>源代碼地址：python-crawler<br><strong>具體地址和源代碼在一起</strong></p>
+</blockquote>
+<h2>其它</h2>
+<p>關於python2和python3的爭論，網站爭論比較大python3不兼容pyhton2，很多第三方的類庫暫時還沒有支持python3等等，但是對於我們新手來說，肯定是往前看果斷python3.</p>
+<p>代碼比較冗餘幾個地方還沒有寫好，還在慢慢學習中，目前只是搞的可以跑起來。還有幾個問題沒有解決，下載一段時間後會莫名其妙的斷掉目前還么找到原因，後期看是否可以加上多線程來爬取可能會快一點，大家有什麼更好的建議也可以提出來。</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/10286#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.225 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:31:12 -->
+
+<!-- super cache -->

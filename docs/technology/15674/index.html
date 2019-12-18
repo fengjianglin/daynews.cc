@@ -1,0 +1,640 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>還能這樣？把 Python 自動翻譯成 C++ - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="作者：byronhe，騰訊 WXG 開發工程師 一、問題背景 隨著深度學習的廣泛應用，在搜索引擎/推薦系統/機器視覺等業務系統中，越來越多的深度學習模型部署到線上服務。 機器學習模型在離線訓練時，一般要將輸入的數據做特徵工程預處理，再輸入模型在 TensorFlow PyTorch 等框架上做訓練。 1.常見的特徵工程邏輯 常見的特徵工程……" />
+		<meta name="keywords" content="還能這樣？把 Python 自動翻譯成 C++ - 天天要聞,科技," />
+		<meta itemprop="image" content="https://daynews.cc/wp-content/themes/Kratos/images/default.jpg"/>
+		<meta name="description" itemprop="description" content="作者：byronhe，騰訊 WXG 開發工程師 一、問題背景 隨著深度學習的廣泛應用，在搜索引擎/推薦系統/機器視覺等業務系統中，越來越多的深度學習模型部署到線上服務。 機器學習模型在離線訓練時，一般要將輸入的數據做特徵工程預處理，再輸入模型在 TensorFlow PyTorch 等框架上做訓練。 1.常見的特徵工程邏輯 常見的特徵工程……" />
+		
+<!-- This site is optimized with the SEO -->
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="https://daynews.cc/technology/15674" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="還能這樣？把 Python 自動翻譯成 C++ - 天天要聞" />
+<meta property="og:description" content="作者：byronhe，騰訊 WXG 開發工程師 一、問題背景 隨著深度學習的廣泛應用，在搜索引擎/推薦系統/機器視覺等業務系統中，越來越多的深度學習模型部署到線上服務。 機器學習模型在離線訓練時，一般要將輸入的數據做特徵工程預處理，再輸入模型在 TensorFlow PyTorch 等框架上做訓練。 1.常見的特徵工程邏輯 常見的特徵工程……" />
+<meta property="og:url" content="https://daynews.cc/technology/15674" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-13T05:55:10+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="作者：byronhe，騰訊 WXG 開發工程師 一、問題背景 隨著深度學習的廣泛應用，在搜索引擎/推薦系統/機器視覺等業務系統中，越來越多的深度學習模型部署到線上服務。 機器學習模型在離線訓練時，一般要將輸入的數據做特徵工程預處理，再輸入模型在 TensorFlow PyTorch 等框架上做訓練。 1.常見的特徵工程邏輯 常見的特徵工程……" />
+<meta name="twitter:title" content="還能這樣？把 Python 自動翻譯成 C++ - 天天要聞" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://daynews.cc/technology/15674#webpage","url":"https://daynews.cc/technology/15674","inLanguage":"zh-TW","name":"\u9084\u80fd\u9019\u6a23\uff1f\u628a Python \u81ea\u52d5\u7ffb\u8b6f\u6210 C++ - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"datePublished":"2019-12-13T05:55:10+00:00","dateModified":"2019-12-13T05:55:10+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<!-- / SEO. -->
+
+<link rel='stylesheet' id='animate-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/animate.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/bootstrap.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/superfish.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/layer.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='https://daynews.cc/wp-content/themes/Kratos/style.css' type='text/css' media='all' />
+<link rel="amphtml" href="https://daynews.cc/technology/15674/amp">		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.min.js'></script>
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154709495-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-154709495-1');
+		</script>
+		<!-- Google Adsense -->
+		<script data-ad-client="ca-pub-8261739837930821" async 
+			src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="https://daynews.cc"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="/">首頁</a></li>
+<li><a href="/entertainment">娛樂</a></li>
+<li><a href="/emotion">情感</a></li>
+<li><a href="https://daynews.cc/international">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="https://daynews.cc/technology">科技</a></li>
+<li><a href="/sports">體育</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/nba">NBA</a></li>
+	<li><a href="/premier">英超</a></li>
+</ul>
+</li>
+<li><a href="/history">歷史</a></li>
+<li><a href="/game">遊戲</a></li>
+<li><a href="https://daynews.cc/health">養生</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/lose">減肥</a></li>
+</ul>
+</li>
+<li><a href="https://daynews.cc/constellation">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">還能這樣？把 Python 自動翻譯成 C++</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-13				                <i class="fa fa-commenting-o"></i> 595條評論
+				                <i class="fa fa-eye"></i> 4,254次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 499人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+<p>作者：byronhe，騰訊 WXG 開發工程師</p>
+</p>
+<h2 toutiao-origin="h2">一、問題背景</h2>
+<p>隨著深度學習的廣泛應用，在<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>引擎/推薦系統/機器視覺等業務系統中，越來越多的深度學習模型部署到線上服務。</p>
+<p>機器學習模型在離線訓練時，一般要將輸入的數據做特徵工程預處理，再輸入模型在 TensorFlow PyTorch 等框架上做訓練。</p>
+</p>
+<h2 toutiao-origin="h3"><strong toutiao-origin="span">1.常見的特徵工程邏輯</strong></h2>
+<p>常見的特徵工程邏輯有：</p>
+<ol>
+<li>
+<p>分箱/分桶 離散化</p>
+</li>
+<li>
+<p>log/exp 對數/冪等 math numpy 常見數學運算</p>
+</li>
+<li>
+<p>特徵縮放/歸一化/截斷</p>
+</li>
+<li>
+<p>交叉特徵生成</p>
+</li>
+<li>
+<p>分詞匹配程度計算</p>
+</li>
+<li>
+<p>字元串分隔匹配判斷 tong</p>
+</li>
+<li>
+<p>預設值填充等</p>
+</li>
+<li>
+<p>數據平滑</p>
+</li>
+<li>
+<p>onehot 編碼，hash 編碼等</p>
+</li>
+</ol>
+<p>這些特徵工程代碼，當然一般使用深度學習最主要的語言 <strong>python</strong>實現。</p>
+</p>
+<h2 toutiao-origin="h2">二、業務痛點</h2>
+<p>離線訓練完成，模型上線部署後，同樣要<strong>用 C++ 重新實現</strong>這些 python 的特徵工程邏輯代碼。</p>
+<p>我們發現，<strong>「用 C++ 重新實現」</strong>這個步驟，給實際業務帶來了大量的問題：</p>
+<ol>
+<li>
+<p>繁瑣，費時費力，極容易出現 python 和 C++ 代碼<strong>不一致</strong></p>
+</li>
+<li>
+<p><strong>不一致</strong>會直接影響模型在線上的效果，導致大盤業務指標不如預期，產生各種 bad case</p>
+</li>
+<li>
+<p><strong>不一致</strong>難以發現，無法測試，無法監控，經常要靠用戶投訴反饋，甚至大盤數據異常才能發現</p>
+</li>
+</ol>
+<h2 toutiao-origin="h3"><strong toutiao-origin="span">1. 業界方案</strong></h2>
+<p>針對這些問題，我調研了這些業界方案：</p>
+<p>《推薦系統中模型訓練及使用流程的標準化》https://<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">www.</i>infoq<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-5">.cn</i>/article/2E6LCqb1GeqFRAjkkjX3</p>
+<p>《自主研發、不斷總結經驗，美團<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>推薦機器學習平台》https://cloud.tencent<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">.com</i>/developer/article/1357<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">30</i>9</p>
+<p>《京東電商推薦系統實踐》https://<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">www.</i>infoq<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-5">.cn</i>/article/1OkKmb_gEYNR3YqC9RcW</p>
+<blockquote>
+<p>「模型線上線下一致性問題對於模型效果非常重要，我們使用特徵日誌來實時記錄特徵，保證特徵的一致性。這樣離線處理的時候會把實時的用戶反饋，和特徵日誌做一個<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">結合</i>生成訓練樣本，然後更新到模型訓練平台上，平台更新之後在推送到線上，這樣整個排序形成了一個閉環。」</p>
+</blockquote>
+<p>總結起來，有幾種思路：</p>
+<ol>
+<li>
+<p>在線特徵存儲起來給離線用</p>
+</li>
+<li>
+<p>在線 C++ 代碼編譯成 so 導出給離線用</p>
+</li>
+<li>
+<p>根據一份配置生成離線和在線代碼</p>
+</li>
+<li>
+<p>提取公共代碼，加強代碼復用，等軟體工程手段，減少不一致</p>
+</li>
+</ol>
+<h2 toutiao-origin="h3"><strong toutiao-origin="span">2. 自動翻譯方案</strong></h2>
+<h2 toutiao-origin="h4"><strong toutiao-origin="span">(1) .已有方案的缺點</strong></h2>
+<p>但這些思路都有各種缺點：</p>
+<ol>
+<li>
+<p>所有在線請求的所有特徵，這個存儲量數據量很大</p>
+</li>
+<li>
+<p>演算法改代碼需要等待後台開發，降低了演算法同學的工作效率</p>
+</li>
+<li>
+<p>特徵處理代碼的複雜度轉移到配置文件中，不一定能充分表達，而且配置格式增加學習成本</p>
+</li>
+<li>
+<p>就這邊真實離線特徵處理代碼來看，大部分代碼都無法抽取出公共代碼做復用。</p>
+</li>
+</ol>
+<h2 toutiao-origin="h4"><strong toutiao-origin="span">(2). 翻譯器</strong></h2>
+<p>回到問題出發點考慮，顯而易見，這個問題歸根結底就是需要一個 「 python 到 c++ 的翻譯器 」 。</p>
+<p>那其實 「翻譯器 Transpiler 」 ，和編譯器解釋器類似，也是個古老的熱門話題了，比如 WebAssembly, CoffeeScript ，Babel ,Google Closure Compiler，f2c</p>
+<p>於是一番<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>，發現 python 到 C++ 的翻譯器也不少，其中 Pythran 是新興比較熱門的開源項目。</p>
+<p>於是一番嘗試後，藉助 pythran，我們實現了：</p>
+<ol>
+<li>
+<p>一條命令 <strong>全自動把 Python 翻譯成等價 C++</strong></p>
+</li>
+<li>
+<p>嚴格等價保證改寫，徹底消除不一致</p>
+</li>
+<li>
+<p><strong>完全去掉重新實現</strong>這塊工作量，後台開發成本降到 0 ，徹底解放生產力</p>
+</li>
+<li>
+<p>演算法同學繼續使用純 python，開發效率無影響，** 無學習成本 **</p>
+</li>
+<li>
+<p>並能推廣到其他需要 <strong>python 改寫成後台 C++ 代碼</strong>的業務場景，解放生產力</p>
+</li>
+</ol>
+<h2 toutiao-origin="h2">三、pythran 的使用流程</h2>
+<h2 toutiao-origin="h3"><strong toutiao-origin="span">(1). 安裝</strong></h2>
+<p>一條命令安裝：</p>
+<pre><code>pip3 install pythran<br></code></pre>
+</p>
+<h2 toutiao-origin="h3"><strong toutiao-origin="span">(2). 寫 Python 代碼</strong></h2>
+<p>下面這個 python demo，是 pythran 官方 demo</p>
+<pre><code>import math<br>import numpy as np<br><br>def zero(n, m):<br>return [[0]*n for col in range(m)]<br><br>#pythran export matrix_multiply(float list list, float list list)<br>def matrix_multiply(m0, m1):<br>new_matrix = zero(len(m0),len(m1[0]))<br>for i in range(len(m0)):<br>for j in range(len(m1[0])):<br>for k in range(len(m1)):<br>new_matrix[i][j] += m0[i][k]*m1[k][j]<br>return new_matrix<br><br>#pythran export arc_distance(float[], float[], float[], float[])<br>def arc_distance(theta_1, phi_1, theta_2, phi_2):<br>"""<br>Calculates the pairwise arc distance<br>between all points in vector a and b.<br>"""<br>temp = (np.sin((theta_2-theta_1)/2)**2<br>+ np.cos(theta_1)*np.cos(theta_2) * np.sin((phi_2-phi_1)/2)**2)<br>distance_matrix = 2 * np.arctan2(np.sqrt(temp), np.sqrt(1-temp))<br>return distance_matrix<br><br><br>#pythran export dprod(int list, int list)<br>def dprod(l0,l1):<br>"""WoW, generator expression, zip and sum."""<br>return sum(x * y for x, y in zip(l0, l1))<br><br><br>#pythran export get_age(int )<br>def get_age(age):<br>if age &lt;= 20:<br>age_x = '0_20'<br>elif age &lt;= 25:<br>age_x = '21_25'<br>elif age &lt;= <i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">30</i>:<br>age_x = '26_<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">30</i>'<br>elif age &lt;= 35:<br>age_x = '31_35'<br>elif age &lt;= 40:<br>age_x = '36_40'<br>elif age &lt;= 45:<br>age_x = '41_45'<br>elif age &lt;= 50:<br>age_x = '46_50'<br>else:<br>age_x = '50+'<br>return age_x<br></code></pre>
+</p>
+<h2 toutiao-origin="h3"><strong toutiao-origin="span">(3). Python 轉成 C++</strong></h2>
+<p>一條命令完成翻譯</p>
+<pre><code>pythran -e demo.py -o demo.hpp<br></code></pre>
+</p>
+<h2 toutiao-origin="h3"><strong toutiao-origin="span">(4). 寫 C++ 代碼調用</strong></h2>
+<p>pythran/pythonic/ 目錄下是 python 標準庫的 C++ 等價實現，翻譯出來的 C++ 代碼需要 include 這些頭文件</p>
+<p>寫個 C++ 代碼調用</p>
+<pre><code>#include "demo.hpp"<br>#include "pythonic/numpy/random/rand.hpp"<br>#include &lt;iostream&gt;<br><br>using std::cout;<br>using std::endl;<br><br>int<strong toutiao-origin="span" class="highlight-text">main</strong> {<br>pythonic::types::list&lt;pythonic::types::list&lt;double&gt;&gt; m0 = {{2.0, 3.0},<br>{4.0, 5.0}},<br>m1 = {{1.0, 2.0},<br>{3.0, 4.0}};<br>cout &lt;&lt; m0 &lt;&lt; "*" &lt;&lt; m1 &lt;&lt; "\n=\n"<br>&lt;&lt; __pythran_demo::matrix_multiply(m0, m1) &lt;&lt; endl<br>&lt;&lt; endl;<br><br>auto theta_1 = pythonic::numpy::random::rand(3),<br>phi_1 = pythonic::numpy::random::rand(3),<br>theta_2 = pythonic::numpy::random::rand(3),<br>phi_2 = pythonic::numpy::random::rand(3);<br>cout &lt;&lt; "arc_distance " &lt;&lt; theta_1 &lt;&lt; "," &lt;&lt; phi_1 &lt;&lt; "," &lt;&lt; theta_2 &lt;&lt; ","<br>&lt;&lt; phi_2 &lt;&lt; "\n=\n"<br>&lt;&lt; __pythran_demo::arc_distance(theta_1, phi_1, theta_2, phi_2) &lt;&lt; endl<br>&lt;&lt; endl;<br><br>pythonic::types::list&lt;int&gt; l0 = {2, 3}, l1 = {4, 5};<br>cout &lt;&lt; "dprod " &lt;&lt; l0 &lt;&lt; "," &lt;&lt; l1 &lt;&lt; "\n=\n"<br>&lt;&lt; __pythran_demo::dprod(l0, l1) &lt;&lt; endl<br>&lt;&lt; endl;<br><br>cout &lt;&lt; "get_age <i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">30</i> = " &lt;&lt; __pythran_demo::get_age(<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">30</i>) &lt;&lt; endl &lt;&lt; endl;<br><br>return 0;<br>}<br></code></pre>
+</p>
+<h2 toutiao-origin="h3"><strong toutiao-origin="span">(5). 編譯運行</strong></h2>
+<pre><code>g++ -g -std=c++11 main.cpp -fopenmp -march=native -DUSE_XSIMD -I /usr/local/lib/python3.6/site-packages/pythran/ -o pythran_demo<br><br>./pythran_demo<br></code></pre>
+</p>
+<h2 toutiao-origin="h2">四、pythran 的功能與特性</h2>
+<h2 toutiao-origin="h3"><strong toutiao-origin="span">(1). 介紹</strong></h2>
+<p>按官方定義，Pythran 是一個 AOT (Ahead-Of-Time &#8211; 預先編譯) 編譯器。給科學計算的 python 加註解後，pythran 可以把 python 代碼變成介面相同的原生 python 模塊，大幅度提升性能。</p>
+<p>並且 pythran 也可以利用 OpenMP 多核和 SIMD 指令集。</p>
+<p>支持 python 3 和 Python 2.7 。</p>
+<p>pythran 的 manual 挺詳細：https://pythran.readthedocs.io/en/latest/MANUAL.html</p>
+</p>
+<h2 toutiao-origin="h3"><strong toutiao-origin="span">(2). 功能</strong></h2>
+<p>pythran 並不支持完整的 python， 只支持 python 語言特性的一個子集:</p>
+<ul>
+<li>
+<p>polymorphic functions 多態函數(翻譯成 C++ 的泛型模板函數)</p>
+</li>
+<li>
+<p>lambda</p>
+</li>
+<li>
+<p>list comprehension 列表推導式</p>
+</li>
+<li>
+<p>map, reduce 等函數</p>
+</li>
+<li>
+<p>dictionary, set, list 等數據結構</p>
+</li>
+<li>
+<p>exceptions 異常</p>
+</li>
+<li>
+<p>file handling 文件處理</p>
+</li>
+<li>
+<p>部分 numpy</p>
+</li>
+</ul>
+<p>不支持的功能：</p>
+<ul>
+<li>
+<p>classes 類</p>
+</li>
+<li>
+<p>polymorphic variables 可變類型變數</p>
+</li>
+</ul>
+<h2 toutiao-origin="h3"><strong toutiao-origin="span">(3). 支持的數據類型和函數</strong></h2>
+<p>pythran export 可以導出函數和全局變數。支持導出的數據類型，BNF 定義是：</p>
+<pre><code> argument_type = basic_type<br>| (argument_type+) # this is a tuple<br>| argument_type list # this is a list<br>| argument_type set # this is a set<br>| argument_type + # this is a ndarray, C-style<br>| argument_type [::]+ # this is a strided ndarray<br>| argument_type [:,...,:]+ # this is a ndarray, Cython style<br>| argument_type [:,...,3]+ # this is a ndarray, some dimension fixed<br>| argument_type:argument_type dict # this is a dictionary<br><br>basic_type = bool | byte | int | float | str | None | slice<br>| uint8 | uint16 | uint32 | uint64 | uintp<br>| int8 | int16 | int32 | int64 | intp<br>| float32 | float64 | float128<br>| complex64 | complex128 | complex256<br></code></pre>
+<p>可以看到基礎類型相當全面，支持各種 整數，浮點數，字元串，複數</p>
+<p>複合類型支持 tuple, list, set, dict, numpy.ndarray 等，</p>
+<p>對應 C++ 代碼的類型實現在 pythran/pythonic/include/types/ 下面，可以看到比如 dict 實際就是封裝了一下 std::unordered_map</p>
+<p>https://pythran.readthedocs.io/en/latest/SUPPORT.html</p>
+<p>可以看到支持的 python 基礎庫，其中常用於機器學習的 numpy 支持算比較完善。</p>
+</p>
+<h2 toutiao-origin="h2">五、pythran 的基本原理</h2>
+<p>和常見的編譯器/解釋器類似， pythran 的架構是分成 3 層：</p>
+<ol>
+<li>
+<p>python 代碼解析成抽象語法樹 AST 。用 python 標準庫自帶的的 ast 模塊實現</p>
+</li>
+<li>
+<p>代碼優化。在 AST 上做優化，有多種 transformation pass，比如 deadcode_elimination 死代碼消除，loop_full_unrolling 循環展開 等。還有 Function/Module/Node 級別的 Analysis，用來遍歷 AST 供 transformation 利用。</p>
+</li>
+<li>
+<p>後端，實現代碼生成。目前有 2 個後端，Cxx / Python， Cxx 後端可以把 AST 轉成 C++ 代碼（ Python 後端用來調試）。</p>
+</li>
+</ol>
+<p>目前看起來 ，pythran 還欠缺的：</p>
+<ol>
+<li>
+<p>字元串處理能力欠缺，缺少 str.encode/str.decode 對 utf8 的支持</p>
+</li>
+<li>
+<p>缺少正則表達式 regex 支持</p>
+</li>
+</ol>
+<p>看文檔要自己加也不麻煩，看業務需要<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">可以加</i>。</p>
+</p>
+<h2 toutiao-origin="h2">六、相關文章</h2>
+<p>《京東電商推薦系統實踐》https://<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">www.</i>infoq<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-5">.cn</i>/article/1OkKmb_gEYNR3YqC9RcW</p>
+<p>《自主研發、不斷總結經驗，美團<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>推薦機器學習平台》https://cloud.tencent<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">.com</i>/developer/article/1357<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">30</i>9</p>
+<p>《推薦系統中模型訓練及使用流程的標準化》https://<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">www.</i>infoq<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-5">.cn</i>/article/2E6LCqb1GeqFRAjkkjX3</p>
+<p>numbahttp://numba.pydata.org</p>
+<p>訂閱我的<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">微信</i><i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">公眾號</i>「楊建榮的學習筆記」，第一時間免費收到文章更新。別忘了加星標，以免錯過新推送提示。</p>
+<p><strong toutiao-origin="span" class="highlight-text">7</strong></p>
+<blockquote>
+<ul>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+</blockquote>
+<p><strong toutiao-origin="span" class="highlight-text">8</strong></p>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="15674" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/15674"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/15674";
+		var title='%E3%80%90%E9%82%84%E8%83%BD%E9%80%99%E6%A8%A3%EF%BC%9F%E6%8A%8A%20Python%20%E8%87%AA%E5%8B%95%E7%BF%BB%E8%AD%AF%E6%88%90%20C%2B%2B%E3%80%91';
+		var qqtitle='%E3%80%90%E9%82%84%E8%83%BD%E9%80%99%E6%A8%A3%EF%BC%9F%E6%8A%8A%20Python%20%E8%87%AA%E5%8B%95%E7%BF%BB%E8%AD%AF%E6%88%90%20C%2B%2B%E3%80%91';
+		var excerpt='%E4%BD%9C%E8%80%85%EF%BC%9Abyronhe%EF%BC%8C%E9%A8%B0%E8%A8%8A%20WXG%20%E9%96%8B%E7%99%BC%E5%B7%A5%E7%A8%8B%E5%B8%AB%20%E4%B8%80%E3%80%81%E5%95%8F%E9%A1%8C%E8%83%8C%E6%99%AF%20%E9%9A%A8%E8%91%97%E6%B7%B1%E5%BA%A6%E5%AD%B8%E7%BF%92%E7%9A%84%E5%BB%A3%E6%B3%9B%E6%87%89%E7%94%A8%EF%BC%8C%E5%9C%A8%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%2F%E6%8E%A8%E8%96%A6%E7%B3%BB%E7%B5%B1%2F%E6%A9%9F%E5%99%A8%E8%A6%96%E8%A6%BA%E7%AD%89%E6%A5%AD%E5%8B%99%E7%B3%BB%E7%B5%B1%E4%B8%AD%EF%BC%8C%E8%B6%8A%E4%BE%86%E8%B6%8A%E5%A4%9A%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%B8%E7%BF%92%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E5%88%B0%E7%B7%9A%E4%B8%8A%E6%9C%8D%E5%8B%99%E3%80%82%20%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E6%A8%A1%E5%9E%8B%E5%9C%A8%E9%9B%A2%E7%B7%9A%E8%A8%93%E7%B7%B4%E6%99%82%EF%BC%8C%E4%B8%80%E8%88%AC%E8%A6%81%E5%B0%87%E8%BC%B8%E5%85%A5%E7%9A%84%E6%95%B8%E6%93%9A%E5%81%9A%E7%89%B9%E5%BE%B5%E5%B7%A5%E7%A8%8B%E9%A0%90%E8%99%95%E7%90%86%EF%BC%8C%E5%86%8D%E8%BC%B8%E5%85%A5%E6%A8%A1%E5%9E%8B%E5%9C%A8%20TensorFlow%20PyTorch%20%E7%AD%89%E6%A1%86%E6%9E%B6%E4%B8%8A%E5%81%9A%E8%A8%93%E7%B7%B4%E3%80%82%201.%E5%B8%B8%E8%A6%8B%E7%9A%84%E7%89%B9%E5%BE%B5%E5%B7%A5%E7%A8%8B%E9%82%8F%E8%BC%AF%20%E5%B8%B8%E8%A6%8B%E7%9A%84%E7%89%B9%E5%BE%B5%E5%B7%A5%E7%A8%8B%E2%80%A6%E2%80%A6';
+		var wbexcerpt='%E4%BD%9C%E8%80%85%EF%BC%9Abyronhe%EF%BC%8C%E9%A8%B0%E8%A8%8A%20WXG%20%E9%96%8B%E7%99%BC%E5%B7%A5%E7%A8%8B%E5%B8%AB%20%E4%B8%80%E3%80%81%E5%95%8F%E9%A1%8C%E8%83%8C%E6%99%AF%20%E9%9A%A8%E8%91%97%E6%B7%B1%E5%BA%A6%E5%AD%B8%E7%BF%92%E7%9A%84%E5%BB%A3%E6%B3%9B%E6%87%89%E7%94%A8%EF%BC%8C%E5%9C%A8%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%2F%E6%8E%A8%E8%96%A6%E7%B3%BB%E7%B5%B1%2F%E6%A9%9F%E5%99%A8%E8%A6%96%E8%A6%BA%E7%AD%89%E6%A5%AD%E5%8B%99%E7%B3%BB%E7%B5%B1%E4%B8%AD%EF%BC%8C%E8%B6%8A%E4%BE%86%E8%B6%8A%E5%A4%9A%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%B8%E7%BF%92%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E5%88%B0%E7%B7%9A%E4%B8%8A%E6%9C%8D%E5%8B%99%E3%80%82%20%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E6%A8%A1%E5%9E%8B%E5%9C%A8%E9%9B%A2%E7%B7%9A%E8%A8%93%E7%B7%B4%E6%99%82%EF%BC%8C%E4%B8%80%E8%88%AC%E8%A6%81%E5%B0%87%E8%BC%B8%E5%85%A5%E7%9A%84%E6%95%B8%E6%93%9A%E5%81%9A%E7%89%B9%E5%BE%B5%E5%B7%A5%E7%A8%8B%E9%A0%90%E8%99%95%E7%90%86%EF%BC%8C%E5%86%8D%E8%BC%B8%E5%85%A5%E6%A8%A1%E5%9E%8B%E5%9C%A8%20TensorFlow%20PyTorch%20%E7%AD%89%E6%A1%86%E6%9E%B6%E4%B8%8A%E5%81%9A%E8%A8%93%E7%B7%B4%E3%80%82%201.%E5%B8%B8%E8%A6%8B%E7%9A%84%E7%89%B9%E5%BE%B5%E5%B7%A5%E7%A8%8B%E9%82%8F%E8%BC%AF%20%E5%B8%B8%E8%A6%8B%E7%9A%84%E7%89%B9%E5%BE%B5%E5%B7%A5%E7%A8%8B%E2%80%A6%E2%80%A6';
+		var pic="";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="微信，求你上進點！自己的新功能，QQ做的比你還好用" href="https://daynews.cc/technology/15676">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="新能源汽車品牌域名大比拼，FF.COM贏了" href="https://daynews.cc/technology/15673">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="/technology/15674#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='15674' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼" href="https://daynews.cc/constellation/20739" rel="bookmark"><i class="fa  fa-book"></i> 伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼                            </a>
+                            <a class="list-group-item visible-md" title="伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼" href="https://daynews.cc/constellation/20739" rel="bookmark"><i class="fa  fa-book"></i> 伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼                            </a>
+                                                    <a class="list-group-item visible-lg" title="12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪" href="https://daynews.cc/constellation/20740" rel="bookmark"><i class="fa  fa-book"></i> 12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪                            </a>
+                            <a class="list-group-item visible-md" title="12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪" href="https://daynews.cc/constellation/20740" rel="bookmark"><i class="fa  fa-book"></i> 12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪                            </a>
+                                                    <a class="list-group-item visible-lg" title="十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮" href="https://daynews.cc/constellation/20741" rel="bookmark"><i class="fa  fa-book"></i> 十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮                            </a>
+                            <a class="list-group-item visible-md" title="十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮" href="https://daynews.cc/constellation/20741" rel="bookmark"><i class="fa  fa-book"></i> 十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮                            </a>
+                                                    <a class="list-group-item visible-lg" title="小聶：跑動中的腰腹力量如何運用" href="https://daynews.cc/lose/20597" rel="bookmark"><i class="fa  fa-book"></i> 小聶：跑動中的腰腹力量如何運用                            </a>
+                            <a class="list-group-item visible-md" title="小聶：跑動中的腰腹力量如何運用" href="https://daynews.cc/lose/20597" rel="bookmark"><i class="fa  fa-book"></i> 小聶：跑動中的腰腹力量如何運用                            </a>
+                                                    <a class="list-group-item visible-lg" title="小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力" href="https://daynews.cc/lose/20598" rel="bookmark"><i class="fa  fa-book"></i> 小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力                            </a>
+                            <a class="list-group-item visible-md" title="小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力" href="https://daynews.cc/lose/20598" rel="bookmark"><i class="fa  fa-book"></i> 小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力                            </a>
+                                                    <a class="list-group-item visible-lg" title="十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古" href="https://daynews.cc/history/19786" rel="bookmark"><i class="fa  fa-book"></i> 十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古                            </a>
+                            <a class="list-group-item visible-md" title="十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古" href="https://daynews.cc/history/19786" rel="bookmark"><i class="fa  fa-book"></i> 十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古                            </a>
+                                                    <a class="list-group-item visible-lg" title="當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？" href="https://daynews.cc/history/19787" rel="bookmark"><i class="fa  fa-book"></i> 當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？                            </a>
+                            <a class="list-group-item visible-md" title="當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？" href="https://daynews.cc/history/19787" rel="bookmark"><i class="fa  fa-book"></i> 當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？                            </a>
+                                                    <a class="list-group-item visible-lg" title="春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？" href="https://daynews.cc/history/19789" rel="bookmark"><i class="fa  fa-book"></i> 春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？                            </a>
+                            <a class="list-group-item visible-md" title="春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？" href="https://daynews.cc/history/19789" rel="bookmark"><i class="fa  fa-book"></i> 春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？                            </a>
+                                                    <a class="list-group-item visible-lg" title="軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸" href="https://daynews.cc/history/19788" rel="bookmark"><i class="fa  fa-book"></i> 軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸                            </a>
+                            <a class="list-group-item visible-md" title="軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸" href="https://daynews.cc/history/19788" rel="bookmark"><i class="fa  fa-book"></i> 軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸                            </a>
+                                                    <a class="list-group-item visible-lg" title="劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？" href="https://daynews.cc/history/19790" rel="bookmark"><i class="fa  fa-book"></i> 劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？                            </a>
+                            <a class="list-group-item visible-md" title="劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？" href="https://daynews.cc/history/19790" rel="bookmark"><i class="fa  fa-book"></i> 劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-md" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-lg" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a><a class="list-group-item visible-md" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a><a class="list-group-item visible-lg" title="最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？" href="https://daynews.cc/international/18303" rel="bookmark"><i class="fa  fa-book"></i> 最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？</a><a class="list-group-item visible-md" title="最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？" href="https://daynews.cc/international/18303" rel="bookmark"><i class="fa  fa-book"></i> 最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？</a><a class="list-group-item visible-lg" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="https://daynews.cc/entertainment/10879" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-md" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="https://daynews.cc/entertainment/10879" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-lg" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="https://daynews.cc/technology/10158" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-md" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="https://daynews.cc/technology/10158" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-lg" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="https://daynews.cc/game/13764" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-md" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="https://daynews.cc/game/13764" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-lg" title="這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩" href="https://daynews.cc/lose/20687" rel="bookmark"><i class="fa  fa-book"></i> 這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩</a><a class="list-group-item visible-md" title="這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩" href="https://daynews.cc/lose/20687" rel="bookmark"><i class="fa  fa-book"></i> 這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩</a><a class="list-group-item visible-lg" title="夢三國：路人戰力匹配中最值得玩的輔助英雄推薦" href="https://daynews.cc/game/20261" rel="bookmark"><i class="fa  fa-book"></i> 夢三國：路人戰力匹配中最值得玩的輔助英雄推薦</a><a class="list-group-item visible-md" title="夢三國：路人戰力匹配中最值得玩的輔助英雄推薦" href="https://daynews.cc/game/20261" rel="bookmark"><i class="fa  fa-book"></i> 夢三國：路人戰力匹配中最值得玩的輔助英雄推薦</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="是什麼讓防彈（BTS）溫柔的碩珍在頒獎典禮上Diss人" href="https://daynews.cc/entertainment/140" rel="bookmark"><i class="fa  fa-book"></i> 是什麼讓防彈（BTS）溫柔的碩珍在頒獎典禮上Diss人                            </a>
+                            <a class="list-group-item visible-md" title="是什麼讓防彈（BTS）溫柔的碩珍在頒獎典禮上Diss人" href="https://daynews.cc/entertainment/140" rel="bookmark"><i class="fa  fa-book"></i> 是什麼讓防彈（BTS）溫柔的碩珍在頒獎典禮上Diss人                            </a>
+                                                    <a class="list-group-item visible-lg" title="這部清宮劇厲害了，主角顏值都很高，播1天收視量就爆了" href="https://daynews.cc/entertainment/17768" rel="bookmark"><i class="fa  fa-book"></i> 這部清宮劇厲害了，主角顏值都很高，播1天收視量就爆了                            </a>
+                            <a class="list-group-item visible-md" title="這部清宮劇厲害了，主角顏值都很高，播1天收視量就爆了" href="https://daynews.cc/entertainment/17768" rel="bookmark"><i class="fa  fa-book"></i> 這部清宮劇厲害了，主角顏值都很高，播1天收視量就爆了                            </a>
+                                                    <a class="list-group-item visible-lg" title="騰訊真正的殺手鐧來了！手游的最後一塊短板，被補上了" href="https://daynews.cc/game/4941" rel="bookmark"><i class="fa  fa-book"></i> 騰訊真正的殺手鐧來了！手游的最後一塊短板，被補上了                            </a>
+                            <a class="list-group-item visible-md" title="騰訊真正的殺手鐧來了！手游的最後一塊短板，被補上了" href="https://daynews.cc/game/4941" rel="bookmark"><i class="fa  fa-book"></i> 騰訊真正的殺手鐧來了！手游的最後一塊短板，被補上了                            </a>
+                                                    <a class="list-group-item visible-lg" title="周一足球心水：斯帕爾VS熱那亞 維拉VS紐卡斯爾（千倍博高水）" href="https://daynews.cc/premier/5473" rel="bookmark"><i class="fa  fa-book"></i> 周一足球心水：斯帕爾VS熱那亞 維拉VS紐卡斯爾（千倍博高水）                            </a>
+                            <a class="list-group-item visible-md" title="周一足球心水：斯帕爾VS熱那亞 維拉VS紐卡斯爾（千倍博高水）" href="https://daynews.cc/premier/5473" rel="bookmark"><i class="fa  fa-book"></i> 周一足球心水：斯帕爾VS熱那亞 維拉VS紐卡斯爾（千倍博高水）                            </a>
+                                                    <a class="list-group-item visible-lg" title="國米6中場折損5人卻可能創另類紀錄 孔蒂變回成名陣還是另謀奇招" href="https://daynews.cc/premier/19538" rel="bookmark"><i class="fa  fa-book"></i> 國米6中場折損5人卻可能創另類紀錄 孔蒂變回成名陣還是另謀奇招                            </a>
+                            <a class="list-group-item visible-md" title="國米6中場折損5人卻可能創另類紀錄 孔蒂變回成名陣還是另謀奇招" href="https://daynews.cc/premier/19538" rel="bookmark"><i class="fa  fa-book"></i> 國米6中場折損5人卻可能創另類紀錄 孔蒂變回成名陣還是另謀奇招                            </a>
+                                                    <a class="list-group-item visible-lg" title="杜甫：我不是鄭州人，也非洛陽人" href="https://daynews.cc/history/3905" rel="bookmark"><i class="fa  fa-book"></i> 杜甫：我不是鄭州人，也非洛陽人                            </a>
+                            <a class="list-group-item visible-md" title="杜甫：我不是鄭州人，也非洛陽人" href="https://daynews.cc/history/3905" rel="bookmark"><i class="fa  fa-book"></i> 杜甫：我不是鄭州人，也非洛陽人                            </a>
+                                                    <a class="list-group-item visible-lg" title="中國迄今發掘的超大古墓，考古發掘達10年，卻發現墓穴早已被盜" href="https://daynews.cc/history/16684" rel="bookmark"><i class="fa  fa-book"></i> 中國迄今發掘的超大古墓，考古發掘達10年，卻發現墓穴早已被盜                            </a>
+                            <a class="list-group-item visible-md" title="中國迄今發掘的超大古墓，考古發掘達10年，卻發現墓穴早已被盜" href="https://daynews.cc/history/16684" rel="bookmark"><i class="fa  fa-book"></i> 中國迄今發掘的超大古墓，考古發掘達10年，卻發現墓穴早已被盜                            </a>
+                                                    <a class="list-group-item visible-lg" title="法拉盛11日將舉辦年度聖誕節點燈儀式" href="https://daynews.cc/international/8658" rel="bookmark"><i class="fa  fa-book"></i> 法拉盛11日將舉辦年度聖誕節點燈儀式                            </a>
+                            <a class="list-group-item visible-md" title="法拉盛11日將舉辦年度聖誕節點燈儀式" href="https://daynews.cc/international/8658" rel="bookmark"><i class="fa  fa-book"></i> 法拉盛11日將舉辦年度聖誕節點燈儀式                            </a>
+                                                    <a class="list-group-item visible-lg" title="姓王寶寶名字，功成名就，金榜題名，英姿煥發，青雲直上" href="https://daynews.cc/constellation/8536" rel="bookmark"><i class="fa  fa-book"></i> 姓王寶寶名字，功成名就，金榜題名，英姿煥發，青雲直上                            </a>
+                            <a class="list-group-item visible-md" title="姓王寶寶名字，功成名就，金榜題名，英姿煥發，青雲直上" href="https://daynews.cc/constellation/8536" rel="bookmark"><i class="fa  fa-book"></i> 姓王寶寶名字，功成名就，金榜題名，英姿煥發，青雲直上                            </a>
+                                                    <a class="list-group-item visible-lg" title="歐冠火拚預熱一下，冤家聚頭菜雞互啄，曼城皇馬不忍直視" href="https://daynews.cc/premier/19570" rel="bookmark"><i class="fa  fa-book"></i> 歐冠火拚預熱一下，冤家聚頭菜雞互啄，曼城皇馬不忍直視                            </a>
+                            <a class="list-group-item visible-md" title="歐冠火拚預熱一下，冤家聚頭菜雞互啄，曼城皇馬不忍直視" href="https://daynews.cc/premier/19570" rel="bookmark"><i class="fa  fa-book"></i> 歐冠火拚預熱一下，冤家聚頭菜雞互啄，曼城皇馬不忍直視                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="kratos_tags-4" class="widget widget_kratos_tags clearfix"><h4 class="widget-title">標籤</h4><div class="tag_clouds"></div></aside><aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="https://daynews.cc/nba">NBA</a> (1,526)
+</li>
+	<li class="cat-item cat-item-23"><a href="https://daynews.cc/international">國際</a> (2,241)
+</li>
+	<li class="cat-item cat-item-14"><a href="https://daynews.cc/entertainment">娛樂</a> (2,348)
+</li>
+	<li class="cat-item cat-item-15"><a href="https://daynews.cc/emotion">情感</a> (1,582)
+</li>
+	<li class="cat-item cat-item-22"><a href="https://daynews.cc/constellation">星座</a> (1,060)
+</li>
+	<li class="cat-item cat-item-17"><a href="https://daynews.cc/history">歷史</a> (1,759)
+</li>
+	<li class="cat-item cat-item-25"><a href="https://daynews.cc/lose">減肥</a> (495)
+</li>
+	<li class="cat-item cat-item-24"><a href="https://daynews.cc/technology">科技</a> (2,163)
+</li>
+	<li class="cat-item cat-item-19"><a href="https://daynews.cc/premier">英超</a> (1,372)
+</li>
+	<li class="cat-item cat-item-18"><a href="https://daynews.cc/game">遊戲</a> (2,055)
+</li>
+	<li class="cat-item cat-item-21"><a href="https://daynews.cc/health">養生</a> (1,278)
+</li>
+	<li class="cat-item cat-item-16"><a href="https://daynews.cc/sports">體育</a> (2,098)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='https://daynews.cc/date/2019/12'>2019 年 12 月</a>&nbsp;(16975)</li>
+	<li><a href='https://daynews.cc/date/2019/11'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='https://daynews.cc/date/2019/10'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="https://daynews.cc">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.easing.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.qrcode.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/layer.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/modernizr.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.waypoints.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.stellar.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/hoverIntent.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/superfish.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/kratos.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-includes/js/wp-embed.min.js'></script>
+			</body>
+
+</html>
+<!-- Dynamic page generated in 0.546 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:04:05 -->
+
+<!-- super cache -->

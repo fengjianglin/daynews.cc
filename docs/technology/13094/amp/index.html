@@ -1,0 +1,1058 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/13094#primaryimage","url":"http://p9.pstatp.com/large/pgc-image/12d5d89df6f44fdb8275658468831481"},{"@type":"WebPage","@id":"https://daynews.cc/technology/13094#webpage","url":"https://daynews.cc/technology/13094","inLanguage":"zh-TW","name":"\u300a\u6df1\u5ea6\u5b78\u7fd2\uff0c\u7d71\u8a08\u5b78\u7fd2\uff0c\u6578\u5b78\u57fa\u790e\u300b\u4eba\u5de5\u667a\u6167\u6f14\u7b97\u6cd5\u5de5\u7a0b\u5e2b\u624b\u518a - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/13094#primaryimage"},"datePublished":"2019-12-11T06:55:12+00:00","dateModified":"2019-12-11T06:55:12+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="來源：專知 本文約3400字，建議閱讀10+分鐘。 免費開源人工智慧手冊，帶你快速上手寫代碼！ [ 導讀 ]市面上很多人工智慧相關的書籍。大部分的書，面向小白，內容深度不夠；小部分教材書或者科研書，內容艱深，又過於複雜。那麼有沒有，面向演算法工程師（程序員）人群的，面向有一定數學基礎、演算法基礎，能夠快速上手寫代碼的人群的人工智慧手冊呢？……" />
+<meta name="twitter:title" content="《深度學習，統計學習，數學基礎》人工智慧演算法工程師手冊 - 天天要聞" />
+<meta name="twitter:image" content="http://p9.pstatp.com/large/pgc-image/12d5d89df6f44fdb8275658468831481" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="《深度學習，統計學習，數學基礎》人工智慧演算法工程師手冊 - 天天要聞" />
+<meta property="og:description" content="來源：專知 本文約3400字，建議閱讀10+分鐘。 免費開源人工智慧手冊，帶你快速上手寫代碼！ [ 導讀 ]市面上很多人工智慧相關的書籍。大部分的書，面向小白，內容深度不夠；小部分教材書或者科研書，內容艱深，又過於複雜。那麼有沒有，面向演算法工程師（程序員）人群的，面向有一定數學基礎、演算法基礎，能夠快速上手寫代碼的人群的人工智慧手冊呢？……" />
+<meta property="og:url" content="https://daynews.cc/technology/13094" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-11T06:55:12+00:00" />
+	<title>《深度學習，統計學習，數學基礎》人工智慧演算法工程師手冊 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/13094" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">《深度學習，統計學習，數學基礎》人工智慧演算法工程師手冊</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-11T14:55:12+00:00">
+		7 天 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/12d5d89df6f44fdb8275658468831481" alt="《《深度學習，統計學習，數學基礎》人工智慧演算法工程師手冊》" width="640" height="86" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/12d5d89df6f44fdb8275658468831481" alt="《《深度學習，統計學習，數學基礎》人工智慧演算法工程師手冊》" width="640" height="86" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="rich_media_title">來源：專知</h2>
+<p>本文約<strong>3400字</strong>，建議閱讀<strong>10+分鐘</strong>。</p>
+<p>免費開源人工智慧手冊，帶你快速上手寫代碼！</p>
+<p><strong>[ 導讀 ]</strong>市面上很多人工智慧相關的書籍。大部分的書，面向小白，內容深度不夠；小部分教材書或者科研書，內容艱深，又過於複雜。那麼有沒有，面向演算法工程師（程序員）人群的，面向有一定數學基礎、演算法基礎，能夠快速上手寫代碼的人群的人工智慧手冊呢？有的！而且免費開源，非常有程序員范！《AI演算法工程師手冊》你值得擁有！</p>
+<blockquote>
+<p>作者Github：</p>
+<p>https://github.com/huaxz1986</p>
+<p>手冊地址：</p>
+<p>http://www.huaxiaozhuan.com/</p>
+
+</blockquote>
+<p>作者簡介：</p>
+<p>華校專，清華航天學院工程力學本科，國防科大計算機專業碩士。清華四年每年成績都是本系頭名，曾任阿里巴巴資深演算法工程師，現任智易科技首席演算法研究員，《Python 大戰機器學習》的作者</p>
+<p><strong>手冊目錄：</strong></p>
+<h2 class="pgc-h-arrow-right">數學基礎</h2>
+<p><strong>1. 線性代數基礎</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、基本知識</li>
+<li>二、向量操作</li>
+<li>三、矩陣運算</li>
+<li>四、特殊函數</li>
+</ul>
+<p><strong>2. 概率論基礎</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、概率與分布</li>
+<li>二、期望和方差</li>
+<li>三、大數定律及中心極限定理</li>
+<li>五、常見概率分布</li>
+<li>六、先驗分布與後驗分布</li>
+<li>七、資訊理論</li>
+<li>八、其它</li>
+</ul>
+<p><strong>3. 數值計算基礎</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、數值穩定性</li>
+<li>二、梯度下降法</li>
+<li>三、二階導數與海森矩陣</li>
+<li>四、牛頓法</li>
+<li>五、擬牛頓法</li>
+<li>六、 約束優化</li>
+</ul>
+<p><strong>4. 蒙特卡洛方法與 MCMC 採樣</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、蒙特卡洛方法</li>
+<li>二、馬爾可夫鏈</li>
+<li>三、MCMC 採樣</li>
+</ul>
+<p><strong>統計學習</strong></p>
+<p><strong>0. 機器學習簡介</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、基本概念</li>
+<li>二、監督學習</li>
+<li>三、機器學習三要素</li>
+</ul>
+<p><strong>機器學習的對象是：具有一定的統計規律的數據。</strong></p>
+<p>機器學習根據<strong>任務類型</strong>，可以劃分為：</p>
+<ul class="list-paddingleft-2">
+<li><strong>監督學習任務：</strong>從已標記的訓練數據來訓練模型。主要分為：分類任務、回歸任務、序列標註任務。</li>
+<li><strong>無監督學習任務：</strong>從未標記的訓練數據來訓練模型。主要分為：聚類任務、降維任務。</li>
+<li><strong>半監督學習任務：</strong>用大量的未標記訓練數據和少量的已標記數據來訓練模型。</li>
+<li><strong>強化學習任務：</strong>從系統與環境的大量交互知識中訓練模型。</li>
+</ul>
+<p>機器學習根據<strong>演算法類型</strong>，可以劃分為：</p>
+<ul class="list-paddingleft-2">
+<li><strong>傳統統計學習：</strong>基於數學模型的機器學習方法。包括SVM、邏輯回歸、決策樹等。這一類演算法基於嚴格的數學推理，具有可解釋性強、運行速度快、可應用於小規模數據集的特點。</li>
+<li><strong>深度學習：</strong>基於神經網路的機器學習方法。包括前饋神經網路、卷積神經網路、遞歸神經網路等。這一類演算法基於神經網路，可解釋性較差，強烈依賴於數據集規模。但是這類演算法在語音、視覺、自然語言等領域非常成功。</li>
+</ul>
+<p><strong>沒有免費的午餐定理(No Free Lunch Theorem:NFL)：</strong>對於一個學習演算法A，如果在某些問題上它比演算法B好，那麼必然存在另一些問題，在那些問題中B比A更好。</p>
+<p>因此不存在這樣的演算法：它在所有的問題上都取得最佳的性能。因此要談論演算法的優劣必須基於具體的學習問題。</p>
+<p><strong>1. 線性代數基礎</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、線性回歸</li>
+<li>二、廣義線性模型</li>
+<li>三、對數幾率回歸</li>
+<li>四、線性判別分析</li>
+<li>五、感知機</li>
+</ul>
+<p><strong>2. 支持向量機</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、 線性可分支持向量機</li>
+<li>二、線性支持向量機</li>
+<li>三、非線性支持向量機</li>
+<li>四、支持向量回歸</li>
+<li>五、SVDD</li>
+<li>六、序列最小最優化方法</li>
+<li>七、其它討論</li>
+</ul>
+<p><strong>3. 樸素貝葉斯</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、貝葉斯定理</li>
+<li>二、樸素貝葉斯法</li>
+<li>三、半樸素貝葉斯分類器</li>
+<li>四、其它討論</li>
+</ul>
+<p><strong>4. 決策樹</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、 原理</li>
+<li>二、 特徵選擇</li>
+<li>三、生成演算法</li>
+<li>四、剪枝演算法</li>
+<li>五、CART 樹</li>
+<li>六、連續值、缺失值處理</li>
+<li>七、多變數決策樹</li>
+</ul>
+<p><strong>5. knn</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、k 近鄰演算法</li>
+<li>二、kd樹</li>
+</ul>
+<p><strong>6. 集成學習</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、集成學習誤差</li>
+<li>二、 Boosting</li>
+<li>三、Bagging</li>
+<li>四、集成策略</li>
+<li>五、多樣性分析</li>
+</ul>
+<p><strong>7. 梯度提升樹</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、提升樹</li>
+<li>二、xgboost</li>
+<li>三、LightGBM</li>
+</ul>
+<p><strong>8. 特徵工程</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、缺失值處理</li>
+<li>二、特徵編碼</li>
+<li>三、數據標準化、正則化</li>
+<li>四、特徵選擇</li>
+<li>五、稀疏表示和字典學習</li>
+<li>六、多類分類問題</li>
+<li>七、類別不平衡問題</li>
+</ul>
+<p><strong>9. 模型評估</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、泛化能力</li>
+<li>二、過擬合、欠擬合</li>
+<li>三、偏差方差分解</li>
+<li>四、參數估計準則</li>
+<li>五、泛化能力評估</li>
+<li>六、訓練集、驗證集、測試集</li>
+<li>七、性能度量</li>
+<li>七、超參數調節</li>
+<li>八、傳統機器學習的挑戰</li>
+</ul>
+<p><strong>10. 降維</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、維度災難</li>
+<li>二、主成分分析 PCA</li>
+<li>三、核化線性降維 KPCA</li>
+<li>四、流形學習</li>
+<li>五、度量學習</li>
+<li>六、概率PCA</li>
+<li>七、獨立成分分析</li>
+<li>八、t-SNE</li>
+<li>九、LargeVis</li>
+</ul>
+<p><strong>11. 聚類</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、性能度量</li>
+<li>二、原型聚類</li>
+<li>三、密度聚類</li>
+<li>四、層次聚類</li>
+<li>五、譜聚類</li>
+</ul>
+<p><strong>12. 半監督學習</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、生成式半監督學習方法</li>
+<li>二、半監督 SVM</li>
+<li>三、圖半監督學習</li>
+<li>四、基於分歧的方法</li>
+<li>五、半監督聚類</li>
+<li>六、 總結</li>
+</ul>
+<p><strong>13. EM演算法</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、示例</li>
+<li>二、EM演算法原理</li>
+<li>三、EM演算法與高斯混合模型</li>
+<li>四、EM 演算法與 kmeans 模型</li>
+<li>五、EM 演算法的推廣</li>
+</ul>
+<p><strong>14. 最大熵演算法</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、最大熵模型MEM</li>
+<li>二、分類任務最大熵模型</li>
+<li>三、最大熵的學習</li>
+</ul>
+<p><strong>15. 隱馬爾可夫模型</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、隱馬爾可夫模型HMM</li>
+<li>二、HMM 基本問題</li>
+<li>三、最大熵馬爾科夫模型MEMM</li>
+</ul>
+<p><strong>16. 概率圖與條件隨機場</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、概率圖模型</li>
+<li>二、貝葉斯網路</li>
+<li>三、馬爾可夫隨機場</li>
+<li>四、條件隨機場 CRF</li>
+</ul>
+<p><strong>17. 邊際概率推斷</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、精確推斷</li>
+<li>二、近似推斷</li>
+</ul>
+<p><strong>18. 主題模型</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、Unigram Model</li>
+<li>二、pLSA Model</li>
+<li>三、LDA Model</li>
+<li>四、LDA優化</li>
+<li>五、sentence-LDA</li>
+<li>六、模型討論</li>
+</ul>
+<p><strong>深度學習</strong></p>
+<p><strong>0. 深度學習簡介</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、介紹</li>
+<li>二、歷史</li>
+</ul>
+<p><strong>深度學習：</strong>計算機從經驗中學習，以層次化的概念（concept）來理解世界。</p>
+<p><strong>從經驗中學習：</strong>避免了人工指定計算機學習所需的所有知識。</p>
+<p><strong>層次化的概念：</strong>計算機通過從簡單的概念來構建、學習更複雜的概念。</p>
+<p>如果繪製一張圖來展示這些概念的關係，那麼這張圖是一個深度的層次結構，因此稱這種方法為深度學習。</p>
+<p><strong>1. 深度前饋神經網路</strong></p>
+<p>深度前饋網路（deep feedfoward network）也稱作前饋神經網路（feedforward neural network）或者多層感知機（multilayer perceptron:MLP），它是最典型的深度學習模型。卷積神經網路就是一種特殊的深度前饋網路。深度前饋網路也是循環神經網路的基礎。</p>
+<ul class="list-paddingleft-2">
+<li>一、基礎</li>
+<li>二、損失函數三、輸出單元</li>
+<li>四、隱單元</li>
+<li>五、結構設計</li>
+<li>六、歷史小記</li>
+</ul>
+<p><strong>2. 反向傳播演算法</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、鏈式法則</li>
+<li>二、反向傳播</li>
+<li>三、演算法實現</li>
+<li>四、自動微分</li>
+</ul>
+<p><strong>3. 正則化</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、參數範數正則化</li>
+<li>二、顯式約束正則化</li>
+<li>三、數據集增強</li>
+<li>四、雜訊魯棒性</li>
+<li>五、早停</li>
+<li>六、參數相對約束</li>
+<li>七、dropout</li>
+<li>八、對抗訓練</li>
+<li>九、正切傳播演算法</li>
+<li>十、其它相關</li>
+</ul>
+<p><strong>4. 最優化基礎</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、代價函數</li>
+<li>二、神經網路最優化挑戰</li>
+<li>三、 mini-batch</li>
+<li>四、基本優化演算法</li>
+<li>五、自適應學習率演算法</li>
+<li>六、二階近似方法</li>
+<li>七、共軛梯度法</li>
+<li>八、優化策略和元演算法</li>
+<li>九、參數初始化策略</li>
+<li>十、Normalization</li>
+<li>十一、Online Learning</li>
+</ul>
+<p><strong>5. 卷積神經網路</strong></p>
+<p>卷積神經網路convolutional neural network:CNN：是指那些至少在網路的某一層中使用了卷積運算來代替一般的矩陣乘法運算的神經網路。卷積神經網路專門處理具有類似網格結構的數據的神經網路。如：時間序列是一維網格，圖像數據是二維網格。</p>
+<ul class="list-paddingleft-2">
+<li>一、卷積運算</li>
+<li>二、卷積層、池化層</li>
+<li>三、基本卷積的變體</li>
+<li>四、應用</li>
+<li>五、 歷史和現狀</li>
+</ul>
+<p>5.1.CNN之圖片分類</p>
+<ul class="list-paddingleft-2">
+<li>一、LeNet</li>
+<li>二、AlexNet</li>
+<li>三、VGG-Net</li>
+<li>四、Inception</li>
+<li>五、ResNet</li>
+<li>六、ResNet 變種</li>
+<li>七、SENet</li>
+<li>八、 DenseNet</li>
+<li>九、小型網路</li>
+</ul>
+<p><strong>6. 循環神經網路</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、RNN計算圖</li>
+<li>二、訓練演算法</li>
+<li>三、長期依賴</li>
+<li>四、常見 RNN 變種</li>
+</ul>
+<p><strong>7. Transformer</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、Transformer</li>
+<li>二、Universal Transformer</li>
+<li>三、Transformer XL</li>
+<li>四、GPT</li>
+<li>五、BERT</li>
+<li>六、ERNIE</li>
+<li>七、XLNet</li>
+<li>八、MT-DNN</li>
+<li>九、BERT 擴展</li>
+</ul>
+<p><strong>8. 詞向量</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、向量空間模型 VSM</li>
+<li>二、LSA</li>
+<li>三、Word2Vec</li>
+<li>四、GloVe</li>
+<li>五、FastText</li>
+<li>六、ELMo</li>
+<li>七、變種</li>
+</ul>
+<p><strong>9. 傳統 CTR 預估模型</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、LR 模型</li>
+<li>二、POLY2 模型</li>
+<li>三、FM模型</li>
+<li>四、FFM模型</li>
+<li>五、GBDT-LR 模型</li>
+<li>六、FTRL模型</li>
+<li>七、LS-PLM 模型</li>
+</ul>
+<p><strong>10. 工程實踐指導原則</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、性能度量</li>
+<li>二、默認的基準模型</li>
+<li>三、決定是否收集更多數據</li>
+<li>四、選擇超參數</li>
+<li>五、調試策略</li>
+<li>六、示例：數字識別系統</li>
+<li>七、數據預處理</li>
+<li>八、變數初始化</li>
+<li>九、結構設計</li>
+</ul>
+<p><strong>工具</strong></p>
+<p><strong>CRF：</strong></p>
+<p><strong>CRF++</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、安裝</li>
+<li>二、使用</li>
+<li>三、Python介面</li>
+<li>四、常見錯誤</li>
+</ul>
+<p>lightgbm：</p>
+<p><strong>lightgbm使用指南</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、安裝</li>
+<li>二、調參</li>
+<li>三、進階</li>
+<li>四、API</li>
+<li>五、Docker</li>
+</ul>
+<p>xgboost：</p>
+<p><strong>xgboost使用指南</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、安裝</li>
+<li>二、調參</li>
+<li>三、外存計算</li>
+<li>四、 GPU計算</li>
+<li>五、單調約束</li>
+<li>六、 DART booster</li>
+<li>七、Python API</li>
+</ul>
+<p><strong>scikit-learn</strong></p>
+<p><strong>1. 預處理</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、特徵處理</li>
+<li>二、特徵選擇</li>
+<li>三、字典學習</li>
+<li>四、PipeLine</li>
+</ul>
+<p><strong>2. 降維</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、PCA</li>
+<li>二、MDS</li>
+<li>三、Isomap</li>
+<li>四、LocallyLinearEmbedding</li>
+<li>五、FA</li>
+<li>六、FastICA</li>
+<li>七、t-SNE</li>
+</ul>
+<p><strong>3. 監督學習模型</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、線性模型</li>
+<li>二、支持向量機</li>
+<li>三、貝葉斯模型</li>
+<li>四、決策樹</li>
+<li>五、KNN</li>
+<li>六 、AdaBoost</li>
+<li>七、梯度提升樹</li>
+<li>八、Random Forest</li>
+</ul>
+<p><strong>4. 模型評估</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、數據集切分</li>
+<li>二、性能度量</li>
+<li>三、驗證曲線 &amp;&amp; 學習曲線</li>
+<li>四、超參數優化</li>
+</ul>
+<p><strong>5. 聚類模型</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、KMeans</li>
+<li>二、DBSCAN</li>
+<li>三、MeanShift</li>
+<li>四、AgglomerativeClustering</li>
+<li>五、BIRCH</li>
+<li>六、GaussianMixture</li>
+<li>七、SpectralClustering</li>
+</ul>
+<p><strong>6. 半監督學習模型</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、標籤傳播演算法</li>
+</ul>
+<p><strong>7. 隱馬爾可夫模型</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、Hmmlearn</li>
+<li>二、seqlearn</li>
+</ul>
+<p><strong>spark</strong></p>
+<p><strong>1. 基礎概念</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、核心概念</li>
+<li>二、安裝和使用</li>
+<li>三、 pyspark shell</li>
+<li>四、獨立應用</li>
+</ul>
+<p><strong>2. rdd使用</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、概述</li>
+<li>二、創建 RDD</li>
+<li>三、轉換操作</li>
+<li>四、行動操作</li>
+<li>五、其他方法和屬性</li>
+<li>六、持久化</li>
+<li>七、分區</li>
+<li>八、混洗</li>
+</ul>
+<p><strong>3. dataframe使用</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、概述</li>
+<li>二、SparkSession</li>
+<li>三、DataFrame 創建</li>
+<li>四、 DataFrame 保存</li>
+<li>五、DataFrame</li>
+<li>六、Row</li>
+<li>七、Column</li>
+<li>八、GroupedData</li>
+<li>九、functions</li>
+</ul>
+<p><strong>4. 累加器和廣播變數</strong></p>
+<p>一、累加器</p>
+<p>二、廣播變數</p>
+<p>numpy：</p>
+<p><strong>numpy 使用指南</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、 ndarray</li>
+<li>二、 ufunc 函數</li>
+<li>三、 函數庫</li>
+<li>四、數組的存儲和載入</li>
+</ul>
+<p>scipy：</p>
+<p><strong>scipy 使用指南</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、 常數和特殊函數</li>
+<li>二、 擬合與優化</li>
+<li>三、線性代數</li>
+<li>四、 統計</li>
+<li>五、數值積分</li>
+<li>六、 稀疏矩陣</li>
+</ul>
+<p>matplotlib：</p>
+<p><strong>matplotlib 使用指南</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、matplotlib配置</li>
+<li>二、 matplotlib Artist</li>
+<li>三、基本概念</li>
+<li>四、布局</li>
+<li>五、 Path</li>
+<li>六、 path effect</li>
+<li>七、坐標變換</li>
+<li>八、 3D 繪圖</li>
+<li>九、技巧</li>
+</ul>
+<p>pandas：</p>
+<p><strong>pandas 使用指南</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、基本數據結構</li>
+<li>二、 內部數據結構</li>
+<li>三、 下標存取</li>
+<li>四、 運算</li>
+<li>五、變換</li>
+<li>六、數據清洗</li>
+<li>七、 字元串操作</li>
+<li>八、 聚合與分組</li>
+<li>九、時間序列</li>
+<li>十、 DataFrame 繪圖</li>
+<li>十一、 移動窗口函數</li>
+<li>十二、 數據載入和保存</li>
+</ul>
+<p><strong>完整版看手冊地址：</strong></p>
+<p>http://www.huaxiaozhuan.com/</p>
+<p><strong>部分章節節選：</strong></p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/984b8e87d7f9413292d0441ad32c0d93" alt="《《深度學習，統計學習，數學基礎》人工智慧演算法工程師手冊》" width="640" height="581" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/984b8e87d7f9413292d0441ad32c0d93" alt="《《深度學習，統計學習，數學基礎》人工智慧演算法工程師手冊》" width="640" height="581" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>— 完 —</strong></p>
+<p>關注清華-青島數據科學研究院官方微信公眾平台「<strong>THU數據派</strong>」及姊妹號「<strong>數據派THU</strong>」獲取更多講座福利及優質內容。</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/13094#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.327 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:32:09 -->
+
+<!-- super cache -->

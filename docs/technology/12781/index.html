@@ -1,0 +1,657 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>Jdk1.8新特性實戰：41個案例實戰，一次性總結分享 - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="推薦閱讀： 騰訊面試復盤：資料庫+數據結構+JVM+網路+JAVA+分散式+操作系統 阿里一線架構師分享的技術圖譜，進階加薪全靠它 前言 一直想把jdk1.8的新特性整理下，恰好看到老外的git(文後有鏈接)，在這個結構上繼續完善了說明和功能，做了41個單元測試案例，方便新人學習。以下內容很乾，對於一個萌新小白來說，學習jdk1.8的新特……" />
+		<meta name="keywords" content="Jdk1.8新特性實戰：41個案例實戰，一次性總結分享 - 天天要聞,科技," />
+		<meta itemprop="image" content="http://p1.pstatp.com/large/dfic-imagehandler/c9a0e204-c17f-48d4-b396-ac7238234577"/>
+		<meta name="description" itemprop="description" content="推薦閱讀： 騰訊面試復盤：資料庫+數據結構+JVM+網路+JAVA+分散式+操作系統 阿里一線架構師分享的技術圖譜，進階加薪全靠它 前言 一直想把jdk1.8的新特性整理下，恰好看到老外的git(文後有鏈接)，在這個結構上繼續完善了說明和功能，做了41個單元測試案例，方便新人學習。以下內容很乾，對於一個萌新小白來說，學習jdk1.8的新特……" />
+		
+<!-- This site is optimized with the SEO -->
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="https://daynews.cc/technology/12781" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Jdk1.8新特性實戰：41個案例實戰，一次性總結分享 - 天天要聞" />
+<meta property="og:description" content="推薦閱讀： 騰訊面試復盤：資料庫+數據結構+JVM+網路+JAVA+分散式+操作系統 阿里一線架構師分享的技術圖譜，進階加薪全靠它 前言 一直想把jdk1.8的新特性整理下，恰好看到老外的git(文後有鏈接)，在這個結構上繼續完善了說明和功能，做了41個單元測試案例，方便新人學習。以下內容很乾，對於一個萌新小白來說，學習jdk1.8的新特……" />
+<meta property="og:url" content="https://daynews.cc/technology/12781" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-13T01:55:06+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="推薦閱讀： 騰訊面試復盤：資料庫+數據結構+JVM+網路+JAVA+分散式+操作系統 阿里一線架構師分享的技術圖譜，進階加薪全靠它 前言 一直想把jdk1.8的新特性整理下，恰好看到老外的git(文後有鏈接)，在這個結構上繼續完善了說明和功能，做了41個單元測試案例，方便新人學習。以下內容很乾，對於一個萌新小白來說，學習jdk1.8的新特……" />
+<meta name="twitter:title" content="Jdk1.8新特性實戰：41個案例實戰，一次性總結分享 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/dfic-imagehandler/c9a0e204-c17f-48d4-b396-ac7238234577" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/12781#primaryimage","url":"http://p1.pstatp.com/large/dfic-imagehandler/c9a0e204-c17f-48d4-b396-ac7238234577"},{"@type":"WebPage","@id":"https://daynews.cc/technology/12781#webpage","url":"https://daynews.cc/technology/12781","inLanguage":"zh-TW","name":"Jdk1.8\u65b0\u7279\u6027\u5be6\u6230\uff1a41\u500b\u6848\u4f8b\u5be6\u6230\uff0c\u4e00\u6b21\u6027\u7e3d\u7d50\u5206\u4eab - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/12781#primaryimage"},"datePublished":"2019-12-13T01:55:06+00:00","dateModified":"2019-12-13T01:55:06+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<!-- / SEO. -->
+
+<link rel='stylesheet' id='animate-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/animate.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/bootstrap.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/superfish.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/layer.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='https://daynews.cc/wp-content/themes/Kratos/style.css' type='text/css' media='all' />
+<link rel="amphtml" href="https://daynews.cc/technology/12781/amp">		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.min.js'></script>
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154709495-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-154709495-1');
+		</script>
+		<!-- Google Adsense -->
+		<script data-ad-client="ca-pub-8261739837930821" async 
+			src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="https://daynews.cc"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="/">首頁</a></li>
+<li><a href="/entertainment">娛樂</a></li>
+<li><a href="/emotion">情感</a></li>
+<li><a href="https://daynews.cc/international">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="https://daynews.cc/technology">科技</a></li>
+<li><a href="/sports">體育</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/nba">NBA</a></li>
+	<li><a href="/premier">英超</a></li>
+</ul>
+</li>
+<li><a href="/history">歷史</a></li>
+<li><a href="/game">遊戲</a></li>
+<li><a href="https://daynews.cc/health">養生</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/lose">減肥</a></li>
+</ul>
+</li>
+<li><a href="https://daynews.cc/constellation">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">Jdk1.8新特性實戰：41個案例實戰，一次性總結分享</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-13				                <i class="fa fa-commenting-o"></i> 935條評論
+				                <i class="fa fa-eye"></i> 4,776次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 169人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+<h2 class="pgc-h-arrow-right">推薦閱讀：</h2>
+<ul class="">
+<li><a class="pgc-link" data-content="mp" href="https://www.toutiao.com/i6767668422005228046/?group_id=6767668422005228046" target="_blank" rel="noopener noreferrer" rel="nofollow" >騰訊面試復盤：資料庫+數據結構+JVM+網路+JAVA+分散式+操作系統</a></li>
+<li><a class="pgc-link" data-content="mp" href="https://www.toutiao.com/i6752861414169248260/?group_id=6752861414169248260" target="_blank" rel="noopener noreferrer" rel="nofollow" >阿里一線架構師分享的技術圖譜，進階加薪全靠它</a></li>
+</ul>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/dfic-imagehandler/c9a0e204-c17f-48d4-b396-ac7238234577" src="http://p1.pstatp.com/large/dfic-imagehandler/c9a0e204-c17f-48d4-b396-ac7238234577" alt="《Jdk1.8新特性實戰：41個案例實戰，一次性總結分享》" /></p>
+<p class="pgc-img-caption">
+</div>
+<h2 class="pgc-h-arrow-right">前言</h2>
+<p>一直想把jdk1.8的新特性整理下，恰好看到老外的git(文後有鏈接)，在這個結構上繼續完善了說明和功能，做了41個單元測試案例，方便新人學習。以下內容很乾，對於一個萌新小白來說，學習jdk1.8的新特性，基本看一遍就知道個7788了，在熟讀兩遍最後跟著寫一遍，那麼在實際項目中就可以運用了。不過！新特性，雖然很好。但如果想用，那麼自己一定要看看相對應的源碼並多練習，否則真的容易給自己搞暈，又很難閱讀。</p>
+<h2 class="pgc-h-arrow-right">零、回顧一個抽象類</h2>
+<p>在jdk1.8之前，因為介面里只能做方法定義不能有方法的實現，因此我們通常會在抽象類裡面實現默認的方法｛一般這個默認的方法是抽象後公用的方法，不需要每一個繼承者都去實現，只需調用即可｝。就像下面這樣；</p>
+<blockquote>
+<p>在定義的時候；</p>
+</blockquote>
+<pre>public abstract class AFormula {<br><br> abstract double calculate(int a);<br><br> // 平方<br> double sqrt(int a) {<br> return Math.sqrt(a);<br> }<br><br>}</pre>
+<blockquote>
+<p>在使用的時候；</p>
+</blockquote>
+<pre>@Test<br>public void test_00() {<br> AFormula aFormula = new AFormula() {<br> @Override<br> double calculate(int a) {<br> return a * a;<br> }<br> };<br> System.out.println(aFormula.calculate(2)); //求平方：4<br> System.out.println(aFormula.sqrt(2)); //求開方：1.4142135623730951<br>}</pre>
+<h2 class="pgc-h-arrow-right">一、在介面中提供默認的方法實現（有點像抽象類）</h2>
+<p>在jdk1.8裡面，不僅可以定義介面，還可以在介面中提供默認的實現。這一個小小的改變卻讓整個抽象設計都隨著改變了！</p>
+<blockquote>
+<p>在定義的時候；{default 關鍵字必須}</p>
+</blockquote>
+<pre>public interface IFormula {<br><br> double calculate(int a);<br><br> // 平方<br> default double sqrt(int a) {<br> return Math.sqrt(a);<br> }<br><br>}</pre>
+<blockquote>
+<p>在使用的時候(一)；</p>
+</blockquote>
+<pre>@Test<br>public void test_01() {<br> IFormula formula = new IFormula() {<br> @Override<br> public double calculate(int a) {<br> return a * a;<br> }<br> };<br> System.out.println(formula.calculate(2));<br> System.out.println(formula.sqrt(2));<br>}</pre>
+<blockquote>
+<p>在使用的時候(二)；如果只是一裡面方式這麼使用，那麼就沒多大意思了。我一直說過；好的代碼都很騷！</p>
+</blockquote>
+<ol start="1">
+<li>a; a是一個入參名稱，可以其他任何名字</li>
+<li>-&gt;a*a； 箭頭指向是具體的實現</li>
+<li>但是，這樣其實不太適合加日誌了</li>
+</ol>
+<pre>@Test<br>public void test_02() {<br> // 入參a 和 實現<br> IFormula formula = a -&gt; a * a;<br> System.out.println(formula.calculate(2));<br> System.out.println(formula.sqrt(2));<br>}</pre>
+<h2 class="pgc-h-arrow-right">二、Lambda 表達式</h2>
+<p>因為有介面中可以增加默認的方法實現，那麼Java肯定是因為要簡化開發才出現的這麼個設計。所以你會從各個我們以前的List、Set等等所有介面中看到默認的方法實現。</p>
+<p>從一段熟悉的排序列子入手</p>
+<pre>List&lt;String&gt; names = Arrays.asList("peter", "anna", "mike", "xenia");<br><br>Collections.sort(names, new Comparator&lt;String&gt;() {<br> @Override<br> public int compare(String a, String b) {<br> return b.compareTo(a);<br> }<br>});</pre>
+<p>Collections 工具類提供了靜態方法 sort 方法，入參是一個 List 集合，和一個 Comparator 比較器，以便對給定的 List 集合進行排序。上面的示例代碼創建了一個匿名內部類作為入參，這種類似的操作在我們日常的工作中隨處可見。</p>
+<p>Java 8 中不再推薦這種寫法，而是推薦使用 Lambda 表達：</p>
+<pre>Collections.sort(names, (String a, String b) -&gt; {<br> return b.compareTo(a);<br>});</pre>
+<p>上面的這段同樣功能的代碼塊，簡短乾淨了許多。就像婆媳一樣可能剛開始看不習慣，但是接觸接觸就喜歡了。因為，它還可以更加簡短優秀；</p>
+<pre>Collections.sort(names, (String a, String b) -&gt; b.compareTo(a));<br></pre>
+<p>為了追求極致，我們還可以讓它再短點：｛當然過你的實現不是一行代碼，那麼不能這麼干｝</p>
+<pre>names.sort((a, b) -&gt; b.compareTo(a));<br></pre>
+<p>java.util.List 集合現在已經添加了 sort 方法。而且 Java 編譯器能夠根據類型推斷機制判斷出參數類型，這樣，你連入參的類型都可以省略啦，怎麼樣，是不是感覺很騷氣呢！</p>
+<blockquote>
+<p>java.util.List.sort</p>
+</blockquote>
+<pre>default void sort(Comparator&lt;? super E&gt; c) {<br> Object[] a = this.toArray();<br> Arrays.sort(a, (Comparator) c);<br> ListIterator&lt;E&gt; i = this.listIterator();<br> for (Object e : a) {<br> i.next();<br> i.set((E) e);<br> }<br>}</pre>
+<p>好了！你以為這就結束了嗎，不！它還可以更短！(得益於Comparator介面中還提供了stack默認方法，也就是說介面中不是只可有default默認實現，還可以有靜態方法)</p>
+<pre>names.sort(Comparator.reverseOrder());<br></pre>
+<h2 class="pgc-h-arrow-right">三、函數式介面 Functional Interfaces</h2>
+<blockquote>
+<p>How does lambda expressions fit into Java&#8217;s type system? Each lambda corresponds to a given type, specified by an interface. A so called functional interface must contain exactly one abstract method declaration. Each lambda expression of that type will be matched to this abstract method. Since default methods are not abstract you&#8217;re free to add default methods to your functional interface.</p>
+</blockquote>
+<p>通過上面的例子我們可以看到通過Lambda可以開發出同樣功能的邏輯但是代碼卻很簡單，那麼Jvm是如何進行類型推斷，並且找到對應的方法呢？</p>
+<p>通過官文介紹以及我們使用發現，並不是每個介面都可以縮寫成Lambda表達式的開發方式。其實是只有那些函數式介面(Functional Interface)才能縮寫成 Lambda 表示式。</p>
+<p>所謂函數式介面(Functional Interface)就是只包含一個抽象方法的聲明。針對該介面類型的所有 Lambda 表達式都會與這個抽象方法匹配。{另外，只是在介面上添加default並不算抽象方法}</p>
+<p>總結：為了保證一個介面明確的被定義為一個函數式介面(Functional Interface)，我們需要為該介面添加註解：@FunctionalInterface。這樣，一旦你添加了第二個抽象方法，編譯器會立刻拋出錯誤提示。｛不填寫，但是只寫一個default也可以｝</p>
+<blockquote>
+<p>定義含有註解@FunctionalInterface的介面</p>
+</blockquote>
+<pre>@FunctionalInterface<br>public interface IConverter&lt;F, T&gt; {<br><br> T convert(F from);<br><br>}</pre>
+<ol start="1">
+<li>先來一段傳統方式 &amp; 簡單易懂哈，因為看習慣了</li>
+</ol>
+<pre>IConverter&lt;String, Integer&gt; converter01 = new IConverter&lt;String, Integer&gt;() {<br>@Override<br>public Integer convert(String from) {<br> return Integer.valueOf(from);<br>}<br></pre>
+<ol start="2">
+<li>稍微簡化下，化個妝 &amp; (form)，只有一個參數括弧可以不要</li>
+</ol>
+<pre>IConverter&lt;String, Integer&gt; converter02 = (from) -&gt; {<br> return Integer.valueOf(from);<br>};<br></pre>
+<ol start="3">
+<li>繼續簡化，因為他的實現只有一行代碼，可以更加簡短</li>
+</ol>
+<pre>IConverter&lt;String, Integer&gt; converter03 = from -&gt; Integer.valueOf(from);<br></pre>
+<ol start="4">
+<li>還能短點，其實這個另類屬於下一段的內容了，先放這有個印象</li>
+</ol>
+<pre>IConverter&lt;Integer, String&gt; converter04 = String::valueOf;<br></pre>
+<h2 class="pgc-h-arrow-right">四、方法和構造函數的便捷引用</h2>
+<p>在上面我們先加了印象片段 XX::xx，它也是Java8的新特性便捷式引用，這四個點可能你在其他語言里也見過。</p>
+<pre>IConverter&lt;Integer, String&gt; converter04 = String::valueOf;<br>String converted04 = converter04.convert(11);<br>System.out.println(converted04);<br></pre>
+<p>這四個點::的關鍵字，不只是可以引用方法和構造函數，還可以引用普通方法。</p>
+<pre>public class Something{<br> public String startsWith(String s) {<br> return String.valueOf(s.charAt(0));<br> }<br>}<br></pre>
+<pre>IConverter&lt;String, String&gt; converter01 = s -&gt; String.valueOf(s.charAt(0)); //[參照物]直接把邏輯放到這調用<br>IConverter&lt;String, String&gt; converter02 = something::startsWith; //引用的方法體裡面邏輯可以更多，否則只是一句代碼並不能適合所有的情況<br>System.out.println(converter01.convert("Java"));<br>System.out.println(converter02.convert("Java"));<br></pre>
+<p>接下來我們在使用這四個點，來看下如何引用類的構造器。首先我們創建一個這樣的類；</p>
+<pre>public class Person {<br> String firstName;<br> String lastName;<br><br> Person() {}<br><br> Person(String firstName, String lastName) {<br> this.firstName = firstName;<br> this.lastName = lastName;<br> }<br>}<br></pre>
+<p>然後我還需要頂一個工廠類，用於生成Person對象；</p>
+<pre>@FunctionalInterface<br>public interface IPersonFactory&lt;P extends Person&gt; {<br><br> P create(String firstName, String lastName);<br><br>}<br></pre>
+<p>現在就到了用四餅::的時候了；</p>
+<pre>IPersonFactory&lt;Person&gt; personFactory = Person::new; //[參照物]：(firstName, lastName) -&gt; new Person(firstName, lastName);<br>Person person = personFactory.create("Peter", "Parker");<br></pre>
+<p>提醒；工廠函數中依然只能有一個函數，否則會報錯</p>
+<p>四餅::，可以讓我們直接引用到Person類的構造函數，然後 Java 編譯器能夠根據類的簽名選中正確的構造器去實現 PersonFactory.create 方法。</p>
+<h2 class="pgc-h-arrow-right">五、Lambda作用範圍</h2>
+<blockquote>
+<p>Accessing outer scope variables from lambda expressions is very similar to anonymous objects. You can access final variables from the local outer scope as well as instance fields and static variables.</p>
+</blockquote>
+<p>Lambda表達式訪問外部的變數(局部變數，成員變數，靜態變數，介面的默認方法),它與匿名內部類訪問外部變數非常相似。</p>
+<h3 class="line">1. 訪問局部變數</h3>
+<p>我們可以從lambda表達式的外部範圍讀取最終局部變數num；</p>
+<pre>int num = 1;<br>IConverter&lt;Integer, String&gt; stringConverter = from -&gt; String.valueOf(from + num);<br>String convert = stringConverter.convert(2);<br>System.out.println(convert); // 3<br></pre>
+<p>但是這個num是不可變值，這樣改變值會報錯；</p>
+<pre>int num = 1;<br>IConverter&lt;Integer, String&gt; stringConverter =<br> (from) -&gt; String.valueOf(from + num);<br>num = 3;<br></pre>
+<blockquote>
+<p>Variable used in lambda expression should be final or effectively final</p>
+</blockquote>
+<p>另外在lambda表達式內部修改也是不允許的；</p>
+<pre>int num = 1;<br>IConverter&lt;Integer, String&gt; converter = (from) -&gt; {<br> String value = String.valueOf(from + num);<br> num = 3;<br> return value;<br>};<br></pre>
+<blockquote>
+<p>Variable used in lambda expression should be final or effectively final</p>
+</blockquote>
+<h3 class="line">2. 訪問成員變數和靜態變數</h3>
+<p>在 Lambda 表達式中訪問局部變數。與局部變數相比，在 Lambda 表達式中對成員變數和靜態變數擁有讀寫許可權：</p>
+<pre>public class Lambda4 {<br><br> // 靜態變數<br> static int outerStaticNum;<br> // 成員變數<br> int outerNum;<br><br> void testScopes() {<br> IConverter&lt;Integer, String&gt; stringConverter1 = (from) -&gt; {<br> // 對成員變數賦值<br> outerNum = 23;<br> return String.valueOf(from);<br> };<br><br> IConverter&lt;Integer, String&gt; stringConverter2 = (from) -&gt; {<br> // 對靜態變數賦值<br> outerStaticNum = 72;<br> return String.valueOf(from);<br> };<br> }<br><br>}<br></pre>
+<h3 class="line">3. 訪問默認介面方法</h3>
+<p>還記得第一節的IFormula示例嗎？</p>
+<pre>public interface IFormula {<br><br> double calculate(int a);<br><br> // 平方<br> default double sqrt(int a) {<br> return Math.sqrt(a);<br> }<br><br>}<br></pre>
+<p>當時，我們在介面中定義了一個帶有默認實現的 sqrt 求平方根方法，在匿名內部類中我們可以很方便的訪問此方法：</p>
+<pre>IFormula formula = new IFormula() {<br> @Override<br> public double calculate(int a) {<br> return a * a;<br> }<br>};<br></pre>
+<p>但是不能通過lambda表達式訪問默認方法，這樣的代碼沒法通過編譯；</p>
+<pre>IFormula formula = (a) -&gt; sqrt(a * a);<br></pre>
+<p>帶有默認實現的介面方法，是不能在 lambda 表達式中訪問的，上面這段代碼將無法被編譯通過。</p>
+<h2 class="pgc-h-arrow-right">六、內置的函數式介面</h2>
+<p>JDK 1.8 API 包含了很多內置的函數式介面。其中就包括我們在老版本中經常見到的 Comparator 和 Runnable，Java 8 為他們都添加了 @FunctionalInterface 註解，以用來支持 Lambda 表達式。</p>
+<p>例如我們舊版本的Jdk中常用的 Comparator 和 Runnable 外，還有一些新的函數式介面，可以通過函數註解實現Lamdba支持，它們很多都借鑒於知名的 Google Guava 庫。</p>
+<p>即使你已經熟悉這個類庫，也應該密切關注那些介面是如何通過一些有用的方法擴展來擴展的：</p>
+<h3 class="line">1. Predicate 斷言</h3>
+<p>Predicate 是一個可以指定入參類型，並返回 boolean 值的函數式介面。它內部提供了一些帶有默認實現的方法，可以 被用來組合一個複雜的邏輯判斷（and, or, negate）：</p>
+<pre>@Test<br>public void test11() {<br> Predicate&lt;String&gt; predicate = (s) -&gt; s.length() &gt; 0;<br><br> boolean foo0 = predicate.test("foo"); // true<br> boolean foo1 = predicate.negate().test("foo"); // negate否定相當於!true<br><br> Predicate&lt;Boolean&gt; nonNull = Objects::nonNull;<br> Predicate&lt;Boolean&gt; isNull = Objects::isNull;<br><br> Predicate&lt;String&gt; isEmpty = String::isEmpty;<br> Predicate&lt;String&gt; isNotEmpty = isEmpty.negate();<br>}<br></pre>
+<h3 class="line">2. Functions</h3>
+<p>Function 函數式介面的作用是，我們可以為其提供一個原料，他給生產一個最終的產品。通過它提供的默認方法，組合,鏈行處理(compose, andThen)：</p>
+<pre>@Test<br>public void test12() {<br> Function&lt;String, Integer&gt; toInteger = Integer::valueOf; //轉Integer<br> Function&lt;String, String&gt; backToString = toInteger.andThen(String::valueOf); //轉String<br> Function&lt;String, String&gt; afterToStartsWith = backToString.andThen(new Something()::startsWith); //截取第一位 <br> String apply = afterToStartsWith.apply("123");// "123"<br> System.out.println(apply);<br>}<br></pre>
+<h3 class="line">3. Suppliers</h3>
+<p>Supplier 與 Function 不同，它不接受入參，直接為我們生產一個指定的結果，有點像生產者模式：</p>
+<pre>@Test<br>public void test13() {<br> Supplier&lt;Person&gt; personSupplier0 = Person::new;<br> personSupplier0.get(); // new Person<br> Supplier&lt;String&gt; personSupplier1 = Something::test01; //這個test方法是靜態的，且無入參<br> personSupplier1.get(); // hi<br><br> Supplier&lt;String&gt; personSupplier2 = new Something()::test02;<br>}<br></pre>
+<h3 class="line">4. Consumers</h3>
+<p>對於 Consumer，我們需要提供入參，用來被消費，如下面這段示例代碼：</p>
+<pre>@Test<br>public void test14() {<br> // 參照物，方便知道下面的Lamdba表達式寫法<br> Consumer&lt;Person&gt; greeter01 = new Consumer&lt;Person&gt;() {<br> @Override<br> public void accept(Person p) {<br> System.out.println("Hello, " + p.firstName);<br> }<br> };<br> Consumer&lt;Person&gt; greeter02 = (p) -&gt; System.out.println("Hello, " + p.firstName);<br> greeter02.accept(new Person("Luke", "Skywalker")); //Hello, Luke<br> Consumer&lt;Person&gt; greeter03 = new MyConsumer&lt;Person&gt;()::accept; // 也可以通過定義類和方法的方式去調用，這樣才是實際開發的姿勢<br> greeter03.accept(new Person("Luke", "Skywalker")); //Hello, Luke<br>}<br></pre>
+<h3 class="line">5. Comparators</h3>
+<p>Comparator 在 Java 8 之前是使用比較普遍的。Java 8 中除了將其升級成了函數式介面，還為它拓展了一些默認方法：</p>
+<pre>@Test<br>public void test15(){<br> Comparator&lt;Person&gt; comparator01 = (p1, p2) -&gt; p1.firstName.compareTo(p2.firstName);<br> Comparator&lt;Person&gt; comparator02 = Comparator.comparing(p -&gt; p.firstName); //等同於上面的方式<br> Person p1 = new Person("John", "Doe");<br> Person p2 = new Person("Alice", "Wonderland");<br> comparator01.compare(p1, p2); // &gt; 0<br> comparator02.reversed().compare(p1, p2); // &lt; 0<br>}<br></pre>
+<h2 class="pgc-h-arrow-right">七、Optionals</h2>
+<p>首先，Optional 它不是一個函數式介面，設計它的目的是為了防止空指針異常（NullPointerException），要知道在 Java 編程中，空指針異常可是臭名昭著的。</p>
+<p>讓我們來快速了解一下 Optional 要如何使用！你可以將 Optional 看做是包裝對象（可能是 null, 也有可能非 null）的容器。當你定義了</p>
+<p>一個方法，這個方法返回的對象可能是空，也有可能非空的時候，你就可以考慮用 Optional 來包裝它，這也是在 Java 8 被推薦使用的做法。</p>
+<pre>@Test<br>public void test16(){<br> Optional&lt;String&gt; optional = Optional.of("bam");<br> optional.isPresent(); // true<br> optional.get(); // "bam"<br> optional.orElse("fallback"); // "bam"<br> optional.ifPresent((s) -&gt; System.out.println(s.charAt(0))); // "b"<br> Optional&lt;Person&gt; optionalPerson = Optional.of(new Person());<br> optionalPerson.ifPresent(s -&gt; System.out.println(s.firstName));<br>}<br></pre>
+<h2 class="pgc-h-arrow-right">八、Stream 流</h2>
+<p>什麼是 Stream 流？</p>
+<p>簡單來說，我們可以使用 java.util.Stream 對一個包含一個或多個元素的集合做各種操作。這些操作可能是 中間操作 亦或是 終端操作。 終端操作會返回一個結果，而中間操作會返回一個 Stream 流。</p>
+<p>需要注意的是，你只能對實現了 java.util.Collection 介面的類做流的操作。</p>
+<p>Stream 流支持同步執行，也支持並發執行。</p>
+<p>注意：Map不支持Stream流，但是他的key和value是支持的！</p>
+<p>讓我們先看看Stream流是如何工作的。首先，我們以字元串列表的形式創建一個示例；</p>
+<pre>List&lt;String&gt; stringCollection = new ArrayList&lt;&gt;();<br>stringCollection.add("ddd2");<br>stringCollection.add("aaa2");<br>stringCollection.add("bbb1");<br>stringCollection.add("aaa1");<br>stringCollection.add("bbb3");<br>stringCollection.add("ccc");<br>stringCollection.add("bbb2");<br>stringCollection.add("ddd1");<br></pre>
+<h3 class="line">1. Filter 過濾</h3>
+<p>Filter 的入參是一個 Predicate, 上面已經說到，Predicate 是一個斷言的中間操作，它能夠幫我們篩選出我們需要的集合元素。它的返參同樣 是一個 Stream 流，我們可以通過 foreach 終端操作，來列印被篩選的元素：</p>
+<pre>@Test<br>public void test17(){<br> stringCollection<br> .stream()<br> .filter((s) -&gt; s.startsWith("a"))<br> .forEach(System.out::println);<br>}<br></pre>
+<h3 class="line">2. Sorted 排序</h3>
+<p>Sorted 同樣是一個中間操作，它的返參是一個 Stream 流。另外，我們可以傳入一個 Comparator 用來自定義排序，如果不傳，則使用默認的排序規則。</p>
+<pre>@Test<br>public void test18() {<br> stringCollection<br> .stream()<br> .sorted()<br> .filter((s) -&gt; s.startsWith("a"))<br> .forEach(System.out::println);<br>}<br></pre>
+<blockquote>
+<p>注意；這個sorted 只是做了一個排序的視圖進行輸出，實際沒有將List內的數據進行排序</p>
+</blockquote>
+<pre>System.out.println(stringCollection);<br>// ddd2, aaa2, bbb1, aaa1, bbb3, ccc, bbb2, ddd1<br></pre>
+<h3 class="line">3. Map 轉換</h3>
+<p>中間操作映射通過給定的函數將每個元素轉換為另一個對象。例如下面的示例，通過 map 我們將每一個 string 轉成大寫：</p>
+<pre>@Test<br>public void test19(){<br> stringCollection<br> .stream()<br> .map(String::toUpperCase)<br> .sorted(Comparator.reverseOrder()) //等同於(a, b) -&gt; b.compareTo(a)<br> .forEach(System.out::println);<br>}<br></pre>
+<p>這個可以用做DTO數據對象轉換，領域驅動設計開發中將DTO轉為DO向後台傳輸。</p>
+<h3 class="line">4. Match 匹配</h3>
+<p>顧名思義，match 用來做匹配操作，它的返回值是一個 boolean 類型。通過 match, 我們可以方便的驗證一個 list 中是否存在某個類型的元素。</p>
+<pre>@Test<br>public void test20(){<br> // anyMatch：驗證 list 中 string 是否有以 a 開頭的, 匹配到第一個，即返回 true<br> boolean anyStartsWithA =<br> stringCollection<br> .stream()<br> .anyMatch((s) -&gt; s.startsWith("a"));<br> System.out.println(anyStartsWithA); // true<br> // allMatch：驗證 list 中 string 是否都是以 a 開頭的<br> boolean allStartsWithA =<br> stringCollection<br> .stream()<br> .allMatch((s) -&gt; s.startsWith("a"));<br> System.out.println(allStartsWithA); // false<br> // noneMatch：驗證 list 中 string 是否都不是以 z 開頭的<br> boolean noneStartsWithZ =<br> stringCollection<br> .stream()<br> .noneMatch((s) -&gt; s.startsWith("z"));<br> System.out.println(noneStartsWithZ); // true<br>}<br></pre>
+<h3 class="line">5. Count 計數</h3>
+<p>count 是一個終端操作，它能夠統計 stream 流中的元素總數，返回值是 long 類型。</p>
+<pre>@Test<br>public void test21() {<br> // count：先對 list 中字元串開頭為 b 進行過濾，讓後統計數量<br> long startsWithB =<br> stringCollection<br> .stream()<br> .filter((s) -&gt; s.startsWith("b"))<br> .count();<br> System.out.println(startsWithB); // 3<br>}</pre>
+<h3 class="line">6. Reduce</h3>
+<p>Reduce 中文翻譯為：減少、縮小。通過入參的 Function，我們能夠將 list 歸約成一個值。它的返回類型是 Optional 類型。</p>
+<pre>@Test<br>public void test22() {<br> Optional&lt;String&gt; reduced =<br> stringCollection<br> .stream()<br> .sorted()<br> .reduce((s1, s2) -&gt; s1 + "#" + s2);<br> reduced.ifPresent(System.out::println);<br> // aaa1#aaa2#bbb1#bbb2#bbb3#ccc#ddd1#ddd2<br>}</pre>
+<h2 class="pgc-h-arrow-right">九、Parallel-Streams 並行流</h2>
+<p>如上所述，流可以是順序的，也可以是並行的。順序流上的操作在單個線程上執行，而並行流上的操作在多個線程上並發執行。</p>
+<p>下面的示例演示了使用並行流來提高性能是多麼的容易。親測提升了1倍性能！</p>
+<p>首先，我們創建一個較大的List：</p>
+<pre>int max = 1000000;<br>List&lt;String&gt; values = new ArrayList&lt;&gt;(max);<br>for (int i = 0; i &lt; max; i++) {<br> UUID uuid = UUID.randomUUID();<br> values.add(uuid.toString());<br>}</pre>
+<h3 class="line">1. Sequential Sort 順序流排序</h3>
+<pre>@Test<br>public void test23() {<br> int max = 1000000;<br> List&lt;String&gt; values = new ArrayList&lt;&gt;(max);<br> for (int i = 0; i &lt; max; i++) {<br> UUID uuid = UUID.randomUUID();<br> values.add(uuid.toString());<br> }<br> // 納秒<br> long t0 = System.nanoTime();<br> long count = values.stream().sorted().count();<br> System.out.println(count);<br> long t1 = System.nanoTime();<br> // 納秒轉微秒<br> long millis = TimeUnit.NANOSECONDS.toMillis(t1 - t0);<br> System.out.println(String.format("順序流排序耗時: %d ms", millis));<br> //順序流排序耗時: 712 ms<br>}</pre>
+<h3 class="line">2. Parallel Sort 並行流排序</h3>
+<pre>@Test<br>public void test24(){<br> int max = 1000000;<br> List&lt;String&gt; values = new ArrayList&lt;&gt;(max);<br> for (int i = 0; i &lt; max; i++) {<br> UUID uuid = UUID.randomUUID();<br> values.add(uuid.toString());<br> }<br> long t0 = System.nanoTime();<br> long count = values.parallelStream().sorted().count();<br> System.out.println(count);<br> long t1 = System.nanoTime();<br> long millis = TimeUnit.NANOSECONDS.toMillis(t1 - t0);<br> System.out.println(String.format("parallel sort took: %d ms", millis));<br> //parallel sort took: 385 ms<br>}</pre>
+<p>如您所見，這兩個代碼片段幾乎相同，但並行排序大約快50%。您只需將stream（）更改為parallelStream（）。</p>
+<h2 class="pgc-h-arrow-right">十、Map 集合</h2>
+<p>如前所講，Map是不支持 Stream 流的，因為 Map 介面並沒有像 Collection 介面那樣，定義了 stream() 方法。但是，我們可以對其 key, values, entry 使用 流操作，如 map.keySet().stream(), map.values().stream() 和 map.entrySet().stream().</p>
+<p>另外, JDK 8 中對 map 提供了一些其他新特性:</p>
+<pre>@Test<br>public void test25() {<br> Map&lt;Integer, String&gt; map = new HashMap&lt;&gt;();<br> for (int i = 0; i &lt; 10; i++) {<br> // 與老版不同的是，putIfAbent() 方法在 put 之前， 不用在寫if null continue了<br> // 會判斷 key 是否已經存在，存在則直接返回 value, 否則 put, 再返回 value<br> map.putIfAbsent(i, "val" + i);<br> }<br> // forEach 可以很方便地對 map 進行遍歷操作<br> map.forEach((key, value) -&gt; System.out.println(value));<br>}</pre>
+<p>之後我們做一個Map對象的轉換輸出；（定義兩個類BeanA、BeanB）</p>
+<pre>@Test<br>public void test26() {<br> Map&lt;Integer, BeanA&gt; map = new HashMap&lt;&gt;();<br> for (int i = 0; i &lt; 10; i++) {<br> // 與老版不同的是，putIfAbent() 方法在 put 之前， 不用在寫if null continue了<br> // 會判斷 key 是否已經存在，存在則直接返回 value, 否則 put, 再返回 value<br> map.putIfAbsent(i, new BeanA(i, "明明" + i, i + 20, "89021839021830912809" + i));<br> }<br> Stream&lt;BeanB&gt; beanBStream00 = map.values().stream().map(new Function&lt;BeanA, BeanB&gt;() {<br> @Override<br> public BeanB apply(BeanA beanA) {<br> return new BeanB(beanA.getName(), beanA.getAge());<br> }<br> });<br> Stream&lt;BeanB&gt; beanBStream01 = map.values().stream().map(beanA -&gt; new BeanB(beanA.getName(), beanA.getAge()));<br> beanBStream01.forEach(System.out::println);<br>}</pre>
+<p>除了上面的 putIfAbsent() 和 forEach() 外，我們還可以很方便地對某個 key 的值做相關操作：</p>
+<pre>@Test<br>public void test27() {<br> // 如下：對 key 為 3 的值，內部會先判斷值是否存在，存在，則做 value + key 的拼接操作<br> map.computeIfPresent(3, (num, val) -&gt; val + num);<br> map.get(3); // val33<br><br> // 先判斷 key 為 9 的元素是否存在，存在，則做刪除操作<br> map.computeIfPresent(9, (num, val) -&gt; null);<br> map.containsKey(9); // false<br><br> // computeIfAbsent(), 當 key 不存在時，才會做相關處理<br> // 如下：先判斷 key 為 23 的元素是否存在，不存在，則添加<br> map.computeIfAbsent(23, num -&gt; "val" + num);<br> map.containsKey(23); // true<br><br> // 先判斷 key 為 3 的元素是否存在，存在，則不做任何處理<br> map.computeIfAbsent(3, num -&gt; "bam");<br> map.get(3); // val33<br>}</pre>
+<p>關於刪除操作，JDK 8 中提供了能夠新的 remove() API:</p>
+<pre>@Test<br>public void test28() {<br> map.remove(3, "val3");<br> map.get(3); // val33<br><br> map.remove(3, "val33");<br> map.get(3); // null<br>}</pre>
+<p>如上代碼，只有當給定的 key 和 value 完全匹配時，才會執行刪除操作。</p>
+<p>關於添加方法，JDK 8 中提供了帶有默認值的 getOrDefault() 方法：</p>
+<pre>@Test<br>public void test29() {<br> // 若 key 42 不存在，則返回 not found<br> map.getOrDefault(42, "not found"); // not found<br>}<br></pre>
+<p>對於 value 的合併操作也變得更加簡單：</p>
+<pre>@Test<br>public void test30() {<br> // merge 方法，會先判斷進行合併的 key 是否存在，不存在，則會添加元素<br> map.merge(9, "val9", (value, newValue) -&gt; value.concat(newValue));<br> map.get(9); // val9<br> // 若 key 的元素存在，則對 value 執行拼接操作<br> map.merge(9, "concat", (value, newValue) -&gt; value.concat(newValue));<br> map.get(9); // val9concat<br>}</pre>
+<h2 class="pgc-h-arrow-right">十一、日期 Date API</h2>
+<p>Java 8 中在包 java.time 下添加了新的日期 API. 它和 Joda-Time 庫相似，但又不完全相同。接下來，我會通過一些示例代碼介紹一下新 API 中 最關鍵的特性：</p>
+<h3 class="line">1. Clock</h3>
+<p>Clock 提供對當前日期和時間的訪問。我們可以利用它來替代 System.currentTimeMillis() 方法。另外，通過 clock.instant() 能夠獲取一個 instant 實例， 此實例能夠方便地轉換成老版本中的 java.util.Date 對象。</p>
+<pre>@Test<br>public void test31(){<br> Clock clock = Clock.systemDefaultZone();<br> long millis = clock.millis();<br> Instant instant = clock.instant();<br> Date legacyDate = Date.from(instant); // 老版本 java.util.Date<br>}</pre>
+<h3 class="line">2. Timezones 時區</h3>
+<p>ZoneId 代表時區類。通過靜態工廠方法方便地獲取它，入參我們可以傳入某個時區編碼。另外，時區類還定義了一個偏移量，用來在當前時刻或某時間 與目標時區時間之間進行轉換。</p>
+<pre>@Test<br>public void test32() {<br> System.out.println(ZoneId.getAvailableZoneIds());<br> // prints all available timezone ids<br><br> ZoneId zone1 = ZoneId.of("Europe/Berlin");<br> ZoneId zone2 = ZoneId.of("Brazil/East");<br> System.out.println(zone1.getRules());<br> System.out.println(zone2.getRules());<br><br> //[Asia/Aden, America/Cuiaba, Etc/GMT+9, Etc/Gada/Atlantic, Atlantic/St_Helena, Australia/Tasmania, Libya, Europe/Guernsey, America/Grand_Turk, US/Pacific-New, Asia/Samarkand, America/Argentina/Cordoba, Asia/Phnom_Penh, Africa/Kigali, Asia/Almaty, US/Alaska, Asi...<br> // ZoneRules[currentStandardOffset=+01:00]<br> // ZoneRules[currentStandardOffset=-03:00]<br>}</pre>
+<h3 class="line">3. LocalTime</h3>
+<p>LocalTime 表示一個沒有指定時區的時間類，例如，10 p.m.或者 17：30:15，下面示例代碼中，將會使用上面創建的 時區對象創建兩個 LocalTime。然後我們會比較兩個時間，並計算它們之間的小時和分鐘的不同。</p>
+<pre>@Test<br>public void test33(){<br> ZoneId zone1 = ZoneId.of("Europe/Berlin");<br> ZoneId zone2 = ZoneId.of("Brazil/East");<br> LocalTime now1 = LocalTime.now(zone1);<br> LocalTime now2 = LocalTime.now(zone2);<br> System.out.println(now1.isBefore(now2)); // false<br> long hoursBetween = ChronoUnit.HOURS.between(now1, now2);<br> long minutesBetween = ChronoUnit.MINUTES.between(now1, now2);<br> System.out.println(hoursBetween); // -3<br> System.out.println(minutesBetween); // -239<br>}</pre>
+<p>LocalTime 提供多個靜態工廠方法，目的是為了簡化對時間對象實例的創建和操作，包括對時間字元串進行解析的操作等。</p>
+<pre>@Test<br>public void test34(){<br> LocalTime late = LocalTime.of(23, 59, 59);<br> System.out.println(late); // 23:59:59<br> DateTimeFormatter germanFormatter =<br> DateTimeFormatter<br> .ofLocalizedTime(FormatStyle.SHORT)<br> .withLocale(Locale.GERMAN);<br> LocalTime leetTime = LocalTime.parse("13:37", germanFormatter);<br> System.out.println(leetTime); // 13:37<br>}</pre>
+<h3 class="line">4. LocalDate</h3>
+<p>LocalDate 是一個日期對象，例如：2014-03-11。它和 LocalTime 一樣是個 final 類型對象。下面的例子演示了如何通過加減日，月，年等來計算一個新的日期。</p>
+<pre>@Test<br>public void test35(){<br> LocalDate today = LocalDate.now();<br> // 今天加一天<br> LocalDate tomorrow = today.plus(1, ChronoUnit.DAYS);<br> // 明天減兩天<br> LocalDate yesterday = tomorrow.minusDays(2);<br> // 2014 年七月的第四天<br> LocalDate independenceDay = LocalDate.of(2014, Month.JULY, 4);<br> DayOfWeek dayOfWeek = independenceDay.getDayOfWeek();<br> System.out.println(dayOfWeek); // 星期五<br>}</pre>
+<p>也可以直接解析日期字元串，生成 LocalDate 實例。（和 LocalTime 操作一樣簡單）</p>
+<pre>@Test<br>public void test36(){<br> DateTimeFormatter germanFormatter =<br> DateTimeFormatter<br> .ofLocalizedDate(FormatStyle.MEDIUM)<br> .withLocale(Locale.GERMAN);<br> LocalDate xmas = LocalDate.parse("24.12.2014", germanFormatter);<br> System.out.println(xmas); // 2014-12-24<br>}</pre>
+<h3 class="line">5. LocalDateTime</h3>
+<p>LocalDateTime 是一個日期-時間對象。你也可以將其看成是 LocalDate 和 LocalTime 的結合體。操作上，也大致相同。</p>
+<pre>@Test<br>public void test37(){<br> LocalDateTime sylvester = LocalDateTime.of(2014, Month.DECEMBER, 31, 23, 59, 59);<br> DayOfWeek dayOfWeek = sylvester.getDayOfWeek();<br> System.out.println(dayOfWeek); // 星期三<br> Month month = sylvester.getMonth();<br> System.out.println(month); // 十二月<br> // 獲取改時間是該天中的第幾分鐘<br> long minuteOfDay = sylvester.getLong(ChronoField.MINUTE_OF_DAY);<br> System.out.println(minuteOfDay); // 1439<br>}</pre>
+<p>如果再加上的時區信息，LocalDateTime 還能夠被轉換成 Instance 實例。Instance 能夠被轉換成老版本中 java.util.Date 對象。</p>
+<pre>@Test<br>public void test38(){<br> LocalDateTime sylvester = LocalDateTime.of(2014, Month.DECEMBER, 31, 23, 59, 59);<br> Instant instant = sylvester<br> .atZone(ZoneId.systemDefault())<br> .toInstant();<br> Date legacyDate = Date.from(instant);<br> System.out.println(legacyDate); // Wed Dec 31 23:59:59 CET 2014<br>}</pre>
+<p>格式化 LocalDateTime 對象就和格式化 LocalDate 或者 LocalTime 一樣。除了使用預定義的格式以外，也可以自定義格式化輸出。</p>
+<pre>@Test<br>public void test39(){<br> DateTimeFormatter formatter =<br> DateTimeFormatter<br> .ofPattern("MMM dd, yyyy - HH:mm");<br> LocalDateTime parsed = LocalDateTime.parse("Nov 03, 2014 - 07:13", formatter);<br> String string = formatter.format(parsed);<br> System.out.println(string); // Nov 03, 2014 - 07:13<br>}</pre>
+<p>Unlike java.text.NumberFormat the new DateTimeFormatter is immutable and thread-safe.</p>
+<p>For details on the pattern syntax read here.</p>
+<h2 class="pgc-h-arrow-right">十二、Annotations 註解</h2>
+<p>Java8中的注釋是可重複的。讓我們直接深入到一個例子中來解決這個問題。{在SpringBoot的啟動類中就可以看到這中類型的註解}</p>
+<p>首先，我們定義一個包裝器注釋，它包含一個實際注釋數組：</p>
+<pre>@Repeatable(Hints.class)<br>public @interface Hint {<br> String value();<br>}<br><br>public @interface Hints {<br> Hint[] value();<br>}</pre>
+<p>Java 8通過聲明注釋@Repeatable，使我們能夠使用同一類型的多個注釋。</p>
+<p>第一種形態：使用註解容器（老方法）</p>
+<pre> @Test<br> public void test40() {<br> @Hints({@Hint("hint1"), @Hint("hint2")})<br> class Person {<br> }<br> }</pre>
+<p>第二種形態：使用可重複註解（新方法）</p>
+<pre>@Test<br>public void test41() {<br> @Hint("hint1")<br> @Hint("hint2")<br> class Person {<br> }<br>}</pre>
+<p>java編譯器使用變數2隱式地在引擎蓋下設置@Hints注釋。這對於通過反射讀取注釋信息很重要。</p>
+<pre>@Test<br>public void test41() {<br> @Hint("hint1")<br> @Hint("hint2")<br> class Person {<br> }<br> Hint hint = Person.class.getAnnotation(Hint.class);<br> System.out.println(hint); // null<br> Hints hints1 = Person.class.getAnnotation(Hints.class);<br> System.out.println(hints1.value().length); // 2<br> Hint[] hints2 = Person.class.getAnnotationsByType(Hint.class<br> System.out.println(hints2.length); // 2<br>}</pre>
+<p>儘管我們絕對不會在 Person 類上聲明 @Hints 註解，但是它的信息仍然是可以通過 getAnnotation(Hints.class) 來讀取的。 並且，getAnnotationsByType 方法會更方便，因為它賦予了所有 @Hints 註解標註的方法直接的訪問許可權。</p>
+<pre>@Target({ElementType.TYPE_PARAMETER, ElementType.TYPE_USE})<br>@interface MyAnnotation {}</pre>
+<blockquote>
+<p>作者：bugstack蟲洞棧<br />原文鏈接：https://juejin.im/post/5df18edae51d4557fb20eeb0</p>
+</blockquote>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="12781" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/12781"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/12781";
+		var title='%E3%80%90Jdk1.8%E6%96%B0%E7%89%B9%E6%80%A7%E5%AF%A6%E6%88%B0%EF%BC%9A41%E5%80%8B%E6%A1%88%E4%BE%8B%E5%AF%A6%E6%88%B0%EF%BC%8C%E4%B8%80%E6%AC%A1%E6%80%A7%E7%B8%BD%E7%B5%90%E5%88%86%E4%BA%AB%E3%80%91';
+		var qqtitle='%E3%80%90Jdk1.8%E6%96%B0%E7%89%B9%E6%80%A7%E5%AF%A6%E6%88%B0%EF%BC%9A41%E5%80%8B%E6%A1%88%E4%BE%8B%E5%AF%A6%E6%88%B0%EF%BC%8C%E4%B8%80%E6%AC%A1%E6%80%A7%E7%B8%BD%E7%B5%90%E5%88%86%E4%BA%AB%E3%80%91';
+		var excerpt='%E6%8E%A8%E8%96%A6%E9%96%B1%E8%AE%80%EF%BC%9A%20%E9%A8%B0%E8%A8%8A%E9%9D%A2%E8%A9%A6%E5%BE%A9%E7%9B%A4%EF%BC%9A%E8%B3%87%E6%96%99%E5%BA%AB%2B%E6%95%B8%E6%93%9A%E7%B5%90%E6%A7%8B%2BJVM%2B%E7%B6%B2%E8%B7%AF%2BJAVA%2B%E5%88%86%E6%95%A3%E5%BC%8F%2B%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%B5%B1%20%E9%98%BF%E9%87%8C%E4%B8%80%E7%B7%9A%E6%9E%B6%E6%A7%8B%E5%B8%AB%E5%88%86%E4%BA%AB%E7%9A%84%E6%8A%80%E8%A1%93%E5%9C%96%E8%AD%9C%EF%BC%8C%E9%80%B2%E9%9A%8E%E5%8A%A0%E8%96%AA%E5%85%A8%E9%9D%A0%E5%AE%83%20%E5%89%8D%E8%A8%80%20%E4%B8%80%E7%9B%B4%E6%83%B3%E6%8A%8Ajdk1.8%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7%E6%95%B4%E7%90%86%E4%B8%8B%EF%BC%8C%E6%81%B0%E5%A5%BD%E7%9C%8B%E5%88%B0%E8%80%81%E5%A4%96%E7%9A%84git%28%E6%96%87%E5%BE%8C%E6%9C%89%E9%8F%88%E6%8E%A5%29%EF%BC%8C%E5%9C%A8%E9%80%99%E5%80%8B%E7%B5%90%E6%A7%8B%E4%B8%8A%E7%B9%BC%E7%BA%8C%E5%AE%8C%E5%96%84%E4%BA%86%E8%AA%AA%E6%98%8E%E5%92%8C%E5%8A%9F%E8%83%BD%EF%BC%8C%E5%81%9A%E4%BA%8641%E5%80%8B%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6%E6%A1%88%E4%BE%8B%EF%BC%8C%E6%96%B9%E4%BE%BF%E6%96%B0%E4%BA%BA%E5%AD%B8%E7%BF%92%E3%80%82%E4%BB%A5%E4%B8%8B%E5%85%A7%E5%AE%B9%E5%BE%88%E4%B9%BE%EF%BC%8C%E5%B0%8D%E6%96%BC%E4%B8%80%E5%80%8B%E8%90%8C%E6%96%B0%E5%B0%8F%E7%99%BD%E4%BE%86%E8%AA%AA%EF%BC%8C%E5%AD%B8%E7%BF%92jdk1.8%E7%9A%84%E6%96%B0%E7%89%B9%E2%80%A6%E2%80%A6';
+		var wbexcerpt='%E6%8E%A8%E8%96%A6%E9%96%B1%E8%AE%80%EF%BC%9A%20%E9%A8%B0%E8%A8%8A%E9%9D%A2%E8%A9%A6%E5%BE%A9%E7%9B%A4%EF%BC%9A%E8%B3%87%E6%96%99%E5%BA%AB%2B%E6%95%B8%E6%93%9A%E7%B5%90%E6%A7%8B%2BJVM%2B%E7%B6%B2%E8%B7%AF%2BJAVA%2B%E5%88%86%E6%95%A3%E5%BC%8F%2B%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%B5%B1%20%E9%98%BF%E9%87%8C%E4%B8%80%E7%B7%9A%E6%9E%B6%E6%A7%8B%E5%B8%AB%E5%88%86%E4%BA%AB%E7%9A%84%E6%8A%80%E8%A1%93%E5%9C%96%E8%AD%9C%EF%BC%8C%E9%80%B2%E9%9A%8E%E5%8A%A0%E8%96%AA%E5%85%A8%E9%9D%A0%E5%AE%83%20%E5%89%8D%E8%A8%80%20%E4%B8%80%E7%9B%B4%E6%83%B3%E6%8A%8Ajdk1.8%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7%E6%95%B4%E7%90%86%E4%B8%8B%EF%BC%8C%E6%81%B0%E5%A5%BD%E7%9C%8B%E5%88%B0%E8%80%81%E5%A4%96%E7%9A%84git%28%E6%96%87%E5%BE%8C%E6%9C%89%E9%8F%88%E6%8E%A5%29%EF%BC%8C%E5%9C%A8%E9%80%99%E5%80%8B%E7%B5%90%E6%A7%8B%E4%B8%8A%E7%B9%BC%E7%BA%8C%E5%AE%8C%E5%96%84%E4%BA%86%E8%AA%AA%E6%98%8E%E5%92%8C%E5%8A%9F%E8%83%BD%EF%BC%8C%E5%81%9A%E4%BA%8641%E5%80%8B%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6%E6%A1%88%E4%BE%8B%EF%BC%8C%E6%96%B9%E4%BE%BF%E6%96%B0%E4%BA%BA%E5%AD%B8%E7%BF%92%E3%80%82%E4%BB%A5%E4%B8%8B%E5%85%A7%E5%AE%B9%E5%BE%88%E4%B9%BE%EF%BC%8C%E5%B0%8D%E6%96%BC%E4%B8%80%E5%80%8B%E8%90%8C%E6%96%B0%E5%B0%8F%E7%99%BD%E4%BE%86%E8%AA%AA%EF%BC%8C%E5%AD%B8%E7%BF%92jdk1.8%E7%9A%84%E6%96%B0%E7%89%B9%E2%80%A6%E2%80%A6';
+		var pic="http://p1.pstatp.com/large/dfic-imagehandler/c9a0e204-c17f-48d4-b396-ac7238234577";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="身陷私有化傳聞 海爾電器在香港臨時停牌" href="https://daynews.cc/technology/12782">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="看完第326批機動車新產品公告後，有3大看點使我陷入了深思" href="https://daynews.cc/technology/12779">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="/technology/12781#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='12781' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼" href="https://daynews.cc/constellation/20739" rel="bookmark"><i class="fa  fa-book"></i> 伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼                            </a>
+                            <a class="list-group-item visible-md" title="伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼" href="https://daynews.cc/constellation/20739" rel="bookmark"><i class="fa  fa-book"></i> 伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼                            </a>
+                                                    <a class="list-group-item visible-lg" title="12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪" href="https://daynews.cc/constellation/20740" rel="bookmark"><i class="fa  fa-book"></i> 12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪                            </a>
+                            <a class="list-group-item visible-md" title="12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪" href="https://daynews.cc/constellation/20740" rel="bookmark"><i class="fa  fa-book"></i> 12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪                            </a>
+                                                    <a class="list-group-item visible-lg" title="十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮" href="https://daynews.cc/constellation/20741" rel="bookmark"><i class="fa  fa-book"></i> 十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮                            </a>
+                            <a class="list-group-item visible-md" title="十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮" href="https://daynews.cc/constellation/20741" rel="bookmark"><i class="fa  fa-book"></i> 十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮                            </a>
+                                                    <a class="list-group-item visible-lg" title="小聶：跑動中的腰腹力量如何運用" href="https://daynews.cc/lose/20597" rel="bookmark"><i class="fa  fa-book"></i> 小聶：跑動中的腰腹力量如何運用                            </a>
+                            <a class="list-group-item visible-md" title="小聶：跑動中的腰腹力量如何運用" href="https://daynews.cc/lose/20597" rel="bookmark"><i class="fa  fa-book"></i> 小聶：跑動中的腰腹力量如何運用                            </a>
+                                                    <a class="list-group-item visible-lg" title="小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力" href="https://daynews.cc/lose/20598" rel="bookmark"><i class="fa  fa-book"></i> 小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力                            </a>
+                            <a class="list-group-item visible-md" title="小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力" href="https://daynews.cc/lose/20598" rel="bookmark"><i class="fa  fa-book"></i> 小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力                            </a>
+                                                    <a class="list-group-item visible-lg" title="十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古" href="https://daynews.cc/history/19786" rel="bookmark"><i class="fa  fa-book"></i> 十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古                            </a>
+                            <a class="list-group-item visible-md" title="十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古" href="https://daynews.cc/history/19786" rel="bookmark"><i class="fa  fa-book"></i> 十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古                            </a>
+                                                    <a class="list-group-item visible-lg" title="當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？" href="https://daynews.cc/history/19787" rel="bookmark"><i class="fa  fa-book"></i> 當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？                            </a>
+                            <a class="list-group-item visible-md" title="當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？" href="https://daynews.cc/history/19787" rel="bookmark"><i class="fa  fa-book"></i> 當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？                            </a>
+                                                    <a class="list-group-item visible-lg" title="春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？" href="https://daynews.cc/history/19789" rel="bookmark"><i class="fa  fa-book"></i> 春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？                            </a>
+                            <a class="list-group-item visible-md" title="春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？" href="https://daynews.cc/history/19789" rel="bookmark"><i class="fa  fa-book"></i> 春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？                            </a>
+                                                    <a class="list-group-item visible-lg" title="軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸" href="https://daynews.cc/history/19788" rel="bookmark"><i class="fa  fa-book"></i> 軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸                            </a>
+                            <a class="list-group-item visible-md" title="軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸" href="https://daynews.cc/history/19788" rel="bookmark"><i class="fa  fa-book"></i> 軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸                            </a>
+                                                    <a class="list-group-item visible-lg" title="劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？" href="https://daynews.cc/history/19790" rel="bookmark"><i class="fa  fa-book"></i> 劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？                            </a>
+                            <a class="list-group-item visible-md" title="劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？" href="https://daynews.cc/history/19790" rel="bookmark"><i class="fa  fa-book"></i> 劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-md" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-lg" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a><a class="list-group-item visible-md" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a><a class="list-group-item visible-lg" title="最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？" href="https://daynews.cc/international/18303" rel="bookmark"><i class="fa  fa-book"></i> 最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？</a><a class="list-group-item visible-md" title="最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？" href="https://daynews.cc/international/18303" rel="bookmark"><i class="fa  fa-book"></i> 最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？</a><a class="list-group-item visible-lg" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="https://daynews.cc/entertainment/10879" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-md" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="https://daynews.cc/entertainment/10879" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-lg" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="https://daynews.cc/technology/10158" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-md" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="https://daynews.cc/technology/10158" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-lg" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="https://daynews.cc/game/13764" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-md" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="https://daynews.cc/game/13764" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-lg" title="這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩" href="https://daynews.cc/lose/20687" rel="bookmark"><i class="fa  fa-book"></i> 這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩</a><a class="list-group-item visible-md" title="這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩" href="https://daynews.cc/lose/20687" rel="bookmark"><i class="fa  fa-book"></i> 這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩</a><a class="list-group-item visible-lg" title="夢三國：路人戰力匹配中最值得玩的輔助英雄推薦" href="https://daynews.cc/game/20261" rel="bookmark"><i class="fa  fa-book"></i> 夢三國：路人戰力匹配中最值得玩的輔助英雄推薦</a><a class="list-group-item visible-md" title="夢三國：路人戰力匹配中最值得玩的輔助英雄推薦" href="https://daynews.cc/game/20261" rel="bookmark"><i class="fa  fa-book"></i> 夢三國：路人戰力匹配中最值得玩的輔助英雄推薦</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="送給健身房新手和想去健身房的你" href="https://daynews.cc/lose/20699" rel="bookmark"><i class="fa  fa-book"></i> 送給健身房新手和想去健身房的你                            </a>
+                            <a class="list-group-item visible-md" title="送給健身房新手和想去健身房的你" href="https://daynews.cc/lose/20699" rel="bookmark"><i class="fa  fa-book"></i> 送給健身房新手和想去健身房的你                            </a>
+                                                    <a class="list-group-item visible-lg" title="“舍友拿我照片去網戀”：大學遇到奇葩舍友，有什麼招？" href="https://daynews.cc/emotion/1221" rel="bookmark"><i class="fa  fa-book"></i> “舍友拿我照片去網戀”：大學遇到奇葩舍友，有什麼招？                            </a>
+                            <a class="list-group-item visible-md" title="“舍友拿我照片去網戀”：大學遇到奇葩舍友，有什麼招？" href="https://daynews.cc/emotion/1221" rel="bookmark"><i class="fa  fa-book"></i> “舍友拿我照片去網戀”：大學遇到奇葩舍友，有什麼招？                            </a>
+                                                    <a class="list-group-item visible-lg" title="夜聽 |“選擇性閉嘴，是最好的成長方式”" href="https://daynews.cc/emotion/1657" rel="bookmark"><i class="fa  fa-book"></i> 夜聽 |“選擇性閉嘴，是最好的成長方式”                            </a>
+                            <a class="list-group-item visible-md" title="夜聽 |“選擇性閉嘴，是最好的成長方式”" href="https://daynews.cc/emotion/1657" rel="bookmark"><i class="fa  fa-book"></i> 夜聽 |“選擇性閉嘴，是最好的成長方式”                            </a>
+                                                    <a class="list-group-item visible-lg" title="湖人補強方案明朗：4人可交易，9人非賣品，3人有否決權" href="https://daynews.cc/nba/19388" rel="bookmark"><i class="fa  fa-book"></i> 湖人補強方案明朗：4人可交易，9人非賣品，3人有否決權                            </a>
+                            <a class="list-group-item visible-md" title="湖人補強方案明朗：4人可交易，9人非賣品，3人有否決權" href="https://daynews.cc/nba/19388" rel="bookmark"><i class="fa  fa-book"></i> 湖人補強方案明朗：4人可交易，9人非賣品，3人有否決權                            </a>
+                                                    <a class="list-group-item visible-lg" title="曹丕費盡心思才得到甄姬，為何最後還將其處死？" href="https://daynews.cc/history/13687" rel="bookmark"><i class="fa  fa-book"></i> 曹丕費盡心思才得到甄姬，為何最後還將其處死？                            </a>
+                            <a class="list-group-item visible-md" title="曹丕費盡心思才得到甄姬，為何最後還將其處死？" href="https://daynews.cc/history/13687" rel="bookmark"><i class="fa  fa-book"></i> 曹丕費盡心思才得到甄姬，為何最後還將其處死？                            </a>
+                                                    <a class="list-group-item visible-lg" title="哪個蒙面人心機最重？測與哪些人接近能讓你聚財" href="https://daynews.cc/emotion/1300" rel="bookmark"><i class="fa  fa-book"></i> 哪個蒙面人心機最重？測與哪些人接近能讓你聚財                            </a>
+                            <a class="list-group-item visible-md" title="哪個蒙面人心機最重？測與哪些人接近能讓你聚財" href="https://daynews.cc/emotion/1300" rel="bookmark"><i class="fa  fa-book"></i> 哪個蒙面人心機最重？測與哪些人接近能讓你聚財                            </a>
+                                                    <a class="list-group-item visible-lg" title="澳洲孕婦遭丈夫殺害，距預產期僅21天，男方家屬法庭聲援兇手" href="https://daynews.cc/international/14996" rel="bookmark"><i class="fa  fa-book"></i> 澳洲孕婦遭丈夫殺害，距預產期僅21天，男方家屬法庭聲援兇手                            </a>
+                            <a class="list-group-item visible-md" title="澳洲孕婦遭丈夫殺害，距預產期僅21天，男方家屬法庭聲援兇手" href="https://daynews.cc/international/14996" rel="bookmark"><i class="fa  fa-book"></i> 澳洲孕婦遭丈夫殺害，距預產期僅21天，男方家屬法庭聲援兇手                            </a>
+                                                    <a class="list-group-item visible-lg" title="感受你的腎上腺激素！真人實戰射擊遊戲將在迪拜開放" href="https://daynews.cc/game/14086" rel="bookmark"><i class="fa  fa-book"></i> 感受你的腎上腺激素！真人實戰射擊遊戲將在迪拜開放                            </a>
+                            <a class="list-group-item visible-md" title="感受你的腎上腺激素！真人實戰射擊遊戲將在迪拜開放" href="https://daynews.cc/game/14086" rel="bookmark"><i class="fa  fa-book"></i> 感受你的腎上腺激素！真人實戰射擊遊戲將在迪拜開放                            </a>
+                                                    <a class="list-group-item visible-lg" title="摳圖摳上癮了？Anglababy摳圖出席紅毯，網友：路費都給省了" href="https://daynews.cc/entertainment/232" rel="bookmark"><i class="fa  fa-book"></i> 摳圖摳上癮了？Anglababy摳圖出席紅毯，網友：路費都給省了                            </a>
+                            <a class="list-group-item visible-md" title="摳圖摳上癮了？Anglababy摳圖出席紅毯，網友：路費都給省了" href="https://daynews.cc/entertainment/232" rel="bookmark"><i class="fa  fa-book"></i> 摳圖摳上癮了？Anglababy摳圖出席紅毯，網友：路費都給省了                            </a>
+                                                    <a class="list-group-item visible-lg" title="哥倫比亞主帥建議J羅離開皇馬：只要能踢上球，去哪支球隊都可以" href="https://daynews.cc/sports/2670" rel="bookmark"><i class="fa  fa-book"></i> 哥倫比亞主帥建議J羅離開皇馬：只要能踢上球，去哪支球隊都可以                            </a>
+                            <a class="list-group-item visible-md" title="哥倫比亞主帥建議J羅離開皇馬：只要能踢上球，去哪支球隊都可以" href="https://daynews.cc/sports/2670" rel="bookmark"><i class="fa  fa-book"></i> 哥倫比亞主帥建議J羅離開皇馬：只要能踢上球，去哪支球隊都可以                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="kratos_tags-4" class="widget widget_kratos_tags clearfix"><h4 class="widget-title">標籤</h4><div class="tag_clouds"></div></aside><aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="https://daynews.cc/nba">NBA</a> (1,526)
+</li>
+	<li class="cat-item cat-item-23"><a href="https://daynews.cc/international">國際</a> (2,241)
+</li>
+	<li class="cat-item cat-item-14"><a href="https://daynews.cc/entertainment">娛樂</a> (2,348)
+</li>
+	<li class="cat-item cat-item-15"><a href="https://daynews.cc/emotion">情感</a> (1,582)
+</li>
+	<li class="cat-item cat-item-22"><a href="https://daynews.cc/constellation">星座</a> (1,060)
+</li>
+	<li class="cat-item cat-item-17"><a href="https://daynews.cc/history">歷史</a> (1,759)
+</li>
+	<li class="cat-item cat-item-25"><a href="https://daynews.cc/lose">減肥</a> (495)
+</li>
+	<li class="cat-item cat-item-24"><a href="https://daynews.cc/technology">科技</a> (2,163)
+</li>
+	<li class="cat-item cat-item-19"><a href="https://daynews.cc/premier">英超</a> (1,372)
+</li>
+	<li class="cat-item cat-item-18"><a href="https://daynews.cc/game">遊戲</a> (2,055)
+</li>
+	<li class="cat-item cat-item-21"><a href="https://daynews.cc/health">養生</a> (1,278)
+</li>
+	<li class="cat-item cat-item-16"><a href="https://daynews.cc/sports">體育</a> (2,098)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='https://daynews.cc/date/2019/12'>2019 年 12 月</a>&nbsp;(16975)</li>
+	<li><a href='https://daynews.cc/date/2019/11'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='https://daynews.cc/date/2019/10'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="https://daynews.cc">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.easing.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.qrcode.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/layer.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/modernizr.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.waypoints.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.stellar.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/hoverIntent.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/superfish.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/kratos.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-includes/js/wp-embed.min.js'></script>
+			</body>
+
+</html>
+<!-- Dynamic page generated in 0.549 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:04:31 -->
+
+<!-- super cache -->

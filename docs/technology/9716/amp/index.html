@@ -1,0 +1,614 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/9716#primaryimage","url":"http://p9.pstatp.com/large/pgc-image/77b7f5b2eb3e4a1ab0f0891a76547555"},{"@type":"WebPage","@id":"https://daynews.cc/technology/9716#webpage","url":"https://daynews.cc/technology/9716","inLanguage":"zh-TW","name":"Java\u8207\u7cfb\u7d71\u786c\u9ad4\u7684\u89aa\u5bc6\u63a5\u89f8\u300c\u507d\u5171\u4eab\u300d - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/9716#primaryimage"},"datePublished":"2019-12-09T23:45:08+00:00","dateModified":"2019-12-09T23:45:08+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="作者：碼洞來源：https://zhuanlan.zhihu.com/p/32764602 在解釋【偽共享】這個概念之前，我們先來運行一段代碼，小編的電腦上有4個core。 這個程序的邏輯是4個線程共享同一個數組讀寫不同下標的變數。每個線程循環1億次讀寫，也就是+1操作。然後統計4個線程同時跑完總共花的時間。 下面我們來看看在小編的電腦上……" />
+<meta name="twitter:title" content="Java與系統硬體的親密接觸「偽共享」 - 天天要聞" />
+<meta name="twitter:image" content="http://p9.pstatp.com/large/pgc-image/77b7f5b2eb3e4a1ab0f0891a76547555" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Java與系統硬體的親密接觸「偽共享」 - 天天要聞" />
+<meta property="og:description" content="作者：碼洞來源：https://zhuanlan.zhihu.com/p/32764602 在解釋【偽共享】這個概念之前，我們先來運行一段代碼，小編的電腦上有4個core。 這個程序的邏輯是4個線程共享同一個數組讀寫不同下標的變數。每個線程循環1億次讀寫，也就是+1操作。然後統計4個線程同時跑完總共花的時間。 下面我們來看看在小編的電腦上……" />
+<meta property="og:url" content="https://daynews.cc/technology/9716" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-09T23:45:08+00:00" />
+	<title>Java與系統硬體的親密接觸「偽共享」 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/9716" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">Java與系統硬體的親密接觸「偽共享」</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-10T07:45:08+00:00">
+		1 週 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<pre>作者：碼洞<br>來源：https://zhuanlan.zhihu.com/p/32764602<br></pre>
+
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/77b7f5b2eb3e4a1ab0f0891a76547555" alt="《Java與系統硬體的親密接觸「偽共享」》" width="474" height="246" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/77b7f5b2eb3e4a1ab0f0891a76547555" alt="《Java與系統硬體的親密接觸「偽共享」》" width="474" height="246" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>在解釋【<strong>偽共享</strong>】這個概念之前，我們先來運行一段代碼，小編的電腦上有4個core。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/d788bf44b73940d3b5a91a64bfcf4c6a" alt="《Java與系統硬體的親密接觸「偽共享」》" width="640" height="1181" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/d788bf44b73940d3b5a91a64bfcf4c6a" alt="《Java與系統硬體的親密接觸「偽共享」》" width="640" height="1181" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>這個程序的邏輯是4個線程共享同一個數組讀寫不同下標的變數。每個線程循環1億次讀寫，也就是+1操作。然後統計4個線程同時跑完總共花的時間。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/21da30dea2d64cd1a300feec3c6696c3" alt="《Java與系統硬體的親密接觸「偽共享」》" width="396" height="134" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/21da30dea2d64cd1a300feec3c6696c3" alt="《Java與系統硬體的親密接觸「偽共享」》" width="396" height="134" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>下面我們來看看在小編的電腦上運行的結果：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/dc4d53c4461c4553bc31ae049a6ab2d5" alt="《Java與系統硬體的親密接觸「偽共享」》" width="537" height="245" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/dc4d53c4461c4553bc31ae049a6ab2d5" alt="《Java與系統硬體的親密接觸「偽共享」》" width="537" height="245" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>然後我把SharingLong裡面的注釋代碼去掉，再跑了一下：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/cf65eeddf5824ecdbb4a2543faa0217b" alt="《Java與系統硬體的親密接觸「偽共享」》" width="527" height="238" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/cf65eeddf5824ecdbb4a2543faa0217b" alt="《Java與系統硬體的親密接觸「偽共享」》" width="527" height="238" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>在性能上注釋前後差別高達5比1，為什麼會在性能上會產生如此大的差別呢？</p>
+<p>這就是本篇要講的主題【偽共享】，英文名叫False Sharing。而SharingLong裡面的注釋行一般稱之為【緩存行填充】，英文名叫Cache Line Padding。</p>
+<p>首先我們來計算一下SharingLong對象佔用的內存空間，我們不考慮64位的情景，Java的對象都有一個2個word的頭部，第一個word存儲對象的hashcode和一些特殊的位標誌，如GC的分代年齡、偏向鎖標記等，第二個word存儲對象的指針地址，一個word就是32位。然後加上v和6個p變數，總共就是8個long的長度，也就是64位元組。</p>
+<p>接下來我們要引入CPU緩存的概念。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/44dd13448d2c41ce9319a72f9a487f34" alt="《Java與系統硬體的親密接觸「偽共享」》" width="517" height="221" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/44dd13448d2c41ce9319a72f9a487f34" alt="《Java與系統硬體的親密接觸「偽共享」》" width="517" height="221" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>現代的處理器一般都有3級緩存結構，L1、L2和L3，CPU直接訪問主存是一個相對比較慢的操作，所以通過3級緩存來提升訪存性能。我們將3個緩存當成一個整體來看待，它就是CPU緩存。緩存的製造成本非常昂貴，它一般要比主存空間小的多。</p>
+<p>CPU在讀主存的時候，會先將主存的一塊數據載入到緩存上，然後在緩存上讀取。當CPU寫主存的時候，它會首先寫緩存，在未來的某個時間點再一次性將緩存的數據全部刷回主存，這樣就可以提高寫操作的性能。因為計算機程序數據操作的局部性，CPU連續的指令傾向於訪問相鄰地址空間的數據，所以後續的讀寫操作有很大的概率可以直接在緩存上拿到數據。如果緩存上不存在，那就再去主存上載入進來。</p>
+<p>緩存雖然小，但是也不是太小，CPU在載入主存數據時，如果一次性將整個Cache填滿，但是接下來的指令訪問的數據又不在緩存上，就會導致讀浪費。另外如果只修改了其中幾個位元組的數據，但是得回寫整個Cache到內存，這又會導致寫浪費。</p>
+<p>所以現代的CPU緩存一般是分行存儲的，最小處理單位是一個行，這個行的長度一般來說就是上文提到的64位元組，我們稱之為【<strong>緩存行</strong>】。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/a4718a3f72a340dd829b4d2707f9a33d" alt="《Java與系統硬體的親密接觸「偽共享」》" width="292" height="177" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/a4718a3f72a340dd829b4d2707f9a33d" alt="《Java與系統硬體的親密接觸「偽共享」》" width="292" height="177" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>SharingLong對象中v的值是volatile類型的，意味著CPU要保證v變數在不同線程之間的讀寫可見行。當CPU對v變數進行修改的時候會將數據立即回寫至主存並將相應的緩存行置為失效。這樣後續對v變數進行的讀寫操作都需要重新從內存中載入緩存行，這樣就保證了其它線程讀到的數據是最新的。</p>
+<p>這點跟我們平常在Java基礎教科書里提到的有點不一樣。教科書裡面為了便於新手理解，不會提及緩存，一般只會說volatile變數直接讀寫內存。</p>
+<p>如果內存里有兩個volatile變數在相鄰的地址，兩個cpu分別對v1和v2進行讀和寫操作，會發生什麼情況呢？首先我們分解執行動作。圖中的h表示對象頭。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/4eab73e7b81143eeb53326519fbbaec5" alt="《Java與系統硬體的親密接觸「偽共享」》" width="640" height="276" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/4eab73e7b81143eeb53326519fbbaec5" alt="《Java與系統硬體的親密接觸「偽共享」》" width="640" height="276" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>1、CPU1對v1進行讀操作，將內存里的v1載入到緩存行里。</p>
+<p>2、CPU2對v2進行讀操作，將內存里的v2載入到緩存行里。</p>
+<p>3、CPU1對v1進行寫操作，將緩存里的v1修改，然後回寫到主存再將緩存行置為失效。</p>
+<p>4、CPU2對v2進行寫操作，將緩存里的v2修改，然後回寫到主存再將緩存行置為失效。</p>
+<p>步驟1肯定先於步驟3，步驟2肯定先於步驟4。它們發生的順序可能是 1-&gt;2-&gt;3-&gt;4 ，相當於兩個CPU交疊運行，步驟1載入緩存行，步驟2發現數據就在緩存行里還是最新的，就省去了載入緩存行操作了，這時讀操作做到了【共享】。緊接著步驟3正常進行寫操作，然後步驟4來了，CPU2發現緩存行失效了，所以還得重新載入緩存行，然後再回寫到主存再將緩存行置為失效。這裡就發生了重複載入緩存行的現象，也即【寫競爭】。如果不是volatile變數，步驟3的寫操作是不會立即回寫內存的，緩存行也就不會立即置為失效，這個時候步驟4來了CPU可以直接對緩存進行寫操作，而不會出現浪費現象。我們稱這種現象為【偽共享】，就是說這兩個變數雖然共享同一個緩存行，但是它們之間會發生寫競爭。</p>
+<p>如果順序是1-&gt;3-&gt;2-&gt;4，步驟1和步驟3的讀操作這時就沒能實現共享，還是會有浪費。</p>
+<p>當系統的線程數越多時，寫競爭越激烈，這種浪費就越多。</p>
+<p>現在我們能明白為什麼去掉注釋後，程序會變慢，因為存在寫競爭現象，數組中相鄰的SharingLong.v共享了同一個緩存行。</p>
+<p>那加上p1~p6這6個變數的意義是什麼呢？我們看圖。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/a3e37273451b40ad86a73c7c6c9c5aab" alt="《Java與系統硬體的親密接觸「偽共享」》" width="640" height="242" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/a3e37273451b40ad86a73c7c6c9c5aab" alt="《Java與系統硬體的親密接觸「偽共享」》" width="640" height="242" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>我們發現加上6個long變數後，v1和v2將分別佔用自己的緩存行，互不干擾，所以寫競爭也就不存在了，效率自然就提升了。</p>
+<p>不過缺點也是有的，就是緩存的利用率降低了，一個緩存行的空間才使用了1/4。這就是典型的空間換時間的場景。</p>
+<p>例子中我們使用了volatile變數，那如果改成普通變數呢？我們運行一下，結果如下。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/039c324fc34142e180fc4f89d1c7e32b" alt="《Java與系統硬體的親密接觸「偽共享」》" width="552" height="242" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/039c324fc34142e180fc4f89d1c7e32b" alt="《Java與系統硬體的親密接觸「偽共享」》" width="552" height="242" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>相當驚人，耗時上居然少了3個量級，這就是volatile在性能上的代價。普通變數不需要保證線程之間的讀寫的可見性，CPU對緩存修改後不需要立即回寫內存，不存在寫操作緩存穿透現象。而讀操作也不需要總是重新從內存載入，那這個效率幾乎完全就是緩存訪問的效率，而對volatile變數的讀寫操作則接近內存訪問的效率，差距自然如此明顯。</p>
+<p>你也許會問，知道這些有什麼蛋用！</p>
+<p>確是沒什麼蛋用，因為在現實世界，大部分操作都涉及到IO操作。根據水桶效應，其它環節優化到了極致，也無法提升整體的質量。</p>
+<p>但是也不完全所有的應用都是IO操作型的，有一些場景下那是純粹的內存操作。那麼對於純內存操作來說，理解【偽共享】知識可以幫你從性能上提升幾倍甚至是幾個數量級。</p>
+<p>著名的disruptor框架正是使用了緩存行填充技術，才使得它的環形數組隊列能如此高效。看wiki上的性能報告，disruptor的RingBuffer相比Java內置的ArrayBlockingQueue在OPS上高出近一個數量級，在隊列延遲上則低了接近3個數量級。</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/9716#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.215 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:33:49 -->
+
+<!-- super cache -->

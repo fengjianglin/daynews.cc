@@ -1,0 +1,529 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>Gitlab+Jenkins Pipeline+k8s在生產環境中的應用 - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="系統環境說明 GitLab Community Edition 11.9.8 Jenkins ver. 2.190.3 倉庫使用阿里的鏡像倉庫 Kubernetes v1.14.2 gitlab和jenkins-master可以選擇自建或者部署到k8s中，當前場景是部署在k8s集群之外； 鏡像倉庫可以選擇使用harbor或者阿里鏡像倉庫，……" />
+		<meta name="keywords" content="Gitlab+Jenkins Pipeline+k8s在生產環境中的應用 - 天天要聞,科技," />
+		<meta itemprop="image" content="http://p3.pstatp.com/large/pgc-image/82a3cb5283c946108db2a1a8c1dddd7c"/>
+		<meta name="description" itemprop="description" content="系統環境說明 GitLab Community Edition 11.9.8 Jenkins ver. 2.190.3 倉庫使用阿里的鏡像倉庫 Kubernetes v1.14.2 gitlab和jenkins-master可以選擇自建或者部署到k8s中，當前場景是部署在k8s集群之外； 鏡像倉庫可以選擇使用harbor或者阿里鏡像倉庫，……" />
+		
+<!-- This site is optimized with the SEO -->
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="https://daynews.cc/technology/15602" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Gitlab+Jenkins Pipeline+k8s在生產環境中的應用 - 天天要聞" />
+<meta property="og:description" content="系統環境說明 GitLab Community Edition 11.9.8 Jenkins ver. 2.190.3 倉庫使用阿里的鏡像倉庫 Kubernetes v1.14.2 gitlab和jenkins-master可以選擇自建或者部署到k8s中，當前場景是部署在k8s集群之外； 鏡像倉庫可以選擇使用harbor或者阿里鏡像倉庫，……" />
+<meta property="og:url" content="https://daynews.cc/technology/15602" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-13T16:10:11+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="系統環境說明 GitLab Community Edition 11.9.8 Jenkins ver. 2.190.3 倉庫使用阿里的鏡像倉庫 Kubernetes v1.14.2 gitlab和jenkins-master可以選擇自建或者部署到k8s中，當前場景是部署在k8s集群之外； 鏡像倉庫可以選擇使用harbor或者阿里鏡像倉庫，……" />
+<meta name="twitter:title" content="Gitlab+Jenkins Pipeline+k8s在生產環境中的應用 - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/82a3cb5283c946108db2a1a8c1dddd7c" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/15602#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/82a3cb5283c946108db2a1a8c1dddd7c"},{"@type":"WebPage","@id":"https://daynews.cc/technology/15602#webpage","url":"https://daynews.cc/technology/15602","inLanguage":"zh-TW","name":"Gitlab+Jenkins Pipeline+k8s\u5728\u751f\u7522\u74b0\u5883\u4e2d\u7684\u61c9\u7528 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/15602#primaryimage"},"datePublished":"2019-12-13T16:10:11+00:00","dateModified":"2019-12-13T16:10:11+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<!-- / SEO. -->
+
+<link rel='stylesheet' id='animate-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/animate.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/bootstrap.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/superfish.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/layer.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='https://daynews.cc/wp-content/themes/Kratos/style.css' type='text/css' media='all' />
+<link rel="amphtml" href="https://daynews.cc/technology/15602/amp">		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.min.js'></script>
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154709495-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-154709495-1');
+		</script>
+		<!-- Google Adsense -->
+		<script data-ad-client="ca-pub-8261739837930821" async 
+			src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="https://daynews.cc"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="/">首頁</a></li>
+<li><a href="/entertainment">娛樂</a></li>
+<li><a href="/emotion">情感</a></li>
+<li><a href="https://daynews.cc/international">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="https://daynews.cc/technology">科技</a></li>
+<li><a href="/sports">體育</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/nba">NBA</a></li>
+	<li><a href="/premier">英超</a></li>
+</ul>
+</li>
+<li><a href="/history">歷史</a></li>
+<li><a href="/game">遊戲</a></li>
+<li><a href="https://daynews.cc/health">養生</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/lose">減肥</a></li>
+</ul>
+</li>
+<li><a href="https://daynews.cc/constellation">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">Gitlab+Jenkins Pipeline+k8s在生產環境中的應用</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-14				                <i class="fa fa-commenting-o"></i> 546條評論
+				                <i class="fa fa-eye"></i> 2,386次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 423人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/82a3cb5283c946108db2a1a8c1dddd7c" src="http://p3.pstatp.com/large/pgc-image/82a3cb5283c946108db2a1a8c1dddd7c" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<h2 class="pgc-h-arrow-right">系統環境說明</h2>
+<ul class="">
+<li>GitLab Community Edition 11.9.8</li>
+<li>Jenkins ver. 2.190.3</li>
+<li>倉庫使用阿里的鏡像倉庫</li>
+<li>Kubernetes v1.14.2</li>
+</ul>
+<blockquote>
+<p>gitlab和jenkins-master可以選擇自建或者部署到k8s中，當前場景是部署在k8s集群之外；</p>
+<p>鏡像倉庫可以選擇使用harbor或者阿里鏡像倉庫，當前場景使用的是阿里的鏡像倉庫；</p>
+</blockquote>
+<h2 class="pgc-h-arrow-right">編譯發布流程</h2>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/f2cd7f4f7a334a7d857eaf0b6cf1a42c" src="http://p3.pstatp.com/large/pgc-image/f2cd7f4f7a334a7d857eaf0b6cf1a42c" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>流程很簡單，提交代碼到不同的分支，觸發通知到jenkins，jenkins pipeline會根據Jenkinsfile文件中定義k8s環境，動態生成一個jenkins slave在不同k8s環境中構建鏡像，推送鏡像到倉庫，然後在部署到對應k8s環境，部署結束後jenkins slave會自動終止 </p>
+<h2 class="pgc-h-arrow-right">集成配置過程</h2>
+<blockquote>
+<p>因為都是現有的環境，所以部署過程就省略了，直接開始做集成配置；如果你是全新安裝的Jenkins，選擇安裝推薦插件+kubernetes插件；現在假如插件都已經安裝完成了，jenkins登陸默認賬戶admin，密碼查看/var/jenkins_home/secrets/initialAdminPassword文件，下面開始配置</p>
+</blockquote>
+<p>點擊左側系統管理，打開系統配置，我們這裡要實現部署發布到2個k8s環境，所以我們配置兩個雲，先新增一個雲</p>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/c05074dd0d6f4b2a9b8d7135046963d1" src="http://p1.pstatp.com/large/pgc-image/c05074dd0d6f4b2a9b8d7135046963d1" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/5a17b8c130374d17896857a3dd3220c0" src="http://p3.pstatp.com/large/pgc-image/5a17b8c130374d17896857a3dd3220c0" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<blockquote>
+<p>名稱：隨便填，後面Jenkinfile會用到</p>
+<p>Kuberneters地址：填寫apiserver地址</p>
+<p>Kuberneters服務證書key：需要拿k8s的crt和key做格式轉換，下面會介紹</p>
+<p>Kubernetes 命名空間：填寫jenkins slave要生成的命名空間，這個自己看著填吧</p>
+<p>憑據：需要拿k8s的crt和key做格式轉換，然後生成jenkins全局憑據</p>
+<p>Jenkins地址：填寫jenkins master地址，也就是當前jenkins地址</p>
+<p>Jenkins通道：填寫jenkins master與jenkins slave通信地址,jenkins通信埠默認是50000</p>
+</blockquote>
+<p>配置第一個k8s相關信息，過程中會用到認證k8s apiserver的key和憑證，所以我們先獲取下需要的key和憑證（在要配置的k8s master機器操作）</p>
+<pre>$ cat /root/.kube/config <br>apiVersion: v1<br>clusters:<br>- cluster:<br> certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRFNU1EWXdOakV3TWpZd09Wb1hEVEk1TURZd016RXdNall3T1Zvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBSlBSCmFnUlVKVytleDlKeTFZOXEzUVpNZk0wWnFJbkxjOE43RFVnZnM4TktlUVh2SUFCNkxxdjBSNFY4VUNnYnZ6dEMKVitxdElGNUM5bmE5VFQzT3hVNkUwQnVmWTcwTmJBZ2dPN0RTN1FvQVc3ZG5HUnBDTmNieWg5dytZYi9vbkNCdgo3M28vRi9scnhFZ01jNFhuYTR6OGhXbm5STmdjcVBSVnNyWGFiVSt6TStsbVZEaEpwWE96dnVmMmZRb3creGF4CndaWnVwUmF5VDBESHVHbmpaQnkrNnFwQVdZampqaE9WOUhGcTlQQUpMUXAzR2xZdklueFgxUkJscTYyVFdZMW8KcjIvTFBRTUhjOUV6VFlVN21Qb0laQ3dqa1dPTzZmc1NFVHpBTk9ad1NlSlBRSW5XV1NlQXlsWjA4V2tNWjdVcQpDNkZHVml1REFVbE1HczBMMlhzQ0F3RUFBYU1qTUNFd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFFc1I5T2VSRW45NXdSaTA2UnI2SVhUcDhJeHkKSytmdFJyM1pZckZ5VWZZYTBWdU9Mc1NZdzByN1o5Zmk0ZUFlMEk4dnR2cWpqWWl6RzFnUFAyS3V4d0h4RmtJRApMQnlNRmRTSG5yVEVZeWo2NVFnbUtCWVpEZ0VkMnZpVnBTeHM4Y3dCZXgvT201VnErZnROanAwK2swaGdhV2xxCjBDZmtkbjM0MkY2bUhSZFNyeGg3eURleGNtNEtGck5OVnNPY0h5MEJhQXhwZ0JOUmErMG5oZ1dDbHh1M0F4OWgKaVRELzAyczRCcWZKTFZjZXk0Q2VnWW8zUDVDYWVjTTZSaTg4TVFKYlZ1OWx6RVZPUzlBRGNKZ0VkWkdHUFUyVwpEcHBhZXdZNjhSVVg1MG9ObXN2S2h1RGNCSWxyeHJ4T2J4Wk1wYm5hYldUMlFaKzM4ampEaDNwVmxhcz0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=<br> server: https://192.168.0.54:6443<br> name: kubernetes<br>contexts:<br>- context:<br> cluster: kubernetes<br> user: kubernetes-admin<br> name: kubernetes-admin@kubernetes<br>current-context: kubernetes-admin@kubernetes<br>kind: Config<br>preferences: {}<br>users:<br>- name: kubernetes-admin<br> user:<br> client-certificate-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUM4akNDQWRxZ0F3SUJBZ0lJSzZSZWRVQ2NNS0V3RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB4T1RBMk1EWXhNREkyTURsYUZ3MHlNREEyTURVeE1ESTJNVEZhTURReApGekFWQmdOVkJBb1REbk41YzNSbGJUcHRZWE4wWlhKek1Sa3dGd1lEVlFRREV4QnJkV0psY201bGRHVnpMV0ZrCmJXbHVNSUlCSWpBTkJna3Foa2lHOXcwQkFRRUZBQU9DQVE4QU1JSUJDZ0tDQVFFQTBrcW1jci9DNHBaSTgwUTAKTzBOaklRV1hPelQ0TmVPVFJQd0N1UW1CaDlZcUJ0QTBkZnJvVnRzT2JRTEdlWE5GUVlhRzM5V2ZsN292YURCNwp3Wm11WVo3alZKUm9BZmpldEg3d0lIN3pNYUdCbk1hN3RoTUNqWXBmdXRpQyszQm51cjFLRmFJR2FKcDNlK0NQCjAyVjdSVDJjUXFPbHVOVUtFSEl2UG15YTdKM0pHWUpLNFVBVEhQOVhIMVZNemVoc3N5ZjF5UTZZb1BxTTR1b08KVGVNN3g0NFcvS2hrWjBMWkhncnB5RDJQNlN2NGVoaGl6YTQrdUk1Si80OFhhVFJwMUxINmdGODVhalkwNXIybApQUW95dDFPTEdIVHZtRnA3ei9QMHBKbUJpcGQwcktBeFNJLzU5SU93elYyRFNpQmp4TjQwSWpKNWhidlczNHNFCmtHNTFTUUlEQVFBQm95Y3dKVEFPQmdOVkhROEJBZjhFQkFNQ0JhQXdFd1lEVlIwbEJBd3dDZ1lJS3dZQkJRVUgKQXdJd0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFFWGM0VUhiOVFMSisvU2t0S3dhOVpydVJ3THBhV0NVeE80Sgo1Mml0eHdZK3JLdE9WQVBsKzdNRjVmcWU3UUhmcW0yMjFmR1V6UW50VERpM1RjOVNsdUVDdjdxdHBCcHczZ1pYCnZpSmIvakRRTWwrdmhvZW95UlpiUmhWZG5kUU5lS1FoUzl4UEw3Rmx2d0pRUnNsWTlCdWJ4L3lsVC9KRElKcFcKRzJhanM4ZGNyWUlLeGlEbjdQSTZqeFB1OURRVUgraGVza1M5VXRwcUF3M3pBdjFCaG5kV2FEWUNQc293MnloVAp1RFNrWG9XVE9rTlQ2UDVWREdob3VZbzJ4emhJeDl4NWllMVpLOHlnODY5THZvZkJQNk5oRnZRNDRPQkFyR29JCnNJcDNJT0ZpaWJjVW1wVXNZNWJ2OEVXbjBNdXkxN1VjVTlvMkYvTnpuQ1hZV1JEVUViVT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=<br> client-key-data: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFb3dJQkFBS0NBUUVBMGtxbWNyL0M0cFpJODBRME8wTmpJUVdYT3pUNE5lT1RSUHdDdVFtQmg5WXFCdEEwCmRmcm9WdHNPYlFMR2VYTkZRWWFHMzlXZmw3b3ZhREI3d1ptdVlaN2pWSlJvQWZqZXRIN3dJSDd6TWFHQm5NYTcKdGhNQ2pZcGZ1dGlDKzNCbnVyMUtGYUlHYUpwM2UrQ1AwMlY3UlQyY1FxT2x1TlVLRUhJdlBteWE3SjNKR1lKSwo0VUFUSFA5WEgxVk16ZWhzc3lmMXlRNllvUHFNNHVvT1RlTTd4NDRXL0toa1owTFpIZ3JweUQyUDZTdjRlaGhpCnphNCt1STVKLzQ4WGFUUnAxTEg2Z0Y4NWFqWTA1cjJsUFFveXQxT0xHSFR2bUZwN3ovUDBwSm1CaXBkMHJLQXgKU0kvNTlJT3d6VjJEU2lCanhONDBJako1aGJ2VzM0c0VrRzUxU1FJREFRQUJBb0lCQUE3bXcweTJVZlVFZVQ3agp3bC9Bc3JHUVY5c1dNZEIvdzl2TGo5WFUycHpwakNqWGNDQThHMktzT3lWMllPSVNUUUlMcWxzS0pEajROSXZKCmc3dUFURjhXaHoxakZzdXMrdnNIVTdTNXlqbm1HKzBrR0FFYTc3OWY0dEMycnZGcVVhOWw0bTRPQVM1QVk5OGYKVnBIQVN5L280YjNISXVNcUZZQjgxdVF4aGZqbVJHTWJ3dFdRM090dUU1d2xQRDJwOFBqTElaQVNsVTZ2RlpoQQpMWCs0ZjIyMWRjSkxTVGhqTDFiVHFPM1NkazE3WjZOV1M1Ym9TMFptY0JSOFhLUHNqUHFVek5zRFVxeCs1cDdKCkFXVGNlYjB4dWZYTldDV3Y3N3NUcTBjdyt6UXNwbVZwbFkzMjA4d0c5Tm9FYm5hMGFNQ1ZacG1oK3BSR2xOelkKRlNZNU9rRUNnWUVBMGxLcjI2S3IvMU1KcGFGMHRtWWNHcVRzd093bklBMzBNemk2blN5SVd1Q21qRWs3ZU5zSgpTRUk5cWRPRzhhWGw3VGZpa2VYUko1b3MxcDFZZzh2TUdpam01NGI3ejYybFZRUWtsOWZPSlVGM1YzQkgyR2p2CjRpOFZVTUl5ZmNSRmZUUFZEeGtKbHZtdnZCS0kwZU9UV0daVmFxb1AzZ0d0SW5lVDlmbEgwUTBDZ1lFQS8vWTgKbzZaelRtejIyVWVXZW5aemlNOHBxRHBqVU5DRnlKemJqajNvN1ZsTGRSc0FybnpFZnVNaUo5YjZ2dVpaWXQzRwp2bEZFMDBiYnNQWmRVbzArenJvSEZMK2JqQ1QrODl1UUFJRHFHcGtyYUdIZ0IxelZyMHF2L0NXajlnbzkrdUxhCjJKQk5ud1RSczlsbzE1ZzV1YnJPRWFBNzlBaExEeEFuZFA3Z0RpMENnWUFyODBpa2NmN2RNUDRBRlpndEVYTm8KQWZUVGI4WFJSZmsweHZNQUt6RW5SSENwT2hocWJlTW5yV2Z6V0JlSDRiSUZlenNtWDg3d0pxQ2VERzFWeFQyVwpiZHVxb0NONHg0R1lIWENFSm4yV2ZYS3gyKzIzaEY0MGRzQk9pdlpBSDhhaG5qWTBuSGZMaTh1MFVtOHk1UXFDClc0Z1g3UWU1emNIZlJQdXZWL013OVFLQmdRQy8rKzFYd2cxU2thQkZNTkRKWWZjZWNtUUlibUwzeHEvUjNQVkIKSjJhQ1FDdTgxbGdZaURUS0I0c2kzcmlNWHpKRVdad3NPOENueDhvWVhYRjU3YjlpUjEzd1RoZFpjcFpZU2lNawpmWTBhRGpEa3hpVEc0UGJWMSt0UDhOdWVPK2hwT2FaME1TaEhVZElJVjlXdmY5b3NXTlVmbTFQY29pdktUSStMCnpYQTRzUUtCZ0ZsUnpoeDlYczJ2L1h1VGl0NE1mNUpMU2ppNk93c3pZVXNmTzVMQ1BVbGQrcjA5dmFsS0tPQlcKU1FUVDhTdnBpMzZhQVFTV0xCUUdVYkh2VlJ0QkJHOWxiY2JSSHlla1RrYksxTEwxVk0zKzdtRXZCUDFZZU9qZQpwWkRlTWcrZWQyY3F5MDJhZWwxbGhBK3dJRmlnUzV5bGY0Z25paFBnMVZ2WmJIUGIzREdGCi0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0tCg==</pre>
+<blockquote>
+<p>我們用到的Kubernetes 服務證書轉換 keycertificate-authority-data，憑據轉換client-certificate-data和client-key-data</p>
+</blockquote>
+<p>獲取/root/.kube/config中certificate-authority-data的內容並轉化成base64 encoded文件,將生成的ca.crt文件內容填寫到jenkins kubernetes的Kubernetes 服務證書key中</p>
+<pre>$ echo LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRFNU1EWXdOakV3TWpZd09Wb1hEVEk1TURZd016RXdNall3T1Zvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBSlBSCmFnUlVKVytleDlKeTFZOXEzUVpNZk0wWnFJbkxjOE43RFVnZnM4TktlUVh2SUFCNkxxdjBSNFY4VUNnYnZ6dEMKVitxdElGNUM5bmE5VFQzT3hVNkUwQnVmWTcwTmJBZ2dPN0RTN1FvQVc3ZG5HUnBDTmNieWg5dytZYi9vbkNCdgo3M28vRi9scnhFZ01jNFhuYTR6OGhXbm5STmdjcVBSVnNyWGFiVSt6TStsbVZEaEpwWE96dnVmMmZRb3creGF4CndaWnVwUmF5VDBESHVHbmpaQnkrNnFwQVdZampqaE9WOUhGcTlQQUpMUXAzR2xZdklueFgxUkJscTYyVFdZMW8KcjIvTFBRTUhjOUV6VFlVN21Qb0laQ3dqa1dPTzZmc1NFVHpBTk9ad1NlSlBRSW5XV1NlQXlsWjA4V2tNWjdVcQpDNkZHVml1REFVbE1HczBMMlhzQ0F3RUFBYU1qTUNFd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFFc1I5T2VSRW45NXdSaTA2UnI2SVhUcDhJeHkKSytmdFJyM1pZckZ5VWZZYTBWdU9Mc1NZdzByN1o5Zmk0ZUFlMEk4dnR2cWpqWWl6RzFnUFAyS3V4d0h4RmtJRApMQnlNRmRTSG5yVEVZeWo2NVFnbUtCWVpEZ0VkMnZpVnBTeHM4Y3dCZXgvT201VnErZnROanAwK2swaGdhV2xxCjBDZmtkbjM0MkY2bUhSZFNyeGg3eURleGNtNEtGck5OVnNPY0h5MEJhQXhwZ0JOUmErMG5oZ1dDbHh1M0F4OWgKaVRELzAyczRCcWZKTFZjZXk0Q2VnWW8zUDVDYWVjTTZSaTg4TVFKYlZ1OWx6RVZPUzlBRGNKZ0VkWkdHUFUyVwpEcHBhZXdZNjhSVVg1MG9ObXN2S2h1RGNCSWxyeHJ4T2J4Wk1wYm5hYldUMlFaKzM4ampEaDNwVmxhcz0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo= | base64 -d &gt; /tmp/ca.crt<br><br>$ cat /tmp/ca.crt <br>-----BEGIN CERTIFICATE-----<br>MIICyDCCAbCgAwIBAgIBADANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDEwprdWJl<br>cm5ldGVzMB4XDTE5MDYwNjEwMjYwOVoXDTI5MDYwMzEwMjYwOVowFTETMBEGA1UE<br>AxMKa3ViZXJuZXRlczCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJPR<br>agRUJW+ex9Jy1Y9q3QZMfM0ZqInLc8N7DUgfs8NKeQXvIAB6Lqv0R4V8UCgbvztC<br>V+qtIF5C9na9TT3OxU6E0BufY70NbAggO7DS7QoAW7dnGRpCNcbyh9w+Yb/onCBv<br>73o/F/lrxEgMc4Xna4z8hWnnRNgcqPRVsrXabU+zM+lmVDhJpXOzvuf2fQow+xax<br>wZZupRayT0DHuGnjZBy+6qpAWYjjjhOV9HFq9PAJLQp3GlYvInxX1RBlq62TWY1o<br>r2/LPQMHc9EzTYU7mPoIZCwjkWOO6fsSETzANOZwSeJPQInWWSeAylZ08WkMZ7Uq<br>C6FGViuDAUlMGs0L2XsCAwEAAaMjMCEwDgYDVR0PAQH/BAQDAgKkMA8GA1UdEwEB<br>/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAEsR9OeREn95wRi06Rr6IXTp8Ixy<br>K+ftRr3ZYrFyUfYa0VuOLsSYw0r7Z9fi4eAe0I8vtvqjjYizG1gPP2KuxwHxFkID<br>LByMFdSHnrTEYyj65QgmKBYZDgEd2viVpSxs8cwBex/Om5Vq+ftNjp0+k0hgaWlq<br>0Cfkdn342F6mHRdSrxh7yDexcm4KFrNNVsOcHy0BaAxpgBNRa+0nhgWClxu3Ax9h<br>iTD/02s4BqfJLVcey4CegYo3P5CaecM6Ri88MQJbVu9lzEVOS9ADcJgEdZGGPU2W<br>DppaewY68RUX50oNmsvKhuDcBIlrxrxObxZMpbnabWT2QZ+38jjDh3pVlas=<br>-----END CERTIFICATE-----</pre>
+<p>獲取/root/.kube/config中client-certificate-data和client-key-data的內容並轉化成base64 encoded文件</p>
+<pre>$ echo LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUM4akNDQWRxZ0F3SUJBZ0lJSzZSZWRVQ2NNS0V3RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB4T1RBMk1EWXhNREkyTURsYUZ3MHlNREEyTURVeE1ESTJNVEZhTURReApGekFWQmdOVkJBb1REbk41YzNSbGJUcHRZWE4wWlhKek1Sa3dGd1lEVlFRREV4QnJkV0psY201bGRHVnpMV0ZrCmJXbHVNSUlCSWpBTkJna3Foa2lHOXcwQkFRRUZBQU9DQVE4QU1JSUJDZ0tDQVFFQTBrcW1jci9DNHBaSTgwUTAKTzBOaklRV1hPelQ0TmVPVFJQd0N1UW1CaDlZcUJ0QTBkZnJvVnRzT2JRTEdlWE5GUVlhRzM5V2ZsN292YURCNwp3Wm11WVo3alZKUm9BZmpldEg3d0lIN3pNYUdCbk1hN3RoTUNqWXBmdXRpQyszQm51cjFLRmFJR2FKcDNlK0NQCjAyVjdSVDJjUXFPbHVOVUtFSEl2UG15YTdKM0pHWUpLNFVBVEhQOVhIMVZNemVoc3N5ZjF5UTZZb1BxTTR1b08KVGVNN3g0NFcvS2hrWjBMWkhncnB5RDJQNlN2NGVoaGl6YTQrdUk1Si80OFhhVFJwMUxINmdGODVhalkwNXIybApQUW95dDFPTEdIVHZtRnA3ei9QMHBKbUJpcGQwcktBeFNJLzU5SU93elYyRFNpQmp4TjQwSWpKNWhidlczNHNFCmtHNTFTUUlEQVFBQm95Y3dKVEFPQmdOVkhROEJBZjhFQkFNQ0JhQXdFd1lEVlIwbEJBd3dDZ1lJS3dZQkJRVUgKQXdJd0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFFWGM0VUhiOVFMSisvU2t0S3dhOVpydVJ3THBhV0NVeE80Sgo1Mml0eHdZK3JLdE9WQVBsKzdNRjVmcWU3UUhmcW0yMjFmR1V6UW50VERpM1RjOVNsdUVDdjdxdHBCcHczZ1pYCnZpSmIvakRRTWwrdmhvZW95UlpiUmhWZG5kUU5lS1FoUzl4UEw3Rmx2d0pRUnNsWTlCdWJ4L3lsVC9KRElKcFcKRzJhanM4ZGNyWUlLeGlEbjdQSTZqeFB1OURRVUgraGVza1M5VXRwcUF3M3pBdjFCaG5kV2FEWUNQc293MnloVAp1RFNrWG9XVE9rTlQ2UDVWREdob3VZbzJ4emhJeDl4NWllMVpLOHlnODY5THZvZkJQNk5oRnZRNDRPQkFyR29JCnNJcDNJT0ZpaWJjVW1wVXNZNWJ2OEVXbjBNdXkxN1VjVTlvMkYvTnpuQ1hZV1JEVUViVT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo= | base64 -d &gt; /tmp/client.crt<br><br>$ echo LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFb3dJQkFBS0NBUUVBMGtxbWNyL0M0cFpJODBRME8wTmpJUVdYT3pUNE5lT1RSUHdDdVFtQmg5WXFCdEEwCmRmcm9WdHNPYlFMR2VYTkZRWWFHMzlXZmw3b3ZhREI3d1ptdVlaN2pWSlJvQWZqZXRIN3dJSDd6TWFHQm5NYTcKdGhNQ2pZcGZ1dGlDKzNCbnVyMUtGYUlHYUpwM2UrQ1AwMlY3UlQyY1FxT2x1TlVLRUhJdlBteWE3SjNKR1lKSwo0VUFUSFA5WEgxVk16ZWhzc3lmMXlRNllvUHFNNHVvT1RlTTd4NDRXL0toa1owTFpIZ3JweUQyUDZTdjRlaGhpCnphNCt1STVKLzQ4WGFUUnAxTEg2Z0Y4NWFqWTA1cjJsUFFveXQxT0xHSFR2bUZwN3ovUDBwSm1CaXBkMHJLQXgKU0kvNTlJT3d6VjJEU2lCanhONDBJako1aGJ2VzM0c0VrRzUxU1FJREFRQUJBb0lCQUE3bXcweTJVZlVFZVQ3agp3bC9Bc3JHUVY5c1dNZEIvdzl2TGo5WFUycHpwakNqWGNDQThHMktzT3lWMllPSVNUUUlMcWxzS0pEajROSXZKCmc3dUFURjhXaHoxakZzdXMrdnNIVTdTNXlqbm1HKzBrR0FFYTc3OWY0dEMycnZGcVVhOWw0bTRPQVM1QVk5OGYKVnBIQVN5L280YjNISXVNcUZZQjgxdVF4aGZqbVJHTWJ3dFdRM090dUU1d2xQRDJwOFBqTElaQVNsVTZ2RlpoQQpMWCs0ZjIyMWRjSkxTVGhqTDFiVHFPM1NkazE3WjZOV1M1Ym9TMFptY0JSOFhLUHNqUHFVek5zRFVxeCs1cDdKCkFXVGNlYjB4dWZYTldDV3Y3N3NUcTBjdyt6UXNwbVZwbFkzMjA4d0c5Tm9FYm5hMGFNQ1ZacG1oK3BSR2xOelkKRlNZNU9rRUNnWUVBMGxLcjI2S3IvMU1KcGFGMHRtWWNHcVRzd093bklBMzBNemk2blN5SVd1Q21qRWs3ZU5zSgpTRUk5cWRPRzhhWGw3VGZpa2VYUko1b3MxcDFZZzh2TUdpam01NGI3ejYybFZRUWtsOWZPSlVGM1YzQkgyR2p2CjRpOFZVTUl5ZmNSRmZUUFZEeGtKbHZtdnZCS0kwZU9UV0daVmFxb1AzZ0d0SW5lVDlmbEgwUTBDZ1lFQS8vWTgKbzZaelRtejIyVWVXZW5aemlNOHBxRHBqVU5DRnlKemJqajNvN1ZsTGRSc0FybnpFZnVNaUo5YjZ2dVpaWXQzRwp2bEZFMDBiYnNQWmRVbzArenJvSEZMK2JqQ1QrODl1UUFJRHFHcGtyYUdIZ0IxelZyMHF2L0NXajlnbzkrdUxhCjJKQk5ud1RSczlsbzE1ZzV1YnJPRWFBNzlBaExEeEFuZFA3Z0RpMENnWUFyODBpa2NmN2RNUDRBRlpndEVYTm8KQWZUVGI4WFJSZmsweHZNQUt6RW5SSENwT2hocWJlTW5yV2Z6V0JlSDRiSUZlenNtWDg3d0pxQ2VERzFWeFQyVwpiZHVxb0NONHg0R1lIWENFSm4yV2ZYS3gyKzIzaEY0MGRzQk9pdlpBSDhhaG5qWTBuSGZMaTh1MFVtOHk1UXFDClc0Z1g3UWU1emNIZlJQdXZWL013OVFLQmdRQy8rKzFYd2cxU2thQkZNTkRKWWZjZWNtUUlibUwzeHEvUjNQVkIKSjJhQ1FDdTgxbGdZaURUS0I0c2kzcmlNWHpKRVdad3NPOENueDhvWVhYRjU3YjlpUjEzd1RoZFpjcFpZU2lNawpmWTBhRGpEa3hpVEc0UGJWMSt0UDhOdWVPK2hwT2FaME1TaEhVZElJVjlXdmY5b3NXTlVmbTFQY29pdktUSStMCnpYQTRzUUtCZ0ZsUnpoeDlYczJ2L1h1VGl0NE1mNUpMU2ppNk93c3pZVXNmTzVMQ1BVbGQrcjA5dmFsS0tPQlcKU1FUVDhTdnBpMzZhQVFTV0xCUUdVYkh2VlJ0QkJHOWxiY2JSSHlla1RrYksxTEwxVk0zKzdtRXZCUDFZZU9qZQpwWkRlTWcrZWQyY3F5MDJhZWwxbGhBK3dJRmlnUzV5bGY0Z25paFBnMVZ2WmJIUGIzREdGCi0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0tCg== | base64 -d &gt; /tmp/client.key</pre>
+<p>將上面生成的文件轉換為P12認證文件cert.pfx，並下載至本地；生成過程中設置的密碼要記住，後面有用</p>
+<pre>$ openssl pkcs12 -export -out /tmp/cert.pfx -inkey /tmp/client.key -in /tmp/client.crt -certfile /tmp/ca.crt<br>Enter Export Password:<br>Verifying - Enter Export Password:<br> <br>$ sz /tmp/cert.pfx</pre>
+<p>然後回到jenkins配置全局憑據</p>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/d5344639184c4db7b92833c52a151fde" src="http://p9.pstatp.com/large/pgc-image/d5344639184c4db7b92833c52a151fde" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/2be2b2ff25e544f080791d4e9544ffb9" src="http://p9.pstatp.com/large/pgc-image/2be2b2ff25e544f080791d4e9544ffb9" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>最終新增kubernetes雲配置，點擊連接測試，提示成功即可</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/b36d1164355e4d5db5526005b0821a15" src="http://p1.pstatp.com/large/pgc-image/b36d1164355e4d5db5526005b0821a15" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>配置第二個k8s相關信息，過程和配置第一個k8s一樣，不再過多說明了</p>
+</p>
+<h2 class="pgc-h-arrow-right">創建流水線項目</h2>
+</p>
+<p>打開Bule Ocean，請創建你的第一個流水線，選擇代碼倉庫為Git</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/6fd98d71484140278613fc4f0e536116" src="http://p1.pstatp.com/large/pgc-image/6fd98d71484140278613fc4f0e536116" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>輸入要創建流水線的Git項目倉庫地址，輸入後jenkins會自動生成公鑰，把生成的公鑰配置在gitlab的ssh key中，然後點擊創建流水線</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/02e47edfc8e647ada59893b5e49ad1b5" src="http://p3.pstatp.com/large/pgc-image/02e47edfc8e647ada59893b5e49ad1b5" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/2a22e227d7b24ccd8f2d0fb0a37315cc" src="http://p1.pstatp.com/large/pgc-image/2a22e227d7b24ccd8f2d0fb0a37315cc" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>創建流水線時候，Jenkins會自動檢測git項目各個分支的根目錄是否存在文件「Jenkinsfile」，如果存在就生成一個分支流水線，下圖中生成了分支master和分支docker流水線</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/03c02e81c60344be8c94427f03c6934b" src="http://p1.pstatp.com/large/pgc-image/03c02e81c60344be8c94427f03c6934b" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>到目前為止流水線已經配置完成，但是還無法實現自動觸發構建，需要配置掃描多分支流水線觸發器；設置1分鐘檢測一次</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/c1be671cf93a45519e4ec4fd6b9ed46d" src="http://p1.pstatp.com/large/pgc-image/c1be671cf93a45519e4ec4fd6b9ed46d" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/7572449ff3834df690af4c71f14420bf" src="http://p3.pstatp.com/large/pgc-image/7572449ff3834df690af4c71f14420bf" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>觸發構建之前我們先看下流水線執行構建部署的Jenkinsfile文件內容，文件保存在git項目的各個分支</p>
+<pre>def label = "slave-${UUID.randomUUID().toString()}"<br><br>podTemplate(cloud: 'kubernetes', label: label, containers: [<br> containerTemplate(name: 'docker', image: 'docker', command: 'cat', ttyEnabled: true),<br> containerTemplate(name: 'kubectl', image: 'bitnami/kubectl', command: 'cat', ttyEnabled: true),<br>], volumes: [<br> hostPathVolume(mountPath: '/root/.kube', hostPath: '/root/.kube'),<br> hostPathVolume(mountPath: '/var/run/docker.sock', hostPath: '/var/run/docker.sock')<br>]) {<br> node(label) {<br> def myRepo = checkout scm<br> def gitCommit = myRepo.GIT_COMMIT<br> def gitBranch = myRepo.GIT_BRANCH<br> def imageTag = sh(script: "git rev-parse --short HEAD", returnStdout: true).trim()<br> def dockerRegistryUrl = "registry.cn-beijing.aliyuncs.com"<br> def imageEndpoint = "addnewer-dsc/approval-fe"<br> def image = "${dockerRegistryUrl}/${imageEndpoint}"<br> stage('構建 Docker 鏡像') {<br> withCredentials([[$class: 'UsernamePasswordMultiBinding',<br> credentialsId: 'DockerRegistry',<br> usernameVariable: 'DOCKER_HUB_USER',<br> passwordVariable: 'DOCKER_HUB_PASSWORD']]) {<br> container('docker') {<br> echo "3. 構建 Docker 鏡像階段"<br> sh """<br> docker login ${dockerRegistryUrl} -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASSWORD}<br> docker build -t ${image}:${imageTag} .<br> docker push ${image}:${imageTag}<br> """<br> }<br> }<br> }<br> stage('Run kubectl') {<br> container('kubectl') {<br> sh """<br> sed -i "s#&lt;IMAGE&gt;#${image}#g" *.yaml<br> sed -i "s#&lt;IMAGE_TAG&gt;#${imageTag}#g" *.yaml<br> kubectl apply -f .<br> """<br> }<br> }<br><br> }<br>}</pre>
+<blockquote>
+<p>podTemplate(cloud: &#8216;kubernetes&#8217; 我們要實現不同分支部署到不同k8s環境，所以我們不同分支中Jenkinsfile中pod模版要指定不同的cloud，這個很重要；默認名稱為kubernetes，這個名稱對應我們在jenkins中新增k8s雲的名稱containerTemplate(name: &#8216;docker&#8217; 指定我們需要構建鏡像需要用到的docker鏡像containerTemplate(name: &#8216;kubectl&#8217; 指定我們部署容器到k8s需要用到的kubectl鏡像hostPathVolume(mountPath: 上面指定鏡像依賴的映射文件def imageTag 生成鏡像tag名稱def dockerRegistryUrl 定義docker倉庫地址stage(&#8216;構建 Docker 鏡像&#8217;) 定義流水線構建docker鏡像執行步驟 credentialsId: &#8216;DockerRegistry&#8217;, 從jenkins全局憑據獲取docker倉庫id usernameVariable: &#8216;DOCKER_HUB_USER&#8217;,從jenkins全局憑據獲取docker倉庫用戶名 passwordVariable: &#8216;DOCKER_HUB_PASSWORD&#8217;從jenkins全局憑據獲取docker倉庫密碼stage(&#8216;Run kubectl&#8217;) 定義流水線部署應用到k8s執行步驟，部署應用的yaml文件也是在git項目中後綴為yaml的文件</p>
+</blockquote>
+<p>了解了上面的Jenkinsfile流水線文件的執行流程後，可以看到我們還沒有在jenkins中添加docker倉庫的全局憑據，下面我們添加</p>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/c0905db7091b4cd0827d21ccb1f96790" src="http://p3.pstatp.com/large/pgc-image/c0905db7091b4cd0827d21ccb1f96790" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<h2 class="pgc-h-arrow-right">流水線構建測試</h2>
+</p>
+<p>提交任何變更到git項目，1分鐘後jenkins會自動檢測到變更，開始執行流水線；這裡我隨便提交下測試代碼，就可以看到流水開始執行了</p>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/101b67be012f4962b6e86cfcb278a0fb" src="http://p3.pstatp.com/large/pgc-image/101b67be012f4962b6e86cfcb278a0fb" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/39faada6791b496c991de401dc4eb6f5" src="http://p1.pstatp.com/large/pgc-image/39faada6791b496c991de401dc4eb6f5" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="15602" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/15602"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/15602";
+		var title='%E3%80%90Gitlab%2BJenkins%20Pipeline%2Bk8s%E5%9C%A8%E7%94%9F%E7%94%A2%E7%92%B0%E5%A2%83%E4%B8%AD%E7%9A%84%E6%87%89%E7%94%A8%E3%80%91';
+		var qqtitle='%E3%80%90Gitlab%2BJenkins%20Pipeline%2Bk8s%E5%9C%A8%E7%94%9F%E7%94%A2%E7%92%B0%E5%A2%83%E4%B8%AD%E7%9A%84%E6%87%89%E7%94%A8%E3%80%91';
+		var excerpt='%E7%B3%BB%E7%B5%B1%E7%92%B0%E5%A2%83%E8%AA%AA%E6%98%8E%20GitLab%20Community%20Edition%2011.9.8%20Jenkins%20ver.%202.190.3%20%E5%80%89%E5%BA%AB%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E7%9A%84%E9%8F%A1%E5%83%8F%E5%80%89%E5%BA%AB%20Kubernetes%20v1.14.2%20gitlab%E5%92%8Cjenkins-master%E5%8F%AF%E4%BB%A5%E9%81%B8%E6%93%87%E8%87%AA%E5%BB%BA%E6%88%96%E8%80%85%E9%83%A8%E7%BD%B2%E5%88%B0k8s%E4%B8%AD%EF%BC%8C%E7%95%B6%E5%89%8D%E5%A0%B4%E6%99%AF%E6%98%AF%E9%83%A8%E7%BD%B2%E5%9C%A8k8s%E9%9B%86%E7%BE%A4%E4%B9%8B%E5%A4%96%EF%BC%9B%20%E9%8F%A1%E5%83%8F%E5%80%89%E5%BA%AB%E5%8F%AF%E4%BB%A5%E9%81%B8%E6%93%87%E4%BD%BF%E7%94%A8harbor%E6%88%96%E8%80%85%E9%98%BF%E9%87%8C%E9%8F%A1%E5%83%8F%E5%80%89%E5%BA%AB%EF%BC%8C%E2%80%A6%E2%80%A6';
+		var wbexcerpt='%E7%B3%BB%E7%B5%B1%E7%92%B0%E5%A2%83%E8%AA%AA%E6%98%8E%20GitLab%20Community%20Edition%2011.9.8%20Jenkins%20ver.%202.190.3%20%E5%80%89%E5%BA%AB%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E7%9A%84%E9%8F%A1%E5%83%8F%E5%80%89%E5%BA%AB%20Kubernetes%20v1.14.2%20gitlab%E5%92%8Cjenkins-master%E5%8F%AF%E4%BB%A5%E9%81%B8%E6%93%87%E8%87%AA%E5%BB%BA%E6%88%96%E8%80%85%E9%83%A8%E7%BD%B2%E5%88%B0k8s%E4%B8%AD%EF%BC%8C%E7%95%B6%E5%89%8D%E5%A0%B4%E6%99%AF%E6%98%AF%E9%83%A8%E7%BD%B2%E5%9C%A8k8s%E9%9B%86%E7%BE%A4%E4%B9%8B%E5%A4%96%EF%BC%9B%20%E9%8F%A1%E5%83%8F%E5%80%89%E5%BA%AB%E5%8F%AF%E4%BB%A5%E9%81%B8%E6%93%87%E4%BD%BF%E7%94%A8harbor%E6%88%96%E8%80%85%E9%98%BF%E9%87%8C%E9%8F%A1%E5%83%8F%E5%80%89%E5%BA%AB%EF%BC%8C%E2%80%A6%E2%80%A6';
+		var pic="http://p3.pstatp.com/large/pgc-image/82a3cb5283c946108db2a1a8c1dddd7c";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="比特幣挖礦經歷了十年來最糟糕的一年" href="https://daynews.cc/technology/15603">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="原價1.6萬的阿里雲2核8G5M雲伺服器三年現在才1140元，老闆必看" href="https://daynews.cc/technology/15601">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="/technology/15602#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='15602' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼" href="https://daynews.cc/constellation/20739" rel="bookmark"><i class="fa  fa-book"></i> 伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼                            </a>
+                            <a class="list-group-item visible-md" title="伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼" href="https://daynews.cc/constellation/20739" rel="bookmark"><i class="fa  fa-book"></i> 伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼                            </a>
+                                                    <a class="list-group-item visible-lg" title="12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪" href="https://daynews.cc/constellation/20740" rel="bookmark"><i class="fa  fa-book"></i> 12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪                            </a>
+                            <a class="list-group-item visible-md" title="12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪" href="https://daynews.cc/constellation/20740" rel="bookmark"><i class="fa  fa-book"></i> 12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪                            </a>
+                                                    <a class="list-group-item visible-lg" title="十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮" href="https://daynews.cc/constellation/20741" rel="bookmark"><i class="fa  fa-book"></i> 十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮                            </a>
+                            <a class="list-group-item visible-md" title="十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮" href="https://daynews.cc/constellation/20741" rel="bookmark"><i class="fa  fa-book"></i> 十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮                            </a>
+                                                    <a class="list-group-item visible-lg" title="小聶：跑動中的腰腹力量如何運用" href="https://daynews.cc/lose/20597" rel="bookmark"><i class="fa  fa-book"></i> 小聶：跑動中的腰腹力量如何運用                            </a>
+                            <a class="list-group-item visible-md" title="小聶：跑動中的腰腹力量如何運用" href="https://daynews.cc/lose/20597" rel="bookmark"><i class="fa  fa-book"></i> 小聶：跑動中的腰腹力量如何運用                            </a>
+                                                    <a class="list-group-item visible-lg" title="小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力" href="https://daynews.cc/lose/20598" rel="bookmark"><i class="fa  fa-book"></i> 小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力                            </a>
+                            <a class="list-group-item visible-md" title="小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力" href="https://daynews.cc/lose/20598" rel="bookmark"><i class="fa  fa-book"></i> 小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力                            </a>
+                                                    <a class="list-group-item visible-lg" title="十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古" href="https://daynews.cc/history/19786" rel="bookmark"><i class="fa  fa-book"></i> 十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古                            </a>
+                            <a class="list-group-item visible-md" title="十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古" href="https://daynews.cc/history/19786" rel="bookmark"><i class="fa  fa-book"></i> 十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古                            </a>
+                                                    <a class="list-group-item visible-lg" title="當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？" href="https://daynews.cc/history/19787" rel="bookmark"><i class="fa  fa-book"></i> 當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？                            </a>
+                            <a class="list-group-item visible-md" title="當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？" href="https://daynews.cc/history/19787" rel="bookmark"><i class="fa  fa-book"></i> 當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？                            </a>
+                                                    <a class="list-group-item visible-lg" title="春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？" href="https://daynews.cc/history/19789" rel="bookmark"><i class="fa  fa-book"></i> 春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？                            </a>
+                            <a class="list-group-item visible-md" title="春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？" href="https://daynews.cc/history/19789" rel="bookmark"><i class="fa  fa-book"></i> 春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？                            </a>
+                                                    <a class="list-group-item visible-lg" title="軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸" href="https://daynews.cc/history/19788" rel="bookmark"><i class="fa  fa-book"></i> 軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸                            </a>
+                            <a class="list-group-item visible-md" title="軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸" href="https://daynews.cc/history/19788" rel="bookmark"><i class="fa  fa-book"></i> 軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸                            </a>
+                                                    <a class="list-group-item visible-lg" title="劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？" href="https://daynews.cc/history/19790" rel="bookmark"><i class="fa  fa-book"></i> 劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？                            </a>
+                            <a class="list-group-item visible-md" title="劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？" href="https://daynews.cc/history/19790" rel="bookmark"><i class="fa  fa-book"></i> 劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-md" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-lg" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a><a class="list-group-item visible-md" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a><a class="list-group-item visible-lg" title="最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？" href="https://daynews.cc/international/18303" rel="bookmark"><i class="fa  fa-book"></i> 最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？</a><a class="list-group-item visible-md" title="最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？" href="https://daynews.cc/international/18303" rel="bookmark"><i class="fa  fa-book"></i> 最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？</a><a class="list-group-item visible-lg" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="https://daynews.cc/entertainment/10879" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-md" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="https://daynews.cc/entertainment/10879" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-lg" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="https://daynews.cc/technology/10158" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-md" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="https://daynews.cc/technology/10158" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-lg" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="https://daynews.cc/game/13764" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-md" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="https://daynews.cc/game/13764" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-lg" title="這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩" href="https://daynews.cc/lose/20687" rel="bookmark"><i class="fa  fa-book"></i> 這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩</a><a class="list-group-item visible-md" title="這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩" href="https://daynews.cc/lose/20687" rel="bookmark"><i class="fa  fa-book"></i> 這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩</a><a class="list-group-item visible-lg" title="夢三國：路人戰力匹配中最值得玩的輔助英雄推薦" href="https://daynews.cc/game/20261" rel="bookmark"><i class="fa  fa-book"></i> 夢三國：路人戰力匹配中最值得玩的輔助英雄推薦</a><a class="list-group-item visible-md" title="夢三國：路人戰力匹配中最值得玩的輔助英雄推薦" href="https://daynews.cc/game/20261" rel="bookmark"><i class="fa  fa-book"></i> 夢三國：路人戰力匹配中最值得玩的輔助英雄推薦</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="黃金大獎賽：C組比賽4AM東部第一進入F組，戰隊淘汰數居前列" href="https://daynews.cc/game/20153" rel="bookmark"><i class="fa  fa-book"></i> 黃金大獎賽：C組比賽4AM東部第一進入F組，戰隊淘汰數居前列                            </a>
+                            <a class="list-group-item visible-md" title="黃金大獎賽：C組比賽4AM東部第一進入F組，戰隊淘汰數居前列" href="https://daynews.cc/game/20153" rel="bookmark"><i class="fa  fa-book"></i> 黃金大獎賽：C組比賽4AM東部第一進入F組，戰隊淘汰數居前列                            </a>
+                                                    <a class="list-group-item visible-lg" title="“凍齡女星”全是假象，未修圖原形畢露，直言：卸了妝都是黃臉婆" href="https://daynews.cc/entertainment/784" rel="bookmark"><i class="fa  fa-book"></i> “凍齡女星”全是假象，未修圖原形畢露，直言：卸了妝都是黃臉婆                            </a>
+                            <a class="list-group-item visible-md" title="“凍齡女星”全是假象，未修圖原形畢露，直言：卸了妝都是黃臉婆" href="https://daynews.cc/entertainment/784" rel="bookmark"><i class="fa  fa-book"></i> “凍齡女星”全是假象，未修圖原形畢露，直言：卸了妝都是黃臉婆                            </a>
+                                                    <a class="list-group-item visible-lg" title="權臣都敢去奪江山，而楊素完全掌控了隋朝，為什麼卻沒有奪位？" href="https://daynews.cc/history/3259" rel="bookmark"><i class="fa  fa-book"></i> 權臣都敢去奪江山，而楊素完全掌控了隋朝，為什麼卻沒有奪位？                            </a>
+                            <a class="list-group-item visible-md" title="權臣都敢去奪江山，而楊素完全掌控了隋朝，為什麼卻沒有奪位？" href="https://daynews.cc/history/3259" rel="bookmark"><i class="fa  fa-book"></i> 權臣都敢去奪江山，而楊素完全掌控了隋朝，為什麼卻沒有奪位？                            </a>
+                                                    <a class="list-group-item visible-lg" title="槍出如龍，掠敵先鋒，最爽莫過於開局一手殺閃的4血流氓雲？" href="https://daynews.cc/game/20279" rel="bookmark"><i class="fa  fa-book"></i> 槍出如龍，掠敵先鋒，最爽莫過於開局一手殺閃的4血流氓雲？                            </a>
+                            <a class="list-group-item visible-md" title="槍出如龍，掠敵先鋒，最爽莫過於開局一手殺閃的4血流氓雲？" href="https://daynews.cc/game/20279" rel="bookmark"><i class="fa  fa-book"></i> 槍出如龍，掠敵先鋒，最爽莫過於開局一手殺閃的4血流氓雲？                            </a>
+                                                    <a class="list-group-item visible-lg" title="梅拉尼婭抵英開啟北約比美之旅，將第三次見英女王，穿紅大衣霸氣" href="https://daynews.cc/international/9502" rel="bookmark"><i class="fa  fa-book"></i> 梅拉尼婭抵英開啟北約比美之旅，將第三次見英女王，穿紅大衣霸氣                            </a>
+                            <a class="list-group-item visible-md" title="梅拉尼婭抵英開啟北約比美之旅，將第三次見英女王，穿紅大衣霸氣" href="https://daynews.cc/international/9502" rel="bookmark"><i class="fa  fa-book"></i> 梅拉尼婭抵英開啟北約比美之旅，將第三次見英女王，穿紅大衣霸氣                            </a>
+                                                    <a class="list-group-item visible-lg" title="11投9中！安東尼在教練組幫助下成功轉型 有希望衝擊季後賽？" href="https://daynews.cc/nba/6524" rel="bookmark"><i class="fa  fa-book"></i> 11投9中！安東尼在教練組幫助下成功轉型 有希望衝擊季後賽？                            </a>
+                            <a class="list-group-item visible-md" title="11投9中！安東尼在教練組幫助下成功轉型 有希望衝擊季後賽？" href="https://daynews.cc/nba/6524" rel="bookmark"><i class="fa  fa-book"></i> 11投9中！安東尼在教練組幫助下成功轉型 有希望衝擊季後賽？                            </a>
+                                                    <a class="list-group-item visible-lg" title="快樂不是因為得到的多，而是因為計較的少" href="https://daynews.cc/emotion/1188" rel="bookmark"><i class="fa  fa-book"></i> 快樂不是因為得到的多，而是因為計較的少                            </a>
+                            <a class="list-group-item visible-md" title="快樂不是因為得到的多，而是因為計較的少" href="https://daynews.cc/emotion/1188" rel="bookmark"><i class="fa  fa-book"></i> 快樂不是因為得到的多，而是因為計較的少                            </a>
+                                                    <a class="list-group-item visible-lg" title="王者榮耀：滿級英雄誰偷塔最快？韓信第二，榜首是誰你知道嗎？" href="https://daynews.cc/game/4365" rel="bookmark"><i class="fa  fa-book"></i> 王者榮耀：滿級英雄誰偷塔最快？韓信第二，榜首是誰你知道嗎？                            </a>
+                            <a class="list-group-item visible-md" title="王者榮耀：滿級英雄誰偷塔最快？韓信第二，榜首是誰你知道嗎？" href="https://daynews.cc/game/4365" rel="bookmark"><i class="fa  fa-book"></i> 王者榮耀：滿級英雄誰偷塔最快？韓信第二，榜首是誰你知道嗎？                            </a>
+                                                    <a class="list-group-item visible-lg" title="西布朗戰報：奧斯汀破門 西布朗1-1維甘讓出榜首" href="https://daynews.cc/sports/10995" rel="bookmark"><i class="fa  fa-book"></i> 西布朗戰報：奧斯汀破門 西布朗1-1維甘讓出榜首                            </a>
+                            <a class="list-group-item visible-md" title="西布朗戰報：奧斯汀破門 西布朗1-1維甘讓出榜首" href="https://daynews.cc/sports/10995" rel="bookmark"><i class="fa  fa-book"></i> 西布朗戰報：奧斯汀破門 西布朗1-1維甘讓出榜首                            </a>
+                                                    <a class="list-group-item visible-lg" title="第一聯賽之爭，英西大戰，馬德里雙雄守土有責" href="https://daynews.cc/premier/19536" rel="bookmark"><i class="fa  fa-book"></i> 第一聯賽之爭，英西大戰，馬德里雙雄守土有責                            </a>
+                            <a class="list-group-item visible-md" title="第一聯賽之爭，英西大戰，馬德里雙雄守土有責" href="https://daynews.cc/premier/19536" rel="bookmark"><i class="fa  fa-book"></i> 第一聯賽之爭，英西大戰，馬德里雙雄守土有責                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="kratos_tags-4" class="widget widget_kratos_tags clearfix"><h4 class="widget-title">標籤</h4><div class="tag_clouds"></div></aside><aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="https://daynews.cc/nba">NBA</a> (1,526)
+</li>
+	<li class="cat-item cat-item-23"><a href="https://daynews.cc/international">國際</a> (2,241)
+</li>
+	<li class="cat-item cat-item-14"><a href="https://daynews.cc/entertainment">娛樂</a> (2,348)
+</li>
+	<li class="cat-item cat-item-15"><a href="https://daynews.cc/emotion">情感</a> (1,582)
+</li>
+	<li class="cat-item cat-item-22"><a href="https://daynews.cc/constellation">星座</a> (1,060)
+</li>
+	<li class="cat-item cat-item-17"><a href="https://daynews.cc/history">歷史</a> (1,759)
+</li>
+	<li class="cat-item cat-item-25"><a href="https://daynews.cc/lose">減肥</a> (495)
+</li>
+	<li class="cat-item cat-item-24"><a href="https://daynews.cc/technology">科技</a> (2,163)
+</li>
+	<li class="cat-item cat-item-19"><a href="https://daynews.cc/premier">英超</a> (1,372)
+</li>
+	<li class="cat-item cat-item-18"><a href="https://daynews.cc/game">遊戲</a> (2,055)
+</li>
+	<li class="cat-item cat-item-21"><a href="https://daynews.cc/health">養生</a> (1,278)
+</li>
+	<li class="cat-item cat-item-16"><a href="https://daynews.cc/sports">體育</a> (2,098)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='https://daynews.cc/date/2019/12'>2019 年 12 月</a>&nbsp;(16975)</li>
+	<li><a href='https://daynews.cc/date/2019/11'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='https://daynews.cc/date/2019/10'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="https://daynews.cc">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.easing.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.qrcode.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/layer.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/modernizr.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.waypoints.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.stellar.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/hoverIntent.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/superfish.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/kratos.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-includes/js/wp-embed.min.js'></script>
+			</body>
+
+</html>
+<!-- Dynamic page generated in 0.539 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 13:59:49 -->
+
+<!-- super cache -->

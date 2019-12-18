@@ -1,0 +1,1008 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/9909#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/b2f1b55873bf4accba25842cd298309a"},{"@type":"WebPage","@id":"https://daynews.cc/technology/9909#webpage","url":"https://daynews.cc/technology/9909","inLanguage":"zh-TW","name":"\u9a30\u8a0a\u7814\u767c\u985e\u7b46\u8a66\u9762\u8a66\u8a66\u984c\u53ca\u7b54\u6848\uff08C++\u65b9\u5411\uff09 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/9909#primaryimage"},"datePublished":"2019-12-08T19:50:08+00:00","dateModified":"2019-12-08T19:50:08+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="題很多，先上題後上答案，便於大家思考 問題點： 1、C和C++的特點與區別？ 2、C++的多態 3、虛函數實現 4、C和C++內存分配問題 5、協程 6、CGI的了解 7、進程間通信方式和線程間通信方式 8、TCP握手與釋放 9、http和https的區別？ 10、虛擬內存的概念與介紹 11、單鏈表的反轉演算法 12、紅黑樹以及其查找複雜……" />
+<meta name="twitter:title" content="騰訊研發類筆試面試試題及答案（C++方向） - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/b2f1b55873bf4accba25842cd298309a" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="騰訊研發類筆試面試試題及答案（C++方向） - 天天要聞" />
+<meta property="og:description" content="題很多，先上題後上答案，便於大家思考 問題點： 1、C和C++的特點與區別？ 2、C++的多態 3、虛函數實現 4、C和C++內存分配問題 5、協程 6、CGI的了解 7、進程間通信方式和線程間通信方式 8、TCP握手與釋放 9、http和https的區別？ 10、虛擬內存的概念與介紹 11、單鏈表的反轉演算法 12、紅黑樹以及其查找複雜……" />
+<meta property="og:url" content="https://daynews.cc/technology/9909" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-08T19:50:08+00:00" />
+	<title>騰訊研發類筆試面試試題及答案（C++方向） - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/9909" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">騰訊研發類筆試面試試題及答案（C++方向）</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-09T03:50:08+00:00">
+		1 週 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<div>
+<p>題很多，先上題後上答案，便於大家思考</p>
+<div class="pgc-img">
+   <amp-img src="http://p1.pstatp.com/large/pgc-image/b2f1b55873bf4accba25842cd298309a" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="310" height="231" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/b2f1b55873bf4accba25842cd298309a" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="310" height="231" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2>問題點：</h2>
+<blockquote>
+<p><strong>1、C和C++的特點與區別？</strong></p>
+<p><strong>2、C++的多態</strong></p>
+<p><strong>3、虛函數實現</strong></p>
+<p><strong>4、C和C++內存分配問題</strong></p>
+<p><strong>5、協程</strong></p>
+<p><strong>6、CGI的了解</strong></p>
+<p><strong>7、進程間通信方式和線程間通信方式</strong></p>
+<p><strong>8、TCP握手與釋放</strong></p>
+<p><strong>9、http和https的區別？</strong></p>
+<p><strong>10、虛擬內存的概念與介紹</strong></p>
+<p><strong>11、單鏈表的反轉演算法</strong></p>
+<p><strong>12、紅黑樹以及其查找複雜度</strong></p>
+<p><strong>13、KPM字元串匹配</strong></p>
+<p><strong>14、TCP超時等待、重傳以及流量控制</strong></p>
+<p><strong>15、資料庫引擎</strong></p>
+<p><strong>16、資料庫索引</strong></p>
+</blockquote>
+<h2>1、C和C++的特點與區別？</h2>
+<p>答：（1）C語言特點：</p>
+<p>1.作為一種面向過程的結構化語言，易於調試和維護；</p>
+<p>2.表現能力和處理能力極強，可以直接訪問內存的物理地址；</p>
+<p>3.C語言實現了對硬體的編程操作，也適合於應用軟體的開發；</p>
+<p>4.C語言還具有效率高，可移植性強等特點。</p>
+<p>（2）C++語言特點：</p>
+<p>1.在C語言的基礎上進行擴充和完善，使C++兼容了C語言的面向過程特點，又成為了一種面向對象的程序設計語言；</p>
+<p>2.可以使用抽象數據類型進行基於對象的編程；</p>
+<p>3.可以使用多繼承、多態進行面向對象的編程；</p>
+<p>4.可以擔負起以模版為特徵的泛型化編程。</p>
+<p>C++與C語言的本質差別：在於C++是面向對象的，而C語言是面向過程的。或者說C++是在C語言的基礎上增加了面向對象程序設</p>
+<p>計的新內容，是對C語言的一次更重要的改革，使得C++成為軟體開發的重要工具。</p>
+<h2>2、C++的多態</h2>
+<p>答：C++的多態性用一句話概括：在基類的函數前加上virtual關鍵字，在派生類中重寫該函數，運行時將會根據對象的實際類型來</p>
+<p>調用相應的函數。如果對象類型是派生類，就調用派生類的函數；如果對象類型是基類，就調用基類的函數。</p>
+<p>1）：用virtual關鍵字申明的函數叫做虛函數，虛函數肯定是類的成員函數； </p>
+<p>2）：存在虛函數的類都有一個一維的虛函數表叫做虛表，類的對象有一個指向虛表開始的虛指針。虛表是和類對應的，虛表指針是</p>
+<p>和對象對應的；</p>
+<p>3）：多態性是一個介面多種實現，是面向對象的核心，分為類的多態性和函數的多態性。；</p>
+<p>4）：多態用虛函數來實現，結合動態綁定.；</p>
+<p>5）：純虛函數是虛函數再加上 = 0； </p>
+<p>6）：抽象類是指包括至少一個純虛函數的類；</p>
+<p>純虛函數：virtual void fun()=0;即抽象類，必須在子類實現這個函數，即先有名稱，沒有內容，在派生類實現內容。</p>
+<h2>3、虛函數實現</h2>
+<p>答：簡單地說，每一個含有虛函數（無論是其本身的，還是繼承而來的）的類都至少有一個與之對應的虛函數表，其中存放著該類</p>
+<p>所有的虛函數對應的函數指針。例：</p>
+<div class="pgc-img">
+   <amp-img src="http://p1.pstatp.com/large/pgc-image/bb33499593114562aa5e6dcf33c1804e" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="530" height="234" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/bb33499593114562aa5e6dcf33c1804e" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="530" height="234" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>其中：</p>
+<p>B的虛函數表中存放著B::foo和B::bar兩個函數指針。</p>
+<p>D的虛函數表中存放的既有繼承自B的虛函數B::foo，又有重寫（override）了基類虛函數B::bar的D::bar，還有新增的虛函數D::quz。</p>
+<p>虛函數表構造過程：</p>
+<p>從編譯器的角度來說，B的虛函數表很好構造，D的虛函數表構造過程相對複雜。下面給出了構造D的虛函數表的一種方式（僅供參考）：</p>
+<div class="pgc-img">
+   <amp-img src="http://p1.pstatp.com/large/pgc-image/af1a9e35f7bf4635af374972b7b298c1" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="640" height="323" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/af1a9e35f7bf4635af374972b7b298c1" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="640" height="323" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>虛函數調用過程</p>
+<p>以下面的程序為例：</p>
+<div class="pgc-img">
+   <amp-img src="http://p3.pstatp.com/large/pgc-image/e23d229875d84c07a47990cfe936f6c6" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="502" height="220" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/e23d229875d84c07a47990cfe936f6c6" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="502" height="220" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2>4、C和C++內存分配問題</h2>
+<p>答：（1）C語言編程中的內存基本構成</p>
+<p>C的內存基本上分為4部分：靜態存儲區、堆區、棧區以及常量區。他們的功能不同，對他們使用方式也就不同。</p>
+<p>1.棧 ——由編譯器自動分配釋放；</p>
+<p>2.堆 ——一般由程序員分配釋放，若程序員不釋放，程序結束時可能由OS回收；</p>
+<p>3.全局區（靜態區）——全局變數和靜態變數的存儲是放在一塊的，初始化的全局變數和靜態變數在一塊區域，未初始化的全局變數</p>
+<p>和未初始化的靜態變數在相鄰的另一塊區域（C++中已經不再這樣劃分），程序結束釋放；</p>
+<p>4.另外還有一個專門放常量的地方，程序結束釋放；</p>
+<p>(a)函數體中定義的變數通常是在棧上；</p>
+<p>(b)用malloc, calloc, realloc等分配內存的函數分配得到的就是在堆上；</p>
+<p>(c)在所有函數體外定義的是全局量；</p>
+<p>(d)加了static修飾符後不管在哪裡都存放在全局區（靜態區）；</p>
+<p>(e)在所有函數體外定義的static變數表示在該文件中有效，不能extern到別的文件用；</p>
+<p>(f)在函數體內定義的static表示只在該函數體內有效；</p>
+<p>(g)另外，函數中的”adgfdf”這樣的字元串存放在常量區。</p>
+<p>（2）C++編程中的內存基本構造</p>
+<p>在C++中內存分成5個區，分別是堆、棧、全局/靜態存儲區、常量存儲區和代碼區；</p>
+<p>1、棧，就是那些由編譯器在需要的時候分配，在不需要的時候自動清楚的變數的存儲區，裡面的變數通常是局部變數、函數參數等。</p>
+<p>2、堆，就是那些由new分配的內存塊，他們的釋放編譯器不去管，由我們的應用程序去控制，一般一個new就要對應一個delete。如</p>
+<p>果程序員沒有釋放掉，那麼在程序結束後，操作系統會自動回收。</p>
+<p>3、全局/靜態存儲區，全局變數和靜態變數被分配到同一塊內存中，在以前的C語言中，全局變數又分為初始化的和未初始化的，在</p>
+<p>C++裡面沒有這個區分了，他們共同佔用同一塊內存區。</p>
+<p>4、常量存儲區，這是一塊比較特殊的存儲區，他們裡面存放的是常量，不允許修改（當然，你要通過非正當手段也可以修改）。</p>
+<p>5、代碼區 （.text段），存放代碼（如函數），不允許修改（類似常量存儲區），但可以執行（不同於常量存儲區）。</p>
+<p>內存模型組成部分：自由存儲區，動態區、靜態區；</p>
+<p>根據c/c++對象生命周期不同，c/c++的內存模型有三種不同的內存區域，即：自由存儲區，動態區、靜態區。</p>
+<p>自由存儲區：局部非靜態變數的存儲區域，即平常所說的棧；</p>
+<p>動態區： 用new ，malloc分配的內存，即平常所說的堆；</p>
+<p>靜態區：全局變數，靜態變數，字元串常量存在的位置；</p>
+<p>註：代碼雖然占內存，但不屬於c/c++內存模型的一部分；</p>
+<p>一個正在運行著的C編譯程序佔用的內存分為5個部分：代碼區、初始化數據區、未初始化數據區、堆區 和棧區；</p>
+<p>（1）代碼區（text segment）：代碼區指令根據程序設計流程依次執行，對於順序指令，則只會執行一次（每個進程），如果反覆，則需要使用跳轉指令，如果進行遞歸，則需要藉助棧來實現。注意：代碼區的指令中包括操作碼和要操作的對象（或對象地址引用）。如果是立即數（即具體的數值，如5），將直接包含在代碼中；</p>
+<p>（2）全局初始化數據區/靜態數據區（Data Segment）：只初始化一次。</p>
+<p>（3）未初始化數據區（BSS）：在運行時改變其值。</p>
+<p>（4）棧區（stack）：由編譯器自動分配釋放，存放函數的參數值、局部變數的值等，其操作方式類似於數據結構中的棧。</p>
+<p>（5）堆區（heap）：用於動態內存分配。</p>
+<p>為什麼分成這麼多個區域？</p>
+<p>主要基於以下考慮：</p>
+<p>#代碼是根據流程依次執行的，一般只需要訪問一次，而數據一般都需要訪問多次，因此單獨開闢空間以方便訪問和節約空間。</p>
+<p>#未初始化數據區在運行時放入棧區中，生命周期短。</p>
+<p>#全局數據和靜態數據有可能在整個程序執行過程中都需要訪問，因此單獨存儲管理。</p>
+<p>#堆區由用戶自由分配，以便管理。</p>
+<p>更多內容見：http://www.cnblogs.com/Stultz-Lee/p/6751522.html</p>
+<h2>5、協程</h2>
+<p>答：定義：協程是一種用戶態的輕量級線程。</p>
+<p>協程擁有自己的寄存器上下文和棧。協程調度切換時，將寄存器上下文和棧保存到其他地方，在切回來的時候，恢復先前保存的寄存器上下文和棧。因此：協程能保留上一次調用時的狀態（即所有局部狀態的一個特定組合），每次過程重入時，就相當於進入上一次調用的狀態，換種說法：進入上一次離開時所處邏輯流的位置；</p>
+<p>線程是搶佔式，而協程是協作式；</p>
+<p>協程的優點：</p>
+<p>跨平台</p>
+<p>跨體系架構</p>
+<p>無需線程上下文切換的開銷</p>
+<p>無需原子操作鎖定及同步的開銷</p>
+<p>方便切換控制流，簡化編程模型</p>
+<p>高並發+高擴展性+低成本：一個CPU支持上萬的協程都不是問題。所以很適合用於高並發處理。</p>
+<p>協程的缺點：</p>
+<p>無法利用多核資源：協程的本質是個單線程,它不能同時將 單個CPU 的多個核用上,協程需要和進程配合才能運行在多CPU；</p>
+<p>進行阻塞（Blocking）操作（如IO時）會阻塞掉整個程序：這一點和事件驅動一樣，可以使用非同步IO操作來解決。</p>
+<h2>6、CGI的了解</h2>
+<p>答：CGI：通用網關介面（Common Gateway Interface）是一個Web伺服器主機提供信息服務的標準介面。通過CGI介面，Web服務</p>
+<p>器就能夠獲取客戶端提交的信息，轉交給伺服器端的CGI程序進行處理，最後返回結果給客戶端。</p>
+<p>CGI通信系統的組成是兩部分：一部分是html頁面，就是在用戶端瀏覽器上顯示的頁面。另一部分則是運行在伺服器上的Cgi程序。</p>
+<h2>7、進程間通信方式和線程間通信方式</h2>
+<p>答：（1）進程間通信方式：</p>
+<p># 管道( pipe )：管道是一種半雙工的通信方式，數據只能單向流動，而且只能在具有親緣關係的進程間使用。進程的親緣關係通常是指父子進程關係。</p>
+<p># 信號量( semophore ) ： 信號量是一個計數器，可以用來控制多個進程對共享資源的訪問。它常作為一種鎖機制，防止某進程正在訪問共享資源時，其他進程也訪問該資源。因此，主要作為進程間以及同一進程內不同線程之間的同步手段。</p>
+<p># 消息隊列( message queue ) ： 消息隊列是由消息的鏈表，存放在內核中並由消息隊列標識符標識。消息隊列克服了信號傳遞信息少、管道只能承載無格式位元組流以及緩衝區大小受限等缺點。</p>
+<p># 共享內存( shared memory ) ：共享內存就是映射一段能被其他進程所訪問的內存，這段共享內存由一個進程創建，但多個進程都可以訪問。共享內存是最快的 IPC 方式，它是針對其他進程間通信方式運行效率低而專門設計的。它往往與其他通信機制，如信號兩，配合使用，來實現進程間的同步和通信。</p>
+<p># 套接字( socket ) ： 套解口也是一種進程間通信機制，與其他通信機制不同的是，它可用於不同及其間的進程通信。</p>
+<p>（2）線程間通信方式：</p>
+<p>#全局變數；</p>
+<p>#Messages消息機制；</p>
+<p>#CEvent對象（MFC中的一種線程通信對象，通過其觸髮狀態的改變實現同步與通信）。</p>
+<h2>8、TCP握手與釋放</h2>
+<p>答：（1）握手</p>
+<p>#第一次握手：主機A發送握手信號syn＝1和seq=x（隨機產生的序列號）的數據包到伺服器，主機B由SYN=1知道，A要求建立聯機；</p>
+<p>#第二次握手：主機B收到請求後要確認聯機信息，向A發送syn=1，ack=x（x是主機A的Seq）+1，以及隨機產生的確認端序列號</p>
+<p>seq=y的包；</p>
+<p>#第三次握手：主機A收到後檢查ack是否正確（ack=x+1），即第一次發送的seq+1，若正確，主機A會再發送ack=y+1，以及隨機序</p>
+<p>列號seq=z，主機B收到後確認ack值則連接建立成功；</p>
+<p>#完成三次握手，主機A與主機B開始傳送數據。</p>
+<p>註：上述步驟中，第二和第三次確認包中都還包含一個標誌位未予以說明，該標誌位為1表示正常應答；</p>
+<p>具體可見圖片：</p>
+<div class="pgc-img">
+   <amp-img src="http://p1.pstatp.com/large/pgc-image/4ae4acf33034423ba2fa12006486ec2f" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="579" height="438" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/4ae4acf33034423ba2fa12006486ec2f" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="579" height="438" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>為什麼需要「三次握手」？</p>
+<p>「三次握手」的目的是「為了防止已失效的連接請求報文段突然又傳送到了服務端，因而產生錯誤」。具體例如：client發出的第一個連接請求報文段並沒有丟失，而是在某個網路結點長時間的滯留了，以致延誤到連接釋放以後的某個時間才到達server。本來這是一個早已失效的報文段。但server收到此失效的連接請求報文段後，就誤認為是client再次發出的一個新的連接請求。於是就向client發出確認報文段，同意建立連接。假設不採用「三次握手」，那麼只要server發出確認，新的連接就建立了。由於現在client並沒有發出建立連接的請求，因此不會理睬server的確認，也不會向server發送數據。但server卻以為新的運輸連接已經建立，並一直等待client發來數據。這樣，server的很多資源就白白浪費掉了。採用「三次握手」的辦法可以防止上述現象發生。例如剛才那種情況，client不會向server的確認發出確認。server由於收不到確認，就知道client並沒有要求建立連接。主要目的防止server端一直等待，浪費資源。</p>
+<p>（2）揮手</p>
+<p>由於TCP連接是全雙工的，因此每個方向都必須單獨進行關閉。這原則是當一方完成它的數據發送任務後就能發送一個FIN來終止這個方向的連接。收到一個 FIN只意味著這一方向上沒有數據流動，一個TCP連接在收到一個FIN後仍能發送數據。首先進行關閉的一方將執行主動關閉，而另一方執行被動關閉。</p>
+<p>(1) TCP客戶端發送一個FIN，用來關閉客戶到伺服器的數據傳送(報文段4)；</p>
+<p>(2) 伺服器收到這個FIN，發回一個ACK，確認序號為收到的序號加1(報文段5)。和SYN一樣，一個FIN將佔用一個序號；</p>
+<p>(3) 伺服器關閉客戶端的連接後，再發送一個FIN給客戶端(報文段6)；</p>
+<p>(4) 客戶段收到服務端的FIN後，發回ACK報文確認，並將確認序號設置為收到序號加1(報文段7)；</p>
+<p>注意：TCP連接的任何一方都可以發起揮手操作，上述步驟只是兩種之一；</p>
+<p>具體過程見圖：</p>
+<div class="pgc-img">
+   <amp-img src="http://p1.pstatp.com/large/pgc-image/b84176cf57ef44db8d3d5eeee388ef08" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="496" height="383" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/b84176cf57ef44db8d3d5eeee388ef08" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="496" height="383" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>為什麼是「四次揮手」？</p>
+<p>因為當收到對方的FIN報文通知時，它僅僅表示對方沒有數據發送給你了；但未必你所有的數據都全部發送給對方了，所以你可能還需要發送一些數據給對方，再發送FIN報文給對方來表示你同意現在可以關閉連接了，故這裡的ACK報文和FIN報文多數情況下都是分開發送的，也就造成了4次揮手。</p>
+<p>握手，揮手過程中各狀態介紹：</p>
+<p>（1）3次握手過程狀態：</p>
+<p>#LISTEN: 這個也是非常容易理解的一個狀態，表示伺服器端的某個SOCKET處於監聽狀態，可以接受連接了。</p>
+<p>#SYN_SENT: 當客戶端SOCKET執行CONNECT連接時，它首先發送SYN報文，因此也隨即它會進入到了SYN_SENT狀態，並等待服務端的發送三次握手中的第2個報文。SYN_SENT狀態表示客戶端已發送SYN報文。(發送端)</p>
+<p>#SYN_RCVD: 這個狀態與SYN_SENT遙想呼應這個狀態表示接受到了SYN報文，在正常情況下，這個狀態是伺服器端的SOCKET在建立TCP連接時的三次握手會話過程中的一個中間狀態，很短暫，基本上用netstat你是很難看到這種狀態的，除非你特意寫了一個客戶端測試程序，故意將三次TCP握手過程中最後一個ACK報文不予發送。因此這種狀態時，當收到客戶端的ACK報文後，它會進入到ESTABLISHED狀態。(伺服器端)</p>
+<p>#ESTABLISHED：這個容易理解了，表示連接已經建立了。</p>
+<p>（2）4次揮手過程狀態：</p>
+<p>#FIN_WAIT_1: 這個狀態要好好解釋一下，其實FIN_WAIT_1和FIN_WAIT_2狀態的真正含義都是表示等待對方的FIN報文。而這兩種狀態的區別是：FIN_WAIT_1狀態實際上是當SOCKET在ESTABLISHED狀態時，它想主動關閉連接，向對方發送了FIN報文，此時該SOCKET即進入到FIN_WAIT_1狀態。而當對方回應ACK報文後，則進入到FIN_WAIT_2狀態，當然在實際的正常情況下，無論對方何種情況下，都應該馬上回應ACK報文，所以FIN_WAIT_1狀態一般是比較難見到的，而FIN_WAIT_2狀態還有時常常可以用netstat看到。(主動方)</p>
+<p>#FIN_WAIT_2：上面已經詳細解釋了這種狀態，實際上FIN_WAIT_2狀態下的SOCKET，表示半連接，也即有一方要求close連接，但另外還告訴對方，我暫時還有點數據需要傳送給你(ACK信息)，稍後再關閉連接。(主動方)</p>
+<p>#TIME_WAIT: 表示收到了對方的FIN報文，並發送出了ACK報文，就等2MSL後即可回到CLOSED可用狀態了。如果FIN_WAIT_1狀態下，收到了對方同時帶FIN標誌和ACK標誌的報文時，可以直接進入到TIME_WAIT狀態，而無須經過FIN_WAIT_2狀態。(主動方)</p>
+<p>#CLOSING(比較少見): 這種狀態比較特殊，實際情況中應該是很少見，屬於一種比較罕見的例外狀態。正常情況下，當你發送FIN報文後，按理來說是應該先收到(或同時收到)對方的ACK報文，再收到對方的FIN報文。但是CLOSING狀態表示你發送FIN報文後，並沒有收到對方的ACK報文，反而卻也收到了對方的FIN報文。什麼情況下會出現此種情況呢?其實細想一下，也不難得出結論：那就是如果雙方几乎在同時close一個SOCKET的話，那麼就出現了雙方同時發送FIN報文的情況，也即會出現CLOSING狀態，表示雙方都正在關閉SOCKET連接。</p>
+<p>#CLOSE_WAIT: 這種狀態的含義其實是表示在等待關閉。怎麼理解呢?當對方close一個SOCKET後發送FIN報文給自己，你系統毫無疑問地會回應一個ACK報文給對方，此時則進入到CLOSE_WAIT狀態。接下來呢，實際上你真正需要考慮的事情是察看你是否還有數據發送給對方，如果沒有的話，那麼你也就可以close這個SOCKET，發送FIN報文給對方，也即關閉連接。所以你在CLOSE_WAIT狀態下，需要完成的事情是等待你去關閉連接。(被動方)</p>
+<p>#LAST_ACK: 這個狀態還是比較容易好理解的，它是被動關閉一方在發送FIN報文後，最後等待對方的ACK報文。當收到ACK報文後，也即可以進入到CLOSED可用狀態了。(被動方)</p>
+<h2>9、http和https的區別？</h2>
+<p>答：HTTPS協議是由SSL+HTTP協議構建的可進行加密傳輸、身份認證的網路協議，要比http協議安全。</p>
+<p>HTTPS（Secure Hypertext Transfer Protocol）安全超文本傳輸協議，與http主要區別在於：</p>
+<p>#http是超文本傳輸協議，信息是明文傳輸，https 則是具有安全性的ssl加密傳輸協議；</p>
+<p>#http和https使用的是完全不同的連接方式用的埠也不一樣,前者是80,後者是443；</p>
+<p>下面具體介紹一下HTTP和HTTPS協議：</p>
+<p>首先說明一下：HTTP和HTTPS協議是應用層協議；</p>
+<div class="pgc-img">
+   <amp-img src="http://p9.pstatp.com/large/pgc-image/600083c12a1c469ea4a6237d9685e802" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="402" height="306" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/600083c12a1c469ea4a6237d9685e802" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="402" height="306" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>上圖充分表明：HTTP是應用層協議，並且HTTPS是在HTTP協議基礎上添加SSL等加密策略後的協議；</p>
+<p>TLS/SSL中使用了非對稱加密，對稱加密以及HASH演算法。</p>
+<p>（1）Http協議</p>
+<p>1）HTTP協議和TCP協議之間的區別聯繫</p>
+<p>①TPC/IP協議是傳輸層協議，主要解決數據如何在網路中傳輸，而HTTP是應用層協議，主要解決如何包裝數據；</p>
+<p>②HTTP的默認埠號是80，TCP/IP協議通信編程時埠號需要自己指定（例如socket編程）；</p>
+<p>③HTTP協議是在TCP/IP協議基礎上實現的，即HTTP數據包是經過TCP/IP協議實現傳輸的；</p>
+<p>④HTTP是無狀態的短連接協議，TCP是有狀態的長連接協議；</p>
+<p>HTTP是在有狀態長連接TCP/IP協議的基礎上實現的，為什麼卻是無狀態短連接協議？</p>
+<p>答：因為HTTP協議每次請求結束就會自動關閉連接，這樣就變成了短連接；</p>
+<p>短連接又導致了該次請求相關信息的丟失，也就造成了HTTP協議對於前期事務處理沒有記憶能力，故為無狀態協議。</p>
+<p>2）HTTP協議其完整的工作過程可分為四步：</p>
+<p>①連接：首先客戶機與伺服器需要建立連接（由TCP/IP握手連接實現）。只要單擊某個超級鏈接，HTTP的工作開始；</p>
+<p>②請求：建立連接後，客戶機發送一個請求給伺服器，請求方式的格式為：統一資源標識符（URL）、協議版本號，後邊是MIME信息包括請求修飾符、客戶機信息和可能的內容；</p>
+<p>③應答：伺服器接到請求後，給予相應的響應信息，其格式為一個狀態行，包括信息的協議版本號、一個成功或錯誤的代碼，後邊是MIME信息包括伺服器信息、實體信息和可能的內容。客戶端接收伺服器所返回的信息通過瀏覽器顯示在用戶的顯示屏上；</p>
+<p>④關閉：當應答結束後，瀏覽器和伺服器關閉連接，以保證其他瀏覽器可以與伺服器進行連接。</p>
+<p>更完整的過程可能如下：</p>
+<p>域名解析 –&gt; 發起TCP的3次握手 –&gt; 建立TCP連接後發起http請求 –&gt; 伺服器響應http請求，瀏覽器得到html代碼 –&gt; 瀏覽器解析html代碼，並請求html代碼中的資源（如js、css、圖片等） –&gt; 瀏覽器對頁面進行渲染呈現給用戶。</p>
+<p> 如果在以上過程中的某一步出現錯誤，那麼產生錯誤的信息將返回到客戶端，有顯示屏輸出。對於用戶來說，這些過程是由HTTP自己完成的，用戶只要用滑鼠點擊，等待信息顯示就可以了。</p>
+<p>（2）Https協議</p>
+<p>HTTPS握手過程包括五步：</p>
+<p>1）瀏覽器請求連接；</p>
+<p>2）伺服器返回證書：證書裡面包含了網站地址，加密公鑰，以及證書的頒發機構等信息。</p>
+<p>3）瀏覽器收到證書後作以下工作：</p>
+<p> a) 驗證證書的合法性；</p>
+<p> b) 生成隨機（對稱）密碼，取出證書中提供的公鑰對隨機密碼加密；</p>
+<p> c) 將之前生成的加密隨機密碼等信息發送給網站；</p>
+<p>4）伺服器收到消息後作以下的操作：</p>
+<p> a) 使用自己的私鑰解密瀏覽器用公鑰加密後的消息，並驗證HASH是否與瀏覽器發來的一致；</p>
+<p> b) 使用加密的隨機對稱密碼加密一段消息，發送給瀏覽器；</p>
+<p>5）瀏覽器解密並計算握手消息的HASH：如果與服務端發來的HASH一致，此時握手過程結束，之後所有的通信數據將由之前瀏覽</p>
+<p>器生成的隨機密碼並利用對稱加密演算法進行加密。</p>
+<p>注意：伺服器有兩個密鑰，一個公鑰、一個私鑰，只有私鑰才可以解密公鑰加密的消息；</p>
+<p>如圖：</p>
+<div class="pgc-img">
+   <amp-img src="http://p3.pstatp.com/large/pgc-image/d0b0188a8dec49748c5339c237a60f09" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="426" height="462" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/d0b0188a8dec49748c5339c237a60f09" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="426" height="462" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>或者如下圖：</p>
+<div class="pgc-img">
+   <amp-img src="http://p9.pstatp.com/large/pgc-image/7b04e5bb1c4d468f89a23919ab21810d" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="640" height="396" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/7b04e5bb1c4d468f89a23919ab21810d" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="640" height="396" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>HTTPS協議、SSL、和數字證書的關係介紹：</p>
+<p>概述：對於HTTPS協議，所有的消息都是經過SSL協議方式加密，而支持加密的文件正是數字證書；</p>
+<p>（1）SSL</p>
+<p>SSL常用的加密演算法：對稱密碼演算法、非對稱密碼演算法、散列演算法；</p>
+<p>SSL的加密過程：需要注意的是非對稱加解密演算法的效率要比對稱加解密要低的多。所以SSL在握手過程中使用非對稱密碼演算法來</p>
+<p>協商密鑰，實際使用對稱加解密的方法對http內容加密傳輸；</p>
+<p>（2）數字證書</p>
+<p>數字證書是用於在INTERNET上標識個人或者機構身份的一種技術手段，它通過由一些公認的權威機構所認證，從而可以保證其</p>
+<p>安全地被應用在各種場合。證書裡面包含了網站地址，加密公鑰，以及證書的頒發機構等信息。</p>
+<h2>10、虛擬內存的概念與介紹</h2>
+<p>答：虛擬內存中，允許將一個作業分多次調入內存，需要時就調入，不需要的就先放在外存。因此，虛擬內存的實需要建立在離散</p>
+<p>分配的內存管理方式的基礎上。虛擬內存的實現有以下三種方式：</p>
+<p>#請求分頁存儲管理</p>
+<p>#請求分段存儲管理</p>
+<p>#請求段頁式存儲管理</p>
+<p>虛擬內存的意義：</p>
+<p>一，虛擬內存可以使得物理內存更加高效。虛擬內存使用置換方式，需要的頁就置換進來，不需要的置換出去，使得內存中只保存了需要的頁，提高了利用率，也避免了不必要的寫入與擦除；</p>
+<p>二，使用虛擬地址可以使內存的管理更加便捷。在程序編譯的時候就會生成虛擬地址，該虛擬地址並不是對應一個物理地址，使得也就極大地減少了地址被佔用的衝突，減少管理難度；</p>
+<p>三，為了安全性的考慮。在使用虛擬地址的時候，暴露給程序員永遠都是虛擬地址，而具體的物理地址在哪裡，這個只有系統才了解。這樣就提</p>
+<p>高了系統的封裝性。</p>
+<h2>11、單鏈表的反轉演算法</h2>
+<p>答：思想：創建3個指針，分別指向上一個節點、當前節點、下一個節點，遍歷整個鏈表的同時，將正在訪問的節點指向上一個節點，當遍歷結束後，就同時完成了鏈表的反轉。</p>
+<p>實現代碼：</p>
+<blockquote>
+<p> ListNode* ReverseList(ListNode* pHead) {</p>
+<p> ListNode *p,*q,*r;</p>
+<p> if(pHead==NULL || pHead-&gt;next==NULL){</p>
+<p> return pHead;</p>
+<p> }else{</p>
+<p> p=pHead;</p>
+<p> q=p-&gt;next;</p>
+<p> pHead-&gt;next=NULL;</p>
+<p> while(q!=NULL){</p>
+<p> r=q-&gt;next;</p>
+<p> q-&gt;next=p;</p>
+<p> p=q;</p>
+<p> q=r;</p>
+<p> }</p>
+<p> return p;</p>
+<p> }</p>
+<p> }</p>
+</blockquote>
+<h2>12、紅黑樹以及其查找複雜度</h2>
+<p>答：（1）紅黑樹來源於二叉搜索樹，其在關聯容器如map中應用廣泛，主要優勢在於其查找、刪除、插入時間複雜度小，但其也有缺點，就是容易偏向一邊而變成一個鏈表。</p>
+<p>紅黑樹是一種二叉查找樹，但在每個結點上增加一個存儲位表示結點的顏色，可以是Red或Black。也就是說，紅黑樹是在二叉</p>
+<p>查找樹基礎上進一步實現的；</p>
+<p>紅黑樹的五個性質：</p>
+<p>性質1. 節點是紅色或黑色；</p>
+<p>性質2. 根節點是黑色；</p>
+<p>性質3 每個葉節點（指樹的末端的NIL指針節點或者空節點）是黑色的；</p>
+<p>性質4 每個紅色節點的兩個子節點都是黑色。(從每個葉子到根的所有路徑上不能有兩個連續的紅色節點)；</p>
+<p>性質5. 從任一節點到其每個尾端NIL節點或者NULL節點的所有路徑都包含相同數目的黑色節點。</p>
+<p>（註：上述第3、5點性質中所說的NIL或者NULL結點，並不包含數據，只充當樹的路徑結束的標誌，即此葉結點非常見的葉子結點）。</p>
+<div class="pgc-img">
+   <amp-img src="http://p1.pstatp.com/large/pgc-image/7b7b5f2624c943628357f57715a20c4d" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="640" height="308" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/7b7b5f2624c943628357f57715a20c4d" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="640" height="308" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>因為一棵由n個結點隨機構造的二叉查找樹的高度為lgn，所以順理成章，二叉查找樹的一般操作的執行時間為O(lgn)。但二叉查</p>
+<p>找樹若退化成了一棵具有n個結點的線性鏈後，則這些操作最壞情況運行時間為O(n)；</p>
+<p>紅黑樹雖然本質上是一棵二叉查找樹，但它在二叉查找樹的基礎上增加以上五個性質使得紅黑樹相對平衡，從而保證了</p>
+<p>紅黑樹的查找、插入、刪除的時間複雜度最壞為O(log n)。</p>
+<p>（2）左旋右旋</p>
+<p>紅黑樹插入或刪除後，一般就會改變紅黑樹的特性，要恢復紅黑樹上述5個性質，一般都要那就要做2方面的工作：</p>
+<p>1、部分結點顏色，重新著色</p>
+<p>2、調整部分指針的指向，即左旋、右旋。</p>
+<p>左選右旋如圖所示：</p>
+<div class="pgc-img">
+   <amp-img src="http://p1.pstatp.com/large/pgc-image/2ba76d409617490090fcc59e05a9b14a" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="402" height="122" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/2ba76d409617490090fcc59e05a9b14a" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="402" height="122" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>左旋，如圖所示（左-&gt;右），以x-&gt;y之間的鏈為「支軸」進行，使y成為該新子樹的根，x成為y的左孩子，而y的左孩子則成為x的右孩</p>
+<p>子。演算法很簡單，旋轉後各個結點從左往右，仍然都是從小到大。</p>
+<p>左旋代碼實現，分三步:</p>
+<p>（1） 開始變化，y的左孩子成為x的右孩子；</p>
+<p>（2） y成為x的父結點；</p>
+<p>（3） x成為y的左孩子；</p>
+<p>右旋類似，不再累述；</p>
+<h2>13、KPM字元串匹配</h2>
+<p>（1）KMP匹配演算法代碼實現：</p>
+<blockquote>
+<p>int KmpSearch(char* s, char* p) </p>
+<p>{ </p>
+<p> int i = 0; </p>
+<p> int j = 0; </p>
+<p> int sLen = strlen(s); </p>
+<p> int pLen = strlen(p); </p>
+<p> while (i &lt; sLen &amp;&amp; j &lt; pLen) </p>
+<p> { </p>
+<p> //①如果j = -1，或者當前字元匹配成功（即S[i] == P[j]），都令i++，j++ </p>
+<p> if (j == -1 || s[i] == p[j]) </p>
+<p> { </p>
+<p> i++; </p>
+<p> j++; </p>
+<p> } </p>
+<p> else </p>
+<p> { </p>
+<p> //②如果j != -1，且當前字元匹配失敗（即S[i] != P[j]），則令 i 不變，j = next[j] </p>
+<p> //next[j]即為j所對應的next值 </p>
+<p> j = next[j]; </p>
+<p> } </p>
+<p> } </p>
+<p> if (j == pLen) </p>
+<p> return i – j; </p>
+<p> else </p>
+<p> return -1; </p>
+<p>} </p>
+</blockquote>
+<p>（2）next數組求取</p>
+<p>上述（1）中最重要的就是：一旦不匹配，模式串不是向後移動一位，而是根據前面匹配信息移動多位。而這個多位獲得就是根據next數組，下面有next數組的求取方式：</p>
+<p>Next數組是根據模式串的前綴後綴獲取的，如下：</p>
+<p>①尋找前綴後綴最長公共元素長度</p>
+<p>舉個例子，如果給定的模式串為「abab」，那麼它的各個子串的前綴後綴的公共元素的最大長度如下表格所示：</p>
+<div class="pgc-img">
+   <amp-img src="http://p3.pstatp.com/large/pgc-image/713826ef5413435989b233e74ba923a1" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="567" height="91" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/713826ef5413435989b233e74ba923a1" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="567" height="91" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>比如對於字元串aba來說，它有長度為1的相同前綴後綴a；而對於字元串abab來說，它有長度為2的相同前綴後綴ab（相同前綴後綴的長度為k + 1，k + 1 = 2）。</p>
+<p>②求next數組</p>
+<p>next 數組考慮的是除當前字元外的最長相同前綴後綴，所以通過第①步驟求得各個前綴後綴的公共元素的最大長度後，只要稍作變形即可：將第①步驟中求得的數組整體右移一位，然後第一個元素賦為-1即可（注意：字元串下標需要從0開始），如下表格所示：</p>
+<div class="pgc-img">
+   <amp-img src="http://p9.pstatp.com/large/pgc-image/4b81fcd481194e7298869e4a0cd429fb" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="569" height="89" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/4b81fcd481194e7298869e4a0cd429fb" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="569" height="89" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>比如對於aba來說，第3個字元a之前的字元串ab中有長度為0的相同前綴後綴，所以第3個字元a對應的next值為0；而對於abab來說，第4個字元b之前的字元串aba中有長度為1的相同前綴後綴a，所以第4個字元b對應的next值為1（相同前綴後綴的長度為k，k = 1）。</p>
+<p>KMP的next 數組相當於告訴我們：當模式串中的某個字元跟文本串中的某個字元匹配失配時，模式串下一步應該跳到哪個位置（具體：保持測試串的下標i不變，使得匹配串的下標j=next[j]）。</p>
+<p>前綴後綴長度求取以及next數組獲取：</p>
+<p>如果給定的模式串是：「ABCDABD」，從左至右遍歷整個模式串，其各個子串的前綴後綴分別如下表格所示： </p>
+<div class="pgc-img">
+   <amp-img src="http://p1.pstatp.com/large/pgc-image/8de636283e02454dbd59051752e25411" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="640" height="266" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/8de636283e02454dbd59051752e25411" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="640" height="266" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>也就是說，原模式串子串對應的各個前綴後綴的公共元素的最大長度表為：</p>
+<p>0 0 0 0 1 2 0；</p>
+<p>故對應的next數組為：-1 0 0 0 0 1 2；</p>
+<p>（注意：這裡的字元串下標是從0開始的，若從1開始，next數組所有元素都對應要加1。）</p>
+<p>求取next的實現代碼：</p>
+<blockquote>
+<p>string T; //T為模式串</p>
+<p>cin&gt;&gt;T;</p>
+<p>int len=T.size();</p>
+<p>queue&lt;int&gt; MaxLen;</p>
+<p>vector&lt;int&gt; next;</p>
+<p>MaxLen.push(0); //第一個元素都設為0</p>
+<p>for(int i=1;i&lt;len;i++)</p>
+<p>{</p>
+<p>int k=1,maxLen=0;</p>
+<p>while(k&lt;=i)</p>
+<p>{</p>
+<p>if(T.substr(0,k)==T.substr(i-k+1,k))</p>
+<p>{</p>
+<p>maxLen=k;</p>
+<p>}</p>
+<p>k++;</p>
+<p>}</p>
+<p>MaxLen.push(maxLen);</p>
+<p>}</p>
+<p>cout&lt;&lt;endl;</p>
+<p>next.push_back(-1); //第一個元素都設為-1</p>
+<p>while(MaxLen.size()&gt;1)</p>
+<p>{</p>
+<p>int temp=MaxLen.front();</p>
+<p>next.push_back(temp);</p>
+<p>MaxLen.pop();</p>
+<p>cout&lt;&lt;temp&lt;&lt;‘ ‘;</p>
+<p>}</p>
+</blockquote>
+<h2>14、TCP超時等待、重傳以及流量控制</h2>
+<p>答：TCP等待時間需要設定，超過了就認為丟包，需要重傳；</p>
+<p>為了防止擁塞情況，一般會採用流量控制，其實現手段是用滑動窗口限制客戶端發送分組數量；</p>
+<h2>15、資料庫引擎</h2>
+<p>答：資料庫引擎是用於存儲、處理和保護數據的核心服務。利用資料庫引擎可控制訪問許可權並快速處理事務，從而滿足企業內大多</p>
+<p>數需要處理大量數據的應用程序的要求。</p>
+<p>簡言之，資料庫引擎就是一段用於支撐所有資料庫操作的核心程序，就如名稱一樣，是一個車的引擎功能；</p>
+<p>常見的資料庫引擎有：</p>
+<p>（1）Microsoft JET (Joint Engineering Technologe) 用於Access和VB的內嵌資料庫功能的核心元素；</p>
+<p>（2）ODBC（Open DataBase Connectivity，開放資料庫互連）是由Microsoft定義的一種資料庫訪問標準，它提供一種標準的數據</p>
+<p>庫訪問方法以訪問不同平台的資料庫。一個ODBC應用程序既可以訪問在本地PC機上的資料庫，也可以訪問多種異構平台上的數據</p>
+<p>庫，例如SQL Server、Oracle或者DB2；</p>
+<p>（3）OLE DB是Microsoft開發的最新資料庫訪問介面，Microsoft將其定義為ODBC接班人；</p>
+<p>（4）MYSQL支持三個引擎：ISAM、MYISAM和HEAP。另外兩種類型INNODB和BERKLEY（BDB）也常常可以使用；</p>
+<p>①ISAM執行讀取操作的速度很快，而且不佔用大量的內存和存儲資源。ISAM的兩個主要不足之處在於，它不 支持事務處理，也不能夠容錯；</p>
+<p>②MyISAM是MySQL的ISAM擴展格式和預設的資料庫引擎MYISAM。除了提供ISAM里所沒有的索引和欄位管理的大量功能，</p>
+<p>MyISAM還使用一種表格鎖定的機制，來優化多個並發的讀寫操作，其代價是你需要經常運行OPTIMIZE TABLE命令，來恢復被更新</p>
+<p>機制所浪費的空間；</p>
+<p>③HEAP允許只駐留在內存里的臨時表格。駐留在內存里讓HEAP要比ISAM和MYISAM都快，但是它所管理的數據是不穩定的，</p>
+<p>而且如果在關機之前沒有進行保存，那麼所有的數據都會丟失。</p>
+<p><strong>16、資料庫索引</strong></p>
+<p>答：定義：資料庫索引是對資料庫表中一列或多列的值進行排序的一種結構，使用索引可快速訪問資料庫表中的特定信息；</p>
+<p>舉例：employee 表的人員編號列（id）就是資料庫索引，select * from employee where id=10000即可查找編號10000的人員信息。如果沒有索引，必須遍歷整個表直到id=10000；</p>
+<p>資料庫索引作用：</p>
+<p>一，大大加快 數據的檢索速度，這也是創建索引的最主要的原因；</p>
+<p>二，保證資料庫表中每一行數據的唯一性；</p>
+<p>三，可以加速表和表之間的連接，特別是在實現數據的參考完整性方面特別有意義； </p>
+<p>四，在使用分組和排序子句進行數據檢索時，同樣可以顯著減少查詢中分組和排序的時間； </p>
+<p>五，通過使用索引，可以在查詢的過程中，使用優化隱藏器，提高系統的性能。</p>
+<p>資料庫索引缺陷：</p>
+<p>一，表的增刪改查、創建索引和維護索引要耗費時間；</p>
+<p>二，索引需要佔物理空間；</p>
+<p>資料庫索引的兩個特徵：索引有兩個特徵，即唯一性索引和複合索引；</p>
+<p>①唯一 性索引保證在索引列中的全部數據是唯一的，不會包含冗餘數據；</p>
+<p>②複合索引就是一個索引創建在兩個列或者多個列上，搜索時需要兩個或者多個索引列作為一個關鍵值；</p>
+<p>資料庫索引好比是一本書前面的目錄，索引分為聚簇索引和非聚簇索引兩類：</p>
+<p>1）聚簇索引是按照數據存放的物理位置為順序的，其多個連續行的訪問速度更快；</p>
+<p>2）非聚簇索引是按照數據存放的邏輯位置為順序的，其單行訪問速度更快；</p>
+<p>局部性原理與磁碟預讀</p>
+<p>局部性原理：當一個數據被用到時，其附近的數據也通常會馬上被使用。程序運行期間所需要的數據通常比較集中；</p>
+<p>磁碟預讀：正是由於局部性原理以及數據存儲磁碟的讀寫速度慢的原因，每次對資料庫進行讀取都不是按需讀取，而是讀取多</p>
+<p>於需求數據區域內的數據到內存，用於後續使用，提高寫讀取數據速度；</p>
+<p>註：磁碟預讀一般都是每次讀取邏輯上的一頁，或物理上的一塊，不管實際需求是多少；</p>
+<p>資料庫索引的實現通常使用B樹及其變種B+樹，下面進行B-/+Tree結構的資料庫索引的性能分析：</p>
+<p>（1）B樹索引結構：</p>
+<p>資料庫系統的設計者巧妙利用了磁碟預讀原理，將B樹的一個節點的大小設為等於一個頁，這樣每個節點只需要一次I/O就可以</p>
+<p>完全載入。為了達到這個目的，在實際實現B-Tree還需要使用如下技巧：</p>
+<p>——每次新建節點時，直接申請一個頁的空間，這樣就保證一個節點物理上也存儲在一個頁；</p>
+<p>B-Tree中一次檢索最多需要h-1次I/O（磁碟IO不包括根節點，因為根節點常駐內存），漸進複雜度為O(h)=O(logdN)。一</p>
+<p>般實際應用中，出度d是非常大的數字，通常超過100，因此h非常小（通常不超過3）。</p>
+<p>而紅黑樹這種結構，h明顯要深的多。由於邏輯上很近的節點（父子）物理上可能很遠，無法利用局部性，所以紅黑樹的I/O漸進</p>
+<p>複雜度也為O(h)，效率明顯比B-Tree差很多。</p>
+<p>所以，B樹結構的資料庫索引，在元素查找上效率很高；</p>
+<p>（2）B+樹的索引結構：</p>
+<p>B+樹則適當犧牲檢索的時間複雜度（都必須檢索到葉子結點），但改善了節點插入和刪除的時間複雜度（類似用鏈表改善數組的效</p>
+<p>果），所以B+樹屬於一種折中選擇。</p>
+<h2>還有騰訊，阿里，京東等一線大廠面試題及答案整理，因篇幅有限，需要集錦的朋友可以後台私信我【面試】免費獲取。</h2>
+<div class="pgc-img">
+   <amp-img src="http://p3.pstatp.com/large/pgc-image/b990b3795aa344dd843c329ea3018e78" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="640" height="388" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/b990b3795aa344dd843c329ea3018e78" alt="《騰訊研發類筆試面試試題及答案（C++方向）》" width="640" height="388" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+</div>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/9909#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.366 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:07:40 -->
+
+<!-- super cache -->

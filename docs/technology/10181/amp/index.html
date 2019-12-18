@@ -1,0 +1,683 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/10181#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/06f8a47b8b10429b85c13ef18e381d37"},{"@type":"WebPage","@id":"https://daynews.cc/technology/10181#webpage","url":"https://daynews.cc/technology/10181","inLanguage":"zh-TW","name":"\u6559\u4f60\u7528Python\u5be6\u73fe\u514d\u8cbb\u8e6dWiFi\uff0c\u53ea\u8981\u6709WiFi\u7684\u5730\u65b9\uff0c\u4f60\u5c31\u4e0d\u6703\u65b7\u7db2 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/10181#primaryimage"},"datePublished":"2019-12-06T11:50:07+00:00","dateModified":"2019-12-06T11:50:07+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="想像一下，程序員沒有WIFI會怎樣？ 程序員沒有網路肯定會寸步難行！ 但是對於Python程序員來說，只要附近有熱點，分分鐘就能蹭網成功！ 想要WIFI破解，python+字典，這是必少不了的。熱點加弱口令也是核心。字典自己加精，你的字典有強大，你能破解的WIFI就越多，提供兩種方法，一般人學到一種即可。 方法一 1.環境準備 pytho……" />
+<meta name="twitter:title" content="教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/06f8a47b8b10429b85c13ef18e381d37" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網 - 天天要聞" />
+<meta property="og:description" content="想像一下，程序員沒有WIFI會怎樣？ 程序員沒有網路肯定會寸步難行！ 但是對於Python程序員來說，只要附近有熱點，分分鐘就能蹭網成功！ 想要WIFI破解，python+字典，這是必少不了的。熱點加弱口令也是核心。字典自己加精，你的字典有強大，你能破解的WIFI就越多，提供兩種方法，一般人學到一種即可。 方法一 1.環境準備 pytho……" />
+<meta property="og:url" content="https://daynews.cc/technology/10181" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-06T11:50:07+00:00" />
+	<title>教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/10181" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-06T19:50:07+00:00">
+		2 週 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<p>想像一下，程序員沒有WIFI會怎樣？</p>
+<p>程序員沒有網路肯定會寸步難行！</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/06f8a47b8b10429b85c13ef18e381d37" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="418" height="281" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/06f8a47b8b10429b85c13ef18e381d37" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="418" height="281" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>但是對於Python程序員來說，只要附近有熱點，分分鐘就能蹭網成功！</p>
+<p>想要WIFI破解，python+字典，這是必少不了的。熱點加弱口令也是核心。字典自己加精，你的字典有強大，你能破解的WIFI就越多，提供兩種方法，一般人學到一種即可。 </p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/43dc757632f2412f8f966fc77ba8d686" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="254" height="167" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/43dc757632f2412f8f966fc77ba8d686" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="254" height="167" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>方法一</p>
+<p>1.環境準備</p>
+<ul class="">
+<li>python2.7</li>
+<li>pywifi模塊</li>
+<li>字典</li>
+<li>清除系統中的任何wifi連接記錄</li>
+</ul>
+<p>2.導入模塊</p>
+<p>這裡用的模塊就這三個 pywifi的_wifiutil_linux.py腳本的 _send_cmd_to_wpas方法中的if reply != b’OK ‘:判斷需要修改，不然會有很多的提示信息。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/64594b43847f4d8a861a429360f35932" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="231" height="56" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/64594b43847f4d8a861a429360f35932" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="231" height="56" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>3.字典準備</p>
+<p>隨機搞的wifi弱口令TOP10</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/86db3eb8c96f4be994fbc80131407348" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="225" height="279" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/86db3eb8c96f4be994fbc80131407348" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="225" height="279" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>4.配置掃描器</p>
+<p>推薦掃描時常可以設置在15-20秒之間 測試時常則可以自定義，考慮到認證速度於距離的關係，我一般設置在15左右，再久的也沒意義 到時候就算破解成功的熱點，信號也好不到哪裡。</p>
+<p>5.掃描周圍熱點</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/081f100dfe3b4b3f9445bb9fbd8fa9ab" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="312" height="102" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/081f100dfe3b4b3f9445bb9fbd8fa9ab" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="312" height="102" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>6.熱點測試</p>
+<p>這裡後續推薦將掃描過程數據入庫，防止重複掃描，且更加直觀。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/81436664ff8b4b83a4bebc76e4c74b37" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="420" height="274" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/81436664ff8b4b83a4bebc76e4c74b37" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="420" height="274" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>7.案例</p>
+<p>這裡顯示本次測試使用了11個弱口令，並掃描到了20個熱點，然後開始坑爹的跑起來了：</p>
+<ul class="">
+<li>WIFIID 熱點的id號 每跑一個會減1</li>
+<li>SSID OR BSSID 熱點的ssid名或mac地址</li>
+<li>N 對熱點的連接狀態，這個在</li>
+<li>time 當前所花去的時間</li>
+<li>signal 熱點的信號強度，若小越好</li>
+<li>KEYNUM 測試密碼的id 每跑一個會減1</li>
+<li>KEY 當前測試的密碼</li>
+</ul>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/438a361b09a34848be06906091f0e2b6" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="408" height="88" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/438a361b09a34848be06906091f0e2b6" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="408" height="88" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>方法二</p>
+<p>目前常見的WiFi加密方式有WEP、WPA2和WPS（鏈接為各自的破解方式），不過有網友反映以往破解WPA2的方法耗時太長，而且不適用於所有WPS啟動的接入點。而今天介紹的這種方法則更加省時省力。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/1a04cff9527e4432b8860f72f6c8c3f9" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="507" height="310" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/1a04cff9527e4432b8860f72f6c8c3f9" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="507" height="310" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>1.主要原理</p>
+<p>創建一個偽AP來「狸貓換**」，然後撤銷用戶AP的授權，</p>
+<p>通知用戶需要進行「固件升級」，需要重新驗證密碼。你的假AP由於具有相同的SSID，用戶便會「交代」密碼。</p>
+<p>這樣你就能得到用戶的密碼，並且讓用戶採用你的偽AP做為自己的接入點。而對方一無所知。</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/2310c6b704ed45f48cf475de225f673c" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="503" height="312" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/2310c6b704ed45f48cf475de225f673c" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="503" height="312" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>之前也有類似的腳本，例如Airsnarf；不過我們這次採用的Wifiphisher，這個優化過的自動化腳本比起前者更加方便。</p>
+<p>要完成上述「大業」，你需要Kali Linux和兩個無線適配器，其中一個必須能支持數據包注入。</p>
+<p>2.第一步：下載Wifiphisher</p>
+<p>如圖所示，這是已經解開了的Wifiphisher源代碼。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/1c5bed4d0f554ab79565a4b6db4fbcd3" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="392" height="308" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/1c5bed4d0f554ab79565a4b6db4fbcd3" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="392" height="308" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>當然，如果你懶，也可以複製GitHub上的代碼，不用謝~</p>
+<p>3.第二步：導航到該目錄</p>
+<p>接下來，導航到Wifiphisher創建時被解壓的目錄。就圖示而言，為/wifiphisherWi-Fi1.1。</p>
+<p>當你看到目錄內容時，你會看到wifiphisher.py的腳本。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/81a381de1348499ca779633fc7ff6d67" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="391" height="87" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/81a381de1348499ca779633fc7ff6d67" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="391" height="87" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>4.第三步：運行腳本</p>
+<p>可以鍵入下面的腳本實現。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/11d3bda3ced94f97a1de42e235888a0b" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="271" height="24" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/11d3bda3ced94f97a1de42e235888a0b" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="271" height="24" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>注意這裡有一個問題：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/ef489ed50b3d4552ad04b4cb5bce4d91" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="399" height="26" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/ef489ed50b3d4552ad04b4cb5bce4d91" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="399" height="26" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>如果是第一次運行腳本的話，它可能會出現提示安裝hostpad的信息，鍵入Y繼續安裝即可。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/7c37b0cf705140d1a66101e9ac3d3919" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="398" height="130" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/7c37b0cf705140d1a66101e9ac3d3919" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="398" height="130" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>完成的時候，再次運行Wifiphisher腳本。</p>
+<p>這次將運行8080和43埠的Web伺服器，然後開始搜索附近的Wi-Fi網路。</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/46c378ace23f47a189086ffd2c954aa6" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="391" height="81" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/46c378ace23f47a189086ffd2c954aa6" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="391" height="81" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>等待搜索完成，我們會發現一系列Wi-Fi網路名。最下方的wonderhowto就是我們的目標。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/2371f5909648428ea4971450c8386534" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="353" height="197" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/2371f5909648428ea4971450c8386534" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="353" height="197" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>5.第四步：獲取密碼</p>
+<p>按下Ctrl + C，鍵入想要複製的AP數，在這裡我們選擇12。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/b6bad6ce93b148dc97979c61dfdb1e3f" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="351" height="203" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/b6bad6ce93b148dc97979c61dfdb1e3f" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="351" height="203" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>敲下回車，Wifiphisher會顯示如下結果，顯示了正在使用的界面，還有正被攻擊及複製的AP所在的SSID。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/823b822e13e94cf5ac8912fdf0691ca7" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="351" height="241" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/823b822e13e94cf5ac8912fdf0691ca7" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="351" height="241" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>目標用戶已經取消驗證他們的AP，隨後會出現一個固件升級的信息，請求他們重新驗證。一旦重新驗證，他們接入的就是偽接入點了。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/ab9572aa89d54a86960fb5f1ee355375" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="370" height="194" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/ab9572aa89d54a86960fb5f1ee355375" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="370" height="194" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>當用戶輸入密碼，它會通過Wifiphisher的開放終端傳輸給你，隨後他們依然像平時一樣上網，風平浪靜，然而他們並不知道我們已經獲得了密碼。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/c5331ea4e68f4136ae12d5861a428eb8" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="370" height="53" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/c5331ea4e68f4136ae12d5861a428eb8" alt="《教你用Python實現免費蹭WiFi，只要有WiFi的地方，你就不會斷網》" width="370" height="53" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>現在你可以開始愉快地蹭WiFi了！</p>
+<p>最後，小編想說：我是一名python開發工程師，整理了一套最新的python系統學習教程，想要這些資料的可以關注私信小編「01」即可，希望能對你有所幫助。</p>
+
+
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/10181#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.248 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:34:51 -->
+
+<!-- super cache -->

@@ -1,0 +1,650 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/18956#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/68356b795cae46299d1a89da6b562cd1"},{"@type":"WebPage","@id":"https://daynews.cc/technology/18956#webpage","url":"https://daynews.cc/technology/18956","inLanguage":"zh-TW","name":"\u963f\u91ccDubbo\u760b\u72c2\u66f4\u65b0\uff0c\u95dcSpring Cloud\u4ec0\u9ebc\u4e8b\uff1f - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/18956#primaryimage"},"datePublished":"2019-12-15T18:55:08+00:00","dateModified":"2019-12-15T18:55:08+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="最近，開源社區發生了一件大事，那個全國 Java 開發者使用最廣的開源服務框架 Dubbo 低調重啟維護，並且 3 個月連續發布了 4 個維護版本。 我上次在寫放棄Dubbo，選擇最流行的Spring Cloud微服務架構實踐與經驗總結這篇文章的時候，就有很多的網友給我留言說，Dubbo 又開始更新了。我當然是清楚的，我也一直在關注著 D……" />
+<meta name="twitter:title" content="阿里Dubbo瘋狂更新，關Spring Cloud什麼事？ - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/68356b795cae46299d1a89da6b562cd1" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="阿里Dubbo瘋狂更新，關Spring Cloud什麼事？ - 天天要聞" />
+<meta property="og:description" content="最近，開源社區發生了一件大事，那個全國 Java 開發者使用最廣的開源服務框架 Dubbo 低調重啟維護，並且 3 個月連續發布了 4 個維護版本。 我上次在寫放棄Dubbo，選擇最流行的Spring Cloud微服務架構實踐與經驗總結這篇文章的時候，就有很多的網友給我留言說，Dubbo 又開始更新了。我當然是清楚的，我也一直在關注著 D……" />
+<meta property="og:url" content="https://daynews.cc/technology/18956" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-15T18:55:08+00:00" />
+	<title>阿里Dubbo瘋狂更新，關Spring Cloud什麼事？ - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/18956" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">阿里Dubbo瘋狂更新，關Spring Cloud什麼事？</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-16T02:55:08+00:00">
+		2 天 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<p>最近，開源社區發生了一件大事，那個全國 Java 開發者使用最廣的開源服務框架 Dubbo 低調重啟維護，並且 3 個月連續發布了 4 個維護版本。</p>
+<p>我上次在寫放棄Dubbo，選擇最流行的Spring Cloud微服務架構實踐與經驗總結這篇文章的時候，就有很多的網友給我留言說，Dubbo 又開始更新了。我當然是清楚的，我也一直在關注著 Dubbo 的走向，在幾個月前技術圈裡面就有一個消息說是 Dubbo 又開始更新了，大家議論紛紛不知真偽。我還專門跑到 GitHub 上面進行了留言詢問，最後在 Dubbo 的 gitter 聊天室裡面找到了確信的答案，說是正在組建團隊。雖然稍稍有所期待，但也不知道阿里這次拿出了多少的誠意來做這件事，於是我昨天又到 GitHub 逛了一下，發現從 9 月開始，阿里三個月連著發布了四個版本，還是非常有誠意的，值得關注。</p>
+<h2 class="pgc-h-arrow-right">Dubbo簡介</h2>
+<p>Dubbo 是阿里巴巴公司一個開源的高性能服務框架，致力於提供高性能和透明化的 RPC 遠程服務調用方案，以及 SOA 服務治理方案，使得應用可通過高性能 RPC 實現服務的輸出、輸入功能和 Spring 框架無縫集成。Dubbo 包含遠程通訊、集群容錯和自動發現三個核心部分。</p>
+<p>它提供透明化的遠程方法調用，實現像調用本地方法一樣調用遠程方法，只需簡單配置，沒有任何 API 侵入。同時它具備軟負載均衡及容錯機制，可在內網替代 F5 等硬體負載均衡器，降低成本，減少單點。它可以實現服務自動註冊與發現，不再需要寫死服務提供方地址，註冊中心基於介面名查詢服務提供者的 IP 地址，並且能夠平滑添加或刪除服務提供者。</p>
+<p>2011 年末，阿里巴巴在 GitHub 上開源了基於 Java 的分散式服務治理框架 Dubbo，之後它成為了國內該類開源項目的佼佼者，許多開發者對其表示青睞。同時，先後有不少公司在實踐中基於 Dubbo 進行分散式系統架構。目前在 GitHub 上，它的 fork、star 數均已破萬。</p>
+<p><strong>Dubbo核心功能</strong>:</p>
+<ul class="">
+<li>遠程通訊，提供對多種基於長連接的 NIO 框架抽象封裝，包括多種線程模型，序列化，以及「請求-響應」模式的信息交換方式。</li>
+<li>集群容錯，提供基於介面方法的透明遠程過程調用，包括多協議支持，以及軟負載均衡，失敗容錯，地址路由，動態配置等集群支持。</li>
+<li>自動發現，基於註冊中心目錄服務，使服務消費方能動態的查找服務提供方，使地址透明，使服務提供方可以平滑增加或減少機器。</li>
+</ul>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/68356b795cae46299d1a89da6b562cd1" alt="《阿里Dubbo瘋狂更新，關Spring Cloud什麼事？》" width="640" height="399" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/68356b795cae46299d1a89da6b562cd1" alt="《阿里Dubbo瘋狂更新，關Spring Cloud什麼事？》" width="640" height="399" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">Dubbo發展史</h2>
+<p><strong>發展到開源</strong></p>
+<p>2008 年底在阿里內部開始規劃調用，2009 年初開發 1.0 版本；2010 年 04 月在 1.0 的版本之上進行了重構，發布了 2.0 版本；2011 年 10 月阿里宣布將 Dubbo 開源，開源的第一個版本為版本 <strong>dubbo-2.0.7</strong>。</p>
+<p><strong>開源成長</strong></p>
+<p>Dubbo 開源之後，框架發展比較迅速，幾乎兩三個月會發布一個版本，於 2012 年 3 月 14 號發布版本 dubbo-2.1.0。隨後又進入另一個快速發展期，版本發布頻繁，幾乎每一個月會發布好幾次。直到 2013 年 3 月 17 號發布了 dubbo-2.4.10，版本陷入停滯；2014 年 10 月 30 號發布版本 dubbo-2.4.11，修復了一個小 Bug，版本又陷入漫長的停滯到現在。</p>
+<p><strong>阿里之外的發展</strong></p>
+<p>2014 年的 10 月 20 號，噹噹網 Fork 了阿里的一個 Dubbo 版本開始維護，並命名為 dubbox-2.8.0。值得注意的是，噹噹網擴展 Dubbo 服務框架支持 REST 風格遠程調用，並且跟隨著 ZooKeepe 和 Spring 升級了對應的版本。之後 Dubbox 一直在小版本維護，2015 年 3 月 31 號發布了最後一個版本 <strong>dubbox-2.8.4</strong>。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/3a404b6184ef4e2c9a6ef3c780c00079" alt="《阿里Dubbo瘋狂更新，關Spring Cloud什麼事？》" width="640" height="480" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/3a404b6184ef4e2c9a6ef3c780c00079" alt="《阿里Dubbo瘋狂更新，關Spring Cloud什麼事？》" width="640" height="480" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">Dubbo團隊這三個月都做了什麼</h2>
+<p>目前 Dubbo 的主力開發以阿里巴巴中間件團隊為主，同時在阿里內部也招募了一些對 Dubbo 感興趣的同事。大家要知道，Dubbo 距離今年開始維護的上一個版本是什麼時間發布的嗎？是 2014 年 10 月 30 號，差了整整將近 3 年，Dubbo 所依賴的 Jdk、Spring、Zookeeper、Zkclient 等等不知道都更新了多少個版本。因此阿里恢復更新的第一步就是適配所依賴的各組件版本，讓 Dubbo 所依賴的基礎環境不要太落伍，另外也 Fixed 掉了一些嚴重的 Bug。</p>
+<p><strong>dubbo-2.5.4/5版本</strong></p>
+<p>2017 年 9 月，阿里發布了 dubbo-2.5.4/5 版本，更新內容如下：</p>
+<p><strong>依賴升級</strong></p>
+<p>依賴當前版本目標版本影響點spring3.2.16.RELEASE4.3.10.RELEASEschema配置解析；Http RPC協議zookeeper3.3.33.4.9常用註冊中心zkclient0.1 0.10zookeeper客戶端工具curator1.1.162.12.0zookeeper客戶端工具commons-logging1.1.11.2日誌實現集成hessian4.0.64.0.38hessian RPC協議jedis2.1.02.9.0redis註冊中心；緩存RPChttpclient4.1.24.5.3hessian等用http連接池validator1.0.01.1.0.Finaljava validation規範cxf2.6.13.0.14webservicejcache0.41.0.0jcache規範</p>
+<p>這版在升級相關依賴版本的同時，以問題反饋頻率和影響面排定優先順序，優先解決了幾個反饋最多、影響較大的一些缺陷，包括優雅停機、非同步調用、動態配置、MonitorFilter 監控統計等問題。</p>
+<p><strong>dubbo-2.5.6版本</strong></p>
+<p>2017 年 10 月，阿里發布了 dubbo-2.5.6 版本，又 Fixed 掉了一大批嚴重的 Bug。</p>
+<p><strong>發布內容</strong></p>
+<ul class="">
+<li>泛化調用PojoUtils工具類不能正確處理枚舉類型、私有欄位等問題</li>
+<li>provider業務線程池滿後，拒絕請求的異常無法通知到consumer端</li>
+<li>業務返回值payload超閾值時，payload被重複發送回consumer</li>
+<li>slf4jLogger正確輸出log調用實際所在行號</li>
+<li>延遲(delay)暴露存在潛在並發問題，導致不同服務佔用多個埠</li>
+<li>無provider時，consumer端mock邏輯不能生效</li>
+<li>一些小優化：OverrideListener監聽邏輯、provider端關閉心跳請求、Main啟動類停機邏輯等</li>
+<li>一些小bug修復：動態配置不能刪除、telnet支持泛型json調用、monitor統計錯誤等</li>
+</ul>
+<p><strong>dubbo-2.5.7版本</strong></p>
+<p>2017 年 11 月，也就是 12 天前，阿里發布了 dubbo-2.5.7。這次不但修復了一批主要的 Bug，還做了一處小功能的完善。</p>
+<p><strong>發布內容</strong></p>
+<ul class="">
+<li>完善註解配置方式，修復社區反饋的舊版註解bug</li>
+<li>支持啟動時從環境變數讀取註冊ip port、綁定ip port，支持社區反饋的容器化部署場景等</li>
+<li>調整、開放一些不完善的xml配置項，如dump.directory等</li>
+<li>解決啟動階段zk無法連接導致應用無限阻塞的問題</li>
+<li>解決zk無法連接時，MonitorService初次訪問會導致rpc請求阻塞問題 #672</li>
+<li>內部json實現標記deprecate，轉為依賴開源fastjson實現</li>
+<li>RMI協議支持傳遞attachments</li>
+<li>Hessian支持EnumSet類型序列化</li>
+<li>社區反饋的一些小bug修復及優化</li>
+</ul>
+<p>這次版本發布內容較多，因此還給出了升級建議。</p>
+<p><strong>升級請注意</strong></p>
+<ul class="">
+<li>此次升級存在以下不兼容或需要注意點，但對核心功能均無影響，且只需添加依賴或遵守配置規則即可避免。這裡只是把潛在的注意點列出來，如果你沒用到這些功能無需額外關注。</li>
+<li>AccesslogFilter、telnet、mock等部分功能依賴了老版JSON實現，如開啟以上功能，升級後請添加fastjson作為第三方依賴。</li>
+<li>此次升級完善了註解配置方式，同時保留了老的註解配置代碼，如工程從之前的老版本註解配置轉到2.5.7版本，請確保刪除老的註解掃描配置，使用新的配置形式。</li>
+<li>在工程啟動階段，如遇到zk不可達，當前版本的行為是使用註冊中心緩存繼續啟動（具體由check參數決定。 MonitorService初次調用，如遇zk不可達，當前版本會忽略monitor數據上傳，以避免阻塞rpc主流程。</li>
+</ul>
+<p><strong>重點</strong></p>
+<p>在 2.5.7 版本更新的同時還給出了下一步的預告，近期即將提供 dubbo-spring-boot-starter 啟動配置模塊。</p>
+<p>這個提示說明了兩個事情：</p>
+<ul class="">
+<li>Dubbo 還會繼續完善，後續會開發很多的新的功能，所以希望大家關注。</li>
+<li>說明 Spring Boot 的影響力也越來越大，各種牛逼的開源軟體紛紛給出了支持，現在也將包括 Dubbo。</li>
+</ul>
+<h2 class="pgc-h-arrow-right">Dubbo 下一步會做什麼？</h2>
+<p><strong>根據阿里技術的信息，最近三個版本會做的事情如下：</strong></p>
+<ul class="">
+<li>優先解決社區使用過程中的問題和框架的缺陷，吸收社區貢獻的新特性，解決文檔訪問和不全面的問題。</li>
+<li>提供服務延遲暴亂、優雅停機 API 介面支持 RESTFULE 風格服務調用，提供 netty http 的支持，集成高性能序列化協議。</li>
+<li>路由功能優化、消費端非同步功能優化、提供端非同步調用支持註冊中心推送通知非同步、合併處理改造等。</li>
+</ul>
+<p><strong>未來計劃</strong>：</p>
+<p>重構動態配置模塊，動態配置和註冊中心分離，集成流行的開源分散式配置管理框架，服務元數據註冊與註冊中心分離，豐富元數據內容，適配流行的 consul etcd 等註冊中心方案。考慮提供 opentrace、oauth2、metrics、health、gateway 等部分服務化基礎組件的支持，服務治理平台 OPS 重做，除代碼、UI 重構外，期望能提供更強的服務測試、健康檢查、服務動態治理等特性。Dubbo 模塊化，各個模塊可單獨打包、單獨依賴，集群熔斷和自動故障檢測能力。</p>
+<p>繼續在 Dubbo 框架現代化、國際化這兩個大的方向上進行探索。現代化方面主要是考慮到目前微服務架構以及容器化日漸流行的大趨勢，Dubbo 作為 RPC 框架如何很好地融入其中，成為其生態體系中不可或缺的一個組件。<strong>強調的是 Dubbo 未來的定位並不是要成為一個微服務的全面解決方案，而是專註在 RPC 領域，成為微服務生態體系中的一個重要組件。</strong>至於大家關注的微服務化衍生出的服務治理需求， Dubbo 將積極適配開源解決方案，甚至啟動獨立的開源項目予以支持。</p>
+<h2 class="pgc-h-arrow-right">Dubbo和Spring Cloud有何不同？</h2>
+<p>首先做一個簡單的功能對比：</p>
+<p> DubboSpring Cloud服務註冊中心ZookeeperSpring Cloud Netflix Eureka服務調用方式RPCREST API服務監控Dubbo-monitorSpring Boot Admin斷路器不完善Spring Cloud Netflix Hystrix服務網關無Spring Cloud Netflix Zuul分散式配置無Spring Cloud Config服務跟蹤無Spring Cloud Sleuth消息匯流排無Spring Cloud Bus數據流無Spring Cloud Stream批量任務無Spring Cloud Task………………</p>
+<p><strong>從上圖可以看出其實Dubbo的功能只是Spring Cloud體系的一部分。</strong></p>
+<p>這樣對比是不夠公平的，首先 Dubbo 是 SOA 時代的產物，它的關注點主要在於服務的調用，流量分發、流量監控和熔斷。而 Spring Cloud 誕生於微服務架構時代，考慮的是微服務治理的方方面面，另外由於依託了 Spring、Spring Boot 的優勢之上，兩個框架在開始目標就不一致，Dubbo 定位服務治理、Spring Cloud 是一個生態。</p>
+<p><strong>如果僅僅關注於服務治理的這個層面，Dubbo其實還優於Spring Cloud很多：</strong></p>
+<ul class="">
+<li>Dubbo 支持更多的協議，如：rmi、hessian、http、webservice、thrift、memcached、redis 等。</li>
+<li>Dubbo 使用 RPC 協議效率更高，在極端壓力測試下，Dubbo 的效率會高於 Spring Cloud 效率一倍多。</li>
+<li>Dubbo 有更強大的後台管理，Dubbo 提供的後台管理 Dubbo Admin 功能強大，提供了路由規則、動態配置、訪問控制、權重調節、均衡負載等諸多強大的功能。</li>
+<li>可以限制某個 IP 流量的訪問許可權，設置不同伺服器分發不同的流量權重，並且支持多種演算法，利用這些功能我們可以在線上做灰度發布、故障轉移等，Spring Cloud 到現在還不支持灰度發布、流量權重等功能。</li>
+</ul>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/2fe841527740475f9001c4486ae52b45" alt="《阿里Dubbo瘋狂更新，關Spring Cloud什麼事？》" width="640" height="248" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/2fe841527740475f9001c4486ae52b45" alt="《阿里Dubbo瘋狂更新，關Spring Cloud什麼事？》" width="640" height="248" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>所以Dubbo專註於服務治理；Spring Cloud關注於微服務架構生態。</strong></p>
+<h2 class="pgc-h-arrow-right">Dubbo發布對Spring Cloud有影響嗎？</h2>
+<p>國內技術人喜歡拿 Dubbo 和 Spring Cloud 進行對比，是因為兩者都是服務治理非常優秀的開源框架。但它們兩者的出發點是不一樣的，Dubbo 關注於服務治理這塊並且以後也會繼續往這個方向去發展。Spring Cloud 關注的是微服務治理的生態。因為微服務治理的方方面面都是它所關注的內容，服務治理也只是微服務生態的一部分而已。因此可以大膽的斷定，Dubbo 未來會在服務治理方面更為出色，而 Spring Cloud 在微服務治理上面無人能敵。</p>
+<p>同時根據 Dubbo 最新的更新技術來看，Dubbo 也會積極的擁抱開源，擁抱新技術。Dubbo 接下來的版本將會很快的支持 Spring Boot，方便我們享受高效開發的同時，也可以支持高效的服務調用。Dubbo 被廣泛應用於中國各互聯網公司，如今阿里又重新重視起來並且發布了新版本和一系列的計劃，對於正在使用 Dubbo 的公司來說是一個喜訊，對於中國廣大的開發者來說更是一件非常喜悅的事情。我們非常樂於看到中國有一款非常優秀的開源框架，讓我們有更多的選擇，有更好的支持。</p>
+<p><strong>兩者其實不一定有競爭關係，如果使用得當甚至可以互補；另外兩個關注的領域也不一致，因此對 Spring Cloud 的影響甚微。</strong></p>
+<h2 class="pgc-h-arrow-right">如何選擇？</h2>
+<p>可能很多人正在猶豫，在服務治理的時候應該選擇那個框架呢？如果公司對效率有極高的要求建議使用 Dubbo，相對比 RPC 的效率會比 HTTP 高很多；如果團隊不想對技術架構做大的改造建議使用 Dubbo，Dubbo 僅僅需要少量的修改就可以融入到內部系統的架構中。但如果技術團隊喜歡挑戰新技術，建議選擇 Spring Cloud，Spring Cloud 架構體系有有趣很酷的技術。如果公司選擇微服務架構去重構整個技術體系，那麼 Spring Cloud 是當仁不讓之選，它可以說是目前最好的微服務框架沒有之一。</p>
+<p>最後，技術選型是一個綜合的問題，需要考慮團隊的情況、業務的發展以及公司的產品特徵。最炫最酷的技術並不一定是最好的，選擇適合自己團隊、符合公司業務的框架才是最佳方案。技術的發展永遠沒有盡頭，因此我們對技術也要保持空杯、保持飢餓、保持敬畏！</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/18956#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.269 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:35:13 -->
+
+<!-- super cache -->

@@ -1,0 +1,623 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/9733#primaryimage","url":"http://p9.pstatp.com/large/pgc-image/RkC2S0Zr7BjFl"},{"@type":"WebPage","@id":"https://daynews.cc/technology/9733#webpage","url":"https://daynews.cc/technology/9733","inLanguage":"zh-TW","name":"Universal-Image-Loader \u5716\u7247\u975e\u540c\u6b65\u8f09\u5165\u985e\u5eab\u9084\u4e0d\u719f\uff1f - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/9733#primaryimage"},"datePublished":"2019-12-09T21:45:09+00:00","dateModified":"2019-12-09T21:45:09+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="碼個蛋(codeegg) 第 824 次推文 作者：歡醉 博客：https://cloud.tencent.com/developer/article/1026386 碼妞看世界 寫在前面 這個圖片非同步載入並緩存的類已經被很多開發者所使用，是最常用的幾個開源庫之一，主流的應用，隨便反編譯幾個火的項目，都可以見到它的身影。 可是有的人並不……" />
+<meta name="twitter:title" content="Universal-Image-Loader 圖片非同步載入類庫還不熟？ - 天天要聞" />
+<meta name="twitter:image" content="http://p9.pstatp.com/large/pgc-image/RkC2S0Zr7BjFl" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Universal-Image-Loader 圖片非同步載入類庫還不熟？ - 天天要聞" />
+<meta property="og:description" content="碼個蛋(codeegg) 第 824 次推文 作者：歡醉 博客：https://cloud.tencent.com/developer/article/1026386 碼妞看世界 寫在前面 這個圖片非同步載入並緩存的類已經被很多開發者所使用，是最常用的幾個開源庫之一，主流的應用，隨便反編譯幾個火的項目，都可以見到它的身影。 可是有的人並不……" />
+<meta property="og:url" content="https://daynews.cc/technology/9733" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-09T21:45:09+00:00" />
+	<title>Universal-Image-Loader 圖片非同步載入類庫還不熟？ - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/9733" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">Universal-Image-Loader 圖片非同步載入類庫還不熟？</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-10T05:45:09+00:00">
+		1 週 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<p>碼個蛋(codeegg) 第 824 次推文</p>
+<p>作者：歡醉</p>
+<p>博客：https://cloud.tencent.com/developer/article/1026386</p>
+<p>碼妞看世界</p>
+<p> <amp-img src="http://p9.pstatp.com/large/pgc-image/RkC2S0Zr7BjFl" alt="《Universal-Image-Loader 圖片非同步載入類庫還不熟？》" width="640" height="517" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/RkC2S0Zr7BjFl" alt="《Universal-Image-Loader 圖片非同步載入類庫還不熟？》" width="640" height="517" class=""></noscript></amp-img></p>
+<p>寫在前面</p>
+<p>這個圖片非同步載入並緩存的類已經被很多開發者所使用，是最常用的幾個開源庫之一，主流的應用，隨便反編譯幾個火的項目，都可以見到它的身影。</p>
+<p>可是有的人並不知道如何去使用這庫如何進行配置，網上查到的信息對於剛接觸的人來說可能太少了，下面我就把我使用過程中所知道的寫了下來，希望可以幫助自己和別人更深入了解這個庫的使用和配置。</p>
+<p>GITHUB上的下載路徑為：</p>
+<p>https://github.com/nostra13/Android-Universal-Image-Loader，</p>
+<p>下載最新的庫文件，並且導入到項目的LIB下便可以使用。</p>
+<p>該庫以及DEMO本地下載鏈接：</p>
+<p>https://download.csdn.net/download/vipzjyno1/7168691</p>
+<p>一、介紹</p>
+<p>Android-Universal-Image-Loader是一個開源的UI組件程序，該項目的目的是提供一個可重複使用的儀器為非同步圖像載入，緩存和顯示。所以，如果你的程序里需要這個功能的話，那麼不妨試試它。因為已經封裝好了一些類和方法。我們 可以直接拿來用了。而不用重複去寫了。其實，寫一個這方面的程序還是比較麻煩的，要考慮多線程，緩存，內存溢出等很多方面。但是，你也可以參考這個例子來自己寫出更好的程序。在此為大家介紹一下：</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RkC2S12mBPBiX" alt="《Universal-Image-Loader 圖片非同步載入類庫還不熟？》" width="640" height="421" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RkC2S12mBPBiX" alt="《Universal-Image-Loader 圖片非同步載入類庫還不熟？》" width="640" height="421" class=""></noscript></amp-img></p>
+<p>二、特點</p>
+<p>多線程的圖像載入 的可能性的寬調諧對<strong class="highlight-text">ImageLoader</strong>的配置（線程池的大小，HTTP選項，內存和光碟高速緩存，顯示圖像，以及其他） 的圖像的可能性中的緩存存儲器和/或設備的文件器系統（或SD卡） 可以「聽」載入過程中 可自定義每個顯示的圖像調用分隔的選項 Widget支持 Android 1.5以上支持 簡單描述一下這個項目的結構：每一個圖片的載入和顯示任務都運行在獨立的線程中，除非這個圖片緩存在內存中，這種情況下圖片會立即顯示。</p>
+<p>如果需要的圖片緩存在本地，他們會開啟一個獨立的線程隊列。如果在緩存中沒有正確的圖片，任務線程會從線程池中獲取，因此，快速顯示緩存圖片時不會有明顯的障礙。（別人那邊借鑒的這段）</p>
+<p>任務流程圖：</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/RkC2S1T9eeOae0" alt="《Universal-Image-Loader 圖片非同步載入類庫還不熟？》" width="640" height="322" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/RkC2S1T9eeOae0" alt="《Universal-Image-Loader 圖片非同步載入類庫還不熟？》" width="640" height="322" class=""></noscript></amp-img></p>
+<p>流程圖：</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RkC2S1s4f8NVmF" alt="《Universal-Image-Loader 圖片非同步載入類庫還不熟？》" width="587" height="599" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RkC2S1s4f8NVmF" alt="《Universal-Image-Loader 圖片非同步載入類庫還不熟？》" width="587" height="599" class=""></noscript></amp-img></p>
+<p>三、使用方法</p>
+<p>這是 一個開源的Android關於下載顯示圖片的工具類，在這個下載包裡面jar文件，用於我們導入項目使用，具體使用方法在包裡面也含有。下面是一個例子：</p>
+<pre>&lt;uses-permission android:name="android.permission.INTERNET" /&gt; <br>&lt;uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /&gt;</pre>
+<p>由於是使用過程中會圖片獲取要通過網路，並且有緩存設置，所以這2個許可權必須要有。</p>
+<p>很多人想知道如何設置緩存的目錄，可以通過以下方法：</p>
+<pre>File cacheDir = StorageUtils.getOwnCacheDirectory(getApplicationContext, "imageloader/Cache"); <br>//這個是你希望的緩存文件的目錄：imageloader/Cache<br><br>之後在ImageLoaderConfiguration的配置文件中通過設置</pre>
+<ol>
+<li>
+<p><strong class="highlight-text">discCache(new UnlimitedDiscCache(cacheDir))</strong>//自定義緩存路徑方法來設置該應用的圖片緩存路徑。</p>
+</li>
+</ol>
+<p>下面我們就來開始看如何使用這個圖片非同步載入庫把：</p>
+<p>1）配置</p>
+<p>先要配置<strong class="highlight-text">ImageLoaderConfiguration</strong>這個類實現全局ImageLoader的實現情況。</p>
+<p>可以選擇在Application中初始化設置該類。</p>
+<pre>ImageLoaderConfiguration config = new ImageLoaderConfiguration <br>.Builder(context)<br>.memoryCacheExtraOptions(480, 800) // max width, max height，即保存的每個緩存文件的最大長寬<br>.discCacheExtraOptions(480, 800, CompressFormat.JPEG, 75, ) // Can slow ImageLoader, use it carefully (Better don't use it)/設置緩存的詳細信息，最好不要設置這個<br>.threadPoolSize(3)//線程池內載入的數量<br>.threadPriority(Thread.NORM_PRIORITY - 2)<br>.denyCacheImageMultipleSizesInMemory<br>.memoryCache(new UsingFreqLimitedMemoryCache(2 * 1024 * 1024)) // You can pass your own memory cache implementation/你可以通過自己的內存緩存實現<br>.memoryCacheSize(2 * 1024 * 1024)<br>.discCacheSize(50 * 1024 * 1024)<br>.discCacheFileNameGenerator(new Md5FileNameGenerator)//將保存的時候的URI名稱用MD5 加密<br>.tasksProcessingOrder(QueueProcessingType.LIFO)<br>.discCacheFileCount(100) //緩存的文件數量<br>.discCache(new UnlimitedDiscCache(cacheDir))//自定義緩存路徑<br>.defaultDisplayImageOptions(DisplayImageOptions.createSimple)<br>.imageDownloader(new BaseImageDownloader(context, 5 * 1000, 30 * 1000)) // connectTimeout (5 s), readTimeout (30 s)超時時間<br>.writeDebugLogs // Remove for release app<br>.build;//開始構建<br>// Initialize ImageLoader with configuration.</pre>
+<p>以上的配置看個人需求進行選擇，不是所有都要進行配置。</p>
+<p>配置好ImageLoaderConfiguration後，調用以下方法來實現初始化：</p>
+<pre>ImageLoader.getInstance.init(config);//全局初始化此配置<br><p>註：ImageLoaderConfiguration 配置中的.discCacheFileNameGenerator方法是將緩存下來的文件以什麼方式命名裡面可以調用的方法有</p><p><strong class="highlight-text">1</strong>.<strong class="highlight-text">new</strong>Md5FileNameGenerator//使用MD5對UIL進行加密命名</p><p><strong class="highlight-text">2</strong>.<strong class="highlight-text">new</strong>HashCodeFileNameGenerator//使用HASHCODE對UIL進行加密命名</p></pre>
+<p>二. 載入</p>
+<p>使用ImageLoader進行圖片載入的時候，先要實例化ImageLoader，調用以下方法進行實例化，在每個布局裡面都要實例化後再使用。</p>
+<pre><code>protected ImageLoader imageLoader = ImageLoader.getInstance;</code></pre>
+<p>之後進行顯示的圖片的各種格式DisplayImageOptions 的設置：</p>
+<pre>DisplayImageOptions options; <br>options = new DisplayImageOptions.Builder<br>.showImageOnLoading(R.drawable.ic_launcher) //設置圖片在下載期間顯示的圖片<br>.showImageForEmptyUri(R.drawable.ic_launcher)//設置圖片Uri為空或是錯誤的時候顯示的圖片<br>.showImageOnFail(R.drawable.ic_launcher) //設置圖片載入/解碼過程中錯誤時候顯示的圖片<br>.cacheInMemory(true)//設置下載的圖片是否緩存在內存中<br>.cacheOnDisc(true)//設置下載的圖片是否緩存在SD卡中<br>.considerExifParams(true) //是否考慮JPEG圖像EXIF參數（旋轉，翻轉）<br>.imageScaleType(ImageScaleType.EXACTLY_STRETCHED)//設置圖片以如何的編碼方式顯示<br>.bitmapConfig(Bitmap.Config.RGB_565)//設置圖片的解碼類型//<br>.decodingOptions(android.graphics.BitmapFactory.Options decodingOptions)//設置圖片的解碼配置<br>//.delayBeforeLoading(int delayInMillis)//int delayInMillis為你設置的下載前的延遲時間<br>//設置圖片加入緩存前，對bitmap進行設置<br>//.preProcessor(BitmapProcessor preProcessor)<br>.resetViewBeforeLoading(true)//設置圖片在下載前是否重置，複位<br>.displayer(new RoundedBitmapDisplayer(20))//是否設置為圓角，弧度為多少<br>.displayer(new FadeInBitmapDisplayer(100))//是否圖片載入好後漸入的動畫時間<br>.build;//構建完成</pre>
+<p>按照你所需要的配置去設置，如果不需要的就可以不做配置。</p>
+<p>註：以上配置中的：</p>
+<pre><p>1）.imageScaleType(ImageScaleType imageScaleType) 是設置 圖片的縮放方式</p><p>縮放類型mageScaleType:</p><p>EXACTLY :圖像將完全按比例縮小的目標大小</p><p>EXACTLY_STRETCHED:圖片會縮放到目標大小完全</p><p>IN_SAMPLE_INT:圖像將被二次採樣的整數倍</p><p>IN_SAMPLE_POWER_OF_2:圖片將降低2倍，直到下一減少步驟，使圖像更小的目標大小</p><p>NONE:圖片不會調整</p><p>2）.displayer(BitmapDisplayer displayer) 是設置圖片的顯示方式</p><p>顯示方式displayer：</p><p>RoundedBitmapDisplayer（int roundPixels）設置圓角圖片</p><p>FakeBitmapDisplayer這個類什麼都沒做</p><p>FadeInBitmapDisplayer（int durationMillis）設置圖片漸顯的時間</p><p>SimpleBitmapDisplayer正常顯示一張圖片 </p><br><p>縮放類型mageScaleType:</p><br>EXACTLY :圖像將完全按比例縮小的目標大小<br><br>EXACTLY_STRETCHED:圖片會縮放到目標大小完全<br><br>IN_SAMPLE_INT:圖像將被二次採樣的整數倍<br><br>IN_SAMPLE_POWER_OF_2:圖片將降低2倍，直到下一減少步驟，使圖像更小的目標大小<br><br>NONE:圖片不會調整<br><br></pre>
+<p>之後按照需求調用</p>
+<p>1. 純粹為了載入默認配置的一個圖片的 方法:</p>
+<pre><code> public void displayImage(String uri, ImageView imageView) {}</code></pre>
+<p>具體實現：</p>
+<pre><code>ImageLoader.getInstance.displayImage(imageUrl, imageView); </code><code>// imageUrl代表圖片的URL地址，imageView代表承載圖片的IMAGEVIEW控制項</code></pre>
+<p>2. 載入自定義配置的一個圖片的 方法:</p>
+<pre><code>public void displayImage(String uri, ImageView imageView, DisplayImageOptions options) {}</code></pre>
+<p>具體實現：</p>
+<pre><code>ImageLoader.getInstance.displayImage(imageUrl, imageView，options); </code><code>// imageUrl代表圖片的URL地址，</code><code>// imageView代表承載圖片的IMAGEVIEW控制項 ， </code><code>// options代表DisplayImageOptions配置文件</code></pre>
+<p>3. 圖片載入時候帶載入情況的監聽 方法：</p>
+<pre> public void displayImage(String uri, ImageAware imageAware, DisplayImageOptions options,ImageLoadingListener listener) {｝</pre>
+<p>ImageLoadingListener 用於監聽圖片的下載情況。</p>
+<p>具體實現：</p>
+<pre>imageLoader.displayImage(imageUrl, imageView, options, new ImageLoadingListener { <br>@Override<br>public void onLoadingStarted {<br>//開始載入的時候執行<br>}<br>@Override<br>public void onLoadingFailed(FailReason failReason) {<br>//載入失敗的時候執行<br>}<br>@Override<br>public void onLoadingComplete(Bitmap loadedImage) {<br>//載入成功的時候執行<br>}<br>@Override<br>public void onLoadingCancelled {<br>//載入取消的時候執行<br><br>}});</pre>
+<p>4. 圖片載入時候，帶監聽又帶載入進度條的情況 </p>
+<p>調用：</p>
+<pre><code>public void loadImage(String uri, ImageSize targetImageSize, DisplayImageOptions options, ImageLoadingListener listener, ImageLoadingProgressListener progressListener) {}</code></pre>
+<p>具體實現：</p>
+<pre>imageLoader.displayImage(imageUrl, imageView, options, new ImageLoadingListener { <br>@Override<br>public void onLoadingStarted {<br>//開始載入的時候執行<br>}<br>@Override<br>public void onLoadingFailed(FailReason failReason) {<br>//載入失敗的時候執行<br>}<br>@Override<br>public void onLoadingComplete(Bitmap loadedImage) {<br>//載入成功的時候執行<br>}<br>@Override<br>public void onLoadingCancelled {<br>//載入取消的時候執行<br>},new ImageLoadingProgressListener {<br>@Override<br>public void onProgressUpdate(String imageUri, View view, int current,int total) {<br>//在這裡更新 ProgressBar的進度信息<br>}<br>});</pre>
+<p>四、注意事項</p>
+<p>1. 上述提到的2個許可權必須加入，否則會出錯</p>
+<p>2. ImageLoaderConfiguration必須配置並且全局化的初始化這個配置ImageLoader.getInstance.init(config); 否則也會出現錯誤提示</p>
+<p>3. ImageLoader是根據ImageView的height，width確定圖片的寬高。</p>
+<p>4. 如果經常出現OOM（別人那邊看到的，覺得很有提的必要）</p>
+<p>① 減少配置之中線程池的大小，(.threadPoolSize).推薦1-5；</p>
+<p>② 使用.bitmapConfig(Bitmap.config.RGB_565)代替ARGB_8888;</p>
+<p>③ 使用imageScaleType(ImageScaleType.IN_SAMPLE_INT) ，</p>
+<p>或者 try.imageScaleType(ImageScaleType.EXACTLY)；</p>
+<p>④ 避免使用RoundedBitmapDisplayer.他會創建新的ARGB_8888格式的Bitmap對象；</p>
+<p>⑤ 使用.memoryCache(new WeakMemoryCache)，不要使用.cacheInMemory;</p>
+<pre><code>String imageUri = "http://site.com/image.png"; // from Web</code><code>String imageUri = "file:///mnt/sdcard/image.png"; // from SD card</code><code>String imageUri = "content://media/external/audio/albumart/13"; // from content provider</code><code>String imageUri = "assets://image.png"; // from assets</code></pre>
+<p><strong>今日問題：</strong></p>
+<p>關於UIL你有哪些使用體會？</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/9733#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.306 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:32:54 -->
+
+<!-- super cache -->

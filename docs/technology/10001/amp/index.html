@@ -1,0 +1,889 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/10001#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/37afcab293de4d0385d1a0f2571379bb"},{"@type":"WebPage","@id":"https://daynews.cc/technology/10001#webpage","url":"https://daynews.cc/technology/10001","inLanguage":"zh-TW","name":"7\u500b\u514d\u8cbb\u3001\u958b\u6e90\u4e14\u5be6\u7528\u7684Node\u5305\uff0c\u4f60\u9084\u5728\u7b49\u4ec0\u9ebc\uff1f - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/10001#primaryimage"},"datePublished":"2019-12-07T18:50:08+00:00","dateModified":"2019-12-07T18:50:08+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="全文共6992字，預計學習時長20分鐘 圖源：Unsplash 俗話說的好：天上不會掉餡餅，天下沒有免費的午餐。 JavaScript圈似乎打破了這一說法，圈友們各個身懷絕技且樂於分享。 眾所周知，JavaScript真正的力量來自於大量可用的開源包。這些免費的開源包促進了JavaScript生態系統的蓬勃發展。我們可以免費使用這些棒呆的……" />
+<meta name="twitter:title" content="7個免費、開源且實用的Node包，你還在等什麼？ - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/37afcab293de4d0385d1a0f2571379bb" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="7個免費、開源且實用的Node包，你還在等什麼？ - 天天要聞" />
+<meta property="og:description" content="全文共6992字，預計學習時長20分鐘 圖源：Unsplash 俗話說的好：天上不會掉餡餅，天下沒有免費的午餐。 JavaScript圈似乎打破了這一說法，圈友們各個身懷絕技且樂於分享。 眾所周知，JavaScript真正的力量來自於大量可用的開源包。這些免費的開源包促進了JavaScript生態系統的蓬勃發展。我們可以免費使用這些棒呆的……" />
+<meta property="og:url" content="https://daynews.cc/technology/10001" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-07T18:50:08+00:00" />
+	<title>7個免費、開源且實用的Node包，你還在等什麼？ - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/10001" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">7個免費、開源且實用的Node包，你還在等什麼？</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-08T02:50:08+00:00">
+		1 週 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<blockquote>
+<p>全文共<strong>6992</strong>字，預計學習時長<strong>20</strong>分鐘</p>
+</blockquote>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/37afcab293de4d0385d1a0f2571379bb" alt="《7個免費、開源且實用的Node包，你還在等什麼？》" width="640" height="427" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/37afcab293de4d0385d1a0f2571379bb" alt="《7個免費、開源且實用的Node包，你還在等什麼？》" width="640" height="427" class=""></noscript></amp-img>
+<p class="pgc-img-caption">圖源：Unsplash</p>
+
+</div>
+<p>俗話說的好：天上不會掉餡餅，天下沒有免費的午餐。</p>
+<p>JavaScript圈似乎打破了這一說法，圈友們各個身懷絕技且樂於分享。</p>
+
+<p>眾所周知，JavaScript真正的力量來自於大量可用的開源包。這些免費的開源包促進了JavaScript生態系統的蓬勃發展。我們可以免費使用這些棒呆的包實現自己偉大的編程項目。</p>
+
+<p>今天，小芯將為大家介紹七個超實用的Node包，都是免費的哦！</p>
+
+<p>1. term-size</p>
+
+<p>term-size NPM包能準確確定終端窗口的大小。</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/7f0f3f287b774394a4f63ed6fa6c3d05" alt="《7個免費、開源且實用的Node包，你還在等什麼？》" width="554" height="190" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/7f0f3f287b774394a4f63ed6fa6c3d05" alt="《7個免費、開源且實用的Node包，你還在等什麼？》" width="554" height="190" class=""></noscript></amp-img>
+<p class="pgc-img-caption">term-size 包；來源：Github</p>
+
+</div>
+<p>當以非交互方式運行時Process.stdout.columns 不存在（例如在子進程中或者管道中）。這個模塊甚至在所有電傳印表機文件描述符被重定向時也能工作。</p>
+<p>安裝</p>
+
+<p>$ npm install term-size</p>
+
+<p>用法</p>
+
+<p>const termSize = require(‘term-size’);termSize();</p>
+<p>//=&gt; {columns: 143, rows: 24}</p>
+
+<p>Term size 有一個簡短的API</p>
+
+<p>termSize() — 返回一個 具有 columns屬性和 rows屬性的 object（對象）</p>
+
+<p>相關</p>
+
+<p>· term-size-cli — 這個模塊的CLI</p>
+
+<p>注意：確認該包可以在macOS, Linux和 Windows上使用。</p>
+
+<p>2. Node MySQL</p>
+
+<p>Node MySQL是node.js 的一個MySQL驅動程序。用JavaScript編寫，不需要編譯，並且完全由麻省理工學院授權。</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/366cac6056b84a4bbc66321c89c7063f" alt="《7個免費、開源且實用的Node包，你還在等什麼？》" width="554" height="226" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/366cac6056b84a4bbc66321c89c7063f" alt="《7個免費、開源且實用的Node包，你還在等什麼？》" width="554" height="226" class=""></noscript></amp-img>
+<p class="pgc-img-caption">Node MySQL.來源: Github</p>
+
+</div>
+<p>安裝</p>
+
+<p>這是一個Node.js模塊，可通過 npm 註冊表使用 。</p>
+
+<p>安裝之前，下載並安裝Node.js，需要Node.js 0.6或者更高的版本。</p>
+
+<p>使用npm 安裝命令進行安裝：</p>
+
+<p>$ npm install mysql</p>
+
+<p>有關以前0.9.x版本的信息，請訪問 v0.9 分支。</p>
+
+<p>有時可能要求安裝來自Github的最新版本，來檢查bugfix是否有效。這種情況下，請執行以下操作：</p>
+<p>$ npm install mysqljs/mysql</p>
+<p>建立連接</p>
+
+<p>建立資料庫連接的推薦方式如下：</p>
+
+<p>var mysql = require(‘mysql’);</p>
+<p>var connection = mysql.createConnection({</p>
+<p>host : ‘example.org’,</p>
+<p>user : ‘bob’,</p>
+<p>password : ‘secret’</p>
+<p>});connection.connect(function(err) {</p>
+<p>if (err) {</p>
+<p>console.error(‘error connecting: ‘ +err.stack);</p>
+<p>return;</p>
+<p>} console.log(‘connected as id ‘ + connection.threadId);</p>
+<p>});</p>
+
+<p>示例代碼</p>
+
+<p>下面是如何使用該包的示例。</p>
+
+<p>var mysql = require(‘mysql’);</p>
+<p>var connection = mysql.createConnection({</p>
+<p>host : ‘localhost’,</p>
+<p>user : ‘me’,</p>
+<p>password : ‘secret’,</p>
+<p>database : ‘my_db’</p>
+<p>});connection.connect();connection.query(‘SELECT 1 + 1 AS solution’, function(error, results, fields) {</p>
+<p>if (error) throw error;</p>
+<p>console.log(‘The solution is: ‘,results[0].solution);</p>
+<p>});connection.end();</p>
+<p>從這個示例中，可以了解：</p>
+
+<ul class=" list-paddingleft-2">
+<li>在連接上調用的每個方法都按順序排隊和執行。</li>
+<li>使用 end()關閉連接，確保在quit包發送到伺服器之前執行完所有剩餘的查詢。</li>
+</ul>
+<p>3. Commander.js</p>
+
+<p>Commander受Ruby的commander庫啟發，是node.js命令行界面的完整解決方案。</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/c83e0856e64a43fa8a7fe01c8a259a2e" alt="《7個免費、開源且實用的Node包，你還在等什麼？》" width="554" height="209" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/c83e0856e64a43fa8a7fe01c8a259a2e" alt="《7個免費、開源且實用的Node包，你還在等什麼？》" width="554" height="209" class=""></noscript></amp-img>
+<p class="pgc-img-caption">commander.js. 來源：Github</p>
+
+</div>
+<p>安裝</p>
+
+<p>npm install commander</p>
+
+<p>聲明程序變數</p>
+
+<p>Commander輸出一個全局對象，有助於程序的快速運行。</p>
+
+<p>const program = require(‘commander’);program.version(‘0.0.1’);</p>
+
+<p>對於可能以多種方式使用commander的更大型程序（包括單元測試），最好創建一個本地命令對象來使用。</p>
+
+<p>const commander = require(‘commander’);</p>
+<p>const program = new commander.Command();program.version(‘0.0.1’);</p>
+
+<p>命令</p>
+
+<p>可以使用.command為頂級命令指定（子）命令。有兩種實現方法：使用附加在命令上的操作處理程序，或者作為一個獨立的可執行文件（稍後將詳細描述）。在.command的第一個參數中，指定命令名稱和任何命令參數。參數可以是&lt;required&gt;或&lt;optional&gt;，最後一個參數也可能是可變參數……</p>
+
+<p>例如</p>
+
+<p>// Command implemented usingaction handler (description is supplied separately to `.command`)</p>
+<p>// Returns new command for configuring.</p>
+<p>program</p>
+<p>.command(‘clone &lt;source&gt;[destination]’)</p>
+<p>.description(‘clone a repository into anewly created directory’)</p>
+<p>.action((source, destination) =&gt; {</p>
+<p>console.log(‘clone command called’);</p>
+<p>});// Command implemented usingseparate executable file (description is second parameter to `.command`)</p>
+<p>// Returns top-level command for adding more commands.</p>
+<p>program</p>
+<p>.command(‘start &lt;service&gt;’,’start named service’)</p>
+<p>.command(‘stop [service]’, ‘stop namedservice, or all if no name supplied’);</p>
+<p>4. Chalk</p>
+
+<p>Chalk是用於終端樣式的Node包。</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/f0c28dbbdc224361bda201d9d188ce56" alt="《7個免費、開源且實用的Node包，你還在等什麼？》" width="554" height="146" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/f0c28dbbdc224361bda201d9d188ce56" alt="《7個免費、開源且實用的Node包，你還在等什麼？》" width="554" height="146" class=""></noscript></amp-img>
+<p class="pgc-img-caption">Chalk. 來源：Github</p>
+
+</div>
+<p>Chalk有以下亮點：</p>
+
+<p>· 清晰可讀的 API</p>
+<p>· 高性能</p>
+<p>· 支持嵌套樣式</p>
+<p>· 支持256/真彩顏色</p>
+<p>· 支持自動檢測顏色</p>
+<p>· 不擴展String.prototype</p>
+<p>· 清潔和集中</p>
+<p>· 積極維護</p>
+<p>· 截至2019年10月1日已被大約46,000個包引用</p>
+
+<p>安裝</p>
+
+<p>$ npm install chalk</p>
+<p>用法</p>
+<p>const chalk = require(‘chalk’);console.log(chalk.blue(‘Hello world!’));</p>
+<p>Chalk附帶了一個易於使用的組合API，只需在API中鏈接和嵌套想要的樣式。</p>
+
+<p>const chalk = require(‘chalk’);</p>
+<p>const log = console.log;// Combine styled and normal strings</p>
+<p>log(chalk.blue(‘Hello’) + ‘ World’ + chalk.red(‘!’));// Compose multiple stylesusing the chainable API</p>
+<p>log(chalk.blue.bgRed.bold(‘Hello world!’));// Pass in multiple arguments</p>
+<p>log(chalk.blue(‘Hello’, ‘World!’, ‘Foo’, ‘bar’, ‘biz’, ‘baz’));</p>
+
+<p>5. Nodemailer</p>
+
+<p>Nodemailer是Node.js應用程序的一個模塊，可以像發送電子郵件一樣簡單。該項目開始於2010年，那時還沒有發送電子郵件的明智選擇，現在它是大多數Node.js用戶默認的解決方法。</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/35202fd0584c44f6bd70047eb56b0572" alt="《7個免費、開源且實用的Node包，你還在等什麼？》" width="554" height="224" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/35202fd0584c44f6bd70047eb56b0572" alt="《7個免費、開源且實用的Node包，你還在等什麼？》" width="554" height="224" class=""></noscript></amp-img>
+<p class="pgc-img-caption">nodemailer. 來源：Github</p>
+
+</div>
+<p>Nodemailer是麻省理工學院授權註冊的。</p>
+
+<p>準備開始</p>
+
+<p>npm install nodemailer</p>
+
+<p>Nodemailer演示代碼</p>
+
+<p>這是一個完整的示例，用以發送一個有純文本和HTML主體的電子郵件。</p>
+
+<p>const nodemailer =require(‘nodemailer’);// async..await is not allowed in global scope, must usea wrapper</p>
+<p>async function main() {</p>
+<p>// Generate test SMTP service accountfrom ethereal.email</p>
+<p>// Only needed if you don’t have areal mail account for testing</p>
+<p>let testAccount = await nodemailer.createTestAccount(); // create reusable transporter object usingthe default SMTP transport</p>
+<p>let transporter =nodemailer.createTransport({</p>
+<p>host: ‘smtp.ethereal.email’,</p>
+<p>port: 587,</p>
+<p>secure: false, // true for 465,false for other ports</p>
+<p>auth: {</p>
+<p>user: testAccount.user, //generated ethereal user</p>
+<p>pass: testAccount.pass //generated ethereal password</p>
+<p>}</p>
+<p>}); // send mail with defined transport object</p>
+<p>let info = await transporter.sendMail({</p>
+<p>from: ‘”Fred Foo ” &lt;foo@example.com&gt;’, // sender address</p>
+<p>to: ‘bar@example.com,baz@example.com’, // list of receivers</p>
+<p>subject: ‘Hello ✔’, // Subject line</p>
+<p>text: ‘Hello world?’, // plaintext body</p>
+<p>html: ‘&lt;b&gt;Helloworld?&lt;/b&gt;’ // html body</p>
+<p>}); console.log(‘Message sent: %s’, info.messageId);</p>
+<p>// Message sent:&lt;b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com&gt; // Preview only available when sendingthrough an Ethereal account</p>
+<p>console.log(‘Preview URL: %s’,nodemailer.getTestMessageUrl(info));</p>
+<p>// Preview URL:https://ethereal.email/message/WaQKMgKddxQDoou…</p>
+<p>}main().catch(console.error);</p>
+
+<p>示例</p>
+
+<ul class=" list-paddingleft-2">
+<li>Nodemailer AMQP是一個使用RabbitMQ來管理Nodemailer郵件信息的例子。（來源）</li>
+</ul>
+<p>Ethereal郵件捕獲服務的示例腳本輸出如下：</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/731c2c3fe0d2409b92eef52273f655ab" alt="《7個免費、開源且實用的Node包，你還在等什麼？》" width="554" height="436" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/731c2c3fe0d2409b92eef52273f655ab" alt="《7個免費、開源且實用的Node包，你還在等什麼？》" width="554" height="436" class=""></noscript></amp-img>
+<p class="pgc-img-caption">用Nodemailer發送郵件</p>
+
+</div>
+<p>6. Winston</p>
+
+<p>Winston是一個簡單通用的日誌庫，支持多種傳輸方式。傳輸實質上是日誌的存儲設備。</p>
+
+<p>每個Winston記錄器可以對不同級別配置不同的傳輸方式。例如，用戶可能希望將錯誤日誌儲存在一個永久的遠程位置（如資料庫），但是所有日誌都會輸出到控制台或本地文件。</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/e4caf3fbff6742ca8a211622a66c76ad" alt="《7個免費、開源且實用的Node包，你還在等什麼？》" width="554" height="216" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/e4caf3fbff6742ca8a211622a66c76ad" alt="《7個免費、開源且實用的Node包，你還在等什麼？》" width="554" height="216" class=""></noscript></amp-img>
+<p class="pgc-img-caption">winston. 來源：Github</p>
+
+</div>
+<p>Winston旨在將部分日誌記錄進程解耦，增強其靈活性和擴展性。注意支持日誌格式化和級別的靈活性，並確保這些API從運輸日誌（即如何存儲/索引日誌）解耦到公開給程序員。</p>
+
+<p>安裝</p>
+
+<p>npm i Winston</p>
+
+<p>用法</p>
+
+<p>推薦使用的方式是創建自己的日誌記錄器。最簡單的方法是使用winston.createLogger:</p>
+
+<p>const winston = require(‘winston’);const logger =winston.createLogger({</p>
+<p>level: ‘info’,</p>
+<p>format: winston.format.json(),</p>
+<p>defaultMeta: { service: ‘user-service’},</p>
+<p>transports: [</p>
+<p>//</p>
+<p>// – Write to all logs with level`info` and below to `combined.log`</p>
+<p>// – Write all logs error (and below)to `error.log`.</p>
+<p>//</p>
+<p>new winston.transports.File({filename: ‘error.log’, level: ‘error’ }),</p>
+<p>new winston.transports.File({filename: ‘combined.log’ })</p>
+<p>]</p>
+<p>});//</p>
+<p>// If we’re not in production then log to the `console` with the format:</p>
+<p>// `${info.level}: ${info.message} JSON.stringify({ …rest }) `</p>
+<p>//</p>
+<p>if (process.env.NODE_ENV !== ‘production’) {</p>
+<p>logger.add(newwinston.transports.Console({</p>
+<p>format: winston.format.simple()</p>
+<p>}));</p>
+<p>}</p>
+<p>用戶也可以直接通過require(‘winston’)公開的默認日誌記錄器進行記錄，但這僅僅是一種便於共享的日誌記錄器，可以在整個應用程序中使用。</p>
+
+<p>7. Passport</p>
+
+<p>Passport是Node.js的登陸驗證的中間件，可與Express兼容。</p>
+
+<p>Passport的唯一用途是驗證請求，可以通過名為strategies（策略）的可擴展插件集來實現。Passport不掛載路由或承擔任何特定的資料庫模式，極大地提高了靈活性，並允許開發者做出應用程序級的決策。這個API很簡單：提供給Passport一個驗證請求，Passport提供hooks來控制驗證成功或失敗時發生的情況。</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/3025003bf9024ca8907f291988b6b368" alt="《7個免費、開源且實用的Node包，你還在等什麼？》" width="554" height="232" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/3025003bf9024ca8907f291988b6b368" alt="《7個免費、開源且實用的Node包，你還在等什麼？》" width="554" height="232" class=""></noscript></amp-img>
+<p class="pgc-img-caption">passport. 來源：Github</p>
+
+</div>
+<p>安裝</p>
+
+<p>$ npm install passport</p>
+
+<p>用法策略</p>
+
+<p>Passport使用策略（strategies）的概念去驗證請求。策略包括：通過使用OAuth委託驗證或者使用OpenID進行聯合身份驗證來驗證用戶名和密碼憑據。</p>
+
+<p>在驗證請求之前，必須配置應用程序使用的策略。</p>
+
+<p>passport.use(new LocalStrategy(</p>
+<p>function(username, password, done) {</p>
+<p>User.findOne({ username: username },function (err, user) {</p>
+<p>if (err) { return done(err); }</p>
+<p>if (!user) { return done(null,false); }</p>
+<p>if (!user.verifyPassword(password)){ return done(null, false); }</p>
+<p>return done(null, user);</p>
+<p>});</p>
+<p>}</p>
+<p>));</p>
+
+<p>有480多種策略，可在passportjs.org查找。</p>
+
+<p>會話</p>
+
+<p>Passport包將保持持久的登錄對話。為了持續會話，必須將已驗證身份的用戶序列化到會話，並在發出後續請求時反序列化。</p>
+
+<p>Passport對用戶記錄的存儲方式沒有任何限制。相反，用戶可以為Passport提供函數，使其實現必要的序列化和反序列化邏輯。在典型應用程序中，這和對用戶ID序列化後，再反序列化時通過ID查找用戶一樣簡單。</p>
+
+<p>passport.serializeUser(function(user,done) {</p>
+<p>done(null, user.id);</p>
+<p>});passport.deserializeUser(function(id, done) {</p>
+<p>User.findById(id, function (err, user){</p>
+<p>done(err, user);</p>
+<p>});</p>
+<p>});</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/ef51490f2aa24d5892c731d07437558c" alt="《7個免費、開源且實用的Node包，你還在等什麼？》" width="640" height="427" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/ef51490f2aa24d5892c731d07437558c" alt="《7個免費、開源且實用的Node包，你還在等什麼？》" width="640" height="427" class=""></noscript></amp-img>
+<p class="pgc-img-caption">圖源：Unsplash</p>
+
+</div>
+<p>結論</p>
+
+<p>希望你能收穫到有用的新Node包，用於自己的項目中。如果這裡遺漏了你最喜歡的包，可以在下面的回復中與大家分享哦。</p>
+
+<p>最後，不要忘記不時去贊助和支持一下包的創建者和維護者哦。</p>
+
+<p>正所謂「贈人玫瑰手留余香」，每位創建者、維護者和分享者都是天使。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/885980b48568412b920bd3f3f8b50285" alt="《7個免費、開源且實用的Node包，你還在等什麼？》" width="640" height="853" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/885980b48568412b920bd3f3f8b50285" alt="《7個免費、開源且實用的Node包，你還在等什麼？》" width="640" height="853" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/d0c18e56d1174b6cb034b3fc49aea194" alt="《7個免費、開源且實用的Node包，你還在等什麼？》" width="1080" height="120" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/d0c18e56d1174b6cb034b3fc49aea194" alt="《7個免費、開源且實用的Node包，你還在等什麼？》" width="1080" height="120" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>留言點贊關注</strong></p>
+<p><strong>我們一起分享AI學習與發展的乾貨</strong></p>
+<p>如轉載，請後台留言，遵守轉載規範</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/10001#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.275 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:34:53 -->
+
+<!-- super cache -->

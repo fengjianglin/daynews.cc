@@ -1,0 +1,774 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/9632#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/421aa222f5994da8a2e4e164caf98173"},{"@type":"WebPage","@id":"https://daynews.cc/technology/9632#webpage","url":"https://daynews.cc/technology/9632","inLanguage":"zh-TW","name":"\u6bcf\u79d27\u5104\u6b21\u8acb\u6c42\uff0c\u963f\u91cc\u65b0\u4e00\u4ee3\u8cc7\u6599\u5eab\u5982\u4f55\u652f\u6490\uff1f - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/9632#primaryimage"},"datePublished":"2019-12-10T07:55:09+00:00","dateModified":"2019-12-10T07:55:09+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="阿里妹導讀：Lindorm，就是雲操作系統飛天中面向大數據存儲處理的重要組成部分。Lindorm是基於HBase研發的、面向大數據領域的分散式NoSQL資料庫，集大規模、高吞吐、快速靈活、實時混合能力於一身，面向海量數據場景提供世界領先的高性能、可跨域、多一致、多模型的混合存儲處理能力。目前，Lindorm已經全面服務於阿里經濟體中的大數……" />
+<meta name="twitter:title" content="每秒7億次請求，阿里新一代資料庫如何支撐？ - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/421aa222f5994da8a2e4e164caf98173" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="每秒7億次請求，阿里新一代資料庫如何支撐？ - 天天要聞" />
+<meta property="og:description" content="阿里妹導讀：Lindorm，就是雲操作系統飛天中面向大數據存儲處理的重要組成部分。Lindorm是基於HBase研發的、面向大數據領域的分散式NoSQL資料庫，集大規模、高吞吐、快速靈活、實時混合能力於一身，面向海量數據場景提供世界領先的高性能、可跨域、多一致、多模型的混合存儲處理能力。目前，Lindorm已經全面服務於阿里經濟體中的大數……" />
+<meta property="og:url" content="https://daynews.cc/technology/9632" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-10T07:55:09+00:00" />
+	<title>每秒7億次請求，阿里新一代資料庫如何支撐？ - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/9632" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">每秒7億次請求，阿里新一代資料庫如何支撐？</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-10T15:55:09+00:00">
+		1 週 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/421aa222f5994da8a2e4e164caf98173" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="370" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/421aa222f5994da8a2e4e164caf98173" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="370" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<blockquote>
+<p><strong>阿里妹導讀：</strong>Lindorm，就是雲操作系統飛天中面向大數據存儲處理的重要組成部分。Lindorm是基於HBase研發的、面向大數據領域的分散式NoSQL資料庫，集大規模、高吞吐、快速靈活、實時混合能力於一身，面向海量數據場景提供世界領先的高性能、可跨域、多一致、多模型的混合存儲處理能力。目前，Lindorm已經全面服務於阿里經濟體中的大數據結構化、半結構化存儲場景。</p>
+</blockquote>
+<p>註：Lindorm是阿里內部HBase分支的別稱，在阿里雲上對外售賣的版本叫做HBase增強版，之後文中出現的HBase增強版和Lindorm都指同一個產品。</p>
+<p>2019年以來，Lindorm已經服務了包括淘寶、天貓、螞蟻、菜鳥、媽媽、優酷、高德、大文娛等數十個BU，在今年的雙十一中，Lindorm峰值請求達到了7.5億次每秒，天吞吐22.9萬億次，平均響應時間低於3ms，整體存儲的數據量達到了數百PB。這些數字的背後，凝聚了HBase&amp;Lindorm團隊多年以來的汗水和心血。Lindorm脫胎於HBase，是團隊多年以來承載數百PB數據，億級請求量，上千個業務後，在面對規模成本壓力，以及HBase自身缺陷下，全面重構和引擎升級的全新產品。相比HBase，Lindorm無論是性能，功能還是可用性上，都有了巨大飛躍。本文將從功能、可用性、性能成本、服務生態等維度介紹Lindorm的核心能力與業務表現，最後分享部分我們正在進行中的一些項目。</p>
+<h2><strong>極致優化，超強性能</strong></h2>
+<p>Lindorm比HBase在RPC、內存管理，緩存、日誌寫入等方面做了深度的優化，引入了眾多新技術，大幅提升了讀寫性能，在相同硬體的情況下，吞吐可達到HBase的5倍以上，毛刺更是可以達到HBase的1/10。這些性能數據，並不是在實驗室條件下產生的，而是在不改動任何參數的前提下，使用開源測試工具YCSB跑出來的成績。我們把測試的工具和場景都公布在阿里雲的幫助文件中，任何人都可以依照指南自己跑出一樣的結果。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/57450e9ecb7440d69d8a9300cfaa3852" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="251" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/57450e9ecb7440d69d8a9300cfaa3852" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="251" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>取得這麼優異的性能的背後，是Lindorm中積攢多年的「黑科技」，下面，我們簡單介紹下Lindorm內核中使用到的部分「黑科技」。</p>
+<p><strong>Trie Index</strong></p>
+<p>Lindorm 的文件LDFile（類似HBase中的HFile）是只讀 B+ 樹結構，其中文件索引是至關重要的數據結構。在 block cache 中有高優先順序，需要盡量常駐內存。如果能降低文件索引所佔空間大小，我們可以節省 block cache 中索引所需要的寶貴內存空間。或者在索引空間不變的情況下，增加索引密度，降低 data block 的大小，從而提高性能。而HBase中的索引block中存的是全量的Rowkey，而在一個已經排序好的文件中，很多Rowkey都是有共同前綴的。</p>
+<p>數據結構中的Trie (前綴樹) 結構能夠讓共同前綴只存一份，避免重複存儲帶來的浪費。但是傳統前綴樹結構中，從一個節點到下一個節點的指針佔用空間太多，整體而言得不償失。這一情況有望用 Succinct Prefix Tree 來解決。SIGMOD2018年的最佳論文 Surf 中提出了一種用 Succinct Prefix Tree 來取代 bloom filter，並同時提供 range filtering 的功能。我們從這篇文章得到啟發，用 Succinct Trie 來做 file block index。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/64aa6ee8b2404e8a9d9aacccb93a0c9e" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="293" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/64aa6ee8b2404e8a9d9aacccb93a0c9e" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="293" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>我們在線上的多個業務中使用了Trie index實現的索引結構。結果發現，各個場景中，Trie index可以大大縮小索引的體積，最多可以壓縮12倍的索引空間！節省的這些寶貴空間讓內存Cache中能夠存放更多的索引和數據文件，大大提高了請求的性能。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/aa585357d0a14826b4726a850a96a28a" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="302" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/aa585357d0a14826b4726a850a96a28a" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="302" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>ZGC加持，百GB堆平均5ms暫停</strong></p>
+<p>ZGC(Powerd by Dragonwell JDK)是下一代Pauseless GC演算法的代表之一，其核心思想是Mutator利用內存讀屏障(Read Barrier)識別指針變化，使得大部分的標記(Mark)與合併(Relocate)工作可以放在並發階段執行。 這樣一項實驗性技術，在Lindorm團隊與AJDK團隊的緊密合作下，進行了大量的改進與改造工作。使得ZGC在Lindorm這個場景上實現了生產級可用，主要工作包括：</p>
+<ol start="1">
+<li>Lindorm內存自管理技術，數量級減少對象數與內存分配速率。(比如說阿里HBase團隊貢獻給社區的CCSMap)。</li>
+<li>AJDK ZGC Page緩存機制優化(鎖、Page緩存策略)。</li>
+<li>AJDK ZGC 觸發時機優化，ZGC無並發失敗。AJDK ZGC在Lindorm上穩定運行兩個月，並順利通過雙十一大考。其JVM暫停時間穩定在5ms左右，最大暫停時間不超過8ms。ZGC大大改善了線上運行集群的RT與毛刺指標，平均RT優化15%～20%，P999 RT減少一倍。在今年雙十一螞蟻風控集群中，在ZGC的加持下，P999時間從12ms降低到了5ms。</li>
+</ol>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/1cac19a7c7e54f0aa45454dec05875d7" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="273" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/1cac19a7c7e54f0aa45454dec05875d7" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="273" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>註：圖中的單位應該為us，平均GC在5ms</p>
+<p><strong>LindormBlockingQueue</strong></p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/229aa8014e184fc2b3e5ca15292f6278" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="293" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/229aa8014e184fc2b3e5ca15292f6278" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="293" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>上圖是HBase中的RegionServer從網路上讀取RPC請求並分發到各個Handler上執行的流程。HBase中的RPC Reader從Socket上讀取RPC請求放入BlockingQueue，Handler訂閱這個Queue並執行請求。而這個BlockingQueue，HBase使用的是Java原生的JDK自帶的LinkedBlockingQueue。</p>
+<p>LinkedBlockingQueue利用Lock與Condition保證線程安全與線程之間的同步，雖然經典易懂，但當吞吐增大時，這個queue會造成嚴重的性能瓶頸。因此在Lindorm中全新設計了LindormBlockingQueue，將元素維護在Slot數組中。維護head與tail指針，通過CAS操作對進隊列進行讀寫操作，消除了臨界區。並使用Cache Line Padding與臟讀緩存加速，同時可定製多種等待策略(Spin/Yield/Block)，避免隊列為空或為滿時，頻繁進入Park狀態。LindormBlockingQueue的性能非常突出，相比於原先的LinkedBlockingQueue性能提升4倍以上。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/d387e8306bc54e288a9fd8d1f65bc244" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="431" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/d387e8306bc54e288a9fd8d1f65bc244" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="431" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>VersionBasedSynchronizer</strong></p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/25d5b6b3c647443493c8079557fa1dd0" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="456" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/25d5b6b3c647443493c8079557fa1dd0" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="456" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>LDLog是Lindorm中用於系統failover時進行數據恢復時的日誌，以保障數據的原子性和可靠性。在每次數據寫入時，都必須先寫入LDLog。LDLog寫入成功之後，才可以進行後續的寫入memstore等操作。因此Lindorm中的Handler都必須等待WAL寫入完成後再被喚醒以進行下一步操作，在高壓條件下，無用喚醒會造成大量的CPU Context Switch造成性能下降。針對這個問題，Lindorm研發了基於版本的高並發多路線程同步機制(VersionBasedSynchronizer)來大幅優化上下文切換。</p>
+<p>VersionBasedSynchronizer的主要思路是讓Handler的等待條件被Notifier感知，減少Notifier的喚醒壓力。經過模塊測試VersionBasedSynchronizer的效率是JDK自帶的ObjectMonitor和J.U.C(java util concurrent包)的兩倍以上。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/fde6518beee94269ac0e9fcdc9565d52" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="507" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/fde6518beee94269ac0e9fcdc9565d52" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="507" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>全面無鎖化</strong></p>
+<p>HBase內核在關鍵路徑上有大量的鎖，在高並發場景下，這些鎖都會造成線程爭搶和性能下降。Lindorm內核對關鍵鏈路上的鎖都做了無鎖化處理，如MVCC，WAL模塊中的鎖。另外，HBase在運行過程中會產生的各種指標，如qps，rt，cache命中率等等。而在記錄這些Metrics的「不起眼」操作中，也會有大量的鎖。面對這樣的問題，Lindorm借鑒了tcmalloc的思想，開發了LindormThreadCacheCounter，來解決Metrics的性能問題。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/e22a93ddf70747ca92773490d977e1ea" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="395" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/e22a93ddf70747ca92773490d977e1ea" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="395" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>Handler協程化</strong></p>
+<p>在高並發應用中，一個RPC請求的實現往往包含多個子模塊，涉及到若干次IO。這些子模塊的相互協作，系統的ContextSwitch相當頻繁。ContextSwitch的優化是高並發系統繞不開的話題，各位高手都各顯神通，業界有非常多的思想與實踐。其中coroutine(協程)和SEDA(分階段事件驅動)方案是我們著重考察的方案。基於工程代價，可維護性，代碼可讀性三個角度考慮，Lindorm選擇了協程的方式進行非同步化優化。我們利用了阿里JVM團隊提供的Dragonwell JDK內置的Wisp2.0功能實現了HBase Handler的協程化，Wisp2.0開箱即用，有效地減少了系統的資源消耗，優化效果比較客觀。</p>
+<p><strong>全新Encoding演算法</strong></p>
+<p>從性能角度考慮，HBase通常需要將Meta信息裝載進block cache。如果將block大小較小，Meta信息較多，會出現Meta無法完全裝入Cache的情況, 性能下降。如果block大小較大，經過Encoding的block的順序查詢的性能會成為隨機讀的性能瓶頸。針對這一情況，Lindorm全新開發了Indexable Delta Encoding，在block內部也可以通過索引進行快速查詢，seek性能有了較大提高。Indexable Delta Encoding原理如圖所示：</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/4717f694d2814eca93db4c1f2eef00e2" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="273" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/4717f694d2814eca93db4c1f2eef00e2" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="273" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>通過Indexable Delta Encoding， HFile的隨機seek性能相對於使用之前翻了一倍，以64K block為例，隨機seek性能基本與不做encoding相近（其他encoding演算法會有一定性能損失）。在全cache命中的隨機Get場景下，相對於Diff encoding RT下降50%</p>
+<p><strong>其他</strong></p>
+<p>相比社區版HBase，Lindorm還有多達幾十項的性能優化和重構，引入了眾多新技術，由於篇幅有限，這裡只能列舉一部分，其他的核心技術，比如：</p>
+<ul class="">
+<li>CCSMap</li>
+<li>自動規避故障節點的並發三副本日誌協議 (Quorum-based write)</li>
+<li>高效的批量組提交(Group Commit)</li>
+<li>無碎片的高性能緩存—Shared BucketCache</li>
+<li>Memstore Bloomfilter</li>
+<li>面向讀寫的高效數據結構</li>
+<li>GC-Invisible內存管理</li>
+<li>在線計算與離線作業架構分離</li>
+<li>JDK/操作系統深度優化</li>
+<li>FPGA offloading Compaction</li>
+<li>用戶態TCP加速</li>
+<li>……</li>
+</ul>
+<h2><strong>豐富的查詢模型，降低開發門檻</strong></h2>
+<p>原生的HBase只支持KV結構的查詢，雖然簡單，但是在面對各項業務的複雜需求時，顯的有點力不從心。因此，在Lindorm中，我們針對不同業務的特點，研發了多種查詢模型，通過更靠近場景的API和索引設計，降低開發門檻。</p>
+<p><strong>WideColumn 模型（原生HBase API）</strong></p>
+<p>WideColumn是一種與HBase完全一致的訪問模型和數據結構，從而使得Lindrom能100%兼容HBase的API。用戶可以通過Lindorm提供的高性能原生客戶端中的WideColumn API訪問Lindorm，也可以通過alihbase-connector這個插件，使用HBase客戶端及API(無需任何代碼改造)直接訪問Lindorm。同時，Lindorm使用了輕客戶端的設計，將大量數據路由、批量分發、超時、重試等邏輯下沉到服務端，並在網路傳輸層做了大量的優化，使得應用端的CPU消耗可以大大節省。像下表中，相比於HBase，使用Lindorm後的應用側CPU使用效率提升60%，網路帶寬效率提升25%。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/2fe4bce5b15d41ca93ace28c09c5f4cf" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="878" height="143" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/2fe4bce5b15d41ca93ace28c09c5f4cf" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="878" height="143" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>註：表中的客戶端CPU代表HBase/Lindorm客戶端消耗的CPU資源，越小越好。</p>
+<p>在HBase原生API上，我們還獨家支持了高性能二級索引，用戶可以使用HBase原生API寫入數據過程中，索引數據透明地寫入索引表。在查詢過程中，把可能全表掃的Scan + Filter大查詢，變成可以先去查詢索引表，大大提高了查詢性能。關於高性能原生二級索引，大家可以參考：<br>https://help.aliyun.com/document_detail/144577.html</p>
+<p><strong>TableService模型(SQL、二級索引)</strong></p>
+<p>HBase中只支持Rowkey這一種索引方式，對於多欄位查詢時，通常效率低下。為此，用戶需要維護多個表來滿足不同場景的查詢需求，這在一定程度上既增加了應用的開發複雜性，也不能很完美地保證數據一致性和寫入效率。並且HBase中只提供了KV API，只能做Put、Get、Scan等簡單API操作，也沒有數據類型，所有的數據都必須用戶自己轉換和儲存。對於習慣了SQL語言的開發者來說，入門的門檻非常高，而且容易出錯。</p>
+<p>為了解決這一痛點，降低用戶使用門檻，提高開發效率，在Lindorm中我們增加了TableService模型，其提供豐富的數據類型、結構化查詢表達API，並原生支持SQL訪問和全局二級索引，解決了眾多的技術挑戰，大幅降低普通用戶的開發門檻。通過SQL和SQL like的API，用戶可以方便地像使用關係資料庫那樣使用Lindorm。下面是一個Lindorm SQL的簡單示例。</p>
+<pre>-- 主表和索引DDL<br>create table shop_item_relation (<br> shop_id varchar,<br> item_id varchar,<br> status varchar<br>constraint primary key(shop_id, item_id)) ;<br>create index idx1 on shop_item_relation (item_id) include (ALL); -- 對第二列主鍵建索引，冗餘所有列<br>create index idx2 on shop_item_relation (shop_id, status) include (ALL); -- 多列索引，冗餘所有列<br>-- 寫入數據，會同步更新2個索引<br>upsert into shop_item_relation values('shop1', 'item1', 'active');<br>upsert into shop_item_relation values('shop1', 'item2', 'invalid');<br>-- 根據WHERE子句自動選擇合適的索引執行查詢<br>select * from shop_item_relation where item_id = 'item2'; -- 命中idx1<br>select * from shop_item_relation where shop_id = 'shop1' and status = 'invalid'; -- 命中idx2</pre>
+<p>相比於關係資料庫的SQL，Lindorm不具備多行事務和複雜分析(如Join、Groupby)的能力，這也是兩者之間的定位差異。相比於HBase上Phoenix組件提供的二級索引，Lindorm的二級索引在功能、性能、穩定性上遠遠超過Phoenix，下圖是一個簡單的性能對比。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/9a5b37281eee44f7b6417c0192eab3aa" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="434" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/9a5b37281eee44f7b6417c0192eab3aa" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="434" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/2579e85b4afd4b3eb33b8224efc0d692" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="341" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/2579e85b4afd4b3eb33b8224efc0d692" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="341" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>註：該模型已經在阿里雲HBase增強版上內測，感興趣的用戶可以聯繫雲HBase答疑釘釘號或者在阿里雲上發起工單諮詢。</p>
+<p><strong>FeedStream模型</strong></p>
+<p>現代互聯網架構中，消息隊列承擔了非常重要的職責，可以極大的提升核心系統的性能和穩定性。其典型的應用場景有包括系統解耦，削峰限流，日誌採集，最終一致保證，分發推送等等。常見的消息隊列包括RabbitMq，Kafka以及RocketMq等等。這些資料庫儘管從架構和使用方式和性能上略有不同，但其基本使用場景都相對接近。然而，傳統的消息隊列並非完美，其在消息推送，feed流等場景存在以下問題：</p>
+<ul class="">
+<li>存儲：不適合長期保存數據，通常過期時間都在天級</li>
+<li>刪除能力：不支持刪除指定數據entry</li>
+<li>查詢能力：不支持較為複雜的查詢和過濾條件</li>
+<li>一致性和性能難以同時保證：類似於Kafka之類的資料庫更重吞吐，為了提高性能存在了某些狀況下丟數據的可能，而事務處理能力較好的消息隊列吞吐又較為受限。</li>
+<li>Partition快速拓展能力：通常一個Topc下的partition數目都是固定，不支持快速擴展。</li>
+<li>物理隊列/邏輯隊列：通常只支持少量物理隊列(如每個partition可以看成一個隊列)，而業務需要的在物理隊列的基礎上模擬出邏輯隊列，如IM系統中為每個用戶維護一個邏輯上的消息隊列，用戶往往需要很多額外的開發工作。</li>
+</ul>
+<p>針對上述需求，Lindorm推出了隊列模型FeedStreamService，能夠解決海量用戶下的消息同步，設備通知，自增ID分配等問題。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/c66d538820424df2ae7b8293b54d7250" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="358" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/c66d538820424df2ae7b8293b54d7250" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="358" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>FeedStream模型在今年手機淘寶消息系統中扮演了重要角色，解決了手機淘寶消息推送保序，冪等等難題。在今年雙十一中，手淘的蓋樓和回血大紅包推送都有Lindorm的身影。手淘消息的推送中，峰值超過了100w/s，做到了分鐘級推送全網用戶。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/869fffa954c04ae28395a5069cb3e483" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="501" height="413" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/869fffa954c04ae28395a5069cb3e483" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="501" height="413" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>註：該模型已經在阿里雲HBase增強版上內測，感興趣的用戶可以聯繫雲HBase答疑釘釘號或者在阿里雲上發起工單諮詢。</p>
+<p><strong>全文索引模型</strong></p>
+<p>雖然Lindorm中的TableService模型提供了數據類型和二級索引。但是，在面對各種複雜條件查詢和全文索引的需求下，還是顯得力不從心，而Solr和ES是優秀的全文搜索引擎。使用Lindorm+Solr/ES，可以最大限度發揮Lindorm和Solr/ES各自的優點，從而使得我們可以構建複雜的大數據存儲和檢索服務。Lindorm內置了外部索引同步組件，能夠自動地將寫入Lindorm的數據同步到外部索引組件如Solr或者ES中。這種模型非常適合需要保存大量數據，而查詢條件的欄位數據僅占原數據的一小部分，並且需要各種條件組合查詢的業務，例如：</p>
+<ul class="">
+<li>常見物流業務場景，需要存儲大量軌跡物流信息，並需根據多個欄位任意組合查詢條件</li>
+<li>交通監控業務場景，保存大量過車記錄，同時會根據車輛信息任意條件組合檢索出感興趣的記錄</li>
+<li>各種網站會員、商品信息檢索場景，一般保存大量的商品/會員信息，並需要根據少量條件進行複雜且任意的查詢，以滿足網站用戶任意搜索需求等。</li>
+</ul>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/84d4644391704a4190b348e6404dd611" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="268" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/84d4644391704a4190b348e6404dd611" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="268" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>全文索引模型已經在阿里雲上線，支持Solr/ES外部索引。目前，索引的查詢用戶還需要直接查詢Solr/ES再來反查Lindorm，後續我們會用TableService的語法把查詢外部索引的過程包裝起來，用戶全程只需要和Lindorm交互，即可獲得全文索引的能力。</p>
+<p><strong>更多模型在路上</strong></p>
+<p>除了上述這些模型，我們還會根據業務的需求和痛點，開發更多簡單易用的模型，方便用戶使用，降低使用門檻。像時序模型，圖模型等，都已經在路上，敬請期待。</p>
+<h2><strong>零干預、秒恢復的高可用能力</strong></h2>
+<p>從一個嬰兒成長為青年，阿里HBase摔過很多次，甚至頭破血流，我們在客戶的信任之下幸運的成長。在9年的阿里應用過程中，我們積累了大量的高可用技術，而這些技術，都應用到了HBase增強版中。</p>
+<p><strong>MTTR優化</strong></p>
+<p>HBase是參照Gooogle著名論文BigTable的開源實現，其中最核心特點是數據持久化存儲於底層的分散式文件系統HDFS，通過HDFS對數據的多副本維護來保障整個系統的高可靠性，而HBase自身不需要去關心數據的多副本及其一致性，這有助於整體工程的簡化，但也引入了”服務單點”的缺陷，即對於確定的數據的讀寫服務只有發生固定的某個節點伺服器，這意味著當一個節點宕機後，數據需要通過重放Log恢復內存狀態，並且重新派發給新的節點載入後，才能恢復服務。</p>
+<p>當集群規模較大時，HBase單點故障後恢復時間可能會達到10-20分鐘，大規模集群宕機的恢復時間可能需要好幾個小時！而在Lindorm內核中，我們對MTTR（平均故障恢復時間）做了一系列的優化，包括故障恢復時先上線region、並行replay、減少小文件產生等眾多技術。將故障恢復速度提升10倍以上！基本上接近了HBase設計的理論值。</p>
+<p><strong>可調的多一致性</strong></p>
+<p>在原來的HBase架構中，每個region只能在一個RegionServer中上線，如果這個region server宕機，region需要經歷Re-assgin，WAL按region切分，WAL數據回放等步驟後，才能恢復讀寫。這個恢復時間可能需要數分鐘，對於某些高要求的業務來說，這是一個無法解決的痛點。另外，雖然HBase中有主備同步，但故障下只能集群粒度的手動切換，並且主和備的數據只能做到最終一致性，而有一些業務只能接受強一致，HBase在這點上望塵莫及。</p>
+<p>Lindorm內部實現了一種基於Shared Log的一致性協議，通過分區多副本機制達到故障下的服務自動快速恢復的能力，完美適配了存儲分離的架構, 利用同一套體系即可支持強一致語義，又可以選擇在犧牲一致性的前提換取更佳的性能和可用性，實現多活，高可用等多種能力。</p>
+<p>在這套架構下，Lindorm擁有了以下幾個一致性級別，用戶可以根據自己的業務自由選擇一致性級別：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/0750495f4d4943abb0d91994f7f3e699" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="947" height="181" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/0750495f4d4943abb0d91994f7f3e699" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="947" height="181" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>註：該功能暫時未在阿里雲HBase增強版上對外開放</p>
+<p><strong>客戶端高可用切換</strong></p>
+<p>雖然說目前HBase可以組成主備，但是目前市面上沒有一個高效地客戶端切換訪問方案。HBase的客戶端只能訪問固定地址的HBase集群。如果主集群發生故障，用戶需要停止HBase客戶端，修改HBase的配置後重啟，才能連接備集群訪問。或者用戶在業務側必須設計一套複雜地訪問邏輯來實現主備集群的訪問。阿里HBase改造了HBase客戶端，流量的切換髮生在客戶端內部，通過高可用的通道將切換命令發送給客戶端，客戶端會關閉舊的鏈接，打開與備集群的鏈接，然後重試請求。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/b82951dac636462789c2a38b9ce98f4c" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="525" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/b82951dac636462789c2a38b9ce98f4c" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="525" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>如果需要使用此項功能，請參考高可用幫助文檔：https://help.aliyun.com/document_detail/140940.html</p>
+<h2><strong>雲原生，更低使用成本</strong></h2>
+<p>Lindorm從立項之初就考慮到上雲，各種設計也能盡量復用雲上基礎設施，為雲的環境專門優化。比如在雲上，我們除了支持雲盤之外，我們還支持將數據存儲在OSS這種低成本的對象存儲中減少成本。我們還針對ECS部署做了不少優化，適配小內存規格機型，加強部署彈性，一切為了雲原生，為了節省客戶成本。</p>
+<p><strong>ECS+雲盤的極致彈性</strong></p>
+<p>目前Lindorm在雲上的版本HBase增強版均採用ECS+雲盤部署（部分大客戶可能採用本地盤），ECS+雲盤部署的形態給Lindorm帶來了極致的彈性。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/71b7615e24ad4657bfa7e0aa0abb0818" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="371" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/71b7615e24ad4657bfa7e0aa0abb0818" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="371" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>最開始的時候，HBase在集團的部署均採用物理機的形式。每個業務上線前，都必須先規劃好機器數量和磁碟大小。在物理機部署下，往往會遇到幾個難以解決的問題：</p>
+<ul class="">
+<li>業務彈性難以滿足：當遇到業務突發流量高峰或者異常請求時，很難在短時間內找到新的物理機擴容。</li>
+<li>存儲和計算綁定，靈活性差：物理機上CPU和磁碟的比例都是一定的，但是每個業務的特點都不一樣，採用一樣的物理機，有一些業務計算資源不夠，但存儲過剩，而有些業務計算資源過剩，而存儲瓶頸。特別是在HBase引入混合存儲後，HDD和SSD的比例非常難確定，有些高要求的業務常常會把SSD用滿而HDD有剩餘，而一些海量的離線型業務SSD盤又無法利用上。</li>
+<li>運維壓力大：使用物理機時，運維需要時刻注意物理機是否過保，是否有磁碟壞，網卡壞等硬體故障需要處理，物理機的報修是一個漫長的過程，同時需要停機，運維壓力巨大。對於HBase這種海量存儲業務來說，每天壞幾塊磁碟是非常正常的事情。而當Lindorm採用了ECS+雲盤部署後，這些問題都迎刃而解。</li>
+</ul>
+<p>ECS提供了一個近似無限的資源池。當面對業務的緊急擴容時，我們只需在資源池中申請新的ECS拉起後，即可加入集群，時間在分鐘級別之內，無懼業務流量高峰。配合雲盤這樣的存儲計算分離架構。我們可以靈活地為各種業務分配不同的磁碟空間。當空間不夠時，可以直接在線擴縮容磁碟。同時，運維再也不用考慮硬體故障，當ECS有故障時，ECS可以在另外一台宿主機上拉起，而雲盤完全對上層屏蔽了壞盤的處理。極致的彈性同樣帶來了成本的優化。我們不需要為業務預留太多的資源，同時當業務的大促結束後，能夠快速地縮容降低成本。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/b822034fbf3b46e185eadce90ef667ff" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="321" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/b822034fbf3b46e185eadce90ef667ff" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="321" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>一體化冷熱分離</strong></p>
+<p>在海量大數據場景下，一張表中的部分業務數據隨著時間的推移僅作為歸檔數據或者訪問頻率很低，同時這部分歷史數據體量非常大，比如訂單數據或者監控數據，降低這部分數據的存儲成本將會極大的節省企業的成本。如何以極簡的運維配置成本就能為企業極大降低存儲成本，Lindorm冷熱分離功能應運而生。Lindorm為冷數據提供新的存儲介質，新的存儲介質存儲成本僅為高效雲盤的1/3。</p>
+<p>Lindorm在同一張表裡實現了數據的冷熱分離，系統會自動根據用戶設置的冷熱分界線自動將表中的冷數據歸檔到冷存儲中。在用戶的訪問方式上和普通表幾乎沒有任何差異，在查詢的過程中，用戶只需配置查詢Hint或者TimeRange，系統根據條件自動地判斷查詢應該落在熱數據區還是冷數據區。對用戶而言始終是一張表，對用戶幾乎做到完全的透明。詳細介紹請參考：https://yq.aliyun.com/articles/718395</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/1019cd16216543fda49a24937244776a" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="1080" height="355" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/1019cd16216543fda49a24937244776a" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="1080" height="355" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>ZSTD-V2，壓縮比再提升100%</strong></p>
+<p>早在兩年前，我們就把集團內的存儲壓縮演算法替換成了ZSTD，相比原來的SNAPPY演算法，獲得了額外25%的壓縮收益。今年我們對此進一步優化，開發實現了新的ZSTD-v2演算法，其對於小塊數據的壓縮，提出了使用預先採樣數據進行訓練字典，然後用字典進行加速的方法。我們利用了這一新的功能，在Lindorm構建LDFile的時候，先對數據進行採樣訓練，構建字典，然後在進行壓縮。在不同業務的數據測試中，我們最高獲得了超過原生ZSTD演算法100%的壓縮比，這意味著我們可以為客戶再節省50%的存儲費用。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/7fa86bbafa5147b880c4c476f1bcf086" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="325" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/7fa86bbafa5147b880c4c476f1bcf086" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="325" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>HBase Serverless版，入門首選</strong></p>
+<p>阿里雲HBase Serverless 版是基於Lindorm內核，使用Serverless架構構建的一套新型的HBase 服務。阿里雲HBase Serverless版真正把HBase變成了一個服務，用戶無需提前規劃資源，選擇CPU，內存資源數量，購買集群。在應對業務高峰，業務空間增長時，也無需進行擴容等複雜運維操作，在業務低谷時，也無需浪費閑置資源。</p>
+<p>在使用過程中，用戶可以完全根據當前業務量，按需購買請求量和空間資源即可。使用阿里雲HBase Serverless版本，用戶就好像在使用一個無限資源的HBase集群，隨時滿足業務流量突然的變化，而同時只需要支付自己真正使用的那一部分資源的錢。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/32fd3cf15e5c476db3f47d7833b4ed44" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="366" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/32fd3cf15e5c476db3f47d7833b4ed44" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="366" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>關於HBase Serverless的介紹和使用，可以參考：https://developer.aliyun.com/article/719206</p>
+<h2><strong>面向大客戶的安全和多租戶能力</strong></h2>
+<p>Lindorm引擎內置了完整的用戶名密碼體系，提供多種級別的許可權控制，並對每一次請求鑒權，防止未授權的數據訪問，確保用戶數據的訪問安全。同時，針對企業級大客戶的訴求，Lindorm內置了Group，Quota限制等多租戶隔離功能，保證企業中各個業務在使用同一個HBase集群時不會被相互影響，安全高效地共享同一個大數據平台。</p>
+<p><strong>用戶和ACL體系</strong></p>
+<p>Lindorm內核提供一套簡單易用的用戶認證和ACL體系。用戶的認證只需要在配置中簡單的填寫用戶名密碼即可。用戶的密碼在伺服器端非明文存儲，並且在認證過程中不會明文傳輸密碼，即使驗證過程的密文被攔截，用以認證的通信內容不可重複使用，無法被偽造。</p>
+<p>Lindorm中有三個許可權層級。Global，Namespace和Table。這三者是相互覆蓋的關係。比如給user1賦予了Global的讀寫許可權，則他就擁有了所有namespace下所有Table的讀寫許可權。如果給user2賦予了Namespace1的讀寫許可權，那麼他會自動擁有Namespace1中所有表的讀寫許可權。</p>
+<p><strong>Group隔離</strong></p>
+<p>當多個用戶或者業務在使用同一個HBase集群時，往往會存在資源爭搶的問題。一些重要的在線業務的讀寫，可能會被離線業務批量讀寫所影響。而Group功能，則是HBase增強版（Lindorm）提供的用來解決多租戶隔離問題的功能。 通過把RegionServer劃分到不同的Group分組，每個分組上host不同的表，從而達到資源隔離的目的。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/50260066207e403591f3d1f59ab2e0fa" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="407" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/50260066207e403591f3d1f59ab2e0fa" alt="《每秒7億次請求，阿里新一代資料庫如何支撐？》" width="640" height="407" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>例如，在上圖中，我們創建了一個Group1，把RegionServer1和RegionServer2劃分到Group1中，創建了一個Group2，把RegionServer3和RegionServer4劃分到Group2。同時，我們把Table1和Table2也移動到Group1分組。這樣的話，Table1和Table2的所有region，都只會分配到Group1中的RegionServer1和RegionServer2這兩台機器上。</p>
+<p>同樣，屬於Group2的Table3和Table4的Region在分配和balance過程中，也只會落在RegionServer3和RegionServer4上。因此，用戶在請求這些表時，發往Table1、Table2的請求，只會由RegionServer1和RegionServer2服務，而發往Table3和Table4的請求，只會由RegionServer3和RegionServer4服務，從而達到資源隔離的目的。</p>
+<p><strong>Quota限流</strong></p>
+<p>Lindorm內核中內置了一套完整的Quota體系，來對各個用戶的資源使用做限制。對於每一個請求，Lindorm內核都有精確的計算所消耗的CU（Capacity Unit），CU會以實際消耗的資源來計算。比如用戶一個Scan請求，由於filter的存在，雖然返回的數據很少，但可能已經在RegionServer已經消耗大量的CPU和IO資源來過濾數據，這些真實資源的消耗，都會計算在CU里。在把Lindorm當做一個大數據平台使用時，企業管理員可以先給不同業務分配不同的用戶，然後通過Quota系統限制某個用戶每秒的讀CU不能超過多少，或者總的CU不能超過多少，從而限制用戶佔用過多的資源，影響其他用戶。同時，Quota限流也支持Namesapce級別和表級別限制。</p>
+<h2><strong>最後</strong></h2>
+<p>全新一代NoSQL資料庫Lindorm是阿里巴巴HBase&amp;Lindorm團隊9年以來技術積累的結晶，Lindorm在面向海量數據場景提供世界領先的高性能、可跨域、多一致、多模型的混合存儲處理能力。對焦於同時解決大數據(無限擴展、高吞吐)、在線服務(低延時、高可用)、多功能查詢的訴求，為用戶提供無縫擴展、高吞吐、持續可用、毫秒級穩定響應、強弱一致可調、低存儲成本、豐富索引的數據實時混合存取能力。Lindorm已經成為了阿里巴巴大數據體系中的核心產品之一，成功支持了集團各個BU上千個業務，也多次在天貓雙十一「技術大團建」中經受住了考驗。阿里CTO行癲說過，阿里的技術都應該通過阿里雲輸出，去普惠各行各業數百萬客戶。</p>
+<p>雙12來襲！500元淘寶紅包、iPhone11等你拿。</p>
+<p>https://www.aliyun.com/1212/2019/home?utm_content=g_1000092611</p>
+<p>作者：正研</p>
+<p>本文為雲棲社區原創內容，未經允許不得轉載。</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/9632#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.254 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:34:23 -->
+
+<!-- super cache -->

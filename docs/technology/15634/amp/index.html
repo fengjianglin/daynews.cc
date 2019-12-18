@@ -1,0 +1,631 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/15634#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/901fa4e315524f02a80d8e844ab68e58"},{"@type":"WebPage","@id":"https://daynews.cc/technology/15634#webpage","url":"https://daynews.cc/technology/15634","inLanguage":"zh-TW","name":"\u6211\u8207OpenGL\u7684\u6545\u4e8b\uff1aOpenGL\u521d\u8a8d\u8b58 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/15634#primaryimage"},"datePublished":"2019-12-13T10:45:10+00:00","dateModified":"2019-12-13T10:45:10+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="OpenGL作為當前主流的圖形API之一，它在一些場合具有比DirectX更優越的特性。 1、OpenGL的優勢 1、與C語言緊密結合 OpenGL命令最初就是用C語言函數來進行描述的，對於學習過C語言的人來講，OpenGL是容易理解和學習的。如果你曾經接觸過TC的graphics.h，你會發現，使用OpenGL作圖甚至比TC更加簡單。 ……" />
+<meta name="twitter:title" content="我與OpenGL的故事：OpenGL初認識 - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/901fa4e315524f02a80d8e844ab68e58" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="我與OpenGL的故事：OpenGL初認識 - 天天要聞" />
+<meta property="og:description" content="OpenGL作為當前主流的圖形API之一，它在一些場合具有比DirectX更優越的特性。 1、OpenGL的優勢 1、與C語言緊密結合 OpenGL命令最初就是用C語言函數來進行描述的，對於學習過C語言的人來講，OpenGL是容易理解和學習的。如果你曾經接觸過TC的graphics.h，你會發現，使用OpenGL作圖甚至比TC更加簡單。 ……" />
+<meta property="og:url" content="https://daynews.cc/technology/15634" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-13T10:45:10+00:00" />
+	<title>我與OpenGL的故事：OpenGL初認識 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/15634" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">我與OpenGL的故事：OpenGL初認識</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-13T18:45:10+00:00">
+		5 天 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<p>OpenGL作為當前主流的圖形API之一，它在一些場合具有比DirectX更優越的特性。</p>
+<h2 class="pgc-h-arrow-right">1、OpenGL的優勢</h2>
+<ol start="1">
+<li>1、與C語言緊密結合</li>
+</ol>
+<p>OpenGL命令最初就是用C語言函數來進行描述的，對於學習過C語言的人來講，OpenGL是容易理解和學習的。如果你曾經接觸過TC的graphics.h，你會發現，使用OpenGL作圖甚至比TC更加簡單。</p>
+<ol start="1">
+<li>2、強大的可移植性</li>
+</ol>
+<p>微軟的Direct3D雖然也是十分優秀的圖形API，但它只用於Windows系統。而OpenGL不僅用於Windows，還可以用於Unix/Linux等其它系統，它甚至在大型計算機、各種專業計算機（如：醫療用顯示設備）上都有應用。</p>
+<p>並且，OpenGL 的基本命令都做到了硬體無關，甚至是平台無關。</p>
+<p><strong>註：我的文章後面會介紹如何用虛擬機安裝Linux（烏班圖），可以關注我啊。</strong></p>
+<ol start="1">
+<li>3、高性能的圖形渲染</li>
+</ol>
+<p>OpenGL是一個工業標準，它的技術緊跟時代，現今各個顯卡廠家無一不對OpenGL提供強力支持，激烈的競爭中使得OpenGL性能一直領先。</p>
+
+<h2 class="pgc-h-arrow-right">2、OpenGL的安裝</h2>
+<p>下面將對Windows下VS2013為例，介紹OpenGL庫的安裝。</p>
+<p>OpenGL本質上是一套API圖形介面函數。</p>
+<p>GLUT不是OpenGL所必須的，但它會給我們的學習帶來一定的方便，推薦安裝。</p>
+<p>Windows環境下的GLUT下載地址：（大小約為150k）</p>
+<p>http://www.opengl.org/resources/libraries/glut/glutdlls37beta.zip</p>
+<p>無法從以上地址下載的話請使用下面的連接:</p>
+<p>http://upload.programfan.com/upfile/200607311626279.zip</p>
+<p>Windows環境下安裝GLUT的步驟：</p>
+<p>1、將下載的壓縮包解開，將得到5個文件</p>
+<p>2、在「我的電腦」中搜索「gl.h」，並找到其所在文件夾（如果是VS2013，則應該是其安裝目錄下面的「VC/PlatformSDK/include/gl文件夾」）。把解壓得到的glut.h放到這個文件夾。</p>
+<p>3、把解壓得到的glut.lib和glut32.lib放到靜態函數庫所在文件夾（如果是VS2013，則應該是其安裝目錄下面的「VC/lib」文件夾）。</p>
+<p>4、把解壓得到的glut.dll和glut32.dll放到操作系統目錄下面的system32文件夾內。（典型的位置為：C:/Windows/System32）</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/901fa4e315524f02a80d8e844ab68e58" alt="《我與OpenGL的故事：OpenGL初認識》" width="616" height="139" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/901fa4e315524f02a80d8e844ab68e58" alt="《我與OpenGL的故事：OpenGL初認識》" width="616" height="139" class=""></noscript></amp-img>
+<p class="pgc-img-caption">解壓的文件</p>
+
+</div>
+<h2 class="pgc-h-arrow-right">3、第一個OpenGL程序</h2>
+<ul class="">
+<li>3.1 建立項目，插入cpp文件</li>
+</ul>
+<p>選擇File-&gt;New-&gt;Project，然後選擇Win32 Console Application，選擇一個名字，然後按OK。</p>
+<p>在談出的對話框左邊點Application Settings，找到Empty project並勾上，選擇Finish。</p>
+<p>然後向該工程添加一個代碼文件，取名為「First_OpenGL.c」，注意用.c來作為文件結尾。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/383aefed90a54c6e83d2af9200c4b107" alt="《我與OpenGL的故事：OpenGL初認識》" width="640" height="387" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/383aefed90a54c6e83d2af9200c4b107" alt="《我與OpenGL的故事：OpenGL初認識》" width="640" height="387" class=""></noscript></amp-img>
+<p class="pgc-img-caption">選擇控制台應用程序</p>
+
+</div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/19e9f54122f04da7ac128a87fe5c42e6" alt="《我與OpenGL的故事：OpenGL初認識》" width="640" height="461" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/19e9f54122f04da7ac128a87fe5c42e6" alt="《我與OpenGL的故事：OpenGL初認識》" width="640" height="461" class=""></noscript></amp-img>
+<p class="pgc-img-caption">選擇空項目</p>
+
+</div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/c9ebb59922d34d99aef6a889caef1861" alt="《我與OpenGL的故事：OpenGL初認識》" width="640" height="313" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/c9ebb59922d34d99aef6a889caef1861" alt="《我與OpenGL的故事：OpenGL初認識》" width="640" height="313" class=""></noscript></amp-img>
+<p class="pgc-img-caption">在源文件添加新建項(cpp文件)</p>
+
+</div>
+<ul class="">
+<li>3.2 寫入代碼</li>
+</ul>
+<p>#include &lt;GL/glut.h&gt; //GLUT的頭文件（已經包含&lt;GL/gl.h&gt;和&lt;GL/glu.h&gt;）</p>
+<p>void myDisplay(void) // 一個成員函數</p>
+<p>{</p>
+<p>glClear(GL_COLOR_BUFFER_BIT); // 清除緩衝顏色</p>
+<p>//畫矩形，四個參數分別表示了位於對角線上的兩個點的橫、縱坐標</p>
+<p>glRectf(-0.5f, -0.5f, 0.5f, 0.5f);</p>
+<p>glFlush(); //保證前面的OpenGL命令立即執行（而不是讓它們在緩衝區中等待）</p>
+<p>}</p>
+<p>int main(int argc, char *argv[])</p>
+<p>{</p>
+<p>glutInit(&amp;argc, argv); //對GLUT進行初始化，這個函數必須在其它的GLUT使用之前調用一次</p>
+<p>glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE); //設置顯示方式</p>
+<p>glutInitWindowPosition(100, 100); //設置窗口在屏幕中的位置。</p>
+<p>glutInitWindowSize(400, 400);//</p>
+<p>glutCreateWindow(“第一個OpenGL程序”);</p>
+<p>glutDisplayFunc(&amp;myDisplay);</p>
+<p>glutMainLoop();</p>
+<p>return 0;</p>
+<p>}</p>
+<h2 class="pgc-h-arrow-right">4、運行</h2>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/78759ecf4e29499680758b54c0af62e3" alt="《我與OpenGL的故事：OpenGL初認識》" width="416" height="438" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/78759ecf4e29499680758b54c0af62e3" alt="《我與OpenGL的故事：OpenGL初認識》" width="416" height="438" class=""></noscript></amp-img>
+<p class="pgc-img-caption">運行結果</p>
+
+</div>
+<h2 class="pgc-h-arrow-right">5、結語</h2>
+<p>（1）中英文入門書籍+上機練習</p>
+<p>（2）英文官網</p>
+<p>OpenGL官方網站（英文）</p>
+<p>http://www.opengl.org</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/15634#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.270 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:25:48 -->
+
+<!-- super cache -->

@@ -1,0 +1,640 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/12859#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/681188d8b84b4af79703553b5e3e319d"},{"@type":"WebPage","@id":"https://daynews.cc/technology/12859#webpage","url":"https://daynews.cc/technology/12859","inLanguage":"zh-TW","name":"Flutter: \u9996\u500b\u9762\u5411\u74b0\u5883\u8a08\u7b97\u6253\u9020\u7684 UI \u5e73\u53f0 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/12859#primaryimage"},"datePublished":"2019-12-12T13:55:08+00:00","dateModified":"2019-12-12T13:55:08+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="我們從 Flutter Interact 大會現場為您帶來精彩播報。Flutter Interact 是我們迄今為止規模最大的 Flutter 盛會，本次大會揭曉了多則重磅消息: 除了新版本 Flutter 的發布之外，我們還與多家企業締結了合作夥伴關係，共同推動 Flutter 生態圈的蓬勃發展。 開發演進: 從以設備為中心到以應用為中……" />
+<meta name="twitter:title" content="Flutter: 首個面向環境計算打造的 UI 平台 - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/681188d8b84b4af79703553b5e3e319d" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Flutter: 首個面向環境計算打造的 UI 平台 - 天天要聞" />
+<meta property="og:description" content="我們從 Flutter Interact 大會現場為您帶來精彩播報。Flutter Interact 是我們迄今為止規模最大的 Flutter 盛會，本次大會揭曉了多則重磅消息: 除了新版本 Flutter 的發布之外，我們還與多家企業締結了合作夥伴關係，共同推動 Flutter 生態圈的蓬勃發展。 開發演進: 從以設備為中心到以應用為中……" />
+<meta property="og:url" content="https://daynews.cc/technology/12859" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-12T13:55:08+00:00" />
+	<title>Flutter: 首個面向環境計算打造的 UI 平台 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/12859" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">Flutter: 首個面向環境計算打造的 UI 平台</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-12T21:55:08+00:00">
+		6 天 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<p>我們從 Flutter Interact 大會現場為您帶來精彩播報。Flutter Interact 是我們迄今為止規模最大的 Flutter 盛會，本次大會揭曉了多則重磅消息: 除了新版本 Flutter 的發布之外，我們還與多家企業締結了合作夥伴關係，共同推動 Flutter 生態圈的蓬勃發展。</p>
+<p><strong>開發演進: 從以設備為中心到以應用為中心</strong></p>
+<p>第一個版本的 Flutter 主要聚焦於跨平台支持，讓開發者只需編寫一套代碼即可實現 Android 和 iOS 的雙平台運行。但是，我們想要再往前邁一步。</p>
+
+<p>我們生活在一個萬物互聯的時代，聯網設備已經逐步滲透到人們工作與生活的方方面面。我們每天在多個設備間自由切換，從手機、智能手錶等可穿戴設備、平板、台式機、筆記本、電視到越來越普及的智能屏幕 (例如 Google Nest Hub)，通過各色設備與世界相連。</p>
+
+<p>在這個新興世界中，大家關注的焦點也開始從單一設備轉向環境——一個允許您隨時隨地獲取服務和軟體的環境。我們將其稱為<strong>環境計算</strong> (ambient computing)，這同時也構成了 Flutter 願景的核心: 一個用於構建精美體驗的便攜工具包，讓開發者不論身處何處都可以在屏幕上繪製像素。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/681188d8b84b4af79703553b5e3e319d" alt="《Flutter: 首個面向環境計算打造的 UI 平台》" width="640" height="361" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/681188d8b84b4af79703553b5e3e319d" alt="《Flutter: 首個面向環境計算打造的 UI 平台》" width="640" height="361" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>在 Flutter 的協助下，我們希望您可以集中精力，專心構建應用內容，而不是在每次開發前為目標平台的問題而頭疼: “我要針對哪款設備？” 在這個多設備、多平台的世界中，Flutter 旨在提供一套通用的框架與開發工具，讓您免受設備與機型限制，順利打造一流用戶體驗。由 Dart 驅動的 Flutter 引擎通過 stateful hot reload (保持應用狀態的熱重載) 功能幫助您實現<strong>快速開發</strong>，此外，無論是在移動端、桌面端，web 端還是嵌入式設備上，Flutter 引擎都能夠提供出色的本地編譯支持，從而為您帶來<strong>快速強勁的性能表現。</strong></p>
+
+<p>如果您是一家初創企業，Flutter 允許您在整個潛在市場中驗證創業想法是否可行，您不必再因資源限制而退而求其次，把驗證範圍縮小到某個用戶群。如果您的公司規模較大，那麼，Flutter 則可幫助您整合團隊資源，為用戶交付一致的體驗，並且在您認為合適的情況下，在移動、web 和桌面三大平台上實現代碼復用。Flutter 的獨特之處在於，它只需要一套基準代碼就能夠支持豐富的本地編譯體驗。</p>
+
+<p>我們十分高興看到，自發布以來，Flutter 在短時間內就取得了令人矚目的快速發展: 目前已有超過 100 萬開發者在各種體積的應用內使用了 Flutter 。據 GitHub 剛發布的《2019 年度 Octoverse 報告》顯示，Dart 和 Flutter 分別被評選為過去 12 個月內成長速度最快的語言和第二大開源項目。Flutter 也順利躋身 Github 十大熱門 repo 榜單。此外，領英最近公布的一項分析研究表明，Flutter 已成為軟體工程師中掌握人數增長最快的技能。</p>
+
+<p>下文將介紹我們在環境計算願景方面的最新進展，並圍繞公布的幾個消息展開重點討論，希望能幫助各位設計師和開發者攜手合作，一同使用 Flutter 打造令人驚艷的視覺體驗。</p>
+
+<ul class="list-paddingleft-2">
+<li>《2019 年度 Octoverse 報告》https://octoverse.github.com/</li>
+<li>軟體工程師中掌握人數增長最快的技能https://learning.linkedin.com/blog/tech-tips/the-fastest-growing-skills-among-software-engineers–and-how-to-</li>
+</ul>
+<p><strong>移動、桌面和 web 平台上的 Flutter</strong></p>
+
+<p>我們在 Flutter Interact 大會上宣布推出最新穩定版 Flutter 框架: <strong>Flutter 1.12</strong>。本次季度更新凝聚了數百位 Google 內外部貢獻者的辛勤付出，涵蓋範圍包括: 全新的性能改進項、給予更多控制權向現有應用添加 Flutter 內容、Material 和 Cupertino 庫的更新。此外，我們還引入了全新的 Google 字體包，讓開發者可以直接訪問近 1,000 個開源字體族，只需編寫短短几行代碼就能為應用添加精美的文字設計。請閱讀《Flutter 1.12 正式發布，為這一年畫上圓滿的句號！》，進一步了解 Flutter 1.12 的新特性。</p>
+
+<p>鑒於 Flutter 在多平台開發方面的生產力優勢，Google 越來越多地將 Flutter 用於移動應用的開發。比如說，Stadia 團隊就使用 Flutter 編寫了一個應用並在 Interact 大會上進行了展示，用一套代碼就實現了 Android 和 iOS 的雙平台運行。在接受採訪時，團隊與我們分享了他們的一些經驗與心得:</p>
+<blockquote>
+<p>在一開始，當 Stadia 還在探索移動平台的時候 ，Flutter 讓我們能夠快速製作產品原型，在 Android 上演示遊戲玩法，後來，隨著團隊規模逐漸擴大，我們便用 Flutter 構建了高質量的跨平台體驗。我們對取得的成果十分滿意，也會繼續在 Flutter 中構建新功能。</p>
+</blockquote>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/b8698b0627ff483995835b59c43717b5" alt="《Flutter: 首個面向環境計算打造的 UI 平台》" width="640" height="376" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/b8698b0627ff483995835b59c43717b5" alt="《Flutter: 首個面向環境計算打造的 UI 平台》" width="640" height="376" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>當然，除了 Google 以外，還有許多其它公司也在積極探索 Flutter 在應用開發方面的可能。Splice 提供了數百萬種聲音素材、循環樂曲和音色預設，幫助音樂製作人把想法變為現實。當 Splice 團隊決定在已有的桌面版應用之外，再新開發一個移動版作為補充時，他們選擇了 Flutter，其背後的理由是: “在產品的假設驗證階段，速度至關重要。我們是一個小團隊，因此我們希望有一個解決方案可以同時滿足 iOS 和 Android 的開發需求，幫助我們為兩個平台的用戶提供同等優質的體驗。”</p>
+
+<p>在短短 6 周內，他們就開發出了一款原型產品並成功驗證了自己的選擇。最新的移動版應用現已上架 Apple Store 和 Google Play 應用商店。</p>
+
+<ul class="list-paddingleft-2">
+<li>Splicehttps://splice.com/</li>
+<li>移動版https://splice.com/blog/announcing-splice-mobile-app/</li>
+<li>Apple Storehttps://apps.apple.com/app/id1108532275?mt=8</li>
+<li>Google Playhttps://play.google.com/store/apps/details?id=com.splice.mobile</li>
+</ul>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/c915ec5f67c143d381fba280745256b4" alt="《Flutter: 首個面向環境計算打造的 UI 平台》" width="640" height="408" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/c915ec5f67c143d381fba280745256b4" alt="《Flutter: 首個面向環境計算打造的 UI 平台》" width="640" height="408" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>新增的移動端產品線為 Splice 帶去了喜人的商業成績，很大一部分的用戶消費來自移動端應用。由於 Flutter 在跨平台一致性上有著十分出色的表現，因此，目前團隊正嘗試將移動版中的一些體驗引入到桌面端應用中。</p>
+
+<p>談到桌面平台這個話題，不得不說我們在 macOS 支持方面所取得的顯著進展。從現在開始，開發者可以在發布模式下，使用 Flutter 構建一個經過充分優化的 macOS 應用。與此同時，我們還在一直努力擴展 Flutter 中的 Material 設計系統，用於支持桌面設備類型的應用。如需了解如何為桌面平台構建 Flutter 應用，請前往 flutter.dev/desktop。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/8241cc357cc5499d97bde5d8f13e405e" alt="《Flutter: 首個面向環境計算打造的 UI 平台》" width="640" height="471" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/8241cc357cc5499d97bde5d8f13e405e" alt="《Flutter: 首個面向環境計算打造的 UI 平台》" width="640" height="471" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>最後一點，我們很高興宣布 <strong>Flutter web 支持 beta 版</strong>正式發布了！與上半年發布的幾個預覽版相比，Beta 版更加穩定和成熟。現在您還可以開發和使用 web 插件，為自己的 Flutter 應用添加各色各樣的 Dart 組件，比如 Firebase 和最新的 web API 等等，充分享受蓬勃的 Dart 組件生態圈所帶來的的裨益。自從我們在幾個月前推出早期採用者計劃以來，我們一直與 Journey 等客戶積極合作，一同測試基於 web 的 Flutter 體驗，現在我們已經準備好讓更多開發者開始使用 Flutter 構建 web 內容。請前往 flutter.dev/web 並閱讀我們在 Medium 上發布的 Flutter 專欄文章，獲取更多有關 Flutter web 支持的內容。</p>
+
+<ul class="list-paddingleft-2">
+<li>在 Medium 上發布的 Flutter 專欄文章https://medium.com/flutter/web-support-for-flutter-goes-beta-35b64a1217c0</li>
+</ul>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/7eae80868fb6498383801c7f678c916c" alt="《Flutter: 首個面向環境計算打造的 UI 平台》" width="640" height="528" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/7eae80868fb6498383801c7f678c916c" alt="《Flutter: 首個面向環境計算打造的 UI 平台》" width="640" height="528" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>這一切的背後是來自 Dart 的強勁驅動力，這款集編程語言和平台於一身的技術讓 Flutter 得以暢享各種類型的環境計算體驗。Dart 的獨特優勢在於，它為 ARM、Intel 和 JavaScript 均提供了開發模式和發布模式工具鏈，而其內置的本地編譯功能支持幾乎所有的目標平台。<strong>Dart 2.7</strong> 已經與大家正式見面。本次版本更新為 Dart 語言添加了擴展方法等多項新功能。請閱讀《Dart 2.7 現已發布》，進一步了解特性內容。此外，我們的 DartPad 也迎來了版本更新，允許開發者編輯 Flutter 代碼，運行 Flutter 應用並查看渲染後的 UI。</p>
+<ul class="list-paddingleft-2">
+<li>Darthttps://dart.dev</li>
+<li>《Dart 2.7 現已發布》https://medium.com/dartlang/dart-2-7-a3710ec54e97</li>
+</ul>
+<p><strong>Flutter: 讓您揮灑創意的畫布</strong></p>
+<p>創意技術專家、原型師、交互設計師和視覺開發者是本屆大會的關注焦點。我們相信多平台開發和高質量的視覺體驗並非是魚與熊掌，不可兼得，這也是激勵我們研發 Flutter 的關鍵動力之一。我們認為 Flutter 是一張可以盡情揮灑創意，探索創新的 “畫布”，因為它移除了許多困擾視覺向開發者的限制。Flutter 的 stateful hot reload (保持應用狀態的熱重載) 功能讓開發者可以輕鬆更改應用設計並且實時查看最新效果。藉由 Flutter 繪製的每個像素，您可以在 UI、圖形內容、文本和視頻中自由融合自定義動畫和過渡效果。</p>
+<p>在大會的籌備階段，數字設計大師 Robert Felker 的作品給了我們許多靈感。Robert 使用 Flutter 創作了一系列生成藝術作品，將幾何，紋理和光線三者巧妙結合在一起，為觀眾帶去一場視覺盛宴。我們從未想到 Flutter 可用於這樣的圖像創作中，但這也充分說明了 Flutter 出色的表現能力和藝術創造力，下面的圖像是用不到 60 行的 Dart 代碼生成的:</p>
+<ul class="list-paddingleft-2">
+<li>Robert Felkerhttps://twitter.com/BlueAquilae/</li>
+<li>不到 60 行的 Dart 代碼https://github.com/Solido/flutter-d-art</li>
+</ul>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/9bf8035e5434478987266de30d0c12ab" alt="《Flutter: 首個面向環境計算打造的 UI 平台》" width="640" height="237" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/9bf8035e5434478987266de30d0c12ab" alt="《Flutter: 首個面向環境計算打造的 UI 平台》" width="640" height="237" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>我們很榮幸能與多家合作夥伴聯手協作，一同發布多款精良工具，助力設計師更好地投入到創意工作中，為用戶締造精美的 Flutter 應用。</p>
+
+<p>Supernova 已將 Flutter 成功集成至旗下的設計與原型製作工具中，並且提供動畫支持、Material Design 集成以及全新的 Flutter 設計界面。此外，Supernova 還新推出了一款基於瀏覽器的設計工具 Supernova Cloud，該工具完全使用 Flutter web 開發。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/39fc54c0e562472681949216f7733726" alt="《Flutter: 首個面向環境計算打造的 UI 平台》" width="512" height="319" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/39fc54c0e562472681949216f7733726" alt="《Flutter: 首個面向環境計算打造的 UI 平台》" width="512" height="319" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>Rive (前身為 2Dimensions，曾發布 Flare 圖形工具) 此前宣布將公司名稱與旗下產品整合到一個品牌下。他們公布了公司和產品的新名稱 Rive 以及一系列新特性。其中最值得注意的一項特性可能是支持導入由 Adobe After Effects 生成的 Lottie 文件，這樣一來，就能夠實現 Flutter 與現有動畫工作流的深度集成。Rive 現已為多種層疊效果添加了支持，例如投影、內陰影、光暈、模糊和遮照。</p>
+
+<p>在 Rive 的協助下，用戶無需再在代碼中重新創建一遍設計和動畫，從而大大簡化了設計師與開發者之間的交接工作。這意味著設計師可以隨時進行迭代和更改。由於 Rive 輸出的文件可以直接與 Flutter 集成，而不僅僅是 MP4 視頻或 GIF 圖像，因此 Rive 允許您創建複雜且動態的交互、遊戲角色、動畫圖標和引導界面。</p>
+
+<p>助力 Flutter 成為創意畫布的最後一項合作來自於 <strong>Adobe</strong>。Adobe 最近剛宣布為 <strong>Creative Cloud 添加 Flutter 支持</strong>，只需一個插件，用戶就可以將 Adobe XD 導出到 Flutter。Adobe XD 是 Adobe 針對用戶體驗設計推出的一體化平台，可幫助產品設計團隊為移動、網頁、桌面等平台設計並創建產品原型。全新的 XD-to-Flutter 插件可以將 XD 設計自動轉換成代碼，開發者可以直接把這些代碼添加到自己的 Flutter 開發工作中，再也不用從通過設計參數琢磨設計師想要達到的效果。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/5be5be2cb5724b4f8a30dd7a6f81989e" alt="《Flutter: 首個面向環境計算打造的 UI 平台》" width="640" height="518" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/5be5be2cb5724b4f8a30dd7a6f81989e" alt="《Flutter: 首個面向環境計算打造的 UI 平台》" width="640" height="518" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>XD-to-Flutter 插件將於明年上半年與各位開發者見面。如果您想了解更多插件的相關信息，請前往 Adobe 網站註冊參加優先體驗計劃。我們很高興能與 Adobe 合作，他們在可擴展設計工具領域的傑出表現將為產品設計師提供超強助力，幫助他們打造卓越 Flutter 體驗。<br><strong>結語</strong></p>
+<p>Flutter 的核心在於: 它是一個開源項目。我們為 Google 創造的價值來源於兩個部分，其一，Flutter 提高了內部產品團隊的開發效率；其二，同時也是更重要的一點，我們與您攜手一同打造屬於您的 Flutter，因為我們知道生態圈和開發者社區的發展能夠為我們所有人都帶來裨益。到目前為止，我們的 Flutter 之旅已經從最初的以移動設備為中心，逐步發展成為涵蓋各色機型的 UI 平台。我們將繼續加強研發投入，為您帶去更棒的設計與開發工具，讓您效率與設計雙管齊下。</p>
+<p>不過最令我們開心的是，我們看到 Flutter 幫助一位開發者將想法變為現實，並將這份精彩分享給世界。點擊收看視頻，感受一個家庭對全球 Flutter 貢獻者的誠摯感謝，不論您曾為 Flutter 貢獻過代碼，或是提交或錯誤報告和修復，還是與社區分享過知識，我們感恩一路有您相伴！</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/12859#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.237 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:26:53 -->
+
+<!-- super cache -->

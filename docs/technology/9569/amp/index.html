@@ -1,0 +1,585 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/9569#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/22e22beb82184a4c85960abdb6968c62"},{"@type":"WebPage","@id":"https://daynews.cc/technology/9569#webpage","url":"https://daynews.cc/technology/9569","inLanguage":"zh-TW","name":"C++:\u70ba\u4f55\u4e0d\u5efa\u8b70\u7528string\u4f5c\u70ba\u51fd\u6578\u53c3\u6578 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/9569#primaryimage"},"datePublished":"2019-12-10T15:55:10+00:00","dateModified":"2019-12-10T15:55:10+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="在C++中，函數形參一般帶「&amp;」和「*」，例如：int*、char*、int&amp;等。這是為什麼呢？此處以常用的string字元串數據類型來引入今天要講的話題； 在C語言中是沒有字元串這個數據類型的，C++在C語言的基礎上升級了string類。如果很多從CSharp、Java等高級語言轉C++的開發人員在用字元串做函數參數的時……" />
+<meta name="twitter:title" content="C++:為何不建議用string作為函數參數 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/22e22beb82184a4c85960abdb6968c62" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="C++:為何不建議用string作為函數參數 - 天天要聞" />
+<meta property="og:description" content="在C++中，函數形參一般帶「&amp;」和「*」，例如：int*、char*、int&amp;等。這是為什麼呢？此處以常用的string字元串數據類型來引入今天要講的話題； 在C語言中是沒有字元串這個數據類型的，C++在C語言的基礎上升級了string類。如果很多從CSharp、Java等高級語言轉C++的開發人員在用字元串做函數參數的時……" />
+<meta property="og:url" content="https://daynews.cc/technology/9569" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-10T15:55:10+00:00" />
+	<title>C++:為何不建議用string作為函數參數 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/9569" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">C++:為何不建議用string作為函數參數</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-10T23:55:10+00:00">
+		1 週 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<p>在C++中，函數形參一般帶「&amp;」和「*」，例如：int*、char*、int&amp;等。這是為什麼呢？此處以常用的string字元串數據類型來引入今天要講的話題；</p>
+<p>在C語言中是沒有字元串這個數據類型的，C++在C語言的基礎上升級了string類。如果很多從CSharp、Java等高級語言轉C++的開發人員在用字元串做函數參數的時候都會很自然的用string類型，但是作為正宗的C++開發者都會建議你不要用string類型作為函數參數。</p>
+<h2 class="pgc-h-arrow-right">CSharp的數據類型</h2>
+<p>CSharp裡面把數據類型分為兩大類，值類型和引用類型；值類型包括基本數據類型(int ,double等)，結構和枚舉；引用類型包括介面，數組，Object類型，類，委託，字元串，null類型等；一般來說，結構體類型的數據就是值類型，而類構造的數據就是引用類型；</p>
+<p>引用類型和值類型都繼承自System.Object類。不同的是，幾乎所有的引用類型都直接從System.Object繼承，而值類型則繼承其子類，即直接繼承System.ValueType。</p>
+<p>請看下面這段代碼：</p>
+<pre> public class People<br> {<br> public string Name { get; set; }<br> public int Age { get; set; }<br> public void reset(string name, int age)<br> {<br> name = "xiaoli";<br> age = 200;<br> }<br> public void reset(People p)<br> {<br> p.Name = "xiaoli";<br> p.Age = 200;<br> }<br> }<br> class Program<br> {<br> static void Main(string[] args)<br> {<br> string name = "xiaoming";<br> int age = 100;<br> People p = new People();<br> p.Name = name;<br> p.Age = age;<br> People p2 = new People();<br> p2.Name = "xiaohua";<br> p2.Age = 90;<br> Console.WriteLine(p.Name);<br> Console.WriteLine(p.Age);<br> p.reset(name,age);<br> Console.WriteLine(name);<br> Console.WriteLine(age);<br> p.reset(p);<br> Console.WriteLine(p.Name);<br> Console.WriteLine(p.Age);<br> Console.Read();<br> }</pre>
+<p>運行結果為：</p>
+<pre>xiaoming<br>100<br>xiaoming<br>100<br>xiaoli<br>200</pre>
+<p>int類型為值類型，形參是不能改變實參的值的，但是People是引用類型，形參可以改變實參的值。引用類型指向的其實是一個內存地址，string 雖然是引用類型 不過是不可變的。</p>
+<p>但是CSharp提供ref關鍵字來使得值類型的實參在傳遞時也可以被修改</p>
+<pre>public class People<br> {<br> public string Name { get; set; }<br> public int Age { get; set; }<br> public void reset(ref string name, ref int age)<br> {<br> name = "xiaoli";<br> age = 200;<br> }<br> public void reset(ref People p)<br> {<br> p.Name = "xiaoli";<br> p.Age = 200;<br> }<br> }<br> class Program<br> {<br> static void Main(string[] args)<br> {<br> string name = "xiaoming";<br> int age = 100;<br> People p = new People();<br> p.Name = name;<br> p.Age = age;<br> People p2 = new People();<br> p2.Name = "xiaohua";<br> p2.Age = 90;<br> Console.WriteLine(p.Name);<br> Console.WriteLine(p.Age);<br> p.reset(ref name,ref age);<br> Console.WriteLine(name);<br> Console.WriteLine(age);<br> p.reset(ref p);<br> Console.WriteLine(p.Name);<br> Console.WriteLine(p.Age);<br> Console.Read();<br> }<br> }</pre>
+<h2 class="pgc-h-arrow-right">為何C++函數參數都帶*或者&amp;</h2>
+<p>前面通過CSharp講到數據分值類型和引用類型，在C++中，引用類型是要顯示定義的。</p>
+<pre>int n;<br>int&amp; r = n;</pre>
+<p>如果在函數參數傳遞時，形參不聲明為引用類型，參數傳遞方式是傳值的。傳引用的方式要求函數的形參是引用。</p>
+<p>那究竟形參帶&amp;與不帶有什麼區別呢？</p>
+<pre>void func(int&amp; i){i = 110 ;}<br>void func2(int i){i = 110 ;}<br>void main()<br>{<br>	int n = 200 ;<br>	int n2 = 300 ;<br>	func(n);<br>	func2(n2);<br>	cout&lt;&lt;n&lt;&lt;endl;<br>	cout&lt;&lt;n2&lt;&lt;endl;<br>	system("pause");<br>}</pre>
+<p><strong>首先看運行結果：</strong></p>
+<pre>110<br>300</pre>
+<p><strong>再看彙編的區別：</strong></p>
+<pre>	func(n);<br>00C4443C lea eax,[n] <br>00C4443F push eax <br>00C44440 call func (0C41271h) <br>00C44445 add esp,4 <br>	func2(n2);<br>00C44448 mov eax,dword ptr [n2] <br>00C4444B push eax <br>00C4444C call func2 (0C4143Dh) <br>00C44451 add esp,4 </pre>
+<p>先說一下幾個指令：</p>
+<p>lea：load effective address, 載入有效地址，可以將有效地址傳送到指定的的寄存器；</p>
+<p>mov：在CPU內或CPU和存儲器之間傳送字或位元組</p>
+<p>push：入棧</p>
+<p>從上面運行結果和彙編代碼來看，當採用引用類型作為形參時，它將變為實參列表中相應變數的別名，對形參進行的任何更改都將真正更改正在調用它的函數中的變數。引用變數本身並不需要分配內存，而是直接對被引用對象取的別名；</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/22e22beb82184a4c85960abdb6968c62" alt="《C++:為何不建議用string作為函數參數》" width="640" height="344" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/22e22beb82184a4c85960abdb6968c62" alt="《C++:為何不建議用string作為函數參數》" width="640" height="344" class=""></noscript></amp-img>
+<p class="pgc-img-caption">引用變數示意</p>
+
+</div>
+<p><strong>當採用值傳遞方式時：當函數被調用時，在「棧」中就會分配出一塊新的存儲空間，用來存放形參和函數中定義的變數（局部變數）。實參的值會被複制到棧中存放對應形參的地方，所以形參的值才等於實參。函數執行過程中對形參的修改，其實只是修改了實參的一個拷貝，因此不會影響實參。</strong></p>
+<h2 class="pgc-h-arrow-right">好處</h2>
+<p>從彙編代碼可以看出，普通值傳遞的傳參方式，是需要複製實參的，然後將實參的賦本傳遞給形參。而引用傳參方式直接取實參的有效地址，所以在運行效率上引用傳參速度更快更節省內存開銷。實參對象所佔內存越大，開銷越大，對效率的影響也越大；</p>
+<h2 class="pgc-h-arrow-right">指針傳遞（地址調用）</h2>
+<p>還有一種方式也能避免普通值傳參方式的大開銷和低效率問題，那就是直接將對象的地址傳遞給形參。</p>
+<pre>void func(int&amp; i){i = 110 ;}<br>void func2(int i){i = 110 ;}<br>void func3(int* i){*i = 110 ;}<br>void main()<br>{<br>	int n = 200 ;<br>	int n2 = 300 ;<br>	int n3 = 400 ;<br>	int* n4 = &amp;n3 ; <br>	func(n);<br>	func2(n2);<br>	func3(&amp;n3);<br>	func3(n4);<br>	cout&lt;&lt;n&lt;&lt;endl;<br>	cout&lt;&lt;n2&lt;&lt;endl;<br>	cout&lt;&lt;n3&lt;&lt;endl;<br>	system("pause");<br>}</pre>
+<p>查看彙編代碼：</p>
+<pre>	func(n);<br>00327009 lea eax,[n] <br>0032700C push eax <br>0032700D call func (0321271h) <br>00327012 add esp,4 <br>	func2(n2);<br>00327015 mov eax,dword ptr [n2] <br>00327018 push eax <br>00327019 call func2 (032143Dh) <br>0032701E add esp,4 <br>	func3(&amp;n3);<br>00327021 lea eax,[n3] <br>00327024 push eax <br>00327025 call func3 (0321442h) <br>0032702A add esp,4 <br>	func3(n4);<br>0032702D mov eax,dword ptr [n4] <br>00327030 push eax <br>00327031 call func3 (0321442h) <br>00327036 add esp,4 </pre>
+<p>從上述彙編代碼可以看出func3(n4);本質上是值傳遞，它所傳遞的是一個地址值，不管其所指向的對象如何，其在函數調用時複製的只是一個四位元組的地址而已，對內存開銷和效率影響不大。而func3(&amp;n3);卻又是引用傳參方式。</p>
+<h2 class="pgc-h-arrow-right">如何避免實參被修改</h2>
+<p>有沒有什麼辦法既保證效率又保證實參的安全性？既然不想實參在函數調用過程中被修改，那麼C++有一個關鍵字–const可以達到目的。</p>
+<pre>void func(const int&amp; i){i = 110 ;}<br>void func3(const int* i){*i = 110 ;}</pre>
+<p>上述兩個方法體的代碼都會報錯：表達式必須是可修改的左值。</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/9569#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.226 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:25:02 -->
+
+<!-- super cache -->

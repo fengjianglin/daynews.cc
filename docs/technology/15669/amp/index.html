@@ -1,0 +1,758 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/15669#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/50f18f615f3b4ad2b9c5a45a2f4a8b5d"},{"@type":"WebPage","@id":"https://daynews.cc/technology/15669#webpage","url":"https://daynews.cc/technology/15669","inLanguage":"zh-TW","name":"\u9019\u6a23\u5beb\u4ee3\u78bc\uff0c\u8001\u95c6\u90fd\u8aaa\u201c666\u201d - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/15669#primaryimage"},"datePublished":"2019-12-13T06:50:08+00:00","dateModified":"2019-12-13T06:50:08+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="作者：濤姐濤哥 www.cnblogs.com/taojietaoge/p/11575376.html 如何更規範化編寫Java 代碼的重要性想必毋需多言，其中最重要的幾點當屬提高代碼性能、使代碼遠離Bug、令代碼更優雅。 一、MyBatis 不要為了多個查詢條件而寫 1 = 1 當遇到多個查詢條件，使用where 1=1 可以很方便的解……" />
+<meta name="twitter:title" content="這樣寫代碼，老闆都說“666” - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/50f18f615f3b4ad2b9c5a45a2f4a8b5d" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="這樣寫代碼，老闆都說“666” - 天天要聞" />
+<meta property="og:description" content="作者：濤姐濤哥 www.cnblogs.com/taojietaoge/p/11575376.html 如何更規範化編寫Java 代碼的重要性想必毋需多言，其中最重要的幾點當屬提高代碼性能、使代碼遠離Bug、令代碼更優雅。 一、MyBatis 不要為了多個查詢條件而寫 1 = 1 當遇到多個查詢條件，使用where 1=1 可以很方便的解……" />
+<meta property="og:url" content="https://daynews.cc/technology/15669" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-13T06:50:08+00:00" />
+	<title>這樣寫代碼，老闆都說“666” - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/15669" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">這樣寫代碼，老闆都說“666”</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-13T14:50:08+00:00">
+		5 天 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<blockquote>
+<p>作者：濤姐濤哥</p>
+<p>www.cnblogs.com/taojietaoge/p/11575376.html</p>
+</blockquote>
+<p>如何更規範化編寫Java 代碼的重要性想必毋需多言，其中最重要的幾點當屬提高代碼性能、使代碼遠離Bug、令代碼更優雅。</p>
+<h2 class="pgc-h-arrow-right">一、MyBatis 不要為了多個查詢條件而寫 1 = 1</h2>
+<blockquote>
+<p>當遇到多個查詢條件，使用where 1=1 可以很方便的解決我們的問題，但是這樣很可能會造成非常大的性能損失，因為添加了 「where 1=1 」的過濾條件之後，資料庫系統就無法使用索引等查詢優化策略，資料庫系統將會被迫對每行數據進行掃描（即全表掃描） 以比較此行是否滿足過濾條件，當表中的數據量較大時查詢速度會非常慢；此外，還會存在SQL 注入的風險。</p>
+</blockquote>
+<p>反例：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/50f18f615f3b4ad2b9c5a45a2f4a8b5d" alt="《這樣寫代碼，老闆都說“666”》" width="677" height="208" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/50f18f615f3b4ad2b9c5a45a2f4a8b5d" alt="《這樣寫代碼，老闆都說“666”》" width="677" height="208" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>正例：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/af94007ddafc4b6c9e44e476005a2839" alt="《這樣寫代碼，老闆都說“666”》" width="640" height="235" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/af94007ddafc4b6c9e44e476005a2839" alt="《這樣寫代碼，老闆都說“666”》" width="640" height="235" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>UPDATE 操作也一樣，可以用 標記代替 1=1。</p>
+<h2 class="pgc-h-arrow-right">二、迭代entrySet() 獲取Map 的key 和value</h2>
+<blockquote>
+<p>當循環中只需要獲取Map 的主鍵key時，迭代keySet() 是正確的；但是，當需要主鍵key 和取值value 時，迭代entrySet() 才是更高效的做法，其比先迭代keySet() 後再去通過get 取值性能更佳。</p>
+</blockquote>
+<p>反例：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/1a321564ed73441b845c4978c368a9fa" alt="《這樣寫代碼，老闆都說“666”》" width="677" height="116" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/1a321564ed73441b845c4978c368a9fa" alt="《這樣寫代碼，老闆都說“666”》" width="677" height="116" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>正例：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/2f6c773980e44b3f97bd91a5c72b8bde" alt="《這樣寫代碼，老闆都說“666”》" width="677" height="136" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/2f6c773980e44b3f97bd91a5c72b8bde" alt="《這樣寫代碼，老闆都說“666”》" width="677" height="136" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">三、使用Collection.isEmpty() 檢測空</h2>
+<blockquote>
+<p>使用Collection.size() 來檢測是否為空在邏輯上沒有問題，但是使用Collection.isEmpty() 使得代碼更易讀，並且可以獲得更好的性能；除此之外，任何Collection.isEmpty() 實現的時間複雜度都是O(1) ，不需要多次循環遍歷，但是某些通過Collection.size() 方法實現的時間複雜度可能是O(n)</p>
+</blockquote>
+<p>反例：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/7c24b3063a914ced8db24f6addb49dcd" alt="《這樣寫代碼，老闆都說“666”》" width="676" height="96" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/7c24b3063a914ced8db24f6addb49dcd" alt="《這樣寫代碼，老闆都說“666”》" width="676" height="96" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>正例：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/dbc8a6c56f6a4d6c88ebe2799616f779" alt="《這樣寫代碼，老闆都說“666”》" width="677" height="199" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/dbc8a6c56f6a4d6c88ebe2799616f779" alt="《這樣寫代碼，老闆都說“666”》" width="677" height="199" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">四、初始化集合時盡量指定其大小</h2>
+<blockquote>
+<p>盡量在初始化時指定集合的大小，能有效減少集合的擴容次數，因為集合每次擴容的時間複雜度很可能時O(n)，耗費時間和性能。</p>
+</blockquote>
+<p>反例：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/0150fe1782d64c62a9856fc50521c851" alt="《這樣寫代碼，老闆都說“666”》" width="676" height="136" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/0150fe1782d64c62a9856fc50521c851" alt="《這樣寫代碼，老闆都說“666”》" width="676" height="136" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>正例：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/fcb812f725904375981be6d1edac714b" alt="《這樣寫代碼，老闆都說“666”》" width="677" height="156" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/fcb812f725904375981be6d1edac714b" alt="《這樣寫代碼，老闆都說“666”》" width="677" height="156" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">五、使用StringBuilder 拼接字元串</h2>
+<blockquote>
+<p>一般的字元串拼接在編譯期Java 會對其進行優化，但是在循環中字元串的拼接Java 編譯期無法執行優化，所以需要使用 <u>StringBuilder </u>進行替換。</p>
+</blockquote>
+<p>反例：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/aeae098b8ace49bb9387e9893c329483" alt="《這樣寫代碼，老闆都說“666”》" width="675" height="136" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/aeae098b8ace49bb9387e9893c329483" alt="《這樣寫代碼，老闆都說“666”》" width="675" height="136" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>正例：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/1a3fca7778d14b33a28a5a2224dfad73" alt="《這樣寫代碼，老闆都說“666”》" width="676" height="196" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/1a3fca7778d14b33a28a5a2224dfad73" alt="《這樣寫代碼，老闆都說“666”》" width="676" height="196" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">六、若需頻繁調用Collection.contains 方法則使用Set</h2>
+<blockquote>
+<p>在Java 集合類庫中，List的contains 方法普遍時間複雜度為O(n)，若代碼中需要頻繁調用contains 方法查找數據則先將集合list 轉換成HashSet 實現，將O(n) 的時間複雜度將為O(1)。</p>
+</blockquote>
+<p>反例：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/163ad9d788e84b0799008ca433d100de" alt="《這樣寫代碼，老闆都說“666”》" width="676" height="155" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/163ad9d788e84b0799008ca433d100de" alt="《這樣寫代碼，老闆都說“666”》" width="676" height="155" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>正例:</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/08e6622ce47441d4b7edd4715a3c49f4" alt="《這樣寫代碼，老闆都說“666”》" width="677" height="195" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/08e6622ce47441d4b7edd4715a3c49f4" alt="《這樣寫代碼，老闆都說“666”》" width="677" height="195" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">七、使用靜態代碼塊實現賦值靜態成員變數</h2>
+<blockquote>
+<p>對於集合類型的靜態成員變數，應該使用靜態代碼塊賦值，而不是使用集合實現來賦值。</p>
+</blockquote>
+<p>反例：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/5a9dae673ab04f798d99101c5be77409" alt="《這樣寫代碼，老闆都說“666”》" width="640" height="298" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/5a9dae673ab04f798d99101c5be77409" alt="《這樣寫代碼，老闆都說“666”》" width="640" height="298" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>正例：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/5646720616bd456480a55b5174551227" alt="《這樣寫代碼，老闆都說“666”》" width="640" height="276" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/5646720616bd456480a55b5174551227" alt="《這樣寫代碼，老闆都說“666”》" width="640" height="276" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">八、刪除未使用的局部變數、方法參數、私有方法、欄位和多餘的括弧</h2>
+<h2 class="pgc-h-arrow-right">九、工具類中屏蔽構造函數</h2>
+<blockquote>
+<p>工具類是一堆靜態欄位和函數的集合，其不應該被實例化；但是，Java 為每個沒有明確定義構造函數的類添加了一個隱式公有構造函數，為了避免不必要的實例化，應該顯式定義私有構造函數來屏蔽這個隱式公有構造函數。</p>
+</blockquote>
+<p>反例：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/b66c28eb96e54e7292fb5f3ea5bbc9cd" alt="《這樣寫代碼，老闆都說“666”》" width="677" height="180" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/b66c28eb96e54e7292fb5f3ea5bbc9cd" alt="《這樣寫代碼，老闆都說“666”》" width="677" height="180" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>正例：</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/a5517884d57545e399fcc12360f3c80c" alt="《這樣寫代碼，老闆都說“666”》" width="640" height="219" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/a5517884d57545e399fcc12360f3c80c" alt="《這樣寫代碼，老闆都說“666”》" width="640" height="219" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">十、刪除多餘的異常捕獲並跑出</h2>
+<blockquote>
+<p>用catch 語句捕獲異常後，若什麼也不進行處理，就只是讓異常重新拋出，這跟不捕獲異常的效果一樣，可以刪除這塊代碼或添加別的處理。</p>
+</blockquote>
+<p>反例：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/a6b11f2c3c534385a5e8342fe531068e" alt="《這樣寫代碼，老闆都說“666”》" width="640" height="290" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/a6b11f2c3c534385a5e8342fe531068e" alt="《這樣寫代碼，老闆都說“666”》" width="640" height="290" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>正例：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/13652781bd824e118ee6204e98b2e591" alt="《這樣寫代碼，老闆都說“666”》" width="640" height="313" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/13652781bd824e118ee6204e98b2e591" alt="《這樣寫代碼，老闆都說“666”》" width="640" height="313" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">十一、字元串轉化使用String.valueOf(value) 代替 ” ” + value</h2>
+<blockquote>
+<p>把其它對象或類型轉化為字元串時，使用String.valueOf(value) 比 “”+value 的效率更高。</p>
+</blockquote>
+<p>反例：</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/1b0122c0bf774d5d8c8beeeba76cde39" alt="《這樣寫代碼，老闆都說“666”》" width="677" height="99" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/1b0122c0bf774d5d8c8beeeba76cde39" alt="《這樣寫代碼，老闆都說“666”》" width="677" height="99" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>正例：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/aeb93811ce1547a4b8a319f3bb57f228" alt="《這樣寫代碼，老闆都說“666”》" width="677" height="96" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/aeb93811ce1547a4b8a319f3bb57f228" alt="《這樣寫代碼，老闆都說“666”》" width="677" height="96" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">十二、避免使用BigDecimal(double)</h2>
+<blockquote>
+<p>BigDecimal(double) 存在精度損失風險，在精確計算或值比較的場景中可能會導致業務邏輯異常。</p>
+</blockquote>
+<p>反例：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/cc5545f36f574d389d871d120defa9f9" alt="《這樣寫代碼，老闆都說“666”》" width="680" height="55" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/cc5545f36f574d389d871d120defa9f9" alt="《這樣寫代碼，老闆都說“666”》" width="680" height="55" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>正例：</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/7ea38b37a88a4746aea7eb1fc74928c0" alt="《這樣寫代碼，老闆都說“666”》" width="676" height="56" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/7ea38b37a88a4746aea7eb1fc74928c0" alt="《這樣寫代碼，老闆都說“666”》" width="676" height="56" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">十三、返回空數組和集合而非 null</h2>
+<blockquote>
+<p>若程序運行返回null，需要調用方強制檢測null，否則就會拋出空指針異常；返回空數組或空集合，有效地避免了調用方因為未檢測null 而拋出空指針異常的情況，還可以刪除調用方檢測null 的語句使代碼更簡潔。</p>
+</blockquote>
+<p>反例：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/882f5a8d6181494a96d699150d9d8c69" alt="《這樣寫代碼，老闆都說“666”》" width="640" height="226" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/882f5a8d6181494a96d699150d9d8c69" alt="《這樣寫代碼，老闆都說“666”》" width="640" height="226" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>正例：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/6bc314ce3c7c43e19567792ecbd92f63" alt="《這樣寫代碼，老闆都說“666”》" width="640" height="226" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/6bc314ce3c7c43e19567792ecbd92f63" alt="《這樣寫代碼，老闆都說“666”》" width="640" height="226" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">十四、優先使用常量或確定值調用equals 方法</h2>
+<blockquote>
+<p>對象的equals 方法容易拋空指針異常，應使用常量或確定有值的對象來調用equals 方法。</p>
+</blockquote>
+<p>反例：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/871d2ac2b9b743cf8e2061a0f5615cbd" alt="《這樣寫代碼，老闆都說“666”》" width="676" height="128" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/871d2ac2b9b743cf8e2061a0f5615cbd" alt="《這樣寫代碼，老闆都說“666”》" width="676" height="128" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>正例：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/3f3cd055c8d04cd18267c364ea131319" alt="《這樣寫代碼，老闆都說“666”》" width="679" height="180" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/3f3cd055c8d04cd18267c364ea131319" alt="《這樣寫代碼，老闆都說“666”》" width="679" height="180" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">十五、枚舉的屬性欄位必須是私有且不可變</h2>
+<blockquote>
+<p>枚舉通常被當做常量使用，如果枚舉中存在公共屬性欄位或設置欄位方法，那麼這些枚舉常量的屬性很容易被修改；理想情況下，枚舉中的屬性欄位是私有的，並在私有構造函數中賦值，沒有對應的Setter 方法，最好加上final 修飾符。</p>
+</blockquote>
+<p>反例：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/8190cc7b01a34683a8e3a4d4eb2424da" alt="《這樣寫代碼，老闆都說“666”》" width="640" height="383" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/8190cc7b01a34683a8e3a4d4eb2424da" alt="《這樣寫代碼，老闆都說“666”》" width="640" height="383" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>正例：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/0d11d731324840e194b89c0fd4b5949e" alt="《這樣寫代碼，老闆都說“666”》" width="640" height="422" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/0d11d731324840e194b89c0fd4b5949e" alt="《這樣寫代碼，老闆都說“666”》" width="640" height="422" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">十六、tring.split(String regex)部分關鍵字需要轉譯</h2>
+<blockquote>
+<p>使用字元串String 的plit 方法時，傳入的分隔字元串是正則表達式，則部分關鍵字（比如 .[]()| 等）需要轉義。</p>
+</blockquote>
+<p>反例：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/f7bbba651e2a42a5bc8fe4ea6c71c7c8" alt="《這樣寫代碼，老闆都說“666”》" width="677" height="140" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/f7bbba651e2a42a5bc8fe4ea6c71c7c8" alt="《這樣寫代碼，老闆都說“666”》" width="677" height="140" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>正例：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/f0d7214f8a5c4184bd99ef0505a2470c" alt="《這樣寫代碼，老闆都說“666”》" width="678" height="180" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/f0d7214f8a5c4184bd99ef0505a2470c" alt="《這樣寫代碼，老闆都說“666”》" width="678" height="180" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>我目前是在職Java開發，如果你現在正在了解Java技術，想要學好Java，渴望成為一名Java開發工程師，在入門學習Java的過程當中缺乏基礎的入門視頻教程，你可以關注並私信我：01。我這裡有一套最新的Java基礎JavaSE的精講視頻教程，這套視頻教程是我在年初的時候，根據市場技術棧需求錄製的，非常的系統完整。</strong></p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/15669#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.240 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:29:37 -->
+
+<!-- super cache -->

@@ -1,0 +1,923 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>《深度學習，統計學習，數學基礎》人工智慧演算法工程師手冊 - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="來源：專知 本文約3400字，建議閱讀10+分鐘。 免費開源人工智慧手冊，帶你快速上手寫代碼！ [ 導讀 ]市面上很多人工智慧相關的書籍。大部分的書，面向小白，內容深度不夠；小部分教材書或者科研書，內容艱深，又過於複雜。那麼有沒有，面向演算法工程師（程序員）人群的，面向有一定數學基礎、演算法基礎，能夠快速上手寫代碼的人群的人工智慧手冊呢？……" />
+		<meta name="keywords" content="《深度學習，統計學習，數學基礎》人工智慧演算法工程師手冊 - 天天要聞,科技," />
+		<meta itemprop="image" content="http://p9.pstatp.com/large/pgc-image/12d5d89df6f44fdb8275658468831481"/>
+		<meta name="description" itemprop="description" content="來源：專知 本文約3400字，建議閱讀10+分鐘。 免費開源人工智慧手冊，帶你快速上手寫代碼！ [ 導讀 ]市面上很多人工智慧相關的書籍。大部分的書，面向小白，內容深度不夠；小部分教材書或者科研書，內容艱深，又過於複雜。那麼有沒有，面向演算法工程師（程序員）人群的，面向有一定數學基礎、演算法基礎，能夠快速上手寫代碼的人群的人工智慧手冊呢？……" />
+		
+<!-- This site is optimized with the SEO -->
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="https://daynews.cc/technology/13094" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="《深度學習，統計學習，數學基礎》人工智慧演算法工程師手冊 - 天天要聞" />
+<meta property="og:description" content="來源：專知 本文約3400字，建議閱讀10+分鐘。 免費開源人工智慧手冊，帶你快速上手寫代碼！ [ 導讀 ]市面上很多人工智慧相關的書籍。大部分的書，面向小白，內容深度不夠；小部分教材書或者科研書，內容艱深，又過於複雜。那麼有沒有，面向演算法工程師（程序員）人群的，面向有一定數學基礎、演算法基礎，能夠快速上手寫代碼的人群的人工智慧手冊呢？……" />
+<meta property="og:url" content="https://daynews.cc/technology/13094" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-11T06:55:12+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="來源：專知 本文約3400字，建議閱讀10+分鐘。 免費開源人工智慧手冊，帶你快速上手寫代碼！ [ 導讀 ]市面上很多人工智慧相關的書籍。大部分的書，面向小白，內容深度不夠；小部分教材書或者科研書，內容艱深，又過於複雜。那麼有沒有，面向演算法工程師（程序員）人群的，面向有一定數學基礎、演算法基礎，能夠快速上手寫代碼的人群的人工智慧手冊呢？……" />
+<meta name="twitter:title" content="《深度學習，統計學習，數學基礎》人工智慧演算法工程師手冊 - 天天要聞" />
+<meta name="twitter:image" content="http://p9.pstatp.com/large/pgc-image/12d5d89df6f44fdb8275658468831481" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/13094#primaryimage","url":"http://p9.pstatp.com/large/pgc-image/12d5d89df6f44fdb8275658468831481"},{"@type":"WebPage","@id":"https://daynews.cc/technology/13094#webpage","url":"https://daynews.cc/technology/13094","inLanguage":"zh-TW","name":"\u300a\u6df1\u5ea6\u5b78\u7fd2\uff0c\u7d71\u8a08\u5b78\u7fd2\uff0c\u6578\u5b78\u57fa\u790e\u300b\u4eba\u5de5\u667a\u6167\u6f14\u7b97\u6cd5\u5de5\u7a0b\u5e2b\u624b\u518a - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/13094#primaryimage"},"datePublished":"2019-12-11T06:55:12+00:00","dateModified":"2019-12-11T06:55:12+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<!-- / SEO. -->
+
+<link rel='stylesheet' id='animate-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/animate.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/bootstrap.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/superfish.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/layer.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='https://daynews.cc/wp-content/themes/Kratos/style.css' type='text/css' media='all' />
+<link rel="amphtml" href="https://daynews.cc/technology/13094/amp">		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.min.js'></script>
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154709495-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-154709495-1');
+		</script>
+		<!-- Google Adsense -->
+		<script data-ad-client="ca-pub-8261739837930821" async 
+			src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="https://daynews.cc"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="/">首頁</a></li>
+<li><a href="/entertainment">娛樂</a></li>
+<li><a href="/emotion">情感</a></li>
+<li><a href="https://daynews.cc/international">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="https://daynews.cc/technology">科技</a></li>
+<li><a href="/sports">體育</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/nba">NBA</a></li>
+	<li><a href="/premier">英超</a></li>
+</ul>
+</li>
+<li><a href="/history">歷史</a></li>
+<li><a href="/game">遊戲</a></li>
+<li><a href="https://daynews.cc/health">養生</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/lose">減肥</a></li>
+</ul>
+</li>
+<li><a href="https://daynews.cc/constellation">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">《深度學習，統計學習，數學基礎》人工智慧演算法工程師手冊</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-11				                <i class="fa fa-commenting-o"></i> 1,296條評論
+				                <i class="fa fa-eye"></i> 3,963次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 1398人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/12d5d89df6f44fdb8275658468831481" src="http://p9.pstatp.com/large/pgc-image/12d5d89df6f44fdb8275658468831481" alt="《《深度學習，統計學習，數學基礎》人工智慧演算法工程師手冊》" /></p>
+<p class="pgc-img-caption">
+</div>
+<h2 class="rich_media_title">來源：專知</h2>
+<p>本文約<strong>3400字</strong>，建議閱讀<strong>10+分鐘</strong>。</p>
+<p>免費開源人工智慧手冊，帶你快速上手寫代碼！</p>
+<p><strong>[ 導讀 ]</strong>市面上很多人工智慧相關的書籍。大部分的書，面向小白，內容深度不夠；小部分教材書或者科研書，內容艱深，又過於複雜。那麼有沒有，面向演算法工程師（程序員）人群的，面向有一定數學基礎、演算法基礎，能夠快速上手寫代碼的人群的人工智慧手冊呢？有的！而且免費開源，非常有程序員范！《AI演算法工程師手冊》你值得擁有！</p>
+<blockquote>
+<p>作者Github：</p>
+<p>https://github.com/huaxz1986</p>
+<p>手冊地址：</p>
+<p>http://www.huaxiaozhuan.com/</p>
+</p>
+</blockquote>
+<p>作者簡介：</p>
+<p>華校專，清華航天學院工程力學本科，國防科大計算機專業碩士。清華四年每年成績都是本系頭名，曾任阿里巴巴資深演算法工程師，現任智易科技首席演算法研究員，《Python 大戰機器學習》的作者</p>
+<p><strong>手冊目錄：</strong></p>
+<h2 class="pgc-h-arrow-right">數學基礎</h2>
+<p><strong>1. 線性代數基礎</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、基本知識</li>
+<li>二、向量操作</li>
+<li>三、矩陣運算</li>
+<li>四、特殊函數</li>
+</ul>
+<p><strong>2. 概率論基礎</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、概率與分布</li>
+<li>二、期望和方差</li>
+<li>三、大數定律及中心極限定理</li>
+<li>五、常見概率分布</li>
+<li>六、先驗分布與後驗分布</li>
+<li>七、資訊理論</li>
+<li>八、其它</li>
+</ul>
+<p><strong>3. 數值計算基礎</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、數值穩定性</li>
+<li>二、梯度下降法</li>
+<li>三、二階導數與海森矩陣</li>
+<li>四、牛頓法</li>
+<li>五、擬牛頓法</li>
+<li>六、 約束優化</li>
+</ul>
+<p><strong>4. 蒙特卡洛方法與 MCMC 採樣</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、蒙特卡洛方法</li>
+<li>二、馬爾可夫鏈</li>
+<li>三、MCMC 採樣</li>
+</ul>
+<p><strong>統計學習</strong></p>
+<p><strong>0. 機器學習簡介</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、基本概念</li>
+<li>二、監督學習</li>
+<li>三、機器學習三要素</li>
+</ul>
+<p><strong>機器學習的對象是：具有一定的統計規律的數據。</strong></p>
+<p>機器學習根據<strong>任務類型</strong>，可以劃分為：</p>
+<ul class="list-paddingleft-2">
+<li><strong>監督學習任務：</strong>從已標記的訓練數據來訓練模型。主要分為：分類任務、回歸任務、序列標註任務。</li>
+<li><strong>無監督學習任務：</strong>從未標記的訓練數據來訓練模型。主要分為：聚類任務、降維任務。</li>
+<li><strong>半監督學習任務：</strong>用大量的未標記訓練數據和少量的已標記數據來訓練模型。</li>
+<li><strong>強化學習任務：</strong>從系統與環境的大量交互知識中訓練模型。</li>
+</ul>
+<p>機器學習根據<strong>演算法類型</strong>，可以劃分為：</p>
+<ul class="list-paddingleft-2">
+<li><strong>傳統統計學習：</strong>基於數學模型的機器學習方法。包括SVM、邏輯回歸、決策樹等。這一類演算法基於嚴格的數學推理，具有可解釋性強、運行速度快、可應用於小規模數據集的特點。</li>
+<li><strong>深度學習：</strong>基於神經網路的機器學習方法。包括前饋神經網路、卷積神經網路、遞歸神經網路等。這一類演算法基於神經網路，可解釋性較差，強烈依賴於數據集規模。但是這類演算法在語音、視覺、自然語言等領域非常成功。</li>
+</ul>
+<p><strong>沒有免費的午餐定理(No Free Lunch Theorem:NFL)：</strong>對於一個學習演算法A，如果在某些問題上它比演算法B好，那麼必然存在另一些問題，在那些問題中B比A更好。</p>
+<p>因此不存在這樣的演算法：它在所有的問題上都取得最佳的性能。因此要談論演算法的優劣必須基於具體的學習問題。</p>
+<p><strong>1. 線性代數基礎</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、線性回歸</li>
+<li>二、廣義線性模型</li>
+<li>三、對數幾率回歸</li>
+<li>四、線性判別分析</li>
+<li>五、感知機</li>
+</ul>
+<p><strong>2. 支持向量機</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、 線性可分支持向量機</li>
+<li>二、線性支持向量機</li>
+<li>三、非線性支持向量機</li>
+<li>四、支持向量回歸</li>
+<li>五、SVDD</li>
+<li>六、序列最小最優化方法</li>
+<li>七、其它討論</li>
+</ul>
+<p><strong>3. 樸素貝葉斯</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、貝葉斯定理</li>
+<li>二、樸素貝葉斯法</li>
+<li>三、半樸素貝葉斯分類器</li>
+<li>四、其它討論</li>
+</ul>
+<p><strong>4. 決策樹</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、 原理</li>
+<li>二、 特徵選擇</li>
+<li>三、生成演算法</li>
+<li>四、剪枝演算法</li>
+<li>五、CART 樹</li>
+<li>六、連續值、缺失值處理</li>
+<li>七、多變數決策樹</li>
+</ul>
+<p><strong>5. knn</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、k 近鄰演算法</li>
+<li>二、kd樹</li>
+</ul>
+<p><strong>6. 集成學習</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、集成學習誤差</li>
+<li>二、 Boosting</li>
+<li>三、Bagging</li>
+<li>四、集成策略</li>
+<li>五、多樣性分析</li>
+</ul>
+<p><strong>7. 梯度提升樹</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、提升樹</li>
+<li>二、xgboost</li>
+<li>三、LightGBM</li>
+</ul>
+<p><strong>8. 特徵工程</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、缺失值處理</li>
+<li>二、特徵編碼</li>
+<li>三、數據標準化、正則化</li>
+<li>四、特徵選擇</li>
+<li>五、稀疏表示和字典學習</li>
+<li>六、多類分類問題</li>
+<li>七、類別不平衡問題</li>
+</ul>
+<p><strong>9. 模型評估</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、泛化能力</li>
+<li>二、過擬合、欠擬合</li>
+<li>三、偏差方差分解</li>
+<li>四、參數估計準則</li>
+<li>五、泛化能力評估</li>
+<li>六、訓練集、驗證集、測試集</li>
+<li>七、性能度量</li>
+<li>七、超參數調節</li>
+<li>八、傳統機器學習的挑戰</li>
+</ul>
+<p><strong>10. 降維</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、維度災難</li>
+<li>二、主成分分析 PCA</li>
+<li>三、核化線性降維 KPCA</li>
+<li>四、流形學習</li>
+<li>五、度量學習</li>
+<li>六、概率PCA</li>
+<li>七、獨立成分分析</li>
+<li>八、t-SNE</li>
+<li>九、LargeVis</li>
+</ul>
+<p><strong>11. 聚類</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、性能度量</li>
+<li>二、原型聚類</li>
+<li>三、密度聚類</li>
+<li>四、層次聚類</li>
+<li>五、譜聚類</li>
+</ul>
+<p><strong>12. 半監督學習</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、生成式半監督學習方法</li>
+<li>二、半監督 SVM</li>
+<li>三、圖半監督學習</li>
+<li>四、基於分歧的方法</li>
+<li>五、半監督聚類</li>
+<li>六、 總結</li>
+</ul>
+<p><strong>13. EM演算法</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、示例</li>
+<li>二、EM演算法原理</li>
+<li>三、EM演算法與高斯混合模型</li>
+<li>四、EM 演算法與 kmeans 模型</li>
+<li>五、EM 演算法的推廣</li>
+</ul>
+<p><strong>14. 最大熵演算法</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、最大熵模型MEM</li>
+<li>二、分類任務最大熵模型</li>
+<li>三、最大熵的學習</li>
+</ul>
+<p><strong>15. 隱馬爾可夫模型</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、隱馬爾可夫模型HMM</li>
+<li>二、HMM 基本問題</li>
+<li>三、最大熵馬爾科夫模型MEMM</li>
+</ul>
+<p><strong>16. 概率圖與條件隨機場</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、概率圖模型</li>
+<li>二、貝葉斯網路</li>
+<li>三、馬爾可夫隨機場</li>
+<li>四、條件隨機場 CRF</li>
+</ul>
+<p><strong>17. 邊際概率推斷</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、精確推斷</li>
+<li>二、近似推斷</li>
+</ul>
+<p><strong>18. 主題模型</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、Unigram Model</li>
+<li>二、pLSA Model</li>
+<li>三、LDA Model</li>
+<li>四、LDA優化</li>
+<li>五、sentence-LDA</li>
+<li>六、模型討論</li>
+</ul>
+<p><strong>深度學習</strong></p>
+<p><strong>0. 深度學習簡介</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、介紹</li>
+<li>二、歷史</li>
+</ul>
+<p><strong>深度學習：</strong>計算機從經驗中學習，以層次化的概念（concept）來理解世界。</p>
+<p><strong>從經驗中學習：</strong>避免了人工指定計算機學習所需的所有知識。</p>
+<p><strong>層次化的概念：</strong>計算機通過從簡單的概念來構建、學習更複雜的概念。</p>
+<p>如果繪製一張圖來展示這些概念的關係，那麼這張圖是一個深度的層次結構，因此稱這種方法為深度學習。</p>
+<p><strong>1. 深度前饋神經網路</strong></p>
+<p>深度前饋網路（deep feedfoward network）也稱作前饋神經網路（feedforward neural network）或者多層感知機（multilayer perceptron:MLP），它是最典型的深度學習模型。卷積神經網路就是一種特殊的深度前饋網路。深度前饋網路也是循環神經網路的基礎。</p>
+<ul class="list-paddingleft-2">
+<li>一、基礎</li>
+<li>二、損失函數三、輸出單元</li>
+<li>四、隱單元</li>
+<li>五、結構設計</li>
+<li>六、歷史小記</li>
+</ul>
+<p><strong>2. 反向傳播演算法</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、鏈式法則</li>
+<li>二、反向傳播</li>
+<li>三、演算法實現</li>
+<li>四、自動微分</li>
+</ul>
+<p><strong>3. 正則化</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、參數範數正則化</li>
+<li>二、顯式約束正則化</li>
+<li>三、數據集增強</li>
+<li>四、雜訊魯棒性</li>
+<li>五、早停</li>
+<li>六、參數相對約束</li>
+<li>七、dropout</li>
+<li>八、對抗訓練</li>
+<li>九、正切傳播演算法</li>
+<li>十、其它相關</li>
+</ul>
+<p><strong>4. 最優化基礎</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、代價函數</li>
+<li>二、神經網路最優化挑戰</li>
+<li>三、 mini-batch</li>
+<li>四、基本優化演算法</li>
+<li>五、自適應學習率演算法</li>
+<li>六、二階近似方法</li>
+<li>七、共軛梯度法</li>
+<li>八、優化策略和元演算法</li>
+<li>九、參數初始化策略</li>
+<li>十、Normalization</li>
+<li>十一、Online Learning</li>
+</ul>
+<p><strong>5. 卷積神經網路</strong></p>
+<p>卷積神經網路convolutional neural network:CNN：是指那些至少在網路的某一層中使用了卷積運算來代替一般的矩陣乘法運算的神經網路。卷積神經網路專門處理具有類似網格結構的數據的神經網路。如：時間序列是一維網格，圖像數據是二維網格。</p>
+<ul class="list-paddingleft-2">
+<li>一、卷積運算</li>
+<li>二、卷積層、池化層</li>
+<li>三、基本卷積的變體</li>
+<li>四、應用</li>
+<li>五、 歷史和現狀</li>
+</ul>
+<p>5.1.CNN之圖片分類</p>
+<ul class="list-paddingleft-2">
+<li>一、LeNet</li>
+<li>二、AlexNet</li>
+<li>三、VGG-Net</li>
+<li>四、Inception</li>
+<li>五、ResNet</li>
+<li>六、ResNet 變種</li>
+<li>七、SENet</li>
+<li>八、 DenseNet</li>
+<li>九、小型網路</li>
+</ul>
+<p><strong>6. 循環神經網路</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、RNN計算圖</li>
+<li>二、訓練演算法</li>
+<li>三、長期依賴</li>
+<li>四、常見 RNN 變種</li>
+</ul>
+<p><strong>7. Transformer</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、Transformer</li>
+<li>二、Universal Transformer</li>
+<li>三、Transformer XL</li>
+<li>四、GPT</li>
+<li>五、BERT</li>
+<li>六、ERNIE</li>
+<li>七、XLNet</li>
+<li>八、MT-DNN</li>
+<li>九、BERT 擴展</li>
+</ul>
+<p><strong>8. 詞向量</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、向量空間模型 VSM</li>
+<li>二、LSA</li>
+<li>三、Word2Vec</li>
+<li>四、GloVe</li>
+<li>五、FastText</li>
+<li>六、ELMo</li>
+<li>七、變種</li>
+</ul>
+<p><strong>9. 傳統 CTR 預估模型</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、LR 模型</li>
+<li>二、POLY2 模型</li>
+<li>三、FM模型</li>
+<li>四、FFM模型</li>
+<li>五、GBDT-LR 模型</li>
+<li>六、FTRL模型</li>
+<li>七、LS-PLM 模型</li>
+</ul>
+<p><strong>10. 工程實踐指導原則</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、性能度量</li>
+<li>二、默認的基準模型</li>
+<li>三、決定是否收集更多數據</li>
+<li>四、選擇超參數</li>
+<li>五、調試策略</li>
+<li>六、示例：數字識別系統</li>
+<li>七、數據預處理</li>
+<li>八、變數初始化</li>
+<li>九、結構設計</li>
+</ul>
+<p><strong>工具</strong></p>
+<p><strong>CRF：</strong></p>
+<p><strong>CRF++</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、安裝</li>
+<li>二、使用</li>
+<li>三、Python介面</li>
+<li>四、常見錯誤</li>
+</ul>
+<p>lightgbm：</p>
+<p><strong>lightgbm使用指南</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、安裝</li>
+<li>二、調參</li>
+<li>三、進階</li>
+<li>四、API</li>
+<li>五、Docker</li>
+</ul>
+<p>xgboost：</p>
+<p><strong>xgboost使用指南</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、安裝</li>
+<li>二、調參</li>
+<li>三、外存計算</li>
+<li>四、 GPU計算</li>
+<li>五、單調約束</li>
+<li>六、 DART booster</li>
+<li>七、Python API</li>
+</ul>
+<p><strong>scikit-learn</strong></p>
+<p><strong>1. 預處理</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、特徵處理</li>
+<li>二、特徵選擇</li>
+<li>三、字典學習</li>
+<li>四、PipeLine</li>
+</ul>
+<p><strong>2. 降維</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、PCA</li>
+<li>二、MDS</li>
+<li>三、Isomap</li>
+<li>四、LocallyLinearEmbedding</li>
+<li>五、FA</li>
+<li>六、FastICA</li>
+<li>七、t-SNE</li>
+</ul>
+<p><strong>3. 監督學習模型</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、線性模型</li>
+<li>二、支持向量機</li>
+<li>三、貝葉斯模型</li>
+<li>四、決策樹</li>
+<li>五、KNN</li>
+<li>六 、AdaBoost</li>
+<li>七、梯度提升樹</li>
+<li>八、Random Forest</li>
+</ul>
+<p><strong>4. 模型評估</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、數據集切分</li>
+<li>二、性能度量</li>
+<li>三、驗證曲線 &amp;&amp; 學習曲線</li>
+<li>四、超參數優化</li>
+</ul>
+<p><strong>5. 聚類模型</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、KMeans</li>
+<li>二、DBSCAN</li>
+<li>三、MeanShift</li>
+<li>四、AgglomerativeClustering</li>
+<li>五、BIRCH</li>
+<li>六、GaussianMixture</li>
+<li>七、SpectralClustering</li>
+</ul>
+<p><strong>6. 半監督學習模型</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、標籤傳播演算法</li>
+</ul>
+<p><strong>7. 隱馬爾可夫模型</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、Hmmlearn</li>
+<li>二、seqlearn</li>
+</ul>
+<p><strong>spark</strong></p>
+<p><strong>1. 基礎概念</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、核心概念</li>
+<li>二、安裝和使用</li>
+<li>三、 pyspark shell</li>
+<li>四、獨立應用</li>
+</ul>
+<p><strong>2. rdd使用</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、概述</li>
+<li>二、創建 RDD</li>
+<li>三、轉換操作</li>
+<li>四、行動操作</li>
+<li>五、其他方法和屬性</li>
+<li>六、持久化</li>
+<li>七、分區</li>
+<li>八、混洗</li>
+</ul>
+<p><strong>3. dataframe使用</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、概述</li>
+<li>二、SparkSession</li>
+<li>三、DataFrame 創建</li>
+<li>四、 DataFrame 保存</li>
+<li>五、DataFrame</li>
+<li>六、Row</li>
+<li>七、Column</li>
+<li>八、GroupedData</li>
+<li>九、functions</li>
+</ul>
+<p><strong>4. 累加器和廣播變數</strong></p>
+<p>一、累加器</p>
+<p>二、廣播變數</p>
+<p>numpy：</p>
+<p><strong>numpy 使用指南</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、 ndarray</li>
+<li>二、 ufunc 函數</li>
+<li>三、 函數庫</li>
+<li>四、數組的存儲和載入</li>
+</ul>
+<p>scipy：</p>
+<p><strong>scipy 使用指南</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、 常數和特殊函數</li>
+<li>二、 擬合與優化</li>
+<li>三、線性代數</li>
+<li>四、 統計</li>
+<li>五、數值積分</li>
+<li>六、 稀疏矩陣</li>
+</ul>
+<p>matplotlib：</p>
+<p><strong>matplotlib 使用指南</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、matplotlib配置</li>
+<li>二、 matplotlib Artist</li>
+<li>三、基本概念</li>
+<li>四、布局</li>
+<li>五、 Path</li>
+<li>六、 path effect</li>
+<li>七、坐標變換</li>
+<li>八、 3D 繪圖</li>
+<li>九、技巧</li>
+</ul>
+<p>pandas：</p>
+<p><strong>pandas 使用指南</strong></p>
+<ul class="list-paddingleft-2">
+<li>一、基本數據結構</li>
+<li>二、 內部數據結構</li>
+<li>三、 下標存取</li>
+<li>四、 運算</li>
+<li>五、變換</li>
+<li>六、數據清洗</li>
+<li>七、 字元串操作</li>
+<li>八、 聚合與分組</li>
+<li>九、時間序列</li>
+<li>十、 DataFrame 繪圖</li>
+<li>十一、 移動窗口函數</li>
+<li>十二、 數據載入和保存</li>
+</ul>
+<p><strong>完整版看手冊地址：</strong></p>
+<p>http://www.huaxiaozhuan.com/</p>
+<p><strong>部分章節節選：</strong></p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/984b8e87d7f9413292d0441ad32c0d93" src="http://p1.pstatp.com/large/pgc-image/984b8e87d7f9413292d0441ad32c0d93" alt="《《深度學習，統計學習，數學基礎》人工智慧演算法工程師手冊》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p><strong>— 完 —</strong></p>
+<p>關注清華-青島數據科學研究院官方微信公眾平台「<strong>THU數據派</strong>」及姊妹號「<strong>數據派THU</strong>」獲取更多講座福利及優質內容。</p>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="13094" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/13094"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/13094";
+		var title='%E3%80%90%E3%80%8A%E6%B7%B1%E5%BA%A6%E5%AD%B8%E7%BF%92%EF%BC%8C%E7%B5%B1%E8%A8%88%E5%AD%B8%E7%BF%92%EF%BC%8C%E6%95%B8%E5%AD%B8%E5%9F%BA%E7%A4%8E%E3%80%8B%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%E6%BC%94%E7%AE%97%E6%B3%95%E5%B7%A5%E7%A8%8B%E5%B8%AB%E6%89%8B%E5%86%8A%E3%80%91';
+		var qqtitle='%E3%80%90%E3%80%8A%E6%B7%B1%E5%BA%A6%E5%AD%B8%E7%BF%92%EF%BC%8C%E7%B5%B1%E8%A8%88%E5%AD%B8%E7%BF%92%EF%BC%8C%E6%95%B8%E5%AD%B8%E5%9F%BA%E7%A4%8E%E3%80%8B%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%E6%BC%94%E7%AE%97%E6%B3%95%E5%B7%A5%E7%A8%8B%E5%B8%AB%E6%89%8B%E5%86%8A%E3%80%91';
+		var excerpt='%E4%BE%86%E6%BA%90%EF%BC%9A%E5%B0%88%E7%9F%A5%20%E6%9C%AC%E6%96%87%E7%B4%843400%E5%AD%97%EF%BC%8C%E5%BB%BA%E8%AD%B0%E9%96%B1%E8%AE%8010%2B%E5%88%86%E9%90%98%E3%80%82%20%E5%85%8D%E8%B2%BB%E9%96%8B%E6%BA%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%E6%89%8B%E5%86%8A%EF%BC%8C%E5%B8%B6%E4%BD%A0%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E5%AF%AB%E4%BB%A3%E7%A2%BC%EF%BC%81%20%5B%20%E5%B0%8E%E8%AE%80%20%5D%E5%B8%82%E9%9D%A2%E4%B8%8A%E5%BE%88%E5%A4%9A%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%E7%9B%B8%E9%97%9C%E7%9A%84%E6%9B%B8%E7%B1%8D%E3%80%82%E5%A4%A7%E9%83%A8%E5%88%86%E7%9A%84%E6%9B%B8%EF%BC%8C%E9%9D%A2%E5%90%91%E5%B0%8F%E7%99%BD%EF%BC%8C%E5%85%A7%E5%AE%B9%E6%B7%B1%E5%BA%A6%E4%B8%8D%E5%A4%A0%EF%BC%9B%E5%B0%8F%E9%83%A8%E5%88%86%E6%95%99%E6%9D%90%E6%9B%B8%E6%88%96%E8%80%85%E7%A7%91%E7%A0%94%E6%9B%B8%EF%BC%8C%E5%85%A7%E5%AE%B9%E8%89%B1%E6%B7%B1%EF%BC%8C%E5%8F%88%E9%81%8E%E6%96%BC%E8%A4%87%E9%9B%9C%E3%80%82%E9%82%A3%E9%BA%BC%E6%9C%89%E6%B2%92%E6%9C%89%EF%BC%8C%E9%9D%A2%E5%90%91%E6%BC%94%E7%AE%97%E6%B3%95%E5%B7%A5%E7%A8%8B%E5%B8%AB%EF%BC%88%E7%A8%8B%E5%BA%8F%E5%93%A1%EF%BC%89%E4%BA%BA%E7%BE%A4%E7%9A%84%EF%BC%8C%E9%9D%A2%E5%90%91%E6%9C%89%E4%B8%80%E5%AE%9A%E6%95%B8%E5%AD%B8%E5%9F%BA%E7%A4%8E%E3%80%81%E6%BC%94%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A4%8E%EF%BC%8C%E8%83%BD%E5%A4%A0%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E5%AF%AB%E4%BB%A3%E7%A2%BC%E7%9A%84%E4%BA%BA%E7%BE%A4%E7%9A%84%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%E6%89%8B%E5%86%8A%E5%91%A2%EF%BC%9F%E2%80%A6%E2%80%A6';
+		var wbexcerpt='%E4%BE%86%E6%BA%90%EF%BC%9A%E5%B0%88%E7%9F%A5%20%E6%9C%AC%E6%96%87%E7%B4%843400%E5%AD%97%EF%BC%8C%E5%BB%BA%E8%AD%B0%E9%96%B1%E8%AE%8010%2B%E5%88%86%E9%90%98%E3%80%82%20%E5%85%8D%E8%B2%BB%E9%96%8B%E6%BA%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%E6%89%8B%E5%86%8A%EF%BC%8C%E5%B8%B6%E4%BD%A0%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E5%AF%AB%E4%BB%A3%E7%A2%BC%EF%BC%81%20%5B%20%E5%B0%8E%E8%AE%80%20%5D%E5%B8%82%E9%9D%A2%E4%B8%8A%E5%BE%88%E5%A4%9A%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%E7%9B%B8%E9%97%9C%E7%9A%84%E6%9B%B8%E7%B1%8D%E3%80%82%E5%A4%A7%E9%83%A8%E5%88%86%E7%9A%84%E6%9B%B8%EF%BC%8C%E9%9D%A2%E5%90%91%E5%B0%8F%E7%99%BD%EF%BC%8C%E5%85%A7%E5%AE%B9%E6%B7%B1%E5%BA%A6%E4%B8%8D%E5%A4%A0%EF%BC%9B%E5%B0%8F%E9%83%A8%E5%88%86%E6%95%99%E6%9D%90%E6%9B%B8%E6%88%96%E8%80%85%E7%A7%91%E7%A0%94%E6%9B%B8%EF%BC%8C%E5%85%A7%E5%AE%B9%E8%89%B1%E6%B7%B1%EF%BC%8C%E5%8F%88%E9%81%8E%E6%96%BC%E8%A4%87%E9%9B%9C%E3%80%82%E9%82%A3%E9%BA%BC%E6%9C%89%E6%B2%92%E6%9C%89%EF%BC%8C%E9%9D%A2%E5%90%91%E6%BC%94%E7%AE%97%E6%B3%95%E5%B7%A5%E7%A8%8B%E5%B8%AB%EF%BC%88%E7%A8%8B%E5%BA%8F%E5%93%A1%EF%BC%89%E4%BA%BA%E7%BE%A4%E7%9A%84%EF%BC%8C%E9%9D%A2%E5%90%91%E6%9C%89%E4%B8%80%E5%AE%9A%E6%95%B8%E5%AD%B8%E5%9F%BA%E7%A4%8E%E3%80%81%E6%BC%94%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A4%8E%EF%BC%8C%E8%83%BD%E5%A4%A0%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E5%AF%AB%E4%BB%A3%E7%A2%BC%E7%9A%84%E4%BA%BA%E7%BE%A4%E7%9A%84%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%E6%89%8B%E5%86%8A%E5%91%A2%EF%BC%9F%E2%80%A6%E2%80%A6';
+		var pic="http://p9.pstatp.com/large/pgc-image/12d5d89df6f44fdb8275658468831481";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="超90%產品在華組裝！蘋果遭美國調查，海外業務卻拒絕遷回美國？" href="https://daynews.cc/technology/13096">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="匯納科技上榜“2019最具商業價值TOP30”" href="https://daynews.cc/technology/13092">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="/technology/13094#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='13094' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼" href="https://daynews.cc/constellation/20739" rel="bookmark"><i class="fa  fa-book"></i> 伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼                            </a>
+                            <a class="list-group-item visible-md" title="伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼" href="https://daynews.cc/constellation/20739" rel="bookmark"><i class="fa  fa-book"></i> 伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼                            </a>
+                                                    <a class="list-group-item visible-lg" title="12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪" href="https://daynews.cc/constellation/20740" rel="bookmark"><i class="fa  fa-book"></i> 12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪                            </a>
+                            <a class="list-group-item visible-md" title="12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪" href="https://daynews.cc/constellation/20740" rel="bookmark"><i class="fa  fa-book"></i> 12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪                            </a>
+                                                    <a class="list-group-item visible-lg" title="十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮" href="https://daynews.cc/constellation/20741" rel="bookmark"><i class="fa  fa-book"></i> 十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮                            </a>
+                            <a class="list-group-item visible-md" title="十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮" href="https://daynews.cc/constellation/20741" rel="bookmark"><i class="fa  fa-book"></i> 十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮                            </a>
+                                                    <a class="list-group-item visible-lg" title="小聶：跑動中的腰腹力量如何運用" href="https://daynews.cc/lose/20597" rel="bookmark"><i class="fa  fa-book"></i> 小聶：跑動中的腰腹力量如何運用                            </a>
+                            <a class="list-group-item visible-md" title="小聶：跑動中的腰腹力量如何運用" href="https://daynews.cc/lose/20597" rel="bookmark"><i class="fa  fa-book"></i> 小聶：跑動中的腰腹力量如何運用                            </a>
+                                                    <a class="list-group-item visible-lg" title="小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力" href="https://daynews.cc/lose/20598" rel="bookmark"><i class="fa  fa-book"></i> 小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力                            </a>
+                            <a class="list-group-item visible-md" title="小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力" href="https://daynews.cc/lose/20598" rel="bookmark"><i class="fa  fa-book"></i> 小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力                            </a>
+                                                    <a class="list-group-item visible-lg" title="十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古" href="https://daynews.cc/history/19786" rel="bookmark"><i class="fa  fa-book"></i> 十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古                            </a>
+                            <a class="list-group-item visible-md" title="十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古" href="https://daynews.cc/history/19786" rel="bookmark"><i class="fa  fa-book"></i> 十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古                            </a>
+                                                    <a class="list-group-item visible-lg" title="當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？" href="https://daynews.cc/history/19787" rel="bookmark"><i class="fa  fa-book"></i> 當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？                            </a>
+                            <a class="list-group-item visible-md" title="當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？" href="https://daynews.cc/history/19787" rel="bookmark"><i class="fa  fa-book"></i> 當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？                            </a>
+                                                    <a class="list-group-item visible-lg" title="春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？" href="https://daynews.cc/history/19789" rel="bookmark"><i class="fa  fa-book"></i> 春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？                            </a>
+                            <a class="list-group-item visible-md" title="春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？" href="https://daynews.cc/history/19789" rel="bookmark"><i class="fa  fa-book"></i> 春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？                            </a>
+                                                    <a class="list-group-item visible-lg" title="軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸" href="https://daynews.cc/history/19788" rel="bookmark"><i class="fa  fa-book"></i> 軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸                            </a>
+                            <a class="list-group-item visible-md" title="軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸" href="https://daynews.cc/history/19788" rel="bookmark"><i class="fa  fa-book"></i> 軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸                            </a>
+                                                    <a class="list-group-item visible-lg" title="劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？" href="https://daynews.cc/history/19790" rel="bookmark"><i class="fa  fa-book"></i> 劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？                            </a>
+                            <a class="list-group-item visible-md" title="劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？" href="https://daynews.cc/history/19790" rel="bookmark"><i class="fa  fa-book"></i> 劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-md" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-lg" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a><a class="list-group-item visible-md" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a><a class="list-group-item visible-lg" title="最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？" href="https://daynews.cc/international/18303" rel="bookmark"><i class="fa  fa-book"></i> 最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？</a><a class="list-group-item visible-md" title="最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？" href="https://daynews.cc/international/18303" rel="bookmark"><i class="fa  fa-book"></i> 最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？</a><a class="list-group-item visible-lg" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="https://daynews.cc/entertainment/10879" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-md" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="https://daynews.cc/entertainment/10879" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-lg" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="https://daynews.cc/technology/10158" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-md" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="https://daynews.cc/technology/10158" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-lg" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="https://daynews.cc/game/13764" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-md" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="https://daynews.cc/game/13764" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-lg" title="這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩" href="https://daynews.cc/lose/20687" rel="bookmark"><i class="fa  fa-book"></i> 這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩</a><a class="list-group-item visible-md" title="這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩" href="https://daynews.cc/lose/20687" rel="bookmark"><i class="fa  fa-book"></i> 這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩</a><a class="list-group-item visible-lg" title="夢三國：路人戰力匹配中最值得玩的輔助英雄推薦" href="https://daynews.cc/game/20261" rel="bookmark"><i class="fa  fa-book"></i> 夢三國：路人戰力匹配中最值得玩的輔助英雄推薦</a><a class="list-group-item visible-md" title="夢三國：路人戰力匹配中最值得玩的輔助英雄推薦" href="https://daynews.cc/game/20261" rel="bookmark"><i class="fa  fa-book"></i> 夢三國：路人戰力匹配中最值得玩的輔助英雄推薦</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="李現主演新劇被質疑播放量造假！網友吐槽：沒點就顯示已播放兩集" href="https://daynews.cc/entertainment/98" rel="bookmark"><i class="fa  fa-book"></i> 李現主演新劇被質疑播放量造假！網友吐槽：沒點就顯示已播放兩集                            </a>
+                            <a class="list-group-item visible-md" title="李現主演新劇被質疑播放量造假！網友吐槽：沒點就顯示已播放兩集" href="https://daynews.cc/entertainment/98" rel="bookmark"><i class="fa  fa-book"></i> 李現主演新劇被質疑播放量造假！網友吐槽：沒點就顯示已播放兩集                            </a>
+                                                    <a class="list-group-item visible-lg" title="金手指南——19153期填單技巧：巴薩輕取塞爾塔" href="https://daynews.cc/premier/5822" rel="bookmark"><i class="fa  fa-book"></i> 金手指南——19153期填單技巧：巴薩輕取塞爾塔                            </a>
+                            <a class="list-group-item visible-md" title="金手指南——19153期填單技巧：巴薩輕取塞爾塔" href="https://daynews.cc/premier/5822" rel="bookmark"><i class="fa  fa-book"></i> 金手指南——19153期填單技巧：巴薩輕取塞爾塔                            </a>
+                                                    <a class="list-group-item visible-lg" title="國米歐聯杯對手意外換帥，曾遭武磊球隊7-0雙殺，張康陽收大禮" href="https://daynews.cc/premier/19663" rel="bookmark"><i class="fa  fa-book"></i> 國米歐聯杯對手意外換帥，曾遭武磊球隊7-0雙殺，張康陽收大禮                            </a>
+                            <a class="list-group-item visible-md" title="國米歐聯杯對手意外換帥，曾遭武磊球隊7-0雙殺，張康陽收大禮" href="https://daynews.cc/premier/19663" rel="bookmark"><i class="fa  fa-book"></i> 國米歐聯杯對手意外換帥，曾遭武磊球隊7-0雙殺，張康陽收大禮                            </a>
+                                                    <a class="list-group-item visible-lg" title="同治皇帝為什麼也會被棒打鴛鴦？" href="https://daynews.cc/history/3782" rel="bookmark"><i class="fa  fa-book"></i> 同治皇帝為什麼也會被棒打鴛鴦？                            </a>
+                            <a class="list-group-item visible-md" title="同治皇帝為什麼也會被棒打鴛鴦？" href="https://daynews.cc/history/3782" rel="bookmark"><i class="fa  fa-book"></i> 同治皇帝為什麼也會被棒打鴛鴦？                            </a>
+                                                    <a class="list-group-item visible-lg" title="回憶殺！北京奧運體操兩大功臣：程菲發福嚴重，她嫁製片人老公" href="https://daynews.cc/sports/19115" rel="bookmark"><i class="fa  fa-book"></i> 回憶殺！北京奧運體操兩大功臣：程菲發福嚴重，她嫁製片人老公                            </a>
+                            <a class="list-group-item visible-md" title="回憶殺！北京奧運體操兩大功臣：程菲發福嚴重，她嫁製片人老公" href="https://daynews.cc/sports/19115" rel="bookmark"><i class="fa  fa-book"></i> 回憶殺！北京奧運體操兩大功臣：程菲發福嚴重，她嫁製片人老公                            </a>
+                                                    <a class="list-group-item visible-lg" title="水星助你年終總結順利通關:12星座指南" href="https://daynews.cc/constellation/8133" rel="bookmark"><i class="fa  fa-book"></i> 水星助你年終總結順利通關:12星座指南                            </a>
+                            <a class="list-group-item visible-md" title="水星助你年終總結順利通關:12星座指南" href="https://daynews.cc/constellation/8133" rel="bookmark"><i class="fa  fa-book"></i> 水星助你年終總結順利通關:12星座指南                            </a>
+                                                    <a class="list-group-item visible-lg" title="歐冠淘汰賽！這3隊或爆冷晉級，利物浦遇大麻煩，巴薩尤文無憂？" href="https://daynews.cc/premier/19732" rel="bookmark"><i class="fa  fa-book"></i> 歐冠淘汰賽！這3隊或爆冷晉級，利物浦遇大麻煩，巴薩尤文無憂？                            </a>
+                            <a class="list-group-item visible-md" title="歐冠淘汰賽！這3隊或爆冷晉級，利物浦遇大麻煩，巴薩尤文無憂？" href="https://daynews.cc/premier/19732" rel="bookmark"><i class="fa  fa-book"></i> 歐冠淘汰賽！這3隊或爆冷晉級，利物浦遇大麻煩，巴薩尤文無憂？                            </a>
+                                                    <a class="list-group-item visible-lg" title="“君因風送入青雲，我被人驅向鴨群”，談談唐代畜畫的發展歷程" href="https://daynews.cc/history/19884" rel="bookmark"><i class="fa  fa-book"></i> “君因風送入青雲，我被人驅向鴨群”，談談唐代畜畫的發展歷程                            </a>
+                            <a class="list-group-item visible-md" title="“君因風送入青雲，我被人驅向鴨群”，談談唐代畜畫的發展歷程" href="https://daynews.cc/history/19884" rel="bookmark"><i class="fa  fa-book"></i> “君因風送入青雲，我被人驅向鴨群”，談談唐代畜畫的發展歷程                            </a>
+                                                    <a class="list-group-item visible-lg" title="能用一隻手接球，我幹嘛要用兩隻手？" href="https://daynews.cc/lose/10624" rel="bookmark"><i class="fa  fa-book"></i> 能用一隻手接球，我幹嘛要用兩隻手？                            </a>
+                            <a class="list-group-item visible-md" title="能用一隻手接球，我幹嘛要用兩隻手？" href="https://daynews.cc/lose/10624" rel="bookmark"><i class="fa  fa-book"></i> 能用一隻手接球，我幹嘛要用兩隻手？                            </a>
+                                                    <a class="list-group-item visible-lg" title="小女孩欲與阿聯酋王儲握手遭無視引爭議，王儲事後親女孩額頭補償" href="https://daynews.cc/international/9318" rel="bookmark"><i class="fa  fa-book"></i> 小女孩欲與阿聯酋王儲握手遭無視引爭議，王儲事後親女孩額頭補償                            </a>
+                            <a class="list-group-item visible-md" title="小女孩欲與阿聯酋王儲握手遭無視引爭議，王儲事後親女孩額頭補償" href="https://daynews.cc/international/9318" rel="bookmark"><i class="fa  fa-book"></i> 小女孩欲與阿聯酋王儲握手遭無視引爭議，王儲事後親女孩額頭補償                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="kratos_tags-4" class="widget widget_kratos_tags clearfix"><h4 class="widget-title">標籤</h4><div class="tag_clouds"></div></aside><aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="https://daynews.cc/nba">NBA</a> (1,526)
+</li>
+	<li class="cat-item cat-item-23"><a href="https://daynews.cc/international">國際</a> (2,241)
+</li>
+	<li class="cat-item cat-item-14"><a href="https://daynews.cc/entertainment">娛樂</a> (2,348)
+</li>
+	<li class="cat-item cat-item-15"><a href="https://daynews.cc/emotion">情感</a> (1,582)
+</li>
+	<li class="cat-item cat-item-22"><a href="https://daynews.cc/constellation">星座</a> (1,060)
+</li>
+	<li class="cat-item cat-item-17"><a href="https://daynews.cc/history">歷史</a> (1,759)
+</li>
+	<li class="cat-item cat-item-25"><a href="https://daynews.cc/lose">減肥</a> (495)
+</li>
+	<li class="cat-item cat-item-24"><a href="https://daynews.cc/technology">科技</a> (2,163)
+</li>
+	<li class="cat-item cat-item-19"><a href="https://daynews.cc/premier">英超</a> (1,372)
+</li>
+	<li class="cat-item cat-item-18"><a href="https://daynews.cc/game">遊戲</a> (2,055)
+</li>
+	<li class="cat-item cat-item-21"><a href="https://daynews.cc/health">養生</a> (1,278)
+</li>
+	<li class="cat-item cat-item-16"><a href="https://daynews.cc/sports">體育</a> (2,098)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='https://daynews.cc/date/2019/12'>2019 年 12 月</a>&nbsp;(16975)</li>
+	<li><a href='https://daynews.cc/date/2019/11'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='https://daynews.cc/date/2019/10'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="https://daynews.cc">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.easing.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.qrcode.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/layer.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/modernizr.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.waypoints.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.stellar.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/hoverIntent.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/superfish.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/kratos.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-includes/js/wp-embed.min.js'></script>
+			</body>
+
+</html>
+<!-- Dynamic page generated in 0.639 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:10:29 -->
+
+<!-- super cache -->

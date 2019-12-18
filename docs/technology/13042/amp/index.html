@@ -1,0 +1,771 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/13042#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/d602d98e831a49c48f689b4b9a951b89"},{"@type":"WebPage","@id":"https://daynews.cc/technology/13042#webpage","url":"https://daynews.cc/technology/13042","inLanguage":"zh-TW","name":"\u6709\u4e86\u5b83\uff0cJava\u8a9e\u6cd5\u4e5f\u53ef\u4ee5\u8b8a\u5f97\u751c\u751c\u7684 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/13042#primaryimage"},"datePublished":"2019-12-11T13:55:09+00:00","dateModified":"2019-12-11T13:55:09+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="簡介 Hutool是一個小而全的Java工具類庫，通過靜態方法封裝，降低相關API的學習成本，提高工作效率，使Java擁有函數式語言般的優雅，讓Java語言也可以「甜甜的」。 Hutool中的工具方法來自於每個用戶的精雕細琢，它涵蓋了Java開發底層代碼中的方方面面，它既是大型項目開發中解決小問題的利器，也是小型項目中的效率擔當； Hut……" />
+<meta name="twitter:title" content="有了它，Java語法也可以變得甜甜的 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/d602d98e831a49c48f689b4b9a951b89" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="有了它，Java語法也可以變得甜甜的 - 天天要聞" />
+<meta property="og:description" content="簡介 Hutool是一個小而全的Java工具類庫，通過靜態方法封裝，降低相關API的學習成本，提高工作效率，使Java擁有函數式語言般的優雅，讓Java語言也可以「甜甜的」。 Hutool中的工具方法來自於每個用戶的精雕細琢，它涵蓋了Java開發底層代碼中的方方面面，它既是大型項目開發中解決小問題的利器，也是小型項目中的效率擔當； Hut……" />
+<meta property="og:url" content="https://daynews.cc/technology/13042" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-11T13:55:09+00:00" />
+	<title>有了它，Java語法也可以變得甜甜的 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/13042" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">有了它，Java語法也可以變得甜甜的</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-11T21:55:09+00:00">
+		7 天 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<h2 class="pgc-h-arrow-right">簡介</h2>
+<p>Hutool是一個小而全的Java工具類庫，通過靜態方法封裝，降低相關API的學習成本，提高工作效率，使Java擁有函數式語言般的優雅，讓Java語言也可以「甜甜的」。</p>
+<p>Hutool中的工具方法來自於每個用戶的精雕細琢，它涵蓋了Java開發底層代碼中的方方面面，它既是大型項目開發中解決小問題的利器，也是小型項目中的效率擔當；</p>
+<p>Hutool是項目中「util」包友好的替代，它節省了開發人員對項目中公用類和公用工具方法的封裝時間，使開發專註於業務，同時可以最大限度的避免封裝不完善帶來的bug。</p>
+<p>這是官方對它的介紹，簡單點說，它通過一些封裝，將原來略顯複雜的API進一步優化，使得你在使用的時候能夠更加方便快捷，當然語法也會比原來更加簡單易懂。</p>
+<h2 class="pgc-h-arrow-right">包含組件</h2>
+<p>一個Java基礎工具類，對文件、流、加密解密、轉碼、正則、線程、XML等JDK方法進行封裝，組成各種Util工具類，同時提供以下組件：</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/d602d98e831a49c48f689b4b9a951b89" alt="《有了它，Java語法也可以變得甜甜的》" width="640" height="350" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/d602d98e831a49c48f689b4b9a951b89" alt="《有了它，Java語法也可以變得甜甜的》" width="640" height="350" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/509cff672efd4033a68eb79126ed3fd4" alt="《有了它，Java語法也可以變得甜甜的》" width="640" height="322" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/509cff672efd4033a68eb79126ed3fd4" alt="《有了它，Java語法也可以變得甜甜的》" width="640" height="322" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>可以根據需求對每個模塊單獨引入，也可以通過引入hutool-all方式引入所有模塊。</p>
+<h3 class="pgc-h-arrow-right">安裝</h3>
+<h2 class="pgc-h-arrow-right">1、Maven項目</h2>
+<p>在項目的pom.xml的dependencies中加入以下內容：</p>
+<pre>&lt;dependency&gt;<br> &lt;groupId&gt;cn.hutool&lt;/groupId&gt;<br> &lt;artifactId&gt;hutool-all&lt;/artifactId&gt;<br> &lt;version&gt;5.0.7&lt;/version&gt;<br>&lt;/dependency&gt;</pre>
+<h2 class="pgc-h-arrow-right">2、非Maven項目</h2>
+<p>下載地址： https://repo1.maven.org/maven2/cn/hutool/hutool-all/5.0.7/</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/7f63130f822b48b2807693a976320749" alt="《有了它，Java語法也可以變得甜甜的》" width="558" height="401" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/7f63130f822b48b2807693a976320749" alt="《有了它，Java語法也可以變得甜甜的》" width="558" height="401" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>下載hutool-all-X.X.X.jar即可。</p>
+<p>下面對某幾個組件的使用進行一個入門。</p>
+<h2 class="pgc-h-arrow-right">類型轉換</h2>
+<p><strong>1、常用類型轉換</strong></p>
+<p>在傳統的類型轉換過程中，我們需要使用到包裝類的valueof()方法，例如：</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/5d1b87652cb94409aead5fad3c797491" alt="《有了它，Java語法也可以變得甜甜的》" width="439" height="112" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/5d1b87652cb94409aead5fad3c797491" alt="《有了它，Java語法也可以變得甜甜的》" width="439" height="112" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>但很顯然實際情況並沒有這麼簡單，在企業級的開發項目中，從前端傳遞過來的參數各式各樣，類型繁多，我們如何知曉參數類型並作對應的轉換呢？一般會先將所有參數轉成String類型，如Web中的HttpServletRequest的getParamer()方法得到的數據類型就永遠是String。轉成String之後再將參數轉成對應的數據類型，此時還需要考慮轉換異常的問題，所以通常還需要在轉換代碼外面使用try-catch。</p>
+<p>為了使轉換過程變得輕鬆愉快，HuTool為我們提供了類型轉換工具——Convert。</p>
+<p>來看看使用Convert該如何進行轉換：</p>
+<pre>String s = "1234";<br>int num = Convert.toInt(s);<br>double d = Convert.toDouble(s);<br>float f = Convert.toFloat(s);</pre>
+<p>首先在代碼風格上，Convert作了一個統一，統一使用Convert類作為工具類進行類型轉換，而無需使用每個類型對應的包裝類。</p>
+<p>當然了，Convert類的作用可遠不止如此，比如：</p>
+<pre>String[] s = { "1", "2", "3", "4", "5" };<br>Integer[] intArray = Convert.toIntArray(s);<br>Double[] doubleArray = Convert.toDoubleArray(s);<br>Float[] floatArray = Convert.toFloatArray(s);<br>Character[] charArray = Convert.toCharArray(s);</pre>
+<p>將數組轉換為任意類型的數組。</p>
+<p>對於集合，Convert同樣支持轉換：</p>
+<pre>Object[] objs= {"hello","world","java",1};<br>List&lt;?&gt; list = Convert.toList(objs);</pre>
+<p>還有日期類型：</p>
+<pre>String s = "2019-12-07";<br>Date date = Convert.toDate(s);</pre>
+<p>關於日期的處理，HuTool為我們提供了專門的工具類，這個我們放到後面說。</p>
+<p><strong>2、其它類型轉換</strong></p>
+<p>通過Convert的convert()方法也能夠實現上述的所有操作，不信我們可以試一試：</p>
+<pre>String s = "1234";<br>int num = Convert.convert(Integer.class, s);<br>double d = Convert.convert(Double.class, s);<br>float f = Convert.convert(Float.class, s);</pre>
+<p>關於其它類型大家可以自己試一試，總之，通過convert()方法可以將任意類型轉換為指定類型，但這種方法終歸是有局限的，試問一下，我們如何將一個數組轉換成List類型呢？</p>
+<p>我們可以通過一個重載方法convert( TypeReference reference, Object value )，該方法需要一個TypeReference對象參數，我們就可以創建TypeReference對象並通過嵌套泛型來指定需要轉換的類型，比如：</p>
+<pre>Object[] objs = { "hello", "world", "java"};<br>List&lt;String&gt; list = Convert.convert(new TypeReference&lt;List&lt;String&gt;&gt;() {}, objs);</pre>
+<p>Convert還提供了全形與半形符號之間的轉換，比如：</p>
+<pre>//將全形符轉為半形符<br>String s = "1，2，3，4，5";<br>String dbc = Convert.toDBC(s);<br>//將半形符轉為全形符<br>String sbc = Convert.toSBC(dbc);</pre>
+<p>可以看看運行結果，更加直觀：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/dfic-imagehandler/deafa66c-ce27-4c0e-b909-c489568f633d" alt="《有了它，Java語法也可以變得甜甜的》" width="660" height="79" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/dfic-imagehandler/deafa66c-ce27-4c0e-b909-c489568f633d" alt="《有了它，Java語法也可以變得甜甜的》" width="660" height="79" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>3、編碼轉換</strong></p>
+<p>在一些場景下，比如表單提交，會將參數進行一個簡單的加密，此時通常會使用16進位轉換，當然了，我們在準備16進位轉換的時候也不會自己去寫，都是去百度找一個現成的。不過，有了HuTool就不需要了，它為我們提供了方法用於完成16進位的轉換。</p>
+<pre>String s = "你好世界";<br>//轉換為16進位字元串<br>String hex = Convert.toHex(s, CharsetUtil.CHARSET_UTF_8);<br>//轉換為普通字元串<br>String str = Convert.hexToStr(hex, CharsetUtil.CHARSET_UTF_8);</pre>
+<p>運行結果：</p>
+<pre>e4bda0e5a5bde4b896e7958c<br>你好世界</pre>
+<p>注意編碼對象要相同，這裡都使用UTF-8編碼，所以順逆的轉換過程都是成功的，如果編碼不同，在轉為普通字元串的時候就會出現亂碼。</p>
+<p>還有Unicode編碼和字元串的轉換：</p>
+<pre>String s = "你好世界";<br>//轉換為Unicode編碼<br>String unicode = Convert.strToUnicode(s);<br>//轉換為普通字元串<br>String str = Convert.unicodeToStr(unicode);</pre>
+<p>運行結果：</p>
+<pre>\\u4f60\\u597d\\u4e16\\u754c<br>你好世界</pre>
+<p>Convert類還提供了convertCharset ()用於將字元串轉換為指定編碼的字元串，比如在處理表單數據時通常要處理亂碼問題，如下：</p>
+<pre>String s = "你好世界";<br>//將字元串先轉成亂碼<br>String str = Convert.convertCharset(s, CharsetUtil.UTF_8, CharsetUtil.ISO_8859_1);<br>//處理亂碼<br>String result = Convert.convertCharset(str, CharsetUtil.ISO_8859_1, CharsetUtil.UTF_8);</pre>
+<p>運行結果：</p>
+<pre>????????????<br>你好世界</pre>
+<p>還有金額大小寫轉換的功能：</p>
+<pre>double money = 2019.127;<br>String s = Convert.digitToChinese(money);</pre>
+<p>運行結果：</p>
+<pre>貳仟零壹拾玖元壹角叄分</pre>
+<p><strong>4、自定義類型轉換</strong></p>
+<p>Convert類的功能是不是非常強大呢？我們繼續來看，對於數據類型轉換，肯定是做不到包含所有數據類型的，因為Java面向對象的特性，但是HuTool提供了自定義類型轉換。</p>
+<pre>ConverterRegistry converterRegistry = ConverterRegistry.getInstance();<br>converterRegistry.putCustom(Person.class, CustomConverter.class);<br>String[] str = { "20", "張三" };<br>Person person = converterRegistry.convert(Person.class, str);<br>System.out.println(person);</pre>
+<p>運行結果：</p>
+<pre>Person [age=20, name=張三</pre>
+<p>該轉換器將一個數組類型轉換為了Person對象，它是如何實現的呢？(分三步)</p>
+<ol start="1">
+<li>自定義類實現Converter介面，並重寫convert()方法</li>
+<li>註冊自定義的轉換器</li>
+<li>實現轉換</li>
+</ol>
+<p>先定義一個Person類：</p>
+<pre>public class Person {<br><br>	private int age;<br>	private String name;<br><br>	public int getAge() {<br>		return age;<br>	}<br><br>	public void setAge(int age) {<br>		this.age = age;<br>	}<br><br>	public String getName() {<br>		return name;<br>	}<br><br>	public void setName(String name) {<br>		this.name = name;<br>	}<br><br>	@Override<br>	public String toString() {<br>		return "Person [age=" + age + ", name=" + name + "]";<br>	}<br>}</pre>
+<p>然後自定義類實現Converter介面，並重寫方法：</p>
+<pre>public class CustomConverter implements Converter&lt;Person&gt; {<br><br>	@Override<br>	public Person convert(Object value, Person person) throws IllegalArgumentException {<br>		person = new Person();<br>		String[] str = Convert.toStrArray(value);<br>		person.setAge(Convert.toInt(str[0]));<br>		person.setName(str[1]);<br>		return person;<br>	}<br>}</pre>
+<p>該方法將傳遞過來的數據封裝成Person對象並返回，實現類型轉換。</p>
+<p>接著註冊自定義的轉換器：</p>
+<pre>ConverterRegistry converterRegistry = ConverterRegistry.getInstance();<br>converterRegistry.putCustom(Person.class, CustomConverter.class);</pre>
+<p>現在就可以使用我們的轉換器了，也就是剛剛的代碼：</p>
+<pre>String[] str = { "20", "張三" };<br>Person person = converterRegistry.convert(Person.class, str);<br>System.out.println(person);</pre>
+<p>需要轉換的數據是什麼樣式的，完全由你自定義的轉換器決定，非常靈活，可根據自己的需求隨意定製。</p>
+<h3 class="pgc-h-arrow-right">日期時間處理</h3>
+<p>對於日期時間的處理，Java提供了Date類和Calendar類，但就是因為有了更多的選擇，使得日期時間轉換的操作變得混亂和複雜，為此，HuTool提供了DateUtil工具。</p>
+<p><strong>1、Date、long、Calendar的相互轉換</strong></p>
+<p>使用DateUtil可以實現Date、long和Calendar之間的相互轉換，如下：</p>
+<pre>// Calendar轉為Date<br>Date date = DateUtil.date(Calendar.getInstance());<br>// long轉為Date<br>Date date2 = DateUtil.date(System.currentTimeMillis());<br>// Date轉為Calendar<br>Calendar calendar = DateUtil.calendar(date);<br>// long轉為Calendar<br>Calendar calendar2 = DateUtil.calendar(System.currentTimeMillis());</pre>
+<p><strong>2、日期字元串轉換為Date</strong></p>
+<pre>String s = "2019-12-07";<br>DateTime dateTime = DateUtil.parse(s);<br>System.out.println(dateTime);</pre>
+<p>運行結果：</p>
+<pre>2019-12-07 00:00:00</pre>
+<p>該方法能夠將日期字元串轉換為Date類型，它能夠自動識別以下格式的字元串：</p>
+<ol start="1">
+<li>yyyy-MM-dd HH:mm:ss</li>
+<li>yyyy-MM-dd</li>
+<li>HH:mm:ss</li>
+<li>yyyy-MM-dd HH:mm</li>
+<li>yyyy-MM-dd HH:mm:ss.SSS</li>
+</ol>
+<p><strong>3、格式化日期</strong></p>
+<p>格式化日期很簡單，和Java的API沒什麼區別。</p>
+<pre>String s = "2019-12-07";<br>DateTime date = DateUtil.parse(s);<br><br>String dateStr = DateUtil.format(date, "yyyy/MM/dd");<br>System.out.println(dateStr);<br>String dateStr2 = DateUtil.formatDate(date);<br>System.out.println(dateStr2);<br>String dateStr3 = DateUtil.formatDateTime(date);<br>System.out.println(dateStr3);<br>String dateStr4 = DateUtil.formatTime(date);<br>System.out.println(dateStr4);</pre>
+<p>通過format()方法可以將日期字元串轉換為指定的格式，不過，DateUtil提供了其它的一些方法來作為常用的日期格式轉換，看運行結果即可：</p>
+<pre>2019/12/07<br>2019-12-07<br>2019-12-07 00:00:00<br>00:00:00</pre>
+<p><strong>4、獲取年、月、日</strong></p>
+<p>對於年、月、日的獲取，DateUtil也提供了非常簡便的獲取方式：</p>
+<pre>// 獲取當前日期時間<br>DateTime date = DateUtil.date();<br>System.out.println(date);<br>// 獲取年<br>int year = DateUtil.year(date);<br>System.out.println(year);<br>// 獲取月	從0開始<br>int month = DateUtil.month(date);	<br>System.out.println(month);</pre>
+<p>運行結果：</p>
+<pre>2019-12-07 21:45:42<br>2019<br>11</pre>
+<p><strong>5、日期時間偏移量</strong></p>
+<p>對於日期時間的偏移，DateUtil同樣能夠很方便地實現，如下：</p>
+<pre>String s = "2019-12-06 21:46:00";<br>DateTime date = DateUtil.parse(s);<br><br>// 日期往後偏移一天<br>DateTime dateTime = DateUtil.offset(date, DateField.DAY_OF_MONTH, 1);<br>System.out.println(dateTime);<br><br>// 日期往後偏移兩天<br>DateTime dateTime2 = DateUtil.offsetDay(dateTime, 2);<br>System.out.println(dateTime2);<br><br>// 日期往後偏移一個小時<br>DateTime dateTime3 = DateUtil.offsetHour(date, 1);<br>System.out.println(dateTime3);</pre>
+<p>運行結果：</p>
+<pre>2019-12-07 21:46:00<br>2019-12-09 21:46:00<br>2019-12-06 22:46:00</pre>
+<p>關於日期時間的偏移，通過offset()方法即可實現，該方法的第二個參數可傳入偏移的單位，不過DateUtil還提供了一些比較常用的偏移方法，比如偏移天數、偏移小時。</p>
+<p>對於與當前十分接近的日期時間，DateUtil也提供了一些較為常用的方法，比如昨天、明天、上周、下周、上個月、下個月等：</p>
+<pre>DateTime yesrerday = DateUtil.yesterday();<br>System.out.println(yesrerday);<br>		<br>DateTime tomorrow = DateUtil.tomorrow();<br>System.out.println(tomorrow);<br>		<br>DateTime lastMonth = DateUtil.lastMonth();<br>System.out.println(lastMonth);<br>		<br>DateTime nextMonth = DateUtil.nextMonth();<br>System.out.println(nextMonth);<br>		<br>DateTime lastWeek = DateUtil.lastWeek();<br>System.out.println(lastWeek);<br>		<br>DateTime nextWeek = DateUtil.nextWeek();<br>System.out.println(nextWeek);</pre>
+<p>運行結果：</p>
+<pre>2019-12-06 22:02:29<br>2019-12-08 22:02:29<br>2019-11-07 22:02:29<br>2020-01-07 22:02:29<br>2019-11-30 22:02:29<br>2019-12-14 22:02:29</pre>
+<p><strong>6、計算日期時間差</strong></p>
+<pre>String s1 = "2019-12-06 22:15:00";<br>DateTime date1 = DateUtil.parse(s1);<br>String s2 = "2019-12-08 22:15:00";<br>DateTime date2 = DateUtil.parse(s2);<br>// 計算相差的天數<br>long day = DateUtil.between(date1, date2, DateUnit.DAY);<br>System.out.println(day);<br>// 計算相差的小時數<br>long hour = DateUtil.between(date1, date2, DateUnit.HOUR);<br>System.out.println(hour);</pre>
+<p>運行結果：</p>
+<pre>2<br>48</pre>
+<p>對於兩個日期時間的差值，通過between()方法能夠很輕鬆地得到，該方法的第三個參數是需要計算的差值的單位。</p>
+<p><strong>7、計時器</strong></p>
+<p>DateUtil類還封裝了計時器功能，用過傳統的Timer計時器的同學就會知道，Timer計時器略顯複雜，而DateUtil的封裝則恰到好處。</p>
+<pre>TimeInterval timer = DateUtil.timer();<br>// 延遲2秒<br>Thread.sleep(2000);<br>// 花費的時間，單位:毫秒<br>long interval = timer.interval();<br>System.out.println(interval);<br>// 花費的時間，單位:分<br>long intervalMinute = timer.intervalMinute();<br>System.out.println(intervalMinute);</pre>
+<p>運行結果：</p>
+<pre>2000<br>0</pre>
+<p>還有很多其它的方法，篇幅有限，就不一一例舉了。</p>
+<p><strong>8、其它</strong></p>
+<p>考慮到一些比較常見的場景，例如計算一個人的年齡，判斷給定年份是否為閏年，DateUtil也給出了相應的解決辦法。</p>
+<pre>int age = DateUtil.ageOfNow("1999-08-08");<br>System.out.println(age);<br>boolean leapYear = DateUtil.isLeapYear(2019);<br>System.out.println(leapYear);</pre>
+<p>運行結果：</p>
+<pre>20<br>false</pre>
+<h3 class="pgc-h-arrow-right">IO操作</h3>
+<p>IO操作是Java中比較重要的操作之一，為此，Java提供了InputStream、OutputStream、Reader、Writer等介面，而實現類又非常的多，往往選擇一多，我們就不知道該如何選擇，而HuTool為我們封裝了一系列的工具類。</p>
+<h4 class="pgc-h-arrow-right">FileUtil(文件操作工具類)</h4>
+<p>既然是IO流，那就離不開文件操作，HuTool為我們提供了FileUtil工具類用來解決大部分的文件操作問題。</p>
+<p>對於文件操作的方法，有Linux基礎的同學肯定非常熟悉，開源項目的作者努力將方法名與Linux保持一致，比如創建文件的方法不是createFile()而是touch()。</p>
+<pre>File[] files = FileUtil.ls("E:");<br>for (File file : files) {<br>	System.out.println(file);<br>}</pre>
+<p>運行結果：</p>
+<pre>E:\$RECYCLE.BIN<br>E:\androidSdk<br>E:\androidstudio<br>E:\b2631f36a0808f7d3cab19543d645e63<br>E:\flutter<br>E:\Java<br>E:\MailMasterData<br>E:\QLDownload<br>E:\QQPCmg<br>E:\QQPCmgr<br>E:\qycache<br>E:\System Volume Information<br>E:\test.txt<br>E:\Tool<br>E:\迅雷下載</pre>
+<p>ls()方法會列出給定路徑下的所有目錄和文件。</p>
+<pre>FileUtil.touch("E:/test/hello.txt");</pre>
+<p>touch()方法用於創建文件，如果父目錄不存在也自動創建，比如這裡的hello.txt文件，倘若E盤下沒有test目錄，則會先創建test文件夾，再在test目錄下創建hello.txt文件。</p>
+<p>其它方法也如上所示使用，就不一一演示了：</p>
+<ul class="">
+<li>mkdir 創建目錄，會遞歸創建每層目錄</li>
+<li>del 刪除文件或目錄（遞歸刪除，不判斷是否為空），這個方法相當於Linux的delete命令</li>
+<li>copy 拷貝文件或目錄</li>
+</ul>
+<p>注意：對於del()方法，它會直接刪除目錄而不判斷其是否為空，所以請謹慎使用。</p>
+<h4 class="pgc-h-arrow-right">IOUtil(IO工具類)</h4>
+<p>第二個便是IOUtil，該工具類主要針對輸入輸出流的一個封裝。</p>
+<p><strong>1、文件複製</strong></p>
+<p>針對文件複製操作，IOUtil能夠很輕鬆地完成。</p>
+<pre>BufferedInputStream inputStream = FileUtil.getInputStream("C:/Users/Administrator/Desktop/eclipseworkspace/HuToolDemo/src/com/wwj/test/TestDemo.java");<br>BufferedOutputStream outputStream = FileUtil.getOutputStream("E:/test.txt");<br>long copySize = IoUtil.copy(inputStream, outputStream, IoUtil.DEFAULT_BUFFER_SIZE);</pre>
+<p>這裡就複製了一下當前的java文件並將其保存至E盤下的test.txt文件中。</p>
+<p><strong>2、讀流寫流</strong></p>
+<p>讀流寫流也是IO操作中使用頻率非常高的操作，它跟傳統的方式沒有太大區別，只不過對調用者進行了統一。</p>
+<pre>BufferedInputStream inputStream = FileUtil.getInputStream("C:\\Users\\Administrator\\Desktop\\eclipseworkspace\\HuToolDemo\\src\\com\\wwj\\test\\TestDemo.Java");<br>BufferedOutputStream outputStream = FileUtil.getOutputStream("E:\\test.txt");<br>int len = -1;<br>byte[] buffer = new byte[1024];<br>while ((len = inputStream.read(buffer)) != -1) {<br>	outputStream.write(buffer, 0, len);<br>}<br>IoUtil.close(inputStream);<br>IoUtil.close(outputStream);</pre>
+<p>下面列出關於讀寫流操作相關的方法：</p>
+<ul class="">
+<li>readBytes 返回byte數組（讀取圖片等）</li>
+<li>readHex 讀取16進位字元串</li>
+<li>readObj 讀取序列化對象（反序列化）</li>
+<li>readLines 按行讀取</li>
+</ul>
+<p>對於寫流操作，IoUtil提供了兩個write()的重載方法，當然也可以直接使用輸出流的write()方法，而事實上，IoUtil的write()方法也是這麼做的。</p>
+<p>我們再來看看IoUtil如何讀寫圖片，對於圖片的讀寫操作，它提供了readBytes()方法，使用該方法讀寫圖片簡直不要太簡單：</p>
+<pre>BufferedInputStream inputStream = FileUtil.getInputStream("C:\\Users\\Administrator\\Desktop\\eclipseworkspace\\HuToolDemo\\默認圖表.png");<br>BufferedOutputStream outputStream = FileUtil.getOutputStream("E:\\test.png");<br>byte[] bytes = IoUtil.readBytes(inputStream);<br>outputStream.write(bytes);<br>IoUtil.close(inputStream);<br>IoUtil.close(outputStream);</pre>
+<p>這樣即可完成圖片的讀寫。</p>
+<p>IoUtil還提供了一些其它方法用於簡化編程，比如：toStream()方法用於將某些對象轉換為流對象；writeObjects()方法用於將可序列化對象序列化後寫入到流中。</p>
+<p><strong>3、釋放流資源</strong></p>
+<p>IO操作中的一個好習慣就是用完哪個流就關掉哪個流，而關閉操作會面臨兩個問題：</p>
+<ul class="">
+<li>被關閉的對象為空</li>
+<li>對象關閉失敗</li>
+</ul>
+<p>而IoUtil提供的close()方法則很好地解決了這些問題，我們只需將要關閉的流傳入close()方法即可。</p>
+<h4 class="pgc-h-arrow-right">FileTypeUtil(文件類型判斷工具類)</h4>
+<p>FileTypeUtil是一個判斷文件類型的工具類，它並不是通過文件的擴展名來確定文件類型，而是通過讀取文件的首部幾個二進位位來判斷。</p>
+<pre>File file = FileUtil.file("C:\\Users\\Administrator\\Desktop\\eclipseworkspace\\HuToolDemo\\默認圖表.png");<br>String type = FileTypeUtil.getType(file);<br>Console.log(type);</pre>
+<p>運行結果：</p>
+<pre>png</pre>
+<h4 class="pgc-h-arrow-right">FileReader(文件讀取)</h4>
+<p>雖然FileUtil已經提供了關於文件讀寫的API，但是根據職責分離原則，HuTool還是為我們提供了FileReader類專門讀取文件。</p>
+<p>在JDK中同樣提供了FileReader類，但並不好用，HuTool正是對它進行的一個升級。</p>
+<pre>FileReader fileReader = new FileReader("test.properties");<br>String result = fileReader.readString();<br>System.out.println(result);</pre>
+<p>運行結果：</p>
+<pre>username=root<br>password=123456</pre>
+<p>該類還提供了一些常用的方法幫助文件讀取：</p>
+<ul class="">
+<li>readBytes</li>
+<li>readString</li>
+<li>readLines</li>
+</ul>
+<h4 class="pgc-h-arrow-right">文件寫入(FileWriter)</h4>
+<p>有文件讀取，肯定就會有文件寫入，使用方法和FileReader是一樣的，這裡就不做代碼演示了。</p>
+<p>寫入方式分為追加和覆蓋兩種模式，追加的話可以用append()方法，覆蓋可以用write()方法；當然你也可以直接使用write()方法，並將寫入模式作為第二個參數傳入。</p>
+<h3 class="pgc-h-arrow-right">資源訪問</h3>
+<p>在Java開發中，資源訪問是比較常見的操作，例如在操作資料庫、整合框架的時候，需要頻繁地訪問配置文件，通常我們會將配置文件放在類路徑下，方便訪問：</p>
+<pre>InputStream in = TestDemo.class.getResource("test.properties").openStream();</pre>
+<p>對於資源訪問這種頻繁而且麻煩的操作，HuTool對其進行了封裝。</p>
+<pre>ClassPathResource resource = new ClassPathResource("test.properties");<br>Properties properties = new Properties();<br>properties.load(resource.getStream());<br>Console.log(properties);</pre>
+<p>運行結果：</p>
+<pre>{password=123456, username=root}</pre>
+<p>當然，對於資源訪問的封裝遠不止如此，這個放到後面說。</p>
+<h3 class="pgc-h-arrow-right">最後</h3>
+<p>以上內容只是HuTool項目的冰山一角，我將在下篇相關文章中繼續介紹該項目下封裝的一些工具類。</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/13042#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.275 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:32:27 -->
+
+<!-- super cache -->

@@ -1,0 +1,628 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>一份微服務架構手稿圖，徹底搞定微服務核心原理 - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="微服務的概念最早在 2012 年提出，在 Martin Fowler 的大力推廣下，微服務在 2014 年後得到了大力發展。今天我們通過一組手繪圖來梳理下微服務的核心架構。 什麼是微服務？ 微服務 Microservices 之父，馬丁.福勒，對微服務大概的概述如下： 就目前而言，對於微服務業界並沒有一個統一的、標準的定義（While t……" />
+		<meta name="keywords" content="一份微服務架構手稿圖，徹底搞定微服務核心原理 - 天天要聞,科技," />
+		<meta itemprop="image" content="http://p1.pstatp.com/large/pgc-image/a98d4e8831314f77af68ce8e6c0ef708"/>
+		<meta name="description" itemprop="description" content="微服務的概念最早在 2012 年提出，在 Martin Fowler 的大力推廣下，微服務在 2014 年後得到了大力發展。今天我們通過一組手繪圖來梳理下微服務的核心架構。 什麼是微服務？ 微服務 Microservices 之父，馬丁.福勒，對微服務大概的概述如下： 就目前而言，對於微服務業界並沒有一個統一的、標準的定義（While t……" />
+		
+<!-- This site is optimized with the SEO -->
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="https://daynews.cc/technology/13086" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="一份微服務架構手稿圖，徹底搞定微服務核心原理 - 天天要聞" />
+<meta property="og:description" content="微服務的概念最早在 2012 年提出，在 Martin Fowler 的大力推廣下，微服務在 2014 年後得到了大力發展。今天我們通過一組手繪圖來梳理下微服務的核心架構。 什麼是微服務？ 微服務 Microservices 之父，馬丁.福勒，對微服務大概的概述如下： 就目前而言，對於微服務業界並沒有一個統一的、標準的定義（While t……" />
+<meta property="og:url" content="https://daynews.cc/technology/13086" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-11T08:05:11+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="微服務的概念最早在 2012 年提出，在 Martin Fowler 的大力推廣下，微服務在 2014 年後得到了大力發展。今天我們通過一組手繪圖來梳理下微服務的核心架構。 什麼是微服務？ 微服務 Microservices 之父，馬丁.福勒，對微服務大概的概述如下： 就目前而言，對於微服務業界並沒有一個統一的、標準的定義（While t……" />
+<meta name="twitter:title" content="一份微服務架構手稿圖，徹底搞定微服務核心原理 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/a98d4e8831314f77af68ce8e6c0ef708" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/13086#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/a98d4e8831314f77af68ce8e6c0ef708"},{"@type":"WebPage","@id":"https://daynews.cc/technology/13086#webpage","url":"https://daynews.cc/technology/13086","inLanguage":"zh-TW","name":"\u4e00\u4efd\u5fae\u670d\u52d9\u67b6\u69cb\u624b\u7a3f\u5716\uff0c\u5fb9\u5e95\u641e\u5b9a\u5fae\u670d\u52d9\u6838\u5fc3\u539f\u7406 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/13086#primaryimage"},"datePublished":"2019-12-11T08:05:11+00:00","dateModified":"2019-12-11T08:05:11+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<!-- / SEO. -->
+
+<link rel='stylesheet' id='animate-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/animate.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/bootstrap.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/superfish.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/layer.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='https://daynews.cc/wp-content/themes/Kratos/style.css' type='text/css' media='all' />
+<link rel="amphtml" href="https://daynews.cc/technology/13086/amp">		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.min.js'></script>
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154709495-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-154709495-1');
+		</script>
+		<!-- Google Adsense -->
+		<script data-ad-client="ca-pub-8261739837930821" async 
+			src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="https://daynews.cc"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="/">首頁</a></li>
+<li><a href="/entertainment">娛樂</a></li>
+<li><a href="/emotion">情感</a></li>
+<li><a href="https://daynews.cc/international">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="https://daynews.cc/technology">科技</a></li>
+<li><a href="/sports">體育</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/nba">NBA</a></li>
+	<li><a href="/premier">英超</a></li>
+</ul>
+</li>
+<li><a href="/history">歷史</a></li>
+<li><a href="/game">遊戲</a></li>
+<li><a href="https://daynews.cc/health">養生</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/lose">減肥</a></li>
+</ul>
+</li>
+<li><a href="https://daynews.cc/constellation">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">一份微服務架構手稿圖，徹底搞定微服務核心原理</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-11				                <i class="fa fa-commenting-o"></i> 31條評論
+				                <i class="fa fa-eye"></i> 2,605次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 1405人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+<blockquote>
+<p>微服務的概念最早在 2012 年提出，在 Martin Fowler 的大力推廣下，微服務在 2014 年後得到了大力發展。今天我們通過一組手繪圖來梳理下微服務的核心架構。</p>
+</blockquote>
+<h2 class="pgc-h-arrow-right">什麼是微服務？</h2>
+<p>微服務 Microservices 之父，馬丁.福勒，對微服務大概的概述如下：</p>
+<p>就目前而言，對於微服務業界並沒有一個統一的、標準的定義（While there is no precise definition of this architectural style ) 。</p>
+<p>但通常在其而言，微服務架構是一種架構模式或者說是一種架構風格，它提倡將單一應用程序劃分成一組小的服務，每個服務運行獨立的自己的進程中，服務之間互相協調、互相配合，為用戶提供最終價值。</p>
+<p>服務之間採用輕量級的通信機制互相溝通（通常是基於 HTTP 的 RESTful API ) 。每個服務都圍繞著具體業務進行構建，並且能夠被獨立地部署到生產環境、類生產環境等。</p>
+<p>另外，應盡量避免統一的、集中式的服務管理機制，對具體的一個服務而言，應根據業務上下文，選擇合適的語言、工具對其進行構建，可以有一個非常輕量級的集中式管理來協調這些服務。可以使用不同的語言來編寫服務，也可以使用不同的數據存儲。</p>
+<p>根據馬丁.福勒的描述，我總結了以下幾點：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/a98d4e8831314f77af68ce8e6c0ef708" src="http://p1.pstatp.com/large/pgc-image/a98d4e8831314f77af68ce8e6c0ef708" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p><strong>①小服務</strong></p>
+<p>小服務，沒有特定的標準或者規範，但他在總體規範上一定是小的。</p>
+<p><strong>②進程獨立</strong></p>
+<p>每一組服務都是獨立運行的，可能我這個服務運行在 Tomcat 容器，而另一個服務運行在 Jetty 上。可以通過進程方式，不斷的橫向擴展整個服務。</p>
+<p><strong>③通信</strong></p>
+<p>過去的協議都是很重的，就像 ESB，就像 SOAP，輕通信，這意味著相比過去更智能更輕量的服務相互調用，就所謂 smart endpoints and dumb pipes。</p>
+<p>這些 Endpoint 都是解耦的，完成一個業務通信調用串起這些 Micro Service 就像是 Linux 系統中通過管道串起一系列命令業務。</p>
+<p>過去的業務，我們通常會考慮各種各樣的依賴關係，考慮系統耦合帶來的問題。微服務，可以讓開發者更專註於業務的邏輯開發。</p>
+<p><strong>④部署</strong></p>
+<p>不止業務要獨立，部署也要獨立。不過這也意味著，傳統的開發流程會出現一定程度的改變，開發的適合也要有一定的運維職責。</p>
+<p><strong>⑤管理</strong></p>
+<p>傳統的企業級 SOA 服務往往很大，不易於管理，耦合性高，團隊開發成本比較大。</p>
+<p>微服務，可以讓團隊各思其政的選擇技術實現，不同的 Service 可以根據各自的需要選擇不同的技術棧來實現其業務邏輯。</p>
+<h2 class="pgc-h-arrow-right">微服務的利與弊</h2>
+<p>為什麼用微服務呢？因為好玩？不是的。下面是我從網路上找到說的比較全的優點：</p>
+<ul class="list-paddingleft-2">
+<li>優點是每個服務足夠內聚，足夠小，代碼容易理解這樣能聚焦一個指定的業務功能或業務需求。</li>
+<li>開發簡單、開發效率提高，一個服務可能就是專一的只干一件事。</li>
+<li>微服務能夠被小團隊單獨開發，這個小團隊是 2 到 5 人的開發人員組成。</li>
+<li>微服務是松耦合的，是有功能意義的服務，無論是在開發階段或部署階段都是獨立的。</li>
+<li>微服務能使用不同的語言開發。</li>
+<li>易於和第三方集成，微服務允許容易且靈活的方式集成自動部署，通過持續集成工具，如 Jenkins，Hudson，bamboo。</li>
+<li>微服務易於被一個開發人員理解，修改和維護，這樣小團隊能夠更關注自己的工作成果。無需通過合作才能體現價值。微服務允許你利用融合最新技術。</li>
+<li>微服務只是業務邏輯的代碼，不會和 HTML，CSS 或其他界面組件混合。</li>
+<li>每個微服務都有自己的存儲能力，可以有自己的資料庫，也可以有統一資料庫。</li>
+</ul>
+<p>總的來說，微服務的優勢，就是在於，面對大的系統，可以有效的減少複雜程度，使服務架構的邏輯更清晰明了。</p>
+<p>但是這樣也會帶來很多問題，就譬如分散式環境下的數據一致性，測試的複雜性，運維的複雜性。</p>
+<h2 class="pgc-h-arrow-right">什麼組織適合使用微服務？</h2>
+<p>微服務帶了種種優點，種種弊端，那麼什麼組織適合使用微服務？</p>
+<p><strong>①墨菲定律（設計系統）和康威定律（系統劃分）<br /></strong>康威定律，是一個五十多年前就被提出來的微服務概念。在康威的這篇文章中，最有名的一句話就是：</p>
+<blockquote>
+<p>Organizations which design systems are constrained to produce designs which are copies of the communication structures of these organizations.</p>
+<p>-Melvin Conway(1967)</p>
+</blockquote>
+<p>中文直譯大概的意思就是：設計系統的組織，其產生的設計等同於組織之內、組織之間的溝通結構。</p>
+<p>看看下面的圖片，再想想 Apple 的產品、微軟的產品設計，就能形象生動的理解這句話。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/76303789e22846bcb07d0497988934da" src="http://p1.pstatp.com/large/pgc-image/76303789e22846bcb07d0497988934da" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>感興趣的各位可以研究一下！</p>
+<p><strong>②架構演化</strong></p>
+<p>架構是不斷演化出來的，微服務也是這樣，當從各大科技公司，規模大到一定程度，完全需要演化成更進一步管理的技術架構體系。</p>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/9f5d6936bf5f443f8469853e129f50dd" src="http://p9.pstatp.com/large/pgc-image/9f5d6936bf5f443f8469853e129f50dd" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>傳統的團隊，都是面向過程化的，產品想完了去找策劃，策劃完了找開發，接著順著一步一步找。</p>
+<p>我們做技術都是為了產品的，一旦過程出來了什麼問題，回溯尋找問題會非常耗時。</p>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/9f5d6936bf5f443f8469853e129f50dd" src="http://p9.pstatp.com/large/pgc-image/9f5d6936bf5f443f8469853e129f50dd" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>使用了微服務架構體系，團隊組織方式需要轉變成跨職能團隊，即每個團隊都有產品專家，策劃專家，開發專家，運維專家，他們使用 API 方式發布他們的功能，而平台使用他們的功能發布產品。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/29150c8443d34f49b150e83dddc7ec8b" src="http://p1.pstatp.com/large/pgc-image/29150c8443d34f49b150e83dddc7ec8b" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<h2 class="pgc-h-arrow-right">微服務技術架構體系</h2>
+<p>下面我分享一下大部分公司都使用的微服務技術架構體系：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/0d25aa30932742d6a2884cc316e1b179" src="http://p1.pstatp.com/large/pgc-image/0d25aa30932742d6a2884cc316e1b179" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<h2 class="pgc-h-arrow-right">服務發現</h2>
+<p>主流的服務發現，分為三種：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/cb1be5fc4536463e8c8e7420a0c592ab" src="http://p1.pstatp.com/large/pgc-image/cb1be5fc4536463e8c8e7420a0c592ab" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>第一種，開發人員開發了程序以後，會找運維配一個域名，服務的話通過 DNS 就能找到我們對應的服務。</p>
+<p>缺點是，由於服務沒有負載均衡功能，對負載均衡服務，可能會有相當大的性能問題。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/4810a86d0c494fe9a4e2daff98f9b3e5" src="http://p1.pstatp.com/large/pgc-image/4810a86d0c494fe9a4e2daff98f9b3e5" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>第二種，是目前普遍的做法。可以參考 Zuul 網關，每一個服務都通過服務端內置的功能註冊到註冊中心，服務消費者不斷輪詢註冊中心發現對應的服務，使用內置負載均衡調用服務。</p>
+<p>缺點是，對多語言環境不是很好，你需要單獨給消費者的客戶端開發服務發現和負載均衡功能。當然了，這個方法通常都是用在 Spring Cloud 上的。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/e05b4737b6dd4db9b689a7e4ae19c765" src="http://p1.pstatp.com/large/pgc-image/e05b4737b6dd4db9b689a7e4ae19c765" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>第三種，是將客戶端和負載均衡放在同一個主機，而不是同一個進程內。</p>
+<p>這種方法相對第一種第二種方法來說，改善了他們的缺點，但是會極大增加運維成本。</p>
+<h2 class="pgc-h-arrow-right">網關</h2>
+<p>微服務的網關是什麼？我們可以聯繫生活實際想一下。每一個大的公司，都會有一偏屬於自己的建築區，而這建築區內，都有不少的門衛。如果有外來人員進入公司，會先和門衛打好招呼，才能進去。</p>
+<p>將生活實際聯繫到微服務上，就不難理解網關的意思了：</p>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/48a687f0c5d049cca103cde4b9f83995" src="http://p9.pstatp.com/large/pgc-image/48a687f0c5d049cca103cde4b9f83995" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>網關的作用如下：</p>
+<ul class="list-paddingleft-2">
+<li>反向路由：很多時候，公司不想讓外部人員看到我們公司的內部，就需要網關來進行反向路由。即將外部請求轉換成內部具體服務調用。</li>
+<li>安全認證：網路中會有很多惡意訪問，譬如爬蟲，譬如黑客攻擊，網關維護安全功能。</li>
+<li>限流熔斷：當請求很多服務不堪重負，會讓我們的服務自動關閉，導致不能用服務。限流熔斷可以有效的避免這類問題。</li>
+<li>日誌監控：所有的外面的請求都會經過網關，這樣我們就可以使用網關來記錄日誌信息。</li>
+<li>灰度發布，藍綠部署。是指能夠平滑過渡的一種發布方式。在其上可以進行 A/B testing。即讓一部分用戶繼續用產品特性 A，一部分用戶開始用產品特性 B，如果用戶對 B 沒有什麼反對意見，那麼逐步擴大範圍，把所有用戶都遷移到 B 上面來。</li>
+</ul>
+<p>開源網關 Zuul 架構：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/0cc11b53a3c34ee9b576cf08c81d1d27" src="http://p1.pstatp.com/large/pgc-image/0cc11b53a3c34ee9b576cf08c81d1d27" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>Zuul 網關核心其實是一個 Servlet，所有請求都會經過 Zuul Servlet 傳到 ZuulFilter Runner，然後分發到三種過濾器。</p>
+<p>先說說架構圖左半部分，分別是使用 Groovy 實現的前置路由過濾器，路由過濾器，後置路由過濾器。</p>
+<p>一般請求都會先經過前置路由過濾器處理，一般的自定義 Java 封裝邏輯也會在這裡實現。</p>
+<p>路由過濾器，實現的是找到對應的微服務進行調用。調用完了，響應回來，會經過後置路由過濾器，通過後置路由過濾器我們可以封裝日誌審計的處理。</p>
+<p>可以說 Zuul 網關最大的特色就是它的三層過濾器。架構圖右半部分，是 Zuul 網關設計的自定義過濾器載入機制。</p>
+<p>網關內部會有生產者消費者模型，自動的將過濾器腳本發布到 Zuul 網關讀取載入運行。</p>
+<h2 class="pgc-h-arrow-right">配置中心</h2>
+<p>以前，開發人員把配置文件放在開發文件裡面，這樣會有很多隱患。譬如，配置規範不同，無法追溯配置人員。微服務配置中心全面對比，哪個更牛逼？這篇推薦大家看下。</p>
+<p>一旦需要大規模改動配置，改動時間會很長，無法追溯配置人員，從而影響整個產品，後果是我們承擔不起的。</p>
+<p>因此就有配置中心這個嘍！現在的開源中心有百度配置中心 Disconf，Spring Cloud Config，Apollo。</p>
+<p>今天重點說說現在應用質量不錯的配置中心，攜程開源的阿波羅（Apollo）：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/8585c29d38ac42f2b2e91633b36608bd" src="http://p1.pstatp.com/large/pgc-image/8585c29d38ac42f2b2e91633b36608bd" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>Apollo 的配置中心規模比較大，本地應用會有響應的配置中心客戶端，可以定時同步配置中心裡的配置。如果配置中心怠機，會使用緩存來進行配置。</p>
+<h2 class="pgc-h-arrow-right">通訊方式</h2>
+<p>關於通訊方式，一般市面也就是兩種遠程調用方式，我整理了一個表格：</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/534ce48f916341dfa26a29ebc081e947" src="http://p3.pstatp.com/large/pgc-image/534ce48f916341dfa26a29ebc081e947" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<h2 class="pgc-h-arrow-right">監控預警</h2>
+<p>監控預警對於微服務很重要，一個可靠的監控預警體系對微服務運行至關重要。</p>
+<p>一般監控分為如下層次：</p>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/55f641c726d74ed38a6763d4046ca9d6" src="http://p9.pstatp.com/large/pgc-image/55f641c726d74ed38a6763d4046ca9d6" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>從基礎設施到用戶端，層層有監控，全方位，多角度，每一個層面都很重要。</p>
+<p>總體來說，微服務可分為 5 個監控點：</p>
+<ul class="list-paddingleft-2">
+<li>日誌監控</li>
+<li>Metrics 監控</li>
+<li>健康檢查</li>
+<li>調用鏈檢查</li>
+<li>告警系統</li>
+</ul>
+<p><strong>①監控架構</strong></p>
+<p>下面的圖是大部分公司的一種監控架構圖。每一個服務都有一個 Agent，Agent 收集到關鍵信息，會傳到一些 MQ 中，為了解耦。</p>
+<p>同時將日誌傳入 ELK，將 Metrics 傳入 InfluxDB 時間序列庫。而像 Nagios，可以定期向 Agent 發起信息檢查微服務。</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/80f113b38fe542cc86f36f1b88d9be7d" src="http://p3.pstatp.com/large/pgc-image/80f113b38fe542cc86f36f1b88d9be7d" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p><strong>②調用鏈監控 APM</strong></p>
+<p>很多公司都有調用鏈監控，就譬如阿里有鷹眼監控，點評的 Cat，大部分調用鏈監控（沒錯，我指的 Zipkin）架構是這樣的：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/9def4bb73bcc47669b721e3744aba17e" src="http://p1.pstatp.com/large/pgc-image/9def4bb73bcc47669b721e3744aba17e" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>當請求進入 Web 容器的時候，會經過創建 Tracer，連接 Spans（模擬潛在的分散式工作的延遲，該模塊還包含在系統網路間傳遞跟蹤上下文信息的工具包，如通過 HTTP Headers）。</p>
+<p>Spans 有一個上下文，其中包含 Tracer 標識符，將其放在表示分散式操作的樹的正確位置。</p>
+<p>當我們把圖中的各種 Span 放到後端的時候，我們的服務調用鏈會動態的生成調用鏈。</p>
+<p>下面是一些市場上用的比較多的調用鏈監控對比：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/15e39bee05c84eefaf9f0d91aefe3fa9" src="http://p1.pstatp.com/large/pgc-image/15e39bee05c84eefaf9f0d91aefe3fa9" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<h2 class="pgc-h-arrow-right">熔斷、隔離、限流、降級</h2>
+<p>面對巨大的突發流量下，大型公司一般會採用一系列的熔斷（系統自動將服務關閉防止讓出現的問題最大化）、隔離（將服務和服務隔離，防止一個服務掛了其他服務不能訪問）、限流（單位時間內之允許一定數量用戶訪問）、降級（當整個微服務架構整體的負載超出了預設的上限閾值或即將到來的流量預計將會超過預設的閾值時，為了保證重要或基本的服務能正常運行，我們可以將一些不重要或不緊急的服務或任務進行服務的延遲使用或暫停使用）措施。</p>
+<p>下面介紹一下 Hystrix 的運行流程：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/2e150e9f461c4ac98bf40712d668c7cb" src="http://p1.pstatp.com/large/pgc-image/2e150e9f461c4ac98bf40712d668c7cb" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p><strong>Hystrix 停止開發，Spring Cloud 何去何從？</strong></p>
+<p>每一個微服務調用時，都會使用 Hystrix 的 Command 方式（上圖的左上角那個），然後使用 Command 同步的，或者是響應式的，或者是非同步的，判斷電路是否熔斷（順著圖從左往右看），如果斷路則走降級 Fallback。</p>
+<p>如果這個線閉合著，但是線程資源沒了，隊列滿了，則走限流措施（看圖的第 5 步）。</p>
+<p>如果走完了，執行成功了，則走 run() 方法，獲取 Response，但是這個過程如果出錯了，則繼續走降級 Fallback。</p>
+<p>同時，看圖最上面有一個後綴是 Health 的，這是一個計算整個鏈路是否健康的組件，每一步操作都被它記錄著。</p>
+<h2 class="pgc-h-arrow-right">容器與服務編排引擎</h2>
+<p>從物理機到虛擬機，從虛擬機到容器；從物理集群到 OpenStack，OpenStack 到 Kubernetes；科技不斷的變化，我們的認知也沒刷新。</p>
+<p>我們從容器開始說起，它首先是一個相對獨立的運行環境，在這一點有點類似於虛擬機，但是不像虛擬機那樣徹底。</p>
+<p>虛擬機會將虛擬硬體、內核（即操作系統）以及用戶空間打包在新虛擬機當中，虛擬機能夠利用「虛擬機管理程序」運行在物理設備之上。</p>
+<p>虛擬機依賴於 Hypervisor，其通常被安裝在「裸金屬」系統硬體之上，這導致 Hypervisor 在某些方面被認為是一種操作系統。</p>
+<p>一旦 Hypervisor 安裝完成， 就可以從系統可用計算資源當中分配虛擬機實例了，每台虛擬機都能夠獲得唯一的操作系統和負載（應用程序）。</p>
+<p>簡言之，虛擬機先需要虛擬一個物理環境，然後構建一個完整的操作系統，再搭建一層 Runtime，然後供應用程序運行。</p>
+<p>對於容器環境來說，不需要安裝主機操作系統，直接將容器層（比如 LXC 或 Libcontainer）安裝在主機操作系統（通常是 Linux 變種）之上。</p>
+<p>在安裝完容器層之後，就可以從系統可用計算資源當中分配容器實例了，並且企業應用可以被部署在容器當中。</p>
+<p>但是，每個容器化應用都會共享相同的操作系統(單個主機操作系統)。容器可以看成一個裝好了一組特定應用的虛擬機，它直接利用了宿主機的內核，抽象層比虛擬機更少，更加輕量化，啟動速度極快。</p>
+<p>相比於虛擬機，容器擁有更高的資源使用效率，因為它並不需要為每個應用分配單獨的操作系統——實例規模更小、創建和遷移速度也更快。這意味著相比於虛擬機，單個操作系統能夠承載更多的容器。</p>
+<p>雲提供商十分熱衷於容器技術，因為在相同的硬體設備當中，可以部署數量更多的容器實例。</p>
+<p>此外，容器易於遷移，但是只能被遷移到具有兼容操作系統內核的其他伺服器當中，這樣就會給遷移選擇帶來限制。</p>
+<p>因為容器不像虛擬機那樣同樣對內核或者虛擬硬體進行打包，所以每套容器都擁有自己的隔離化用戶空間，從而使得多套容器能夠運行在同一主機系統之上。</p>
+<p>我們可以看到全部操作系統層級的架構都可實現跨容器共享，惟一需要獨立構建的就是二進位文件與庫。</p>
+<p>正因為如此，容器才擁有極為出色的輕量化特性。我們最常用的容器是 Docker。</p>
+<p><strong>①容器編排</strong></p>
+<p>過去虛擬機可以通過雲平台 OpenStack 管理虛擬化，容器時代如何管理容器呢？這就要看看容器編排引擎了。</p>
+<p>Apache Mesos：Mesos 是基於 Master，Slave 架構，框架決定如何利用資源，Master 負責管理機器，Slave 會定期的將機器情況報告給 Master，Master 再將信息給框架。Master 是高可用的，因為 ZK，也有 Leader 的存在。</p>
+<p>下面是架構圖：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/c6a3287405f041caa0c10720947a5f19" src="http://p1.pstatp.com/large/pgc-image/c6a3287405f041caa0c10720947a5f19" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>Kubernetes：Kubernetes 是最近十分火熱的開源容器編排引擎。</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/d0c6072e3ab14190b300742ed1c5b7e9" src="http://p3.pstatp.com/large/pgc-image/d0c6072e3ab14190b300742ed1c5b7e9" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>Kubernetes 設計理念和功能其實就是一個類似 Linux 的分層架構，先說說每一個 Kubernetes 節點內部，kubelet 管理全局全局 pod，而每一個 pod 承載著一個或多個容器，kube-proxy 負責網路代理和負載均衡。</p>
+<p>Kubernetes 節點外部，則是對應的控制管理伺服器，負責統一管理各個節點調度分配與運行。</p>
+<p><strong>②服務網格化</strong></p>
+<p>關於服務網路化，後面會更加深入的為大家進行講解。</p>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="13086" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/13086"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/13086";
+		var title='%E3%80%90%E4%B8%80%E4%BB%BD%E5%BE%AE%E6%9C%8D%E5%8B%99%E6%9E%B6%E6%A7%8B%E6%89%8B%E7%A8%BF%E5%9C%96%EF%BC%8C%E5%BE%B9%E5%BA%95%E6%90%9E%E5%AE%9A%E5%BE%AE%E6%9C%8D%E5%8B%99%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E3%80%91';
+		var qqtitle='%E3%80%90%E4%B8%80%E4%BB%BD%E5%BE%AE%E6%9C%8D%E5%8B%99%E6%9E%B6%E6%A7%8B%E6%89%8B%E7%A8%BF%E5%9C%96%EF%BC%8C%E5%BE%B9%E5%BA%95%E6%90%9E%E5%AE%9A%E5%BE%AE%E6%9C%8D%E5%8B%99%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E3%80%91';
+		var excerpt='%E5%BE%AE%E6%9C%8D%E5%8B%99%E7%9A%84%E6%A6%82%E5%BF%B5%E6%9C%80%E6%97%A9%E5%9C%A8%202012%20%E5%B9%B4%E6%8F%90%E5%87%BA%EF%BC%8C%E5%9C%A8%20Martin%20Fowler%20%E7%9A%84%E5%A4%A7%E5%8A%9B%E6%8E%A8%E5%BB%A3%E4%B8%8B%EF%BC%8C%E5%BE%AE%E6%9C%8D%E5%8B%99%E5%9C%A8%202014%20%E5%B9%B4%E5%BE%8C%E5%BE%97%E5%88%B0%E4%BA%86%E5%A4%A7%E5%8A%9B%E7%99%BC%E5%B1%95%E3%80%82%E4%BB%8A%E5%A4%A9%E6%88%91%E5%80%91%E9%80%9A%E9%81%8E%E4%B8%80%E7%B5%84%E6%89%8B%E7%B9%AA%E5%9C%96%E4%BE%86%E6%A2%B3%E7%90%86%E4%B8%8B%E5%BE%AE%E6%9C%8D%E5%8B%99%E7%9A%84%E6%A0%B8%E5%BF%83%E6%9E%B6%E6%A7%8B%E3%80%82%20%E4%BB%80%E9%BA%BC%E6%98%AF%E5%BE%AE%E6%9C%8D%E5%8B%99%EF%BC%9F%20%E5%BE%AE%E6%9C%8D%E5%8B%99%20Microservices%20%E4%B9%8B%E7%88%B6%EF%BC%8C%E9%A6%AC%E4%B8%81.%E7%A6%8F%E5%8B%92%EF%BC%8C%E5%B0%8D%E5%BE%AE%E6%9C%8D%E5%8B%99%E5%A4%A7%E6%A6%82%E7%9A%84%E6%A6%82%E8%BF%B0%E5%A6%82%E4%B8%8B%EF%BC%9A%20%E5%B0%B1%E7%9B%AE%E5%89%8D%E8%80%8C%E8%A8%80%EF%BC%8C%E5%B0%8D%E6%96%BC%E5%BE%AE%E6%9C%8D%E5%8B%99%E6%A5%AD%E7%95%8C%E4%B8%A6%E6%B2%92%E6%9C%89%E4%B8%80%E5%80%8B%E7%B5%B1%E4%B8%80%E7%9A%84%E3%80%81%E6%A8%99%E6%BA%96%E7%9A%84%E5%AE%9A%E7%BE%A9%EF%BC%88While%20t%E2%80%A6%E2%80%A6';
+		var wbexcerpt='%E5%BE%AE%E6%9C%8D%E5%8B%99%E7%9A%84%E6%A6%82%E5%BF%B5%E6%9C%80%E6%97%A9%E5%9C%A8%202012%20%E5%B9%B4%E6%8F%90%E5%87%BA%EF%BC%8C%E5%9C%A8%20Martin%20Fowler%20%E7%9A%84%E5%A4%A7%E5%8A%9B%E6%8E%A8%E5%BB%A3%E4%B8%8B%EF%BC%8C%E5%BE%AE%E6%9C%8D%E5%8B%99%E5%9C%A8%202014%20%E5%B9%B4%E5%BE%8C%E5%BE%97%E5%88%B0%E4%BA%86%E5%A4%A7%E5%8A%9B%E7%99%BC%E5%B1%95%E3%80%82%E4%BB%8A%E5%A4%A9%E6%88%91%E5%80%91%E9%80%9A%E9%81%8E%E4%B8%80%E7%B5%84%E6%89%8B%E7%B9%AA%E5%9C%96%E4%BE%86%E6%A2%B3%E7%90%86%E4%B8%8B%E5%BE%AE%E6%9C%8D%E5%8B%99%E7%9A%84%E6%A0%B8%E5%BF%83%E6%9E%B6%E6%A7%8B%E3%80%82%20%E4%BB%80%E9%BA%BC%E6%98%AF%E5%BE%AE%E6%9C%8D%E5%8B%99%EF%BC%9F%20%E5%BE%AE%E6%9C%8D%E5%8B%99%20Microservices%20%E4%B9%8B%E7%88%B6%EF%BC%8C%E9%A6%AC%E4%B8%81.%E7%A6%8F%E5%8B%92%EF%BC%8C%E5%B0%8D%E5%BE%AE%E6%9C%8D%E5%8B%99%E5%A4%A7%E6%A6%82%E7%9A%84%E6%A6%82%E8%BF%B0%E5%A6%82%E4%B8%8B%EF%BC%9A%20%E5%B0%B1%E7%9B%AE%E5%89%8D%E8%80%8C%E8%A8%80%EF%BC%8C%E5%B0%8D%E6%96%BC%E5%BE%AE%E6%9C%8D%E5%8B%99%E6%A5%AD%E7%95%8C%E4%B8%A6%E6%B2%92%E6%9C%89%E4%B8%80%E5%80%8B%E7%B5%B1%E4%B8%80%E7%9A%84%E3%80%81%E6%A8%99%E6%BA%96%E7%9A%84%E5%AE%9A%E7%BE%A9%EF%BC%88While%20t%E2%80%A6%E2%80%A6';
+		var pic="http://p1.pstatp.com/large/pgc-image/a98d4e8831314f77af68ce8e6c0ef708";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="韓元區現“韓跑跑”，比特幣跌破7300美金，二次探底開始了？" href="https://daynews.cc/technology/13087">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="有線電視還能自我救贖嗎？還是看看運營商如何作為" href="https://daynews.cc/technology/13085">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="/technology/13086#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='13086' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼" href="https://daynews.cc/constellation/20739" rel="bookmark"><i class="fa  fa-book"></i> 伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼                            </a>
+                            <a class="list-group-item visible-md" title="伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼" href="https://daynews.cc/constellation/20739" rel="bookmark"><i class="fa  fa-book"></i> 伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼                            </a>
+                                                    <a class="list-group-item visible-lg" title="12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪" href="https://daynews.cc/constellation/20740" rel="bookmark"><i class="fa  fa-book"></i> 12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪                            </a>
+                            <a class="list-group-item visible-md" title="12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪" href="https://daynews.cc/constellation/20740" rel="bookmark"><i class="fa  fa-book"></i> 12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪                            </a>
+                                                    <a class="list-group-item visible-lg" title="十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮" href="https://daynews.cc/constellation/20741" rel="bookmark"><i class="fa  fa-book"></i> 十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮                            </a>
+                            <a class="list-group-item visible-md" title="十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮" href="https://daynews.cc/constellation/20741" rel="bookmark"><i class="fa  fa-book"></i> 十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮                            </a>
+                                                    <a class="list-group-item visible-lg" title="小聶：跑動中的腰腹力量如何運用" href="https://daynews.cc/lose/20597" rel="bookmark"><i class="fa  fa-book"></i> 小聶：跑動中的腰腹力量如何運用                            </a>
+                            <a class="list-group-item visible-md" title="小聶：跑動中的腰腹力量如何運用" href="https://daynews.cc/lose/20597" rel="bookmark"><i class="fa  fa-book"></i> 小聶：跑動中的腰腹力量如何運用                            </a>
+                                                    <a class="list-group-item visible-lg" title="小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力" href="https://daynews.cc/lose/20598" rel="bookmark"><i class="fa  fa-book"></i> 小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力                            </a>
+                            <a class="list-group-item visible-md" title="小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力" href="https://daynews.cc/lose/20598" rel="bookmark"><i class="fa  fa-book"></i> 小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力                            </a>
+                                                    <a class="list-group-item visible-lg" title="十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古" href="https://daynews.cc/history/19786" rel="bookmark"><i class="fa  fa-book"></i> 十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古                            </a>
+                            <a class="list-group-item visible-md" title="十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古" href="https://daynews.cc/history/19786" rel="bookmark"><i class="fa  fa-book"></i> 十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古                            </a>
+                                                    <a class="list-group-item visible-lg" title="當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？" href="https://daynews.cc/history/19787" rel="bookmark"><i class="fa  fa-book"></i> 當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？                            </a>
+                            <a class="list-group-item visible-md" title="當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？" href="https://daynews.cc/history/19787" rel="bookmark"><i class="fa  fa-book"></i> 當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？                            </a>
+                                                    <a class="list-group-item visible-lg" title="春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？" href="https://daynews.cc/history/19789" rel="bookmark"><i class="fa  fa-book"></i> 春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？                            </a>
+                            <a class="list-group-item visible-md" title="春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？" href="https://daynews.cc/history/19789" rel="bookmark"><i class="fa  fa-book"></i> 春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？                            </a>
+                                                    <a class="list-group-item visible-lg" title="軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸" href="https://daynews.cc/history/19788" rel="bookmark"><i class="fa  fa-book"></i> 軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸                            </a>
+                            <a class="list-group-item visible-md" title="軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸" href="https://daynews.cc/history/19788" rel="bookmark"><i class="fa  fa-book"></i> 軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸                            </a>
+                                                    <a class="list-group-item visible-lg" title="劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？" href="https://daynews.cc/history/19790" rel="bookmark"><i class="fa  fa-book"></i> 劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？                            </a>
+                            <a class="list-group-item visible-md" title="劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？" href="https://daynews.cc/history/19790" rel="bookmark"><i class="fa  fa-book"></i> 劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-md" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-lg" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a><a class="list-group-item visible-md" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a><a class="list-group-item visible-lg" title="最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？" href="https://daynews.cc/international/18303" rel="bookmark"><i class="fa  fa-book"></i> 最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？</a><a class="list-group-item visible-md" title="最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？" href="https://daynews.cc/international/18303" rel="bookmark"><i class="fa  fa-book"></i> 最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？</a><a class="list-group-item visible-lg" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="https://daynews.cc/entertainment/10879" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-md" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="https://daynews.cc/entertainment/10879" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-lg" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="https://daynews.cc/technology/10158" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-md" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="https://daynews.cc/technology/10158" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-lg" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="https://daynews.cc/game/13764" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-md" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="https://daynews.cc/game/13764" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-lg" title="這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩" href="https://daynews.cc/lose/20687" rel="bookmark"><i class="fa  fa-book"></i> 這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩</a><a class="list-group-item visible-md" title="這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩" href="https://daynews.cc/lose/20687" rel="bookmark"><i class="fa  fa-book"></i> 這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩</a><a class="list-group-item visible-lg" title="夢三國：路人戰力匹配中最值得玩的輔助英雄推薦" href="https://daynews.cc/game/20261" rel="bookmark"><i class="fa  fa-book"></i> 夢三國：路人戰力匹配中最值得玩的輔助英雄推薦</a><a class="list-group-item visible-md" title="夢三國：路人戰力匹配中最值得玩的輔助英雄推薦" href="https://daynews.cc/game/20261" rel="bookmark"><i class="fa  fa-book"></i> 夢三國：路人戰力匹配中最值得玩的輔助英雄推薦</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="參觀日本國立博物館，充分感受日本的武士道精神，我們該學習什麼" href="https://daynews.cc/international/12170" rel="bookmark"><i class="fa  fa-book"></i> 參觀日本國立博物館，充分感受日本的武士道精神，我們該學習什麼                            </a>
+                            <a class="list-group-item visible-md" title="參觀日本國立博物館，充分感受日本的武士道精神，我們該學習什麼" href="https://daynews.cc/international/12170" rel="bookmark"><i class="fa  fa-book"></i> 參觀日本國立博物館，充分感受日本的武士道精神，我們該學習什麼                            </a>
+                                                    <a class="list-group-item visible-lg" title="《明星大偵探》魏大勛扮至尊寶？這些至尊寶中，居然是薛之謙贏了" href="https://daynews.cc/entertainment/267" rel="bookmark"><i class="fa  fa-book"></i> 《明星大偵探》魏大勛扮至尊寶？這些至尊寶中，居然是薛之謙贏了                            </a>
+                            <a class="list-group-item visible-md" title="《明星大偵探》魏大勛扮至尊寶？這些至尊寶中，居然是薛之謙贏了" href="https://daynews.cc/entertainment/267" rel="bookmark"><i class="fa  fa-book"></i> 《明星大偵探》魏大勛扮至尊寶？這些至尊寶中，居然是薛之謙贏了                            </a>
+                                                    <a class="list-group-item visible-lg" title="為何李師師寧選擇浪子燕青一起浪跡天涯 也不願做宋徽宗的寵妃？" href="https://daynews.cc/history/3715" rel="bookmark"><i class="fa  fa-book"></i> 為何李師師寧選擇浪子燕青一起浪跡天涯 也不願做宋徽宗的寵妃？                            </a>
+                            <a class="list-group-item visible-md" title="為何李師師寧選擇浪子燕青一起浪跡天涯 也不願做宋徽宗的寵妃？" href="https://daynews.cc/history/3715" rel="bookmark"><i class="fa  fa-book"></i> 為何李師師寧選擇浪子燕青一起浪跡天涯 也不願做宋徽宗的寵妃？                            </a>
+                                                    <a class="list-group-item visible-lg" title="英媒：曼聯搶購阿賈克斯5000萬英鎊球星！強硬！巴黎拒賣皇馬目標" href="https://daynews.cc/premier/5751" rel="bookmark"><i class="fa  fa-book"></i> 英媒：曼聯搶購阿賈克斯5000萬英鎊球星！強硬！巴黎拒賣皇馬目標                            </a>
+                            <a class="list-group-item visible-md" title="英媒：曼聯搶購阿賈克斯5000萬英鎊球星！強硬！巴黎拒賣皇馬目標" href="https://daynews.cc/premier/5751" rel="bookmark"><i class="fa  fa-book"></i> 英媒：曼聯搶購阿賈克斯5000萬英鎊球星！強硬！巴黎拒賣皇馬目標                            </a>
+                                                    <a class="list-group-item visible-lg" title="流年不利的《兩隻老虎》，是不是因為有人扮做了豬" href="https://daynews.cc/entertainment/17471" rel="bookmark"><i class="fa  fa-book"></i> 流年不利的《兩隻老虎》，是不是因為有人扮做了豬                            </a>
+                            <a class="list-group-item visible-md" title="流年不利的《兩隻老虎》，是不是因為有人扮做了豬" href="https://daynews.cc/entertainment/17471" rel="bookmark"><i class="fa  fa-book"></i> 流年不利的《兩隻老虎》，是不是因為有人扮做了豬                            </a>
+                                                    <a class="list-group-item visible-lg" title="50歲後“骨脆脆”防範骨松傷害" href="https://daynews.cc/health/7203" rel="bookmark"><i class="fa  fa-book"></i> 50歲後“骨脆脆”防範骨松傷害                            </a>
+                            <a class="list-group-item visible-md" title="50歲後“骨脆脆”防範骨松傷害" href="https://daynews.cc/health/7203" rel="bookmark"><i class="fa  fa-book"></i> 50歲後“骨脆脆”防範骨松傷害                            </a>
+                                                    <a class="list-group-item visible-lg" title="熬過19天，運勢峰迴路轉，好運伴隨，貴人無數，未來一帆風順" href="https://daynews.cc/constellation/17341" rel="bookmark"><i class="fa  fa-book"></i> 熬過19天，運勢峰迴路轉，好運伴隨，貴人無數，未來一帆風順                            </a>
+                            <a class="list-group-item visible-md" title="熬過19天，運勢峰迴路轉，好運伴隨，貴人無數，未來一帆風順" href="https://daynews.cc/constellation/17341" rel="bookmark"><i class="fa  fa-book"></i> 熬過19天，運勢峰迴路轉，好運伴隨，貴人無數，未來一帆風順                            </a>
+                                                    <a class="list-group-item visible-lg" title="男子娶大自己11歲的妻子生倆娃，現因吵架放火一家四口都沒了" href="https://daynews.cc/emotion/11613" rel="bookmark"><i class="fa  fa-book"></i> 男子娶大自己11歲的妻子生倆娃，現因吵架放火一家四口都沒了                            </a>
+                            <a class="list-group-item visible-md" title="男子娶大自己11歲的妻子生倆娃，現因吵架放火一家四口都沒了" href="https://daynews.cc/emotion/11613" rel="bookmark"><i class="fa  fa-book"></i> 男子娶大自己11歲的妻子生倆娃，現因吵架放火一家四口都沒了                            </a>
+                                                    <a class="list-group-item visible-lg" title="濃濃戰友情！美黑人女警官街頭槍擊案中冒槍林彈雨救受傷男同事" href="https://daynews.cc/international/15200" rel="bookmark"><i class="fa  fa-book"></i> 濃濃戰友情！美黑人女警官街頭槍擊案中冒槍林彈雨救受傷男同事                            </a>
+                            <a class="list-group-item visible-md" title="濃濃戰友情！美黑人女警官街頭槍擊案中冒槍林彈雨救受傷男同事" href="https://daynews.cc/international/15200" rel="bookmark"><i class="fa  fa-book"></i> 濃濃戰友情！美黑人女警官街頭槍擊案中冒槍林彈雨救受傷男同事                            </a>
+                                                    <a class="list-group-item visible-lg" title="中國籃球版圖“晉”彩十分 山西男女籃“比翼雙飛”今晚均有比賽" href="https://daynews.cc/sports/2326" rel="bookmark"><i class="fa  fa-book"></i> 中國籃球版圖“晉”彩十分 山西男女籃“比翼雙飛”今晚均有比賽                            </a>
+                            <a class="list-group-item visible-md" title="中國籃球版圖“晉”彩十分 山西男女籃“比翼雙飛”今晚均有比賽" href="https://daynews.cc/sports/2326" rel="bookmark"><i class="fa  fa-book"></i> 中國籃球版圖“晉”彩十分 山西男女籃“比翼雙飛”今晚均有比賽                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="kratos_tags-4" class="widget widget_kratos_tags clearfix"><h4 class="widget-title">標籤</h4><div class="tag_clouds"></div></aside><aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="https://daynews.cc/nba">NBA</a> (1,526)
+</li>
+	<li class="cat-item cat-item-23"><a href="https://daynews.cc/international">國際</a> (2,241)
+</li>
+	<li class="cat-item cat-item-14"><a href="https://daynews.cc/entertainment">娛樂</a> (2,348)
+</li>
+	<li class="cat-item cat-item-15"><a href="https://daynews.cc/emotion">情感</a> (1,582)
+</li>
+	<li class="cat-item cat-item-22"><a href="https://daynews.cc/constellation">星座</a> (1,060)
+</li>
+	<li class="cat-item cat-item-17"><a href="https://daynews.cc/history">歷史</a> (1,759)
+</li>
+	<li class="cat-item cat-item-25"><a href="https://daynews.cc/lose">減肥</a> (495)
+</li>
+	<li class="cat-item cat-item-24"><a href="https://daynews.cc/technology">科技</a> (2,163)
+</li>
+	<li class="cat-item cat-item-19"><a href="https://daynews.cc/premier">英超</a> (1,372)
+</li>
+	<li class="cat-item cat-item-18"><a href="https://daynews.cc/game">遊戲</a> (2,055)
+</li>
+	<li class="cat-item cat-item-21"><a href="https://daynews.cc/health">養生</a> (1,278)
+</li>
+	<li class="cat-item cat-item-16"><a href="https://daynews.cc/sports">體育</a> (2,098)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='https://daynews.cc/date/2019/12'>2019 年 12 月</a>&nbsp;(16975)</li>
+	<li><a href='https://daynews.cc/date/2019/11'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='https://daynews.cc/date/2019/10'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="https://daynews.cc">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.easing.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.qrcode.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/layer.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/modernizr.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.waypoints.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.stellar.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/hoverIntent.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/superfish.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/kratos.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-includes/js/wp-embed.min.js'></script>
+			</body>
+
+</html>
+<!-- Dynamic page generated in 0.537 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 13:47:30 -->
+
+<!-- super cache -->

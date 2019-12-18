@@ -1,0 +1,775 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://daynews.cc/technology/15674#webpage","url":"https://daynews.cc/technology/15674","inLanguage":"zh-TW","name":"\u9084\u80fd\u9019\u6a23\uff1f\u628a Python \u81ea\u52d5\u7ffb\u8b6f\u6210 C++ - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"datePublished":"2019-12-13T05:55:10+00:00","dateModified":"2019-12-13T05:55:10+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="作者：byronhe，騰訊 WXG 開發工程師 一、問題背景 隨著深度學習的廣泛應用，在搜索引擎/推薦系統/機器視覺等業務系統中，越來越多的深度學習模型部署到線上服務。 機器學習模型在離線訓練時，一般要將輸入的數據做特徵工程預處理，再輸入模型在 TensorFlow PyTorch 等框架上做訓練。 1.常見的特徵工程邏輯 常見的特徵工程……" />
+<meta name="twitter:title" content="還能這樣？把 Python 自動翻譯成 C++ - 天天要聞" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="還能這樣？把 Python 自動翻譯成 C++ - 天天要聞" />
+<meta property="og:description" content="作者：byronhe，騰訊 WXG 開發工程師 一、問題背景 隨著深度學習的廣泛應用，在搜索引擎/推薦系統/機器視覺等業務系統中，越來越多的深度學習模型部署到線上服務。 機器學習模型在離線訓練時，一般要將輸入的數據做特徵工程預處理，再輸入模型在 TensorFlow PyTorch 等框架上做訓練。 1.常見的特徵工程邏輯 常見的特徵工程……" />
+<meta property="og:url" content="https://daynews.cc/technology/15674" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-13T05:55:10+00:00" />
+	<title>還能這樣？把 Python 自動翻譯成 C++ - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/15674" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">還能這樣？把 Python 自動翻譯成 C++</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-13T13:55:10+00:00">
+		5 天 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<p>作者：byronhe，騰訊 WXG 開發工程師</p>
+
+<h2>一、問題背景</h2>
+<p>隨著深度學習的廣泛應用，在<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>引擎/推薦系統/機器視覺等業務系統中，越來越多的深度學習模型部署到線上服務。</p>
+<p>機器學習模型在離線訓練時，一般要將輸入的數據做特徵工程預處理，再輸入模型在 TensorFlow PyTorch 等框架上做訓練。</p>
+
+<h2><strong>1.常見的特徵工程邏輯</strong></h2>
+<p>常見的特徵工程邏輯有：</p>
+<ol>
+<li>
+<p>分箱/分桶 離散化</p>
+</li>
+<li>
+<p>log/exp 對數/冪等 math numpy 常見數學運算</p>
+</li>
+<li>
+<p>特徵縮放/歸一化/截斷</p>
+</li>
+<li>
+<p>交叉特徵生成</p>
+</li>
+<li>
+<p>分詞匹配程度計算</p>
+</li>
+<li>
+<p>字元串分隔匹配判斷 tong</p>
+</li>
+<li>
+<p>預設值填充等</p>
+</li>
+<li>
+<p>數據平滑</p>
+</li>
+<li>
+<p>onehot 編碼，hash 編碼等</p>
+</li>
+</ol>
+<p>這些特徵工程代碼，當然一般使用深度學習最主要的語言 <strong>python</strong>實現。</p>
+
+<h2>二、業務痛點</h2>
+<p>離線訓練完成，模型上線部署後，同樣要<strong>用 C++ 重新實現</strong>這些 python 的特徵工程邏輯代碼。</p>
+<p>我們發現，<strong>「用 C++ 重新實現」</strong>這個步驟，給實際業務帶來了大量的問題：</p>
+<ol>
+<li>
+<p>繁瑣，費時費力，極容易出現 python 和 C++ 代碼<strong>不一致</strong></p>
+</li>
+<li>
+<p><strong>不一致</strong>會直接影響模型在線上的效果，導致大盤業務指標不如預期，產生各種 bad case</p>
+</li>
+<li>
+<p><strong>不一致</strong>難以發現，無法測試，無法監控，經常要靠用戶投訴反饋，甚至大盤數據異常才能發現</p>
+</li>
+</ol>
+<h2><strong>1. 業界方案</strong></h2>
+<p>針對這些問題，我調研了這些業界方案：</p>
+<p>《推薦系統中模型訓練及使用流程的標準化》https://<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">www.</i>infoq<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-5">.cn</i>/article/2E6LCqb1GeqFRAjkkjX3</p>
+<p>《自主研發、不斷總結經驗，美團<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>推薦機器學習平台》https://cloud.tencent<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">.com</i>/developer/article/1357<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">30</i>9</p>
+<p>《京東電商推薦系統實踐》https://<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">www.</i>infoq<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-5">.cn</i>/article/1OkKmb_gEYNR3YqC9RcW</p>
+<blockquote>
+<p>「模型線上線下一致性問題對於模型效果非常重要，我們使用特徵日誌來實時記錄特徵，保證特徵的一致性。這樣離線處理的時候會把實時的用戶反饋，和特徵日誌做一個<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">結合</i>生成訓練樣本，然後更新到模型訓練平台上，平台更新之後在推送到線上，這樣整個排序形成了一個閉環。」</p>
+</blockquote>
+<p>總結起來，有幾種思路：</p>
+<ol>
+<li>
+<p>在線特徵存儲起來給離線用</p>
+</li>
+<li>
+<p>在線 C++ 代碼編譯成 so 導出給離線用</p>
+</li>
+<li>
+<p>根據一份配置生成離線和在線代碼</p>
+</li>
+<li>
+<p>提取公共代碼，加強代碼復用，等軟體工程手段，減少不一致</p>
+</li>
+</ol>
+<h2><strong>2. 自動翻譯方案</strong></h2>
+<h2><strong>(1) .已有方案的缺點</strong></h2>
+<p>但這些思路都有各種缺點：</p>
+<ol>
+<li>
+<p>所有在線請求的所有特徵，這個存儲量數據量很大</p>
+</li>
+<li>
+<p>演算法改代碼需要等待後台開發，降低了演算法同學的工作效率</p>
+</li>
+<li>
+<p>特徵處理代碼的複雜度轉移到配置文件中，不一定能充分表達，而且配置格式增加學習成本</p>
+</li>
+<li>
+<p>就這邊真實離線特徵處理代碼來看，大部分代碼都無法抽取出公共代碼做復用。</p>
+</li>
+</ol>
+<h2><strong>(2). 翻譯器</strong></h2>
+<p>回到問題出發點考慮，顯而易見，這個問題歸根結底就是需要一個 「 python 到 c++ 的翻譯器 」 。</p>
+<p>那其實 「翻譯器 Transpiler 」 ，和編譯器解釋器類似，也是個古老的熱門話題了，比如 WebAssembly, CoffeeScript ，Babel ,Google Closure Compiler，f2c</p>
+<p>於是一番<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>，發現 python 到 C++ 的翻譯器也不少，其中 Pythran 是新興比較熱門的開源項目。</p>
+<p>於是一番嘗試後，藉助 pythran，我們實現了：</p>
+<ol>
+<li>
+<p>一條命令 <strong>全自動把 Python 翻譯成等價 C++</strong></p>
+</li>
+<li>
+<p>嚴格等價保證改寫，徹底消除不一致</p>
+</li>
+<li>
+<p><strong>完全去掉重新實現</strong>這塊工作量，後台開發成本降到 0 ，徹底解放生產力</p>
+</li>
+<li>
+<p>演算法同學繼續使用純 python，開發效率無影響，** 無學習成本 **</p>
+</li>
+<li>
+<p>並能推廣到其他需要 <strong>python 改寫成後台 C++ 代碼</strong>的業務場景，解放生產力</p>
+</li>
+</ol>
+<h2>三、pythran 的使用流程</h2>
+<h2><strong>(1). 安裝</strong></h2>
+<p>一條命令安裝：</p>
+<pre><code>pip3 install pythran<br></code></pre>
+
+<h2><strong>(2). 寫 Python 代碼</strong></h2>
+<p>下面這個 python demo，是 pythran 官方 demo</p>
+<pre><code>import math<br>import numpy as np<br><br>def zero(n, m):<br>return [[0]*n for col in range(m)]<br><br>#pythran export matrix_multiply(float list list, float list list)<br>def matrix_multiply(m0, m1):<br>new_matrix = zero(len(m0),len(m1[0]))<br>for i in range(len(m0)):<br>for j in range(len(m1[0])):<br>for k in range(len(m1)):<br>new_matrix[i][j] += m0[i][k]*m1[k][j]<br>return new_matrix<br><br>#pythran export arc_distance(float[], float[], float[], float[])<br>def arc_distance(theta_1, phi_1, theta_2, phi_2):<br>"""<br>Calculates the pairwise arc distance<br>between all points in vector a and b.<br>"""<br>temp = (np.sin((theta_2-theta_1)/2)**2<br>+ np.cos(theta_1)*np.cos(theta_2) * np.sin((phi_2-phi_1)/2)**2)<br>distance_matrix = 2 * np.arctan2(np.sqrt(temp), np.sqrt(1-temp))<br>return distance_matrix<br><br><br>#pythran export dprod(int list, int list)<br>def dprod(l0,l1):<br>"""WoW, generator expression, zip and sum."""<br>return sum(x * y for x, y in zip(l0, l1))<br><br><br>#pythran export get_age(int )<br>def get_age(age):<br>if age &lt;= 20:<br>age_x = '0_20'<br>elif age &lt;= 25:<br>age_x = '21_25'<br>elif age &lt;= <i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">30</i>:<br>age_x = '26_<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">30</i>'<br>elif age &lt;= 35:<br>age_x = '31_35'<br>elif age &lt;= 40:<br>age_x = '36_40'<br>elif age &lt;= 45:<br>age_x = '41_45'<br>elif age &lt;= 50:<br>age_x = '46_50'<br>else:<br>age_x = '50+'<br>return age_x<br></code></pre>
+
+<h2><strong>(3). Python 轉成 C++</strong></h2>
+<p>一條命令完成翻譯</p>
+<pre><code>pythran -e demo.py -o demo.hpp<br></code></pre>
+
+<h2><strong>(4). 寫 C++ 代碼調用</strong></h2>
+<p>pythran/pythonic/ 目錄下是 python 標準庫的 C++ 等價實現，翻譯出來的 C++ 代碼需要 include 這些頭文件</p>
+<p>寫個 C++ 代碼調用</p>
+<pre><code>#include "demo.hpp"<br>#include "pythonic/numpy/random/rand.hpp"<br>#include &lt;iostream&gt;<br><br>using std::cout;<br>using std::endl;<br><br>int<strong class="highlight-text">main</strong> {<br>pythonic::types::list&lt;pythonic::types::list&lt;double&gt;&gt; m0 = {{2.0, 3.0},<br>{4.0, 5.0}},<br>m1 = {{1.0, 2.0},<br>{3.0, 4.0}};<br>cout &lt;&lt; m0 &lt;&lt; "*" &lt;&lt; m1 &lt;&lt; "\n=\n"<br>&lt;&lt; __pythran_demo::matrix_multiply(m0, m1) &lt;&lt; endl<br>&lt;&lt; endl;<br><br>auto theta_1 = pythonic::numpy::random::rand(3),<br>phi_1 = pythonic::numpy::random::rand(3),<br>theta_2 = pythonic::numpy::random::rand(3),<br>phi_2 = pythonic::numpy::random::rand(3);<br>cout &lt;&lt; "arc_distance " &lt;&lt; theta_1 &lt;&lt; "," &lt;&lt; phi_1 &lt;&lt; "," &lt;&lt; theta_2 &lt;&lt; ","<br>&lt;&lt; phi_2 &lt;&lt; "\n=\n"<br>&lt;&lt; __pythran_demo::arc_distance(theta_1, phi_1, theta_2, phi_2) &lt;&lt; endl<br>&lt;&lt; endl;<br><br>pythonic::types::list&lt;int&gt; l0 = {2, 3}, l1 = {4, 5};<br>cout &lt;&lt; "dprod " &lt;&lt; l0 &lt;&lt; "," &lt;&lt; l1 &lt;&lt; "\n=\n"<br>&lt;&lt; __pythran_demo::dprod(l0, l1) &lt;&lt; endl<br>&lt;&lt; endl;<br><br>cout &lt;&lt; "get_age <i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">30</i> = " &lt;&lt; __pythran_demo::get_age(<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">30</i>) &lt;&lt; endl &lt;&lt; endl;<br><br>return 0;<br>}<br></code></pre>
+
+<h2><strong>(5). 編譯運行</strong></h2>
+<pre><code>g++ -g -std=c++11 main.cpp -fopenmp -march=native -DUSE_XSIMD -I /usr/local/lib/python3.6/site-packages/pythran/ -o pythran_demo<br><br>./pythran_demo<br></code></pre>
+
+<h2>四、pythran 的功能與特性</h2>
+<h2><strong>(1). 介紹</strong></h2>
+<p>按官方定義，Pythran 是一個 AOT (Ahead-Of-Time – 預先編譯) 編譯器。給科學計算的 python 加註解後，pythran 可以把 python 代碼變成介面相同的原生 python 模塊，大幅度提升性能。</p>
+<p>並且 pythran 也可以利用 OpenMP 多核和 SIMD 指令集。</p>
+<p>支持 python 3 和 Python 2.7 。</p>
+<p>pythran 的 manual 挺詳細：https://pythran.readthedocs.io/en/latest/MANUAL.html</p>
+
+<h2><strong>(2). 功能</strong></h2>
+<p>pythran 並不支持完整的 python， 只支持 python 語言特性的一個子集:</p>
+<ul>
+<li>
+<p>polymorphic functions 多態函數(翻譯成 C++ 的泛型模板函數)</p>
+</li>
+<li>
+<p>lambda</p>
+</li>
+<li>
+<p>list comprehension 列表推導式</p>
+</li>
+<li>
+<p>map, reduce 等函數</p>
+</li>
+<li>
+<p>dictionary, set, list 等數據結構</p>
+</li>
+<li>
+<p>exceptions 異常</p>
+</li>
+<li>
+<p>file handling 文件處理</p>
+</li>
+<li>
+<p>部分 numpy</p>
+</li>
+</ul>
+<p>不支持的功能：</p>
+<ul>
+<li>
+<p>classes 類</p>
+</li>
+<li>
+<p>polymorphic variables 可變類型變數</p>
+</li>
+</ul>
+<h2><strong>(3). 支持的數據類型和函數</strong></h2>
+<p>pythran export 可以導出函數和全局變數。支持導出的數據類型，BNF 定義是：</p>
+<pre><code> argument_type = basic_type<br>| (argument_type+) # this is a tuple<br>| argument_type list # this is a list<br>| argument_type set # this is a set<br>| argument_type + # this is a ndarray, C-style<br>| argument_type [::]+ # this is a strided ndarray<br>| argument_type [:,...,:]+ # this is a ndarray, Cython style<br>| argument_type [:,...,3]+ # this is a ndarray, some dimension fixed<br>| argument_type:argument_type dict # this is a dictionary<br><br>basic_type = bool | byte | int | float | str | None | slice<br>| uint8 | uint16 | uint32 | uint64 | uintp<br>| int8 | int16 | int32 | int64 | intp<br>| float32 | float64 | float128<br>| complex64 | complex128 | complex256<br></code></pre>
+<p>可以看到基礎類型相當全面，支持各種 整數，浮點數，字元串，複數</p>
+<p>複合類型支持 tuple, list, set, dict, numpy.ndarray 等，</p>
+<p>對應 C++ 代碼的類型實現在 pythran/pythonic/include/types/ 下面，可以看到比如 dict 實際就是封裝了一下 std::unordered_map</p>
+<p>https://pythran.readthedocs.io/en/latest/SUPPORT.html</p>
+<p>可以看到支持的 python 基礎庫，其中常用於機器學習的 numpy 支持算比較完善。</p>
+
+<h2>五、pythran 的基本原理</h2>
+<p>和常見的編譯器/解釋器類似， pythran 的架構是分成 3 層：</p>
+<ol>
+<li>
+<p>python 代碼解析成抽象語法樹 AST 。用 python 標準庫自帶的的 ast 模塊實現</p>
+</li>
+<li>
+<p>代碼優化。在 AST 上做優化，有多種 transformation pass，比如 deadcode_elimination 死代碼消除，loop_full_unrolling 循環展開 等。還有 Function/Module/Node 級別的 Analysis，用來遍歷 AST 供 transformation 利用。</p>
+</li>
+<li>
+<p>後端，實現代碼生成。目前有 2 個後端，Cxx / Python， Cxx 後端可以把 AST 轉成 C++ 代碼（ Python 後端用來調試）。</p>
+</li>
+</ol>
+<p>目前看起來 ，pythran 還欠缺的：</p>
+<ol>
+<li>
+<p>字元串處理能力欠缺，缺少 str.encode/str.decode 對 utf8 的支持</p>
+</li>
+<li>
+<p>缺少正則表達式 regex 支持</p>
+</li>
+</ol>
+<p>看文檔要自己加也不麻煩，看業務需要<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">可以加</i>。</p>
+
+<h2>六、相關文章</h2>
+<p>《京東電商推薦系統實踐》https://<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">www.</i>infoq<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-5">.cn</i>/article/1OkKmb_gEYNR3YqC9RcW</p>
+<p>《自主研發、不斷總結經驗，美團<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>推薦機器學習平台》https://cloud.tencent<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">.com</i>/developer/article/1357<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">30</i>9</p>
+<p>《推薦系統中模型訓練及使用流程的標準化》https://<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">www.</i>infoq<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-5">.cn</i>/article/2E6LCqb1GeqFRAjkkjX3</p>
+<p>numbahttp://numba.pydata.org</p>
+<p>訂閱我的<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">微信</i><i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">公眾號</i>「楊建榮的學習筆記」，第一時間免費收到文章更新。別忘了加星標，以免錯過新推送提示。</p>
+<p><strong class="highlight-text">7</strong></p>
+<blockquote>
+<ul>
+<li>
+<li>
+<li>
+<li>
+<li>
+<li>
+<li>
+<li>
+<li>
+<li>
+<li>
+</ul>
+</blockquote>
+<p><strong class="highlight-text">8</strong></p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/15674#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.284 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:28:18 -->
+
+<!-- super cache -->

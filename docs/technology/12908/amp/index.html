@@ -1,0 +1,641 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/12908#primaryimage","url":"http://p1.pstatp.com/large/dfic-imagehandler/306a62c8-20f3-4769-9c5f-0ee88c5524e6"},{"@type":"WebPage","@id":"https://daynews.cc/technology/12908#webpage","url":"https://daynews.cc/technology/12908","inLanguage":"zh-TW","name":"\u771f\u9999\uff01\u9762\u5c0dFlutter\uff0c\u6211\u7d42\u65bc\u9081\u51fa\u4e86\u7b2c\u4e00\u6b65 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/12908#primaryimage"},"datePublished":"2019-12-12T09:00:12+00:00","dateModified":"2019-12-12T09:00:12+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="作者：星星y 前言 哎，Flutter真香啊 早在一年前想學習下flutter，但當時對於它布局中地獄式的嵌套有點望而生畏，心想為什麼嵌套這麼複雜，就沒有xml布局方式嗎，用jsx方式也行啊，為什麼要用dart而不用javascript，走開，勞資不學了。然而，隨著今年google io大會flutter新版本發布，大勢宣揚。我又開始從頭……" />
+<meta name="twitter:title" content="真香！面對Flutter，我終於邁出了第一步 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/dfic-imagehandler/306a62c8-20f3-4769-9c5f-0ee88c5524e6" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="真香！面對Flutter，我終於邁出了第一步 - 天天要聞" />
+<meta property="og:description" content="作者：星星y 前言 哎，Flutter真香啊 早在一年前想學習下flutter，但當時對於它布局中地獄式的嵌套有點望而生畏，心想為什麼嵌套這麼複雜，就沒有xml布局方式嗎，用jsx方式也行啊，為什麼要用dart而不用javascript，走開，勞資不學了。然而，隨著今年google io大會flutter新版本發布，大勢宣揚。我又開始從頭……" />
+<meta property="og:url" content="https://daynews.cc/technology/12908" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-12T09:00:12+00:00" />
+	<title>真香！面對Flutter，我終於邁出了第一步 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/12908" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">真香！面對Flutter，我終於邁出了第一步</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-12T17:00:12+00:00">
+		6 天 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<blockquote>
+<p>作者：星星y</p>
+</blockquote>
+<h2 class="pgc-h-arrow-right">前言</h2>
+<p><strong class="highlight-text">哎，Flutter真香啊</strong></p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/dfic-imagehandler/306a62c8-20f3-4769-9c5f-0ee88c5524e6" alt="《真香！面對Flutter，我終於邁出了第一步》" width="640" height="426" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/dfic-imagehandler/306a62c8-20f3-4769-9c5f-0ee88c5524e6" alt="《真香！面對Flutter，我終於邁出了第一步》" width="640" height="426" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>早在一年前想學習下flutter，但當時對於它布局中地獄式的嵌套有點望而生畏，心想為什麼嵌套這麼複雜，就沒有xml布局方式嗎，用jsx方式也行啊，為什麼要用dart而不用javascript，走開，勞資不學了。<br>然而，隨著今年google io大會flutter新版本發布，大勢宣揚。我又開始從頭學習flutter了:</p>
+<ul class="list-paddingleft-2">
+<li>瀏覽https://dart.dev/</li>
+<li>瀏覽https://book.flutterchina.club/<br>本想看下視頻實戰的，後面發現效率太低（有點啰嗦），放棄了。最終還是決定通過閱讀flutter項目源碼學習，事實上還是這種效率最高。</li>
+</ul>
+<p>剛好公司有新app開發，這次決定用flutter開發了，邊開發邊學習，既完成了工作又完成了學習（ps：現在公司ios和前端也在學了）。</p>
+<p>用完flutter的感受是，一旦接受這種嵌套布局後，發現布局也沒那麼難，<strong class="highlight-text">hot reload</strong>牛皮，<strong class="highlight-text">async</strong>真好用，<strong class="highlight-text">dart</strong>語言真方便，嗯，香啊。</p>
+<p>下面就此次app開發記錄相關要點（菜鳥階段，歡迎指正）</p>
+<h2 class="pgc-h-arrow-right">第三方庫</h2>
+<ul class="list-paddingleft-2">
+<li>dio: 網路</li>
+<li>sqflite: 資料庫</li>
+<li>pull_to_refresh: 下拉刷新，上拉載入</li>
+<li>json_serializable: json序列化，自動生成model工廠方法</li>
+<li>shared_preferences: 本地存儲</li>
+<li>fluttertoast: 吐司消息</li>
+</ul>
+<h2 class="pgc-h-arrow-right">圖片資源</h2>
+<p>為適配各個解析度的圖片資源，通常需要1,2,3倍的圖。在flutter項目根目錄下創建assets/images目錄，在<strong class="highlight-text">pubspec.yaml</strong>文件中加入圖片配置</p>
+<pre>flutter:<br> # ...<br> assets:<br> - assets/images/</pre>
+<p>然後通過<strong class="highlight-text">sketch</strong>切出1/2/3倍圖片，這裡可通過<strong class="highlight-text">編輯預設</strong>,在詞首加入<strong class="highlight-text">2.0x/</strong>和<strong class="highlight-text">3.0x/</strong>，這樣導出的格式便符合flutter圖片資源所需了。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/f75aa6183f684bc98cff6e1f7e3b909c" alt="《真香！面對Flutter，我終於邁出了第一步》" width="640" height="436" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/f75aa6183f684bc98cff6e1f7e3b909c" alt="《真香！面對Flutter，我終於邁出了第一步》" width="640" height="436" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>這裡再建一個<strong class="highlight-text">image_helper.dart</strong>的工具類，用於產生<strong class="highlight-text">Image</strong></p>
+<pre>class ImageHelper {<br> static String png(String name) {<br> return "assets/images/$name.png";<br> }<br><br> static Widget icon(String name, {double width, double height, BoxFit boxFit}) {<br> return Image.asset(<br> png(name),<br> width: width,<br> height: height,<br> fit: boxFit,<br> );<br> }<br>}</pre>
+<h2 class="pgc-h-arrow-right">主界面Tab導航</h2>
+<p>在app主界面，tab底部導航是最常用的。通常基於Scaffold的bottomNavigationBar配和PageView使用。通過PageController控制PageView界面切換，同時使用BottomNavigationBar的currentIndex控制tab選中狀態。<br>為了能使監聽返回鍵，使用WillPopScope實現點兩次返回鍵退出app。</p>
+<pre>List pages = &lt;Widget&gt;[HomePage(), MinePage()];<br><br>class _TabNavigatorState extends State&lt;TabNavigator&gt; {<br> DateTime _lastPressed;<br> int _tabIndex = 0;<br> var _controller = PageController(initialPage: 0);<br><br> BottomNavigationBarItem buildTab(<br> String name, String normalIcon, String selectedIcon) {<br> return BottomNavigationBarItem(<br> icon: ImageHelper.icon(normalIcon, width: 20),<br> activeIcon: ImageHelper.icon(selectedIcon, width: 20),<br> title: Text(name));<br> }<br><br> @override<br> Widget build(BuildContext context) {<br> return Scaffold(<br> bottomNavigationBar: BottomNavigationBar(<br> currentIndex: _tabIndex,<br> backgroundColor: Colors.white,<br> onTap: (index) {<br> setState(() {<br> _controller.jumpToPage(index);<br> _tabIndex = index;<br> });<br> },<br> selectedItemColor: Color(0xff333333),<br> unselectedItemColor: Color(0xff999999),<br> selectedFontSize: 11,<br> unselectedFontSize: 11,<br> type: BottomNavigationBarType.fixed,<br> items: [<br> buildTab("Home", "ic_home", "ic_home_s"),<br> buildTab("Mine", "ic_mine", "ic_mine_s")<br> ]),<br> body: WillPopScope(<br> child: PageView.builder(<br> itemBuilder: (ctx, index) =&gt; pages[index],<br> controller: _controller,<br> physics: NeverScrollableScrollPhysics(),//禁止PageView左右滑動<br> ),<br> onWillPop: () async {<br> if (_lastPressed == null ||<br> DateTime.now().difference(_lastPressed) &gt;<br> Duration(seconds: 1)) {<br> _lastPressed = DateTime.now();<br> Fluttertoast.showToast(msg: "Press again to exit");<br> return false;<br> } else {<br> return true;<br> }<br> }),<br> );<br> }<br>}</pre>
+<h2 class="pgc-h-arrow-right">網路層封裝</h2>
+<p>網路框架使用的是dio，不管是哪種平台，網路請求最終要轉成實體model用於ui展示。這裡先將dio做一個封裝，便於使用。</p>
+<h2 class="pgc-h-arrow-right">通用攔截器</h2>
+<p>網路請求中通常需要添加自定義攔截器來預處理網路請求，往往需要將登錄信息（如user_id等）放在公共參數中，例如：</p>
+<pre>import 'package:dio/dio.dart';<br>import 'dart:async';<br>import 'package:shared_preferences/shared_preferences.dart';<br><br>class CommonInterceptor extends Interceptor {<br> @override<br> Future onRequest(RequestOptions options) async {<br> options.queryParameters = options.queryParameters ?? {};<br> options.queryParameters["app_id"] = "1001";<br> var pref = await SharedPreferences.getInstance();<br> options.queryParameters["user_id"] = pref.get(Constants.keyLoginUserId);<br> options.queryParameters["device_id"] = pref.get(Constants.keyDeviceId);<br> return super.onRequest(options);<br> }<br>}</pre>
+<h2 class="pgc-h-arrow-right">Dio封裝</h2>
+<p>然後使用<strong class="highlight-text">dio</strong>封裝<strong class="highlight-text">get</strong>和<strong class="highlight-text">post</strong>請求，預處理響應<strong class="highlight-text">response</strong>的<strong class="highlight-text">code</strong>。假設我們的響應格式是這樣的：</p>
+<pre>{<br> code:0,<br> msg:"獲取數據成功",<br> result:[] //或者{}<br>}</pre>
+<pre>import 'package:dio/dio.dart';<br>import 'common_interceptor.dart';<br><br>/*<br> * 網路管理<br> */<br>class HttpManager {<br> static HttpManager _instance;<br><br> static HttpManager getInstance() {<br> if (_instance == null) {<br> _instance = HttpManager();<br> }<br> return _instance;<br> }<br><br> Dio dio = Dio();<br><br> HttpManager() {<br> dio.options.baseUrl = "https://api.xxx.com/";<br> dio.options.connectTimeout = 10000;<br> dio.options.receiveTimeout = 5000;<br> dio.interceptors.add(CommonInterceptor());<br> dio.interceptors.add(LogInterceptor(responseBody: true));<br> }<br><br> static Future&lt;Map&lt;String, dynamic&gt;&gt; get(String path, Map&lt;String, dynamic&gt; map) async {<br> var response = await getInstance().dio.get(path, queryParameters: map);<br> return processResponse(response);<br> }<br><br> /*<br> 表單形式<br> */<br> static Future&lt;Map&lt;String, dynamic&gt;&gt; post(String path, Map&lt;String, dynamic&gt; map) async {<br> var response = await getInstance().dio.post(path,<br> data: map,<br> options: Options(<br> contentType: "application/x-www-form-urlencoded",<br> headers: {"Content-Type": "application/x-www-form-urlencoded"}));<br> return processResponse(response);<br> }<br><br> static Future&lt;Map&lt;String, dynamic&gt;&gt; processResponse(Response response) async {<br> if (response.statusCode == 200) {<br> var data = response.data;<br> int code = data["code"];<br> String msg = data["msg"];<br> if (code == 0) {//請求響應成功<br> return data;<br> }<br> throw Exception(msg);<br> }<br> throw Exception("server error");<br> }<br>}</pre>
+<h2 class="pgc-h-arrow-right">map轉model</h2>
+<p>使用dio可以將最終的請求響應response轉成Map&lt;String, dynamic&gt;對象，我們還需要將map轉成相應的model。假如我們有一個獲取文章列表的介面響應如下：</p>
+<pre>{<br> code:0,<br> msg:"獲取數據成功",<br> result:[<br> {<br> article_id:1,<br> article_title:"標題",<br> article_link:"https://xxx.xxx"<br> }<br> ]<br>}</pre>
+<p>就需要一個Article的model。由於Flutter下是禁用反射的，我們只能手動初始化每個成員變數。<br>不過我們可以通過json_serializable將手動初始化的工作交給它。<br>首先在pubspec.yaml引入它：</p>
+<pre>dependencies:<br> json_annotation: ^2.0.0<br><br>dev_dependencies:<br> json_serializable: ^2.0.0</pre>
+<p>我們創建一個<strong class="highlight-text">article.dart</strong>的model類：</p>
+<pre>import 'package:json_annotation/json_annotation.dart';<br><br>part 'article.g.dart';<br>//FieldRename.snake 表示json欄位下劃線分割類型如：article_id<br>@JsonSerializable(fieldRename: FieldRename.snake, checked: true)<br>class Article {<br> final int articleId;<br> final String articleTitle;<br> final String articleLikn;<br>}</pre>
+<p>注意這裡引用到了一個<strong class="highlight-text">article.g.dart</strong>沒有產生的文件，我們通過<strong class="highlight-text">pub run build_runner build</strong>命令就會生成這個文件</p>
+<pre>// GENERATED CODE - DO NOT MODIFY BY HAND<br><br>part of 'article.dart';<br><br>// **************************************************************************<br>// JsonSerializableGenerator<br>// **************************************************************************<br><br>Article _$ArticleFromJson(Map&lt;String, dynamic&gt; json) {<br> return $checkedNew('Article', json, () {<br> final val = Article();<br> $checkedConvert(json, 'article_id', (v) =&gt; val.articleId = v as int);<br> $checkedConvert(<br> json, 'article_title', (v) =&gt; val.articleTitle = v as String);<br> $checkedConvert(json, 'article_link', (v) =&gt; val.articleLink = v as String);<br> return val;<br> }, fieldKeyMap: const {<br> 'articleId': 'article_id',<br> 'articleTitle': 'article_title',<br> 'articleLink': 'article_link'<br> });<br>}<br><br>Map&lt;String, dynamic&gt; _$ArticleToJson(Article instance) =&gt; &lt;String, dynamic&gt;{<br> 'article_id': instance.articleId,<br> 'article_title': instance.articleTitle,<br> 'article_link': instance.articleLink<br> };</pre>
+<p>然後在<strong class="highlight-text">article.dart</strong>里添加工廠方法</p>
+<pre>class Article{<br> ...<br> factory Article.fromJson(Map&lt;String, dynamic&gt; json) =&gt; _$ArticleFromJson(json);<br>}</pre>
+<h2 class="pgc-h-arrow-right">具體請求封裝</h2>
+<p>創建好model類後，就可以建一個具體的api請求類ApiRepository,通過async庫，可以將網路請求最終封裝成一個Future對象，實際調用時，我們可以將非同步回調形式的請求轉成同步的形式，這有點和kotlin的協程類似:</p>
+<pre>import 'dart:async';<br>import '../http/http_manager.dart';<br>import '../model/article.dart';<br><br>class ApiRepository {<br> static Future&lt;List&lt;Article&gt;&gt; articleList() async {<br> var data = await HttpManager.get("articleList", {"page": 1});<br> return data["result"].map((Map&lt;String, dynamic&gt; json) {<br> return Article.fromJson(json);<br> });<br> }<br>}</pre>
+<h2 class="pgc-h-arrow-right">實際調用</h2>
+<p>封裝好網路請求後，就可以在具體的組件中使用了。假設有一個<strong class="highlight-text">_ArticlePageState</strong>：</p>
+<pre>import 'package:flutter/material.dart';<br>import '../model/article.dart';<br>import '../repository/api_repository.dart';<br><br>class ArticlePage extends StatefulWidget {<br> @override<br> State&lt;StatefulWidget&gt; createState() {<br> return _ArticlePageState();<br> }<br>}<br><br>class _ArticlePageState extends State&lt;ArticlePage&gt; {<br> List&lt;Article&gt; _list = [];<br><br> @override<br> void initState() {<br> super.initState();<br> _loadData();<br> }<br><br> void _loadData() async {//如果需要展示進度條，就必須try/catch捕獲請求異常。<br> showLoading();<br> try {<br> var list = await ApiRepository.articleList();<br> setState(() {<br> _list = list;<br> });<br> } catch (e) {}<br> hideLoading();<br> }<br><br> @override<br> Widget build(BuildContext context) {<br> return Scaffold(<br> body: SafeArea(<br> child: ListView.builder(<br> itemCount: _list.length,<br> itemBuilder: (ctx, index) {<br> return Text(_list[index].articleTitle);<br> })),<br> );<br> }<br>}</pre>
+<h2 class="pgc-h-arrow-right">資料庫</h2>
+<p>資料庫操作通過sqflite，簡單封裝處理事例了文章<strong class="highlight-text">Article</strong>的插入操作。</p>
+<pre>import 'package:sqflite/sqflite.dart';<br>import 'package:path/path.dart';<br>import 'dart:async';<br>import '../model/article.dart';<br><br>class DBManager {<br> static const int _VSERION = 1;<br> static const String _DB_NAME = "database.db";<br> static Database _db;<br> static const String TABLE_NAME = "t_article";<br> static const String createTableSql = '''<br> create table $TABLE_NAME(<br> article_id int,<br> article_title text,<br> article_link text,<br> user_id int,<br> primary key(article_id,user_id)<br> );<br> ''';<br><br> static init() async {<br> String dbPath = await getDatabasesPath();<br> String path = join(dbPath, _DB_NAME);<br> _db = await openDatabase(path, version: _VSERION, onCreate: _onCreate);<br> }<br><br> static _onCreate(Database db, int newVersion) async {<br> await db.execute(createTableSql);<br> }<br><br> static Future&lt;int&gt; insertArticle(Article item, int userId) async {<br> var map = item.toMap();<br> map["user_id"] = userId;<br> return _db.insert("$TABLE_NAME", map);<br> }<br>}</pre>
+<h2 class="pgc-h-arrow-right">Android層兼容通信處理</h2>
+<p>為了兼容底層，需要通過<strong class="highlight-text">MethodChannel</strong>進行<strong class="highlight-text">Flutter</strong>和<strong class="highlight-text">Native(Android/iOS)</strong>通信</p>
+<h4 class="pgc-h-arrow-right">flutter調用Android層方法</h4>
+<p>這裡舉例flutter端打開系統相冊意圖，並取得最終的相冊路徑回調給flutter端。<br>我們在Android中的MainActivity中onCreate方法處理通信邏輯</p>
+<pre>eventChannel = MethodChannel(flutterView, "event")<br> eventChannel?.setMethodCallHandler { methodCall, result -&gt;<br> when (methodCall.method) {\<br> "openPicture" -&gt; PictureUtil.openPicture(this) {<br> result.success(it)<br> }<br> }<br> }</pre>
+<p>因為是通過<strong class="highlight-text">result.success</strong>將結果回調給<strong class="highlight-text">Flutter</strong>端，所以封裝了打開相冊的工具類。</p>
+<pre>object PictureUtil {<br> fun openPicture(activity: Activity, callback: (String?) -&gt; Unit) {<br> val f = getFragment(activity)<br> f.callback = callback<br> val intentToPickPic = Intent(Intent.ACTION_PICK, null)<br> intentToPickPic.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*")<br> f.startActivityForResult(intentToPickPic, 200)<br> }<br><br> private fun getFragment(activity: Activity): PictureFragment {<br> var fragment = activity.fragmentManager.findFragmentByTag("picture")<br> if (fragment is PictureFragment) {<br><br> } else {<br> fragment = PictureFragment()<br> activity.fragmentManager.apply {<br> beginTransaction().add(fragment, "picture").commitAllowingStateLoss()<br> executePendingTransactions()<br> }<br> }<br> return fragment<br> }<br>}</pre>
+<p>然後在<strong class="highlight-text">PictureFragment</strong>中加入<strong class="highlight-text">callback</strong>，並且處理<strong class="highlight-text">onActivityResult</strong>邏輯</p>
+<pre>class PictureFragment : Fragment() {<br> var callback: ((String?) -&gt; Unit)? = null<br> override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {<br> super.onActivityResult(requestCode, resultCode, data)<br> if (requestCode == 200) {<br> if (data != null) {<br> callback?.invoke(FileUtil.getFilePathByUri(activity, data!!.data))<br> }<br> }<br> }<br>}</pre>
+<p>這裡<strong class="highlight-text">FileUtil.getFilePathByUri</strong>是通過<strong class="highlight-text">data</strong>獲取相冊路徑邏輯就不貼代碼了，網上很多可以搜索一下。<br>然後在flutter端使用</p>
+<pre>void _openPicture() async {<br> var result = await MethodChannel("event").invokeMethod("openPicture");<br> images.add(result as String);<br> setState(() {});<br> }</pre>
+<h2 class="pgc-h-arrow-right">Android端調用Flutter代碼</h2>
+<p>將剛剛<strong class="highlight-text">MainActivity</strong>中的<strong class="highlight-text">eventChannel</strong>聲明成類變數，就可以在其他地方使用它了。比如推送通知，如果需要調用<strong class="highlight-text">Flutter</strong>端的埋點介面方法。</p>
+<pre>class MainActivity : FlutterActivity() {<br> override fun onCreate(savedInstanceState: Bundle?) {<br> super.onCreate(savedInstanceState)<br> GeneratedPluginRegistrant.registerWith(this)<br> eventChannel = MethodChannel(flutterView, "event")<br> eventChannel?.setMethodCallHandler { methodCall, result -&gt;<br> ...<br> }<br> }<br> checkNotify(intent)<br> initPush()<br> }<br> companion object {<br> var eventChannel: MethodChannel? = null<br> }<br>}</pre>
+<p>在Firebase消息通知中調用<strong class="highlight-text">Flutter</strong>方法</p>
+<pre>class FirebaseMsgService : FirebaseMessagingService() {<br> override fun onMessageReceived(msg: RemoteMessage?) {<br> super.onMessageReceived(msg)<br> "onMessageReceived:$msg".logE()<br> if (msg != null){<br> showNotify(msg)<br> MainActivity.eventChannel?.invokeMethod("saveEvent", 1)<br> }<br> }<br>}</pre>
+<p>然後在<strong class="highlight-text">Flutter</strong>層我們添加回調</p>
+<pre>class NativeEvent {<br> static const platform = const MethodChannel("event");<br><br> static void init() {<br> platform.setMethodCallHandler(platformCallHandler);<br> }<br><br> static Future&lt;dynamic&gt; platformCallHandler(MethodCall call) async {<br> switch (call.method) {<br> case "saveEvent":<br> print("saveEvent.....");<br> await ApiRepository.saveEventTracking(call.arguments);<br> return "";<br> break;<br> }<br> }<br>}</pre>
+<p>感謝大家能耐著性子看完啰里啰嗦的文章</p>
+<p>在這裡我也分享一份私貨，自己收錄整理的<strong>Android學習PDF+架構視頻+面試文檔+源碼筆記</strong>，還有<strong>高級架構技術進階腦圖、Android開發面試專題資料，高級進階架構資料</strong>幫助大家學習提升進階，也節省大家在網上搜索資料的時間來學習，也可以分享給身邊好友一起學習</p>
+<p>如果你有需要的話，可以<strong>點贊+評論+轉發</strong>，<strong>關注我</strong>，然後<strong>私信我【進階】我發給你</strong></p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/560ef97124fa4d55a5198a097c40d000" alt="《真香！面對Flutter，我終於邁出了第一步》" width="640" height="429" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/560ef97124fa4d55a5198a097c40d000" alt="《真香！面對Flutter，我終於邁出了第一步》" width="640" height="429" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/b01bd35d92d4446c84d2ed20e614c491" alt="《真香！面對Flutter，我終於邁出了第一步》" width="475" height="330" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/b01bd35d92d4446c84d2ed20e614c491" alt="《真香！面對Flutter，我終於邁出了第一步》" width="475" height="330" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/24aa689b0ca94cd5bd69ba6bec3072c4" alt="《真香！面對Flutter，我終於邁出了第一步》" width="640" height="500" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/24aa689b0ca94cd5bd69ba6bec3072c4" alt="《真香！面對Flutter，我終於邁出了第一步》" width="640" height="500" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/12908#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.282 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:23:23 -->
+
+<!-- super cache -->

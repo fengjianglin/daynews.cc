@@ -1,0 +1,840 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/15632#primaryimage","url":"http://p1.pstatp.com/large/dfic-imagehandler/0ee2db15-170e-47f6-9f1e-7d3b98367b9d"},{"@type":"WebPage","@id":"https://daynews.cc/technology/15632#webpage","url":"https://daynews.cc/technology/15632","inLanguage":"zh-TW","name":"\u518d\u6709\u4eba\u554f\u4f60\u70ba\u4ec0\u9ebcMySQL\u7528B+\u6a39\u505a\u7d22\u5f15\uff0c\u5c31\u628a\u9019\u7bc7\u6587\u7ae0\u767c\u7d66\u4ed6 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/15632#primaryimage"},"datePublished":"2019-12-13T10:45:13+00:00","dateModified":"2019-12-13T10:45:13+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="索引這個詞，相信大多數人已經相當熟悉了，很多人都知道MySQL的索引主要以B+樹為主，但是要問到為什麼用B+樹，恐怕很少有人能把前因後果講述的很完整。本文就來從頭到尾介紹下資料庫的索引。 索引是一種數據結構，用於幫助我們在大量數據中快速定位到我們想要查找的數據。 索引最形象的比喻就是圖書的目錄了。注意這裡的大量，數據量大了索引才顯得有意義……" />
+<meta name="twitter:title" content="再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/dfic-imagehandler/0ee2db15-170e-47f6-9f1e-7d3b98367b9d" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他 - 天天要聞" />
+<meta property="og:description" content="索引這個詞，相信大多數人已經相當熟悉了，很多人都知道MySQL的索引主要以B+樹為主，但是要問到為什麼用B+樹，恐怕很少有人能把前因後果講述的很完整。本文就來從頭到尾介紹下資料庫的索引。 索引是一種數據結構，用於幫助我們在大量數據中快速定位到我們想要查找的數據。 索引最形象的比喻就是圖書的目錄了。注意這裡的大量，數據量大了索引才顯得有意義……" />
+<meta property="og:url" content="https://daynews.cc/technology/15632" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-13T10:45:13+00:00" />
+	<title>再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/15632" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-13T18:45:13+00:00">
+		5 天 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/dfic-imagehandler/0ee2db15-170e-47f6-9f1e-7d3b98367b9d" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" width="640" height="259" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/dfic-imagehandler/0ee2db15-170e-47f6-9f1e-7d3b98367b9d" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" width="640" height="259" class=""></noscript></amp-img>
+<div class="pgc-img-handler">
+<div class="pgc-img-button editorImage fix-android">
+<section></section>
+
+</div>
+<div class="pgc-img-button setImageCover fix-android">
+<section></section>
+
+</div>
+<div class="pgc-img-button deleteImage fix-android">
+<section></section>
+
+</div>
+</div>
+<div class="pgc-img-border "></div>
+
+</div>
+<p>索引這個詞，相信大多數人已經相當熟悉了，很多人都知道MySQL的索引主要以B+樹為主，但是要問到為什麼用B+樹，恐怕很少有人能把前因後果講述的很完整。本文就來從頭到尾介紹下資料庫的索引。</p>
+<p><strong>索引是一種數據結構，用於幫助我們在大量數據中快速定位到我們想要查找的數據。</strong> 索引最形象的比喻就是圖書的目錄了。注意這裡的大量，數據量大了索引才顯得有意義，如果我想要在[1,2,3,4]中找到4這個數據，直接對全數據檢索也很快，沒有必要費力氣建索引再去查找。索引在mysql資料庫中分三類：</p>
+<p>B+樹索引、Hash索引、全文索引</p>
+<p>我們今天要介紹的是工作開發中最常接觸到innodb存儲引擎中的的B+樹索引。</p>
+<p>要介紹B+樹索引，就不得不提二叉查找樹，平衡二叉樹和B樹這三種數據結構。B+樹就是從他們仨演化來的。</p>
+<p>二叉查找樹</p>
+<p>首先，讓我們先看一張圖</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/ab8e63b893d64aaea8b9e75bafff65fc" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" width="640" height="326" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/ab8e63b893d64aaea8b9e75bafff65fc" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" width="640" height="326" class=""></noscript></amp-img>
+<div class="pgc-img-handler">
+<div class="pgc-img-button editorImage fix-android">
+<section></section>
+
+</div>
+<div class="pgc-img-button setImageCover fix-android">
+<section></section>
+
+</div>
+<div class="pgc-img-button deleteImage fix-android">
+<section></section>
+
+</div>
+</div>
+<div class="pgc-img-border "></div>
+
+</div>
+<p>￼</p>
+<p>從圖中可以看到，我們為user表（用戶信息表）建立了一個二叉查找樹的索引。圖中的圓為二叉查找樹的節點，節點中存儲了鍵(key)和數據(data)。</p>
+<p>鍵對應user表中的id，數據對應user表中的行數據。二叉查找樹的特點就是<strong>任何節點的左子節點的鍵值都小於當前節點的鍵值，右子節點的鍵值都大於當前節點的鍵值。</strong> 頂端的節點我們稱為根節點，沒有子節點的節點我們稱之為葉節點。</p>
+<p>如果我們需要查找id=12的用戶信息，利用我們創建的二叉查找樹索引，查找流程如下：</p>
+<ul>
+<li>1. 將根節點作為當前節點，把12與當前節點的鍵值10比較，12大於10，接下來我們把當前節點&gt;的右子節點作為當前節點。</li>
+<li>2. 繼續把12和當前節點的鍵值13比較，發現12小於13，把當前節點的左子節點作為當前節點。</li>
+<li>3. 把12和當前節點的鍵值12對比，12等於12，滿足條件，我們從當前節點中取出data，即id=12,name=xm。</li>
+</ul>
+<p>利用二叉查找樹我們只需要3次即可找到匹配的數據。如果在表中一條條的查找的話，我們需要6次才能找到。</p>
+<p>平衡二叉樹</p>
+<p>上面我們講解了利用二叉查找樹可以快速的找到數據。但是，如果上面的二叉查找樹是這樣的構造：</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/633df634fe00423a9e3062269ce7bc5d" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" width="567" height="606" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/633df634fe00423a9e3062269ce7bc5d" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" width="567" height="606" class=""></noscript></amp-img>
+<div class="pgc-img-handler">
+<div class="pgc-img-button editorImage fix-android">
+<section></section>
+
+</div>
+<div class="pgc-img-button setImageCover fix-android">
+<section></section>
+
+</div>
+<div class="pgc-img-button deleteImage fix-android">
+<section></section>
+
+</div>
+</div>
+<div class="pgc-img-border "></div>
+
+</div>
+<p>這個時候可以看到我們的二叉查找樹變成了一個鏈表。</p>
+<p>如果我們需要查找id=17的用戶信息，我們需要查找7次，也就相當於全表掃描了。</p>
+<p>導致這個現象的原因其實是<strong>二叉查找樹變得不平衡了，也就是高度太高了，從而導致查找效率的不穩定。</strong></p>
+<p>為了解決這個問題，我們需要<strong>保證二叉查找樹一直保持平衡</strong>，就需要用到平衡二叉樹了。</p>
+<p>平衡二叉樹又稱AVL樹，在滿足二叉查找樹特性的基礎上，要求<strong>每個節點的左右子樹的高度差不能超過1。</strong></p>
+<p>下面是平衡二叉樹和非平衡二叉樹的對比：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/cce51b5d7d604a6baac92eb3c7dbc57f" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" width="640" height="444" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/cce51b5d7d604a6baac92eb3c7dbc57f" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" width="640" height="444" class=""></noscript></amp-img>
+<div class="pgc-img-handler">
+<div class="pgc-img-button editorImage fix-android">
+<section></section>
+
+</div>
+<div class="pgc-img-button setImageCover fix-android">
+<section></section>
+
+</div>
+<div class="pgc-img-button deleteImage fix-android">
+<section></section>
+
+</div>
+</div>
+<div class="pgc-img-border "></div>
+
+</div>
+<p>由平衡二叉樹的構造我們可以發現第一張圖中的二叉樹其實就是一棵平衡二叉樹。</p>
+<p>平衡二叉樹保證了樹的構造是平衡的，當我們插入或刪除數據導致不滿足平衡二叉樹不平衡時，平衡二叉樹會進行調整樹上的節點來保持平衡。具體的調整方式這裡就不介紹了。</p>
+<p>平衡二叉樹相比於二叉查找樹來說，查找效率更穩定，總體的查找速度也更快。</p>
+<p>B樹</p>
+<p>因為內存的易失性。一般情況下，我們都會選擇將user表中的數據和索引存儲在磁碟這種外圍設備中。</p>
+<p>但是和內存相比，從磁碟中讀取數據的速度會慢上百倍千倍甚至萬倍，所以，我們應當盡量<strong>減少從磁碟中讀取數據的次數。</strong> <strong>另外，從磁碟中讀取數據時，都是按照磁碟塊來讀取的，並不是一條一條的讀。</strong></p>
+<p>如果我們能把盡量多的數據放進磁碟塊中，那一次磁碟讀取操作就會讀取更多數據，那我們查找數據的時間也會大幅度降低。</p>
+<p>如果我們用樹這種數據結構作為索引的數據結構，那我們每查找一次數據就需要從磁碟中讀取一個節點，也就是我們說的一個磁碟塊，我們都知道平衡二叉樹可是每個節點只存儲一個鍵值和數據的。</p>
+<p>那說明什麼？</p>
+<p>說明每個磁碟塊僅僅存儲一個鍵值和數據！</p>
+<p>那如果我們要存儲海量的數據呢？</p>
+<p>可以想像到二叉樹的節點將會非常多，高度也會及其高，我們查找數據時也會進行很多次磁碟IO，我們查找數據的效率將會極低！</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/cd73f30090c84e1289d6f390ff4b6ea9" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" width="640" height="350" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/cd73f30090c84e1289d6f390ff4b6ea9" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" width="640" height="350" class=""></noscript></amp-img>
+<div class="pgc-img-handler">
+<div class="pgc-img-button editorImage fix-android">
+<section></section>
+
+</div>
+<div class="pgc-img-button setImageCover fix-android">
+<section></section>
+
+</div>
+<div class="pgc-img-button deleteImage fix-android">
+<section></section>
+
+</div>
+</div>
+<div class="pgc-img-border "></div>
+
+</div>
+<p>為了解決平衡二叉樹的這個弊端，我們應該尋找一種單個節點可以存儲多個鍵值和數據的平衡樹。也就是我們接下來要說的B樹。</p>
+<p>B樹（Balance Tree）即為平衡樹的意思，下圖即是一顆B樹。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/a03be65ea55f44cca7757df163dd00fc" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" width="640" height="284" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/a03be65ea55f44cca7757df163dd00fc" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" width="640" height="284" class=""></noscript></amp-img>
+<div class="pgc-img-handler">
+<div class="pgc-img-button editorImage fix-android">
+<section></section>
+
+</div>
+<div class="pgc-img-button setImageCover fix-android">
+<section></section>
+
+</div>
+<div class="pgc-img-button deleteImage fix-android">
+<section></section>
+
+</div>
+</div>
+<div class="pgc-img-border "></div>
+
+</div>
+<p>￼</p>
+<p>圖中的p節點為指向子節點的指針，二叉查找樹和平衡二叉樹其實也有，因為圖的美觀性，被省略了。- 圖中的每個節點稱為頁，頁就是我們上面說的磁碟塊，在mysql中數據讀取的基本單位都是頁，所以我們這裡叫做頁更符合mysql中索引的底層數據結構。</p>
+<p>從上圖可以看出，<strong>B樹相對於平衡二叉樹，每個節點存儲了更多的鍵值(key)和數據(data)，並且每個節點擁有更多的子節點，子節點的個數一般稱為階，上述圖中的B樹為3階B樹，高度也會很低。</strong></p>
+<p>基於這個特性，B樹查找數據讀取磁碟的次數將會很少，數據的查找效率也會比平衡二叉樹高很多。</p>
+<p>假如我們要查找id=28的用戶信息，那麼我們在上圖B樹中查找的流程如下：</p>
+<ul>
+<li>1. 先找到根節點也就是頁1，判斷28在鍵值17和35之間，我們那麼我們根據頁1中的指針p2找到頁3。</li>
+<li>2. 將28和頁3中的鍵值相比較，28在26和30之間，我們根據頁3中的指針p2找到頁8。</li>
+<li>3. 將28和頁8中的鍵值相比較，發現有匹配的鍵值28，鍵值28對應的用戶信息為(28,bv)。</li>
+</ul>
+<p>B+樹</p>
+<p>B+樹是對B樹的進一步優化。讓我們先來看下B+樹的結構圖：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/142e67e5a62747838d4b0d862916529f" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" width="640" height="437" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/142e67e5a62747838d4b0d862916529f" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" width="640" height="437" class=""></noscript></amp-img>
+<div class="pgc-img-handler">
+<div class="pgc-img-button editorImage fix-android">
+<section></section>
+
+</div>
+<div class="pgc-img-button setImageCover fix-android">
+<section></section>
+
+</div>
+<div class="pgc-img-button deleteImage fix-android">
+<section></section>
+
+</div>
+</div>
+<div class="pgc-img-border "></div>
+
+</div>
+<p>￼根據上圖我們來看下B+樹和B樹有什麼不同。</p>
+<p>1. B+樹非葉子節點上是不存儲數據的，僅存儲鍵值，而B樹節點中不僅存儲鍵值，也會存儲數據。之所以這麼做是因為在資料庫中頁的大小是固定的，innodb中頁的默認大小是16KB。如果不存儲數據，那麼就會存儲更多的鍵值，相應的樹的階數（節點的子節點樹）就會更大，樹就會更矮更胖，如此一來我們查找數據進行磁碟的IO次數有會再次減少，數據查詢的效率也會更快。另外，B+樹的階數是等於鍵值的數量的，如果我們的B+樹一個節點可以存儲1000個鍵值，那麼3層B+樹可以存儲1000×1000×1000=10億個數據。一般根節點是常駐內存的，所以一般我們查找10億數據，只需要2次磁碟IO。</p>
+<p>2. 因為B+樹索引的所有數據均存儲在葉子節點，而且數據是按照順序排列的。那麼B+樹使得範圍查找，排序查找，分組查找以及去重查找變得異常簡單。而B樹因為數據分散在各個節點，要實現這一點是很不容易的。</p>
+<p>有心的讀者可能還發現上圖B+樹中各個頁之間是通過雙向鏈表連接的，葉子節點中的數據是通過單向鏈表連接的。</p>
+<p>其實上面的B樹我們也可以對各個節點加上鏈表。其實這些不是它們之前的區別，是因為在mysql的innodb存儲引擎中，索引就是這樣存儲的。也就是<strong>說上圖中的B+樹索引就是innodb中B+樹索引真正的實現方式，準確的說應該是聚集索引（聚集索引和非聚集索引下面會講到）。</strong></p>
+<p>通過上圖可以看到，在innodb中，我們通過數據頁之間通過雙向鏈表連接以及葉子節點中數據之間通過單向鏈表連接的方式可以找到表中所有的數據。</p>
+<p>MyISAM中的B+樹索引實現與innodb中的略有不同。在MyISAM中，B+樹索引的葉子節點並不存儲數據，而是存儲數據的文件地址。</p>
+<p>聚集索引 VS 非聚集索引</p>
+<p>在上節介紹B+樹索引的時候，我們提到了圖中的索引其實是聚集索引的實現方式。那什麼是聚集索引呢？</p>
+<p>在MySQL中，B+樹索引按照存儲方式的不同分為<strong>聚集索引</strong>和<strong>非聚集索引</strong>。</p>
+<p>這裡我們著重介紹innodb中的聚集索引和非聚集索引。</p>
+<p>1. 聚集索引（聚簇索引）：以innodb作為存儲引擎的表，表中的數據都會有一個主鍵，即使你不創建主鍵，系統也會幫你創建一個隱式的主鍵。這是因為<strong>innodb是把數據存放在B+樹中的</strong>，而B+樹的鍵值就是主鍵，在B+樹的葉子節點中，存儲了表中所有的數據。這種<strong>以主鍵作為B+樹索引的鍵值而構建的B+樹索引，我們稱之為聚集索引</strong>。</p>
+<p>2. 非聚集索引（非聚簇索引）：以主鍵以外的列值作為鍵值構建的B+樹索引，我們稱之為非聚集索引。非聚集索引與聚集索引的區別在於非聚集索引的葉子節點不存儲表中的數據，而是存儲該列對應的主鍵，想要查找數據我們還需要根據主鍵再去聚集索引中進行查找，這個再根據聚集索引查找數據的過程，我們稱為<strong>回表</strong>。 </p>
+<p>明白了聚集索引和非聚集索引的定義，我們應該明白這樣一句話：<strong>數據即索引，索引即數據</strong>。</p>
+<p>利用聚集索引和非聚集索引查找數據</p>
+<p>前面我們講解B+樹索引的時候並沒有去說怎麼在B+樹中進行數據的查找，主要就是因為還沒有引出聚集索引和非聚集索引的概念。下面我們通過講解如何通過聚集索引以及非聚集索引查找數據表中數據的方式介紹一下B+樹索引查找數據方法。</p>
+<p>利用聚集索引查找數據</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/142e67e5a62747838d4b0d862916529f" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" width="640" height="437" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/142e67e5a62747838d4b0d862916529f" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" width="640" height="437" class=""></noscript></amp-img>
+<div class="pgc-img-handler">
+<div class="pgc-img-button editorImage fix-android">
+<section></section>
+
+</div>
+<div class="pgc-img-button setImageCover fix-android">
+<section></section>
+
+</div>
+<div class="pgc-img-button deleteImage fix-android">
+<section></section>
+
+</div>
+</div>
+<div class="pgc-img-border "></div>
+
+</div>
+<p>還是這張B+樹索引圖，現在我們應該知道這就是聚集索引，表中的數據存儲在其中。現在假設我們要查找id&gt;=18並且id&lt;40的用戶數據。對應的sql語句為select * from user where id&gt;=18 and id &lt;40，其中id為主鍵。具體的查找過程如下：</p>
+<ul>
+<li>1. 一般根節點都是常駐內存的，也就是說頁1已經在內存中了，此時不需要到磁碟中讀取數據，直接從內存中讀取即可。從內存中讀取到頁1，要查找這個id&gt;=18 and id &lt;40或者範圍值，我們首先需要找到id=18的鍵值。從頁1中我們可以找到鍵值18，此時我們需要根據指針p2，定位到頁3。</li>
+<li>2. 要從頁3中查找數據，我們就需要拿著p2指針去磁碟中進行讀取頁3。從磁碟中讀取頁3後將頁3放入內存中，然後進行查找，我們可以找到鍵值18，然後再拿到頁3中的指針p1，定位到頁8。</li>
+<li>3. 同樣的頁8頁不在內存中，我們需要再去磁碟中將頁8讀取到內存中。將頁8讀取到內存中後。因為頁中的數據是鏈表進行連接的，而且鍵值是按照順序存放的，此時可以根據二分查找法定位到鍵值18。此時因為已經到數據頁了，此時我們已經找到一條滿足條件的數據了，就是鍵值18對應的數據。因為是範圍查找，而且此時所有的數據又都存在葉子節點，並且是有序排列的，那麼我們就可以對頁8中的鍵值依次進行遍歷查找並匹配滿足條件的數據。我們可以一直找到鍵值為22的數據，然後頁8中就沒有數據了，此時我們需要拿著頁8中的p指針去讀取頁9中的數據。</li>
+<li>4. 因為頁9不在內存中，就又會載入頁9到內存中，並通過和頁8中一樣的方式進行數據的查找，直到將頁12載入到內存中，發現41大於40，此時不滿足條件。那麼查找到此終止。最終我們找到滿足條件的所有數據為：(18,kl),(19,kl),(22,hj),(24,io),(25,vg),(29,jk),(31,jk),(33,rt),(34,ty),(35,yu),(37,rt),(39,rt)。總共12條記錄。</li>
+</ul>
+<p>下面看下具體的查找流程圖：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/5720380781324bd987f0454bf63714a8" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" width="640" height="496" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/5720380781324bd987f0454bf63714a8" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" width="640" height="496" class=""></noscript></amp-img>
+<div class="pgc-img-handler">
+<div class="pgc-img-button editorImage fix-android">
+<section></section>
+
+</div>
+<div class="pgc-img-button setImageCover fix-android">
+<section></section>
+
+</div>
+<div class="pgc-img-button deleteImage fix-android">
+<section></section>
+
+</div>
+</div>
+<div class="pgc-img-border "></div>
+
+</div>
+<p>利用非聚集索引查找數據</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/517ce5b54dd24daf82137641122950f4" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" width="640" height="431" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/517ce5b54dd24daf82137641122950f4" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" width="640" height="431" class=""></noscript></amp-img>
+<div class="pgc-img-handler">
+<div class="pgc-img-button editorImage fix-android">
+<section></section>
+
+</div>
+<div class="pgc-img-button setImageCover fix-android">
+<section></section>
+
+</div>
+<div class="pgc-img-button deleteImage fix-android">
+<section></section>
+
+</div>
+</div>
+<div class="pgc-img-border "></div>
+
+</div>
+<p>讀者看到這張圖的時候可能會蒙，這是啥東西啊？怎麼都是數字。</p>
+<p>如果有這種感覺，請仔細看下圖中紅字的解釋。什麼？還看不懂？那我再來解釋下吧。首先，這個非聚集索引表示的是用戶幸運數字的索引（為什麼是幸運數字？一時興起想起來的:-)），此時表結構是這樣的。</p>
+<p>idnameluckyNum1zs232ls7</p>
+<p>在葉子節點中，不在存儲所有的數據了，存儲的是鍵值和主鍵。</p>
+<p>對於葉子節點中的x-y，比如1-1。左邊的1表示的是索引的鍵值，右邊的1表示的是主鍵值。如果我們要找到幸運數字為33的用戶信息，對應的sql語句為select * from user where luckNum=33。</p>
+<p>查找的流程跟聚集索引一樣，這裡就不詳細介紹了。我們最終會找到主鍵值47，找到主鍵後我們需要再到聚集索引中查找具體對應的數據信息，此時又回到了聚集索引的查找流程。</p>
+<p>下面看下具體的查找流程圖：</p>
+<p>￼</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/4f09ce465efc433a905ff7e8228185d6" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" width="640" height="465" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/4f09ce465efc433a905ff7e8228185d6" alt="《再有人問你為什麼MySQL用B+樹做索引，就把這篇文章發給他》" width="640" height="465" class=""></noscript></amp-img>
+<div class="pgc-img-handler">
+<div class="pgc-img-button editorImage fix-android">
+<section></section>
+
+</div>
+<div class="pgc-img-button setImageCover fix-android">
+<section></section>
+
+</div>
+<div class="pgc-img-button deleteImage fix-android">
+<section></section>
+
+</div>
+</div>
+<div class="pgc-img-border "></div>
+
+</div>
+<p>在MyISAM中，聚集索引和非聚集索引的葉子節點都會存儲數據的文件地址。</p>
+<p>總結</p>
+<p>本篇文從二叉查找樹，詳細說明了為什麼mysql用B+樹作為數據的索引，以及在innodb中資料庫如何通過B+樹索引來存儲數據以及查找數據。我們一定要記住這句話：<strong>數據即索引，索引即數據</strong>。</p>
+<h2>2019最新Python400集視頻教程免費分享：</h2>
+<h2>轉發+關注，私信小編「資料」馬上領取</h2>
+
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/15632#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.287 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:30:02 -->
+
+<!-- super cache -->

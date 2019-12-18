@@ -1,0 +1,651 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/15482#primaryimage","url":"http://p9.pstatp.com/large/pgc-image/855c2fe6f51b4a9ba506651ca064651a"},{"@type":"WebPage","@id":"https://daynews.cc/technology/15482#webpage","url":"https://daynews.cc/technology/15482","inLanguage":"zh-TW","name":"\u4ec0\u9ebc\u662f\u6563\u9ede\u5716\uff1f\u600e\u6a23\u7528Python\u7e6a\u88fd\uff1f\u6709\u4ec0\u9ebc\u7528\uff1f\u7d42\u65bc\u6709\u4eba\u8b1b\u660e\u767d\u4e86 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/15482#primaryimage"},"datePublished":"2019-12-14T13:55:10+00:00","dateModified":"2019-12-14T13:55:10+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="導讀：什麼是散點圖？可以用來呈現哪些數據關係？在數據分析過程中可以解決哪些問題？怎樣用Python繪製散點圖？本文逐一為你解答。 作者：屈希峰 來源：華章科技 01 概述 散點圖（Scatter）又稱散點分布圖，是以一個變數為橫坐標，另一個變數為縱坐標，利用散點（坐標點）的分布形態反映變數統計關係的一種圖形。 特點是能直觀表現出影響因素和……" />
+<meta name="twitter:title" content="什麼是散點圖？怎樣用Python繪製？有什麼用？終於有人講明白了 - 天天要聞" />
+<meta name="twitter:image" content="http://p9.pstatp.com/large/pgc-image/855c2fe6f51b4a9ba506651ca064651a" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="什麼是散點圖？怎樣用Python繪製？有什麼用？終於有人講明白了 - 天天要聞" />
+<meta property="og:description" content="導讀：什麼是散點圖？可以用來呈現哪些數據關係？在數據分析過程中可以解決哪些問題？怎樣用Python繪製散點圖？本文逐一為你解答。 作者：屈希峰 來源：華章科技 01 概述 散點圖（Scatter）又稱散點分布圖，是以一個變數為橫坐標，另一個變數為縱坐標，利用散點（坐標點）的分布形態反映變數統計關係的一種圖形。 特點是能直觀表現出影響因素和……" />
+<meta property="og:url" content="https://daynews.cc/technology/15482" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-14T13:55:10+00:00" />
+	<title>什麼是散點圖？怎樣用Python繪製？有什麼用？終於有人講明白了 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/15482" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">什麼是散點圖？怎樣用Python繪製？有什麼用？終於有人講明白了</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-14T21:55:10+00:00">
+		4 天 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<blockquote>
+<p>導讀：什麼是散點圖？可以用來呈現哪些數據關係？在數據分析過程中可以解決哪些問題？怎樣用Python繪製散點圖？本文逐一為你解答。</p>
+</blockquote>
+<p>作者：屈希峰</p>
+<p>來源：華章科技</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/855c2fe6f51b4a9ba506651ca064651a" alt="《什麼是散點圖？怎樣用Python繪製？有什麼用？終於有人講明白了》" width="640" height="426" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/855c2fe6f51b4a9ba506651ca064651a" alt="《什麼是散點圖？怎樣用Python繪製？有什麼用？終於有人講明白了》" width="640" height="426" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">01 概述</h2>
+<p>散點圖（Scatter）又稱散點分布圖，是以一個變數為橫坐標，另一個變數為縱坐標，利用散點（坐標點）的分布形態反映變數統計關係的一種圖形。</p>
+<p><strong>特點是能直觀表現出影響因素和預測對象之間的總體關係趨勢。</strong>優點是能通過直觀醒目的圖形方式反映變數間關係的變化形態，<strong>以便決定用何種數學表達方式來模擬變數之間的關係。</strong>散點圖不僅可傳遞變數間關係類型的信息，還能反映變數間關係的明確程度。</p>
+<p>通過觀察散點圖數據點的分布情況，我們可以推斷出變數間的相關性。如果變數之間不存在相互關係，那麼在散點圖上就會表現為隨機分布的離散的點，如果存在某種相關性，那麼大部分的數據點就會相對密集並以某種趨勢呈現。</p>
+<p>數據的<strong>相關關係</strong>大體上可以分為：正相關（兩個變數值同時增長）、負相關（一個變數值增加，另一個變數值下降）、不相關、線性相關、指數相關等，表現在散點圖上的大致分布如圖1所示。那些離點集群較遠的點我們稱之為離群點或者異常點。</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/ffc6b152d36148dc949b2e8dc52c8d63" alt="《什麼是散點圖？怎樣用Python繪製？有什麼用？終於有人講明白了》" width="321" height="420" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/ffc6b152d36148dc949b2e8dc52c8d63" alt="《什麼是散點圖？怎樣用Python繪製？有什麼用？終於有人講明白了》" width="321" height="420" class=""></noscript></amp-img>
+<p class="pgc-img-caption">▲圖1 散點數據的相關性</p>
+
+</div>
+<p>在Python體系中，可使用Scipy、Statsmodels或Sklearn等對離散點進行回歸分析，歸納現有數據並進行預測分析。<strong>對於那些變數之間存在密切關係，但是這些關係又不像數學公式和物理公式那樣能夠精確表達的，散點圖是一種很好的圖形工具，可以進行直觀展示</strong>，如圖2所示。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/f493eef3603c40559538ecc7d4beff75" alt="《什麼是散點圖？怎樣用Python繪製？有什麼用？終於有人講明白了》" width="384" height="381" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/f493eef3603c40559538ecc7d4beff75" alt="《什麼是散點圖？怎樣用Python繪製？有什麼用？終於有人講明白了》" width="384" height="381" class=""></noscript></amp-img>
+<p class="pgc-img-caption">▲圖2 散點數據擬合（線性）</p>
+
+</div>
+<p>但是在分析過程中需要注意，變數之間的相關性並不等同於確定的因果關係，仍需要考慮其他影響因素。</p>
+<h2 class="pgc-h-arrow-right">02 實例</h2>
+<p>散點圖代碼示例如下所示。</p>
+<p><strong>代碼示例①</strong></p>
+<pre>#數據<br>x=[1,2,3,4,5]<br>y=[6,7,2,4,5]<br>#畫布：尺寸<br>p=figure(plot_width=400,plot_height=400)<br>#畫圖<br>p.scatter(x,y,<br>size=20,#screenunits顯示器像素單位<br>#radius=1,#data-spaceunits坐標軸單位<br>marker="circle",color="navy",alpha=0.5)<br>#p.circle(x,y,size=20,color="navy",alpha=0.5)<br>#顯示<br>show(p)</pre>
+<p>運行結果如圖3所示。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/62e6949acd064838bd3046170e17fb61" alt="《什麼是散點圖？怎樣用Python繪製？有什麼用？終於有人講明白了》" width="452" height="452" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/62e6949acd064838bd3046170e17fb61" alt="《什麼是散點圖？怎樣用Python繪製？有什麼用？終於有人講明白了》" width="452" height="452" class=""></noscript></amp-img>
+<p class="pgc-img-caption">▲圖3 代碼示例①運行結果</p>
+
+</div>
+<p>代碼示例①中第7行使用scatter方法進行散點圖繪製；第11行採用circle方法進行散點圖繪製（推薦）。關於這兩個方法的參數說明如下。</p>
+<p><strong>p.circle(x, y, **kwargs)參數說明。</strong></p>
+<ul class=" list-paddingleft-2">
+<li><strong>x</strong> (str or seq[float]) : 離散點的x坐標，列名或列表</li>
+<li><strong>y</strong> (str or seq[float]) : 離散點的y坐標</li>
+<li><strong>size </strong>(str or list[float]) : 離散點的大小，屏幕像素單位</li>
+<li><strong>marker</strong> (str, or list[str]) : 離散點標記類型名稱或名稱列表</li>
+<li><strong>color </strong>(color value, optional) : 填充及輪廓線的顏色</li>
+<li><strong>source</strong> (`~bokeh.models.sources.ColumnDataSource`) : Bokeh專屬數據格式</li>
+<li><strong>**kwargs: </strong>其他自定義屬性；其中標記點類型marker默認值為：「marker=”circle”」，可以用「radius」定義圓的半徑大小（單位為坐標軸單位）。這在Web數據化中非常有用，不同的方式，在不同的設備上的展示效果會有些許差異。</li>
+</ul>
+<p><strong>p.scatter(x, y, **kwargs)參數說明。</strong></p>
+<ul class=" list-paddingleft-2">
+<li><strong>x</strong> (:class:`~bokeh.core.properties.NumberSpec` ) : x坐標</li>
+<li><strong>y </strong>(:class:`~bokeh.core.properties.NumberSpec` ) : y坐標</li>
+<li><strong>angle</strong> (:class:`~bokeh.core.properties.AngleSpec` ) : 旋轉角度</li>
+<li><strong>angle_units</strong> (:class:`~bokeh.core.enums.AngleUnits`) : (default: ‘rad’) 默認：弧度，也可以採用度（’degree’）</li>
+<li><strong>fill_alpha </strong>(:class:`~bokeh.core.properties.NumberSpec` ) : (default: 1.0) 填充透明度，默認：不透明</li>
+<li><strong>fill_color </strong>(:class:`~bokeh.core.properties.ColorSpec` ) : (default: ‘gray’) 填充顏色，默認：灰色</li>
+<li><strong>line_alpha </strong>(:class:`~bokeh.core.properties.NumberSpec` ) : (default: 1.0) 輪廓線透明度，默認：不透明</li>
+<li><strong>line_cap : </strong>(:class:`~bokeh.core.enums.LineCap` ) : (default: ‘butt’) 線端（帽）</li>
+<li><strong>line_color </strong>(:class:`~bokeh.core.properties.ColorSpec` ) : (default: ‘black’) 輪廓線顏色，默認：黑色</li>
+<li><strong>line_dash</strong> (:class:`~bokeh.core.properties.DashPattern` ) : (default: []) 虛線</li>
+<li><strong>line_dash_offset </strong>(:class:`~bokeh.core.properties.Int` ) : (default: 0) 虛線偏移</li>
+<li><strong>line_join</strong> (:class:`~bokeh.core.enums.LineJoin` ) : (default: ‘bevel’)</li>
+<li><strong>line_width </strong>(:class:`~bokeh.core.properties.NumberSpec` ) : (default: 1) 線寬，默認：1</li>
+</ul>
+<p>另外，Bokeh中的一些屬性，如`~bokeh.core.properties.NumberSpec `、`~bokeh.core.properties.ColorSpec`可以在Jupyter notebook中通過`import bokeh.core.properties.NumberSpec `導入該屬性，然後再查看其詳細的使用說明。</p>
+<p><strong>代碼示例②</strong></p>
+<pre>#數據<br>N=4000<br>x=np.random.random(size=N)*100#隨機點x坐標<br>y=np.random.random(size=N)*100#隨機點y坐標<br>radii=np.random.random(size=N)*1.5#隨機半徑<br>#工具條<br>TOOLS="hover,crosshair,pan,wheel_zoom,box_zoom,reset,tap,save,box_select,poly_select,lasso_select"<br>#RGB顏色，畫布1，繪圖1<br>colors2=["#%02x%02x%02x"%(int(r),int(g),150)forr,ginzip(50+2*x,30+2*y)]<br>p1=figure(width=300,height=300,tools=TOOLS)<br>p1.scatter(x,y,radius=radii,fill_color=colors2,fill_alpha=0.6,line_color=None)<br>#RGB顏色，畫布2，繪圖2<br>colors2=["#%02x%02x%02x"%(150,int(g),int(b))forg,binzip(50+2*x,30+2*y)]<br>p2=figure(width=300,height=300,tools=TOOLS)<br>p2.scatter(x,y,radius=radii,fill_color=colors2,fill_alpha=0.6,line_color=None)<br>#直接顯示<br>#show(p1)<br>#show(p2)<br>#網格顯示<br>frombokeh.layoutsimportgridplot<br>grid=gridplot([[p1,p2]])<br>show(grid)<br></pre>
+<p>運行結果如圖4所示。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/1124bf44bb5e44c29baef61044ba7560" alt="《什麼是散點圖？怎樣用Python繪製？有什麼用？終於有人講明白了》" width="640" height="348" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/1124bf44bb5e44c29baef61044ba7560" alt="《什麼是散點圖？怎樣用Python繪製？有什麼用？終於有人講明白了》" width="640" height="348" class=""></noscript></amp-img>
+<p class="pgc-img-caption">▲圖4 代碼示例②運行結果</p>
+
+</div>
+<p>代碼示例②中第11行和第15行使用scatter方法進行散點圖繪製。第7行工具條中的不同工具定義，第9行數據點的不同顏色定義，第20行和第21行採用網格顯示圖形，可以提前了解這些技巧，具體使用方法在下文中會專門進行介紹。</p>
+<p><strong>代碼示例③</strong></p>
+<pre>frombokeh.sampledata.irisimportflowers<br>#配色<br>colormap={'setosa':'red','versicolor':'green','virginica':'blue'}<br>colors=[colormap[x]forxinflowers['species']]<br>#畫布<br>p=figure(title="IrisMorphology")<br>#繪圖<br>p.circle(flowers["petal_length"],flowers["petal_width"],<br>color=colors,fill_alpha=0.2,size=10)<br>#其他<br>p.xaxis.axis_label='PetalLength'<br>p.yaxis.axis_label='PetalWidth'<br>#顯示<br>show(p)</pre>
+<p>運行結果如圖5所示。</p>
+<p>代碼示例③再次對前面提到的鳶尾花的數據集進行分析，圖5中x軸為花瓣長度，y軸為花瓣寬度，據此可以將該散點數據聚類為3類。同時，該段代碼展示了常規圖形的繪製流程，含x、y軸的標籤。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/84874bb96a054e93b0b31b674b8a5aff" alt="《什麼是散點圖？怎樣用Python繪製？有什麼用？終於有人講明白了》" width="640" height="640" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/84874bb96a054e93b0b31b674b8a5aff" alt="《什麼是散點圖？怎樣用Python繪製？有什麼用？終於有人講明白了》" width="640" height="640" class=""></noscript></amp-img>
+<p class="pgc-img-caption">▲圖5 代碼示例③運行結果</p>
+
+</div>
+<p><strong>代碼示例④</strong></p>
+<pre>frombokeh.layoutsimportcolumn,gridplot<br>frombokeh.modelsimportBoxSelectTool,Div<br>#數據<br>x=np.linspace(0,4*np.pi,100)<br>y=np.sin(x)<br>#工具條<br>TOOLS="wheel_zoom,save,box_select,lasso_select,reset"<br>#HTML代碼<br>div=Div(text="""<br>&lt;p&gt;Bokeh中的畫布可通過多種布局方式進行顯示；&lt;/p&gt;<br>&lt;p&gt;通過配置參數BoxSelectTool，在圖中用滑鼠選擇數據，採用不同方式進行交互。&lt;/p&gt;<br>""")#HTML代碼直接作為一個圖層顯示，也可以作為整個HTML文檔<br>#視圖屬性<br>opts=dict(tools=TOOLS,plot_width=350,plot_height=350)<br>#繪圖1<br>p1=figure(title="selectiononmouseup",**opts)<br>p1.circle(x,y,color="navy",size=6,alpha=0.6)<br>#繪圖2<br>p2=figure(title="selectiononmousemove",**opts)<br>p2.square(x,y,color="olive",size=6,alpha=0.6)<br>p2.select_one(BoxSelectTool).select_every_mousemove=True<br>#繪圖3<br>p3=figure(title="defaulthighlight",**opts)<br>p3.circle(x,y,color="firebrick",alpha=0.5,size=6)<br>#繪圖4<br>p4=figure(title="customhighlight",**opts)<br>p4.square(x,y,color="navy",size=6,alpha=0.6,<br>nonselection_color="orange",nonselection_alpha=0.6)<br>#布局<br>layout=column(div,<br>gridplot([[p1,p2],[p3,p4]],toolbar_location="right"),<br>sizing_mode="scale_width")#sizing_mode根據窗口寬度縮放圖像<br>#繪圖<br>show(layout)<br></pre>
+<p>Bokeh中的畫布可通過多種布局方式進行顯示：通過配置視圖參數，在視圖中進行交互可視化。運行結果如圖6所示。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/d7cc824ef103458da8084e7aa4d015b2" alt="《什麼是散點圖？怎樣用Python繪製？有什麼用？終於有人講明白了》" width="640" height="650" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/d7cc824ef103458da8084e7aa4d015b2" alt="《什麼是散點圖？怎樣用Python繪製？有什麼用？終於有人講明白了》" width="640" height="650" class=""></noscript></amp-img>
+<p class="pgc-img-caption">▲圖6 代碼示例④運行結果</p>
+
+</div>
+<p>代碼示例④讓讀者感受一下Bokeh的交互效果，Div方法可以直接使用HTML標籤，其作為一個獨立的圖層進行顯示（第30行）。另外需要注意，可以通過`nonselection_`，`nonselection_alpha`或`nonselection_fill_alpha`設套索置選取數據時的散點的顏色、透明度等。</p>
+<p><strong>代碼示例⑤</strong></p>
+<pre>frombokeh.modelsimport(<br>ColumnDataSource,<br>Range1d,DataRange1d,<br>LinearAxis,SingleIntervalTicker,FixedTicker,<br>Label,Arrow,NormalHead,<br>HoverTool,TapTool,CustomJS)<br>frombokeh.sampledata.sprintimportsprint<br>abbrev_to_country={<br>"USA":"UnitedStates",<br>"GBR":"Britain",<br>"JAM":"Jamaica",<br>"CAN":"Canada",<br>"TRI":"TrinidadandTobago",<br>"AUS":"Australia",<br>"GER":"Germany",<br>"CUB":"Cuba",<br>"NAM":"Namibia",<br>"URS":"SovietUnion",<br>"BAR":"Barbados",<br>"BUL":"Bulgaria",<br>"HUN":"Hungary",<br>"NED":"Netherlands",<br>"NZL":"NewZealand",<br>"PAN":"Panama",<br>"POR":"Portugal",<br>"RSA":"SouthAfrica",<br>"EUA":"UnitedTeamofGermany",<br>}<br>gold_fill="#efcf6d"<br>gold_line="#c8a850"<br>silver_fill="#cccccc"<br>silver_line="#b0b0b1"<br>bronze_fill="#c59e8a"<br>bronze_line="#98715d"<br>fill_color={"gold":gold_fill,"silver":silver_fill,"bronze":bronze_fill}<br>line_color={"gold":gold_line,"silver":silver_line,"bronze":bronze_line}<br>defselected_name(name,medal,year):<br>returnnameifmedal=="gold"andyearin[1988,1968,1936,1896]else""<br>t0=sprint.Time[0]<br>sprint["Abbrev"]=sprint.Country<br>sprint["Country"]=sprint.Abbrev.map(lambdaabbr:abbrev_to_country[abbr])<br>sprint["Medal"]=sprint.Medal.map(lambdamedal:medal.lower())<br>sprint["Speed"]=100.0/sprint.Time<br>sprint["MetersBack"]=100.0*(1.0-t0/sprint.Time)<br>sprint["MedalFill"]=sprint.Medal.map(lambdamedal:fill_color[medal])<br>sprint["MedalLine"]=sprint.Medal.map(lambdamedal:line_color[medal])<br>sprint["SelectedName"]=sprint[["Name","Medal","Year"]].apply(tuple,axis=1).map(lambdaargs:selected_name(*args))<br>source=ColumnDataSource(sprint)<br>xdr=Range1d(start=sprint.MetersBack.max()+2,end=0)#XXX:+2ispoor-man'spadding(otherwisemisseslasttick)<br>ydr=DataRange1d(range_padding=4,range_padding_units="absolute")<br>plot=figure(<br>x_range=xdr,y_range=ydr,<br>plot_width=1000,plot_height=600,<br>toolbar_location=None,<br>outline_line_color=None,y_axis_type=None)<br>plot.title.text="UsainBoltvs.116yearsofOlympicsprinters"<br>plot.title.text_font_size="14pt"<br>plot.xaxis.ticker=SingleIntervalTicker(interval=5,num_minor_ticks=0)<br>plot.xaxis.axis_line_color=None<br>plot.xaxis.major_tick_line_color=None<br>plot.xgrid.grid_line_dash="dashed"<br>yticker=FixedTicker(ticks=[1900,1912,1924,1936,1952,1964,1976,1988,2000,2012])<br>yaxis=LinearAxis(ticker=yticker,major_tick_in=-5,major_tick_out=10)<br>plot.add_layout(yaxis,"right")<br>medal=plot.circle(x="MetersBack",y="Year",radius=dict(value=5,units="screen"),<br>fill_color="MedalFill",line_color="MedalLine",fill_alpha=0.5,source=source,level="overlay")<br>plot.text(x="MetersBack",y="Year",x_offset=10,y_offset=-5,text="SelectedName",<br>text_align="left",text_baseline="middle",text_font_size="9pt",source=source)<br>no_olympics_label=Label(<br>x=7.5,y=1942,<br>text="NoOlympicsin1940or1944",<br>text_align="center",text_baseline="middle",<br>text_font_size="9pt",text_font_style="italic",text_color="silver")<br>no_olympics=plot.add_layout(no_olympics_label)<br>x=sprint[sprint.Year==1900].MetersBack.min()-0.5<br>arrow=Arrow(x_start=x,x_end=5,y_start=1900,y_end=1900,start=NormalHead(fill_color="black",size=6),end=None,line_width=1.5)<br>plot.add_layout(arrow)<br>meters_back=Label(<br>x=5,x_offset=10,y=1900,<br>text="Metersbehind2012Bolt",<br>text_align="left",text_baseline="middle",<br>text_font_size="10pt",text_font_style="bold")<br>plot.add_layout(meters_back)<br>disclaimer=Label(<br>x=0,y=0,x_units="screen",y_units="screen",<br>text="ThischartincludesmedalsfortheUnitedStatesandAustraliainthe\"Intermediary\"Gamesof1906,whichtheI.O.C.doesnotformallyrecognize.",<br>text_font_size="8pt",text_color="silver")<br>plot.add_layout(disclaimer,"below")<br>tooltips="""<br>&lt;div&gt;<br>&lt;spanstyle="font-size:15px;"&gt;@Name&lt;/span&gt;<br>&lt;spanstyle="font-size:10px;color:#666;"&gt;(@Abbrev)&lt;/span&gt;<br>&lt;/div&gt;<br>&lt;div&gt;<br>&lt;spanstyle="font-size:17px;font-weight:bold;"&gt;@Time{0.00}&lt;/span&gt;<br>&lt;spanstyle="font-size:10px;color:#666;"&gt;@Year&lt;/span&gt;<br>&lt;/div&gt;<br>&lt;divstyle="font-size:11px;color:#666;"&gt;@{MetersBack}{0.00}metersbehind&lt;/div&gt;<br>"""<br>plot.add_tools(HoverTool(tooltips=tooltips,renderers=[medal]))<br>open_url=CustomJS(args=dict(source=source),code="""<br>source.inspected._1d.indices.forEach(function(index){<br>varname=source.data["Name"][index];<br>varurl="http://en.wikipedia.org/wiki/"+encodeURIComponent(name);<br>window.open(url);<br>});<br>""")<br>plot.add_tools(TapTool(callback=open_url,renderers=[medal],behavior="inspect"))<br>show(plot)<br></pre>
+<p>運行結果如圖7所示。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/151f7c4771ce4a62acb4c353b5f2ff58" alt="《什麼是散點圖？怎樣用Python繪製？有什麼用？終於有人講明白了》" width="640" height="375" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/151f7c4771ce4a62acb4c353b5f2ff58" alt="《什麼是散點圖？怎樣用Python繪製？有什麼用？終於有人講明白了》" width="640" height="375" class=""></noscript></amp-img>
+<p class="pgc-img-caption">▲圖7 代碼示例⑤運行結果</p>
+
+</div>
+<p>代碼示例⑤展示了短跑選手博爾特與116年來奧運會其他短跑選手成績的對比情況。上述代碼包含數據預處理、自定義繪圖屬性、數據標記、互動式顯示等較為複雜的操作，不作為本文重點；讀者僅需要知道通過哪些代碼可以實現哪些可視化的效果即可。</p>
+<p>本文通過5個代碼示例展示了散點圖的繪製技巧，繪製難度也逐漸增大，與此同時，展現的效果也越來越好。讀者在學習過程中可以多思考，在這個示例中哪些數據需要互動式展示，採用哪種展示方式更好。</p>
+<blockquote>
+<p>關於作者：屈希峰，資深Python工程師，Bokeh領域的實踐者和佈道者，對Bokeh有深入的研究。擅長Flask、MongoDB、Sklearn等技術，實踐經驗豐富。知乎多個專欄（Python中文社區、Python程序員、大數據分析挖掘）作者，專欄累計關注用戶十餘萬人。</p>
+</blockquote>
+<p>本文摘編自《Python數據可視化：基於Bokeh的可視化繪圖》，經出版方授權發布。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/384f5ebe0d4b421fa128a85e15afebc5" alt="《什麼是散點圖？怎樣用Python繪製？有什麼用？終於有人講明白了》" width="640" height="360" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/384f5ebe0d4b421fa128a85e15afebc5" alt="《什麼是散點圖？怎樣用Python繪製？有什麼用？終於有人講明白了》" width="640" height="360" class=""></noscript></amp-img>
+<p class="pgc-img-caption">延伸閱讀《Python數據可視化》，長按上方二維碼了解及購買</p>
+
+</div>
+<p><strong>推薦語：</strong>從圖形繪製、數據動態展示、Web交互等維度全面講解Bokeh功能和使用，不含複雜數據處理和演算法，深入淺出，適合零基礎入門，包含大量案例。</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/15482#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.248 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:33:49 -->
+
+<!-- super cache -->

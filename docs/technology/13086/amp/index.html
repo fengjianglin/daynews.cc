@@ -1,0 +1,763 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/13086#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/a98d4e8831314f77af68ce8e6c0ef708"},{"@type":"WebPage","@id":"https://daynews.cc/technology/13086#webpage","url":"https://daynews.cc/technology/13086","inLanguage":"zh-TW","name":"\u4e00\u4efd\u5fae\u670d\u52d9\u67b6\u69cb\u624b\u7a3f\u5716\uff0c\u5fb9\u5e95\u641e\u5b9a\u5fae\u670d\u52d9\u6838\u5fc3\u539f\u7406 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/13086#primaryimage"},"datePublished":"2019-12-11T08:05:11+00:00","dateModified":"2019-12-11T08:05:11+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="微服務的概念最早在 2012 年提出，在 Martin Fowler 的大力推廣下，微服務在 2014 年後得到了大力發展。今天我們通過一組手繪圖來梳理下微服務的核心架構。 什麼是微服務？ 微服務 Microservices 之父，馬丁.福勒，對微服務大概的概述如下： 就目前而言，對於微服務業界並沒有一個統一的、標準的定義（While t……" />
+<meta name="twitter:title" content="一份微服務架構手稿圖，徹底搞定微服務核心原理 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/a98d4e8831314f77af68ce8e6c0ef708" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="一份微服務架構手稿圖，徹底搞定微服務核心原理 - 天天要聞" />
+<meta property="og:description" content="微服務的概念最早在 2012 年提出，在 Martin Fowler 的大力推廣下，微服務在 2014 年後得到了大力發展。今天我們通過一組手繪圖來梳理下微服務的核心架構。 什麼是微服務？ 微服務 Microservices 之父，馬丁.福勒，對微服務大概的概述如下： 就目前而言，對於微服務業界並沒有一個統一的、標準的定義（While t……" />
+<meta property="og:url" content="https://daynews.cc/technology/13086" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-11T08:05:11+00:00" />
+	<title>一份微服務架構手稿圖，徹底搞定微服務核心原理 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/13086" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">一份微服務架構手稿圖，徹底搞定微服務核心原理</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-11T16:05:11+00:00">
+		7 天 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<blockquote>
+<p>微服務的概念最早在 2012 年提出，在 Martin Fowler 的大力推廣下，微服務在 2014 年後得到了大力發展。今天我們通過一組手繪圖來梳理下微服務的核心架構。</p>
+</blockquote>
+<h2 class="pgc-h-arrow-right">什麼是微服務？</h2>
+<p>微服務 Microservices 之父，馬丁.福勒，對微服務大概的概述如下：</p>
+<p>就目前而言，對於微服務業界並沒有一個統一的、標準的定義（While there is no precise definition of this architectural style ) 。</p>
+<p>但通常在其而言，微服務架構是一種架構模式或者說是一種架構風格，它提倡將單一應用程序劃分成一組小的服務，每個服務運行獨立的自己的進程中，服務之間互相協調、互相配合，為用戶提供最終價值。</p>
+<p>服務之間採用輕量級的通信機制互相溝通（通常是基於 HTTP 的 RESTful API ) 。每個服務都圍繞著具體業務進行構建，並且能夠被獨立地部署到生產環境、類生產環境等。</p>
+<p>另外，應盡量避免統一的、集中式的服務管理機制，對具體的一個服務而言，應根據業務上下文，選擇合適的語言、工具對其進行構建，可以有一個非常輕量級的集中式管理來協調這些服務。可以使用不同的語言來編寫服務，也可以使用不同的數據存儲。</p>
+<p>根據馬丁.福勒的描述，我總結了以下幾點：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/a98d4e8831314f77af68ce8e6c0ef708" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="480" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/a98d4e8831314f77af68ce8e6c0ef708" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="480" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>①小服務</strong></p>
+<p>小服務，沒有特定的標準或者規範，但他在總體規範上一定是小的。</p>
+<p><strong>②進程獨立</strong></p>
+<p>每一組服務都是獨立運行的，可能我這個服務運行在 Tomcat 容器，而另一個服務運行在 Jetty 上。可以通過進程方式，不斷的橫向擴展整個服務。</p>
+<p><strong>③通信</strong></p>
+<p>過去的協議都是很重的，就像 ESB，就像 SOAP，輕通信，這意味著相比過去更智能更輕量的服務相互調用，就所謂 smart endpoints and dumb pipes。</p>
+<p>這些 Endpoint 都是解耦的，完成一個業務通信調用串起這些 Micro Service 就像是 Linux 系統中通過管道串起一系列命令業務。</p>
+<p>過去的業務，我們通常會考慮各種各樣的依賴關係，考慮系統耦合帶來的問題。微服務，可以讓開發者更專註於業務的邏輯開發。</p>
+<p><strong>④部署</strong></p>
+<p>不止業務要獨立，部署也要獨立。不過這也意味著，傳統的開發流程會出現一定程度的改變，開發的適合也要有一定的運維職責。</p>
+<p><strong>⑤管理</strong></p>
+<p>傳統的企業級 SOA 服務往往很大，不易於管理，耦合性高，團隊開發成本比較大。</p>
+<p>微服務，可以讓團隊各思其政的選擇技術實現，不同的 Service 可以根據各自的需要選擇不同的技術棧來實現其業務邏輯。</p>
+<h2 class="pgc-h-arrow-right">微服務的利與弊</h2>
+<p>為什麼用微服務呢？因為好玩？不是的。下面是我從網路上找到說的比較全的優點：</p>
+<ul class="list-paddingleft-2">
+<li>優點是每個服務足夠內聚，足夠小，代碼容易理解這樣能聚焦一個指定的業務功能或業務需求。</li>
+<li>開發簡單、開發效率提高，一個服務可能就是專一的只干一件事。</li>
+<li>微服務能夠被小團隊單獨開發，這個小團隊是 2 到 5 人的開發人員組成。</li>
+<li>微服務是松耦合的，是有功能意義的服務，無論是在開發階段或部署階段都是獨立的。</li>
+<li>微服務能使用不同的語言開發。</li>
+<li>易於和第三方集成，微服務允許容易且靈活的方式集成自動部署，通過持續集成工具，如 Jenkins，Hudson，bamboo。</li>
+<li>微服務易於被一個開發人員理解，修改和維護，這樣小團隊能夠更關注自己的工作成果。無需通過合作才能體現價值。微服務允許你利用融合最新技術。</li>
+<li>微服務只是業務邏輯的代碼，不會和 HTML，CSS 或其他界面組件混合。</li>
+<li>每個微服務都有自己的存儲能力，可以有自己的資料庫，也可以有統一資料庫。</li>
+</ul>
+<p>總的來說，微服務的優勢，就是在於，面對大的系統，可以有效的減少複雜程度，使服務架構的邏輯更清晰明了。</p>
+<p>但是這樣也會帶來很多問題，就譬如分散式環境下的數據一致性，測試的複雜性，運維的複雜性。</p>
+<h2 class="pgc-h-arrow-right">什麼組織適合使用微服務？</h2>
+<p>微服務帶了種種優點，種種弊端，那麼什麼組織適合使用微服務？</p>
+<p><strong>①墨菲定律（設計系統）和康威定律（系統劃分）<br></strong>康威定律，是一個五十多年前就被提出來的微服務概念。在康威的這篇文章中，最有名的一句話就是：</p>
+<blockquote>
+<p>Organizations which design systems are constrained to produce designs which are copies of the communication structures of these organizations.</p>
+<p>-Melvin Conway(1967)</p>
+</blockquote>
+<p>中文直譯大概的意思就是：設計系統的組織，其產生的設計等同於組織之內、組織之間的溝通結構。</p>
+<p>看看下面的圖片，再想想 Apple 的產品、微軟的產品設計，就能形象生動的理解這句話。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/76303789e22846bcb07d0497988934da" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="624" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/76303789e22846bcb07d0497988934da" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="624" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>感興趣的各位可以研究一下！</p>
+<p><strong>②架構演化</strong></p>
+<p>架構是不斷演化出來的，微服務也是這樣，當從各大科技公司，規模大到一定程度，完全需要演化成更進一步管理的技術架構體系。</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/9f5d6936bf5f443f8469853e129f50dd" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="480" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/9f5d6936bf5f443f8469853e129f50dd" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="480" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>傳統的團隊，都是面向過程化的，產品想完了去找策劃，策劃完了找開發，接著順著一步一步找。</p>
+<p>我們做技術都是為了產品的，一旦過程出來了什麼問題，回溯尋找問題會非常耗時。</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/9f5d6936bf5f443f8469853e129f50dd" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="480" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/9f5d6936bf5f443f8469853e129f50dd" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="480" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>使用了微服務架構體系，團隊組織方式需要轉變成跨職能團隊，即每個團隊都有產品專家，策劃專家，開發專家，運維專家，他們使用 API 方式發布他們的功能，而平台使用他們的功能發布產品。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/29150c8443d34f49b150e83dddc7ec8b" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="324" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/29150c8443d34f49b150e83dddc7ec8b" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="324" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">微服務技術架構體系</h2>
+<p>下面我分享一下大部分公司都使用的微服務技術架構體系：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/0d25aa30932742d6a2884cc316e1b179" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="480" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/0d25aa30932742d6a2884cc316e1b179" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="480" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">服務發現</h2>
+<p>主流的服務發現，分為三種：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/cb1be5fc4536463e8c8e7420a0c592ab" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="480" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/cb1be5fc4536463e8c8e7420a0c592ab" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="480" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>第一種，開發人員開發了程序以後，會找運維配一個域名，服務的話通過 DNS 就能找到我們對應的服務。</p>
+<p>缺點是，由於服務沒有負載均衡功能，對負載均衡服務，可能會有相當大的性能問題。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/4810a86d0c494fe9a4e2daff98f9b3e5" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="480" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/4810a86d0c494fe9a4e2daff98f9b3e5" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="480" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>第二種，是目前普遍的做法。可以參考 Zuul 網關，每一個服務都通過服務端內置的功能註冊到註冊中心，服務消費者不斷輪詢註冊中心發現對應的服務，使用內置負載均衡調用服務。</p>
+<p>缺點是，對多語言環境不是很好，你需要單獨給消費者的客戶端開發服務發現和負載均衡功能。當然了，這個方法通常都是用在 Spring Cloud 上的。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/e05b4737b6dd4db9b689a7e4ae19c765" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="480" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/e05b4737b6dd4db9b689a7e4ae19c765" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="480" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>第三種，是將客戶端和負載均衡放在同一個主機，而不是同一個進程內。</p>
+<p>這種方法相對第一種第二種方法來說，改善了他們的缺點，但是會極大增加運維成本。</p>
+<h2 class="pgc-h-arrow-right">網關</h2>
+<p>微服務的網關是什麼？我們可以聯繫生活實際想一下。每一個大的公司，都會有一偏屬於自己的建築區，而這建築區內，都有不少的門衛。如果有外來人員進入公司，會先和門衛打好招呼，才能進去。</p>
+<p>將生活實際聯繫到微服務上，就不難理解網關的意思了：</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/48a687f0c5d049cca103cde4b9f83995" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="480" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/48a687f0c5d049cca103cde4b9f83995" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="480" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>網關的作用如下：</p>
+<ul class="list-paddingleft-2">
+<li>反向路由：很多時候，公司不想讓外部人員看到我們公司的內部，就需要網關來進行反向路由。即將外部請求轉換成內部具體服務調用。</li>
+<li>安全認證：網路中會有很多惡意訪問，譬如爬蟲，譬如黑客攻擊，網關維護安全功能。</li>
+<li>限流熔斷：當請求很多服務不堪重負，會讓我們的服務自動關閉，導致不能用服務。限流熔斷可以有效的避免這類問題。</li>
+<li>日誌監控：所有的外面的請求都會經過網關，這樣我們就可以使用網關來記錄日誌信息。</li>
+<li>灰度發布，藍綠部署。是指能夠平滑過渡的一種發布方式。在其上可以進行 A/B testing。即讓一部分用戶繼續用產品特性 A，一部分用戶開始用產品特性 B，如果用戶對 B 沒有什麼反對意見，那麼逐步擴大範圍，把所有用戶都遷移到 B 上面來。</li>
+</ul>
+<p>開源網關 Zuul 架構：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/0cc11b53a3c34ee9b576cf08c81d1d27" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="499" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/0cc11b53a3c34ee9b576cf08c81d1d27" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="499" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>Zuul 網關核心其實是一個 Servlet，所有請求都會經過 Zuul Servlet 傳到 ZuulFilter Runner，然後分發到三種過濾器。</p>
+<p>先說說架構圖左半部分，分別是使用 Groovy 實現的前置路由過濾器，路由過濾器，後置路由過濾器。</p>
+<p>一般請求都會先經過前置路由過濾器處理，一般的自定義 Java 封裝邏輯也會在這裡實現。</p>
+<p>路由過濾器，實現的是找到對應的微服務進行調用。調用完了，響應回來，會經過後置路由過濾器，通過後置路由過濾器我們可以封裝日誌審計的處理。</p>
+<p>可以說 Zuul 網關最大的特色就是它的三層過濾器。架構圖右半部分，是 Zuul 網關設計的自定義過濾器載入機制。</p>
+<p>網關內部會有生產者消費者模型，自動的將過濾器腳本發布到 Zuul 網關讀取載入運行。</p>
+<h2 class="pgc-h-arrow-right">配置中心</h2>
+<p>以前，開發人員把配置文件放在開發文件裡面，這樣會有很多隱患。譬如，配置規範不同，無法追溯配置人員。微服務配置中心全面對比，哪個更牛逼？這篇推薦大家看下。</p>
+<p>一旦需要大規模改動配置，改動時間會很長，無法追溯配置人員，從而影響整個產品，後果是我們承擔不起的。</p>
+<p>因此就有配置中心這個嘍！現在的開源中心有百度配置中心 Disconf，Spring Cloud Config，Apollo。</p>
+<p>今天重點說說現在應用質量不錯的配置中心，攜程開源的阿波羅（Apollo）：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/8585c29d38ac42f2b2e91633b36608bd" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="480" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/8585c29d38ac42f2b2e91633b36608bd" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="480" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>Apollo 的配置中心規模比較大，本地應用會有響應的配置中心客戶端，可以定時同步配置中心裡的配置。如果配置中心怠機，會使用緩存來進行配置。</p>
+<h2 class="pgc-h-arrow-right">通訊方式</h2>
+<p>關於通訊方式，一般市面也就是兩種遠程調用方式，我整理了一個表格：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/534ce48f916341dfa26a29ebc081e947" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="488" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/534ce48f916341dfa26a29ebc081e947" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="488" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">監控預警</h2>
+<p>監控預警對於微服務很重要，一個可靠的監控預警體系對微服務運行至關重要。</p>
+<p>一般監控分為如下層次：</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/55f641c726d74ed38a6763d4046ca9d6" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="477" height="547" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/55f641c726d74ed38a6763d4046ca9d6" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="477" height="547" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>從基礎設施到用戶端，層層有監控，全方位，多角度，每一個層面都很重要。</p>
+<p>總體來說，微服務可分為 5 個監控點：</p>
+<ul class="list-paddingleft-2">
+<li>日誌監控</li>
+<li>Metrics 監控</li>
+<li>健康檢查</li>
+<li>調用鏈檢查</li>
+<li>告警系統</li>
+</ul>
+<p><strong>①監控架構</strong></p>
+<p>下面的圖是大部分公司的一種監控架構圖。每一個服務都有一個 Agent，Agent 收集到關鍵信息，會傳到一些 MQ 中，為了解耦。</p>
+<p>同時將日誌傳入 ELK，將 Metrics 傳入 InfluxDB 時間序列庫。而像 Nagios，可以定期向 Agent 發起信息檢查微服務。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/80f113b38fe542cc86f36f1b88d9be7d" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="568" height="334" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/80f113b38fe542cc86f36f1b88d9be7d" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="568" height="334" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>②調用鏈監控 APM</strong></p>
+<p>很多公司都有調用鏈監控，就譬如阿里有鷹眼監控，點評的 Cat，大部分調用鏈監控（沒錯，我指的 Zipkin）架構是這樣的：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/9def4bb73bcc47669b721e3744aba17e" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="543" height="491" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/9def4bb73bcc47669b721e3744aba17e" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="543" height="491" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>當請求進入 Web 容器的時候，會經過創建 Tracer，連接 Spans（模擬潛在的分散式工作的延遲，該模塊還包含在系統網路間傳遞跟蹤上下文信息的工具包，如通過 HTTP Headers）。</p>
+<p>Spans 有一個上下文，其中包含 Tracer 標識符，將其放在表示分散式操作的樹的正確位置。</p>
+<p>當我們把圖中的各種 Span 放到後端的時候，我們的服務調用鏈會動態的生成調用鏈。</p>
+<p>下面是一些市場上用的比較多的調用鏈監控對比：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/15e39bee05c84eefaf9f0d91aefe3fa9" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="846" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/15e39bee05c84eefaf9f0d91aefe3fa9" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="846" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">熔斷、隔離、限流、降級</h2>
+<p>面對巨大的突發流量下，大型公司一般會採用一系列的熔斷（系統自動將服務關閉防止讓出現的問題最大化）、隔離（將服務和服務隔離，防止一個服務掛了其他服務不能訪問）、限流（單位時間內之允許一定數量用戶訪問）、降級（當整個微服務架構整體的負載超出了預設的上限閾值或即將到來的流量預計將會超過預設的閾值時，為了保證重要或基本的服務能正常運行，我們可以將一些不重要或不緊急的服務或任務進行服務的延遲使用或暫停使用）措施。</p>
+<p>下面介紹一下 Hystrix 的運行流程：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/2e150e9f461c4ac98bf40712d668c7cb" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="305" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/2e150e9f461c4ac98bf40712d668c7cb" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="305" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>Hystrix 停止開發，Spring Cloud 何去何從？</strong></p>
+<p>每一個微服務調用時，都會使用 Hystrix 的 Command 方式（上圖的左上角那個），然後使用 Command 同步的，或者是響應式的，或者是非同步的，判斷電路是否熔斷（順著圖從左往右看），如果斷路則走降級 Fallback。</p>
+<p>如果這個線閉合著，但是線程資源沒了，隊列滿了，則走限流措施（看圖的第 5 步）。</p>
+<p>如果走完了，執行成功了，則走 run() 方法，獲取 Response，但是這個過程如果出錯了，則繼續走降級 Fallback。</p>
+<p>同時，看圖最上面有一個後綴是 Health 的，這是一個計算整個鏈路是否健康的組件，每一步操作都被它記錄著。</p>
+<h2 class="pgc-h-arrow-right">容器與服務編排引擎</h2>
+<p>從物理機到虛擬機，從虛擬機到容器；從物理集群到 OpenStack，OpenStack 到 Kubernetes；科技不斷的變化，我們的認知也沒刷新。</p>
+<p>我們從容器開始說起，它首先是一個相對獨立的運行環境，在這一點有點類似於虛擬機，但是不像虛擬機那樣徹底。</p>
+<p>虛擬機會將虛擬硬體、內核（即操作系統）以及用戶空間打包在新虛擬機當中，虛擬機能夠利用「虛擬機管理程序」運行在物理設備之上。</p>
+<p>虛擬機依賴於 Hypervisor，其通常被安裝在「裸金屬」系統硬體之上，這導致 Hypervisor 在某些方面被認為是一種操作系統。</p>
+<p>一旦 Hypervisor 安裝完成， 就可以從系統可用計算資源當中分配虛擬機實例了，每台虛擬機都能夠獲得唯一的操作系統和負載（應用程序）。</p>
+<p>簡言之，虛擬機先需要虛擬一個物理環境，然後構建一個完整的操作系統，再搭建一層 Runtime，然後供應用程序運行。</p>
+<p>對於容器環境來說，不需要安裝主機操作系統，直接將容器層（比如 LXC 或 Libcontainer）安裝在主機操作系統（通常是 Linux 變種）之上。</p>
+<p>在安裝完容器層之後，就可以從系統可用計算資源當中分配容器實例了，並且企業應用可以被部署在容器當中。</p>
+<p>但是，每個容器化應用都會共享相同的操作系統(單個主機操作系統)。容器可以看成一個裝好了一組特定應用的虛擬機，它直接利用了宿主機的內核，抽象層比虛擬機更少，更加輕量化，啟動速度極快。</p>
+<p>相比於虛擬機，容器擁有更高的資源使用效率，因為它並不需要為每個應用分配單獨的操作系統——實例規模更小、創建和遷移速度也更快。這意味著相比於虛擬機，單個操作系統能夠承載更多的容器。</p>
+<p>雲提供商十分熱衷於容器技術，因為在相同的硬體設備當中，可以部署數量更多的容器實例。</p>
+<p>此外，容器易於遷移，但是只能被遷移到具有兼容操作系統內核的其他伺服器當中，這樣就會給遷移選擇帶來限制。</p>
+<p>因為容器不像虛擬機那樣同樣對內核或者虛擬硬體進行打包，所以每套容器都擁有自己的隔離化用戶空間，從而使得多套容器能夠運行在同一主機系統之上。</p>
+<p>我們可以看到全部操作系統層級的架構都可實現跨容器共享，惟一需要獨立構建的就是二進位文件與庫。</p>
+<p>正因為如此，容器才擁有極為出色的輕量化特性。我們最常用的容器是 Docker。</p>
+<p><strong>①容器編排</strong></p>
+<p>過去虛擬機可以通過雲平台 OpenStack 管理虛擬化，容器時代如何管理容器呢？這就要看看容器編排引擎了。</p>
+<p>Apache Mesos：Mesos 是基於 Master，Slave 架構，框架決定如何利用資源，Master 負責管理機器，Slave 會定期的將機器情況報告給 Master，Master 再將信息給框架。Master 是高可用的，因為 ZK，也有 Leader 的存在。</p>
+<p>下面是架構圖：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/c6a3287405f041caa0c10720947a5f19" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="503" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/c6a3287405f041caa0c10720947a5f19" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="503" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>Kubernetes：Kubernetes 是最近十分火熱的開源容器編排引擎。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/d0c6072e3ab14190b300742ed1c5b7e9" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="527" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/d0c6072e3ab14190b300742ed1c5b7e9" alt="《一份微服務架構手稿圖，徹底搞定微服務核心原理》" width="640" height="527" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>Kubernetes 設計理念和功能其實就是一個類似 Linux 的分層架構，先說說每一個 Kubernetes 節點內部，kubelet 管理全局全局 pod，而每一個 pod 承載著一個或多個容器，kube-proxy 負責網路代理和負載均衡。</p>
+<p>Kubernetes 節點外部，則是對應的控制管理伺服器，負責統一管理各個節點調度分配與運行。</p>
+<p><strong>②服務網格化</strong></p>
+<p>關於服務網路化，後面會更加深入的為大家進行講解。</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/13086#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.290 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:00:32 -->
+
+<!-- super cache -->

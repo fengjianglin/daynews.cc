@@ -1,0 +1,696 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/10151#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/5df8a949726b4c47a749314cb8de06a2"},{"@type":"WebPage","@id":"https://daynews.cc/technology/10151#webpage","url":"https://daynews.cc/technology/10151","inLanguage":"zh-TW","name":"dba+\u958b\u6e90\u5de5\u5177\uff1a\u9762\u5411\u958b\u767c\u7684MySQL\u5716\u5f62\u53ef\u8996\u5316\u76e3\u63a7 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/10151#primaryimage"},"datePublished":"2019-12-06T16:50:12+00:00","dateModified":"2019-12-06T16:50:12+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="工具研發者介紹 賀春暘，凡普金科DBA團隊負責人，《MySQL管理之道：性能調優、高可用與監控》第一、二版作者，曾任職於中國移動飛信、安卓機鋒網。致力於MariaDB、MongoDB等開源技術的研究，主要負責資料庫性能調優、監控和架構設計。 工具下載： https://github.com/hcymysql/mysql_monitor 簡……" />
+<meta name="twitter:title" content="dba+開源工具：面向開發的MySQL圖形可視化監控 - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/5df8a949726b4c47a749314cb8de06a2" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="dba+開源工具：面向開發的MySQL圖形可視化監控 - 天天要聞" />
+<meta property="og:description" content="工具研發者介紹 賀春暘，凡普金科DBA團隊負責人，《MySQL管理之道：性能調優、高可用與監控》第一、二版作者，曾任職於中國移動飛信、安卓機鋒網。致力於MariaDB、MongoDB等開源技術的研究，主要負責資料庫性能調優、監控和架構設計。 工具下載： https://github.com/hcymysql/mysql_monitor 簡……" />
+<meta property="og:url" content="https://daynews.cc/technology/10151" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-06T16:50:12+00:00" />
+	<title>dba+開源工具：面向開發的MySQL圖形可視化監控 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/10151" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">dba+開源工具：面向開發的MySQL圖形可視化監控</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-07T00:50:12+00:00">
+		2 週 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<p><strong>工具研發者介紹</strong></p>
+<p><strong>賀春暘，</strong>凡普金科DBA團隊負責人，《MySQL管理之道：性能調優、高可用與監控》第一、二版作者，曾任職於中國移動飛信、安卓機鋒網。致力於MariaDB、MongoDB等開源技術的研究，主要負責資料庫性能調優、監控和架構設計。</p>
+<p><strong>工具下載：</strong></p>
+<p>https://github.com/hcymysql/mysql_monitor</p>
+
+<p><strong>簡介</strong></p>
+
+<p>目前常用的開源監控工具有nagios、zabbix、grafana，但這些是面向專業DBA使用的，而對於業務研發人員來說，沒有專業的MySQL理論知識，並且上述監控工具均為純英文界面，交互不直觀，那麼多的監控指標，你知道有哪些是研發最關心的嗎？</p>
+
+<p>所以每次都是DBA通知研發，系統哪塊出了問題，這樣的效率其實是低下的，我希望把監控這塊東西定製化，做成開發一眼就能看懂的指標項，純中文頁面，清爽直觀，簡約而不簡單，出了問題報警信息直接第一時間推送給研發，效率會大大提升，同時也減少了DBA作為中間人傳話的作用（傳達室大爺角色）。</p>
+
+<p>參考了天兔Lepus的UI風格，目前採集了資料庫連接數（具體連接了哪些應用程序IP，賬號統計）、QPS/TPS、索引使用率統計，同步複製狀態/延遲監控。可實現微信和郵件報警。</p>
+
+<p><strong>1）MySQL狀態監控</strong></p>
+
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/5df8a949726b4c47a749314cb8de06a2" alt="《dba+開源工具：面向開發的MySQL圖形可視化監控》" width="1080" height="334" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/5df8a949726b4c47a749314cb8de06a2" alt="《dba+開源工具：面向開發的MySQL圖形可視化監控》" width="1080" height="334" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>2）點擊活動連接數，可以查看具體的連接數統計信息</strong></p>
+
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/d55b21101e93435695ddd5261258cd98" alt="《dba+開源工具：面向開發的MySQL圖形可視化監控》" width="640" height="305" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/d55b21101e93435695ddd5261258cd98" alt="《dba+開源工具：面向開發的MySQL圖形可視化監控》" width="640" height="305" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>3）點擊圖表，可以查看歷史曲線圖</strong></p>
+
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/d76e7b42f8c74bf0bcd4c45e722fcc2a" alt="《dba+開源工具：面向開發的MySQL圖形可視化監控》" width="640" height="306" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/d76e7b42f8c74bf0bcd4c45e722fcc2a" alt="《dba+開源工具：面向開發的MySQL圖形可視化監控》" width="640" height="306" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>4）主從狀態監控</strong></p>
+
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/74338d45c0fd45269e61525c1cb8ca7f" alt="《dba+開源工具：面向開發的MySQL圖形可視化監控》" width="632" height="237" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/74338d45c0fd45269e61525c1cb8ca7f" alt="《dba+開源工具：面向開發的MySQL圖形可視化監控》" width="632" height="237" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>5）微信報警</strong></p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/a3ac99afd8da41fd9f4f8eae53835dc0" alt="《dba+開源工具：面向開發的MySQL圖形可視化監控》" width="550" height="640" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/a3ac99afd8da41fd9f4f8eae53835dc0" alt="《dba+開源工具：面向開發的MySQL圖形可視化監控》" width="550" height="640" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>6）郵件報警</strong></p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/7b13fc08cdae4d75b799c3588cbbd65f" alt="《dba+開源工具：面向開發的MySQL圖形可視化監控》" width="640" height="291" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/7b13fc08cdae4d75b799c3588cbbd65f" alt="《dba+開源工具：面向開發的MySQL圖形可視化監控》" width="640" height="291" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>環境搭建</strong></p>
+
+<p># yum install httpd mysql php-mysqlnd -y</p>
+<p># yum install python-simplejson -y</p>
+<p># service httpd start</p>
+
+<p>把https://github.com/hcymysql/mysql_monitor/archive/master.zip安裝包解壓縮到/var/www/html/目錄下。</p>
+<p># cd /var/www/html/mysql_monitor/</p>
+<p># chmod 755 ./mail/sendEmail</p>
+<p># chmod 755 ./weixin/wechat.py</p>
+
+<p>註：郵件和微信報警調用的第三方工具，所以這裡要賦予可執行許可權755。</p>
+
+<p><strong>MySQL Monitor監控工具搭建</strong></p>
+
+<p><strong>1）導入MySQL Monitor監控工具表結構（sql_db庫）</strong></p>
+
+<p># cd /var/www/html/mysql_monitor/</p>
+<p># mysql -uroot -p123456 &lt; mysql_monitor_schema.sql</p>
+
+<p><strong>2）錄入被監控主機的信息</strong></p>
+
+<p>mysql&gt;insert into</p>
+<p>`mysql_status_info`(`id`,`ip`,`dbname`,`user`,`pwd`,`port`,`monitor`,`send_mail`,`send_mail_to_list`,`send_weixin`,`send_weixin_to_list`,`alarm_threads_running`,`threshold_alarm_threads_running`,`alarm_repl_status`,`threshold_warning_repl_delay`)</p>
+<p>values</p>
+<p>(1,’127.0.0.1′,’sql_db’,’admin’,’hechunyang’,3306,1,1,’chunyang_he@139.com,chunyang_he@126.com’,1,’hechunyang’,NULL,NULL,NULL,NULL);</p>
+
+<p>註：以下欄位可以按照需求變更：</p>
+
+<ul class="list-paddingleft-2">
+<li>ip欄位含義：輸入被監控MySQL的IP地址</li>
+<li>dbname欄位含義：輸入被監控MySQL的資料庫名</li>
+<li>user欄位含義：輸入被監控MySQL的用戶名（最好給ALL管理員許可權）</li>
+<li>pwd欄位含義：輸入被監控MySQL的密碼</li>
+<li>port欄位含義：輸入被監控MySQL的埠號</li>
+<li>monitor欄位含義：0為關閉監控（也不採集數據，直接跳過）;1為開啟監控（採集數據）</li>
+<li>send_mail欄位含義：0為關閉郵件報警;1為開啟郵件報警</li>
+<li>send_mail_to_list欄位含義：郵件人列表</li>
+<li>send_weixin欄位含義：0為關閉微信報警;1為開啟微信報警</li>
+<li>send_weixin_to_list欄位含義：微信公眾號</li>
+<li>threshold_alarm_threads_running欄位含義：設置連接數閥值（單位個）</li>
+<li>threshold_warning_repl_delay欄位含義：設置主從複製延遲閥值（單位秒）</li>
+</ul>
+<p><strong>3）修改conn.php配置文件</strong></p>
+
+<p># vim /var/www/html/mysql_monitor/conn.php</p>
+
+<p>$con = mysqli_connect(“127.0.0.1″,”admin”,”hechunyang”,”sql_db”,”3306″) or die(“資料庫鏈接錯誤”.mysql_error());</p>
+
+<p>改成你的MySQL Monitor監控工具表結構（sql_db庫）連接信息。</p>
+
+<p><strong>4）修改郵件報警信息</strong></p>
+
+<p># cd /var/www/html/mysql_monitor/mail/</p>
+<p># vim mail.php</p>
+
+<p>system(“./mail/sendEmail -f chunyang_he@139.com -t ‘{$this-&gt;send_mail_to_list}’ -ssmtp.139.com:25 -u ‘{$this-&gt;alarm_subject}’ -o message-charset=utf8 -o message-content-type=html -m ‘報警信息：&lt;br&gt;&lt;font</p>
+<p>color=’#FF0000′&gt;{$this-&gt;alarm_info}&lt;/font&gt;’ -xu chunyang_he@139.com -xp’123456′ -o tls=no”);</p>
+<p>改成你的發件人地址、賬號密碼，裡面的變數不用修改。</p>
+
+<p><strong>5）修改微信報警信息</strong></p>
+
+<p># cd /var/www/html/mysql_monitor/weixin/</p>
+<p># vim wechat.py</p>
+
+<p>微信企業號設置移步https://github.com/X-Mars/Zabbix-Alert-WeChat/blob/master/README.md 看此教程配置。</p>
+
+<p><strong>6）定時任務每分鐘抓取一次</strong></p>
+
+<p># crontab -l</p>
+
+<p>*/1 * * * * cd /var/www/html/mysql_monitor/; /usr/bin/php/var/www/html/mysql_monitor/check_mysql_repl.php &gt; /dev/null 2 &gt;&amp;1</p>
+
+<p>*/1 * * * * cd /var/www/html/mysql_monitor/; /usr/bin/php/var/www/html/mysql_monitor/check_mysql_status.php &gt; /dev/null 2 &gt;&amp;1</p>
+
+<ul class="list-paddingleft-2">
+<li>check_mysql_status.php（用來採集被監控端MySQL狀態信息和觸發報警）</li>
+<li>check_mysql_repl.php（用來採集被監控端MySQL主從複製信息和觸發報警）</li>
+</ul>
+<p><strong>7）更改頁面自動刷新頻率</strong></p>
+
+<p>vim mysql_status_monitor.php</p>
+<p>vim mysql_repl_monitor.php</p>
+
+<p>&lt;meta http-equiv=”refresh” content=”600″ /&gt; &lt;!– 頁面刷新時間600秒 –&gt;</p>
+
+<p>默認頁面每600秒自動刷新一次。</p>
+
+<p><strong>8）頁面訪問</strong></p>
+
+<ul class="list-paddingleft-2">
+<li>http://yourIP/mysql_monitor/mysql_status_monitor.php</li>
+<li>http://yourIP/mysql_monitor/mysql_repl_monitor.php</li>
+</ul>
+<p>加一個超鏈接，可方便地接入你們的自動化運維平台里。</p>
+
+<p><strong>下載方式</strong></p>
+
+<p>此工具現通過dbaplus社群免費為大家提供下載使用。若使用過程中有任何問題或建議，可隨時與我們聯繫，歡迎大家試用。</p>
+
+<p><strong>登錄以下鏈接即可下載：</strong></p>
+<p><strong>https://github.com/hcymysql/mysql_monitor</strong></p>
+
+<p><strong>更多開源工具&amp;腳本</strong></p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/0b1227a460e341cdaa62577947e60678" alt="《dba+開源工具：面向開發的MySQL圖形可視化監控》" width="640" height="276" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/0b1227a460e341cdaa62577947e60678" alt="《dba+開源工具：面向開發的MySQL圖形可視化監控》" width="640" height="276" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>詳情及下載：http://dbaplus.cn/list-142-1.html</strong></p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/10151#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.268 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:18:57 -->
+
+<!-- super cache -->

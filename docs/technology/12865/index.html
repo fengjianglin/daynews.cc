@@ -1,0 +1,604 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>Python黑客入門：暴力破解zip，零基礎也可以學會 - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="2.1 準備基本材料 在/home/ziptest/目錄下，我創建了兩個文件，一個test.zip，是一個設置了密碼的zip包，密碼為456789。 dict.txt文件是一個字典文件，簡單的配置了幾個密碼。 下面我們打開開發工具，開始編寫測試代碼。 2.2 ZIPFILE 在python中操作zip文件，最簡單的方式就是使用zipfil……" />
+		<meta name="keywords" content="Python黑客入門：暴力破解zip，零基礎也可以學會 - 天天要聞,科技," />
+		<meta itemprop="image" content="http://p1.pstatp.com/large/pgc-image/d1cefd8b364f4985ab41440c50163eae"/>
+		<meta name="description" itemprop="description" content="2.1 準備基本材料 在/home/ziptest/目錄下，我創建了兩個文件，一個test.zip，是一個設置了密碼的zip包，密碼為456789。 dict.txt文件是一個字典文件，簡單的配置了幾個密碼。 下面我們打開開發工具，開始編寫測試代碼。 2.2 ZIPFILE 在python中操作zip文件，最簡單的方式就是使用zipfil……" />
+		
+<!-- This site is optimized with the SEO -->
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="https://daynews.cc/technology/12865" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Python黑客入門：暴力破解zip，零基礎也可以學會 - 天天要聞" />
+<meta property="og:description" content="2.1 準備基本材料 在/home/ziptest/目錄下，我創建了兩個文件，一個test.zip，是一個設置了密碼的zip包，密碼為456789。 dict.txt文件是一個字典文件，簡單的配置了幾個密碼。 下面我們打開開發工具，開始編寫測試代碼。 2.2 ZIPFILE 在python中操作zip文件，最簡單的方式就是使用zipfil……" />
+<meta property="og:url" content="https://daynews.cc/technology/12865" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-12T13:50:05+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="2.1 準備基本材料 在/home/ziptest/目錄下，我創建了兩個文件，一個test.zip，是一個設置了密碼的zip包，密碼為456789。 dict.txt文件是一個字典文件，簡單的配置了幾個密碼。 下面我們打開開發工具，開始編寫測試代碼。 2.2 ZIPFILE 在python中操作zip文件，最簡單的方式就是使用zipfil……" />
+<meta name="twitter:title" content="Python黑客入門：暴力破解zip，零基礎也可以學會 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/d1cefd8b364f4985ab41440c50163eae" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/12865#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/d1cefd8b364f4985ab41440c50163eae"},{"@type":"WebPage","@id":"https://daynews.cc/technology/12865#webpage","url":"https://daynews.cc/technology/12865","inLanguage":"zh-TW","name":"Python\u9ed1\u5ba2\u5165\u9580\uff1a\u66b4\u529b\u7834\u89e3zip\uff0c\u96f6\u57fa\u790e\u4e5f\u53ef\u4ee5\u5b78\u6703 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/12865#primaryimage"},"datePublished":"2019-12-12T13:50:05+00:00","dateModified":"2019-12-12T13:50:05+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<!-- / SEO. -->
+
+<link rel='stylesheet' id='animate-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/animate.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/bootstrap.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/superfish.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/layer.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='https://daynews.cc/wp-content/themes/Kratos/style.css' type='text/css' media='all' />
+<link rel="amphtml" href="https://daynews.cc/technology/12865/amp">		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.min.js'></script>
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154709495-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-154709495-1');
+		</script>
+		<!-- Google Adsense -->
+		<script data-ad-client="ca-pub-8261739837930821" async 
+			src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="https://daynews.cc"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="/">首頁</a></li>
+<li><a href="/entertainment">娛樂</a></li>
+<li><a href="/emotion">情感</a></li>
+<li><a href="https://daynews.cc/international">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="https://daynews.cc/technology">科技</a></li>
+<li><a href="/sports">體育</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/nba">NBA</a></li>
+	<li><a href="/premier">英超</a></li>
+</ul>
+</li>
+<li><a href="/history">歷史</a></li>
+<li><a href="/game">遊戲</a></li>
+<li><a href="https://daynews.cc/health">養生</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/lose">減肥</a></li>
+</ul>
+</li>
+<li><a href="https://daynews.cc/constellation">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">Python黑客入門：暴力破解zip，零基礎也可以學會</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-12				                <i class="fa fa-commenting-o"></i> 323條評論
+				                <i class="fa fa-eye"></i> 2,101次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 976人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/d1cefd8b364f4985ab41440c50163eae" src="http://p1.pstatp.com/large/pgc-image/d1cefd8b364f4985ab41440c50163eae" alt="《Python黑客入門：暴力破解zip，零基礎也可以學會》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p><strong>2.1 準備基本材料</strong></p>
+<p>在/home/ziptest/目錄下，我創建了兩個文件，一個test.zip，是一個設置了密碼的zip包，密碼為456789。</p>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/dfic-imagehandler/317f6f48-e34e-4e67-8fd0-571afa2a9a0f" src="http://p9.pstatp.com/large/dfic-imagehandler/317f6f48-e34e-4e67-8fd0-571afa2a9a0f" alt="《Python黑客入門：暴力破解zip，零基礎也可以學會》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>dict.txt文件是一個字典文件，簡單的配置了幾個密碼。</p>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/dfic-imagehandler/9544160f-c761-4d67-a09c-dfe73c1aea38" src="http://p1.pstatp.com/large/dfic-imagehandler/9544160f-c761-4d67-a09c-dfe73c1aea38" alt="《Python黑客入門：暴力破解zip，零基礎也可以學會》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>下面我們打開開發工具，開始編寫測試代碼。</p>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/dfic-imagehandler/15350fc1-d19e-4fb7-b22a-bda06cff7659" src="http://p1.pstatp.com/large/dfic-imagehandler/15350fc1-d19e-4fb7-b22a-bda06cff7659" alt="《Python黑客入門：暴力破解zip，零基礎也可以學會》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p><strong>2.2 ZIPFILE</strong></p>
+<p>在python中操作zip文件，最簡單的方式就是使用zipfile模塊，使用該模塊可以用來判斷一個文件是否是壓縮文件，創建、解壓文件，獲取zip文件的元數據信息。可以使用python的help方法查看該模塊的使用方法。</p>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/dfic-imagehandler/3df5b492-a498-42ec-b952-cfd59d4b2b5a" src="http://p3.pstatp.com/large/dfic-imagehandler/3df5b492-a498-42ec-b952-cfd59d4b2b5a" alt="《Python黑客入門：暴力破解zip，零基礎也可以學會》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/dfic-imagehandler/52e6fdb0-5948-4ffd-9968-32f717b8cc43" src="http://p3.pstatp.com/large/dfic-imagehandler/52e6fdb0-5948-4ffd-9968-32f717b8cc43" alt="《Python黑客入門：暴力破解zip，零基礎也可以學會》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>這裡我們首先關注下ZipFile類。</p>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/dfic-imagehandler/39795a2f-cdbd-4be5-80f0-a30d499d25db" src="http://p9.pstatp.com/large/dfic-imagehandler/39795a2f-cdbd-4be5-80f0-a30d499d25db" alt="《Python黑客入門：暴力破解zip，零基礎也可以學會》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>該類用來打開，讀取，修改，解壓zip文件。我們想要操作一個zip文件，第一步就是初始化ZipFile實例。下面我們打開我們準備好的text.zip文件。</p>
+<p><strong>import zipfile</strong></p>
+</p>
+<p>zFile = zipfile.ZipFile(<strong>&#8220;/HOME/TEST.ZIP&#8221;);</strong></p>
+<p>我們只傳了一個路徑參數進去，從幫助文檔我們可以看到，後面三個參數都有默認值，這裡我們使用默認值就夠了。</p>
+<p>下面我們關注下ZipFile類的extractall方法。</p>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/dfic-imagehandler/496be430-8812-444d-9700-45b583bc6663" src="http://p1.pstatp.com/large/dfic-imagehandler/496be430-8812-444d-9700-45b583bc6663" alt="《Python黑客入門：暴力破解zip，零基礎也可以學會》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>extractall方法，是把壓縮包裡面的內容都解壓出來，三個參數，path是解壓的路徑，members是需要解壓出來的文件，pwd是密碼。</p>
+<p>現在我們可以測試下文件解壓了。</p>
+<p><strong>import zipfile</strong></p>
+</p>
+<p>zFile = zipfile.ZipFile(<strong>&#8220;/HOME/ZIPTEST/TEST.ZIP&#8221;);</strong></p>
+<p>zFile.extractall(<strong>&#8220;/HOME/&#8221;,pwd=&#8221;456789&#8243;);</strong></p>
+<p>運行這個腳本。</p>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/dfic-imagehandler/00d6992e-c0c7-4ad8-89c0-8b5ee9eaddaa" src="http://p1.pstatp.com/large/dfic-imagehandler/00d6992e-c0c7-4ad8-89c0-8b5ee9eaddaa" alt="《Python黑客入門：暴力破解zip，零基礎也可以學會》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>密碼正確的話，會正常解壓文件。如果密碼不正確會出現什麼情況呢？我們在代碼中輸入一個錯誤的密碼。</p>
+<p><strong>import zipfile</strong></p>
+<p>zFile = zipfile.ZipFile(<strong>&#8220;/HOME/ZIPTEST/TEST.ZIP&#8221;);</strong></p>
+<p>zFile.extractall(path=<strong>&#8220;/HOME/ZIPTEST&#8221;,pwd=&#8221;4567890&#8243;);</strong></p>
+<p>結果如下：</p>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/dfic-imagehandler/5837e24f-5742-4e3f-a216-039bcef532b7" src="http://p3.pstatp.com/large/dfic-imagehandler/5837e24f-5742-4e3f-a216-039bcef532b7" alt="《Python黑客入門：暴力破解zip，零基礎也可以學會》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>程序會拋出「bad password」的異常。</p>
+<p>我們可以通過捕獲異常，測試多個密碼。</p>
+<p><strong>2.3 讀取字典文件</strong></p>
+<p>在Python中打開文件，使用open方法，這是一個內置方法，查看open的幫助文檔，可以看到該方法的參數說明。</p>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/dfic-imagehandler/093d99dc-4d0a-4535-b5b9-497a58ffafc2" src="http://p3.pstatp.com/large/dfic-imagehandler/093d99dc-4d0a-4535-b5b9-497a58ffafc2" alt="《Python黑客入門：暴力破解zip，零基礎也可以學會》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>open方法返回一個file對象，利用file對象，我們可以讀取文件的具體內容。下面我們在代碼中測試一下。</p>
+<p><strong>import zipfile</strong></p>
+</p>
+<p>passFile = open(<strong>&#8216;/HOME/ZIPTEST/DICT.TXT&#8217;);</strong></p>
+<p><strong>for line in passFile.readlines():</strong></p>
+<p>password = line.strip(<strong>&#8216;\N&#8217;);</strong></p>
+<p><strong>print(password);</strong></p>
+<p>運行結果如下：</p>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/dfic-imagehandler/d8f1a9b0-ee03-4547-806d-b07f9493960e" src="http://p3.pstatp.com/large/dfic-imagehandler/d8f1a9b0-ee03-4547-806d-b07f9493960e" alt="《Python黑客入門：暴力破解zip，零基礎也可以學會》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>下面我們利用讀取到的密碼來暴力測試zip文件。</p>
+<p><strong>import zipfile</strong></p>
+<p>zFile = zipfile.ZipFile(<strong>&#8220;/HOME/ZIPTEST/TEST.ZIP&#8221;);</strong></p>
+</p>
+<p>passFile = open(<strong>&#8216;/HOME/ZIPTEST/DICT.TXT&#8217;);</strong></p>
+<p><strong>for line in passFile.readlines():</strong></p>
+<p>password = line.strip(<strong>&#8216;\N&#8217;);</strong></p>
+<p><strong>try:</strong></p>
+<p>zFile.extractall(path=<strong>&#8220;/HOME/ZIPTEST&#8221;,pwd=password);</strong></p>
+<p><strong>print(&#8220;PASSWORD IS:&#8221;+password);</strong></p>
+<p>exit(<strong>0);</strong></p>
+<p><strong>except:</strong></p>
+<p><strong>pass;</strong></p>
+<p>在上面的代碼中，我們使用try—except進行異常捕獲，密碼不正確的時候，程序跳過繼續執行。密碼正確的時候列印密碼，終止程序。運行結果如下：</p>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/dfic-imagehandler/49fe13d7-ae8c-44b3-8839-0794e4854208" src="http://p1.pstatp.com/large/dfic-imagehandler/49fe13d7-ae8c-44b3-8839-0794e4854208" alt="《Python黑客入門：暴力破解zip，零基礎也可以學會》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>到目前為止，我們的腳本已經具備了暴力破解zip文件的功能，大家可以看到只有十幾行的代碼。下面我們為了提升程序的可用性，重構一下這個腳本，利用函數劃分功能。</p>
+<p><strong>2.4 重構，用函數劃分功能</strong></p>
+<p>首先定義一個extractFile函數，該函數接收三個參數，一個zipfile對象，解壓的目標路徑，密碼，如果解密成功則返回密碼。</p>
+<p><strong>def extractFile(toPath,zFile,password):</strong></p>
+<p><strong>try:</strong></p>
+<p>zFile.extractall(path=toPath,pwd=password);</p>
+<p><strong>return password;</strong></p>
+<p><strong>except Exception,e:</strong></p>
+<p><strong>return;</strong></p>
+<p>下面我們再聲明一個main方法。</p>
+<p><strong>def main():</strong></p>
+<p>zFile = zipfile.ZipFile(<strong>&#8220;/HOME/ZIPTEST/TEST.ZIP&#8221;);</strong></p>
+<p>passFile = open(<strong>&#8216;/HOME/ZIP/TEST/DICT.TXT&#8217;);</strong></p>
+<p><strong>for line in passFile.readlines():</strong></p>
+<p>password = line.strip(<strong>&#8216;\N&#8217;);</strong></p>
+<p>guess = extractFile(<strong>&#8220;/HOME/&#8221;,zFile,password);</strong></p>
+<p><strong>if guess:</strong></p>
+<p><strong>print(&#8216;SCUCESS&#8217;+password);</strong></p>
+<p>exit(<strong>0);</strong></p>
+<p>在main方法中，首先初始化了zipfile對象，然後打開字典文件，循環讀取密碼，傳給extractFile方法調用。</p>
+<p>分離 了兩個方法之後，我們需要在程序的入口處調用main方法，完整代碼如下：</p>
+<p><strong>import zipfile</strong></p>
+<p><strong>def extractFile(toPath,zFile,password):</strong></p>
+<p><strong>try:</strong></p>
+<p>zFile.extractall(path=toPath,pwd=password);</p>
+<p><strong>print(&#8216;SCUCESS&#8217;+password);</strong></p>
+<p><strong>return password;</strong></p>
+<p><strong>except Exception,e:</strong></p>
+<p><strong>return;</strong></p>
+<p><strong>def main():</strong></p>
+<p>zFile = zipfile.ZipFile(<strong>&#8220;/HOME/ZIPTEST/TEST.ZIP&#8221;);</strong></p>
+<p>passFile = open(<strong>&#8216;/HOME/ZIPTEST/DICT.TXT&#8217;);</strong></p>
+<p><strong>for line in passFile.readlines():</strong></p>
+<p>password = line.strip(<strong>&#8216;\N&#8217;);</strong></p>
+<p>guess = extractFile(<strong>&#8220;/HOME/&#8221;,zFile,password);</strong></p>
+<p><strong>if guess:</strong></p>
+<p><strong>print(&#8216;SCUCESS&#8217;+password);</strong></p>
+<p>exit(<strong>0);</strong></p>
+</p>
+<p><strong>if __name__==&#8217;__MAIN__&#8217;:</strong></p>
+<p>main();</p>
+<p>這樣一來，代碼清晰了很多，但是我們更換zip文件和字典文件的時候，還是需要修改代碼，很不方便，正常的程序都應該可以傳遞參數的，ok，下面我們引入optparse庫。</p>
+<p><strong>2.5 OPTPARSE</strong></p>
+<p>Python 有兩個內建的模塊用於處理命令行參數：</p>
+<p>一個是 getopt，《Deep in python》一書中也有提到，只能簡單處理 命令行參數；</p>
+<p>另一個是 optparse，它功能強大，而且易於使用，可以方便地生成標準的、符合Unix/Posix規範的命令行說明。</p>
+<p>首先先引入optparse模塊，然後強制添加兩個參數，zip文件名和字典文件名。先看代碼：</p>
+<p><strong>def main():</strong></p>
+<p><strong>parser = optparse.OptionParser(&#8220;usage%prog &#8220;+\</strong></p>
+<p><strong>&#8220;-f &lt;zipfile&gt; -d &lt;dictFile&gt;&#8221;);</strong></p>
+<p><strong>parser.add_option(&#8216;-f&#8217;,dest=&#8217;zname&#8217;,type=&#8217;string&#8217;,help=&#8217;specify zip file&#8217;);</strong></p>
+<p><strong>parser.add_option(&#8216;-d&#8217;,dest=&#8217;dname&#8217;,type=&#8217;string&#8217;,help=&#8217;specify dict file&#8217;);</strong></p>
+<p><strong>(options,args)=parser.parse_args();</strong></p>
+<p><strong>if(options.zname==None)|(options.dname==None):</strong></p>
+<p><strong>print parse.usage;</strong></p>
+<p><strong>exixt(0);</strong></p>
+<p><strong>else:</strong></p>
+<p><strong>zname=options.zname;</strong></p>
+<p><strong>dname=options.dname;</strong></p>
+</p>
+<p><strong>zFile = zipfile.ZipFile(zname);</strong></p>
+<p><strong>passFile = open(dname);</strong></p>
+<p><strong>for line in passFile.readlines():</strong></p>
+<p><strong>password = line.strip(&#8216;\n&#8217;);</strong></p>
+<p><strong>guess = extractFile(&#8220;/home/&#8221;,zFile,password);</strong></p>
+<p><strong>if guess:</strong></p>
+<p><strong>print(&#8216;scucess&#8217;+password);</strong></p>
+<p><strong>exit(0);</strong></p>
+<p>首先初始化一個OptionParser對象，然後添加兩個選項——「-f」和「-d」。之後在程序運行的時候通過parse_args方法獲取輸入的參數，如果參數為空，則列印使用方法，退出程序。</p>
+<p>下面使用終端來測試這個程序。</p>
+<p>無參數情況下：</p>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/dfic-imagehandler/8bea58da-4151-4ad8-9e8e-3ed58e61b4e8" src="http://p3.pstatp.com/large/dfic-imagehandler/8bea58da-4151-4ad8-9e8e-3ed58e61b4e8" alt="《Python黑客入門：暴力破解zip，零基礎也可以學會》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>輸入參數：</p>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/dfic-imagehandler/a202d752-fb73-49e1-b136-6c0b73d5ed2f" src="http://p3.pstatp.com/large/dfic-imagehandler/a202d752-fb73-49e1-b136-6c0b73d5ed2f" alt="《Python黑客入門：暴力破解zip，零基礎也可以學會》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p><strong>2.6 小結</strong></p>
+<p>這個程序本身並沒有什麼難點，但是通過這個入門案例，我們可以體驗Python編程的基本方法，如何查看幫助文檔，如何引入模塊，初始化對象，操作zip文件，打開本地文件，命令行參數設置。</p>
+</p>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="12865" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/12865"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/12865";
+		var title='%E3%80%90Python%E9%BB%91%E5%AE%A2%E5%85%A5%E9%96%80%EF%BC%9A%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3zip%EF%BC%8C%E9%9B%B6%E5%9F%BA%E7%A4%8E%E4%B9%9F%E5%8F%AF%E4%BB%A5%E5%AD%B8%E6%9C%83%E3%80%91';
+		var qqtitle='%E3%80%90Python%E9%BB%91%E5%AE%A2%E5%85%A5%E9%96%80%EF%BC%9A%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3zip%EF%BC%8C%E9%9B%B6%E5%9F%BA%E7%A4%8E%E4%B9%9F%E5%8F%AF%E4%BB%A5%E5%AD%B8%E6%9C%83%E3%80%91';
+		var excerpt='2.1%20%E6%BA%96%E5%82%99%E5%9F%BA%E6%9C%AC%E6%9D%90%E6%96%99%20%E5%9C%A8%2Fhome%2Fziptest%2F%E7%9B%AE%E9%8C%84%E4%B8%8B%EF%BC%8C%E6%88%91%E5%89%B5%E5%BB%BA%E4%BA%86%E5%85%A9%E5%80%8B%E6%96%87%E4%BB%B6%EF%BC%8C%E4%B8%80%E5%80%8Btest.zip%EF%BC%8C%E6%98%AF%E4%B8%80%E5%80%8B%E8%A8%AD%E7%BD%AE%E4%BA%86%E5%AF%86%E7%A2%BC%E7%9A%84zip%E5%8C%85%EF%BC%8C%E5%AF%86%E7%A2%BC%E7%82%BA456789%E3%80%82%20dict.txt%E6%96%87%E4%BB%B6%E6%98%AF%E4%B8%80%E5%80%8B%E5%AD%97%E5%85%B8%E6%96%87%E4%BB%B6%EF%BC%8C%E7%B0%A1%E5%96%AE%E7%9A%84%E9%85%8D%E7%BD%AE%E4%BA%86%E5%B9%BE%E5%80%8B%E5%AF%86%E7%A2%BC%E3%80%82%20%E4%B8%8B%E9%9D%A2%E6%88%91%E5%80%91%E6%89%93%E9%96%8B%E9%96%8B%E7%99%BC%E5%B7%A5%E5%85%B7%EF%BC%8C%E9%96%8B%E5%A7%8B%E7%B7%A8%E5%AF%AB%E6%B8%AC%E8%A9%A6%E4%BB%A3%E7%A2%BC%E3%80%82%202.2%20ZIPFILE%20%E5%9C%A8python%E4%B8%AD%E6%93%8D%E4%BD%9Czip%E6%96%87%E4%BB%B6%EF%BC%8C%E6%9C%80%E7%B0%A1%E5%96%AE%E7%9A%84%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E4%BD%BF%E7%94%A8zipfil%E2%80%A6%E2%80%A6';
+		var wbexcerpt='2.1%20%E6%BA%96%E5%82%99%E5%9F%BA%E6%9C%AC%E6%9D%90%E6%96%99%20%E5%9C%A8%2Fhome%2Fziptest%2F%E7%9B%AE%E9%8C%84%E4%B8%8B%EF%BC%8C%E6%88%91%E5%89%B5%E5%BB%BA%E4%BA%86%E5%85%A9%E5%80%8B%E6%96%87%E4%BB%B6%EF%BC%8C%E4%B8%80%E5%80%8Btest.zip%EF%BC%8C%E6%98%AF%E4%B8%80%E5%80%8B%E8%A8%AD%E7%BD%AE%E4%BA%86%E5%AF%86%E7%A2%BC%E7%9A%84zip%E5%8C%85%EF%BC%8C%E5%AF%86%E7%A2%BC%E7%82%BA456789%E3%80%82%20dict.txt%E6%96%87%E4%BB%B6%E6%98%AF%E4%B8%80%E5%80%8B%E5%AD%97%E5%85%B8%E6%96%87%E4%BB%B6%EF%BC%8C%E7%B0%A1%E5%96%AE%E7%9A%84%E9%85%8D%E7%BD%AE%E4%BA%86%E5%B9%BE%E5%80%8B%E5%AF%86%E7%A2%BC%E3%80%82%20%E4%B8%8B%E9%9D%A2%E6%88%91%E5%80%91%E6%89%93%E9%96%8B%E9%96%8B%E7%99%BC%E5%B7%A5%E5%85%B7%EF%BC%8C%E9%96%8B%E5%A7%8B%E7%B7%A8%E5%AF%AB%E6%B8%AC%E8%A9%A6%E4%BB%A3%E7%A2%BC%E3%80%82%202.2%20ZIPFILE%20%E5%9C%A8python%E4%B8%AD%E6%93%8D%E4%BD%9Czip%E6%96%87%E4%BB%B6%EF%BC%8C%E6%9C%80%E7%B0%A1%E5%96%AE%E7%9A%84%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E4%BD%BF%E7%94%A8zipfil%E2%80%A6%E2%80%A6';
+		var pic="http://p1.pstatp.com/large/pgc-image/d1cefd8b364f4985ab41440c50163eae";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="無法賣給BAT：創業者為何開始抱大腿？" href="https://daynews.cc/technology/12866">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="Filecoin公測上線第一天，疑似51%攻擊節點出現" href="https://daynews.cc/technology/12864">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="/technology/12865#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='12865' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼" href="https://daynews.cc/constellation/20739" rel="bookmark"><i class="fa  fa-book"></i> 伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼                            </a>
+                            <a class="list-group-item visible-md" title="伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼" href="https://daynews.cc/constellation/20739" rel="bookmark"><i class="fa  fa-book"></i> 伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼                            </a>
+                                                    <a class="list-group-item visible-lg" title="12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪" href="https://daynews.cc/constellation/20740" rel="bookmark"><i class="fa  fa-book"></i> 12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪                            </a>
+                            <a class="list-group-item visible-md" title="12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪" href="https://daynews.cc/constellation/20740" rel="bookmark"><i class="fa  fa-book"></i> 12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪                            </a>
+                                                    <a class="list-group-item visible-lg" title="十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮" href="https://daynews.cc/constellation/20741" rel="bookmark"><i class="fa  fa-book"></i> 十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮                            </a>
+                            <a class="list-group-item visible-md" title="十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮" href="https://daynews.cc/constellation/20741" rel="bookmark"><i class="fa  fa-book"></i> 十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮                            </a>
+                                                    <a class="list-group-item visible-lg" title="小聶：跑動中的腰腹力量如何運用" href="https://daynews.cc/lose/20597" rel="bookmark"><i class="fa  fa-book"></i> 小聶：跑動中的腰腹力量如何運用                            </a>
+                            <a class="list-group-item visible-md" title="小聶：跑動中的腰腹力量如何運用" href="https://daynews.cc/lose/20597" rel="bookmark"><i class="fa  fa-book"></i> 小聶：跑動中的腰腹力量如何運用                            </a>
+                                                    <a class="list-group-item visible-lg" title="小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力" href="https://daynews.cc/lose/20598" rel="bookmark"><i class="fa  fa-book"></i> 小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力                            </a>
+                            <a class="list-group-item visible-md" title="小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力" href="https://daynews.cc/lose/20598" rel="bookmark"><i class="fa  fa-book"></i> 小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力                            </a>
+                                                    <a class="list-group-item visible-lg" title="十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古" href="https://daynews.cc/history/19786" rel="bookmark"><i class="fa  fa-book"></i> 十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古                            </a>
+                            <a class="list-group-item visible-md" title="十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古" href="https://daynews.cc/history/19786" rel="bookmark"><i class="fa  fa-book"></i> 十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古                            </a>
+                                                    <a class="list-group-item visible-lg" title="當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？" href="https://daynews.cc/history/19787" rel="bookmark"><i class="fa  fa-book"></i> 當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？                            </a>
+                            <a class="list-group-item visible-md" title="當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？" href="https://daynews.cc/history/19787" rel="bookmark"><i class="fa  fa-book"></i> 當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？                            </a>
+                                                    <a class="list-group-item visible-lg" title="春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？" href="https://daynews.cc/history/19789" rel="bookmark"><i class="fa  fa-book"></i> 春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？                            </a>
+                            <a class="list-group-item visible-md" title="春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？" href="https://daynews.cc/history/19789" rel="bookmark"><i class="fa  fa-book"></i> 春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？                            </a>
+                                                    <a class="list-group-item visible-lg" title="軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸" href="https://daynews.cc/history/19788" rel="bookmark"><i class="fa  fa-book"></i> 軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸                            </a>
+                            <a class="list-group-item visible-md" title="軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸" href="https://daynews.cc/history/19788" rel="bookmark"><i class="fa  fa-book"></i> 軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸                            </a>
+                                                    <a class="list-group-item visible-lg" title="劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？" href="https://daynews.cc/history/19790" rel="bookmark"><i class="fa  fa-book"></i> 劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？                            </a>
+                            <a class="list-group-item visible-md" title="劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？" href="https://daynews.cc/history/19790" rel="bookmark"><i class="fa  fa-book"></i> 劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-md" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-lg" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a><a class="list-group-item visible-md" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a><a class="list-group-item visible-lg" title="最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？" href="https://daynews.cc/international/18303" rel="bookmark"><i class="fa  fa-book"></i> 最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？</a><a class="list-group-item visible-md" title="最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？" href="https://daynews.cc/international/18303" rel="bookmark"><i class="fa  fa-book"></i> 最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？</a><a class="list-group-item visible-lg" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="https://daynews.cc/entertainment/10879" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-md" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="https://daynews.cc/entertainment/10879" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-lg" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="https://daynews.cc/technology/10158" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-md" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="https://daynews.cc/technology/10158" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-lg" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="https://daynews.cc/game/13764" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-md" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="https://daynews.cc/game/13764" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-lg" title="這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩" href="https://daynews.cc/lose/20687" rel="bookmark"><i class="fa  fa-book"></i> 這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩</a><a class="list-group-item visible-md" title="這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩" href="https://daynews.cc/lose/20687" rel="bookmark"><i class="fa  fa-book"></i> 這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩</a><a class="list-group-item visible-lg" title="夢三國：路人戰力匹配中最值得玩的輔助英雄推薦" href="https://daynews.cc/game/20261" rel="bookmark"><i class="fa  fa-book"></i> 夢三國：路人戰力匹配中最值得玩的輔助英雄推薦</a><a class="list-group-item visible-md" title="夢三國：路人戰力匹配中最值得玩的輔助英雄推薦" href="https://daynews.cc/game/20261" rel="bookmark"><i class="fa  fa-book"></i> 夢三國：路人戰力匹配中最值得玩的輔助英雄推薦</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="家中意外受傷，維特塞爾讓多特蒙德很心塞！誰能頂替中場核心？" href="https://daynews.cc/sports/11316" rel="bookmark"><i class="fa  fa-book"></i> 家中意外受傷，維特塞爾讓多特蒙德很心塞！誰能頂替中場核心？                            </a>
+                            <a class="list-group-item visible-md" title="家中意外受傷，維特塞爾讓多特蒙德很心塞！誰能頂替中場核心？" href="https://daynews.cc/sports/11316" rel="bookmark"><i class="fa  fa-book"></i> 家中意外受傷，維特塞爾讓多特蒙德很心塞！誰能頂替中場核心？                            </a>
+                                                    <a class="list-group-item visible-lg" title="《魔獸世界》城市套路深，哪裡還有這種福利團？" href="https://daynews.cc/game/14229" rel="bookmark"><i class="fa  fa-book"></i> 《魔獸世界》城市套路深，哪裡還有這種福利團？                            </a>
+                            <a class="list-group-item visible-md" title="《魔獸世界》城市套路深，哪裡還有這種福利團？" href="https://daynews.cc/game/14229" rel="bookmark"><i class="fa  fa-book"></i> 《魔獸世界》城市套路深，哪裡還有這種福利團？                            </a>
+                                                    <a class="list-group-item visible-lg" title="復盤：拜仁1:2門興，中場失控無調整，屋漏偏逢連夜雨" href="https://daynews.cc/sports/2238" rel="bookmark"><i class="fa  fa-book"></i> 復盤：拜仁1:2門興，中場失控無調整，屋漏偏逢連夜雨                            </a>
+                            <a class="list-group-item visible-md" title="復盤：拜仁1:2門興，中場失控無調整，屋漏偏逢連夜雨" href="https://daynews.cc/sports/2238" rel="bookmark"><i class="fa  fa-book"></i> 復盤：拜仁1:2門興，中場失控無調整，屋漏偏逢連夜雨                            </a>
+                                                    <a class="list-group-item visible-lg" title="龍鳳胎萌照引爭議：摩納哥夏琳王妃不該讓子女與海豚嬉戲合影？" href="https://daynews.cc/international/8631" rel="bookmark"><i class="fa  fa-book"></i> 龍鳳胎萌照引爭議：摩納哥夏琳王妃不該讓子女與海豚嬉戲合影？                            </a>
+                            <a class="list-group-item visible-md" title="龍鳳胎萌照引爭議：摩納哥夏琳王妃不該讓子女與海豚嬉戲合影？" href="https://daynews.cc/international/8631" rel="bookmark"><i class="fa  fa-book"></i> 龍鳳胎萌照引爭議：摩納哥夏琳王妃不該讓子女與海豚嬉戲合影？                            </a>
+                                                    <a class="list-group-item visible-lg" title="謀士的三國，其實是一個如何找工作的一國" href="https://daynews.cc/history/19920" rel="bookmark"><i class="fa  fa-book"></i> 謀士的三國，其實是一個如何找工作的一國                            </a>
+                            <a class="list-group-item visible-md" title="謀士的三國，其實是一個如何找工作的一國" href="https://daynews.cc/history/19920" rel="bookmark"><i class="fa  fa-book"></i> 謀士的三國，其實是一個如何找工作的一國                            </a>
+                                                    <a class="list-group-item visible-lg" title="農民干起了盜墓行業竟然看不起考古專家！" href="https://daynews.cc/history/13520" rel="bookmark"><i class="fa  fa-book"></i> 農民干起了盜墓行業竟然看不起考古專家！                            </a>
+                            <a class="list-group-item visible-md" title="農民干起了盜墓行業竟然看不起考古專家！" href="https://daynews.cc/history/13520" rel="bookmark"><i class="fa  fa-book"></i> 農民干起了盜墓行業竟然看不起考古專家！                            </a>
+                                                    <a class="list-group-item visible-lg" title="世界七大知名超級工程，美國2個，迪拜1個，中國數量喜人" href="https://daynews.cc/international/12182" rel="bookmark"><i class="fa  fa-book"></i> 世界七大知名超級工程，美國2個，迪拜1個，中國數量喜人                            </a>
+                            <a class="list-group-item visible-md" title="世界七大知名超級工程，美國2個，迪拜1個，中國數量喜人" href="https://daynews.cc/international/12182" rel="bookmark"><i class="fa  fa-book"></i> 世界七大知名超級工程，美國2個，迪拜1個，中國數量喜人                            </a>
+                                                    <a class="list-group-item visible-lg" title="中超賽季回顧：爭冠三足鼎立 期待下一個武磊" href="https://daynews.cc/sports/3074" rel="bookmark"><i class="fa  fa-book"></i> 中超賽季回顧：爭冠三足鼎立 期待下一個武磊                            </a>
+                            <a class="list-group-item visible-md" title="中超賽季回顧：爭冠三足鼎立 期待下一個武磊" href="https://daynews.cc/sports/3074" rel="bookmark"><i class="fa  fa-book"></i> 中超賽季回顧：爭冠三足鼎立 期待下一個武磊                            </a>
+                                                    <a class="list-group-item visible-lg" title="「經典系」《熱血物語》：那道小時候過不去的大門" href="https://daynews.cc/game/4850" rel="bookmark"><i class="fa  fa-book"></i> 「經典系」《熱血物語》：那道小時候過不去的大門                            </a>
+                            <a class="list-group-item visible-md" title="「經典系」《熱血物語》：那道小時候過不去的大門" href="https://daynews.cc/game/4850" rel="bookmark"><i class="fa  fa-book"></i> 「經典系」《熱血物語》：那道小時候過不去的大門                            </a>
+                                                    <a class="list-group-item visible-lg" title="小魚兒穿西裝第一次登台彈鋼琴，坦言很緊張，向胡可求抱抱" href="https://daynews.cc/entertainment/14373" rel="bookmark"><i class="fa  fa-book"></i> 小魚兒穿西裝第一次登台彈鋼琴，坦言很緊張，向胡可求抱抱                            </a>
+                            <a class="list-group-item visible-md" title="小魚兒穿西裝第一次登台彈鋼琴，坦言很緊張，向胡可求抱抱" href="https://daynews.cc/entertainment/14373" rel="bookmark"><i class="fa  fa-book"></i> 小魚兒穿西裝第一次登台彈鋼琴，坦言很緊張，向胡可求抱抱                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="kratos_tags-4" class="widget widget_kratos_tags clearfix"><h4 class="widget-title">標籤</h4><div class="tag_clouds"></div></aside><aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="https://daynews.cc/nba">NBA</a> (1,526)
+</li>
+	<li class="cat-item cat-item-23"><a href="https://daynews.cc/international">國際</a> (2,241)
+</li>
+	<li class="cat-item cat-item-14"><a href="https://daynews.cc/entertainment">娛樂</a> (2,348)
+</li>
+	<li class="cat-item cat-item-15"><a href="https://daynews.cc/emotion">情感</a> (1,582)
+</li>
+	<li class="cat-item cat-item-22"><a href="https://daynews.cc/constellation">星座</a> (1,060)
+</li>
+	<li class="cat-item cat-item-17"><a href="https://daynews.cc/history">歷史</a> (1,759)
+</li>
+	<li class="cat-item cat-item-25"><a href="https://daynews.cc/lose">減肥</a> (495)
+</li>
+	<li class="cat-item cat-item-24"><a href="https://daynews.cc/technology">科技</a> (2,163)
+</li>
+	<li class="cat-item cat-item-19"><a href="https://daynews.cc/premier">英超</a> (1,372)
+</li>
+	<li class="cat-item cat-item-18"><a href="https://daynews.cc/game">遊戲</a> (2,055)
+</li>
+	<li class="cat-item cat-item-21"><a href="https://daynews.cc/health">養生</a> (1,278)
+</li>
+	<li class="cat-item cat-item-16"><a href="https://daynews.cc/sports">體育</a> (2,098)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='https://daynews.cc/date/2019/12'>2019 年 12 月</a>&nbsp;(16975)</li>
+	<li><a href='https://daynews.cc/date/2019/11'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='https://daynews.cc/date/2019/10'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="https://daynews.cc">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.easing.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.qrcode.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/layer.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/modernizr.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.waypoints.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.stellar.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/hoverIntent.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/superfish.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/kratos.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-includes/js/wp-embed.min.js'></script>
+			</body>
+
+</html>
+<!-- Dynamic page generated in 0.411 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:25:15 -->
+
+<!-- super cache -->

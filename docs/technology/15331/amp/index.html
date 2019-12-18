@@ -1,0 +1,785 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/15331#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/74ec0ecd827d409ab37af06e75bf316e"},{"@type":"WebPage","@id":"https://daynews.cc/technology/15331#webpage","url":"https://daynews.cc/technology/15331","inLanguage":"zh-TW","name":"\u5f88\u958b\u5fc3\uff0c\u5728\u4f7f\u7528mybatis\u7684\u904e\u7a0b\u4e2d\u6211\u8e29\u5230\u4e00\u500b\u5751 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/15331#primaryimage"},"datePublished":"2019-12-15T16:05:08+00:00","dateModified":"2019-12-15T16:05:08+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="​持續輸出原創文章，關注我吧 在實際開發過程中我踩到了mybatis的一個坑，我覺得值得記錄、分享一下。 先說說這個坑是什麼吧。如果你踩過這個坑，並且知道具體的原因，那這篇文章可以加深你的印象。如果你沒有踩過，那你可得好好看看，因為你總會遇到的。 具體如下：在mybatis中的OgnlOps.equal(0,&#8221;&#8221;)……" />
+<meta name="twitter:title" content="很開心，在使用mybatis的過程中我踩到一個坑 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/74ec0ecd827d409ab37af06e75bf316e" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="很開心，在使用mybatis的過程中我踩到一個坑 - 天天要聞" />
+<meta property="og:description" content="​持續輸出原創文章，關注我吧 在實際開發過程中我踩到了mybatis的一個坑，我覺得值得記錄、分享一下。 先說說這個坑是什麼吧。如果你踩過這個坑，並且知道具體的原因，那這篇文章可以加深你的印象。如果你沒有踩過，那你可得好好看看，因為你總會遇到的。 具體如下：在mybatis中的OgnlOps.equal(0,&#8221;&#8221;)……" />
+<meta property="og:url" content="https://daynews.cc/technology/15331" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-15T16:05:08+00:00" />
+	<title>很開心，在使用mybatis的過程中我踩到一個坑 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/15331" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">很開心，在使用mybatis的過程中我踩到一個坑</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-16T00:05:08+00:00">
+		3 天 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<p>​持續輸出原創文章，關注我吧</p>
+<p>在實際開發過程中我踩到了mybatis的一個坑，我覺得值得記錄、分享一下。</p>
+<p>先說說這個坑是什麼吧。如果你踩過這個坑，並且知道具體的原因，那這篇文章可以加深你的印象。如果你沒有踩過，那你可得好好看看，因為你總會遇到的。</p>
+<p>具體如下：<strong>在mybatis中的OgnlOps.equal(0,””)返回的是true。</strong></p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/74ec0ecd827d409ab37af06e75bf316e" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="806" height="239" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/74ec0ecd827d409ab37af06e75bf316e" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="806" height="239" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>首先這裡返回為true就違背了我們的常識，其次返回為true，會帶來什麼問題呢？</p>
+<p>看完本文你就清楚了。</p>
+<p>本文會按照遇到問題 –&gt; 分析問題 –&gt; 解決問題的行文思路，用<strong>追蹤源碼</strong>的方法，對這個問題進行剖析。</p>
+<p>同時分享一下我是怎麼用<strong>逆向排查</strong>的方法，通過Debug模式找到最關鍵的那一行源碼，然後明白前因後果，最後解決這個問題的。</p>
+<p>本文源碼：<strong>mybatis 3.5.3版本</strong>。</p>
+<h2 class="pgc-h-arrow-right">背景介紹，需求分析</h2>
+<p>先鋪墊一下背景，模擬一個需求。</p>
+<p>有一個訂單表，表結構如下：</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/d229d0a71a59474cbbb0e2ac49323a4c" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="670" height="137" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/d229d0a71a59474cbbb0e2ac49323a4c" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="670" height="137" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>為了簡化問題，我們假設表裡面只有兩條數據:</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/fefed6cfd5e0444b8157784355757556" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="485" height="69" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/fefed6cfd5e0444b8157784355757556" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="485" height="69" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<blockquote class="js_blockquote_wrap">
+<p>訂單號為1234的訂單狀態為0【關閉】</p>
+<p>訂單號為4321的訂單狀態為1【開啟】</p>
+</blockquote>
+<p>已經開發好的功能是模糊查詢訂單名稱，介面如下：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/4fae63e6507e43828bd1e2d68d0cc407" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="645" height="109" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/4fae63e6507e43828bd1e2d68d0cc407" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="645" height="109" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>其對應的mapper.xml是這樣寫的，功能正常:</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/cb568888257242c09e88512e61a2ed18" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="590" height="322" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/cb568888257242c09e88512e61a2ed18" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="590" height="322" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>現在需要在已有功能上添加一個根據狀態過濾訂單的功能：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/6e807f6b0f8740228fa3c0f64391bc73" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="175" height="111" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/6e807f6b0f8740228fa3c0f64391bc73" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="175" height="111" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>假設某個頁面有這樣的一個下拉框，可以根據訂單狀態過濾訂單數據。</p>
+<blockquote class="js_blockquote_wrap">
+<p>當用戶選擇【已支付】時，後台接收到的是數字1，用Byte類型接收。</p>
+<p>當用戶選擇【未支付】時，後台接收到的是數字0，用Byte類型接收。</p>
+</blockquote>
+<h2 class="pgc-h-arrow-right">準備開發</h2>
+<p>現在明確了需求，根據訂單狀態進行過濾。</p>
+<p>很簡單，最主要的修改地方就是對mapper.xml的修改，至於怎麼從前端傳到xml來我就不詳細說明了，相信用過mybatis的朋友都知道。</p>
+<p>先在介面上加一個入參orderName:</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/009af4c7ff9a4009ac59fb27f1ffe582" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="639" height="133" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/009af4c7ff9a4009ac59fb27f1ffe582" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="639" height="133" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>然後改造一下對應的xml:</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/c71aa00230cc4ce0894f443616032fff" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="624" height="392" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/c71aa00230cc4ce0894f443616032fff" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="624" height="392" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>改造點很簡單，在xml文件裡面ctrl+c一下原來的if標籤，再ctrl+v出來改改裡面的名字就好了。</p>
+<h2 class="pgc-h-arrow-right">開始自測，遇到問題</h2>
+<p>請做好單元測試，即使這個功能非常簡單，顯而易見，你信心十足，但是做好單元測試，是一個程序員應有的職業素養。</p>
+<p>單元測試如下：分別傳入狀態0和1</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/8c2da41b2ff84aa4b46d84cf0fe03168" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="849" height="232" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/8c2da41b2ff84aa4b46d84cf0fe03168" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="849" height="232" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>按照我們現在表裡的數據，我們預期的結果是各自查詢出一條數據。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/fefed6cfd5e0444b8157784355757556" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="485" height="69" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/fefed6cfd5e0444b8157784355757556" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="485" height="69" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>運行起來，我們一起看看執行結果：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/b13ace1476804527a45d5ca2d8ababa9" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="640" height="259" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/b13ace1476804527a45d5ca2d8ababa9" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="640" height="259" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<blockquote class="js_blockquote_wrap">
+<p>status=0,查詢出來的條數 = 2</p>
+<p>status=1,查詢出來的條數 = 1</p>
+</blockquote>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/2fd46c86e42945c3b1c13c4d713fdc5b" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="500" height="500" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/2fd46c86e42945c3b1c13c4d713fdc5b" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="500" height="500" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>這結果和我們預期的不符呀！什麼情況？</p>
+<p>當時我遇到這個問題的時候，我就知道事情不簡單，其中必有蹊蹺。</p>
+<p>如果是兩年前，我遇到問題肯定是立馬面向搜索引擎編程。把遇到的問題一頓搜索，根據網友的建議，很快就很解決了。然而，也很快就忘記了。而且，遇到這個問題的時候，我當時是沒有聯網的。</p>
+<p>不要急著去問搜索引擎。不要慌，要分析，冷靜分析之後才有收穫。</p>
+<h2 class="pgc-h-arrow-right">分析問題</h2>
+<p>分析的第一步其實很容易想到，我們先把sql列印出來，看看最終執行的sql是什麼，就知道為什麼返回的結果和預期不符了。</p>
+<p>所以我們在application.properties裡面加上這行配置：</p>
+<blockquote class="js_blockquote_wrap">
+<p>logging.level.com.xxxx.xxxx.mapper = debug</p>
+<p>注:上面的xxxx換成自己的mapper包的路徑</p>
+</blockquote>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/70d4417aea354e4083760f27a36e5d14" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="640" height="358" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/70d4417aea354e4083760f27a36e5d14" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="640" height="358" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>加上sql列印後，我們發現當status為0時，mybatis並沒有給我們拼接where關鍵字。</p>
+<p>到這裡很自然的就能聯想到下一步：為什麼mybatis沒有給我們拼接where關鍵字？</p>
+<p>或者換一個問法:mybatis是<strong>在哪裡</strong>通過上<strong>什麼邏輯</strong>拼接sql的？</p>
+<p>常規的方法是加斷點進行追蹤，但是我想分享一個我當時排查的”騷”操作，定位問題非常快。那就是<strong>逆向排查</strong>。</p>
+<h2 class="pgc-h-arrow-right">逆向排查法</h2>
+<p>現在我們確定了是sql拼接的問題，我通過日誌，也拿到了完整的sql。</p>
+<p>日誌配置是這樣的:</p>
+<blockquote class="js_blockquote_wrap">
+<p>logging.pattern.console=%date{yyyy-MM-dd HH:mm:ss.SSS} %-5level[%thread]%C{56}.%method:%L -%msg%n</p>
+</blockquote>
+<p>列印出來的日誌是這樣的（截取了其中一部分）:</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/6e0325dcb92a4b5a9b8de3e68fa590d9" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="655" height="72" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/6e0325dcb92a4b5a9b8de3e68fa590d9" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="655" height="72" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>在<strong>org.apache.ibatis.logging.jdbc.BaseJdbcLogger的143行</strong>,debug方法中列印了日誌，這行日誌就是我的突破口。</p>
+<p>在這個地方，我整個sql都拿到了，如果往回走，就能很快的找到sql是在哪裡產生的。</p>
+<p>那我在BaseJdbcLogger的143行，打上斷點，並運行起來。</p>
+<p>通過idea的Debug模式，我們可以得到從程序運行開始，到斷點處的<strong>整個調用鏈路</strong>。(如果下面的圖片看不清楚，可以點開查看大圖)：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/5eb0c17103b9465a9d7e72d5773241c0" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="640" height="439" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/5eb0c17103b9465a9d7e72d5773241c0" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="640" height="439" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>通過調用鏈，往後走三步，我們可以看到sql是從boundSql中獲取到的:</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/05c8f0eaa3074730a98e44b5f113c998" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="640" height="359" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/05c8f0eaa3074730a98e44b5f113c998" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="640" height="359" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>那麼boundSql是從哪裡來的呢？我們繼續往回走。</p>
+<p>往回走11步，我們可以看到boundSql的獲取過程:</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/b40e0709e5eb4f2f8b5f23e3f58f52ab" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="640" height="267" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/b40e0709e5eb4f2f8b5f23e3f58f52ab" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="640" height="267" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<blockquote class="js_blockquote_wrap">
+<p>為了方便大家找到源碼，我把對應的方法名稱放在這裡:org.apache.ibatis.executor.CachingExecutor#query(org.apache.ibatis.mapping.MappedStatement, java.lang.Object, org.apache.ibatis.session.RowBounds, org.apache.ibatis.session.ResultHandler)</p>
+
+</blockquote>
+<p>還記得我們開始的問題嗎，我們不知道sql是在哪裡通過什麼邏輯拼接的。</p>
+<p>而這就是前一部分的答案呀。sql就是通過org.apache.ibatis.executor.CachingExecutor的81行代碼產生的:</p>
+<blockquote class="js_blockquote_wrap">
+<p>BoundSql boundSql = ms.getBoundSql(parameterObject);</p>
+</blockquote>
+<p>所以接下來我們只需要在這行代碼的前面打上斷點，我們就能知道後半部分問題的答案了，通過什麼邏輯拼接而成?</p>
+<p>如果在你不是十分熟悉mybatis的情況下，你通過Debug模式正向的找到這行代碼，是需要花一點時間的，而我上面說的逆向排查，可以節約一大部分時間。</p>
+<h2 class="pgc-h-arrow-right">關鍵源碼</h2>
+<p>後面就是常規的正向查找的過程了，最終你會定位到這個全文最關鍵的地方:</p>
+<blockquote class="js_blockquote_wrap">
+<p>org.apache.ibatis.ognl.ASTNotEq#getValueBody</p>
+</blockquote>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/74ec0ecd827d409ab37af06e75bf316e" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="806" height="239" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/74ec0ecd827d409ab37af06e75bf316e" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="806" height="239" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>為什麼在mybatis中數字0和空字元串””比返回的是true呢？源碼之下無秘密，繼續往下Debug你會找到這個地方：</p>
+<blockquote class="js_blockquote_wrap">
+<p>org.apache.ibatis.ognl.OgnlOps#doubleValue</p>
+</blockquote>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/f6ffefd3c2d44ce8adc047c54a492ff0" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="640" height="369" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/f6ffefd3c2d44ce8adc047c54a492ff0" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="640" height="369" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>這裡返回之後，真正的對比是在這裡：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/2ef36269a56443b999b47834cb7ebc92" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="805" height="133" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/2ef36269a56443b999b47834cb7ebc92" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="805" height="133" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>v1和v2最終都變成了0.0。所以返回了true。</p>
+<p>由於OgnlOps.equal(0,””)返回為true，所以整個表達式【OgnlOps.equal(0,””) ？Boolean.FALSE : Boolean.TRUE】返回的是FALSE。</p>
+<p>接下來，需要回答的就是這三個問題了:</p>
+<blockquote class="js_blockquote_wrap">
+<p>v1=0是哪裡來的？</p>
+<p>v2=””是從哪裡來的？</p>
+<p>返回FALSE會帶來什麼問題？</p>
+</blockquote>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/954ddb3bb0634a19b80e4e48ed5f7886" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="640" height="298" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/954ddb3bb0634a19b80e4e48ed5f7886" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="640" height="298" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>圖中標號為一的地方，就是v1的值，這個0是我傳入的查詢條件。</p>
+<p>圖中標號為二的地方，就是v2的值，這個””的來源是我寫在mapper.xml文件中if標籤裡面的表達式。</p>
+<p>圖中標號為三的地方，為false的原因就是這個表達式【OgnlOps.equal(0,””) ？Boolean.FALSE : Boolean.TRUE】返回的是false。返回為false了，就不會進入下面的代碼:<strong>contents.apply(context)</strong>。</p>
+<p>而這行代碼，就是回答我們之前提出問題的後半部分，mybatis通過什麼邏輯拼接sql?</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/e71cf5b690d44ecb8638735ae075ab24" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="640" height="365" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/e71cf5b690d44ecb8638735ae075ab24" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="640" height="365" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>就是解析我們寫在mapper.xml中的if標籤中的test條件，如果滿足條件，返回為true則拼接條件裡面的內容，即sql。</p>
+<p>由於這裡的if標籤是這樣的:</p>
+<blockquote class="js_blockquote_wrap">
+<p>&lt;if test=”orderStatus != null and orderStatus != ””&gt;</p>
+</blockquote>
+<p>其中orderStatus!=null返回為true,orderStatus !=”返回為false，所以整個表達式返回為false，則不拼接這個if標籤裡面的sql。</p>
+<p>至此，我們結合源碼，對於為什麼會出現問題分析完畢。</p>
+<h2 class="pgc-h-arrow-right">解決問題</h2>
+<p>其實問題分析完了，一種解決方法也就呼之欲出，我們只需要把mapper.xml文件中的if標籤修改為這樣即可:</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/b04a26e38f4e4608aba6a8af1247be99" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="549" height="309" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/b04a26e38f4e4608aba6a8af1247be99" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="549" height="309" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>或者改成這樣：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/7a438758e7cb4d2a9af34be81c7396ce" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="640" height="264" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/7a438758e7cb4d2a9af34be81c7396ce" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="640" height="264" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>再看看執行結果:</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/b5f774b7c0e14521a5d95d9084609663" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="640" height="273" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/b5f774b7c0e14521a5d95d9084609663" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="640" height="273" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>這樣就和我們預期的結果一致了。</p>
+<p>但是，你再回過頭的想一想，我最開始的改造mapper.xml是怎麼操作的：</p>
+<blockquote class="js_blockquote_wrap">
+<p>改造點很簡單，在xml文件裡面ctrl+c一下原來的if標籤，再ctrl+v出來改改裡面的名字就好了。</p>
+</blockquote>
+<p>是的，我無腦的使用了CV大法。導致我在歡聲笑語中寫出了bug。我orderStatus傳入的類型是一個Byte，和””做判斷有任何意義嗎？</p>
+<p>但是我也感謝這次無腦的CV，讓我踩到了這個坑，並且研究清楚了。get到了新的知識點。</p>
+<p>同時，我也感謝自己做了單元測試，不然測試同學測試的時候拋出這樣的問題，我會覺得他不會用，他會覺得我是弱雞。</p>
+<h2 class="pgc-h-arrow-right">最後說幾句</h2>
+<p>在解決這個問題之後，我還是在網上查了一圈，發現也有人遇到了這樣的問題，但是我點開搜索出來的第一篇就是一個錯誤的描述，他說在mybatis中會把0當做null來處理？哥們你看源碼了嗎？或者說我們說的不是一回事？</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/9d9790ddc8684caba979fb059baaa50b" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="300" height="300" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/9d9790ddc8684caba979fb059baaa50b" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="300" height="300" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>然後還有其他的大量文章都只是扔給你一個解決方法，並沒有寫為什麼這樣寫就可以解決這個問題。而這樣的搜索結果在我看來是不完美的，因為很難留下深刻的印象，導致你或者你同事再次碰見這個問題的時候你會說：哦，這個問題呀，我之前碰見過。怎麼解決的，我給忘了。</p>
+<p>你這不廢話嗎？</p>
+<p>我之前在《面試了15位來自211/985院校的2020屆研究生之後的思考》這篇文章中寫到一段話，用在這裡也很合適:</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/ba3a32c0c91e41969e257a66648b6952" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="640" height="421" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/ba3a32c0c91e41969e257a66648b6952" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="640" height="421" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>後來我把這個問題分享在群里之後，群里一個朋友也給我分享了一篇文章，肥朝大佬寫的《還有這種操作?淺析為什麼要看源碼》。文中給出了另一種解決方案，有理有據，簡明扼要，是一篇很好的文章，大家可以看看。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/53592889481144ba8c58acfc49037d34" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="640" height="1086" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/53592889481144ba8c58acfc49037d34" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" width="640" height="1086" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">尾聲</h2>
+<p>文章寫到這裡也就接近尾聲了。如果你能在這篇文章中get到這個知識點，或者當你碰到這個問題的時候能想起這篇文章，這就是對這篇文章最大的讚賞，文章價值的最高體現。</p>
+<p>我更加希望的是，當你碰到這個問題，自己分析完了，在網上查詢的時候看到了我的這篇文章。因為自己分析出來的，永遠是印象最深刻的，其他的文章只是起點綴作用。</p>
+<p>才疏學淺，難免會有紕漏，如果你發現了錯誤的地方，還請你留言給我指出來，我對其加以修改。</p>
+<p>感謝您的閱讀，感謝您的關注。</p>
+<p>以上。</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/15331#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.277 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:19:06 -->
+
+<!-- super cache -->

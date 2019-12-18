@@ -1,0 +1,683 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/9540#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/RkI8kEUI2xWWfy"},{"@type":"WebPage","@id":"https://daynews.cc/technology/9540#webpage","url":"https://daynews.cc/technology/9540","inLanguage":"zh-TW","name":"\u696d\u52d9\u4e2d\u53f0\u662f\u5565\u73a9\u610f\uff1f\u963f\u91cc\u5df4\u5df4\u67b6\u69cb\u5e2b\u544a\u8a34\u4f60 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/9540#primaryimage"},"datePublished":"2019-12-10T22:50:08+00:00","dateModified":"2019-12-10T22:50:08+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="Photo @ Zach Lucero 文 |王思軒 一切業務數據化，一切數據業務化。 「中台」概念這幾年非常火，特別是阿里、騰訊、百度、京東等互聯網公司最近頻繁的基於中台調整組織架構，把「中台」的熱度又上升到另一個高度，甚至有這樣的聲音， 90 年代不做 ERP 會死，現在不做中台也會定企業生死。中台的概念起源於阿里，也發展於阿里。筆者……" />
+<meta name="twitter:title" content="業務中台是啥玩意？阿里巴巴架構師告訴你 - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/RkI8kEUI2xWWfy" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="業務中台是啥玩意？阿里巴巴架構師告訴你 - 天天要聞" />
+<meta property="og:description" content="Photo @ Zach Lucero 文 |王思軒 一切業務數據化，一切數據業務化。 「中台」概念這幾年非常火，特別是阿里、騰訊、百度、京東等互聯網公司最近頻繁的基於中台調整組織架構，把「中台」的熱度又上升到另一個高度，甚至有這樣的聲音， 90 年代不做 ERP 會死，現在不做中台也會定企業生死。中台的概念起源於阿里，也發展於阿里。筆者……" />
+<meta property="og:url" content="https://daynews.cc/technology/9540" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-10T22:50:08+00:00" />
+	<title>業務中台是啥玩意？阿里巴巴架構師告訴你 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/9540" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">業務中台是啥玩意？阿里巴巴架構師告訴你</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-11T06:50:08+00:00">
+		1 週 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+ <amp-img src="http://p3.pstatp.com/large/pgc-image/RkI8kEUI2xWWfy" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" width="640" height="360" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/RkI8kEUI2xWWfy" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" width="640" height="360" class=""></noscript></amp-img>
+<p class="pgc-img-caption">Photo @ Zach Lucero</p>
+<p><strong>文 |</strong><strong class="highlight-text">王思軒</strong></p>
+<p><strong class="highlight-text">一切業務數據化，一切數據業務化。</strong></p>
+<p>「中台」概念這幾年非常火，特別是阿里、騰訊、百度、京東等互聯網公司最近頻繁的基於中台調整組織架構，把「中台」的熱度又上升到另一個高度，甚至有這樣的聲音， 90 年代不做 ERP 會死，現在不做中台也會定企業生死。中台的概念起源於阿里，也發展於阿里。筆者有幸參與阿里業務中台方法體系建設，也主導參與一些阿里雲新零售業務中台項目，經常被問到如下問題。本文作為「阿里巴巴業務中台」專題的第一篇，和大家分享一些思考（本文內容僅代表作者個人觀點，歡迎交流）。</p>
+<p> <amp-img src="http://p9.pstatp.com/large/pgc-image/RkI8kFb1mYZ9ac" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" width="640" height="687" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/RkI8kFb1mYZ9ac" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" width="640" height="687" class=""></noscript></amp-img></p>
+<p><strong class="highlight-text">什麼是業務中台？</strong></p>
+<p>中台起源於阿里，2015年，阿里提出了 「大中台，小前台」戰略，靈感來源於芬蘭的一家遊戲公司Supercell，僅300名員工，卻在短時間推出多個爆款遊戲，成為全球最會賺錢的遊戲公司。其實，阿里早在 2009 年建設「共享事業部」開始，就已經開始了中台的探索，並通過十年上百個客戶的實踐，阿里也將自己的技術和業務能力沉澱成為一整套解決方案和方法論體系。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/RkI8kGB5OoJUAG" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" width="640" height="342" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/RkI8kGB5OoJUAG" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" width="640" height="342" class=""></noscript></amp-img></p>
+<p>中台是什麼？不同的人有不同解讀。我認為，中台是一套結合互聯網技術和行業特性，將企業核心能力以共享服務形式沉澱，形成「大中台、小前台「的組織和業務機制，供企業快速低成本的進行業務創新的企業架構。中台又可以進一步細分，比如業務中台，數據中台，xx中台。本質上，都是對企業通用能力在不同層面的沉澱，並對外能力開放。</p>
+<p>業務中台將企業的核心能力以數字化形式沉澱為各種服務中心。業務中台的目的是「提供企業能夠快速，低成本創新的能力」。業務中台的核心是「構建企業共享服務中心」。業務中台的過程是通過業務板塊之間的鏈接和協同，持續提升業務創新效率，確保關鍵業務鏈路的穩定高效和經濟性兼顧的思想體系，並突出組織和業務機制。業務中台也包含技術和組織兩大部分，通過「方法+工具+業務理解」加以實現。</p>
+<p>數據中台通過數據技術，對海量數據進行採集、計算、存儲、加工，同時統一標準和口徑。數據中台把數據統一之後，會形成標準數據，再進行存儲，形成大數據資產層，進而為客戶提供高效服務。數據中台建設的基礎還是數據倉庫和數據中心。</p>
+<p>那業務中台和技術中台的關係是什麼呢？阿里有句話非常形象，「一切業務數據化，一切數據業務化」。業務中台源源不斷地從業務造數據，把業務實時在線的交易數據進行統一記錄和沉澱，這就是「業務數據化」；而數據中台對沉澱的數據進行二次加工，通過數據標準及演算法，產生進一步的分析型數據服務，這些數據服務反向又服務於業務，將業務固化，形成業務閉環，也就是「數據業務化」。比如天貓淘寶的用戶實時在線的交易信息，存放在業務共享中心的交易中心當中；而數據中台基於這些用戶歷史信息，並通過數據分析後的用戶畫像和標籤屬性，提供服務給到前端，形成千人千面。這就是我們一直講的數據驅動、數據閉環、數據價值。</p>
+
+<h2><strong class="highlight-text">阿里業務中台核心架構是什麼？</strong></h2>
+<p> <amp-img src="http://p9.pstatp.com/large/pgc-image/RkI8kGTFxcC7q1" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" width="640" height="293" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/RkI8kGTFxcC7q1" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" width="640" height="293" class=""></noscript></amp-img></p>
+<p>阿里巴巴超過數十個業務單元（如淘寶、天貓、聚划算、阿里巴巴）均不是獨立構建在阿里雲之上，在後端阿里雲技術平台和前端業務之間有「共享業務事業部「（也就是這裡講的「業務中台」），將業務當中公共、通用的業務沉澱下來，包括用戶中心、商品中心、交易中心、評價中心等十幾個共享單元，是「厚平台的真正實現「。而後端的阿里雲提供計算資源和中間件PaaS雲服務能力做載體。同時，使用集團近十年的雙11、雙12的高可靠、可穩定的運維保障能力，對整個系統進行支撐。中台的使命是從下到上逐步完善阿里的整個體系，從阿里雲、數據、中間件、演算法，到上面支撐的各種業務解決方案，構建阿里自己核心的能力。</p>
+<p>談到中台，不得不提阿里共享服務事業部的由來，在淘寶初期，主要面向C2C的電商領域，整個系統都是圍繞一套「煙囪式」的淘寶技術框架進行。隨著業務的不斷擴張，集團成立出天貓事業部主抓B2C電商領域，又形成了一套煙囪式發展。這種煙囪式的架構體系帶來了諸多不足，比如成本的重複投入和維護、數據之間打通復用的難度、幾年之後推倒重建的風險。為了解決這些問題，集團已經開始構建共享服務體系，來沉澱和復用業務能力，但是由於沒有過多的業務話語權，共享服務體系的建設一開始並不順利。之後，隨著「聚划算」團購項目的啟動，各種系統的流量都需要通過聚划算，這時，共享服務中心得以大展手腳，逐步將集團核心的業務能力構建成用戶中心、商品中心、交易中心、評價中心、店鋪中心等等數十個共享服務。可以說整個阿里中台的革命也是共享服務中心的革命，各共享服務中心聚焦核心業務單元能力的構建，協助目前集團上百個前台業務的快速創新。</p>
+
+<h2><strong class="highlight-text">我的企業需要業務中台嗎？</strong></h2>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RkI8kGmJ1GzBxq" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" width="640" height="496" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RkI8kGmJ1GzBxq" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" width="640" height="496" class=""></noscript></amp-img></p>
+<p>阿里業務中台如此強大，那對於傳統企業，在做數字化轉型的過程中，是否需要業務中台呢？我認為，如果你的企業有以下問題的任何一個，有必要考慮建設業務中台：</p>
+<ul>
+<li>
+<p>業務具有不確定性：創新困難，無法支撐市場高速變化。如渠道扁平化管理，統一會員營銷，全渠道等。</p>
+</li>
+<li>
+<p>業務不在線：企業信息化程度不足，大量人工統計，核心業務沒有做到實時、在線、統一。比如會員訂單不完整，經銷商進銷存數據不在線等。</p>
+</li>
+<li>
+<p>煙囪式系統多：系統割裂，數據孤島，端到端無法實時協同，更無法基於現有系統進一步構建數據中台。</p>
+</li>
+<li>
+<p>系統重複建設：內部大量重複建設，缺乏業務核心的固化沉澱，系統服役到期只能推倒重建。</p>
+</li>
+<li>
+<p>業務與互聯網緊密：業務與互聯網緊密相關，特別是面向市場消費者，系統的彈性不足，需要支撐不確定的用戶數量。</p>
+</li>
+</ul>
+<p>有些同學認為業務中台是大公司要考慮的，而對於業務不複雜、人員也不太多的中小公司不適合。我有不同的觀點，其實，無論業務複雜與否、人員龐大與否，只要你的業務與互聯網相關，需要快速應對消費者帶來的不確定需求，需要打通煙囪林立的系統，需要業務在線來提高企業創新和協同，都應該考慮建設業務中台；同時，業務中台也不一定徹底推到整個系統，首先要改變意識，分步實施、小步快跑，有很多可落地的途徑和方法。</p>
+<p>那業務中台對企業有什麼價值呢？這裡我們先簡單羅列一下。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/RkI8kX3B430NiE" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" width="510" height="640" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/RkI8kX3B430NiE" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" width="510" height="640" class=""></noscript></amp-img></p>
+<p>1、激發創新：讓企業通過核心能力的沉澱，給予快速創新機會，拉通業務整體的點線，降低了試錯成本；</p>
+<p>2、高效協同：中台側重的是跨部門跨團隊的深入合作，激活了組織創新；</p>
+<p>3、業務在線：服務中心化的構建打破了煙囪式的IT架構，提高核心數據實時/在線/統一；</p>
+<p>4、人員提升：業務沉澱中台提升了IT人員能力，提高業務運營以及全局意識，成為既懂業務又懂技術的核心戰略人才；</p>
+<p>5、變現營銷：會員資產化，全渠道下沉，補全客戶畫像，提升精準營銷；</p>
+<p>6、智能商業：業務數據化+數據業務化的閉環模式，構建了商業智能的基礎；</p>
+<p>可以看出，業務中台無論對企業戰略發展、商業模式創新，還是內部高效協同、人員培養提升等都會帶來很多好處。</p>
+
+<h2><strong class="highlight-text">如何規劃和建設業務中台？</strong></h2>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/RkI8kXL3bwVIbw" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" width="640" height="259" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/RkI8kXL3bwVIbw" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" width="640" height="259" class=""></noscript></amp-img></p>
+<p>很多人認為業務中台落地難，其實難在具體的規劃和落地實施上，我們對業務中台的建設路徑有這樣的一些看法：</p>
+<p>1、決心變革：企業內達成戰略共識，一把手牽頭，業務/技術等團隊全局共識。做總體戰略規劃、分步實施，找准切入點，解決具體業務問題。比如會員營銷、經銷商門店、全渠道、採購供應鏈，不同的切入點策略不同。</p>
+<p>2、成功試點：通過業務和系統分析調研，明確業務目標和範圍，完成技術平台引入、中台建設方法論宣導，並選擇驗證過的技術平台和實施團隊。進行試點，梳理標杆，積累經驗。比如從新的業務系統嘗試，或者改造現有系統，步步為營。</p>
+<p>3、持續融合：總結出適合企業自身的理念和規範，優化組織、提升中台效率。並全面迭代和構建企業業務能力生態。</p>
+<p><strong class="highlight-text">現有系統如何改造？</strong></p>
+<p> <amp-img src="http://p9.pstatp.com/large/pgc-image/RkI8kXoCuCqZyc" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" width="824" height="264" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/RkI8kXoCuCqZyc" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" width="824" height="264" class=""></noscript></amp-img></p>
+<p>前文講到業務中台在分步實施中，講究總體規劃、分步實施。面對現有系統，並不一定都要進行中台改造，我們建議「外松內緊」：</p>
+<p><strong>外松：</strong>面向市場和客戶方面，以精細化運營為驅動，這些系統更適合建設業務中台。對外市場，快速應變，敏捷創新。比如電商、客戶管理、全渠道、營銷、創新業務。</p>
+<p><strong>內緊：</strong>面向內部和員工，以標準化流程為驅動，這些系統更適合保持不變，與業務中台進行對接。對內管理，流程嚴謹，標準規範。比如PLM、MES、HR、OA、財務。</p>
+<p><strong class="highlight-text">共享中心如何建設？</strong></p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/RkI8kY99i5OdLB" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" width="1080" height="191" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/RkI8kY99i5OdLB" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" width="1080" height="191" class=""></noscript></amp-img></p>
+<p>在企業的中台能力中心建設中，核心是共享服務中心的建設，不同行業的業務中心有所不同，比如新零售領域，一些參考可以有用戶中心、會員中心、營銷中心、商品中心、庫存中心、交易中心、結算中心、渠道中心。中心設計需要關注如下幾點：</p>
+<p>1、共享中心是核心業務通用能力沉澱，需要考慮能力地圖，產品整體規劃，以及協議標準、業務需求構建標準等；</p>
+<p>2、共享中心目的是復用和協同，需要通過領域模型，對業務場景流程進行有效建模；</p>
+<p>3、共享中心要考慮能力開放，通過API介面、配置管理、或者low-code的高可配置運行機制；</p>
+<p>4、共享中心實現前端應用和後台的解耦，需要一定組織機制和考核傾斜，制定溝通機制和衝突升級機制。</p>
+
+<h2><strong class="highlight-text">業務中台與前台/後台/平台的關係？</strong></h2>
+<p> <amp-img src="http://p9.pstatp.com/large/pgc-image/RkI8kYIGdy3xOz" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" width="350" height="402" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/RkI8kYIGdy3xOz" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" width="350" height="402" class=""></noscript></amp-img></p>
+<p>業務中台與前台和後台，我認為，主要是這樣的配合關係：</p>
+<p><strong>前台：</strong>敏捷創新，面向不同用戶的觸點，「點」狀繁花似錦。比如2C的電商應用、2B的門店管理等，使用中台開放能力快速變化滿足市場的不同業務場景。</p>
+<p><strong>中台：</strong>核心能力共享沉澱， 「面」狀協同復用。比如交易中心，正常的交易下單、雙十一的預復購、團購秒殺的拼團場景，都可以通過公用的交易中心統一配置。</p>
+<p><strong>後台：</strong>強大的支撐能力，比如支撐系統穩定高效運行的各種後端系統，以及前文提到的面相內部標準化管理的系統，由中台統一協同和對接。</p>
+<p>比較晚前中後台，我們來比較一下中台、平台和中心化。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RkI8klc83oySpH" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" width="640" height="299" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RkI8klc83oySpH" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" width="640" height="299" class=""></noscript></amp-img></p>
+<p>中心化類似煙囪式架構，一個中心解決整個技術堆棧，而平台和中台都是為了去中心化而生，具體的區別如下：</p>
+<p>1、中台是面向業務的能力組合和復用，提供集成化的解決方案：中台的目的是提高研發效率、降低創新的成本。中台包括人，組織，平台，數據，標準，規範，是人和系統的一整套體系。</p>
+<p>2、中台是平台的自然演進：平台是單一團隊、部門、系統的效率提升，而中台是多領域、多BU、多系統的負責協同。如果說平台的目標為高內聚、低耦合、職責邊界清晰；中台是平台化的自然演進，這種演進帶來「去中心化「的組織模式，突出復用、協調、業務創新差異化構建。</p>
+<p>3、中台不是系統，中台是一種體系/生態/方法論：中台有標準和機制，解決頂層領域下各業務子域的高效協同和資源復用問題。各部門、業務域共同建設，是中台能力的使用方也是提供方。同時，中台提供整個業務快速響應的一種理念和方法，對上層業務支撐。</p>
+
+<h2><strong class="highlight-text">業務中台建設的關鍵要素</strong></h2>
+<p> <amp-img src="http://p9.pstatp.com/large/pgc-image/RkI8km4EDD1lEJ" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" width="640" height="348" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/RkI8km4EDD1lEJ" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" width="640" height="348" class=""></noscript></amp-img></p>
+<p>我們認為，企業在業務中台建設當中要關注4個升級：</p>
+<p>1、戰略升級。通過中台建設，落地企業數字化戰略。中台一定是「一把手工程」，整體規劃分步實施。</p>
+<p>2、組織升級。組織架構需要與中台架構相匹配，根據企業實際情況優化組織效率，提升效能，數據化運營，更好支持業務發展和創新</p>
+<p>3、流程升級。將企業現有流程進行梳理，優化及固化企業流程，提高企業共享復用能力，提升企業運作效率。</p>
+<p>4、技術升級。通過互聯網技術，對企業基礎技術設施進行升級，降本增效，達到企業IT部門整體技術升級。</p>
+
+<h2><strong class="highlight-text">業務中台需要哪些核心技術來支撐？</strong></h2>
+<p>業務中台落地中需要一些核心技術，我們也叫「技術中台」，有一些通用的建議：</p>
+<p>1、儘可能拆分，共享中心建設：企業應該儘可能地拆分自己的應用，進行共享服務中心的建設，將核心的業務能力復用和沉澱。共享中心的拆分也可以有層次，可從從基礎主數據、核心業務、流程規則等角度來進行拆分。</p>
+<p>2、去中心化，線性擴展：企業需要採用去中心化架構，沒有核心流量匯入點，服務中心盡量無狀態，便於水平擴展。這樣平均分擔壓力，負載均衡，對單個中心帶來的負載更小，故障影響的範圍也更小。</p>
+<p>3、數據化運營：去中心化也會面對系統運維和管理成本上升的問題。企業需要對自身的運維運營過程進行積累和沉澱，整理出數據化、自動化運維的經驗，同時增強監控告警、限流降級、性能分析診斷等方面的能力，精準定位目前系統中存在的問題，並提出相應的改善方案。</p>
+<p>4、非同步化，最終一致：在大量的實踐中，大部分業務流程不需要強一致性，而使用最終一致來平衡。我們需要使用非同步解耦，如使用消息隊列來完成業務邏輯，縮短相應周期。</p>
+<p>5、儘可能自動化：企業進行中台改造，要求企業儘可能提高自動化能力，比如自動部署、自動彈性擴容、自動升降級、自動限流降級，降低運營成本，也提高系統的穩定性和業務連續性。</p>
+<p>6、儘可能使用成熟組件：中台的建設要求企業將重心放在服務中心上，對於底層組件，尤其是中間件層面，盡量使用成熟的雲原生組件來提高系統穩定性和性能。目前，阿里巴巴中間件已經將多年經雙十一購物狂歡節的嚴苛考驗的技術沉澱，以阿里雲標準雲服務的方式輸出給外部客戶，其中包括多款阿里云云原生中間件產品（比如K8s/EDAS/MQ/DRDS/ARMS/PTS/CSB/GTS），阿里與流行的雲原生技術完整融合（比如Dubbo/SpringCloud/K8S/RocketMQ）。</p>
+
+<h2><strong class="highlight-text">阿里在業務中台建設上能提供什麼？ </strong></h2>
+<p>阿里是最早提出中台概念，並成功實施落地，阿里中台所配套的中間件是經過阿里多年雙十一洗禮的成熟產品。阿里內部幾百個業務應用，共享一個技術中台底座，服務新的業務場景，帶來更好的用戶業務體驗。同時，阿里雲通過為上百個外部客戶實施業務中台，培養了一大批具備中台實施交付能力的行業ISV，同時沉澱了大量行業最佳實踐。 </p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RkI8kmKGMIwuG8" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" width="640" height="543" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RkI8kmKGMIwuG8" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" width="640" height="543" class=""></noscript></amp-img></p>
+<p>阿里雲提供一整套「業務中台技術解決方案」可以解決的問題有：</p>
+<ul>
+<li>
+<p>將企業核心能力下沉共享，加速企業創新速度；</p>
+</li>
+<li>
+<p>規範IT全生命周期管理，提升研發效率與質量；</p>
+</li>
+<li>
+<p>提供行業最佳實踐，助力企業快速落地中台戰略。</p>
+</li>
+</ul>
+<p><strong>架構優勢</strong></p>
+<ul>
+<li>
+<p>雲原生：支持彈性調度、微服務化解耦，自動化運維；</p>
+</li>
+<li>
+<p>高可靠：阿里中間件產品支持，歷經多年雙11考驗；</p>
+</li>
+<li>
+<p>高並發：支持按流量線性擴展，支撐海量用戶。</p>
+</li>
+</ul>
+<p>更為重要的，阿里基於近十年的最佳實踐，沉澱了一整套業務中台實施的方法論，包括中台架構設計、微服務架構設計、中台開發規範、全鏈路壓測等方面的最佳實踐。這些全方位的中台建設方法論、阿里商業能力、阿里雲技術支撐，不僅僅是技術紅利的分享，更重要的是整個阿里中台戰略思想的傳播。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/RkI8kmm281qJgJ" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" width="640" height="293" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/RkI8kmm281qJgJ" alt="《業務中台是啥玩意？阿里巴巴架構師告訴你》" width="640" height="293" class=""></noscript></amp-img></p>
+<p>更多可以參考「阿里雲業務中台技術解決方案官網」。</p>
+
+<h2><strong class="highlight-text">小結</strong></h2>
+
+<h2><strong>參考資料：</strong></h2>
+<p>1、阿里雲業務中台技術解決方案官網</p>
+<p><strong>https://www.aliyun.com/solution/bme/index</strong></p>
+<p>3、阿里架構總監一次講透中台架構，13頁PPT精華詳解</p>
+<p><strong>https://yq.aliyun.com/articles/717505</strong></p>
+<p>4、互聯網時代的企業必定都要實現中台</p>
+<p><strong>https://yq.aliyun.com/articles/717505</strong></p>
+<p><strong>作者信息：</strong></p>
+<p><strong class="highlight-text">王思軒，花名宇升，阿里雲業務中台&amp;雲原生架構師，博士留學期間發表論文10餘篇，多年大型分散式系統架構設計經驗，現主要參與阿里雲業務中台方法體系建設，以及新零售業務中台和雲原生技術諮詢工作。</strong></p>
+<p><strong class="highlight-text">昨天發的招聘的文章依然有效，這次是個機會，心動不如行動。</strong></p>
+<p><strong class="highlight-text">招人好難啊 -0- </strong></p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/9540#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.223 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:10:45 -->
+
+<!-- super cache -->

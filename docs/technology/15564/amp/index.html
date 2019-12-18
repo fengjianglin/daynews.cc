@@ -1,0 +1,622 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/15564#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/e020547da88b454c8006e3e3dcad2a54"},{"@type":"WebPage","@id":"https://daynews.cc/technology/15564#webpage","url":"https://daynews.cc/technology/15564","inLanguage":"zh-TW","name":"spring boot\u5206\u6563\u5f0f\u4e8b\u52d9\u89e3\u6c7a\u65b9\u6848LCN - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/15564#primaryimage"},"datePublished":"2019-12-14T01:55:06+00:00","dateModified":"2019-12-14T01:55:06+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="對比LCN和saga(華為apache孵化器項目) ，LCN使用代理連接池封 裝補償方法，saga需要手工寫補償方法，相對來說LCN使用更加方便。 參考官方地址 1. 原理 1. 事務控制原理 LCN事務控制原理是由事務模塊TxClient下的代理連接池與TxManager 的協調配合完成的事務協調控制。 TxClient的代理連接池實現……" />
+<meta name="twitter:title" content="spring boot分散式事務解決方案LCN - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/e020547da88b454c8006e3e3dcad2a54" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="spring boot分散式事務解決方案LCN - 天天要聞" />
+<meta property="og:description" content="對比LCN和saga(華為apache孵化器項目) ，LCN使用代理連接池封 裝補償方法，saga需要手工寫補償方法，相對來說LCN使用更加方便。 參考官方地址 1. 原理 1. 事務控制原理 LCN事務控制原理是由事務模塊TxClient下的代理連接池與TxManager 的協調配合完成的事務協調控制。 TxClient的代理連接池實現……" />
+<meta property="og:url" content="https://daynews.cc/technology/15564" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-14T01:55:06+00:00" />
+	<title>spring boot分散式事務解決方案LCN - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/15564" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">spring boot分散式事務解決方案LCN</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-14T09:55:06+00:00">
+		4 天 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<p>對比LCN和saga(華為apache孵化器項目) ，LCN使用代理連接池封 裝補償方法，saga需要手工寫補償方法，相對來說LCN使用更加方便。</p>
+<p>參考官方地址</p>
+<p>1. 原理</p>
+<p>1. 事務控制原理</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/e020547da88b454c8006e3e3dcad2a54" alt="《spring boot分散式事務解決方案LCN》" width="554" height="347" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/e020547da88b454c8006e3e3dcad2a54" alt="《spring boot分散式事務解決方案LCN》" width="554" height="347" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>LCN事務控制原理是由事務模塊TxClient下的代理連接池與TxManager 的協調配合完成的事務協調控制。</p>
+<p>TxClient的代理連接池實現了javax.sql.DataSource介面， 並重寫了close方法，事務模塊在提交關閉以後TxClient連接池將執行”假關閉”操作，等待TxManager協調完成事務以後在關閉連接。</p>
+<p>2. 調用時序圖</p>
+<p>1. 正常</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/48513733e7984a829a1e8e418145e6a7" alt="《spring boot分散式事務解決方案LCN》" width="554" height="423" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/48513733e7984a829a1e8e418145e6a7" alt="《spring boot分散式事務解決方案LCN》" width="554" height="423" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>2. 異常</p>
+<p>2. 服務端</p>
+<p>tx-manager 4.1.0</p>
+<p>3. 客戶端</p>
+<p>1. pom添加依賴</p>
+<p>&lt;properties&gt;<br>&lt;lcn.last.version&gt;4.1.0&lt;/lcn.last.version&gt;<br>&lt;/properties&gt;<br>&lt;dependency&gt;<br>&lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;<br>&lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;<br>&lt;version&gt;1.1.1&lt;/version&gt;<br>&lt;/dependency&gt;<br>&lt;dependency&gt;<br>&lt;groupId&gt;com.codingapi&lt;/groupId&gt;<br>&lt;artifactId&gt;transaction-springcloud&lt;/artifactId&gt;<br>&lt;version&gt;${lcn.last.version}&lt;/version&gt;<br>&lt;exclusions&gt;<br>&lt;exclusion&gt;<br>&lt;groupId&gt;org.slf4j&lt;/groupId&gt;<br>&lt;artifactId&gt;*&lt;/artifactId&gt;<br>&lt;/exclusion&gt;<br>&lt;/exclusions&gt;<br>&lt;/dependency&gt;<br>&lt;dependency&gt;<br>&lt;groupId&gt;com.codingapi&lt;/groupId&gt;<br>&lt;artifactId&gt;tx-plugins-db&lt;/artifactId&gt;<br>&lt;version&gt;${lcn.last.version}&lt;/version&gt;<br>&lt;exclusions&gt;<br>&lt;exclusion&gt;<br>&lt;groupId&gt;org.slf4j&lt;/groupId&gt;<br>&lt;artifactId&gt;*&lt;/artifactId&gt;<br>&lt;/exclusion&gt;<br>&lt;/exclusions&gt;<br>&lt;/dependency&gt;</p>
+<p>2. 配置文件</p>
+<p>#Ribbon的負載均衡策略：隨機<br>#ribbon.NFLoadBalancerRuleClassName= com.netflix.loadbalancer.RandomRule<br>#由於springcloud默認是開啟的重試機制，開啟次機制以後會導致當springcloud請求超時時會重複調用業務模塊， 從而會引發數據混亂，因此建議將其禁用。對於網路模塊超時等故障問題建議使用hytrix方式。<br>#ribbon.MaxAutoRetriesNextServer=0<br>tm:<br>manager:<br>url: http://localhost:8899/tx/manager/<br>ribbon:<br>NFLoadBalancerRuleClassName: com.netflix. loadbalancer.RandomRule<br>MaxAutoRetriesNextServer: 0<br>init-db:true<br>hystrix:<br>command:<br>default:<br>execution:<br>isolation:<br>thread:<br>timeoutInMilliseconds: 6000</p>
+<p>3. Service包下處理http請求和對伺服器的連接</p>
+<p>package com.svw.tbox.tcloud.commons.ms.service;<br>import com.codingapi.tx.netty.service. TxManagerHttpRequestService;<br>import com.lorne.core.framework.utils.http.HttpUtils;<br>import org.springframework.stereotype.Service;<br>@Service<br>publicclass TxManagerHttpRequestServiceImpl implements TxManagerHttpRequestService{<br>@Override<br>public String httpGet(String url) {<br>//GET請求前<br>String res = HttpUtils.get(url);<br>//GET請求後<br>returnres;<br>}<br>@Override<br>public String httpPost(String url, String params) {<br>//POST請求前<br>String res = HttpUtils.post(url,params);<br>//POST請求後<br>returnres;<br>}<br>}<br>package com.svw.tbox.tcloud.commons.ms.service;<br>import com.codingapi.tx.config.service. TxManagerTxUrlService;<br>import org.springframework.beans.factory.annotation.Value;<br>import org.springframework.stereotype.Service;<br>@Service<br>public class TxManagerTxUrlServiceImpl implements TxManagerTxUrlService{<br>@Value(“${tm.manager.url}”)<br>private String url;<br>@Override<br>public String getTxUrl() {<br>//load tm.manager.url<br>return url;<br>}<br>}</p>
+<p>4. 啟動類配置代理連接池</p>
+<p>import javax.sql.DataSource;<br>import org.mybatis.spring.annotation.MapperScan;<br>import org.springframework.beans.factory.annotation.Autowired;<br>import org.springframework.boot.SpringApplication;<br>import org.springframework.boot. autoconfigure.SpringBootApplication;<br>import org.springframework.cloud.client.discovery. EnableDiscoveryClient;<br>import org.springframework.cloud.netflix.hystrix.EnableHystrix;<br>import org.springframework.context.annotation.Bean;<br>import org.springframework.context. annotation.ComponentScan;<br>import org.springframework.core.env.Environment;<br>import com.alibaba.druid.pool.DruidDataSource;<br>@SpringBootApplication<br>@EnableDiscoveryClient<br>@EnableHystrix<br>@MapperScan(basePackages = “com.svw.tbox.tcloud. commons.ms.dao”)<br>@ComponentScan(basePackages = { “com.svw.tbox.tcloud” })<br>publicclass MsApplication {<br>……<br>@Autowired<br>private Environment env;<br>@Bean<br>public DataSource dataSource() {<br>DruidDataSource dataSource = new DruidDataSource();<br>dataSource.setUrl(env.getProperty(“spring.datasource.url”));<br>dataSource.setUsername(env.getProperty (“spring.datasource.username”));//用戶名<br>dataSource.setPassword(env.getProperty (“spring.datasource.password”));//密碼<br>dataSource.setInitialSize(2);<br>dataSource.setMaxActive(20);<br>dataSource.setMinIdle(0);<br>dataSource.setMaxWait(60000);<br>dataSource.setValidationQuery(“SELECT 1”);<br>dataSource.setTestOnBorrow(false);<br>dataSource.setTestWhileIdle(true);<br>dataSource.setPoolPreparedStatements(false);<br>returndataSource;<br>}</p>
+<p>5. 測試代碼</p>
+<p>調用方tcloud-mds =&gt; 參與方tcloud-commons</p>
+<p>package com.svw.tbox.tcloud.commons.api.feign;<br>import org.springframework.cloud.netflix.feign.FeignClient;<br>import com.svw.tbox.tcloud.commons.api.config. TxFeignConfiguration;<br>import com.svw.tbox.tcloud.commons.api.service. SysErrorCodeMappingService;<br>/**<br>* &lt;p&gt;ClassName: SysErrorCodeMappingFeign&lt;/p&gt;<br>* &lt;p&gt;Description: 遠程調用錯誤碼服務&lt;/p&gt;<br>* &lt;p&gt;Author: hurf&lt;/p&gt;<br>* &lt;p&gt;Date: 2017年12月11日&lt;/p&gt;<br>*/<br>@FeignClient(value = “tcloud-commons-ms”)<br>publicinterface SysErrorCodeMappingFeign extends SysErrorCodeMappingService {<br>}</p>
+<p>2. 事務發起@TxTransaction(isStart=true)</p>
+<p>import org.springframework.beans.factory.annotation.Autowired;<br>import org.springframework.stereotype.Service;<br>import org.springframework.transaction.annotation.Transactional;<br>import com.codingapi.tx.annotation.TxTransaction;<br>import com.svw.tbox.tcloud.commons.api. entity. SysErrorCodeMapping;<br>import com.svw.tbox.tcloud.commons.api. feign.SysErrorCodeMappingFeign;<br>import com.svw.tbox.tcloud.commons.api.service.CmnService;<br>import com.svw.tbox.tcloud.commons.api.service.JedisTemplate;<br>import com.svw.tbox.tcloud.commons.util.DateUtil;<br>import com.svw.tbox.tcloud.mds.entity.ThUserLogin;<br>/**<br>* @Title&lt;p&gt;ClassName: UserTokenService&lt;/p&gt;<br>* @Description&lt;p&gt;Description: 登錄服務&lt;/p&gt;<br>* @Author&lt;p&gt;Author: hurf&lt;/p&gt;<br>* @Date&lt;p&gt;Date: 2018年2月6日&lt;/p&gt;<br>*/<br>@Service<br>publicclass UserTokenService extends CmnService&lt;ThUserLogin&gt;{<br>@Autowired<br>private JedisTemplate jedisTemplate;<br>@Autowired<br>private SysErrorCodeMappingFeign sysErrorCodeMappingFeign;<br>@Transactional<br>@TxTransaction(isStart=true)<br>public String add(SysErrorCodeMapping sysErrorCodeMapping) {<br>// 遠程調用新增<br>sysErrorCodeMappingFeign.add(sysErrorCodeMapping);<br>// 本地新增db<br>insertSelective(ThUserLogin.builder().accessToken (sysErrorCodeMapping.getApiCode())<br>.refreshToken(sysErrorCodeMapping.getInnerErrorCode()). createBy (“測試事務”).build());<br>//本地緩存事務<br>jedisTemplate.set(“isStart”, DateUtil.getNow());<br>// int ii = 1/0;//異常<br>return”測試分散式事務成功”;<br>}<br>}</p>
+<p>3. 事務參與方tcloud-commons-ms: @Transactional</p>
+<p>@RestController<br>publicclass SysErrorCodeMappingController implements SysErrorCodeMappingService {<br>@Autowired<br>private MsService msService;<br>@ApiOperation(“添加錯誤碼信息”)<br>@Override<br>public SystemResponse add (@RequestBody SysErrorCodeMapping sysErrorCodeMapping) {<br>returnmsService.add(sysErrorCodeMapping);<br>}<br>。。。。。。<br>importcom.codingapi.tx.annotation.ITxTransaction;<br>@Service<br>@CacheConfig(cacheNames = “sys-code-resource”)<br>publicclass MsService implements ITxTransaction{<br>@Autowired<br>private JedisTemplate jedisTemplate;<br>@Autowired<br>private SysErrorCodeMappingMapper sysErrorCodeMappingMapper;<br>/**<br>* &lt;p&gt;Title: 事務參與方&lt;/p&gt;<br>* &lt;p&gt;Description: &lt;/p&gt;<br>* @param sysErrorCodeMapping<br>* @return<br>*/<br>@Transactional<br>public SystemResponse add( SysErrorCodeMapping sysErrorCodeMapping) {<br>//db操作<br>sysErrorCodeMapping.setVersion(1);<br>sysErrorCodeMapping.setDelFlag(Short.valueOf(“0”));<br>sysErrorCodeMapping.setCreatedBy(“admin”);<br>sysErrorCodeMapping.setCreateDate(new Date());<br>sysErrorCodeMappingMapper.insertSelective (sysErrorCodeMapping);<br>//redis操作<br>jedisTemplate.set (“addTest”+DateUtil.getNow(),”ttttttttttt ttttttttttt”);<br>return ResultUtil.success(refreshAll());<br>}</p>
+<p>6. 效果</p>
+<p>啟動兩個微服務，訪問調用方介面</p>
+<p>1. 正常情況</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/fce53eaa2e2e4d49be628cc042aea145" alt="《spring boot分散式事務解決方案LCN》" width="554" height="628" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/fce53eaa2e2e4d49be628cc042aea145" alt="《spring boot分散式事務解決方案LCN》" width="554" height="628" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/b803060765a14d7192171ad031f50950" alt="《spring boot分散式事務解決方案LCN》" width="285" height="175" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/b803060765a14d7192171ad031f50950" alt="《spring boot分散式事務解決方案LCN》" width="285" height="175" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/a1266917290441f7973994d41cf95da9" alt="《spring boot分散式事務解決方案LCN》" width="277" height="82" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/a1266917290441f7973994d41cf95da9" alt="《spring boot分散式事務解決方案LCN》" width="277" height="82" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/b3b0181d26d147109032ad9bec3d0ca1" alt="《spring boot分散式事務解決方案LCN》" width="886" height="200" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/b3b0181d26d147109032ad9bec3d0ca1" alt="《spring boot分散式事務解決方案LCN》" width="886" height="200" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/657138031b2d4eb29f0b77b317212c5c" alt="《spring boot分散式事務解決方案LCN》" width="873" height="196" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/657138031b2d4eb29f0b77b317212c5c" alt="《spring boot分散式事務解決方案LCN》" width="873" height="196" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>2. 異常回滾情況</p>
+<p>刪除剛剛的測試數據，開啟異常情況：</p>
+<p>@Transactional<br>@TxTransaction(isStart=true)<br>public String add(SysErrorCodeMapping sysErrorCodeMapping) {<br>// 遠程調用新增<br>sysErrorCodeMappingFeign.add(sysErrorCodeMapping);<br>// 本地新增db<br>insertSelective( ThUserLogin.builder().accessToken( sysErrorCodeMapping.getApiCode())<br>.refreshToken( sysErrorCodeMapping.getInnerErrorCode()).createBy( “測試事務”).build());<br>//本地緩存事務<br>jedisTemplate.set( “isStart”, DateUtil.getNow());<br>intii = 1/0;//異常<br>return”測試分散式事務成功”;<br>}</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/fef19169303d464c9079db02daaef587" alt="《spring boot分散式事務解決方案LCN》" width="510" height="377" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/fef19169303d464c9079db02daaef587" alt="《spring boot分散式事務解決方案LCN》" width="510" height="377" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/91c314a0d7384aa696b2156befa72b80" alt="《spring boot分散式事務解決方案LCN》" width="346" height="223" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/91c314a0d7384aa696b2156befa72b80" alt="《spring boot分散式事務解決方案LCN》" width="346" height="223" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/019c934daa744e8a87d1d306a22a05f0" alt="《spring boot分散式事務解決方案LCN》" width="729" height="180" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/019c934daa744e8a87d1d306a22a05f0" alt="《spring boot分散式事務解決方案LCN》" width="729" height="180" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/07d4e612f2de4e81ba0e6d54d3fcbce3" alt="《spring boot分散式事務解決方案LCN》" width="758" height="198" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/07d4e612f2de4e81ba0e6d54d3fcbce3" alt="《spring boot分散式事務解決方案LCN》" width="758" height="198" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/6cda0cf0ef6a47878532d5bf1e9f9619" alt="《spring boot分散式事務解決方案LCN》" width="513" height="190" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/6cda0cf0ef6a47878532d5bf1e9f9619" alt="《spring boot分散式事務解決方案LCN》" width="513" height="190" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>發現mysql已經回滾了，但是redis沒有回滾 =》 目前只支持db分散式事務。</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/15564#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.291 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:37:40 -->
+
+<!-- super cache -->

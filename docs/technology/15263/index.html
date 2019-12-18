@@ -1,0 +1,524 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>不懂？Java中ThreadLocal解決了什麼問題 - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="點擊上方☝Java編程技術樂園，輕鬆關注！及時獲取有趣有料的技術文章 小明所在的項目組（迭代組：一直在迭代的路上），經常會在已有介面的基礎上開發一些小功能，並且前提是在保證現有用戶的不受影響基礎上迭代。功能迭代，在代碼層面小明有1w種實現方法（吹牛的），一起來看看這次小明如何使用ThreadLocal優雅地完成本次迭代吧！ 由於 Thre……" />
+		<meta name="keywords" content="不懂？Java中ThreadLocal解決了什麼問題 - 天天要聞,科技," />
+		<meta itemprop="image" content="http://p3.pstatp.com/large/pgc-image/4f6ce6df8ce049fc9245c24073a90957"/>
+		<meta name="description" itemprop="description" content="點擊上方☝Java編程技術樂園，輕鬆關注！及時獲取有趣有料的技術文章 小明所在的項目組（迭代組：一直在迭代的路上），經常會在已有介面的基礎上開發一些小功能，並且前提是在保證現有用戶的不受影響基礎上迭代。功能迭代，在代碼層面小明有1w種實現方法（吹牛的），一起來看看這次小明如何使用ThreadLocal優雅地完成本次迭代吧！ 由於 Thre……" />
+		
+<!-- This site is optimized with the SEO -->
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="https://daynews.cc/technology/15263" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="不懂？Java中ThreadLocal解決了什麼問題 - 天天要聞" />
+<meta property="og:description" content="點擊上方☝Java編程技術樂園，輕鬆關注！及時獲取有趣有料的技術文章 小明所在的項目組（迭代組：一直在迭代的路上），經常會在已有介面的基礎上開發一些小功能，並且前提是在保證現有用戶的不受影響基礎上迭代。功能迭代，在代碼層面小明有1w種實現方法（吹牛的），一起來看看這次小明如何使用ThreadLocal優雅地完成本次迭代吧！ 由於 Thre……" />
+<meta property="og:url" content="https://daynews.cc/technology/15263" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-16T00:50:14+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="點擊上方☝Java編程技術樂園，輕鬆關注！及時獲取有趣有料的技術文章 小明所在的項目組（迭代組：一直在迭代的路上），經常會在已有介面的基礎上開發一些小功能，並且前提是在保證現有用戶的不受影響基礎上迭代。功能迭代，在代碼層面小明有1w種實現方法（吹牛的），一起來看看這次小明如何使用ThreadLocal優雅地完成本次迭代吧！ 由於 Thre……" />
+<meta name="twitter:title" content="不懂？Java中ThreadLocal解決了什麼問題 - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/4f6ce6df8ce049fc9245c24073a90957" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/15263#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/4f6ce6df8ce049fc9245c24073a90957"},{"@type":"WebPage","@id":"https://daynews.cc/technology/15263#webpage","url":"https://daynews.cc/technology/15263","inLanguage":"zh-TW","name":"\u4e0d\u61c2\uff1fJava\u4e2dThreadLocal\u89e3\u6c7a\u4e86\u4ec0\u9ebc\u554f\u984c - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/15263#primaryimage"},"datePublished":"2019-12-16T00:50:14+00:00","dateModified":"2019-12-16T00:50:14+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<!-- / SEO. -->
+
+<link rel='stylesheet' id='animate-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/animate.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/bootstrap.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/superfish.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/layer.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='https://daynews.cc/wp-content/themes/Kratos/style.css' type='text/css' media='all' />
+<link rel="amphtml" href="https://daynews.cc/technology/15263/amp">		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.min.js'></script>
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154709495-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-154709495-1');
+		</script>
+		<!-- Google Adsense -->
+		<script data-ad-client="ca-pub-8261739837930821" async 
+			src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="https://daynews.cc"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="/">首頁</a></li>
+<li><a href="/entertainment">娛樂</a></li>
+<li><a href="/emotion">情感</a></li>
+<li><a href="https://daynews.cc/international">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="https://daynews.cc/technology">科技</a></li>
+<li><a href="/sports">體育</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/nba">NBA</a></li>
+	<li><a href="/premier">英超</a></li>
+</ul>
+</li>
+<li><a href="/history">歷史</a></li>
+<li><a href="/game">遊戲</a></li>
+<li><a href="https://daynews.cc/health">養生</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/lose">減肥</a></li>
+</ul>
+</li>
+<li><a href="https://daynews.cc/constellation">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">不懂？Java中ThreadLocal解決了什麼問題</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-16				                <i class="fa fa-commenting-o"></i> 22條評論
+				                <i class="fa fa-eye"></i> 1,965次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 942人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+<p>點擊上方☝Java編程技術樂園，輕鬆關注！及時獲取有趣有料的技術文章</p>
+</p>
+<blockquote>
+<p>小明所在的項目組（迭代組：一直在迭代的路上），經常會在已有介面的基礎上開發一些小功能，並且前提是在保證現有用戶的不受影響基礎上迭代。功能迭代，在代碼層面小明有1w種實現方法（吹牛的），一起來看看這次小明如何使用<strong>ThreadLocal</strong>優雅地完成本次迭代吧！</p>
+</blockquote>
+<p>由於 ThreadLocal 支持范型，如 ThreadLocal&lt; StringBuilder &gt;，為表述方便，後文用 <strong>變數</strong> 代表 ThreadLocal 本身，而用 <strong>實例</strong> 代表具體類型（如 StringBuidler ）的實例。</p>
+<h2 class="pgc-h-arrow-right">理解誤區</h2>
+<p>寫這篇文章之前，小明就在網上看了很多博客關於 ThreadLocal 的適用場景以及解決的問題，描述的都並不是很清楚，甚至誤人子弟的。比如下面是常見對於 ThreadLocal的介紹（<strong>wrong</strong>）</p>
+<blockquote>
+<p>ThreadLocal為解決多線程程序的並發問題提供了一種新的思路；<br />ThreadLocal的目的是為了解決多線程訪問資源時的共享問題。</p>
+</blockquote>
+<p>在小明大量閱讀和動手實驗後得出結論：ThreadLocal 並不是像上面所說為了解決多線程 <strong>共享</strong>變數的問題。</p>
+<h2 class="pgc-h-arrow-right">正確理解</h2>
+<p>ThreadLoal 變數，它的基本原理是，同一個 ThreadLocal 所包含的對象（對ThreadLocal&lt; StringBuilder &gt;而言即為 StringBuilder 類型變數），在不同的 Thread 中有不同的副本（實際上是不同的實例）:</p>
+<ul class="">
+<li>因為每個 Thread 內有自己的實例副本，且該副本只能由當前 Thread 使用；</li>
+<li>既然其它 Thread 不可訪問，那就不存在多線程間共享的問題。</li>
+</ul>
+<p>官方文檔是這樣描述的：</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/4f6ce6df8ce049fc9245c24073a90957" src="http://p3.pstatp.com/large/pgc-image/4f6ce6df8ce049fc9245c24073a90957" alt="《不懂？Java中ThreadLocal解決了什麼問題》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>我看完之後，得出這樣的結論</p>
+<blockquote>
+<p>ThreadLocal 提供了線程本地的實例。它與普通變數的區別在於，每個使用該變數的線程都會初始化一個完全獨立的實例副本。ThreadLocal 變數通常被private static修飾。當一個線程結束時，它所使用的所有 ThreadLocal 相對的實例副本都會被回收。</p>
+</blockquote>
+<p>因此<strong>ThreadLocal 非常適用於這樣的場景：每個線程需要自己獨立的實例且該實例需要在多個方法中使用</strong>。當然，使用其它方式也可以實現同樣的效果，但是看完這篇文章，你會發現 ThreadLocal 會讓實現更簡潔、更優雅！</p>
+<h2 class="pgc-h-arrow-right">ThreadLocal用法</h2>
+<h2 class="pgc-h-arrow-right">實例代碼</h2>
+<p>我們通過下面的代碼，先做個示例，然後分析一下現象，得出一個結論：</p>
+<pre>public class ThreadLocalDemo {<br><br>    public static void main(String[] args) throws InterruptedException {<br>        int threadNum = 3;<br>        CountDownLatch countDownLatch = new CountDownLatch(threadNum);<br>        for (int i = 1; i &lt;= threadNum; i++) {<br>            new Thread(() -&gt; {<br>                for (int j = 0; j &lt;= 2; j++) {<br>                    MyUtil.add(String.valueOf(j));<br>                    MyUtil.print();<br>                }<br>                MyUtil.set("hello world");<br>                countDownLatch.countDown();<br>            }, "thread - " + i).start();<br>        }<br>        countDownLatch.await();<br>    }<br><br>    private static class MyUtil {<br><br>        public static void add(String newStr) {<br>            StringBuilder str = StringBuilderUtil.stringBuilderThreadLocal.get();<br>            StringBuilderUtil.stringBuilderThreadLocal.set(str.append(newStr));<br>        }<br><br>        public static void print() {<br>            System.out.printf("Thread name:%s , ThreadLocal hashcode:%s, Instance hashcode:%s, Value:%s\n",<br>                    Thread.currentThread().getName(),<br>                    StringBuilderUtil.stringBuilderThreadLocal.hashCode(),<br>                    StringBuilderUtil.stringBuilderThreadLocal.get().hashCode(),<br>                    StringBuilderUtil.stringBuilderThreadLocal.get().toString());<br>        }<br><br>        public static void set(String words) {<br>            StringBuilderUtil.stringBuilderThreadLocal.set(new StringBuilder(words));<br>            System.out.printf("Set, Thread name:%s , ThreadLocal hashcode:%s,  Instance hashcode:%s, Value:%s\n",<br>                    Thread.currentThread().getName(),<br>                    StringBuilderUtil.stringBuilderThreadLocal.hashCode(),<br>                    StringBuilderUtil.stringBuilderThreadLocal.get().hashCode(),<br>                    StringBuilderUtil.stringBuilderThreadLocal.get().toString());<br>        }<br>    }<br><br>    private static class StringBuilderUtil {<br>        // ThreadLocal 變數通常被 private static 修飾<br>        private static ThreadLocal&lt;StringBuilder&gt; stringBuilderThreadLocal = ThreadLocal.withInitial(() -&gt; new StringBuilder());<br>    }<br><br>}</pre>
+<h2 class="pgc-h-arrow-right">實例分析</h2>
+<p>ThreadLocal本身支持范型，比如該例使用了 StringBuilder 類型的 ThreadLocal 變數。可通過 ThreadLocal 的 get() 方法讀取 StringBuidler 實例，也可通過 set(T t) 方法設置 StringBuilder。</p>
+<blockquote>
+<p>tips:CountDownLatch類位於java.util.concurrent包下，利用它可以實現類似計數器的功能。比如有一個場景：任務A，它要等待其他4個任務執行完畢之後才能執行，此時就可以利用CountDownLatch來實現這種功能了。下次，我們可以單獨聊聊這一個功能。</p>
+</blockquote>
+<p>點擊運行，控制台輸出結果</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/715f8015fa5b4a509479e2c218710502" src="http://p1.pstatp.com/large/pgc-image/715f8015fa5b4a509479e2c218710502" alt="《不懂？Java中ThreadLocal解決了什麼問題》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>我們可以發現：</p>
+<ul class="">
+<li>每個線程訪問的是同一個 ThreadLocal 變數，而通過 ThreadLocal 的 get() 方法拿到的是不同的 StringBuilder 實例；</li>
+<li>雖然從代碼上都是對 StringBuilderUtil 類的靜態 stringBuilderThreadLocal 欄位進行 get() 得到 StringBuilder 實例並追加字元串，但是這並不會將所有線程追加的字元串都放進同一個 StringBuilder 中，而是每個線程將字元串追加進各自的 StringBuidler 實例內</li>
+<li>使用 set(T t) 方法後，ThreadLocal 變數所指向的 StringBuilder 實例被替換</li>
+</ul>
+<h2 class="pgc-h-arrow-right">ThreadLocal原理</h2>
+<h2 class="pgc-h-arrow-right">方案一</h2>
+<p>我們大膽猜想一下，既然每個訪問 ThreadLocal 變數的線程都有自己的一個「本地」實例副本。一個可能的方案是 ThreadLocal 維護一個 Map，Key 是當前線程，Value是ThreadLocal在當前線程內的實例。這樣，線程通過該 ThreadLocal 的 get() 方案獲取實例時，只需要以線程為鍵，從 Map 中找出對應的實例即可。該方案如下圖所示</p>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/93394aab9e374ad7b6d14939e2e10c26" src="http://p9.pstatp.com/large/pgc-image/93394aab9e374ad7b6d14939e2e10c26" alt="《不懂？Java中ThreadLocal解決了什麼問題》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>這個方案可以滿足上文提到的每個線程內部都有一個ThreadLocal 實例備份的要求。每個新線程訪問該 ThreadLocal 時，都會向 Map 中添加一個新的映射，而當每個線程結束時再清除該線程對應的映射。But，這樣就存在兩個問題：</p>
+<ul class="">
+<li>開啟線程與結束線程時我們都需要及時更新 Map，因此必需保證 Map 的線程安全。</li>
+<li>當線程結束時，需要保證它所訪問的所有 ThreadLocal 中對應的映射均刪除，否則可能會引起內存泄漏。</li>
+</ul>
+<p>線程安全問題是JDK 未採用該方案的一個主要原因。</p>
+<h2 class="pgc-h-arrow-right">方案二</h2>
+<p>上面這個方案，存在多線程訪問同一個 Map時可能會出現的同步問題。如果該 Map 由 Thread 維護，從而使得每個 Thread 只訪問自己的 Map，就不存在這個問題。該方案如下圖所示。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/bba196f5dc924cb7af2aabd53c9939c1" src="http://p1.pstatp.com/large/pgc-image/bba196f5dc924cb7af2aabd53c9939c1" alt="《不懂？Java中ThreadLocal解決了什麼問題》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>該方案雖然沒有鎖的問題，但是由於每個線程在訪問ThreadLocal 變數後，都會在自己的 Map 內維護該 ThreadLocal 變數與具體實例的映射，如果不刪除這些引用（映射），就有可能會造成內存泄漏的問題。我們一起來看一下Jdk8是如何解決這個問題的。</p>
+<h2 class="pgc-h-arrow-right">ThreadLocal 在 JDK 8 中的實現</h2>
+<h3 class="pgc-h-arrow-right">ThreadLocalMap與內存泄漏</h3>
+<p>在該方案中，Map 由 ThreadLocal 類的靜態內部類 ThreadLocalMap 提供。該類的實例維護某個 ThreadLocal 與具體實例的映射。與 HashMap 不同的是，ThreadLocalMap 的每個 <strong>Entry</strong> 都是一個對 <strong>Key</strong> 的弱引用，這一點我們可以從super(k)可看出。另外，每個 Entry 中都包含了一個對 <strong>Value</strong> 的強引用。</p>
+<pre>static class Entry extends WeakReference&lt;ThreadLocal&lt;?&gt;&gt; {<br>  /** The value associated with this ThreadLocal. */<br>  Object value;<br><br>  Entry(ThreadLocal&lt;?&gt; k, Object v) {<br>    super(k);<br>    value = v;<br>  }<br>}</pre>
+<p>之所以使用弱引用，是因為當沒有強引用指向 ThreadLocal 變數時，這個變數就可以被回收，就避免ThreadLocal 因為不能被回收而造成的內存泄漏的問題。</p>
+<p>但是，這裡又可能出現另外一種內存泄漏的問題。ThreadLocalMap 維護 ThreadLocal 變數與具體實例的映射，當 ThreadLocal 變數被回收後，該映射的鍵變為 null，該 Entry 無法被移除。從而使得實例被該 Entry 引用而無法被回收造成內存泄漏。</p>
+<p><strong>注意：</strong>Entry是對 ThreadLocal 類型的弱引用，並不是具體實例的弱引用，因此還存在具體實例相關的內存泄漏的問題。</p>
+<h3 class="pgc-h-arrow-right">讀取實例</h3>
+<p>我們來看一下ThreadLocal獲取實例的方法</p>
+<pre>public T get() {<br>  Thread t = Thread.currentThread();<br>  ThreadLocalMap map = getMap(t);<br>  if (map != null) {<br>    ThreadLocalMap.Entry e = map.getEntry(this);<br>    if (e != null) {<br>      @SuppressWarnings("unchecked")<br>      T result = (T)e.value;<br>      return result;<br>    }<br>  }<br>  return setInitialValue();<br>}</pre>
+<p>當線程獲取實例時，首先會通過getMap(t)方法獲取自身的 ThreadLocalMap。從如下該方法的定義可見，該 ThreadLocalMap 的實例是 Thread 類的一個欄位，即由 Thread 維護 ThreadLocal 對象與具體實例的映射，這一點與上文分析一致。</p>
+<pre>ThreadLocalMap getMap(Thread t) {<br>  return t.threadLocals;<br>}</pre>
+<p>獲取到 ThreadLocalMap 後，通過map.getEntry(this)方法獲取該 ThreadLocal 在當前線程的 ThreadLocalMap 中對應的 Entry。該方法中的 this 即當前訪問的 ThreadLocal 對象。</p>
+<p>如果獲取到的 Entry 不為 null，從 Entry 中取出值即為所需訪問的本線程對應的實例。如果獲取到的 Entry 為 null，則通過setInitialValue()方法設置該 ThreadLocal 變數在該線程中對應的具體實例的初始值。</p>
+<h3 class="pgc-h-arrow-right">設置初始值</h3>
+<p>設置初始值方法如下</p>
+<pre>private T setInitialValue() {<br>  T value = initialValue();<br>  Thread t = Thread.currentThread();<br>  ThreadLocalMap map = getMap(t);<br>  if (map != null)<br>    map.set(this, value);<br>  else<br>    createMap(t, value);<br>  return value;<br>}</pre>
+<p>該方法為 private 方法，無法被重載。</p>
+<p>首先，通過initialValue()方法獲取初始值。該方法為 public 方法，且默認返回 null。所以典型用法中常常重載該方法。上例中即在內部匿名類中將其重載。</p>
+<p>然後拿到該線程對應的 ThreadLocalMap 對象，若該對象不為 null，則直接將該 ThreadLocal 對象與對應實例初始值的映射添加進該線程的 ThreadLocalMap中。若為 null，則先創建該 ThreadLocalMap 對象再將映射添加其中。</p>
+<p>這裡並不需要考慮 ThreadLocalMap 的線程安全問題。因為每個線程有且只有一個 ThreadLocalMap 對象，並且只有該線程自己可以訪問它，其它線程不會訪問該 ThreadLocalMap，也即該對象不會在多個線程中共享，也就不存在線程安全的問題。</p>
+<h3 class="pgc-h-arrow-right">設置實例</h3>
+<p>除了通過initialValue()方法設置實例的初始值，還可通過 set 方法設置線程內實例的值，如下所示。</p>
+<pre>public void set(T value) {<br>  Thread t = Thread.currentThread();<br>  ThreadLocalMap map = getMap(t);<br>  if (map != null)<br>    map.set(this, value);<br>  else<br>    createMap(t, value);<br>}</pre>
+<p>該方法先獲取該線程的 ThreadLocalMap 對象，然後直接將 ThreadLocal 對象（即代碼中的 this）與目標實例的映射添加進 ThreadLocalMap 中。當然，如果映射已經存在，就直接覆蓋。另外，如果獲取到的 ThreadLocalMap 為 null，則先創建該 ThreadLocalMap 對象。</p>
+<h3 class="pgc-h-arrow-right">防止內存泄漏</h3>
+<p>對於已經不再被使用且已被回收的 ThreadLocal 對象，它在每個線程內對應的實例由於被線程的 ThreadLocalMap 的 Entry 強引用，無法被回收，可能會造成內存泄漏。</p>
+<p>針對該問題，ThreadLocalMap 的 set 方法中，通過 replaceStaleEntry 方法將所有鍵為 null 的 Entry 的值設置為 null，從而使得該值可被回收。另外，會在 rehash 方法中通過 expungeStaleEntry 方法將鍵和值為 null 的 Entry 設置為 null 從而使得該 Entry 可被回收。</p>
+<pre>private void set(ThreadLocal&lt;?&gt; key, Object value) {<br>  Entry[] tab = table;<br>  int len = tab.length;<br>  int i = key.threadLocalHashCode &amp; (len-1);<br><br>  for (Entry e = tab[i]; e != null; e = tab[i = nextIndex(i, len)]) {<br>    ThreadLocal&lt;?&gt; k = e.get();<br>    if (k == key) {<br>      e.value = value;<br>      return;<br>    }<br>    if (k == null) {<br>      replaceStaleEntry(key, value, i);<br>      return;<br>    }<br>  }<br>  tab[i] = new Entry(key, value);<br>  int sz = ++size;<br>  if (!cleanSomeSlots(i, sz) &amp;&amp; sz &gt;= threshold)<br>    rehash();<br>}</pre>
+<h2 class="pgc-h-arrow-right">案例</h2>
+<p>對於 Java Web 應用而言，Session 保存了很多信息。很多時候需要通過 Session 獲取信息，有些時候又需要修改 Session 的信息。一方面，需要保證每個線程有自己單獨的 Session 實例。另一方面，由於很多地方都需要操作 Session，存在多方法共享 Session 的需求。如果不使用 ThreadLocal，可以在每個線程內構建一個 Session實例，並將該實例在多個方法間傳遞，如下所示。</p>
+<pre>public class SessionHandler {<br><br>  @Data<br>  public static class Session {<br>    private String id;<br>    private String user;<br>    private String status;<br>  }<br><br>  public Session createSession() {<br>    return new Session();<br>  }<br><br>  public String getUser(Session session) {<br>    return session.getUser();<br>  }<br><br>  public String getStatus(Session session) {<br>    return session.getStatus();<br>  }<br><br>  public void setStatus(Session session, String status) {<br>    session.setStatus(status);<br>  }<br><br>  public static void main(String[] args) {<br>    new Thread(() -&gt; {<br>      SessionHandler handler = new SessionHandler();<br>      Session session = handler.createSession();<br>      handler.getStatus(session);<br>      handler.getUser(session);<br>      handler.setStatus(session, "close");<br>      handler.getStatus(session);<br>    }).start();<br>  }<br>}</pre>
+<p>該方法是可以實現需求的。但是每個需要使用 Session 的地方，都需要顯式傳遞 Session 對象，方法間耦合度較高，給人的感覺並不優雅。</p>
+<p>這裡使用 ThreadLocal 重新實現該功能如下所示。</p>
+<pre>public class SessionHandler {<br><br>  public static ThreadLocal&lt;Session&gt; session = ThreadLocal.&lt;Session&gt;withInitial(() -&gt; new Session());<br><br>  @Data<br>  public static class Session {<br>    private String id;<br>    private String user;<br>    private String status;<br>  }<br><br>  public String getUser() {<br>    return session.get().getUser();<br>  }<br><br>  public String getStatus() {<br>    return session.get().getStatus();<br>  }<br><br>  public void setStatus(String status) {<br>    session.get().setStatus(status);<br>  }<br><br>  public static void main(String[] args) {<br>    new Thread(() -&gt; {<br>      SessionHandler handler = new SessionHandler();<br>      handler.getStatus();<br>      handler.getUser();<br>      handler.setStatus("close");<br>      handler.getStatus();<br>    }).start();<br>  }<br>}</pre>
+<p>可以看到，改造過後的代碼，不再需要在各個方法間來回傳遞 Session 對象，並且不費吹灰之力保證了每個線程都能夠擁有自己獨立的實例。雖然單看其中某一點，備選方案還很多。比如還可以通過在線程內創建局部變數保證每個線程有自己的實例，通過靜態變數可實現變數在方法間的共享。但如果還需要同時滿足變數在線程間的隔離與方法間的共享，ThreadLocal再合適不過。</p>
+<h2 class="pgc-h-arrow-right">總結</h2>
+<ul class="">
+<li>ThreadLocal 並不解決線程間共享數據的問題</li>
+<li>ThreadLocal 通過隱式的在不同線程內創建獨立實例副本避免了實例線程安全的問題</li>
+<li>每個線程持有一個 Map 並維護了 ThreadLocal 對象與具體實例的映射，該 Map 由於只被持有它的線程訪問，故不存在線程安全以及鎖的問題</li>
+<li>ThreadLocalMap 的 Entry 對 ThreadLocal 的引用為弱引用，避免了 ThreadLocal 對象無法被回收的問題</li>
+<li>ThreadLocalMap 的 set 方法通過調用 replaceStaleEntry 方法回收鍵為 null 的 Entry 對象的值（即為具體實例）以及 Entry 對象本身從而防止內存泄漏</li>
+<li>ThreadLocal 適用於變數在線程間隔離且在方法間共享的場景</li>
+</ul>
+<blockquote>
+<p>Coder小明</p>
+</blockquote>
+<blockquote>
+<p>地址：https://www.cnblogs.com/coderxx/p/12043764.html</p>
+</blockquote>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="15263" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/15263"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/15263";
+		var title='%E3%80%90%E4%B8%8D%E6%87%82%EF%BC%9FJava%E4%B8%ADThreadLocal%E8%A7%A3%E6%B1%BA%E4%BA%86%E4%BB%80%E9%BA%BC%E5%95%8F%E9%A1%8C%E3%80%91';
+		var qqtitle='%E3%80%90%E4%B8%8D%E6%87%82%EF%BC%9FJava%E4%B8%ADThreadLocal%E8%A7%A3%E6%B1%BA%E4%BA%86%E4%BB%80%E9%BA%BC%E5%95%8F%E9%A1%8C%E3%80%91';
+		var excerpt='%E9%BB%9E%E6%93%8A%E4%B8%8A%E6%96%B9%E2%98%9DJava%E7%B7%A8%E7%A8%8B%E6%8A%80%E8%A1%93%E6%A8%82%E5%9C%92%EF%BC%8C%E8%BC%95%E9%AC%86%E9%97%9C%E6%B3%A8%EF%BC%81%E5%8F%8A%E6%99%82%E7%8D%B2%E5%8F%96%E6%9C%89%E8%B6%A3%E6%9C%89%E6%96%99%E7%9A%84%E6%8A%80%E8%A1%93%E6%96%87%E7%AB%A0%20%E5%B0%8F%E6%98%8E%E6%89%80%E5%9C%A8%E7%9A%84%E9%A0%85%E7%9B%AE%E7%B5%84%EF%BC%88%E8%BF%AD%E4%BB%A3%E7%B5%84%EF%BC%9A%E4%B8%80%E7%9B%B4%E5%9C%A8%E8%BF%AD%E4%BB%A3%E7%9A%84%E8%B7%AF%E4%B8%8A%EF%BC%89%EF%BC%8C%E7%B6%93%E5%B8%B8%E6%9C%83%E5%9C%A8%E5%B7%B2%E6%9C%89%E4%BB%8B%E9%9D%A2%E7%9A%84%E5%9F%BA%E7%A4%8E%E4%B8%8A%E9%96%8B%E7%99%BC%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%8A%9F%E8%83%BD%EF%BC%8C%E4%B8%A6%E4%B8%94%E5%89%8D%E6%8F%90%E6%98%AF%E5%9C%A8%E4%BF%9D%E8%AD%89%E7%8F%BE%E6%9C%89%E7%94%A8%E6%88%B6%E7%9A%84%E4%B8%8D%E5%8F%97%E5%BD%B1%E9%9F%BF%E5%9F%BA%E7%A4%8E%E4%B8%8A%E8%BF%AD%E4%BB%A3%E3%80%82%E5%8A%9F%E8%83%BD%E8%BF%AD%E4%BB%A3%EF%BC%8C%E5%9C%A8%E4%BB%A3%E7%A2%BC%E5%B1%A4%E9%9D%A2%E5%B0%8F%E6%98%8E%E6%9C%891w%E7%A8%AE%E5%AF%A6%E7%8F%BE%E6%96%B9%E6%B3%95%EF%BC%88%E5%90%B9%E7%89%9B%E7%9A%84%EF%BC%89%EF%BC%8C%E4%B8%80%E8%B5%B7%E4%BE%86%E7%9C%8B%E7%9C%8B%E9%80%99%E6%AC%A1%E5%B0%8F%E6%98%8E%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8ThreadLocal%E5%84%AA%E9%9B%85%E5%9C%B0%E5%AE%8C%E6%88%90%E6%9C%AC%E6%AC%A1%E8%BF%AD%E4%BB%A3%E5%90%A7%EF%BC%81%20%E7%94%B1%E6%96%BC%20Thre%E2%80%A6%E2%80%A6';
+		var wbexcerpt='%E9%BB%9E%E6%93%8A%E4%B8%8A%E6%96%B9%E2%98%9DJava%E7%B7%A8%E7%A8%8B%E6%8A%80%E8%A1%93%E6%A8%82%E5%9C%92%EF%BC%8C%E8%BC%95%E9%AC%86%E9%97%9C%E6%B3%A8%EF%BC%81%E5%8F%8A%E6%99%82%E7%8D%B2%E5%8F%96%E6%9C%89%E8%B6%A3%E6%9C%89%E6%96%99%E7%9A%84%E6%8A%80%E8%A1%93%E6%96%87%E7%AB%A0%20%E5%B0%8F%E6%98%8E%E6%89%80%E5%9C%A8%E7%9A%84%E9%A0%85%E7%9B%AE%E7%B5%84%EF%BC%88%E8%BF%AD%E4%BB%A3%E7%B5%84%EF%BC%9A%E4%B8%80%E7%9B%B4%E5%9C%A8%E8%BF%AD%E4%BB%A3%E7%9A%84%E8%B7%AF%E4%B8%8A%EF%BC%89%EF%BC%8C%E7%B6%93%E5%B8%B8%E6%9C%83%E5%9C%A8%E5%B7%B2%E6%9C%89%E4%BB%8B%E9%9D%A2%E7%9A%84%E5%9F%BA%E7%A4%8E%E4%B8%8A%E9%96%8B%E7%99%BC%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%8A%9F%E8%83%BD%EF%BC%8C%E4%B8%A6%E4%B8%94%E5%89%8D%E6%8F%90%E6%98%AF%E5%9C%A8%E4%BF%9D%E8%AD%89%E7%8F%BE%E6%9C%89%E7%94%A8%E6%88%B6%E7%9A%84%E4%B8%8D%E5%8F%97%E5%BD%B1%E9%9F%BF%E5%9F%BA%E7%A4%8E%E4%B8%8A%E8%BF%AD%E4%BB%A3%E3%80%82%E5%8A%9F%E8%83%BD%E8%BF%AD%E4%BB%A3%EF%BC%8C%E5%9C%A8%E4%BB%A3%E7%A2%BC%E5%B1%A4%E9%9D%A2%E5%B0%8F%E6%98%8E%E6%9C%891w%E7%A8%AE%E5%AF%A6%E7%8F%BE%E6%96%B9%E6%B3%95%EF%BC%88%E5%90%B9%E7%89%9B%E7%9A%84%EF%BC%89%EF%BC%8C%E4%B8%80%E8%B5%B7%E4%BE%86%E7%9C%8B%E7%9C%8B%E9%80%99%E6%AC%A1%E5%B0%8F%E6%98%8E%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8ThreadLocal%E5%84%AA%E9%9B%85%E5%9C%B0%E5%AE%8C%E6%88%90%E6%9C%AC%E6%AC%A1%E8%BF%AD%E4%BB%A3%E5%90%A7%EF%BC%81%20%E7%94%B1%E6%96%BC%20Thre%E2%80%A6%E2%80%A6';
+		var pic="http://p3.pstatp.com/large/pgc-image/4f6ce6df8ce049fc9245c24073a90957";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="從貓狗到蜘蛛蠍子，快遞活物為何屢禁不絕" href="https://daynews.cc/technology/15265">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="迅雷鏈幫供應鏈金融精準“避坑”，萬億市場將迎來底層升級" href="https://daynews.cc/technology/15261">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="/technology/15263#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='15263' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼" href="https://daynews.cc/constellation/20739" rel="bookmark"><i class="fa  fa-book"></i> 伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼                            </a>
+                            <a class="list-group-item visible-md" title="伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼" href="https://daynews.cc/constellation/20739" rel="bookmark"><i class="fa  fa-book"></i> 伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼                            </a>
+                                                    <a class="list-group-item visible-lg" title="12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪" href="https://daynews.cc/constellation/20740" rel="bookmark"><i class="fa  fa-book"></i> 12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪                            </a>
+                            <a class="list-group-item visible-md" title="12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪" href="https://daynews.cc/constellation/20740" rel="bookmark"><i class="fa  fa-book"></i> 12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪                            </a>
+                                                    <a class="list-group-item visible-lg" title="十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮" href="https://daynews.cc/constellation/20741" rel="bookmark"><i class="fa  fa-book"></i> 十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮                            </a>
+                            <a class="list-group-item visible-md" title="十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮" href="https://daynews.cc/constellation/20741" rel="bookmark"><i class="fa  fa-book"></i> 十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮                            </a>
+                                                    <a class="list-group-item visible-lg" title="小聶：跑動中的腰腹力量如何運用" href="https://daynews.cc/lose/20597" rel="bookmark"><i class="fa  fa-book"></i> 小聶：跑動中的腰腹力量如何運用                            </a>
+                            <a class="list-group-item visible-md" title="小聶：跑動中的腰腹力量如何運用" href="https://daynews.cc/lose/20597" rel="bookmark"><i class="fa  fa-book"></i> 小聶：跑動中的腰腹力量如何運用                            </a>
+                                                    <a class="list-group-item visible-lg" title="小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力" href="https://daynews.cc/lose/20598" rel="bookmark"><i class="fa  fa-book"></i> 小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力                            </a>
+                            <a class="list-group-item visible-md" title="小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力" href="https://daynews.cc/lose/20598" rel="bookmark"><i class="fa  fa-book"></i> 小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力                            </a>
+                                                    <a class="list-group-item visible-lg" title="十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古" href="https://daynews.cc/history/19786" rel="bookmark"><i class="fa  fa-book"></i> 十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古                            </a>
+                            <a class="list-group-item visible-md" title="十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古" href="https://daynews.cc/history/19786" rel="bookmark"><i class="fa  fa-book"></i> 十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古                            </a>
+                                                    <a class="list-group-item visible-lg" title="當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？" href="https://daynews.cc/history/19787" rel="bookmark"><i class="fa  fa-book"></i> 當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？                            </a>
+                            <a class="list-group-item visible-md" title="當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？" href="https://daynews.cc/history/19787" rel="bookmark"><i class="fa  fa-book"></i> 當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？                            </a>
+                                                    <a class="list-group-item visible-lg" title="春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？" href="https://daynews.cc/history/19789" rel="bookmark"><i class="fa  fa-book"></i> 春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？                            </a>
+                            <a class="list-group-item visible-md" title="春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？" href="https://daynews.cc/history/19789" rel="bookmark"><i class="fa  fa-book"></i> 春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？                            </a>
+                                                    <a class="list-group-item visible-lg" title="軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸" href="https://daynews.cc/history/19788" rel="bookmark"><i class="fa  fa-book"></i> 軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸                            </a>
+                            <a class="list-group-item visible-md" title="軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸" href="https://daynews.cc/history/19788" rel="bookmark"><i class="fa  fa-book"></i> 軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸                            </a>
+                                                    <a class="list-group-item visible-lg" title="劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？" href="https://daynews.cc/history/19790" rel="bookmark"><i class="fa  fa-book"></i> 劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？                            </a>
+                            <a class="list-group-item visible-md" title="劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？" href="https://daynews.cc/history/19790" rel="bookmark"><i class="fa  fa-book"></i> 劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-md" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-lg" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a><a class="list-group-item visible-md" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a><a class="list-group-item visible-lg" title="最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？" href="https://daynews.cc/international/18303" rel="bookmark"><i class="fa  fa-book"></i> 最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？</a><a class="list-group-item visible-md" title="最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？" href="https://daynews.cc/international/18303" rel="bookmark"><i class="fa  fa-book"></i> 最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？</a><a class="list-group-item visible-lg" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="https://daynews.cc/entertainment/10879" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-md" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="https://daynews.cc/entertainment/10879" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-lg" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="https://daynews.cc/technology/10158" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-md" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="https://daynews.cc/technology/10158" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-lg" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="https://daynews.cc/game/13764" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-md" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="https://daynews.cc/game/13764" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-lg" title="這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩" href="https://daynews.cc/lose/20687" rel="bookmark"><i class="fa  fa-book"></i> 這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩</a><a class="list-group-item visible-md" title="這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩" href="https://daynews.cc/lose/20687" rel="bookmark"><i class="fa  fa-book"></i> 這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩</a><a class="list-group-item visible-lg" title="夢三國：路人戰力匹配中最值得玩的輔助英雄推薦" href="https://daynews.cc/game/20261" rel="bookmark"><i class="fa  fa-book"></i> 夢三國：路人戰力匹配中最值得玩的輔助英雄推薦</a><a class="list-group-item visible-md" title="夢三國：路人戰力匹配中最值得玩的輔助英雄推薦" href="https://daynews.cc/game/20261" rel="bookmark"><i class="fa  fa-book"></i> 夢三國：路人戰力匹配中最值得玩的輔助英雄推薦</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="隋朝著名的回洛倉為何受各方爭奪，它的建造技術到底有牛？" href="https://daynews.cc/history/3293" rel="bookmark"><i class="fa  fa-book"></i> 隋朝著名的回洛倉為何受各方爭奪，它的建造技術到底有牛？                            </a>
+                            <a class="list-group-item visible-md" title="隋朝著名的回洛倉為何受各方爭奪，它的建造技術到底有牛？" href="https://daynews.cc/history/3293" rel="bookmark"><i class="fa  fa-book"></i> 隋朝著名的回洛倉為何受各方爭奪，它的建造技術到底有牛？                            </a>
+                                                    <a class="list-group-item visible-lg" title="《方舟：生存進化》手游的這些生物水陸兩棲，樣貌都奇醜無比" href="https://daynews.cc/game/4318" rel="bookmark"><i class="fa  fa-book"></i> 《方舟：生存進化》手游的這些生物水陸兩棲，樣貌都奇醜無比                            </a>
+                            <a class="list-group-item visible-md" title="《方舟：生存進化》手游的這些生物水陸兩棲，樣貌都奇醜無比" href="https://daynews.cc/game/4318" rel="bookmark"><i class="fa  fa-book"></i> 《方舟：生存進化》手游的這些生物水陸兩棲，樣貌都奇醜無比                            </a>
+                                                    <a class="list-group-item visible-lg" title="OneSight李蕾：一個CPA從0.3美金到12美金，從推廣、資本、品牌和數據看出海這件事 | MS2019專題" href="https://daynews.cc/technology/15579" rel="bookmark"><i class="fa  fa-book"></i> OneSight李蕾：一個CPA從0.3美金到12美金，從推廣、資本、品牌和數據看出海這件事 | MS2019專題                            </a>
+                            <a class="list-group-item visible-md" title="OneSight李蕾：一個CPA從0.3美金到12美金，從推廣、資本、品牌和數據看出海這件事 | MS2019專題" href="https://daynews.cc/technology/15579" rel="bookmark"><i class="fa  fa-book"></i> OneSight李蕾：一個CPA從0.3美金到12美金，從推廣、資本、品牌和數據看出海這件事 | MS2019專題                            </a>
+                                                    <a class="list-group-item visible-lg" title="說的沒錯！滬媒：上港的66分放在其他三個賽季肯定是中超冠軍" href="https://daynews.cc/sports/2719" rel="bookmark"><i class="fa  fa-book"></i> 說的沒錯！滬媒：上港的66分放在其他三個賽季肯定是中超冠軍                            </a>
+                            <a class="list-group-item visible-md" title="說的沒錯！滬媒：上港的66分放在其他三個賽季肯定是中超冠軍" href="https://daynews.cc/sports/2719" rel="bookmark"><i class="fa  fa-book"></i> 說的沒錯！滬媒：上港的66分放在其他三個賽季肯定是中超冠軍                            </a>
+                                                    <a class="list-group-item visible-lg" title="爛攤子誰來接？阿森納6大緋聞新帥，英超黑馬主帥成為熱門" href="https://daynews.cc/premier/5287" rel="bookmark"><i class="fa  fa-book"></i> 爛攤子誰來接？阿森納6大緋聞新帥，英超黑馬主帥成為熱門                            </a>
+                            <a class="list-group-item visible-md" title="爛攤子誰來接？阿森納6大緋聞新帥，英超黑馬主帥成為熱門" href="https://daynews.cc/premier/5287" rel="bookmark"><i class="fa  fa-book"></i> 爛攤子誰來接？阿森納6大緋聞新帥，英超黑馬主帥成為熱門                            </a>
+                                                    <a class="list-group-item visible-lg" title="他腿圍只有30厘米，為什麼健身女王袁姍姍P圖才能實現？" href="https://daynews.cc/lose/13343" rel="bookmark"><i class="fa  fa-book"></i> 他腿圍只有30厘米，為什麼健身女王袁姍姍P圖才能實現？                            </a>
+                            <a class="list-group-item visible-md" title="他腿圍只有30厘米，為什麼健身女王袁姍姍P圖才能實現？" href="https://daynews.cc/lose/13343" rel="bookmark"><i class="fa  fa-book"></i> 他腿圍只有30厘米，為什麼健身女王袁姍姍P圖才能實現？                            </a>
+                                                    <a class="list-group-item visible-lg" title="布隆伯格還有機會嗎？砸下巨額經費的他，可能連總統初選也通不過" href="https://daynews.cc/international/12149" rel="bookmark"><i class="fa  fa-book"></i> 布隆伯格還有機會嗎？砸下巨額經費的他，可能連總統初選也通不過                            </a>
+                            <a class="list-group-item visible-md" title="布隆伯格還有機會嗎？砸下巨額經費的他，可能連總統初選也通不過" href="https://daynews.cc/international/12149" rel="bookmark"><i class="fa  fa-book"></i> 布隆伯格還有機會嗎？砸下巨額經費的他，可能連總統初選也通不過                            </a>
+                                                    <a class="list-group-item visible-lg" title="28勝12平14負 索帥執教曼聯將滿一周年 他確實最適合這群年輕人" href="https://daynews.cc/sports/19186" rel="bookmark"><i class="fa  fa-book"></i> 28勝12平14負 索帥執教曼聯將滿一周年 他確實最適合這群年輕人                            </a>
+                            <a class="list-group-item visible-md" title="28勝12平14負 索帥執教曼聯將滿一周年 他確實最適合這群年輕人" href="https://daynews.cc/sports/19186" rel="bookmark"><i class="fa  fa-book"></i> 28勝12平14負 索帥執教曼聯將滿一周年 他確實最適合這群年輕人                            </a>
+                                                    <a class="list-group-item visible-lg" title="經過8項數據對比之後發現，拉文可能就是一個頂配版富尼耶" href="https://daynews.cc/sports/2896" rel="bookmark"><i class="fa  fa-book"></i> 經過8項數據對比之後發現，拉文可能就是一個頂配版富尼耶                            </a>
+                            <a class="list-group-item visible-md" title="經過8項數據對比之後發現，拉文可能就是一個頂配版富尼耶" href="https://daynews.cc/sports/2896" rel="bookmark"><i class="fa  fa-book"></i> 經過8項數據對比之後發現，拉文可能就是一個頂配版富尼耶                            </a>
+                                                    <a class="list-group-item visible-lg" title="春寒賜浴華清池，溫泉水滑洗凝脂。廣東的“華清池”又在哪裡？" href="https://daynews.cc/health/17190" rel="bookmark"><i class="fa  fa-book"></i> 春寒賜浴華清池，溫泉水滑洗凝脂。廣東的“華清池”又在哪裡？                            </a>
+                            <a class="list-group-item visible-md" title="春寒賜浴華清池，溫泉水滑洗凝脂。廣東的“華清池”又在哪裡？" href="https://daynews.cc/health/17190" rel="bookmark"><i class="fa  fa-book"></i> 春寒賜浴華清池，溫泉水滑洗凝脂。廣東的“華清池”又在哪裡？                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="kratos_tags-4" class="widget widget_kratos_tags clearfix"><h4 class="widget-title">標籤</h4><div class="tag_clouds"></div></aside><aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="https://daynews.cc/nba">NBA</a> (1,526)
+</li>
+	<li class="cat-item cat-item-23"><a href="https://daynews.cc/international">國際</a> (2,241)
+</li>
+	<li class="cat-item cat-item-14"><a href="https://daynews.cc/entertainment">娛樂</a> (2,348)
+</li>
+	<li class="cat-item cat-item-15"><a href="https://daynews.cc/emotion">情感</a> (1,582)
+</li>
+	<li class="cat-item cat-item-22"><a href="https://daynews.cc/constellation">星座</a> (1,060)
+</li>
+	<li class="cat-item cat-item-17"><a href="https://daynews.cc/history">歷史</a> (1,759)
+</li>
+	<li class="cat-item cat-item-25"><a href="https://daynews.cc/lose">減肥</a> (495)
+</li>
+	<li class="cat-item cat-item-24"><a href="https://daynews.cc/technology">科技</a> (2,163)
+</li>
+	<li class="cat-item cat-item-19"><a href="https://daynews.cc/premier">英超</a> (1,372)
+</li>
+	<li class="cat-item cat-item-18"><a href="https://daynews.cc/game">遊戲</a> (2,055)
+</li>
+	<li class="cat-item cat-item-21"><a href="https://daynews.cc/health">養生</a> (1,278)
+</li>
+	<li class="cat-item cat-item-16"><a href="https://daynews.cc/sports">體育</a> (2,098)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='https://daynews.cc/date/2019/12'>2019 年 12 月</a>&nbsp;(16975)</li>
+	<li><a href='https://daynews.cc/date/2019/11'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='https://daynews.cc/date/2019/10'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="https://daynews.cc">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.easing.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.qrcode.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/layer.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/modernizr.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.waypoints.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.stellar.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/hoverIntent.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/superfish.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/kratos.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-includes/js/wp-embed.min.js'></script>
+			</body>
+
+</html>
+<!-- Dynamic page generated in 0.480 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:09:06 -->
+
+<!-- super cache -->

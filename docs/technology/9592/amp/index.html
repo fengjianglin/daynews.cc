@@ -1,0 +1,734 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/9592#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/7c7f1ae57c0a4be28fd2a47338519020"},{"@type":"WebPage","@id":"https://daynews.cc/technology/9592#webpage","url":"https://daynews.cc/technology/9592","inLanguage":"zh-TW","name":"\u963f\u91cc\u5927\u4f6c\u8b93\u4f60\u4e94\u5206\u9418\u770b\u900fspringMvc\u6e90\u4ee3\u78bc - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/9592#primaryimage"},"datePublished":"2019-12-10T12:55:11+00:00","dateModified":"2019-12-10T12:55:11+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="SpringMVC 在網路技術中基於瀏覽器的B/S結構無論在PC端還是手機端都充當著至關重要的角色。PC端自不必說，手機中很多應用雖然是以APP的形式存在，但它採用的還是B/S結構，如今日頭條、微信的朋友圈等，這些應用在內部封裝了瀏覽器，後端仍然是Web站點。在大型網站和複雜系統的開發中，Java無疑具有很大的優勢，而在Java的Web框……" />
+<meta name="twitter:title" content="阿里大佬讓你五分鐘看透springMvc源代碼 - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/7c7f1ae57c0a4be28fd2a47338519020" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="阿里大佬讓你五分鐘看透springMvc源代碼 - 天天要聞" />
+<meta property="og:description" content="SpringMVC 在網路技術中基於瀏覽器的B/S結構無論在PC端還是手機端都充當著至關重要的角色。PC端自不必說，手機中很多應用雖然是以APP的形式存在，但它採用的還是B/S結構，如今日頭條、微信的朋友圈等，這些應用在內部封裝了瀏覽器，後端仍然是Web站點。在大型網站和複雜系統的開發中，Java無疑具有很大的優勢，而在Java的Web框……" />
+<meta property="og:url" content="https://daynews.cc/technology/9592" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-10T12:55:11+00:00" />
+	<title>阿里大佬讓你五分鐘看透springMvc源代碼 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/9592" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">阿里大佬讓你五分鐘看透springMvc源代碼</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-10T20:55:11+00:00">
+		1 週 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<h2><strong>SpringMVC</strong></h2>
+<p>在網路技術中基於瀏覽器的B/S結構無論在PC端還是手機端都充當著至關重要的角色。PC端自不必說，手機中很多應用雖然是以APP的形式存在，但它採用的還是B/S結構，如今日頭條、微信的朋友圈等，這些應用在內部封裝了瀏覽器，後端仍然是Web站點。在大型網站和複雜系統的開發中，Java無疑具有很大的優勢，而在Java的Web框架中Spring MVC以其強大的功能和簡單且靈活的用法受到越來越多開發者的青睞。</p>
+<p>Spring MVC人門很簡單，但是要想真正使用好卻並非易事，而且現在也沒有全面、深入的使用資料，以致在實際使用的過程中程序員經常會遇到各種各樣的問題而不知道如何解決。對Spring MVC這樣的開源項目來說，最好的學習方法當然是分析它的源代碼，分析透源代碼不僅可以讓我們更靈活地使用Spring MVC來開發高質量的產品，而且可以學習到其中的很多優秀的編程技巧和設計理念。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/7c7f1ae57c0a4be28fd2a47338519020" alt="《阿里大佬讓你五分鐘看透springMvc源代碼》" width="486" height="369" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/7c7f1ae57c0a4be28fd2a47338519020" alt="《阿里大佬讓你五分鐘看透springMvc源代碼》" width="486" height="369" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2><strong>本書讀者對象</strong></h2>
+<p>有Java編程基礎，想學習JavaWeb開發的讀者。</p>
+<p>有JavaWeb開發經驗，想學習Spring MVC的讀者。</p>
+<p>有基礎Spring MVC開發經驗，想深入學習的讀者。</p>
+<p>有豐富Spring MVC開發經驗，想學習Spring MVC底層代碼的讀者。</p>
+<p>想自己開發Spring MVC插件的讀者。</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/b68baa5851af4ffbbbcf77fbd751cd36" alt="《阿里大佬讓你五分鐘看透springMvc源代碼》" width="640" height="376" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/b68baa5851af4ffbbbcf77fbd751cd36" alt="《阿里大佬讓你五分鐘看透springMvc源代碼》" width="640" height="376" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>由於文章篇幅有限，為了節約大家的時間，這套書籍小編已經整理好啦，領取只需要轉發+私信「書籍」二字，即可免費領取。</strong></p>
+<h2><strong>第一篇網站基礎知識</strong></h2>
+<p><strong>第1章網站架構及其演變過程</strong></p>
+<p>1.1 軟體的三大類型</p>
+<p>1.2 基礎的結構並不簡單</p>
+<p>1.3架構演變的起點</p>
+<p>1.4海量數據的解決方</p>
+<p>1.4.1緩存和頁面靜態化</p>
+<p>1.4.2資料庫優化</p>
+<p>1.4.3 分離活躍數據..</p>
+<p>1.4.4批量讀取和延 遲修改</p>
+<p>1.4.5讀寫分離</p>
+<p>1.4.6分散式資料庫</p>
+<p>1.4.7 NoSQL 和Hadoop</p>
+<p>1.5 高並發的解決方案</p>
+<p>1.5.1應用和靜 態資源分離</p>
+<p>1.5.2頁面緩存 </p>
+<p>1.5.3.集群與分散式</p>
+<p>1.5.4 反向代理</p>
+<p>1.5.5 C.D</p>
+<p>1.6底層的優化</p>
+<p><strong>第2章常見協議和標準</strong></p>
+<p>2.1 DNS 協議</p>
+<p>2.2 TCP/IP 協議與Scke</p>
+<p>2.3 HTTP 協議</p>
+<p>2.4 Servlet 與Java Web開發</p>
+<p><strong>第3章DNS 的設置</strong></p>
+<p>3.1 DNS 解析</p>
+<p>3.2 Windows 7設置DNS伺服器</p>
+<p>3.3 Windows 設置本機域名和IP的對應關係</p>
+<p><strong>第4章Java 中Socket的用法</strong></p>
+<p>4.1普通Socket的用法</p>
+<p>4.2 NioSocket 的用法</p>
+<p><strong>第5章自己動手實現 HTTP協議</strong></p>
+<p><strong>第6章詳解Servlet</strong></p>
+<p>6.1 Servlet 介面</p>
+<p>6.2 GenericServlet</p>
+<p>6.3 HttServlet</p>
+<p><strong>第7章Tomcat 分析</strong></p>
+<p>7.1 Tomcat 的項層結構及啟動過程</p>
+<p>7.1.1 Tomcat 的頂層結構</p>
+<p>7.1.2 Bootstrap 的啟動過程</p>
+<p>7.1.3 Catalina 的動過程</p>
+<p>7.1.4 Server 的啟動過程</p>
+<p>7.1.5 Service 的啟動過程.</p>
+<p>7.2 Tomcat 的生命周期管理</p>
+<p>7.2.1 Lifecycle 介面</p>
+<p>7.2.2 LifecycleBaser</p>
+<p>7.3 Container 分析</p>
+<p>7.3.1 ContainerBase 的結構</p>
+<p>7.3.2 Container 的4個子容器</p>
+<p>7.3.3 4 種容器的配置方法</p>
+<p>7.3.4 Container 的啟動</p>
+<p>7.4 Pipeline-Value 管道</p>
+<p>7.4.1 Pipeline-Value 處理模式.</p>
+<p>7.4.2 Pipeline Value的實現方法</p>
+<p>7.5 Connector 分析</p>
+<p>7.5.1 Connector 的結構</p>
+<p>7.5.2 Connector 自身類</p>
+<p>7.5.3 ProtocolHandler</p>
+<p>7.5.4處理 TCP/IP協議的Endpoint</p>
+<p>7.5.5處理 HTTP協議的Processr</p>
+<p>7.5.6適配器tAdapter</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/bba96fb378b94c729e768d4fe633411f" alt="《阿里大佬讓你五分鐘看透springMvc源代碼》" width="313" height="452" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/bba96fb378b94c729e768d4fe633411f" alt="《阿里大佬讓你五分鐘看透springMvc源代碼》" width="313" height="452" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2><strong>第二篇俯視Spring MVC</strong></h2>
+<p><strong>第8章Spring MVC之初體驗</strong></p>
+<p>8.1環境搭建</p>
+<p>8.2 Spring MVC最簡單的配置</p>
+<p>8.2.1在 web.xml中配置Servlet</p>
+<p>8.2.2創建 Spring MVC的xml配置文件</p>
+<p>8.2.3創建 Controller和view </p>
+<p>8.3關聯 spring源代碼</p>
+<p>8.4小結</p>
+<p><strong>第9章創建 Spring MVC之器</strong></p>
+<p>9.1整體結構介紹</p>
+<p>9.2 HttpServletBean</p>
+<p>9.3 FrameworkServlet</p>
+<p>9.4 Dispateherere</p>
+<p>9.5小結</p>
+<p><strong>第10章Spring MVC之用</strong></p>
+<p>10.1 HttpServletBean</p>
+<p>10.2 FrameworkServlet </p>
+<p>10.3 DispatcherServlet</p>
+<p>10.4 doDispatch 結構.</p>
+<p>10.5小結 </p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/b042d52746ba45d1b7b0d4b431ef81b0" alt="《阿里大佬讓你五分鐘看透springMvc源代碼》" width="290" height="440" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/b042d52746ba45d1b7b0d4b431ef81b0" alt="《阿里大佬讓你五分鐘看透springMvc源代碼》" width="290" height="440" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2><strong>第三篇Spring MVC組件分析</strong></h2>
+<p><strong>第11章組件概覽</strong></p>
+<p>11.1 HandlerMapping </p>
+<p>11.2 HandlerAdapter</p>
+<p>11.3 HandlerExceptionResolver </p>
+<p>11.4 ViewResolver</p>
+<p>11.5 RequestToViewNameTranslator</p>
+<p>11.6 LocaleResolver</p>
+<p>11.8 MutipartReslev</p>
+<p>11.9 FIashMaMnag</p>
+<p>11.10小結</p>
+<p><strong>第12章HandlerMapping </strong></p>
+<p>12.1 AbstractHandlerMping</p>
+<p>12.1.1創建 AsbstractHandlerMapping之器</p>
+<p>12.1.2 AbstractHandlerMapping之川</p>
+<p>12.2 AbstractUrlHandlerMapping系列:</p>
+<p>12.2.1 AbstractUrlHandlerMapping</p>
+<p>12.2.2SimpleUrlHandlerMapping </p>
+<p>12.2.3 AbstractDetectingUrlHandlerMapping</p>
+<p>12.3 AbstractHandlerMethodMapping系列</p>
+<p>12.3.1創建 AbstractHandlerMethodMapping系列之器</p>
+<p>12.3.2 AbstractHandlerMethodMapping系列之用</p>
+<p>12.4小結</p>
+<p><strong>第13章HandlerAdapter</strong></p>
+<p>13.1 RequestMappingHandlerAdapter概述</p>
+<p>13.2 RequestMappingHandlerAdapter自身結構</p>
+<p>13.2.1創建 RequestMappingHandlerAdapter之器</p>
+<p>13.2.2 RequestMappingHandlerAdapter之用</p>
+<p>13.2.3小結 </p>
+<p>13.3 ModelAndViewContainer </p>
+<p>13.4 SessionAttributesHandler 和SessionAttributeStore</p>
+<p>13.5 ModelFactory</p>
+<p>13.5.1初始化 Model</p>
+<p>13.5.2更 新Model</p>
+<p>13.6 ServletInvocableHandlerMethod</p>
+<p>13.6.1 HandlerMethod</p>
+<p>13.6.2 InvocableHandlerMethod</p>
+<p>13.6.3 ServletlnvocableHandler</p>
+<p>13.7 HandlerMethodArgumentResolver </p>
+<p>13.8 HandlerMethodReturnValueHandler</p>
+<p>13.9小結</p>
+<p><strong>第14章VeweRewel</strong></p>
+<p>14.1 ContentNegotiatingViewResolver</p>
+<p>14.2 AbstractCachingViewResolver系列UrlBasedViewResolver</p>
+<p>14.3小結</p>
+<p><strong>第15章RequestToViewName-Translator</strong></p>
+<p><strong>第16章HandlerExceptionResolver </strong></p>
+<p>16.1 AbstractHandlerException-Resolver</p>
+<p>16.2 ExceptionHandlerException-Resolver</p>
+<p>16.3 DefaultHandlerExceptionResolver </p>
+<p>16.4 ResponseStatusExceptionResoler</p>
+<p>16.5 SimplaMappingExeptionResolver</p>
+<p>16.6小結</p>
+<p><strong>第17章Multiareslor</strong></p>
+<p>17. I StandardServletMultiparResolver</p>
+<p>17.2 CommonsMultipartResolver </p>
+<p>17.3小結</p>
+<p><strong>第18章Latleesvr</strong></p>
+<p><strong>第19章ThemeResolver</strong></p>
+<p><strong>第20章FlashMapManager</strong></p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/33cb8a786b5046cda1e1459291f447f3" alt="《阿里大佬讓你五分鐘看透springMvc源代碼》" width="294" height="454" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/33cb8a786b5046cda1e1459291f447f3" alt="《阿里大佬讓你五分鐘看透springMvc源代碼》" width="294" height="454" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2><strong>第四篇總結與補充</strong></h2>
+<p><strong>第21章總結</strong></p>
+<p>21.1 Spring MVC原理總結</p>
+<p>21.2實際跟蹤一個請求</p>
+<p><strong>第22章非同步請求</strong></p>
+<p>22.1 Servlet 3.0對非同步請求的支持</p>
+<p>22.1.1 Servlet 3.0處理非同步請求實例</p>
+<p>22.1.2非同步請求 監聽器Asyne-Listener</p>
+<p>22.2 Spring MVC中的非同步請求</p>
+<p>22.2.1 Spring MVC中非同步請求相關組件–.</p>
+<p>22.2.2 Spring MVC對非同步請求的支持</p>
+<p>22.2.3 WebAsyncTask 和Callable類型非同步請求的處理過程及用法</p>
+<p>22.2.4 DeferredResult 類型非同步請求的處理過程及用法</p>
+<p>22.2.5 ListenableFuture 類型非同步請求的處理過程及川法</p>
+<p>22.3小結</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/63f31779d92f4eeea9335408955978f0" alt="《阿里大佬讓你五分鐘看透springMvc源代碼》" width="301" height="454" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/63f31779d92f4eeea9335408955978f0" alt="《阿里大佬讓你五分鐘看透springMvc源代碼》" width="301" height="454" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>由於文章篇幅有限，為了節約大家的時間，這套書籍小編已經整理好啦，領取只需要轉發+私信「書籍」二字，即可免費領取。</strong></p>
+<p><strong>如果大家喜歡小編的文章可以關注轉發，十分感謝！</strong></p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/9592#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.305 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:10:29 -->
+
+<!-- super cache -->

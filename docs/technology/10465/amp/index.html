@@ -1,0 +1,569 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/10465#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/fc676b18f5a14045b00dffdc03d36f23"},{"@type":"WebPage","@id":"https://daynews.cc/technology/10465#webpage","url":"https://daynews.cc/technology/10465","inLanguage":"zh-TW","name":"Ftp\u4f3a\u670d\u5668\u3001 Samba\u4f3a\u670d\u5668\u3001NFS\u4f3a\u670d\u5668\u7684\u5340\u5225 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/10465#primaryimage"},"datePublished":"2019-12-04T12:00:12+00:00","dateModified":"2019-12-04T12:00:12+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="Ftp、Samba、NFS伺服器的對比情況 根據使用的方式來看可以分為3種類別的文件伺服器：ftp伺服器（ftp/tftp）、 Samba伺服器、NFS伺服器。 1：ftp的客戶可以是任意平台 2：samba是專門針對windows客戶 3：而NFS則是面向linux/unix用戶的 下面是三種伺服器的對比情況： 各個伺服器的配置 ~NF……" />
+<meta name="twitter:title" content="Ftp伺服器、 Samba伺服器、NFS伺服器的區別 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/fc676b18f5a14045b00dffdc03d36f23" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Ftp伺服器、 Samba伺服器、NFS伺服器的區別 - 天天要聞" />
+<meta property="og:description" content="Ftp、Samba、NFS伺服器的對比情況 根據使用的方式來看可以分為3種類別的文件伺服器：ftp伺服器（ftp/tftp）、 Samba伺服器、NFS伺服器。 1：ftp的客戶可以是任意平台 2：samba是專門針對windows客戶 3：而NFS則是面向linux/unix用戶的 下面是三種伺服器的對比情況： 各個伺服器的配置 ~NF……" />
+<meta property="og:url" content="https://daynews.cc/technology/10465" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-04T12:00:12+00:00" />
+	<title>Ftp伺服器、 Samba伺服器、NFS伺服器的區別 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/10465" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">Ftp伺服器、 Samba伺服器、NFS伺服器的區別</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-04T20:00:12+00:00">
+		2 週 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<h2>Ftp、Samba、NFS伺服器的對比情況</h2>
+<p>根據使用的方式來看可以分為3種類別的文件伺服器：ftp伺服器（ftp/tftp）、 Samba伺服器、NFS伺服器。</p>
+<p>1：ftp的客戶可以是任意平台</p>
+<p>2：samba是專門針對windows客戶</p>
+<p>3：而NFS則是面向linux/unix用戶的</p>
+<p>下面是三種伺服器的對比情況：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/fc676b18f5a14045b00dffdc03d36f23" alt="《Ftp伺服器、 Samba伺服器、NFS伺服器的區別》" width="640" height="224" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/fc676b18f5a14045b00dffdc03d36f23" alt="《Ftp伺服器、 Samba伺服器、NFS伺服器的區別》" width="640" height="224" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2>各個伺服器的配置<br></h2>
+<p><strong>~NFS伺服器：</strong><br> NFS是SUN Microsystem公司開發的網路文件系統，它是一種基於遠程過程調用（RPC）的分散式文件系統架構。與Samba相比較，NFS的數據吞吐能力更強。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/dfic-imagehandler/29222932-497f-49ee-a71a-9c0f59a871fd" alt="《Ftp伺服器、 Samba伺服器、NFS伺服器的區別》" width="640" height="427" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/dfic-imagehandler/29222932-497f-49ee-a71a-9c0f59a871fd" alt="《Ftp伺服器、 Samba伺服器、NFS伺服器的區別》" width="640" height="427" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>1、用命令 # rpm –qa | grep nfs檢查軟體包NFS是否安裝 ,如果輸出沒有輸出，表明沒有被安裝，請自行安裝之。<br>2、 配置NFS伺服器。用任何文本編輯器配置文件/etc/exports,來確定需要給客戶共享的目錄。它的基本格式為Directory Host(options) # comments ,這3個欄位/列要在一行，directory與host(options)之間要有間隙，# comments 可有可無。主機選項主要是給與掛接用戶什麼樣的許可權。目錄directory表示要共享出去的目錄，值得注意的是，在啟用NFS服務以前，系統管理員應該仔細一些，比如不小心共享了根目錄/，並且給與用戶讀寫許可權，這是十分糟糕的問題。因此，儘可能少的共享目錄和賦予較小的訪問許可權。主機名host是一個很靈活的項目，可以是單個的主機名稱（由/etc/hosts得到），主機ip地址，由域名伺服器解析的主機名稱，IP網路—網路號和子網掩碼中間用 「/」連接，NIC等。下面列舉一個例子。<br>/data/skyboy skyboy(rw) #把目錄/data/skyboy共享給主機skyboy,並且主機對目錄#/home/skyboy有讀寫許可權<br>/tmp 192.168.222.129(ro) #主機192.168.222.129對目錄/tmp具備只讀共#享許可權<br>/media/cdrom 192.168.222.0/255.255.255.0(ro) #整個網路有讀取掛接在NFS #伺服器上的光碟機光碟的讀取許可權<br>3、啟用NFS服務。分兩步：首先啟用portmap,然後啟用NFS服務。#service portmap start; #注意老版本使用的的方式<br># service nfs start。其中portmap的功能是啟用遠程過程調用，有時啟用NFS不能成功，不妨檢查一下portmap服務是否啟動（# ps aux | grep portmap）。<br>4、在客戶端掛接NFS共享出來的目錄。先在客戶端創建一個掛接點，如 # mkdir /mnt/nfs ,而後使用命令把nfs伺服器共享出來的目錄掛接上，以第2步那個共享為例，我們掛接目錄 /tmp , # mount –t nfs 192.168.222.129:/tmp /mnt/nfs //假定nfs伺服器的ip地址是192.168.222.129。<br>5、訪問NFS共享資源。接上步，改變文件目錄 # cd/mnt/nfs就方便地實現了對nfs伺服器目錄/tmp的遠程訪問。<br>6、卸載NFS文件系統。在客戶端執行命令 # umount/mnt/nfs 就卸下了第4步掛接的NFS文件系統。<br>~<strong>Samba伺服器</strong><br> 這個世界既非只有linux/unix,也不是由microsoft windows 獨霸天下的格局。也許出於linux/unix與windows既競爭又共存的事實，人們開發了 linux給windows用戶提供文件共享的工具Samba，這應該算得上linux的開放精神吧！</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/dfic-imagehandler/658490a8-c080-4d1f-97bc-4c7a9a646f9e" alt="《Ftp伺服器、 Samba伺服器、NFS伺服器的區別》" width="640" height="419" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/dfic-imagehandler/658490a8-c080-4d1f-97bc-4c7a9a646f9e" alt="《Ftp伺服器、 Samba伺服器、NFS伺服器的區別》" width="640" height="419" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>1、檢查是否安裝samba軟體包。# rpm –qa | grep smb ，如果沒有則自行安裝samba。<br>2、修改配置文件/etc/samba/smb.conf。早期的linux版本的配置文件smb.conf的安全選項「security=share」,這個默認值是個安全隱患，不過現在流行的linux版本的安全選項的默認值是「security=user」。如果只想用戶對他的目錄擁有隻讀許可權，就把選項「writeable=yes」改成「read only=yes」。其他的選項根據自己的要求更改即可。對於一般的應用而言，基本上不用修改這個文件。<br>3、添加系統賬戶。由於smb的訪問是使用系統賬號進行的，因此添加賬號是必不可少的。這個比較簡單，用命令 # useradd sery , # passwd sery，就可以依次添加若干系統賬號。<br>4、建立Samba用戶密碼文件。雖然samba的用戶是系統用戶，但出於安全考慮，samba用戶的密碼並非創建系統用戶時設定的用戶密碼。為了生成smb所需的密碼，應該進行下面的操作：<br># smbpasswd -a skyboy //為系統用戶設置smb口令<br>5、啟用Samba伺服器。# service smb start <br>6、windows客戶端訪問 Samba伺服器共享目錄。在windows環境下，右鍵點擊「網上鄰居」圖標，然後左擊「搜索計算機」，把Samba伺服器的IP地址填寫在「計算機名」搜索欄，點擊立即搜索。找到後雙擊圖標，然後輸入在Samba伺服器上預先設定的用戶名和密碼，就能合法訪問Samba伺服器設定的共享資源。為了方便使用，可以把Samba伺服器提供的共享目錄映射成本地驅動器。<br>7、其他。上述配置的samba伺服器，用戶的訪問共享目錄是系統賬號的主目錄。要想把共享目錄設置到其他位置，修改Samba 的配置文件/etc/samba/smb.conf文件即可。<br>~<strong>FTP伺服器<br></strong> 在linux 環境下，有三個主要的FTP伺服器：vsftpd、proftpd和wu-ftpd。因為安全方面的原因，vsftpd目前已經牢牢的佔據了主導地位。從字面上我們就可以理解vsftpd所具備的主要特徵—very secure(非常安全之ftp)。</p>
+<p>資料表明：1、使用ASCII方式下載文件，在1G乙太網上的下載速度可以達到86M/s。2、vsftpd可以支持 15000個並發用戶的訪問。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/dfic-imagehandler/87816747-cbf9-45d6-9908-ab14da0ba138" alt="《Ftp伺服器、 Samba伺服器、NFS伺服器的區別》" width="640" height="427" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/dfic-imagehandler/87816747-cbf9-45d6-9908-ab14da0ba138" alt="《Ftp伺服器、 Samba伺服器、NFS伺服器的區別》" width="640" height="427" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>1、檢查是否安裝vsftp包。# rpm –qa | grep vsftpd。如果沒有則安裝它。<br>2、 修改配置文件。Vsftpd的配置文件為/etc/vsftpd/vsftpd.conf,如果不打算提供匿名訪問的話，需要修改配置文件 /etc/vsftpd/vsftpd.conf的項「anonymous_enable=Yes」為「anonymous_enable=No」。<br>3、啟用vsftpd服務。#service vsftpdstart。<br>4、客戶端連接訪問。可以是專用的ftp客戶端工具，也可以使用瀏覽器。用工具訪問vsftpd伺服器的速度要比用瀏覽器快很多。<br>5、vsftpd伺服器的用戶。Vsftpd伺服器支持三種類型的擁護：本地用戶（擁有系統賬號）、虛擬用戶（guest）、匿名賬號；系統管理員應該根據安全需求來確定vsftpd伺服器的用戶訪問策略</p>
+
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/10465#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.220 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:19:18 -->
+
+<!-- super cache -->

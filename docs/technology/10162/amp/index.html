@@ -1,0 +1,639 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/10162#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/3d434375bc1448adbf6f01bb3e782f7b"},{"@type":"WebPage","@id":"https://daynews.cc/technology/10162#webpage","url":"https://daynews.cc/technology/10162","inLanguage":"zh-TW","name":"\u4e86\u89e3\u5b8cJava 12 \u65b0\u7279\u6027\uff0c\u662f\u5426\u8a72\u62cb\u68c4java1.7\u548c1.8\u4e86\uff1f - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/10162#primaryimage"},"datePublished":"2019-12-06T13:50:14+00:00","dateModified":"2019-12-06T13:50:14+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="Java 12 已如期於 3 月 19 日正式發布，此次更新是 Java 11 這一長期支持版本發布之後的一次常規更新，截至目前，Java 半年為發布周期，並且不會跳票承諾的發布模式，已經成功運行一年多了。通過這樣的方式，Java 開發團隊能夠將一些重要特性儘早的合併到 Java Release 版本中，以便快速得到開發者的反饋，避免出現……" />
+<meta name="twitter:title" content="了解完Java 12 新特性，是否該拋棄java1.7和1.8了？ - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/3d434375bc1448adbf6f01bb3e782f7b" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="了解完Java 12 新特性，是否該拋棄java1.7和1.8了？ - 天天要聞" />
+<meta property="og:description" content="Java 12 已如期於 3 月 19 日正式發布，此次更新是 Java 11 這一長期支持版本發布之後的一次常規更新，截至目前，Java 半年為發布周期，並且不會跳票承諾的發布模式，已經成功運行一年多了。通過這樣的方式，Java 開發團隊能夠將一些重要特性儘早的合併到 Java Release 版本中，以便快速得到開發者的反饋，避免出現……" />
+<meta property="og:url" content="https://daynews.cc/technology/10162" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-06T13:50:14+00:00" />
+	<title>了解完Java 12 新特性，是否該拋棄java1.7和1.8了？ - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/10162" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">了解完Java 12 新特性，是否該拋棄java1.7和1.8了？</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-06T21:50:14+00:00">
+		2 週 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<p>Java 12 已如期於 3 月 19 日正式發布，此次更新是 Java 11 這一長期支持版本發布之後的一次常規更新，截至目前，Java 半年為發布周期，並且不會跳票承諾的發布模式，已經成功運行一年多了。通過這樣的方式，Java 開發團隊能夠將一些重要特性儘早的合併到 Java Release 版本中，以便快速得到開發者的反饋，避免出現類似 Java 9 發布時的兩次延期的情況。</p>
+<p>Java 12 早在 2018 年 12 月便進入了 Rampdown Phase One 階段，這意味著該版本所有新的功能特性被凍結，不會再加入更多的 JEP。該階段將持續大概一個月，主要修復 P1-P3 級錯誤。主要時間節點如下：</p>
+<ul class="ibm-bullet-list">
+<li>2018-12-13 Rampdown 第一階段 ( 從主線分離 )</li>
+<li>2019-01-17 Rampdown 第二階段</li>
+<li>2019-02-07 發布候選階段</li>
+<li>2019-03-19 正式發布</li>
+</ul>
+<p>本文主要針對 Java 12 中的新特性展開介紹，讓您快速了解 Java 12 帶來的變化。</p>
+<h2><strong>Shenandoah：一個低停頓垃圾收集器（實驗階段）</strong></h2>
+<p>Java 12 中引入一個新的垃圾收集器：Shenandoah，它是作為一中低停頓時間的垃圾收集器而引入到 Java 12 中的，其工作原理是通過與 Java 應用程序中的執行線程同時運行，用以執行其垃圾收集、內存回收任務，通過這種運行方式，給虛擬機帶來短暫的停頓時間。</p>
+<p>Shenandoah 垃圾回收器是 Red Hat 在 2014 年宣布進行的一項垃圾收集器研究項目，旨在針對 JVM 上的內存收回實現低停頓的需求。該設計將與應用程序線程並發，通過交換 CPU 並發周期和空間以改善停頓時間，使得垃圾回收器執行線程能夠在 Java 線程運行時進行堆壓縮，並且標記和整理能夠同時進行，因此避免了在大多數 JVM 垃圾收集器中所遇到的問題。</p>
+<p>據 Red Hat 研發 Shenandoah 團隊對外宣稱，Shenandoah 垃圾回收器的暫停時間與堆大小無關，這意味著無論將堆設置為 200 MB 還是 200 GB，都將擁有一致的系統暫停時間，不過實際使用性能將取決於實際工作堆的大小和工作負載。</p>
+<p>圖 1. Shenandoah GC 工作周期如下所示</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/3d434375bc1448adbf6f01bb3e782f7b" alt="《了解完Java 12 新特性，是否該拋棄java1.7和1.8了？》" width="1852" height="452" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/3d434375bc1448adbf6f01bb3e782f7b" alt="《了解完Java 12 新特性，是否該拋棄java1.7和1.8了？》" width="1852" height="452" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>上圖對應工作周期如下：</p>
+<ol start="1">
+<li>Init Mark 啟動並發標記 階段</li>
+<li>並發標記遍歷堆階段</li>
+<li>並發標記完成階段</li>
+<li>並發整理回收無活動區域階段</li>
+<li>並發 Evacuation 整理內存區域階段</li>
+<li>Init Update Refs 更新引用初始化 階段</li>
+<li>並發更新引用階段</li>
+<li>Final Update Refs 完成引用更新階段</li>
+<li>並發回收無引用區域階段</li>
+</ol>
+<p>需要了解不是唯有 GC 停頓可能導致常規應用程序響應時間比較長。具有較長的 GC 停頓時間會導致系統響應慢的問題，但響應時間慢並非一定是 GC 停頓時間長導致的，隊列延遲、網路延遲、其他依賴服務延遲和操作提供調度程序抖動等都可能導致響應變慢。使用 Shenandoah 時需要全面了解系統運行情況，綜合分析系統響應時間。各種 GC 工作負載對比如下所示：</p>
+<p>圖 2. 各種 GC 工作負載對比</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/dc5ca9357c624114b3d39466ecef286b" alt="《了解完Java 12 新特性，是否該拋棄java1.7和1.8了？》" width="640" height="274" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/dc5ca9357c624114b3d39466ecef286b" alt="《了解完Java 12 新特性，是否該拋棄java1.7和1.8了？》" width="640" height="274" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>下面推薦幾個配置或調試 Shenandoah 的 JVM 參數:</p>
+<ul class="ibm-bullet-list">
+<li>-XX:+AlwaysPreTouch：使用所有可用的內存分頁，減少系統運行停頓，為避免運行時性能損失。</li>
+<li>-Xmx == -Xmsv：設置初始堆大小與最大值一致，可以減輕伸縮堆大小帶來的壓力，與 AlwaysPreTouch 參數配合使用，在啟動時提交所有內存，避免在最終使用中出現系統停頓。</li>
+<li>-XX:+ UseTransparentHugePages：能夠大大提高大堆的性能，同時建議在 Linux 上使用時將 /sys/kernel/mm/transparent_hugepage/enabled 和/sys/kernel/mm/transparent_hugepage/defragv 設置為：madvise，同時與AlwaysPreTouch 一起使用時，init 和 shutdownv 速度會更快，因為它將使用更大的頁面進行預處理。</li>
+<li>-XX:+UseNUMA：雖然 Shenandoah 尚未明確支持 NUMA（Non-Uniform Memory Access），但最好啟用此功能以在多插槽主機上啟用 NUMA 交錯。與 AlwaysPreTouch 相結合，它提供了比默認配置更好的性能。</li>
+<li>-XX:+DisableExplicitGC：忽略代碼中的 System.gc() 調用。當用戶在代碼中調用 System.gc() 時會強制 Shenandoah 執行 STW Full GC ，應禁用它以防止執行此操作，另外還可以使用 -XX:+ExplicitGCInvokesConcurrent，在 調用 System.gc() 時執行 CMS GC 而不是 Full GC，建議在有 System.gc() 調用的情況下使用。</li>
+</ul>
+<p>不過目前 Shenandoah 垃圾回收器還被標記為實驗項目，需要使用參數：- XX:+UnlockExperimentalVMOptions 啟用。更多有關如何配置、調試 Shenandoah 的信息，請參閱 henandoah wiki。</p>
+<h2><strong>增加一套微基準套件</strong></h2>
+<p>Java 12 中添加一套新的基本的微基準測試套件，該套微基準測試套件基於 JMH（Java Microbenchmark Harness），使開發人員可以輕鬆運行現有的微基準測試並創建新的基準測試，其目標在於提供一個穩定且優化過的基準，其中包括將近 100 個基準測試的初始集合，並且能夠輕鬆添加新基準、更新基準測試和提高查找已有基準測試的便利性。</p>
+<p>微基準套件與 JDK 源代碼位於同一個目錄中，並且在構建後將生成單個 Jar 文件。但它是一個單獨的項目，在支持構建期間不會執行，以方便開發人員和其他對構建微基準套件不感興趣的人在構建時花費比較少的構建時間。</p>
+<p>要構建微基準套件，用戶需要運行命令：make build-microbenchmark，類似的命令還有：make test TEST=”micro:java.lang.invoke” 將使用默認設置運行 java.lang.invoke 相關的微基準測試。關於配置本地環境可以參照文檔 docs/testing.md|html。</p>
+<h2><strong>Switch 表達式擴展（預覽功能）</strong></h2>
+<p>Java 11 以及之前 Java 版本中的 Switch 語句是按照類似 C、C++ 這樣的語言來設計的，在默認情況下支持 fall-through 語法。雖然這種傳統的控制流通常用於編寫低級代碼，但 Switch 控制語句通常運用在高級別語言環境下的，因此其容易出錯性掩蓋其靈活性。</p>
+<p>在 Java 12 中重新拓展了 Switch 讓它具備了新的能力，通過擴展現有的 Switch 語句，可將其作為增強版的 Switch 語句或稱為 “Switch 表達式”來寫出更加簡化的代碼。</p>
+<p>Switch 表達式也是作為預覽語言功能的第一個語言改動被引入新版 Java 中來的，預覽語言功能的想法是在 2018 年初被引入 Java 中的，本質上講，這是一種引入新特性的測試版的方法。通過這種方式，能夠根據用戶反饋進行升級、更改，在極端情況下，如果沒有被很好的接納，則可以完全刪除該功能。預覽功能的關鍵在於它們沒有被包含在 Java SE 規範中。</p>
+<p>在 Java 11 以及之前版本中傳統形式的 Switch 語句寫法如下：</p>
+<p>清單 1. Switch 語句示例</p>
+<pre>int dayNumber;<br><br>switch (day) {<br><br> case MONDAY:<br><br> case FRIDAY:<br><br> case SUNDAY:<br><br> dayNumber = 6;<br><br> break;<br><br> case TUESDAY:<br><br> dayNumber = 7;<br><br> break;<br><br> case THURSDAY:<br><br> case SATURDAY:<br><br> dayNumber = 8;<br><br> break;<br><br> case WEDNESDAY:<br><br> dayNumber = 9;<br><br> break;<br><br> default:<br><br> throw new IllegalStateException("Huh? " + day);<br><br>}<br><br>上面代碼中多處出現 break 語句，顯得代碼比較冗餘，同時如果某處漏寫一段 break 語句，將導致程序一直向下穿透執行的邏輯錯誤，出現異常結果，同時這種寫法比較繁瑣，也容易出問題。</pre>
+<p>換做 Java 12 中的 Switch 表達式，上述語句寫法如下：</p>
+<p>清單 2. Switch 表達式示例</p>
+<pre>int dayNumber = switch (day) {<br><br> case MONDAY, FRIDAY, SUNDAY -&gt; 6;<br><br> case TUESDAY -&gt; 7;<br><br> case THURSDAY, SATURDAY -&gt; 8;<br><br> case WEDNESDAY -&gt; 9;<br><br> default -&gt; throw new IllegalStateException("Huh? " + day);<br><br>}</pre>
+<p>使用 Java 12 中 Switch 表達式的寫法，省去了 break 語句，避免了因少些 break 而出錯，同時將多個 case 合併到一行，顯得簡潔、清晰也更加優雅的表達邏輯分支，其具體寫法就是將之前的 case 語句表成了：case L -&gt;，即如果條件匹配 case L，則執行 標籤右側的代碼 ，同時標籤右側的代碼段只能是表達式、代碼塊或 throw 語句。為了保持兼容性，case 條件語句中依然可以使用字元 : ，這時 fall-through 規則依然有效的，即不能省略原有的 break 語句，但是同一個 Switch 結構里不能混用 -&gt; 和 : ，否則會有編譯錯誤。並且簡化後的 Switch 代碼塊中定義的局部變數，其作用域就限制在代碼塊中，而不是蔓延到整個 Switch 結構，也不用根據不同的判斷條件來給變數賦值。</p>
+<p>Java 11 以及之前版本中，Switch 表達式支持下面類型： byte、char、short、int、Byte、Character、Short、Integer、enum、tring，在未來的某個 Java 版本有可能會允許支持 float、double 和 long （以及上面類型的封裝類型）。</p>
+<h2><strong>引入 JVM 常量 API</strong></h2>
+<p>Java 12 中引入 JVM 常量 API，用來更容易地對關鍵類文件 (key class-file) 和運行時構件（artefact）的名義描述 (nominal description) 進行建模，特別是對那些從常量池載入的常量，這是一項非常技術性的變化，能夠以更簡單、標準的方式處理可載入常量。</p>
+<p>此項改進主要在新的 java.lang.invoke.constant 包中定義了一系列基於值的符號引用類型，能夠描述每種可載入常量。符號引用以純粹 nominal 的形式描述可載入常量，與類載入或可訪問 性上下文分開。同時有些類可以作為自己的符號引用（例如 String），而對於可鏈接常量，另外定義了一系列符號引用類型，具體包括： ClassDesc (Class 的可載入常量標稱描述符) ，MethodTypeDesc(方法類型常量標稱描述符) ，MethodHandleDesc (方法句柄常量標稱描述符) 和 DynamicConstantDesc (動態常量標稱描述符) ，它們包含描述這些常量的 nominal 信息。</p>
+<h2><strong>改進 AArch64 實現</strong></h2>
+<p>Java 12 中將只保留一套 AArch64 實現，刪除所有與 arm64 實現相關的代碼，只保留 32 位 ARM 埠和 64 位 aarch64 的埠。刪除此套實現將允許所有開發人員將目標集中在剩下的這個 64 位 ARM 實現上，消除維護兩套埠所需的重複工作。</p>
+<p>當前 Java 11 中存在兩套 64 位 AArch64 埠，它們主要存在於 src/hotspot/cpu/arm 和 open/src/hotspot/cpu/aarch64 目錄中。這兩套代碼中都實現了 AArch64，Java 12 中將刪除目錄 open/src/hotspot/cpu/arm 中關於 64-bit 的這套實現，只保留其中有關 32-bit 的實現，餘下目錄的open/src/hotspot/cpu/aarch64 代碼部分就成了 AArch64 的默認實現。</p>
+<h2><strong>使用默認類數據共享（CDS）存檔</strong></h2>
+<p>類數據共享機制 (Class Data Sharing ，簡稱 CDS) ，允許將一組類預處理為共享歸檔文件，以便在運行時能夠進行內存映射以減少 Java 程序的啟動時間，當多個 Java 虛擬機（JVM）共享相同的歸檔文件時，還可以減少動態內存的佔用量，同時減少多個虛擬機在同一個物理或虛擬的機器上運行時的資源佔用。</p>
+<p>自 Java 8 以來，在基本 CDS 功能上進行了許多增強、改進，啟用 CDS 後應用的啟動時間和內存佔用量顯著減少。使用 Java 11 早期版本在 64 位 Linux 平台上運行 HelloWorld 進行測試，測試結果顯示啟動時間縮短有 32 ％，同時在其他 64 位平台上，也有類似或更高的啟動性能提升。</p>
+<p>Java 12 針對 64 位平台下的 JDK 構建過程進行了增強改進，使其默認生成類數據共享（CDS）歸檔，以進一步達到改進應用程序的啟動時間的目的，同時也避免了需要手動運行：-Xshare:dump 的需要，修改後的 JDK 將在 lib/server 目錄中保留構建時生成的 CDS 存檔。</p>
+<p>當然如果需要，也可以添加其他 GC 參數，來調整堆大小等，以獲得更優的內存分布情況，同時用戶也可以像之前一樣創建自定義的 CDS 存檔文件。</p>
+<h2><strong>改善 G1 垃圾收集器，使其能夠中止混合集合</strong></h2>
+<p>G1 是垃圾收集器，設計用於具有大量內存的多處理器機器，提高了垃圾回收效率。該垃圾收集器 設計的主要目標之一是滿足用戶設置的預期的 JVM 停頓時間，G1 採用一個高級分析引擎來選擇在收集期間要處理的工作量，此選擇過程的結果是一組稱為 GC 回收集的區域。一旦收集器確定了 GC 回收集 並且 GC 回收、整理工作已經開始，則 G1 收集器必須完成收集集合集的所有區域中的所有活動對象之後才能停止；但是如果收集器選擇過大的 GC 回收集，可能會導致 G1 回收器停頓時間超過預期時間。</p>
+<p>Java 12 中將把 GC 回收集（混合收集集合）拆分為必需和可選兩部分，使 G1 垃圾回收器能中止垃圾回收過程。其中必需處理的部分包括 G1 垃圾收集器不能遞增處理的 GC 回收集的部分（如：年輕代），同時也可以包含老年代以提高處理效率。將 GC 回收集拆分為必需和可選部分時，需要為可選 GC 回收集部分維護一些其他數據，這會產生輕微的 CPU 開銷，但小於 1 ％的變化，同時在 G1 回收器處理 GC 回收集期間，本機內存使用率也可能會增加，使用上述情況只適用於包含可選 GC 回收部分的 GC 混合回收集合。</p>
+<p>在 G1 垃圾回收器完成收集需要必需回收的部分之後，便開始收集可選的部分，如果還有時間的話，但是粗粒度的處理，可選部分的處理粒度取決於剩餘的時間，一次只能處理可選部分的一個子集區域。在完成可選收集部分的收集後，G1 垃圾回收器可以根據剩餘時間決定是否停止收集。如果在處理完 必需處理的 部分後，屬於時間不足，總時間花銷接近預期時間，G1 垃圾回收器也可以中止可選部分的回收以達到滿足預期停頓時間的目標。</p>
+<h2><strong>增強 G1 垃圾收集器，使其能自動返回未用堆內存給操作系統</strong></h2>
+<p>上節中介紹了 Java 12 中增強了 G1 垃圾收集器關於混合收集集合的處理策略，這節主要介紹在 Java 12 中同時也對 G1 垃圾回收器進行了改進，使其能夠在空閑時自動將 Java 堆內存返還給操作系統，這也是 Java 12 中的另外一項重大改進。</p>
+<p>目前 Java 11 版本中包含的 G1 垃圾收集器 暫時無法及時將已提交的 Java 堆內存返回給操作系統， G1 垃圾收集器僅在進行完整 GC (Full GC) 或並發處理周期時才能將 Java 堆返回內存。由於 G1 回收器儘可能避免完整 GC，並且只觸發基於 Java 堆佔用和分配活動的並發周期，因此在許多情況下 G 1 垃圾回收器不能回收 Java 堆內存，除非有外部強制執行。</p>
+<p>在使用雲平台的容器環境中，這種不利之處特別明顯。即使在虛擬機不活動，但如果仍然使用其分配的內存資源，哪怕是其中的一小部分，G1 回收器也仍將保留所有已分配的 Java 堆內存。而這將導致用戶需要始終為所有資源付費，哪怕是實際並未用到，而雲提供商也無法充分利用其硬體。如果在次期間虛擬機能夠檢測到 Java 堆內存的實際使用情況，並在利用空閑時間自動將 Java 堆內存返還，則兩者都將受益。</p>
+<p>為了儘可能的向操作系統返回空閑內存，G1 垃圾收集器將在應用程序不活動期間定期生成或持續循環檢查整體 Java 堆使用情況，以便 G 1 垃圾收集器能夠更及時的將 Java 堆中不使用內存部分返還給操作系統。對於長時間處於空閑狀態的應用程序，此項改進將使 JVM 的內存利用率更加高效。</p>
+<p>如果應用程序為非活動狀態，在下面兩種情況下，G1 回收器會觸發定期垃圾收集：</p>
+<ul class="ibm-bullet-list">
+<li>自上次垃圾回收完成 以來已超過 G1PeriodicGCInterva l 毫秒， 並且此時沒有正在進行的垃圾回收任務。如果 G1PeriodicGCInterval 值為零表示禁用快速回收內存的定期垃圾收集。</li>
+<li>應用所在主機系統上執行方法 getloadavg()，一分鐘內系統返回的平均負載值低於 G1PeriodicGCSystemLoadThreshold。如果G1PeriodicGCSystemLoadThreshold 值為零，則此條件不生效。</li>
+</ul>
+<p>如果不滿足上述條件中的任何一個，則取消當期的定期垃圾回收。等一個 G1PeriodicGCInterval 時間周期後，將重新考慮是否執行定期垃圾回收。</p>
+<p>G1 定期垃圾收集的類型根據 G1PeriodicGCInvokesConcurrent 參數的值確定：如果設置值了，G1 垃圾回收器將繼續上一個或者啟動一個新並發周期；如果沒有設置值，則 G1 回收器將執行一個完整的 GC。在每次一次 GC 回收末尾，G1 回收器將調整當前的 Java 堆大小，此時便有可能會將未使用內存返還給操作系統。新的 Java 堆內存大小根據現有配置確定，具體包括下列配置：- XX:MinHeapFreeRatio、-XX:MaxHeapFreeRatio、-Xms、-Xmx。</p>
+<p>默認情況下，G1 回收器在定期垃圾回收期間新啟動或繼續上一輪並發周期，將最大限度地減少應用程序的中斷。如果定期垃圾收集嚴重影響程序執行，則需要考慮整個系統 CPU 負載，或讓用戶禁用定期垃圾收集。</p>
+<h2><strong>結束語</strong></h2>
+<p>自上次 Java 11 發布後，很快我們又迎來了 Java 12 版本的更新。Java 12 版本雖然是非 LTS 版本，但是這次更新也帶來了不少 JVM、GC 功能增強、改進，本文主要針對其中幾個影響重大變化以及主要的特性做了介紹。Java 12 已經來了，還跟得上更新的節奏嗎？</p>
+<p>本文只是個人的一點思考，僅代表個人觀點，不代表作者所在單位的意見，如有不足之處，還望各位讀者能夠海涵，如可以，希望讀者們能夠反饋意見，交流心得，一同進步。</p>
+<h2><strong>參考資源</strong></h2>
+<ul class="ibm-bullet-list">
+<li>參考 JDK 12，查看更多有關 Java 12 的最新信息。</li>
+<li>參考 Shenandoah wiki page，查看更多有關 Shenandoah 的最新信息。</li>
+<li>參考 Java 11 新特性介紹</li>
+</ul>
+<p>作者：李 林鋒</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/10162#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.234 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:30:11 -->
+
+<!-- super cache -->

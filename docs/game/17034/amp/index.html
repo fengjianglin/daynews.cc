@@ -1,0 +1,711 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/game/17034#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/6ef5cdb6083048ee8036079d64e8718f"},{"@type":"WebPage","@id":"https://daynews.cc/game/17034#webpage","url":"https://daynews.cc/game/17034","inLanguage":"zh-TW","name":"Dota2\u51a0\u8ecdOG\u5982\u4f55\u88abAI\u78be\u58d3\uff1fOpenAI\u7d2f\u7a4d\u4e09\u5e74\u7684\u5b8c\u6574\u8ad6\u6587\u7d42\u65bc\u653e\u51fa - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/game/17034#primaryimage"},"datePublished":"2019-12-14T05:10:10+00:00","dateModified":"2019-12-14T05:10:10+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="問耕 發自 凹非寺量子位 出品 | 公眾號 QbitAI Team OG，Dota2世界冠軍戰隊。 在人工智慧OpenAI Five面前，OG不堪一擊。五個人類組成的戰隊，此前全程毫無懸念地以0:2敗下陣來，兩局加在一起，OG只推掉了兩座外塔。 不過，這還不是AI的巔峰。 現在OpenAI又訓練出了一個全新的AI，名叫Rerun。面對碾壓……" />
+<meta name="twitter:title" content="Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/6ef5cdb6083048ee8036079d64e8718f" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出 - 天天要聞" />
+<meta property="og:description" content="問耕 發自 凹非寺量子位 出品 | 公眾號 QbitAI Team OG，Dota2世界冠軍戰隊。 在人工智慧OpenAI Five面前，OG不堪一擊。五個人類組成的戰隊，此前全程毫無懸念地以0:2敗下陣來，兩局加在一起，OG只推掉了兩座外塔。 不過，這還不是AI的巔峰。 現在OpenAI又訓練出了一個全新的AI，名叫Rerun。面對碾壓……" />
+<meta property="og:url" content="https://daynews.cc/game/17034" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="遊戲" />
+<meta property="article:published_time" content="2019-12-14T05:10:10+00:00" />
+	<title>Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/game/17034" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-14T13:10:10+00:00">
+		4 天 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<h5 class="pgc-h-arrow-right">問耕 發自 凹非寺<br>量子位 出品 | 公眾號 QbitAI</h5>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/6ef5cdb6083048ee8036079d64e8718f" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="640" height="427" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/6ef5cdb6083048ee8036079d64e8718f" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="640" height="427" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>Team OG，Dota2世界冠軍戰隊。</p>
+<p>在人工智慧OpenAI Five面前，OG不堪一擊。五個人類組成的戰隊，此前全程毫無懸念地以0:2敗下陣來，兩局加在一起，OG只推掉了兩座外塔。</p>
+<p>不過，這還不是AI的巔峰。</p>
+<p>現在OpenAI又訓練出了一個全新的AI，名叫Rerun。面對碾壓OG的OpenAI Five，Rerun的勝率達到了……呃……98%。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/84fc71e0d0b14096b6b65ea963d3338b" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="600" height="338" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/84fc71e0d0b14096b6b65ea963d3338b" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="600" height="338" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>聽到這個消息，一位推特網友發圖明志。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/ddd29027f3be4bd3b296afed734d04e6" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="597" height="466" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/ddd29027f3be4bd3b296afed734d04e6" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="597" height="466" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>主要依靠自學，就能在Dota2這麼複雜的遊戲中稱雄，人工智慧是怎麼做到的？今天，有關於此的答案揭曉。</p>
+<p>沒錯，OpenAI不單發布了Rerun，還把自己三年多來對於Dota2項目的研究，通過一篇論文，正式公布出來。</p>
+<p>在這篇論文中，OpenAI解釋了整套系統的原理、架構、計算量、參數等等諸多方面的內容。OpenAI指出通過增加batch size和總訓練時間等方法，擴展了計算規模，進而表明當今的強化學習技術可以在複雜的電子競技遊戲中，達到超越人類的水平。</p>
+<p>這些研究，可以進一步應用於各種兩個對手持續的零和博弈中。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/60c4e568e3294208a0a16c2a090ac3a3" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="590" height="174" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/60c4e568e3294208a0a16c2a090ac3a3" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="590" height="174" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>（可能是閱讀之後）OG戰隊發推：「Wow！這篇論文看起來太棒了！」</p>
+<p>此情此景，有網友無深情的感嘆道：Wow！OG戰隊誇了一篇論文好看？真是活久見……</p>
+<p>這篇論文到底說了什麼？</p>
+<p>我們總結了幾個要點。</p>
+<h2 class="pgc-h-arrow-right">要點一：Dota2比下圍棋更複雜</h2>
+<p>與棋類對弈相比，電子競技遊戲要更複雜。</p>
+<p>攻克這一難題的關鍵是，把現有的強化學習系統規模，擴展到前所未有的水平，這耗費了數千塊GPU和好幾個月的時間。OpenAI為此構建了一個分散式的訓練系統。</p>
+<p>訓練中的一個挑戰是，環境和代碼會不斷變化。為了在每次更改後無需從頭開始，OpenAI開發了一套工具，可以在不損失性能的情況下恢復訓練，這套工具稱為：surgery。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/aaa3bdea16284655b7b2c8ff306aac37" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="600" height="568" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/aaa3bdea16284655b7b2c8ff306aac37" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="600" height="568" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>每局Dota2比賽時長大約45分鐘，每秒鐘會生成30幀的遊戲畫面。OpenAI Five每4幀做出一個動作。國際象棋一局下約80步，圍棋下一局約150步，作為對比，Dota2打一局，AI需要「下」大概20000步。</p>
+<p>而且由於戰爭迷霧的存在，Dota2中對戰的雙方，只能看到全盤遊戲中的局部情況，其他部分的信息都是隱藏狀態。</p>
+<p>與下圍棋的AlphaGo相比，打Dota2的AI系統，batch size要大50-150倍，模型大20倍，訓練時間長25倍。</p>
+<h2 class="pgc-h-arrow-right">要點二：AI如何學會打Dota2</h2>
+<p>人類玩Dota2通過鍵盤滑鼠等，實時作出決定。剛才提到，OpenAI Five每4幀做出一個動作，這被稱為一個timestep。每個timestep期間，OpenAI會接收血量、位置等數據。</p>
+<p>同樣的信息，人類和OpenAI Five接收的方式完全不同。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/06019937574f4a63be9bd4cb176c03d6" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="640" height="240" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/06019937574f4a63be9bd4cb176c03d6" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="640" height="240" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>人工智慧系統發出動作指令時，大概可以想成這個樣子。</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/0c719d584cc64896925f13b5a7bf03ba" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="600" height="276" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/0c719d584cc64896925f13b5a7bf03ba" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="600" height="276" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>AI背後是一套神經網路。policy (π) 被定義為從觀察數據到動作概率分布的函數，這是一個有1.59億個參數的RNN神經網路。這個網路主要由一個單層、4096-unit的LSTM構成。</p>
+<p>結構如下圖所示：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/3515afbd9d4547be84655133f970a50f" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="822" height="251" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/3515afbd9d4547be84655133f970a50f" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="822" height="251" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>LSTM貢獻了這個模型中84%的參數。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/c5d66d4041e646c0a47ada005a36d662" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="640" height="354" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/c5d66d4041e646c0a47ada005a36d662" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="640" height="354" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>選手們的訓練，使用的是擴展版的近端策略優化（PPO）方法，這也是OpenAI現在默認的強化學習訓練方法。這些智能體的目標是最大化未來獎勵的指數衰減和。</p>
+<p>在訓練策略的過程中，OpenAI Five沒有用到人類遊戲數據，而是通過自我博弈。在圍棋、象棋等問題上，也應用了類似的方式訓練。</p>
+<p>其中，80%的戰鬥中對手是使用了最新參數的分身，而20%的對手是老參數的分身。每經過10次迭代之後，新訓練出的分身就被標為老前輩。如果當前正訓練的AI擊敗了新秀或者老前輩，系統就會根據學習率更新參數。</p>
+<p>按照OpenAI CTO此前的說法，擊敗OG前OpenAI Five已經練習了相當於45000年Dota。AI每天的訓練量相當於人類打180年遊戲。</p>
+<h2 class="pgc-h-arrow-right">要點三：計算量和超參數</h2>
+<p>訓練這麼複雜的AI系統，肯定要耗費大量的資源。</p>
+<p>OpenAI預估了用於優化的GPU消耗量，最後的結論，OpenAI Five的GPU計算用量在770±50~820±50 PFlops/s·days左右，而今天新提到的、更強的Rerun，在隨後兩個月的訓練中，GPU計算量消耗大概是150 ± 5 PFlops/s·days。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/c592f048ebbe44ed96c493e592d66aa7" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="640" height="548" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/c592f048ebbe44ed96c493e592d66aa7" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="640" height="548" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>再說一下，OpenAI公布的只是用於優化的計算量，只是訓練中所有開銷的一小部分，大約佔30%。</p>
+<p>此前，OpenAI也曾透露過OpenAI Five的日常訓練，需要256塊P100 GPU和12.8萬個CPU核心。</p>
+<p>至於整個神經網路的超參數，在論文中，OpenAI表示在訓練Rerun的時候，已經根據經驗進一步簡化了超參數。最後，他們只更改了四個關鍵的超參數：</p>
+<p>• Learning Rate<br>• Entropy penalty coefficient<br>• Team Spirit<br>• GAE time horizon</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/7182dfceb8ee4110b97e56efc59dd007" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="806" height="221" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/7182dfceb8ee4110b97e56efc59dd007" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="806" height="221" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>當然，OpenAI也表示這些超參數還有進一步的優化空間。</p>
+<h2 class="pgc-h-arrow-right">要點四：並不全是自學</h2>
+<p>最後，還有一點需要強調。</p>
+<p>OpenAI在論文中明確指出，AI系統在學習Dota2的過程中，並非完全依靠強化學習自學，啟示也使用了一些人類的知識。這跟後來的AlphaGo Zero有所區別。</p>
+<p>有一些遊戲機制是腳本編寫好的程序。比方，英雄購買裝備和學習技能的順序，信使的控制等等。OpenAI在論文中表示，使用這些腳本有一些歷史原因，也有成本和時間方面的考慮。不過論文也指出，這些最終也可以通過自學完成。</p>
+<h2 class="pgc-h-arrow-right">論文全文</h2>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/d7a1ba7144e4429ea1f9cfd10484e120" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="640" height="256" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/d7a1ba7144e4429ea1f9cfd10484e120" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="640" height="256" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>在這篇名為Dota 2 with Large Scale Deep Reinforcement Learning的論文中，OpenAI公布了更多的詳細信息，如果你感興趣，下面是傳送門：</p>
+<p>https://cdn.openai.com/dota-2.pdf</p>
+<h2 class="pgc-h-arrow-right">對戰回顧</h2>
+<p>最後，我們回顧一下OpenAI Five連下兩局擊敗OG的比賽全程吧。</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/e9ba3b33611f44e6b40a27300a418ed5" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="640" height="252" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/e9ba3b33611f44e6b40a27300a418ed5" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="640" height="252" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h3 class="pgc-h-arrow-right">第一局</h3>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/ea27cbd2cf55453ab55ce512a9cb3c8e" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="1080" height="198" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/ea27cbd2cf55453ab55ce512a9cb3c8e" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="1080" height="198" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>AI（天輝）：火槍、飛機、冰女、死亡先知、斯溫</p>
+<p>人類（夜魘）：小牛、巫醫、毒龍、隱刺、影魔</p>
+<p>選完陣容，OpenAI Five認為自己有67.6%的勝率。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/cfa9a6c710374867933b0cefbbf2b1cd" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="540" height="300" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/cfa9a6c710374867933b0cefbbf2b1cd" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="540" height="300" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>剛剛開局，OpenAI Five拿下一血，而人類軍團也很快殺掉了AI方的冰女。之後，雙方前期在人頭數上一直不相上下。AI一直在經濟上保持總體領先，但最富有的英雄，卻一直是人類的大哥影魔。</p>
+<p>這也能看出雙方策略上的明顯區別：OG是3核心+2輔助的傳統人類打法，而AI的5個英雄經濟分配相對平均，比較「大鍋飯」。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/c7490cf792304c5ab0536a11ebcdbafe" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="540" height="300" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/c7490cf792304c5ab0536a11ebcdbafe" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="540" height="300" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>經過幾番激烈的推進和團戰，遊戲進行到19分鐘左右，AI對自身勝率的預測已經超過了90%。自信心爆棚的AI一鼓作氣攻上了人類的高地。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/cb0e160269d340d8bd20d253fb71c6b2" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="540" height="300" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/cb0e160269d340d8bd20d253fb71c6b2" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="540" height="300" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>OG緊接著選擇了分路推進，幾位解說推測，這是為了儘可能分散AI，防止它們抱團推進，然而並沒有奏效太長時間。</p>
+<p>然而，堅持到38分鐘，人類方的小牛剛剛買活，AI的最後一波總攻已經推掉了人類的基地。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/3e608ac5e6104ce78d5425a85a051c8f" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="540" height="300" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/3e608ac5e6104ce78d5425a85a051c8f" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="540" height="300" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>OpenAI Five贏下第一局。現場，也是一片掌聲。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/f9377d554a5c458981877d1ec4b513c2" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="640" height="382" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/f9377d554a5c458981877d1ec4b513c2" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="640" height="382" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>這場比賽中，AI展現了清奇的思路：出門裝就選擇兩個大葯，後續的裝備也更傾向於買補給品，而不是提高自身屬性。</p>
+<p>另外，我們前邊提到的「大鍋飯」政策，以及在比賽前期就頻繁買活，都和人類職業選手的習慣大不相同。</p>
+<h3 class="pgc-h-arrow-right">第二局</h3>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/b85defa3f782442ea80d4d4129d198b9" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="1080" height="199" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/b85defa3f782442ea80d4d4129d198b9" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="1080" height="199" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>AI（天輝）：冰女、飛機、斯溫、巫醫、毒龍</p>
+<p>人類（夜魘）：火槍、小牛、死亡先知、小魚人、萊恩</p>
+<p>選完英雄，AI對自身勝率的預測是60.8%，略低於上一局的陣容。</p>
+<p>比賽前兩分鐘，雙方都在一片祥和中各自帶線，然而沒想到，人類中單Topson很快就送出了一血。</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/d512ecea74ea42d18f1cb8beb9fc9f31" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="540" height="300" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/d512ecea74ea42d18f1cb8beb9fc9f31" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="540" height="300" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>之後，人類代表們以驚人的速度潰敗。</p>
+<p>5分鐘時，AI的信心就已經大幅上升，預測自己有80%的勝率；7分鐘，AI推掉了上路一塔；10分鐘，AI就已經領先人類4000金幣，多推了兩座塔，還為自己預估了95%的勝率。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/d57a4e7abbef429d909feaf0d381142b" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="540" height="300" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/d57a4e7abbef429d909feaf0d381142b" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="540" height="300" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>11分鐘，AI已經攻上了OG的高地。</p>
+<p>僅僅21分鐘，OG的基地被推掉，OpenAI Five輕鬆拿下第二局。直到比賽結束，OG拿下人頭還是個位數，被AI打成了46:6。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/e0a5e6df4ee847b7a0e8a837082dcbe9" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="540" height="300" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/e0a5e6df4ee847b7a0e8a837082dcbe9" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="540" height="300" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>雖然這一局贏得異常輕鬆，不過對局過程中還是能看出AI在細節上有一些不足。比如說面對在複雜樹林中繞來繞去的人類，AI就無能為力。今天的比賽中，Ceb就靠繞樹林救了自己一命。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/d4c1628173c544f4bce03130e0025785" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="540" height="303" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/d4c1628173c544f4bce03130e0025785" alt="《Dota2冠軍OG如何被AI碾壓？OpenAI累積三年的完整論文終於放出》" width="540" height="303" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>最後，祝大家周末快樂。</p>
+<p>— <strong>完</strong> —</p>
+<p>量子位 QbitAI · 頭條號簽約</p>
+<p>關注我們，第一時間獲知前沿科技動態</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/game" rel="category tag">遊戲</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/game/17034#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.300 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:35:24 -->
+
+<!-- super cache -->

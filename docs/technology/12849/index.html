@@ -1,0 +1,654 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>智能駕駛車載激光雷達關鍵技術與應用演算法 - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="參會請掃描圖中二維碼 ​作者 ：陳曉冬等 【近期文章】 佐思汽研2020年多用戶報告撰寫計劃表 《周彥武研究特輯：智能駕駛硬體指南》 「佐思研究年報及季報」 主機廠自動駕駛策略研究 | 汽車視覺產業研究 | 低速自動駕駛產業研究 | 商用車自動駕駛產業研究 | 新興造車企業布局及智能網聯功能對比分析 | 汽車MLCC研究報告 | 汽車分時……" />
+		<meta name="keywords" content="智能駕駛車載激光雷達關鍵技術與應用演算法 - 天天要聞,科技," />
+		<meta itemprop="image" content="http://p3.pstatp.com/large/pgc-image/6c76309122af4c52bd6fd0f8fdc289dd"/>
+		<meta name="description" itemprop="description" content="參會請掃描圖中二維碼 ​作者 ：陳曉冬等 【近期文章】 佐思汽研2020年多用戶報告撰寫計劃表 《周彥武研究特輯：智能駕駛硬體指南》 「佐思研究年報及季報」 主機廠自動駕駛策略研究 | 汽車視覺產業研究 | 低速自動駕駛產業研究 | 商用車自動駕駛產業研究 | 新興造車企業布局及智能網聯功能對比分析 | 汽車MLCC研究報告 | 汽車分時……" />
+		
+<!-- This site is optimized with the SEO -->
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="https://daynews.cc/technology/12849" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="智能駕駛車載激光雷達關鍵技術與應用演算法 - 天天要聞" />
+<meta property="og:description" content="參會請掃描圖中二維碼 ​作者 ：陳曉冬等 【近期文章】 佐思汽研2020年多用戶報告撰寫計劃表 《周彥武研究特輯：智能駕駛硬體指南》 「佐思研究年報及季報」 主機廠自動駕駛策略研究 | 汽車視覺產業研究 | 低速自動駕駛產業研究 | 商用車自動駕駛產業研究 | 新興造車企業布局及智能網聯功能對比分析 | 汽車MLCC研究報告 | 汽車分時……" />
+<meta property="og:url" content="https://daynews.cc/technology/12849" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-12T14:50:11+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="參會請掃描圖中二維碼 ​作者 ：陳曉冬等 【近期文章】 佐思汽研2020年多用戶報告撰寫計劃表 《周彥武研究特輯：智能駕駛硬體指南》 「佐思研究年報及季報」 主機廠自動駕駛策略研究 | 汽車視覺產業研究 | 低速自動駕駛產業研究 | 商用車自動駕駛產業研究 | 新興造車企業布局及智能網聯功能對比分析 | 汽車MLCC研究報告 | 汽車分時……" />
+<meta name="twitter:title" content="智能駕駛車載激光雷達關鍵技術與應用演算法 - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/6c76309122af4c52bd6fd0f8fdc289dd" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/12849#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/6c76309122af4c52bd6fd0f8fdc289dd"},{"@type":"WebPage","@id":"https://daynews.cc/technology/12849#webpage","url":"https://daynews.cc/technology/12849","inLanguage":"zh-TW","name":"\u667a\u80fd\u99d5\u99db\u8eca\u8f09\u6fc0\u5149\u96f7\u9054\u95dc\u9375\u6280\u8853\u8207\u61c9\u7528\u6f14\u7b97\u6cd5 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/12849#primaryimage"},"datePublished":"2019-12-12T14:50:11+00:00","dateModified":"2019-12-12T14:50:11+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<!-- / SEO. -->
+
+<link rel='stylesheet' id='animate-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/animate.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/bootstrap.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/superfish.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/layer.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='https://daynews.cc/wp-content/themes/Kratos/style.css' type='text/css' media='all' />
+<link rel="amphtml" href="https://daynews.cc/technology/12849/amp">		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.min.js'></script>
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154709495-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-154709495-1');
+		</script>
+		<!-- Google Adsense -->
+		<script data-ad-client="ca-pub-8261739837930821" async 
+			src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="https://daynews.cc"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="/">首頁</a></li>
+<li><a href="/entertainment">娛樂</a></li>
+<li><a href="/emotion">情感</a></li>
+<li><a href="https://daynews.cc/international">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="https://daynews.cc/technology">科技</a></li>
+<li><a href="/sports">體育</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/nba">NBA</a></li>
+	<li><a href="/premier">英超</a></li>
+</ul>
+</li>
+<li><a href="/history">歷史</a></li>
+<li><a href="/game">遊戲</a></li>
+<li><a href="https://daynews.cc/health">養生</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/lose">減肥</a></li>
+</ul>
+</li>
+<li><a href="https://daynews.cc/constellation">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">智能駕駛車載激光雷達關鍵技術與應用演算法</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-12				                <i class="fa fa-commenting-o"></i> 469條評論
+				                <i class="fa fa-eye"></i> 2,683次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 1589人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/6c76309122af4c52bd6fd0f8fdc289dd" src="http://p3.pstatp.com/large/pgc-image/6c76309122af4c52bd6fd0f8fdc289dd" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">參會請掃描圖中二維碼</p>
+</p>
+</div>
+<p><strong>​</strong>作者 ：陳曉冬等<strong><br /></strong></p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/f94123600367407c91889b36898f03c9" src="http://p3.pstatp.com/large/pgc-image/f94123600367407c91889b36898f03c9" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/78bf84d2f00444b0880c47a4cb4f275a" src="http://p1.pstatp.com/large/pgc-image/78bf84d2f00444b0880c47a4cb4f275a" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/fdd1555e9f364ccca28e615c8807127f" src="http://p3.pstatp.com/large/pgc-image/fdd1555e9f364ccca28e615c8807127f" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/5206c86e22ae43718f5ed7128c7864a4" src="http://p9.pstatp.com/large/pgc-image/5206c86e22ae43718f5ed7128c7864a4" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/50125ba2cf7546c4bd68ccb807b2dae3" src="http://p1.pstatp.com/large/pgc-image/50125ba2cf7546c4bd68ccb807b2dae3" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/7484254a9e704e47895dd831d2f74fa5" src="http://p1.pstatp.com/large/pgc-image/7484254a9e704e47895dd831d2f74fa5" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/b921f67d52ce4aa491a2d01da7083717" src="http://p3.pstatp.com/large/pgc-image/b921f67d52ce4aa491a2d01da7083717" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/33c6ceee258f44e68d4026ed6f7d0f57" src="http://p9.pstatp.com/large/pgc-image/33c6ceee258f44e68d4026ed6f7d0f57" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/a6f63b13358842d199d66375945cc512" src="http://p1.pstatp.com/large/pgc-image/a6f63b13358842d199d66375945cc512" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/1ad0efcbe7214f26996e03f89c6fe7ba" src="http://p9.pstatp.com/large/pgc-image/1ad0efcbe7214f26996e03f89c6fe7ba" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/2cea1b2f298948cabbb021aa66069445" src="http://p1.pstatp.com/large/pgc-image/2cea1b2f298948cabbb021aa66069445" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/7ac698d3f14443349a5402886186e45e" src="http://p1.pstatp.com/large/pgc-image/7ac698d3f14443349a5402886186e45e" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/a79aeb109d02434589f3b97e7c0676b2" src="http://p1.pstatp.com/large/pgc-image/a79aeb109d02434589f3b97e7c0676b2" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/1418db787bca46ed81fa2d4f2089ed7b" src="http://p1.pstatp.com/large/pgc-image/1418db787bca46ed81fa2d4f2089ed7b" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/3b2b5fbcf5af4513933d932323735423" src="http://p3.pstatp.com/large/pgc-image/3b2b5fbcf5af4513933d932323735423" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/8323753fbe2b480ba09945b5b3769282" src="http://p1.pstatp.com/large/pgc-image/8323753fbe2b480ba09945b5b3769282" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/23a1f39424924d58a9601728751eff4a" src="http://p3.pstatp.com/large/pgc-image/23a1f39424924d58a9601728751eff4a" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/80e198a3ab5a4821a111045e4a738eb6" src="http://p1.pstatp.com/large/pgc-image/80e198a3ab5a4821a111045e4a738eb6" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/63862cf432854c31b10131f09efd74b1" src="http://p3.pstatp.com/large/pgc-image/63862cf432854c31b10131f09efd74b1" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/4733ad265f824c80b3c5d8d373074a20" src="http://p1.pstatp.com/large/pgc-image/4733ad265f824c80b3c5d8d373074a20" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/8ba9286be99147d1b48f4d948d43d8a1" src="http://p9.pstatp.com/large/pgc-image/8ba9286be99147d1b48f4d948d43d8a1" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/af162db8f467436c9b7e6d493f075602" src="http://p9.pstatp.com/large/pgc-image/af162db8f467436c9b7e6d493f075602" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/31fcfdfc373048e694011e5a2ee95cfb" src="http://p1.pstatp.com/large/pgc-image/31fcfdfc373048e694011e5a2ee95cfb" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/f23c4969c66848208946ae702d6100b4" src="http://p3.pstatp.com/large/pgc-image/f23c4969c66848208946ae702d6100b4" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/140cd438ca134efeb684c89b0ec87174" src="http://p3.pstatp.com/large/pgc-image/140cd438ca134efeb684c89b0ec87174" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/639ab57dfa954a6682f7c8cecb060bf2" src="http://p3.pstatp.com/large/pgc-image/639ab57dfa954a6682f7c8cecb060bf2" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/9686057c537041d0a26ebd68ec9105a5" src="http://p1.pstatp.com/large/pgc-image/9686057c537041d0a26ebd68ec9105a5" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/a30b09c0ded94462a482c66365f2c07f" src="http://p3.pstatp.com/large/pgc-image/a30b09c0ded94462a482c66365f2c07f" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/8e866a5d24274ee3bb811b05fbd1f80d" src="http://p1.pstatp.com/large/pgc-image/8e866a5d24274ee3bb811b05fbd1f80d" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/7db1e7cd2c3a426796a19967e0f79389" src="http://p1.pstatp.com/large/pgc-image/7db1e7cd2c3a426796a19967e0f79389" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/5ffb426cf7134295901b18f74b8dfd74" src="http://p3.pstatp.com/large/pgc-image/5ffb426cf7134295901b18f74b8dfd74" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/d4ac77d219704f93832ebf6b3a5c834f" src="http://p1.pstatp.com/large/pgc-image/d4ac77d219704f93832ebf6b3a5c834f" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/10c2f9b7c6a648a6968529c82ebc305d" src="http://p1.pstatp.com/large/pgc-image/10c2f9b7c6a648a6968529c82ebc305d" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/50123587321e48d09271dfde6f557c35" src="http://p3.pstatp.com/large/pgc-image/50123587321e48d09271dfde6f557c35" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/909c6560e9ad42759be41c792ad34d23" src="http://p3.pstatp.com/large/pgc-image/909c6560e9ad42759be41c792ad34d23" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/932a44c929904925968a887ef5405729" src="http://p1.pstatp.com/large/pgc-image/932a44c929904925968a887ef5405729" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/bf8bd574cebb4f059b5c7c7fd4f79695" src="http://p3.pstatp.com/large/pgc-image/bf8bd574cebb4f059b5c7c7fd4f79695" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/d3f41c32b6a34319850967bdb127f526" src="http://p1.pstatp.com/large/pgc-image/d3f41c32b6a34319850967bdb127f526" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/7376f34388054e3eb6a2ce1326f3bce7" src="http://p1.pstatp.com/large/pgc-image/7376f34388054e3eb6a2ce1326f3bce7" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/d35492e6ef844445a1a4269244804280" src="http://p9.pstatp.com/large/pgc-image/d35492e6ef844445a1a4269244804280" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/bd7deb27f24d453dab8e34e29319fbd1" src="http://p3.pstatp.com/large/pgc-image/bd7deb27f24d453dab8e34e29319fbd1" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/c1e573aa0bee4524b2730ee791235cbf" src="http://p1.pstatp.com/large/pgc-image/c1e573aa0bee4524b2730ee791235cbf" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/8215cde0debb42a7a7302f70d4624b39" src="http://p1.pstatp.com/large/pgc-image/8215cde0debb42a7a7302f70d4624b39" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/976bf0f9a30a4e2094d5f3bcb519fa38" src="http://p1.pstatp.com/large/pgc-image/976bf0f9a30a4e2094d5f3bcb519fa38" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/95c62ab78f5b4e42a1fb52be2cd0eabe" src="http://p1.pstatp.com/large/pgc-image/95c62ab78f5b4e42a1fb52be2cd0eabe" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/5c234be6b4d0406581196bd6beef55c1" src="http://p3.pstatp.com/large/pgc-image/5c234be6b4d0406581196bd6beef55c1" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/77b148a5e3614566a5d691c39f670080" src="http://p3.pstatp.com/large/pgc-image/77b148a5e3614566a5d691c39f670080" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/40acf6cd7b4e4f5b87eb009ac45230c1" src="http://p1.pstatp.com/large/pgc-image/40acf6cd7b4e4f5b87eb009ac45230c1" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/9b13cc66342c4cfd97e30503062398e4" src="http://p3.pstatp.com/large/pgc-image/9b13cc66342c4cfd97e30503062398e4" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/8b034d159ddb44b0897b36ab16d17947" src="http://p9.pstatp.com/large/pgc-image/8b034d159ddb44b0897b36ab16d17947" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/7c2bbfb1495541cfb2b574dbad8b2610" src="http://p1.pstatp.com/large/pgc-image/7c2bbfb1495541cfb2b574dbad8b2610" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/4f9435a5d69c4544aafc9df55bf8eedd" src="http://p1.pstatp.com/large/pgc-image/4f9435a5d69c4544aafc9df55bf8eedd" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/fcd71edc4dc74bd4ae79a6ae8b721da2" src="http://p3.pstatp.com/large/pgc-image/fcd71edc4dc74bd4ae79a6ae8b721da2" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/cb62113cc8084c89b21cb4e570f8bcb1" src="http://p9.pstatp.com/large/pgc-image/cb62113cc8084c89b21cb4e570f8bcb1" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/31223be00a26474b815e6b7828d8e19a" src="http://p1.pstatp.com/large/pgc-image/31223be00a26474b815e6b7828d8e19a" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/c951e90272244ce19f489634c3b2c53e" src="http://p1.pstatp.com/large/pgc-image/c951e90272244ce19f489634c3b2c53e" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/fa687dd26c5045bfb6afd3f5325e23d6" src="http://p1.pstatp.com/large/pgc-image/fa687dd26c5045bfb6afd3f5325e23d6" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/61d503498496439ca49fac8715b8ce65" src="http://p3.pstatp.com/large/pgc-image/61d503498496439ca49fac8715b8ce65" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" /></p>
+<p class="pgc-img-caption">
+</div>
+<hr>
+<p><strong>【近期文章】</strong></p>
+<p>佐思汽研2020年多用戶報告撰寫計劃表</p>
+<p>《周彥武研究特輯：智能駕駛硬體指南》</p>
+</p>
+<p><strong>「佐思研究年報及季報」</strong></p>
+<p>主機廠自動駕駛策略研究 | 汽車視覺產業研究 | 低速自動駕駛產業研究 | 商用車自動駕駛產業研究 | 新興造車企業布局及智能網聯功能對比分析 | 汽車MLCC研究報告 | 汽車分時租賃研究報告 | 5G自動駕駛專題研究 | 汽車模擬研究 |<strong> </strong>高精度地圖產業研究 | 域控制器研究 | 自動泊車與自主泊車研究 | 激光雷達研究 | 毫米波雷達研究 | 處理器和計算機晶元研究 | 紅外技術及在夜視和DMS研究 | 中國毫米波雷達市場分析 | 汽車功率半導體研究 | HUD行業研究與供應商競爭力分析報告 | ADAS與自動駕駛Tier1研究 | 商用車自動駕駛研究 | 乘用車攝像頭季報 | 自主車廠車聯網產品分析 | T-Box市場研究報告 | 汽車網關產業研究 | 乘用車攝像頭季報Q2 | 豐田汽車新四化布局 | 寶馬集團新四化布局和戰略研究 | 全球及中國車載語音行業 | 中國及全球汽車線束、連接器與線纜研究 | 戴姆勒新四化布局和戰略研究 | 日產新四化研究 | 本田新四化研究 | 吉利新四化研究 | 大眾集團新四化布局和戰略研究</p>
+</p>
+<p><strong>「佐思研究月報」</strong></p>
+<p>車聯網月報 | ADAS/智能汽車月報 | 汽車座艙電子月報 | 汽車視覺和汽車雷達月報 | 電池、電機、電控月報 </p>
+<p><strong>聯繫人: 廖棪 13718845418（同微信） 卞亞娟 18600021096（同微信）</strong></p>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="12849" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/12849"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/12849";
+		var title='%E3%80%90%E6%99%BA%E8%83%BD%E9%A7%95%E9%A7%9B%E8%BB%8A%E8%BC%89%E6%BF%80%E5%85%89%E9%9B%B7%E9%81%94%E9%97%9C%E9%8D%B5%E6%8A%80%E8%A1%93%E8%88%87%E6%87%89%E7%94%A8%E6%BC%94%E7%AE%97%E6%B3%95%E3%80%91';
+		var qqtitle='%E3%80%90%E6%99%BA%E8%83%BD%E9%A7%95%E9%A7%9B%E8%BB%8A%E8%BC%89%E6%BF%80%E5%85%89%E9%9B%B7%E9%81%94%E9%97%9C%E9%8D%B5%E6%8A%80%E8%A1%93%E8%88%87%E6%87%89%E7%94%A8%E6%BC%94%E7%AE%97%E6%B3%95%E3%80%91';
+		var excerpt='%E5%8F%83%E6%9C%83%E8%AB%8B%E6%8E%83%E6%8F%8F%E5%9C%96%E4%B8%AD%E4%BA%8C%E7%B6%AD%E7%A2%BC%20%E2%80%8B%E4%BD%9C%E8%80%85%20%EF%BC%9A%E9%99%B3%E6%9B%89%E5%86%AC%E7%AD%89%20%E3%80%90%E8%BF%91%E6%9C%9F%E6%96%87%E7%AB%A0%E3%80%91%20%E4%BD%90%E6%80%9D%E6%B1%BD%E7%A0%942020%E5%B9%B4%E5%A4%9A%E7%94%A8%E6%88%B6%E5%A0%B1%E5%91%8A%E6%92%B0%E5%AF%AB%E8%A8%88%E5%8A%83%E8%A1%A8%20%E3%80%8A%E5%91%A8%E5%BD%A5%E6%AD%A6%E7%A0%94%E7%A9%B6%E7%89%B9%E8%BC%AF%EF%BC%9A%E6%99%BA%E8%83%BD%E9%A7%95%E9%A7%9B%E7%A1%AC%E9%AB%94%E6%8C%87%E5%8D%97%E3%80%8B%20%E3%80%8C%E4%BD%90%E6%80%9D%E7%A0%94%E7%A9%B6%E5%B9%B4%E5%A0%B1%E5%8F%8A%E5%AD%A3%E5%A0%B1%E3%80%8D%20%E4%B8%BB%E6%A9%9F%E5%BB%A0%E8%87%AA%E5%8B%95%E9%A7%95%E9%A7%9B%E7%AD%96%E7%95%A5%E7%A0%94%E7%A9%B6%20%7C%20%E6%B1%BD%E8%BB%8A%E8%A6%96%E8%A6%BA%E7%94%A2%E6%A5%AD%E7%A0%94%E7%A9%B6%20%7C%20%E4%BD%8E%E9%80%9F%E8%87%AA%E5%8B%95%E9%A7%95%E9%A7%9B%E7%94%A2%E6%A5%AD%E7%A0%94%E7%A9%B6%20%7C%20%E5%95%86%E7%94%A8%E8%BB%8A%E8%87%AA%E5%8B%95%E9%A7%95%E9%A7%9B%E7%94%A2%E6%A5%AD%E7%A0%94%E7%A9%B6%20%7C%20%E6%96%B0%E8%88%88%E9%80%A0%E8%BB%8A%E4%BC%81%E6%A5%AD%E5%B8%83%E5%B1%80%E5%8F%8A%E6%99%BA%E8%83%BD%E7%B6%B2%E8%81%AF%E5%8A%9F%E8%83%BD%E5%B0%8D%E6%AF%94%E5%88%86%E6%9E%90%20%7C%20%E6%B1%BD%E8%BB%8AMLCC%E7%A0%94%E7%A9%B6%E5%A0%B1%E5%91%8A%20%7C%20%E6%B1%BD%E8%BB%8A%E5%88%86%E6%99%82%E2%80%A6%E2%80%A6';
+		var wbexcerpt='%E5%8F%83%E6%9C%83%E8%AB%8B%E6%8E%83%E6%8F%8F%E5%9C%96%E4%B8%AD%E4%BA%8C%E7%B6%AD%E7%A2%BC%20%E2%80%8B%E4%BD%9C%E8%80%85%20%EF%BC%9A%E9%99%B3%E6%9B%89%E5%86%AC%E7%AD%89%20%E3%80%90%E8%BF%91%E6%9C%9F%E6%96%87%E7%AB%A0%E3%80%91%20%E4%BD%90%E6%80%9D%E6%B1%BD%E7%A0%942020%E5%B9%B4%E5%A4%9A%E7%94%A8%E6%88%B6%E5%A0%B1%E5%91%8A%E6%92%B0%E5%AF%AB%E8%A8%88%E5%8A%83%E8%A1%A8%20%E3%80%8A%E5%91%A8%E5%BD%A5%E6%AD%A6%E7%A0%94%E7%A9%B6%E7%89%B9%E8%BC%AF%EF%BC%9A%E6%99%BA%E8%83%BD%E9%A7%95%E9%A7%9B%E7%A1%AC%E9%AB%94%E6%8C%87%E5%8D%97%E3%80%8B%20%E3%80%8C%E4%BD%90%E6%80%9D%E7%A0%94%E7%A9%B6%E5%B9%B4%E5%A0%B1%E5%8F%8A%E5%AD%A3%E5%A0%B1%E3%80%8D%20%E4%B8%BB%E6%A9%9F%E5%BB%A0%E8%87%AA%E5%8B%95%E9%A7%95%E9%A7%9B%E7%AD%96%E7%95%A5%E7%A0%94%E7%A9%B6%20%7C%20%E6%B1%BD%E8%BB%8A%E8%A6%96%E8%A6%BA%E7%94%A2%E6%A5%AD%E7%A0%94%E7%A9%B6%20%7C%20%E4%BD%8E%E9%80%9F%E8%87%AA%E5%8B%95%E9%A7%95%E9%A7%9B%E7%94%A2%E6%A5%AD%E7%A0%94%E7%A9%B6%20%7C%20%E5%95%86%E7%94%A8%E8%BB%8A%E8%87%AA%E5%8B%95%E9%A7%95%E9%A7%9B%E7%94%A2%E6%A5%AD%E7%A0%94%E7%A9%B6%20%7C%20%E6%96%B0%E8%88%88%E9%80%A0%E8%BB%8A%E4%BC%81%E6%A5%AD%E5%B8%83%E5%B1%80%E5%8F%8A%E6%99%BA%E8%83%BD%E7%B6%B2%E8%81%AF%E5%8A%9F%E8%83%BD%E5%B0%8D%E6%AF%94%E5%88%86%E6%9E%90%20%7C%20%E6%B1%BD%E8%BB%8AMLCC%E7%A0%94%E7%A9%B6%E5%A0%B1%E5%91%8A%20%7C%20%E6%B1%BD%E8%BB%8A%E5%88%86%E6%99%82%E2%80%A6%E2%80%A6';
+		var pic="http://p3.pstatp.com/large/pgc-image/6c76309122af4c52bd6fd0f8fdc289dd";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="男子攜號轉網被要求交1.8萬違約金 電信工作人員回應" href="https://daynews.cc/technology/12850">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="轉型To B、押注安全，昔日手機巨頭黑莓開始布局自動駕駛" href="https://daynews.cc/technology/12848">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="/technology/12849#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='12849' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼" href="https://daynews.cc/constellation/20739" rel="bookmark"><i class="fa  fa-book"></i> 伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼                            </a>
+                            <a class="list-group-item visible-md" title="伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼" href="https://daynews.cc/constellation/20739" rel="bookmark"><i class="fa  fa-book"></i> 伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼                            </a>
+                                                    <a class="list-group-item visible-lg" title="12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪" href="https://daynews.cc/constellation/20740" rel="bookmark"><i class="fa  fa-book"></i> 12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪                            </a>
+                            <a class="list-group-item visible-md" title="12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪" href="https://daynews.cc/constellation/20740" rel="bookmark"><i class="fa  fa-book"></i> 12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪                            </a>
+                                                    <a class="list-group-item visible-lg" title="十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮" href="https://daynews.cc/constellation/20741" rel="bookmark"><i class="fa  fa-book"></i> 十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮                            </a>
+                            <a class="list-group-item visible-md" title="十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮" href="https://daynews.cc/constellation/20741" rel="bookmark"><i class="fa  fa-book"></i> 十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮                            </a>
+                                                    <a class="list-group-item visible-lg" title="小聶：跑動中的腰腹力量如何運用" href="https://daynews.cc/lose/20597" rel="bookmark"><i class="fa  fa-book"></i> 小聶：跑動中的腰腹力量如何運用                            </a>
+                            <a class="list-group-item visible-md" title="小聶：跑動中的腰腹力量如何運用" href="https://daynews.cc/lose/20597" rel="bookmark"><i class="fa  fa-book"></i> 小聶：跑動中的腰腹力量如何運用                            </a>
+                                                    <a class="list-group-item visible-lg" title="小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力" href="https://daynews.cc/lose/20598" rel="bookmark"><i class="fa  fa-book"></i> 小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力                            </a>
+                            <a class="list-group-item visible-md" title="小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力" href="https://daynews.cc/lose/20598" rel="bookmark"><i class="fa  fa-book"></i> 小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力                            </a>
+                                                    <a class="list-group-item visible-lg" title="十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古" href="https://daynews.cc/history/19786" rel="bookmark"><i class="fa  fa-book"></i> 十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古                            </a>
+                            <a class="list-group-item visible-md" title="十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古" href="https://daynews.cc/history/19786" rel="bookmark"><i class="fa  fa-book"></i> 十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古                            </a>
+                                                    <a class="list-group-item visible-lg" title="當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？" href="https://daynews.cc/history/19787" rel="bookmark"><i class="fa  fa-book"></i> 當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？                            </a>
+                            <a class="list-group-item visible-md" title="當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？" href="https://daynews.cc/history/19787" rel="bookmark"><i class="fa  fa-book"></i> 當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？                            </a>
+                                                    <a class="list-group-item visible-lg" title="春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？" href="https://daynews.cc/history/19789" rel="bookmark"><i class="fa  fa-book"></i> 春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？                            </a>
+                            <a class="list-group-item visible-md" title="春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？" href="https://daynews.cc/history/19789" rel="bookmark"><i class="fa  fa-book"></i> 春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？                            </a>
+                                                    <a class="list-group-item visible-lg" title="軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸" href="https://daynews.cc/history/19788" rel="bookmark"><i class="fa  fa-book"></i> 軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸                            </a>
+                            <a class="list-group-item visible-md" title="軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸" href="https://daynews.cc/history/19788" rel="bookmark"><i class="fa  fa-book"></i> 軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸                            </a>
+                                                    <a class="list-group-item visible-lg" title="劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？" href="https://daynews.cc/history/19790" rel="bookmark"><i class="fa  fa-book"></i> 劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？                            </a>
+                            <a class="list-group-item visible-md" title="劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？" href="https://daynews.cc/history/19790" rel="bookmark"><i class="fa  fa-book"></i> 劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-md" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-lg" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a><a class="list-group-item visible-md" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a><a class="list-group-item visible-lg" title="最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？" href="https://daynews.cc/international/18303" rel="bookmark"><i class="fa  fa-book"></i> 最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？</a><a class="list-group-item visible-md" title="最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？" href="https://daynews.cc/international/18303" rel="bookmark"><i class="fa  fa-book"></i> 最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？</a><a class="list-group-item visible-lg" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="https://daynews.cc/entertainment/10879" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-md" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="https://daynews.cc/entertainment/10879" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-lg" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="https://daynews.cc/technology/10158" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-md" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="https://daynews.cc/technology/10158" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-lg" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="https://daynews.cc/game/13764" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-md" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="https://daynews.cc/game/13764" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-lg" title="這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩" href="https://daynews.cc/lose/20687" rel="bookmark"><i class="fa  fa-book"></i> 這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩</a><a class="list-group-item visible-md" title="這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩" href="https://daynews.cc/lose/20687" rel="bookmark"><i class="fa  fa-book"></i> 這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩</a><a class="list-group-item visible-lg" title="夢三國：路人戰力匹配中最值得玩的輔助英雄推薦" href="https://daynews.cc/game/20261" rel="bookmark"><i class="fa  fa-book"></i> 夢三國：路人戰力匹配中最值得玩的輔助英雄推薦</a><a class="list-group-item visible-md" title="夢三國：路人戰力匹配中最值得玩的輔助英雄推薦" href="https://daynews.cc/game/20261" rel="bookmark"><i class="fa  fa-book"></i> 夢三國：路人戰力匹配中最值得玩的輔助英雄推薦</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="葡萄酒儲存年份越久，口感越好嗎？是否會過期呢？愛喝酒的人注意" href="https://daynews.cc/health/7198" rel="bookmark"><i class="fa  fa-book"></i> 葡萄酒儲存年份越久，口感越好嗎？是否會過期呢？愛喝酒的人注意                            </a>
+                            <a class="list-group-item visible-md" title="葡萄酒儲存年份越久，口感越好嗎？是否會過期呢？愛喝酒的人注意" href="https://daynews.cc/health/7198" rel="bookmark"><i class="fa  fa-book"></i> 葡萄酒儲存年份越久，口感越好嗎？是否會過期呢？愛喝酒的人注意                            </a>
+                                                    <a class="list-group-item visible-lg" title="仙劍三：劇中哪些情節，讓你看著看著就哭了？" href="https://daynews.cc/entertainment/1044" rel="bookmark"><i class="fa  fa-book"></i> 仙劍三：劇中哪些情節，讓你看著看著就哭了？                            </a>
+                            <a class="list-group-item visible-md" title="仙劍三：劇中哪些情節，讓你看著看著就哭了？" href="https://daynews.cc/entertainment/1044" rel="bookmark"><i class="fa  fa-book"></i> 仙劍三：劇中哪些情節，讓你看著看著就哭了？                            </a>
+                                                    <a class="list-group-item visible-lg" title="國家電網董事長：加強能源電力區塊鏈標準體系研究編製" href="https://daynews.cc/technology/10404" rel="bookmark"><i class="fa  fa-book"></i> 國家電網董事長：加強能源電力區塊鏈標準體系研究編製                            </a>
+                            <a class="list-group-item visible-md" title="國家電網董事長：加強能源電力區塊鏈標準體系研究編製" href="https://daynews.cc/technology/10404" rel="bookmark"><i class="fa  fa-book"></i> 國家電網董事長：加強能源電力區塊鏈標準體系研究編製                            </a>
+                                                    <a class="list-group-item visible-lg" title="談談韜略鼻祖姜太公的謀略學與兵學思想（上）" href="https://daynews.cc/history/20037" rel="bookmark"><i class="fa  fa-book"></i> 談談韜略鼻祖姜太公的謀略學與兵學思想（上）                            </a>
+                            <a class="list-group-item visible-md" title="談談韜略鼻祖姜太公的謀略學與兵學思想（上）" href="https://daynews.cc/history/20037" rel="bookmark"><i class="fa  fa-book"></i> 談談韜略鼻祖姜太公的謀略學與兵學思想（上）                            </a>
+                                                    <a class="list-group-item visible-lg" title="C++:為何不建議用string作為函數參數" href="https://daynews.cc/technology/9569" rel="bookmark"><i class="fa  fa-book"></i> C++:為何不建議用string作為函數參數                            </a>
+                            <a class="list-group-item visible-md" title="C++:為何不建議用string作為函數參數" href="https://daynews.cc/technology/9569" rel="bookmark"><i class="fa  fa-book"></i> C++:為何不建議用string作為函數參數                            </a>
+                                                    <a class="list-group-item visible-lg" title="能力強大，脾氣也不小，讓人又敬又怕的星座" href="https://daynews.cc/constellation/8230" rel="bookmark"><i class="fa  fa-book"></i> 能力強大，脾氣也不小，讓人又敬又怕的星座                            </a>
+                            <a class="list-group-item visible-md" title="能力強大，脾氣也不小，讓人又敬又怕的星座" href="https://daynews.cc/constellation/8230" rel="bookmark"><i class="fa  fa-book"></i> 能力強大，脾氣也不小，讓人又敬又怕的星座                            </a>
+                                                    <a class="list-group-item visible-lg" title="小八卦：朱一龍屬於慢熱型溫柔男人？劉詩詩佛系？關曉彤變成熟？" href="https://daynews.cc/entertainment/12433" rel="bookmark"><i class="fa  fa-book"></i> 小八卦：朱一龍屬於慢熱型溫柔男人？劉詩詩佛系？關曉彤變成熟？                            </a>
+                            <a class="list-group-item visible-md" title="小八卦：朱一龍屬於慢熱型溫柔男人？劉詩詩佛系？關曉彤變成熟？" href="https://daynews.cc/entertainment/12433" rel="bookmark"><i class="fa  fa-book"></i> 小八卦：朱一龍屬於慢熱型溫柔男人？劉詩詩佛系？關曉彤變成熟？                            </a>
+                                                    <a class="list-group-item visible-lg" title="一線明星紛紛失業無戲拍，是什麼原因造成的？由高以翔之死便可知" href="https://daynews.cc/entertainment/14269" rel="bookmark"><i class="fa  fa-book"></i> 一線明星紛紛失業無戲拍，是什麼原因造成的？由高以翔之死便可知                            </a>
+                            <a class="list-group-item visible-md" title="一線明星紛紛失業無戲拍，是什麼原因造成的？由高以翔之死便可知" href="https://daynews.cc/entertainment/14269" rel="bookmark"><i class="fa  fa-book"></i> 一線明星紛紛失業無戲拍，是什麼原因造成的？由高以翔之死便可知                            </a>
+                                                    <a class="list-group-item visible-lg" title="什麼是最理想的減脂方式？到底該如何選擇？這一點才是關鍵" href="https://daynews.cc/lose/10667" rel="bookmark"><i class="fa  fa-book"></i> 什麼是最理想的減脂方式？到底該如何選擇？這一點才是關鍵                            </a>
+                            <a class="list-group-item visible-md" title="什麼是最理想的減脂方式？到底該如何選擇？這一點才是關鍵" href="https://daynews.cc/lose/10667" rel="bookmark"><i class="fa  fa-book"></i> 什麼是最理想的減脂方式？到底該如何選擇？這一點才是關鍵                            </a>
+                                                    <a class="list-group-item visible-lg" title="外媒評谷歌創始人辭任：他們放棄成為科技界巴菲特" href="https://daynews.cc/technology/10470" rel="bookmark"><i class="fa  fa-book"></i> 外媒評谷歌創始人辭任：他們放棄成為科技界巴菲特                            </a>
+                            <a class="list-group-item visible-md" title="外媒評谷歌創始人辭任：他們放棄成為科技界巴菲特" href="https://daynews.cc/technology/10470" rel="bookmark"><i class="fa  fa-book"></i> 外媒評谷歌創始人辭任：他們放棄成為科技界巴菲特                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="kratos_tags-4" class="widget widget_kratos_tags clearfix"><h4 class="widget-title">標籤</h4><div class="tag_clouds"></div></aside><aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="https://daynews.cc/nba">NBA</a> (1,526)
+</li>
+	<li class="cat-item cat-item-23"><a href="https://daynews.cc/international">國際</a> (2,241)
+</li>
+	<li class="cat-item cat-item-14"><a href="https://daynews.cc/entertainment">娛樂</a> (2,348)
+</li>
+	<li class="cat-item cat-item-15"><a href="https://daynews.cc/emotion">情感</a> (1,582)
+</li>
+	<li class="cat-item cat-item-22"><a href="https://daynews.cc/constellation">星座</a> (1,060)
+</li>
+	<li class="cat-item cat-item-17"><a href="https://daynews.cc/history">歷史</a> (1,759)
+</li>
+	<li class="cat-item cat-item-25"><a href="https://daynews.cc/lose">減肥</a> (495)
+</li>
+	<li class="cat-item cat-item-24"><a href="https://daynews.cc/technology">科技</a> (2,163)
+</li>
+	<li class="cat-item cat-item-19"><a href="https://daynews.cc/premier">英超</a> (1,372)
+</li>
+	<li class="cat-item cat-item-18"><a href="https://daynews.cc/game">遊戲</a> (2,055)
+</li>
+	<li class="cat-item cat-item-21"><a href="https://daynews.cc/health">養生</a> (1,278)
+</li>
+	<li class="cat-item cat-item-16"><a href="https://daynews.cc/sports">體育</a> (2,098)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='https://daynews.cc/date/2019/12'>2019 年 12 月</a>&nbsp;(16975)</li>
+	<li><a href='https://daynews.cc/date/2019/11'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='https://daynews.cc/date/2019/10'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="https://daynews.cc">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.easing.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.qrcode.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/layer.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/modernizr.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.waypoints.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.stellar.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/hoverIntent.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/superfish.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/kratos.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-includes/js/wp-embed.min.js'></script>
+			</body>
+
+</html>
+<!-- Dynamic page generated in 0.537 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:15:25 -->
+
+<!-- super cache -->

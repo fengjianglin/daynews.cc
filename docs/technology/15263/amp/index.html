@@ -1,0 +1,659 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/15263#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/4f6ce6df8ce049fc9245c24073a90957"},{"@type":"WebPage","@id":"https://daynews.cc/technology/15263#webpage","url":"https://daynews.cc/technology/15263","inLanguage":"zh-TW","name":"\u4e0d\u61c2\uff1fJava\u4e2dThreadLocal\u89e3\u6c7a\u4e86\u4ec0\u9ebc\u554f\u984c - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/15263#primaryimage"},"datePublished":"2019-12-16T00:50:14+00:00","dateModified":"2019-12-16T00:50:14+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="點擊上方☝Java編程技術樂園，輕鬆關注！及時獲取有趣有料的技術文章 小明所在的項目組（迭代組：一直在迭代的路上），經常會在已有介面的基礎上開發一些小功能，並且前提是在保證現有用戶的不受影響基礎上迭代。功能迭代，在代碼層面小明有1w種實現方法（吹牛的），一起來看看這次小明如何使用ThreadLocal優雅地完成本次迭代吧！ 由於 Thre……" />
+<meta name="twitter:title" content="不懂？Java中ThreadLocal解決了什麼問題 - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/4f6ce6df8ce049fc9245c24073a90957" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="不懂？Java中ThreadLocal解決了什麼問題 - 天天要聞" />
+<meta property="og:description" content="點擊上方☝Java編程技術樂園，輕鬆關注！及時獲取有趣有料的技術文章 小明所在的項目組（迭代組：一直在迭代的路上），經常會在已有介面的基礎上開發一些小功能，並且前提是在保證現有用戶的不受影響基礎上迭代。功能迭代，在代碼層面小明有1w種實現方法（吹牛的），一起來看看這次小明如何使用ThreadLocal優雅地完成本次迭代吧！ 由於 Thre……" />
+<meta property="og:url" content="https://daynews.cc/technology/15263" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-16T00:50:14+00:00" />
+	<title>不懂？Java中ThreadLocal解決了什麼問題 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/15263" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">不懂？Java中ThreadLocal解決了什麼問題</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-16T08:50:14+00:00">
+		2 天 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<p>點擊上方☝Java編程技術樂園，輕鬆關注！及時獲取有趣有料的技術文章</p>
+
+<blockquote>
+<p>小明所在的項目組（迭代組：一直在迭代的路上），經常會在已有介面的基礎上開發一些小功能，並且前提是在保證現有用戶的不受影響基礎上迭代。功能迭代，在代碼層面小明有1w種實現方法（吹牛的），一起來看看這次小明如何使用<strong>ThreadLocal</strong>優雅地完成本次迭代吧！</p>
+</blockquote>
+<p>由於 ThreadLocal 支持范型，如 ThreadLocal&lt; StringBuilder &gt;，為表述方便，後文用 <strong>變數</strong> 代表 ThreadLocal 本身，而用 <strong>實例</strong> 代表具體類型（如 StringBuidler ）的實例。</p>
+<h2 class="pgc-h-arrow-right">理解誤區</h2>
+<p>寫這篇文章之前，小明就在網上看了很多博客關於 ThreadLocal 的適用場景以及解決的問題，描述的都並不是很清楚，甚至誤人子弟的。比如下面是常見對於 ThreadLocal的介紹（<strong>wrong</strong>）</p>
+<blockquote>
+<p>ThreadLocal為解決多線程程序的並發問題提供了一種新的思路；<br>ThreadLocal的目的是為了解決多線程訪問資源時的共享問題。</p>
+</blockquote>
+<p>在小明大量閱讀和動手實驗後得出結論：ThreadLocal 並不是像上面所說為了解決多線程 <strong>共享</strong>變數的問題。</p>
+<h2 class="pgc-h-arrow-right">正確理解</h2>
+<p>ThreadLoal 變數，它的基本原理是，同一個 ThreadLocal 所包含的對象（對ThreadLocal&lt; StringBuilder &gt;而言即為 StringBuilder 類型變數），在不同的 Thread 中有不同的副本（實際上是不同的實例）:</p>
+<ul class="">
+<li>因為每個 Thread 內有自己的實例副本，且該副本只能由當前 Thread 使用；</li>
+<li>既然其它 Thread 不可訪問，那就不存在多線程間共享的問題。</li>
+</ul>
+<p>官方文檔是這樣描述的：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/4f6ce6df8ce049fc9245c24073a90957" alt="《不懂？Java中ThreadLocal解決了什麼問題》" width="2048" height="646" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/4f6ce6df8ce049fc9245c24073a90957" alt="《不懂？Java中ThreadLocal解決了什麼問題》" width="2048" height="646" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>我看完之後，得出這樣的結論</p>
+<blockquote>
+<p>ThreadLocal 提供了線程本地的實例。它與普通變數的區別在於，每個使用該變數的線程都會初始化一個完全獨立的實例副本。ThreadLocal 變數通常被private static修飾。當一個線程結束時，它所使用的所有 ThreadLocal 相對的實例副本都會被回收。</p>
+</blockquote>
+<p>因此<strong>ThreadLocal 非常適用於這樣的場景：每個線程需要自己獨立的實例且該實例需要在多個方法中使用</strong>。當然，使用其它方式也可以實現同樣的效果，但是看完這篇文章，你會發現 ThreadLocal 會讓實現更簡潔、更優雅！</p>
+<h2 class="pgc-h-arrow-right">ThreadLocal用法</h2>
+<h2 class="pgc-h-arrow-right">實例代碼</h2>
+<p>我們通過下面的代碼，先做個示例，然後分析一下現象，得出一個結論：</p>
+<pre>public class ThreadLocalDemo {<br><br>    public static void main(String[] args) throws InterruptedException {<br>        int threadNum = 3;<br>        CountDownLatch countDownLatch = new CountDownLatch(threadNum);<br>        for (int i = 1; i &lt;= threadNum; i++) {<br>            new Thread(() -&gt; {<br>                for (int j = 0; j &lt;= 2; j++) {<br>                    MyUtil.add(String.valueOf(j));<br>                    MyUtil.print();<br>                }<br>                MyUtil.set("hello world");<br>                countDownLatch.countDown();<br>            }, "thread - " + i).start();<br>        }<br>        countDownLatch.await();<br>    }<br><br>    private static class MyUtil {<br><br>        public static void add(String newStr) {<br>            StringBuilder str = StringBuilderUtil.stringBuilderThreadLocal.get();<br>            StringBuilderUtil.stringBuilderThreadLocal.set(str.append(newStr));<br>        }<br><br>        public static void print() {<br>            System.out.printf("Thread name:%s , ThreadLocal hashcode:%s, Instance hashcode:%s, Value:%s\n",<br>                    Thread.currentThread().getName(),<br>                    StringBuilderUtil.stringBuilderThreadLocal.hashCode(),<br>                    StringBuilderUtil.stringBuilderThreadLocal.get().hashCode(),<br>                    StringBuilderUtil.stringBuilderThreadLocal.get().toString());<br>        }<br><br>        public static void set(String words) {<br>            StringBuilderUtil.stringBuilderThreadLocal.set(new StringBuilder(words));<br>            System.out.printf("Set, Thread name:%s , ThreadLocal hashcode:%s,  Instance hashcode:%s, Value:%s\n",<br>                    Thread.currentThread().getName(),<br>                    StringBuilderUtil.stringBuilderThreadLocal.hashCode(),<br>                    StringBuilderUtil.stringBuilderThreadLocal.get().hashCode(),<br>                    StringBuilderUtil.stringBuilderThreadLocal.get().toString());<br>        }<br>    }<br><br>    private static class StringBuilderUtil {<br>        // ThreadLocal 變數通常被 private static 修飾<br>        private static ThreadLocal&lt;StringBuilder&gt; stringBuilderThreadLocal = ThreadLocal.withInitial(() -&gt; new StringBuilder());<br>    }<br><br>}</pre>
+<h2 class="pgc-h-arrow-right">實例分析</h2>
+<p>ThreadLocal本身支持范型，比如該例使用了 StringBuilder 類型的 ThreadLocal 變數。可通過 ThreadLocal 的 get() 方法讀取 StringBuidler 實例，也可通過 set(T t) 方法設置 StringBuilder。</p>
+<blockquote>
+<p>tips:CountDownLatch類位於java.util.concurrent包下，利用它可以實現類似計數器的功能。比如有一個場景：任務A，它要等待其他4個任務執行完畢之後才能執行，此時就可以利用CountDownLatch來實現這種功能了。下次，我們可以單獨聊聊這一個功能。</p>
+</blockquote>
+<p>點擊運行，控制台輸出結果</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/715f8015fa5b4a509479e2c218710502" alt="《不懂？Java中ThreadLocal解決了什麼問題》" width="640" height="276" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/715f8015fa5b4a509479e2c218710502" alt="《不懂？Java中ThreadLocal解決了什麼問題》" width="640" height="276" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>我們可以發現：</p>
+<ul class="">
+<li>每個線程訪問的是同一個 ThreadLocal 變數，而通過 ThreadLocal 的 get() 方法拿到的是不同的 StringBuilder 實例；</li>
+<li>雖然從代碼上都是對 StringBuilderUtil 類的靜態 stringBuilderThreadLocal 欄位進行 get() 得到 StringBuilder 實例並追加字元串，但是這並不會將所有線程追加的字元串都放進同一個 StringBuilder 中，而是每個線程將字元串追加進各自的 StringBuidler 實例內</li>
+<li>使用 set(T t) 方法後，ThreadLocal 變數所指向的 StringBuilder 實例被替換</li>
+</ul>
+<h2 class="pgc-h-arrow-right">ThreadLocal原理</h2>
+<h2 class="pgc-h-arrow-right">方案一</h2>
+<p>我們大膽猜想一下，既然每個訪問 ThreadLocal 變數的線程都有自己的一個「本地」實例副本。一個可能的方案是 ThreadLocal 維護一個 Map，Key 是當前線程，Value是ThreadLocal在當前線程內的實例。這樣，線程通過該 ThreadLocal 的 get() 方案獲取實例時，只需要以線程為鍵，從 Map 中找出對應的實例即可。該方案如下圖所示</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/93394aab9e374ad7b6d14939e2e10c26" alt="《不懂？Java中ThreadLocal解決了什麼問題》" width="640" height="291" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/93394aab9e374ad7b6d14939e2e10c26" alt="《不懂？Java中ThreadLocal解決了什麼問題》" width="640" height="291" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>這個方案可以滿足上文提到的每個線程內部都有一個ThreadLocal 實例備份的要求。每個新線程訪問該 ThreadLocal 時，都會向 Map 中添加一個新的映射，而當每個線程結束時再清除該線程對應的映射。But，這樣就存在兩個問題：</p>
+<ul class="">
+<li>開啟線程與結束線程時我們都需要及時更新 Map，因此必需保證 Map 的線程安全。</li>
+<li>當線程結束時，需要保證它所訪問的所有 ThreadLocal 中對應的映射均刪除，否則可能會引起內存泄漏。</li>
+</ul>
+<p>線程安全問題是JDK 未採用該方案的一個主要原因。</p>
+<h2 class="pgc-h-arrow-right">方案二</h2>
+<p>上面這個方案，存在多線程訪問同一個 Map時可能會出現的同步問題。如果該 Map 由 Thread 維護，從而使得每個 Thread 只訪問自己的 Map，就不存在這個問題。該方案如下圖所示。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/bba196f5dc924cb7af2aabd53c9939c1" alt="《不懂？Java中ThreadLocal解決了什麼問題》" width="640" height="388" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/bba196f5dc924cb7af2aabd53c9939c1" alt="《不懂？Java中ThreadLocal解決了什麼問題》" width="640" height="388" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>該方案雖然沒有鎖的問題，但是由於每個線程在訪問ThreadLocal 變數後，都會在自己的 Map 內維護該 ThreadLocal 變數與具體實例的映射，如果不刪除這些引用（映射），就有可能會造成內存泄漏的問題。我們一起來看一下Jdk8是如何解決這個問題的。</p>
+<h2 class="pgc-h-arrow-right">ThreadLocal 在 JDK 8 中的實現</h2>
+<h3 class="pgc-h-arrow-right">ThreadLocalMap與內存泄漏</h3>
+<p>在該方案中，Map 由 ThreadLocal 類的靜態內部類 ThreadLocalMap 提供。該類的實例維護某個 ThreadLocal 與具體實例的映射。與 HashMap 不同的是，ThreadLocalMap 的每個 <strong>Entry</strong> 都是一個對 <strong>Key</strong> 的弱引用，這一點我們可以從super(k)可看出。另外，每個 Entry 中都包含了一個對 <strong>Value</strong> 的強引用。</p>
+<pre>static class Entry extends WeakReference&lt;ThreadLocal&lt;?&gt;&gt; {<br>  /** The value associated with this ThreadLocal. */<br>  Object value;<br><br>  Entry(ThreadLocal&lt;?&gt; k, Object v) {<br>    super(k);<br>    value = v;<br>  }<br>}</pre>
+<p>之所以使用弱引用，是因為當沒有強引用指向 ThreadLocal 變數時，這個變數就可以被回收，就避免ThreadLocal 因為不能被回收而造成的內存泄漏的問題。</p>
+<p>但是，這裡又可能出現另外一種內存泄漏的問題。ThreadLocalMap 維護 ThreadLocal 變數與具體實例的映射，當 ThreadLocal 變數被回收後，該映射的鍵變為 null，該 Entry 無法被移除。從而使得實例被該 Entry 引用而無法被回收造成內存泄漏。</p>
+<p><strong>注意：</strong>Entry是對 ThreadLocal 類型的弱引用，並不是具體實例的弱引用，因此還存在具體實例相關的內存泄漏的問題。</p>
+<h3 class="pgc-h-arrow-right">讀取實例</h3>
+<p>我們來看一下ThreadLocal獲取實例的方法</p>
+<pre>public T get() {<br>  Thread t = Thread.currentThread();<br>  ThreadLocalMap map = getMap(t);<br>  if (map != null) {<br>    ThreadLocalMap.Entry e = map.getEntry(this);<br>    if (e != null) {<br>      @SuppressWarnings("unchecked")<br>      T result = (T)e.value;<br>      return result;<br>    }<br>  }<br>  return setInitialValue();<br>}</pre>
+<p>當線程獲取實例時，首先會通過getMap(t)方法獲取自身的 ThreadLocalMap。從如下該方法的定義可見，該 ThreadLocalMap 的實例是 Thread 類的一個欄位，即由 Thread 維護 ThreadLocal 對象與具體實例的映射，這一點與上文分析一致。</p>
+<pre>ThreadLocalMap getMap(Thread t) {<br>  return t.threadLocals;<br>}</pre>
+<p>獲取到 ThreadLocalMap 後，通過map.getEntry(this)方法獲取該 ThreadLocal 在當前線程的 ThreadLocalMap 中對應的 Entry。該方法中的 this 即當前訪問的 ThreadLocal 對象。</p>
+<p>如果獲取到的 Entry 不為 null，從 Entry 中取出值即為所需訪問的本線程對應的實例。如果獲取到的 Entry 為 null，則通過setInitialValue()方法設置該 ThreadLocal 變數在該線程中對應的具體實例的初始值。</p>
+<h3 class="pgc-h-arrow-right">設置初始值</h3>
+<p>設置初始值方法如下</p>
+<pre>private T setInitialValue() {<br>  T value = initialValue();<br>  Thread t = Thread.currentThread();<br>  ThreadLocalMap map = getMap(t);<br>  if (map != null)<br>    map.set(this, value);<br>  else<br>    createMap(t, value);<br>  return value;<br>}</pre>
+<p>該方法為 private 方法，無法被重載。</p>
+<p>首先，通過initialValue()方法獲取初始值。該方法為 public 方法，且默認返回 null。所以典型用法中常常重載該方法。上例中即在內部匿名類中將其重載。</p>
+<p>然後拿到該線程對應的 ThreadLocalMap 對象，若該對象不為 null，則直接將該 ThreadLocal 對象與對應實例初始值的映射添加進該線程的 ThreadLocalMap中。若為 null，則先創建該 ThreadLocalMap 對象再將映射添加其中。</p>
+<p>這裡並不需要考慮 ThreadLocalMap 的線程安全問題。因為每個線程有且只有一個 ThreadLocalMap 對象，並且只有該線程自己可以訪問它，其它線程不會訪問該 ThreadLocalMap，也即該對象不會在多個線程中共享，也就不存在線程安全的問題。</p>
+<h3 class="pgc-h-arrow-right">設置實例</h3>
+<p>除了通過initialValue()方法設置實例的初始值，還可通過 set 方法設置線程內實例的值，如下所示。</p>
+<pre>public void set(T value) {<br>  Thread t = Thread.currentThread();<br>  ThreadLocalMap map = getMap(t);<br>  if (map != null)<br>    map.set(this, value);<br>  else<br>    createMap(t, value);<br>}</pre>
+<p>該方法先獲取該線程的 ThreadLocalMap 對象，然後直接將 ThreadLocal 對象（即代碼中的 this）與目標實例的映射添加進 ThreadLocalMap 中。當然，如果映射已經存在，就直接覆蓋。另外，如果獲取到的 ThreadLocalMap 為 null，則先創建該 ThreadLocalMap 對象。</p>
+<h3 class="pgc-h-arrow-right">防止內存泄漏</h3>
+<p>對於已經不再被使用且已被回收的 ThreadLocal 對象，它在每個線程內對應的實例由於被線程的 ThreadLocalMap 的 Entry 強引用，無法被回收，可能會造成內存泄漏。</p>
+<p>針對該問題，ThreadLocalMap 的 set 方法中，通過 replaceStaleEntry 方法將所有鍵為 null 的 Entry 的值設置為 null，從而使得該值可被回收。另外，會在 rehash 方法中通過 expungeStaleEntry 方法將鍵和值為 null 的 Entry 設置為 null 從而使得該 Entry 可被回收。</p>
+<pre>private void set(ThreadLocal&lt;?&gt; key, Object value) {<br>  Entry[] tab = table;<br>  int len = tab.length;<br>  int i = key.threadLocalHashCode &amp; (len-1);<br><br>  for (Entry e = tab[i]; e != null; e = tab[i = nextIndex(i, len)]) {<br>    ThreadLocal&lt;?&gt; k = e.get();<br>    if (k == key) {<br>      e.value = value;<br>      return;<br>    }<br>    if (k == null) {<br>      replaceStaleEntry(key, value, i);<br>      return;<br>    }<br>  }<br>  tab[i] = new Entry(key, value);<br>  int sz = ++size;<br>  if (!cleanSomeSlots(i, sz) &amp;&amp; sz &gt;= threshold)<br>    rehash();<br>}</pre>
+<h2 class="pgc-h-arrow-right">案例</h2>
+<p>對於 Java Web 應用而言，Session 保存了很多信息。很多時候需要通過 Session 獲取信息，有些時候又需要修改 Session 的信息。一方面，需要保證每個線程有自己單獨的 Session 實例。另一方面，由於很多地方都需要操作 Session，存在多方法共享 Session 的需求。如果不使用 ThreadLocal，可以在每個線程內構建一個 Session實例，並將該實例在多個方法間傳遞，如下所示。</p>
+<pre>public class SessionHandler {<br><br>  @Data<br>  public static class Session {<br>    private String id;<br>    private String user;<br>    private String status;<br>  }<br><br>  public Session createSession() {<br>    return new Session();<br>  }<br><br>  public String getUser(Session session) {<br>    return session.getUser();<br>  }<br><br>  public String getStatus(Session session) {<br>    return session.getStatus();<br>  }<br><br>  public void setStatus(Session session, String status) {<br>    session.setStatus(status);<br>  }<br><br>  public static void main(String[] args) {<br>    new Thread(() -&gt; {<br>      SessionHandler handler = new SessionHandler();<br>      Session session = handler.createSession();<br>      handler.getStatus(session);<br>      handler.getUser(session);<br>      handler.setStatus(session, "close");<br>      handler.getStatus(session);<br>    }).start();<br>  }<br>}</pre>
+<p>該方法是可以實現需求的。但是每個需要使用 Session 的地方，都需要顯式傳遞 Session 對象，方法間耦合度較高，給人的感覺並不優雅。</p>
+<p>這裡使用 ThreadLocal 重新實現該功能如下所示。</p>
+<pre>public class SessionHandler {<br><br>  public static ThreadLocal&lt;Session&gt; session = ThreadLocal.&lt;Session&gt;withInitial(() -&gt; new Session());<br><br>  @Data<br>  public static class Session {<br>    private String id;<br>    private String user;<br>    private String status;<br>  }<br><br>  public String getUser() {<br>    return session.get().getUser();<br>  }<br><br>  public String getStatus() {<br>    return session.get().getStatus();<br>  }<br><br>  public void setStatus(String status) {<br>    session.get().setStatus(status);<br>  }<br><br>  public static void main(String[] args) {<br>    new Thread(() -&gt; {<br>      SessionHandler handler = new SessionHandler();<br>      handler.getStatus();<br>      handler.getUser();<br>      handler.setStatus("close");<br>      handler.getStatus();<br>    }).start();<br>  }<br>}</pre>
+<p>可以看到，改造過後的代碼，不再需要在各個方法間來回傳遞 Session 對象，並且不費吹灰之力保證了每個線程都能夠擁有自己獨立的實例。雖然單看其中某一點，備選方案還很多。比如還可以通過在線程內創建局部變數保證每個線程有自己的實例，通過靜態變數可實現變數在方法間的共享。但如果還需要同時滿足變數在線程間的隔離與方法間的共享，ThreadLocal再合適不過。</p>
+<h2 class="pgc-h-arrow-right">總結</h2>
+<ul class="">
+<li>ThreadLocal 並不解決線程間共享數據的問題</li>
+<li>ThreadLocal 通過隱式的在不同線程內創建獨立實例副本避免了實例線程安全的問題</li>
+<li>每個線程持有一個 Map 並維護了 ThreadLocal 對象與具體實例的映射，該 Map 由於只被持有它的線程訪問，故不存在線程安全以及鎖的問題</li>
+<li>ThreadLocalMap 的 Entry 對 ThreadLocal 的引用為弱引用，避免了 ThreadLocal 對象無法被回收的問題</li>
+<li>ThreadLocalMap 的 set 方法通過調用 replaceStaleEntry 方法回收鍵為 null 的 Entry 對象的值（即為具體實例）以及 Entry 對象本身從而防止內存泄漏</li>
+<li>ThreadLocal 適用於變數在線程間隔離且在方法間共享的場景</li>
+</ul>
+<blockquote>
+<p>Coder小明</p>
+</blockquote>
+<blockquote>
+<p>地址：https://www.cnblogs.com/coderxx/p/12043764.html</p>
+</blockquote>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/15263#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.265 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:31:15 -->
+
+<!-- super cache -->

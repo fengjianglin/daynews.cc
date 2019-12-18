@@ -1,0 +1,664 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/15602#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/82a3cb5283c946108db2a1a8c1dddd7c"},{"@type":"WebPage","@id":"https://daynews.cc/technology/15602#webpage","url":"https://daynews.cc/technology/15602","inLanguage":"zh-TW","name":"Gitlab+Jenkins Pipeline+k8s\u5728\u751f\u7522\u74b0\u5883\u4e2d\u7684\u61c9\u7528 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/15602#primaryimage"},"datePublished":"2019-12-13T16:10:11+00:00","dateModified":"2019-12-13T16:10:11+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="系統環境說明 GitLab Community Edition 11.9.8 Jenkins ver. 2.190.3 倉庫使用阿里的鏡像倉庫 Kubernetes v1.14.2 gitlab和jenkins-master可以選擇自建或者部署到k8s中，當前場景是部署在k8s集群之外； 鏡像倉庫可以選擇使用harbor或者阿里鏡像倉庫，……" />
+<meta name="twitter:title" content="Gitlab+Jenkins Pipeline+k8s在生產環境中的應用 - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/82a3cb5283c946108db2a1a8c1dddd7c" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Gitlab+Jenkins Pipeline+k8s在生產環境中的應用 - 天天要聞" />
+<meta property="og:description" content="系統環境說明 GitLab Community Edition 11.9.8 Jenkins ver. 2.190.3 倉庫使用阿里的鏡像倉庫 Kubernetes v1.14.2 gitlab和jenkins-master可以選擇自建或者部署到k8s中，當前場景是部署在k8s集群之外； 鏡像倉庫可以選擇使用harbor或者阿里鏡像倉庫，……" />
+<meta property="og:url" content="https://daynews.cc/technology/15602" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-13T16:10:11+00:00" />
+	<title>Gitlab+Jenkins Pipeline+k8s在生產環境中的應用 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/15602" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">Gitlab+Jenkins Pipeline+k8s在生產環境中的應用</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-14T00:10:11+00:00">
+		5 天 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/82a3cb5283c946108db2a1a8c1dddd7c" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="640" height="413" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/82a3cb5283c946108db2a1a8c1dddd7c" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="640" height="413" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">系統環境說明</h2>
+<ul class="">
+<li>GitLab Community Edition 11.9.8</li>
+<li>Jenkins ver. 2.190.3</li>
+<li>倉庫使用阿里的鏡像倉庫</li>
+<li>Kubernetes v1.14.2</li>
+</ul>
+<blockquote>
+<p>gitlab和jenkins-master可以選擇自建或者部署到k8s中，當前場景是部署在k8s集群之外；</p>
+<p>鏡像倉庫可以選擇使用harbor或者阿里鏡像倉庫，當前場景使用的是阿里的鏡像倉庫；</p>
+</blockquote>
+<h2 class="pgc-h-arrow-right">編譯發布流程</h2>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/f2cd7f4f7a334a7d857eaf0b6cf1a42c" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="640" height="314" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/f2cd7f4f7a334a7d857eaf0b6cf1a42c" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="640" height="314" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>流程很簡單，提交代碼到不同的分支，觸發通知到jenkins，jenkins pipeline會根據Jenkinsfile文件中定義k8s環境，動態生成一個jenkins slave在不同k8s環境中構建鏡像，推送鏡像到倉庫，然後在部署到對應k8s環境，部署結束後jenkins slave會自動終止 </p>
+<h2 class="pgc-h-arrow-right">集成配置過程</h2>
+<blockquote>
+<p>因為都是現有的環境，所以部署過程就省略了，直接開始做集成配置；如果你是全新安裝的Jenkins，選擇安裝推薦插件+kubernetes插件；現在假如插件都已經安裝完成了，jenkins登陸默認賬戶admin，密碼查看/var/jenkins_home/secrets/initialAdminPassword文件，下面開始配置</p>
+</blockquote>
+<p>點擊左側系統管理，打開系統配置，我們這裡要實現部署發布到2個k8s環境，所以我們配置兩個雲，先新增一個雲</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/c05074dd0d6f4b2a9b8d7135046963d1" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="640" height="331" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/c05074dd0d6f4b2a9b8d7135046963d1" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="640" height="331" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/5a17b8c130374d17896857a3dd3220c0" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="640" height="333" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/5a17b8c130374d17896857a3dd3220c0" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="640" height="333" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<blockquote>
+<p>名稱：隨便填，後面Jenkinfile會用到</p>
+<p>Kuberneters地址：填寫apiserver地址</p>
+<p>Kuberneters服務證書key：需要拿k8s的crt和key做格式轉換，下面會介紹</p>
+<p>Kubernetes 命名空間：填寫jenkins slave要生成的命名空間，這個自己看著填吧</p>
+<p>憑據：需要拿k8s的crt和key做格式轉換，然後生成jenkins全局憑據</p>
+<p>Jenkins地址：填寫jenkins master地址，也就是當前jenkins地址</p>
+<p>Jenkins通道：填寫jenkins master與jenkins slave通信地址,jenkins通信埠默認是50000</p>
+</blockquote>
+<p>配置第一個k8s相關信息，過程中會用到認證k8s apiserver的key和憑證，所以我們先獲取下需要的key和憑證（在要配置的k8s master機器操作）</p>
+<pre>$ cat /root/.kube/config <br>apiVersion: v1<br>clusters:<br>- cluster:<br> certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRFNU1EWXdOakV3TWpZd09Wb1hEVEk1TURZd016RXdNall3T1Zvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBSlBSCmFnUlVKVytleDlKeTFZOXEzUVpNZk0wWnFJbkxjOE43RFVnZnM4TktlUVh2SUFCNkxxdjBSNFY4VUNnYnZ6dEMKVitxdElGNUM5bmE5VFQzT3hVNkUwQnVmWTcwTmJBZ2dPN0RTN1FvQVc3ZG5HUnBDTmNieWg5dytZYi9vbkNCdgo3M28vRi9scnhFZ01jNFhuYTR6OGhXbm5STmdjcVBSVnNyWGFiVSt6TStsbVZEaEpwWE96dnVmMmZRb3creGF4CndaWnVwUmF5VDBESHVHbmpaQnkrNnFwQVdZampqaE9WOUhGcTlQQUpMUXAzR2xZdklueFgxUkJscTYyVFdZMW8KcjIvTFBRTUhjOUV6VFlVN21Qb0laQ3dqa1dPTzZmc1NFVHpBTk9ad1NlSlBRSW5XV1NlQXlsWjA4V2tNWjdVcQpDNkZHVml1REFVbE1HczBMMlhzQ0F3RUFBYU1qTUNFd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFFc1I5T2VSRW45NXdSaTA2UnI2SVhUcDhJeHkKSytmdFJyM1pZckZ5VWZZYTBWdU9Mc1NZdzByN1o5Zmk0ZUFlMEk4dnR2cWpqWWl6RzFnUFAyS3V4d0h4RmtJRApMQnlNRmRTSG5yVEVZeWo2NVFnbUtCWVpEZ0VkMnZpVnBTeHM4Y3dCZXgvT201VnErZnROanAwK2swaGdhV2xxCjBDZmtkbjM0MkY2bUhSZFNyeGg3eURleGNtNEtGck5OVnNPY0h5MEJhQXhwZ0JOUmErMG5oZ1dDbHh1M0F4OWgKaVRELzAyczRCcWZKTFZjZXk0Q2VnWW8zUDVDYWVjTTZSaTg4TVFKYlZ1OWx6RVZPUzlBRGNKZ0VkWkdHUFUyVwpEcHBhZXdZNjhSVVg1MG9ObXN2S2h1RGNCSWxyeHJ4T2J4Wk1wYm5hYldUMlFaKzM4ampEaDNwVmxhcz0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=<br> server: https://192.168.0.54:6443<br> name: kubernetes<br>contexts:<br>- context:<br> cluster: kubernetes<br> user: kubernetes-admin<br> name: kubernetes-admin@kubernetes<br>current-context: kubernetes-admin@kubernetes<br>kind: Config<br>preferences: {}<br>users:<br>- name: kubernetes-admin<br> user:<br> client-certificate-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUM4akNDQWRxZ0F3SUJBZ0lJSzZSZWRVQ2NNS0V3RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB4T1RBMk1EWXhNREkyTURsYUZ3MHlNREEyTURVeE1ESTJNVEZhTURReApGekFWQmdOVkJBb1REbk41YzNSbGJUcHRZWE4wWlhKek1Sa3dGd1lEVlFRREV4QnJkV0psY201bGRHVnpMV0ZrCmJXbHVNSUlCSWpBTkJna3Foa2lHOXcwQkFRRUZBQU9DQVE4QU1JSUJDZ0tDQVFFQTBrcW1jci9DNHBaSTgwUTAKTzBOaklRV1hPelQ0TmVPVFJQd0N1UW1CaDlZcUJ0QTBkZnJvVnRzT2JRTEdlWE5GUVlhRzM5V2ZsN292YURCNwp3Wm11WVo3alZKUm9BZmpldEg3d0lIN3pNYUdCbk1hN3RoTUNqWXBmdXRpQyszQm51cjFLRmFJR2FKcDNlK0NQCjAyVjdSVDJjUXFPbHVOVUtFSEl2UG15YTdKM0pHWUpLNFVBVEhQOVhIMVZNemVoc3N5ZjF5UTZZb1BxTTR1b08KVGVNN3g0NFcvS2hrWjBMWkhncnB5RDJQNlN2NGVoaGl6YTQrdUk1Si80OFhhVFJwMUxINmdGODVhalkwNXIybApQUW95dDFPTEdIVHZtRnA3ei9QMHBKbUJpcGQwcktBeFNJLzU5SU93elYyRFNpQmp4TjQwSWpKNWhidlczNHNFCmtHNTFTUUlEQVFBQm95Y3dKVEFPQmdOVkhROEJBZjhFQkFNQ0JhQXdFd1lEVlIwbEJBd3dDZ1lJS3dZQkJRVUgKQXdJd0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFFWGM0VUhiOVFMSisvU2t0S3dhOVpydVJ3THBhV0NVeE80Sgo1Mml0eHdZK3JLdE9WQVBsKzdNRjVmcWU3UUhmcW0yMjFmR1V6UW50VERpM1RjOVNsdUVDdjdxdHBCcHczZ1pYCnZpSmIvakRRTWwrdmhvZW95UlpiUmhWZG5kUU5lS1FoUzl4UEw3Rmx2d0pRUnNsWTlCdWJ4L3lsVC9KRElKcFcKRzJhanM4ZGNyWUlLeGlEbjdQSTZqeFB1OURRVUgraGVza1M5VXRwcUF3M3pBdjFCaG5kV2FEWUNQc293MnloVAp1RFNrWG9XVE9rTlQ2UDVWREdob3VZbzJ4emhJeDl4NWllMVpLOHlnODY5THZvZkJQNk5oRnZRNDRPQkFyR29JCnNJcDNJT0ZpaWJjVW1wVXNZNWJ2OEVXbjBNdXkxN1VjVTlvMkYvTnpuQ1hZV1JEVUViVT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=<br> client-key-data: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFb3dJQkFBS0NBUUVBMGtxbWNyL0M0cFpJODBRME8wTmpJUVdYT3pUNE5lT1RSUHdDdVFtQmg5WXFCdEEwCmRmcm9WdHNPYlFMR2VYTkZRWWFHMzlXZmw3b3ZhREI3d1ptdVlaN2pWSlJvQWZqZXRIN3dJSDd6TWFHQm5NYTcKdGhNQ2pZcGZ1dGlDKzNCbnVyMUtGYUlHYUpwM2UrQ1AwMlY3UlQyY1FxT2x1TlVLRUhJdlBteWE3SjNKR1lKSwo0VUFUSFA5WEgxVk16ZWhzc3lmMXlRNllvUHFNNHVvT1RlTTd4NDRXL0toa1owTFpIZ3JweUQyUDZTdjRlaGhpCnphNCt1STVKLzQ4WGFUUnAxTEg2Z0Y4NWFqWTA1cjJsUFFveXQxT0xHSFR2bUZwN3ovUDBwSm1CaXBkMHJLQXgKU0kvNTlJT3d6VjJEU2lCanhONDBJako1aGJ2VzM0c0VrRzUxU1FJREFRQUJBb0lCQUE3bXcweTJVZlVFZVQ3agp3bC9Bc3JHUVY5c1dNZEIvdzl2TGo5WFUycHpwakNqWGNDQThHMktzT3lWMllPSVNUUUlMcWxzS0pEajROSXZKCmc3dUFURjhXaHoxakZzdXMrdnNIVTdTNXlqbm1HKzBrR0FFYTc3OWY0dEMycnZGcVVhOWw0bTRPQVM1QVk5OGYKVnBIQVN5L280YjNISXVNcUZZQjgxdVF4aGZqbVJHTWJ3dFdRM090dUU1d2xQRDJwOFBqTElaQVNsVTZ2RlpoQQpMWCs0ZjIyMWRjSkxTVGhqTDFiVHFPM1NkazE3WjZOV1M1Ym9TMFptY0JSOFhLUHNqUHFVek5zRFVxeCs1cDdKCkFXVGNlYjB4dWZYTldDV3Y3N3NUcTBjdyt6UXNwbVZwbFkzMjA4d0c5Tm9FYm5hMGFNQ1ZacG1oK3BSR2xOelkKRlNZNU9rRUNnWUVBMGxLcjI2S3IvMU1KcGFGMHRtWWNHcVRzd093bklBMzBNemk2blN5SVd1Q21qRWs3ZU5zSgpTRUk5cWRPRzhhWGw3VGZpa2VYUko1b3MxcDFZZzh2TUdpam01NGI3ejYybFZRUWtsOWZPSlVGM1YzQkgyR2p2CjRpOFZVTUl5ZmNSRmZUUFZEeGtKbHZtdnZCS0kwZU9UV0daVmFxb1AzZ0d0SW5lVDlmbEgwUTBDZ1lFQS8vWTgKbzZaelRtejIyVWVXZW5aemlNOHBxRHBqVU5DRnlKemJqajNvN1ZsTGRSc0FybnpFZnVNaUo5YjZ2dVpaWXQzRwp2bEZFMDBiYnNQWmRVbzArenJvSEZMK2JqQ1QrODl1UUFJRHFHcGtyYUdIZ0IxelZyMHF2L0NXajlnbzkrdUxhCjJKQk5ud1RSczlsbzE1ZzV1YnJPRWFBNzlBaExEeEFuZFA3Z0RpMENnWUFyODBpa2NmN2RNUDRBRlpndEVYTm8KQWZUVGI4WFJSZmsweHZNQUt6RW5SSENwT2hocWJlTW5yV2Z6V0JlSDRiSUZlenNtWDg3d0pxQ2VERzFWeFQyVwpiZHVxb0NONHg0R1lIWENFSm4yV2ZYS3gyKzIzaEY0MGRzQk9pdlpBSDhhaG5qWTBuSGZMaTh1MFVtOHk1UXFDClc0Z1g3UWU1emNIZlJQdXZWL013OVFLQmdRQy8rKzFYd2cxU2thQkZNTkRKWWZjZWNtUUlibUwzeHEvUjNQVkIKSjJhQ1FDdTgxbGdZaURUS0I0c2kzcmlNWHpKRVdad3NPOENueDhvWVhYRjU3YjlpUjEzd1RoZFpjcFpZU2lNawpmWTBhRGpEa3hpVEc0UGJWMSt0UDhOdWVPK2hwT2FaME1TaEhVZElJVjlXdmY5b3NXTlVmbTFQY29pdktUSStMCnpYQTRzUUtCZ0ZsUnpoeDlYczJ2L1h1VGl0NE1mNUpMU2ppNk93c3pZVXNmTzVMQ1BVbGQrcjA5dmFsS0tPQlcKU1FUVDhTdnBpMzZhQVFTV0xCUUdVYkh2VlJ0QkJHOWxiY2JSSHlla1RrYksxTEwxVk0zKzdtRXZCUDFZZU9qZQpwWkRlTWcrZWQyY3F5MDJhZWwxbGhBK3dJRmlnUzV5bGY0Z25paFBnMVZ2WmJIUGIzREdGCi0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0tCg==</pre>
+<blockquote>
+<p>我們用到的Kubernetes 服務證書轉換 keycertificate-authority-data，憑據轉換client-certificate-data和client-key-data</p>
+</blockquote>
+<p>獲取/root/.kube/config中certificate-authority-data的內容並轉化成base64 encoded文件,將生成的ca.crt文件內容填寫到jenkins kubernetes的Kubernetes 服務證書key中</p>
+<pre>$ echo LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRFNU1EWXdOakV3TWpZd09Wb1hEVEk1TURZd016RXdNall3T1Zvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBSlBSCmFnUlVKVytleDlKeTFZOXEzUVpNZk0wWnFJbkxjOE43RFVnZnM4TktlUVh2SUFCNkxxdjBSNFY4VUNnYnZ6dEMKVitxdElGNUM5bmE5VFQzT3hVNkUwQnVmWTcwTmJBZ2dPN0RTN1FvQVc3ZG5HUnBDTmNieWg5dytZYi9vbkNCdgo3M28vRi9scnhFZ01jNFhuYTR6OGhXbm5STmdjcVBSVnNyWGFiVSt6TStsbVZEaEpwWE96dnVmMmZRb3creGF4CndaWnVwUmF5VDBESHVHbmpaQnkrNnFwQVdZampqaE9WOUhGcTlQQUpMUXAzR2xZdklueFgxUkJscTYyVFdZMW8KcjIvTFBRTUhjOUV6VFlVN21Qb0laQ3dqa1dPTzZmc1NFVHpBTk9ad1NlSlBRSW5XV1NlQXlsWjA4V2tNWjdVcQpDNkZHVml1REFVbE1HczBMMlhzQ0F3RUFBYU1qTUNFd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFFc1I5T2VSRW45NXdSaTA2UnI2SVhUcDhJeHkKSytmdFJyM1pZckZ5VWZZYTBWdU9Mc1NZdzByN1o5Zmk0ZUFlMEk4dnR2cWpqWWl6RzFnUFAyS3V4d0h4RmtJRApMQnlNRmRTSG5yVEVZeWo2NVFnbUtCWVpEZ0VkMnZpVnBTeHM4Y3dCZXgvT201VnErZnROanAwK2swaGdhV2xxCjBDZmtkbjM0MkY2bUhSZFNyeGg3eURleGNtNEtGck5OVnNPY0h5MEJhQXhwZ0JOUmErMG5oZ1dDbHh1M0F4OWgKaVRELzAyczRCcWZKTFZjZXk0Q2VnWW8zUDVDYWVjTTZSaTg4TVFKYlZ1OWx6RVZPUzlBRGNKZ0VkWkdHUFUyVwpEcHBhZXdZNjhSVVg1MG9ObXN2S2h1RGNCSWxyeHJ4T2J4Wk1wYm5hYldUMlFaKzM4ampEaDNwVmxhcz0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo= | base64 -d &gt; /tmp/ca.crt<br><br>$ cat /tmp/ca.crt <br>-----BEGIN CERTIFICATE-----<br>MIICyDCCAbCgAwIBAgIBADANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDEwprdWJl<br>cm5ldGVzMB4XDTE5MDYwNjEwMjYwOVoXDTI5MDYwMzEwMjYwOVowFTETMBEGA1UE<br>AxMKa3ViZXJuZXRlczCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJPR<br>agRUJW+ex9Jy1Y9q3QZMfM0ZqInLc8N7DUgfs8NKeQXvIAB6Lqv0R4V8UCgbvztC<br>V+qtIF5C9na9TT3OxU6E0BufY70NbAggO7DS7QoAW7dnGRpCNcbyh9w+Yb/onCBv<br>73o/F/lrxEgMc4Xna4z8hWnnRNgcqPRVsrXabU+zM+lmVDhJpXOzvuf2fQow+xax<br>wZZupRayT0DHuGnjZBy+6qpAWYjjjhOV9HFq9PAJLQp3GlYvInxX1RBlq62TWY1o<br>r2/LPQMHc9EzTYU7mPoIZCwjkWOO6fsSETzANOZwSeJPQInWWSeAylZ08WkMZ7Uq<br>C6FGViuDAUlMGs0L2XsCAwEAAaMjMCEwDgYDVR0PAQH/BAQDAgKkMA8GA1UdEwEB<br>/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAEsR9OeREn95wRi06Rr6IXTp8Ixy<br>K+ftRr3ZYrFyUfYa0VuOLsSYw0r7Z9fi4eAe0I8vtvqjjYizG1gPP2KuxwHxFkID<br>LByMFdSHnrTEYyj65QgmKBYZDgEd2viVpSxs8cwBex/Om5Vq+ftNjp0+k0hgaWlq<br>0Cfkdn342F6mHRdSrxh7yDexcm4KFrNNVsOcHy0BaAxpgBNRa+0nhgWClxu3Ax9h<br>iTD/02s4BqfJLVcey4CegYo3P5CaecM6Ri88MQJbVu9lzEVOS9ADcJgEdZGGPU2W<br>DppaewY68RUX50oNmsvKhuDcBIlrxrxObxZMpbnabWT2QZ+38jjDh3pVlas=<br>-----END CERTIFICATE-----</pre>
+<p>獲取/root/.kube/config中client-certificate-data和client-key-data的內容並轉化成base64 encoded文件</p>
+<pre>$ echo LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUM4akNDQWRxZ0F3SUJBZ0lJSzZSZWRVQ2NNS0V3RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB4T1RBMk1EWXhNREkyTURsYUZ3MHlNREEyTURVeE1ESTJNVEZhTURReApGekFWQmdOVkJBb1REbk41YzNSbGJUcHRZWE4wWlhKek1Sa3dGd1lEVlFRREV4QnJkV0psY201bGRHVnpMV0ZrCmJXbHVNSUlCSWpBTkJna3Foa2lHOXcwQkFRRUZBQU9DQVE4QU1JSUJDZ0tDQVFFQTBrcW1jci9DNHBaSTgwUTAKTzBOaklRV1hPelQ0TmVPVFJQd0N1UW1CaDlZcUJ0QTBkZnJvVnRzT2JRTEdlWE5GUVlhRzM5V2ZsN292YURCNwp3Wm11WVo3alZKUm9BZmpldEg3d0lIN3pNYUdCbk1hN3RoTUNqWXBmdXRpQyszQm51cjFLRmFJR2FKcDNlK0NQCjAyVjdSVDJjUXFPbHVOVUtFSEl2UG15YTdKM0pHWUpLNFVBVEhQOVhIMVZNemVoc3N5ZjF5UTZZb1BxTTR1b08KVGVNN3g0NFcvS2hrWjBMWkhncnB5RDJQNlN2NGVoaGl6YTQrdUk1Si80OFhhVFJwMUxINmdGODVhalkwNXIybApQUW95dDFPTEdIVHZtRnA3ei9QMHBKbUJpcGQwcktBeFNJLzU5SU93elYyRFNpQmp4TjQwSWpKNWhidlczNHNFCmtHNTFTUUlEQVFBQm95Y3dKVEFPQmdOVkhROEJBZjhFQkFNQ0JhQXdFd1lEVlIwbEJBd3dDZ1lJS3dZQkJRVUgKQXdJd0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFFWGM0VUhiOVFMSisvU2t0S3dhOVpydVJ3THBhV0NVeE80Sgo1Mml0eHdZK3JLdE9WQVBsKzdNRjVmcWU3UUhmcW0yMjFmR1V6UW50VERpM1RjOVNsdUVDdjdxdHBCcHczZ1pYCnZpSmIvakRRTWwrdmhvZW95UlpiUmhWZG5kUU5lS1FoUzl4UEw3Rmx2d0pRUnNsWTlCdWJ4L3lsVC9KRElKcFcKRzJhanM4ZGNyWUlLeGlEbjdQSTZqeFB1OURRVUgraGVza1M5VXRwcUF3M3pBdjFCaG5kV2FEWUNQc293MnloVAp1RFNrWG9XVE9rTlQ2UDVWREdob3VZbzJ4emhJeDl4NWllMVpLOHlnODY5THZvZkJQNk5oRnZRNDRPQkFyR29JCnNJcDNJT0ZpaWJjVW1wVXNZNWJ2OEVXbjBNdXkxN1VjVTlvMkYvTnpuQ1hZV1JEVUViVT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo= | base64 -d &gt; /tmp/client.crt<br><br>$ echo LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFb3dJQkFBS0NBUUVBMGtxbWNyL0M0cFpJODBRME8wTmpJUVdYT3pUNE5lT1RSUHdDdVFtQmg5WXFCdEEwCmRmcm9WdHNPYlFMR2VYTkZRWWFHMzlXZmw3b3ZhREI3d1ptdVlaN2pWSlJvQWZqZXRIN3dJSDd6TWFHQm5NYTcKdGhNQ2pZcGZ1dGlDKzNCbnVyMUtGYUlHYUpwM2UrQ1AwMlY3UlQyY1FxT2x1TlVLRUhJdlBteWE3SjNKR1lKSwo0VUFUSFA5WEgxVk16ZWhzc3lmMXlRNllvUHFNNHVvT1RlTTd4NDRXL0toa1owTFpIZ3JweUQyUDZTdjRlaGhpCnphNCt1STVKLzQ4WGFUUnAxTEg2Z0Y4NWFqWTA1cjJsUFFveXQxT0xHSFR2bUZwN3ovUDBwSm1CaXBkMHJLQXgKU0kvNTlJT3d6VjJEU2lCanhONDBJako1aGJ2VzM0c0VrRzUxU1FJREFRQUJBb0lCQUE3bXcweTJVZlVFZVQ3agp3bC9Bc3JHUVY5c1dNZEIvdzl2TGo5WFUycHpwakNqWGNDQThHMktzT3lWMllPSVNUUUlMcWxzS0pEajROSXZKCmc3dUFURjhXaHoxakZzdXMrdnNIVTdTNXlqbm1HKzBrR0FFYTc3OWY0dEMycnZGcVVhOWw0bTRPQVM1QVk5OGYKVnBIQVN5L280YjNISXVNcUZZQjgxdVF4aGZqbVJHTWJ3dFdRM090dUU1d2xQRDJwOFBqTElaQVNsVTZ2RlpoQQpMWCs0ZjIyMWRjSkxTVGhqTDFiVHFPM1NkazE3WjZOV1M1Ym9TMFptY0JSOFhLUHNqUHFVek5zRFVxeCs1cDdKCkFXVGNlYjB4dWZYTldDV3Y3N3NUcTBjdyt6UXNwbVZwbFkzMjA4d0c5Tm9FYm5hMGFNQ1ZacG1oK3BSR2xOelkKRlNZNU9rRUNnWUVBMGxLcjI2S3IvMU1KcGFGMHRtWWNHcVRzd093bklBMzBNemk2blN5SVd1Q21qRWs3ZU5zSgpTRUk5cWRPRzhhWGw3VGZpa2VYUko1b3MxcDFZZzh2TUdpam01NGI3ejYybFZRUWtsOWZPSlVGM1YzQkgyR2p2CjRpOFZVTUl5ZmNSRmZUUFZEeGtKbHZtdnZCS0kwZU9UV0daVmFxb1AzZ0d0SW5lVDlmbEgwUTBDZ1lFQS8vWTgKbzZaelRtejIyVWVXZW5aemlNOHBxRHBqVU5DRnlKemJqajNvN1ZsTGRSc0FybnpFZnVNaUo5YjZ2dVpaWXQzRwp2bEZFMDBiYnNQWmRVbzArenJvSEZMK2JqQ1QrODl1UUFJRHFHcGtyYUdIZ0IxelZyMHF2L0NXajlnbzkrdUxhCjJKQk5ud1RSczlsbzE1ZzV1YnJPRWFBNzlBaExEeEFuZFA3Z0RpMENnWUFyODBpa2NmN2RNUDRBRlpndEVYTm8KQWZUVGI4WFJSZmsweHZNQUt6RW5SSENwT2hocWJlTW5yV2Z6V0JlSDRiSUZlenNtWDg3d0pxQ2VERzFWeFQyVwpiZHVxb0NONHg0R1lIWENFSm4yV2ZYS3gyKzIzaEY0MGRzQk9pdlpBSDhhaG5qWTBuSGZMaTh1MFVtOHk1UXFDClc0Z1g3UWU1emNIZlJQdXZWL013OVFLQmdRQy8rKzFYd2cxU2thQkZNTkRKWWZjZWNtUUlibUwzeHEvUjNQVkIKSjJhQ1FDdTgxbGdZaURUS0I0c2kzcmlNWHpKRVdad3NPOENueDhvWVhYRjU3YjlpUjEzd1RoZFpjcFpZU2lNawpmWTBhRGpEa3hpVEc0UGJWMSt0UDhOdWVPK2hwT2FaME1TaEhVZElJVjlXdmY5b3NXTlVmbTFQY29pdktUSStMCnpYQTRzUUtCZ0ZsUnpoeDlYczJ2L1h1VGl0NE1mNUpMU2ppNk93c3pZVXNmTzVMQ1BVbGQrcjA5dmFsS0tPQlcKU1FUVDhTdnBpMzZhQVFTV0xCUUdVYkh2VlJ0QkJHOWxiY2JSSHlla1RrYksxTEwxVk0zKzdtRXZCUDFZZU9qZQpwWkRlTWcrZWQyY3F5MDJhZWwxbGhBK3dJRmlnUzV5bGY0Z25paFBnMVZ2WmJIUGIzREdGCi0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0tCg== | base64 -d &gt; /tmp/client.key</pre>
+<p>將上面生成的文件轉換為P12認證文件cert.pfx，並下載至本地；生成過程中設置的密碼要記住，後面有用</p>
+<pre>$ openssl pkcs12 -export -out /tmp/cert.pfx -inkey /tmp/client.key -in /tmp/client.crt -certfile /tmp/ca.crt<br>Enter Export Password:<br>Verifying - Enter Export Password:<br> <br>$ sz /tmp/cert.pfx</pre>
+<p>然後回到jenkins配置全局憑據</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/d5344639184c4db7b92833c52a151fde" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="640" height="332" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/d5344639184c4db7b92833c52a151fde" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="640" height="332" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/2be2b2ff25e544f080791d4e9544ffb9" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="1500" height="483" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/2be2b2ff25e544f080791d4e9544ffb9" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="1500" height="483" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>最終新增kubernetes雲配置，點擊連接測試，提示成功即可</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/b36d1164355e4d5db5526005b0821a15" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="640" height="321" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/b36d1164355e4d5db5526005b0821a15" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="640" height="321" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>配置第二個k8s相關信息，過程和配置第一個k8s一樣，不再過多說明了</p>
+
+<h2 class="pgc-h-arrow-right">創建流水線項目</h2>
+
+<p>打開Bule Ocean，請創建你的第一個流水線，選擇代碼倉庫為Git</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/6fd98d71484140278613fc4f0e536116" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="640" height="322" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/6fd98d71484140278613fc4f0e536116" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="640" height="322" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>輸入要創建流水線的Git項目倉庫地址，輸入後jenkins會自動生成公鑰，把生成的公鑰配置在gitlab的ssh key中，然後點擊創建流水線</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/02e47edfc8e647ada59893b5e49ad1b5" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="640" height="319" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/02e47edfc8e647ada59893b5e49ad1b5" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="640" height="319" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/2a22e227d7b24ccd8f2d0fb0a37315cc" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="640" height="249" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/2a22e227d7b24ccd8f2d0fb0a37315cc" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="640" height="249" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>創建流水線時候，Jenkins會自動檢測git項目各個分支的根目錄是否存在文件「Jenkinsfile」，如果存在就生成一個分支流水線，下圖中生成了分支master和分支docker流水線</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/03c02e81c60344be8c94427f03c6934b" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="640" height="322" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/03c02e81c60344be8c94427f03c6934b" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="640" height="322" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>到目前為止流水線已經配置完成，但是還無法實現自動觸發構建，需要配置掃描多分支流水線觸發器；設置1分鐘檢測一次</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/c1be671cf93a45519e4ec4fd6b9ed46d" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="640" height="288" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/c1be671cf93a45519e4ec4fd6b9ed46d" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="640" height="288" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/7572449ff3834df690af4c71f14420bf" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="640" height="323" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/7572449ff3834df690af4c71f14420bf" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="640" height="323" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>觸發構建之前我們先看下流水線執行構建部署的Jenkinsfile文件內容，文件保存在git項目的各個分支</p>
+<pre>def label = "slave-${UUID.randomUUID().toString()}"<br><br>podTemplate(cloud: 'kubernetes', label: label, containers: [<br> containerTemplate(name: 'docker', image: 'docker', command: 'cat', ttyEnabled: true),<br> containerTemplate(name: 'kubectl', image: 'bitnami/kubectl', command: 'cat', ttyEnabled: true),<br>], volumes: [<br> hostPathVolume(mountPath: '/root/.kube', hostPath: '/root/.kube'),<br> hostPathVolume(mountPath: '/var/run/docker.sock', hostPath: '/var/run/docker.sock')<br>]) {<br> node(label) {<br> def myRepo = checkout scm<br> def gitCommit = myRepo.GIT_COMMIT<br> def gitBranch = myRepo.GIT_BRANCH<br> def imageTag = sh(script: "git rev-parse --short HEAD", returnStdout: true).trim()<br> def dockerRegistryUrl = "registry.cn-beijing.aliyuncs.com"<br> def imageEndpoint = "addnewer-dsc/approval-fe"<br> def image = "${dockerRegistryUrl}/${imageEndpoint}"<br> stage('構建 Docker 鏡像') {<br> withCredentials([[$class: 'UsernamePasswordMultiBinding',<br> credentialsId: 'DockerRegistry',<br> usernameVariable: 'DOCKER_HUB_USER',<br> passwordVariable: 'DOCKER_HUB_PASSWORD']]) {<br> container('docker') {<br> echo "3. 構建 Docker 鏡像階段"<br> sh """<br> docker login ${dockerRegistryUrl} -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASSWORD}<br> docker build -t ${image}:${imageTag} .<br> docker push ${image}:${imageTag}<br> """<br> }<br> }<br> }<br> stage('Run kubectl') {<br> container('kubectl') {<br> sh """<br> sed -i "s#&lt;IMAGE&gt;#${image}#g" *.yaml<br> sed -i "s#&lt;IMAGE_TAG&gt;#${imageTag}#g" *.yaml<br> kubectl apply -f .<br> """<br> }<br> }<br><br> }<br>}</pre>
+<blockquote>
+<p>podTemplate(cloud: ‘kubernetes’ 我們要實現不同分支部署到不同k8s環境，所以我們不同分支中Jenkinsfile中pod模版要指定不同的cloud，這個很重要；默認名稱為kubernetes，這個名稱對應我們在jenkins中新增k8s雲的名稱containerTemplate(name: ‘docker’ 指定我們需要構建鏡像需要用到的docker鏡像containerTemplate(name: ‘kubectl’ 指定我們部署容器到k8s需要用到的kubectl鏡像hostPathVolume(mountPath: 上面指定鏡像依賴的映射文件def imageTag 生成鏡像tag名稱def dockerRegistryUrl 定義docker倉庫地址stage(‘構建 Docker 鏡像’) 定義流水線構建docker鏡像執行步驟 credentialsId: ‘DockerRegistry’, 從jenkins全局憑據獲取docker倉庫id usernameVariable: ‘DOCKER_HUB_USER’,從jenkins全局憑據獲取docker倉庫用戶名 passwordVariable: ‘DOCKER_HUB_PASSWORD’從jenkins全局憑據獲取docker倉庫密碼stage(‘Run kubectl’) 定義流水線部署應用到k8s執行步驟，部署應用的yaml文件也是在git項目中後綴為yaml的文件</p>
+</blockquote>
+<p>了解了上面的Jenkinsfile流水線文件的執行流程後，可以看到我們還沒有在jenkins中添加docker倉庫的全局憑據，下面我們添加</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/c0905db7091b4cd0827d21ccb1f96790" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="640" height="274" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/c0905db7091b4cd0827d21ccb1f96790" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="640" height="274" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">流水線構建測試</h2>
+
+<p>提交任何變更到git項目，1分鐘後jenkins會自動檢測到變更，開始執行流水線；這裡我隨便提交下測試代碼，就可以看到流水開始執行了</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/101b67be012f4962b6e86cfcb278a0fb" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="1500" height="152" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/101b67be012f4962b6e86cfcb278a0fb" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="1500" height="152" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/39faada6791b496c991de401dc4eb6f5" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="640" height="322" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/39faada6791b496c991de401dc4eb6f5" alt="《Gitlab+Jenkins Pipeline+k8s在生產環境中的應用》" width="640" height="322" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/15602#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.233 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:25:39 -->
+
+<!-- super cache -->

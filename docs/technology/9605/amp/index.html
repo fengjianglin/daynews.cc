@@ -1,0 +1,629 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/9605#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/34639e234ef24ffb8dc9a9a73421882a"},{"@type":"WebPage","@id":"https://daynews.cc/technology/9605#webpage","url":"https://daynews.cc/technology/9605","inLanguage":"zh-TW","name":"git push\u9084\u80fd\u9019\u6a23\u7528\uff1fGitkube\u4e00\u9375\u5b8c\u6210\u69cb\u5efa\u3001\u90e8\u7f72\u5230K8s\u96c6\u7fa4 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/9605#primaryimage"},"datePublished":"2019-12-10T10:50:10+00:00","dateModified":"2019-12-10T10:50:10+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="一、介紹 Gitkube 是一款用GO語言編寫的、能夠使用git push直接構建和部署Docker鏡像到Kubernetes集群的工具。只需要簡單的初始化設置，用戶就可以使用git push自動化的構建和部署Kubernetes集群上。Gitkube與Draft、Skaffold不同的是，Gitkube不提供命令行工具，只需要使用git……" />
+<meta name="twitter:title" content="git push還能這樣用？Gitkube一鍵完成構建、部署到K8s集群 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/34639e234ef24ffb8dc9a9a73421882a" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="git push還能這樣用？Gitkube一鍵完成構建、部署到K8s集群 - 天天要聞" />
+<meta property="og:description" content="一、介紹 Gitkube 是一款用GO語言編寫的、能夠使用git push直接構建和部署Docker鏡像到Kubernetes集群的工具。只需要簡單的初始化設置，用戶就可以使用git push自動化的構建和部署Kubernetes集群上。Gitkube與Draft、Skaffold不同的是，Gitkube不提供命令行工具，只需要使用git……" />
+<meta property="og:url" content="https://daynews.cc/technology/9605" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-10T10:50:10+00:00" />
+	<title>git push還能這樣用？Gitkube一鍵完成構建、部署到K8s集群 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/9605" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">git push還能這樣用？Gitkube一鍵完成構建、部署到K8s集群</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-10T18:50:10+00:00">
+		1 週 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<h2 class="pgc-h-arrow-right">一、介紹</h2>
+<p>Gitkube 是一款用GO語言編寫的、能夠使用git push直接構建和部署Docker鏡像到Kubernetes集群的工具。只需要簡單的初始化設置，用戶就可以使用git push自動化的構建和部署Kubernetes集群上。Gitkube與Draft、Skaffold不同的是，Gitkube不提供命令行工具，只需要使用git push命令即可，在如今Git版本控制系統一統天下的年代，只要會用git 命令就會使用Gitkube，大大降低了開發人員的學習成本。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/34639e234ef24ffb8dc9a9a73421882a" alt="《git push還能這樣用？Gitkube一鍵完成構建、部署到K8s集群》" width="640" height="252" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/34639e234ef24ffb8dc9a9a73421882a" alt="《git push還能這樣用？Gitkube一鍵完成構建、部署到K8s集群》" width="640" height="252" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">二、特性</h2>
+<p>Gitkube具有以下特性：</p>
+<p>1、除了伺服器上的原生工具，如：git、kubectl之外，不需要安裝其他依賴</p>
+<p>2、安裝簡單，即插即用的安裝方式</p>
+<p>3、具備基於簡單公鑰（Simple Public Key）的身份驗證</p>
+<p>4、使用RBAC實現對Git 遠程的訪問控制</p>
+<p>5、支持基於命名空間（Namespace）的多租戶，遠程只能部署到自己的命名空間</p>
+<p>6、對代碼倉庫的存儲庫結構沒有要求</p>
+
+<h2 class="pgc-h-arrow-right">三、使用場景</h2>
+<p>任何一個工具都會有具體的使用場景，任何一個工具也都不可能覆蓋所有的場景。Gitkube的使用場景與其他本地開發調試工具是一樣的，都是為了能夠<strong>快速驗證</strong>本地開發代碼的正確性。最主要的一點是，Gitkube是基於Git命令的工具，只要會使用基本的git 命令，就能使用Gitkube。</p>
+<p>使用場景比如：</p>
+<p>1、WIP(Work In Process)開發中的分支推送到Kubernetes集群進行測試。</p>
+<p>2、打算在伺服器上編寫基於Git的自動化的參考實現。可以Fork這個代碼庫並創建自己的CRD+Controller+Git遠程鉤子，它可以在Kubernetes集群上執行任務。（CRD的意思是CustomResourceDefinition，是v1.7+新增的無需改變代碼就可以擴展Kubernetes API的機制。）</p>
+<h2 class="pgc-h-arrow-right">四、架構圖</h2>
+<p>下面是Gitkube的整體架構圖，比較簡單。主要包含以下三個組件：</p>
+<p>1、<strong>Remote</strong>：由K8s CRD定義的Custom Resource，主要包含了用於構建鏡像所需的基本信息，比如授權，鏡像地址和代碼庫路徑。</p>
+<p>2、<strong>gitkube-controller</strong>：用於管理Remote對象並將變更提交給gitkube的控制器。</p>
+<p>3、<strong>gitkubed</strong>：用於從代碼庫構建Docker鏡像並進行部署的gitkubed服務。</p>
+<p>需要在K8s 集群中安裝一些組件，開發人員本地環境不需要安裝任何工具。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/7eb76be6637e433fbff31f7de42e1bfa" alt="《git push還能這樣用？Gitkube一鍵完成構建、部署到K8s集群》" width="640" height="356" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/7eb76be6637e433fbff31f7de42e1bfa" alt="《git push還能這樣用？Gitkube一鍵完成構建、部署到K8s集群》" width="640" height="356" class=""></noscript></amp-img>
+<p class="pgc-img-caption">Gitkube架構圖</p>
+
+</div>
+<h2 class="pgc-h-arrow-right">五、安裝</h2>
+<p>安裝Gitkube有以下兩種方式：</p>
+<p><strong>1、使用kubectl安裝</strong></p>
+<pre>kubectl create -f https://storage.googleapis.com/gitkube/gitkube-setup-stable.yaml<br><br>#expose gitkubed service<br>kubectl --namespace kube-system expose deployment gitkubed --type=LoadBalancer --name=gitkubed</pre>
+<p>使用提供的YAML文件能夠直接創建gitkube的資源</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/937c5ef4e8ba434d82961e00e360e1ee" alt="《git push還能這樣用？Gitkube一鍵完成構建、部署到K8s集群》" width="1102" height="190" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/937c5ef4e8ba434d82961e00e360e1ee" alt="《git push還能這樣用？Gitkube一鍵完成構建、部署到K8s集群》" width="1102" height="190" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>2、使用gitkube CLI安裝</strong></p>
+<p>這種安裝方式是將gitkube安裝到本地機器上，可以在命令行上執行gitkube命令。gitkube客戶端可以安裝到不同在不同的操作系統上。</p>
+<p><strong>Linux/MacOS</strong></p>
+<pre>curl https://raw.githubusercontent.com/hasura/gitkube/master/gimme.sh | bash</pre>
+<p><strong>Windows</strong></p>
+<pre>scoop install gitkube</pre>
+<p>使用gitkube install安裝Gitkube到K8s集群中（建議使用這種安裝方式，後面在創建、安裝Remote對象時會用到）</p>
+<pre>gitkube install</pre>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/1ab0e775a58d41e38d1f63e00bbade04" alt="《git push還能這樣用？Gitkube一鍵完成構建、部署到K8s集群》" width="622" height="199" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/1ab0e775a58d41e38d1f63e00bbade04" alt="《git push還能這樣用？Gitkube一鍵完成構建、部署到K8s集群》" width="622" height="199" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>到此gitkube和gitkube-controller安裝到K8s集群中了</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/969cd29f3b97494d8b1c7b8c98085141" alt="《git push還能這樣用？Gitkube一鍵完成構建、部署到K8s集群》" width="822" height="189" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/969cd29f3b97494d8b1c7b8c98085141" alt="《git push還能這樣用？Gitkube一鍵完成構建、部署到K8s集群》" width="822" height="189" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">六、工作流程</h2>
+<p>使用gitkube進行本地開發的流程，主要包含四個階段：</p>
+<p><strong>1、本地開發階段</strong></p>
+<p>開發人員在本地代碼庫中進行開發，本地代碼庫需要包含Dockerfile和K8s部署配置文件。</p>
+<p>下載並解壓gitkube-example代碼庫</p>
+<pre>$ wget https://github.com/hasura/gitkube-example/archive/master.zip<br>$ unzip master.zip<br>$ mv gitkube-example-master gitkube-examples<br>$ cd gitkube-example/mono-example<br>$ git init </pre>
+<p><strong>2、設置Remote</strong></p>
+<p>進入代碼庫的根目錄下創建Remote對象，一個Remote資源包含三部分：</p>
+<p>①、authorizedKey：用於授權git push的ssh-keys列表，也就是ssh的公鑰。</p>
+<p>②、registry：鏡像構建之後推送的鏡像倉庫地址。</p>
+<p>③、deployments：用於構建docker鏡像以及升級K8s deployment所需的信息。</p>
+<p>創建ssh key 用於通過ssh協議執行git push命令，生成的公鑰也會添加到remote.yaml文件中。</p>
+<pre>ssh-keygen -t rsa</pre>
+<p>創建myremote.yaml文件，gitkube提供了命令行輔助功能，通過輸入一些必填項的值創建Remote文件。</p>
+<pre>$ gitkube remote generate -f myremote.yaml<br><br>&gt; Remote name: myremote<br>&gt; Namespace: default<br>&gt; Public key file: /root/.ssh/id_rsa.pub<br>&gt; Initialisation:<br> &gt; K8s Yaml Manifests<br> --------------------<br> &gt; Helm Chart<br> &gt; None<br>&gt; Manifests/Chart directory: manifests<br>&gt; Choose docker registry:<br> &gt; docker.io/xinglongjian<br> ---------------------<br> &gt; Specify a different registry<br> &gt; Skip for now<br>&gt; Deployment name: www<br>&gt; Container name: www<br>&gt; Dockerfile path: microservices/nginx/Dockerfile<br>&gt; Build context path: microservice/nginx<br>&gt; Add another container? N<br>&gt; Add another deployment? N<br></pre>
+<p><strong>3、安裝Remote資源</strong></p>
+<p>使用上面生成的myremote.yaml文件，將Remote對象安裝到K8s集群中，並提供了remote url 。<strong>（備註：在minikube中創建Remote對象時，總是不能生成remote url）</strong></p>
+<pre>$ gitkube remote create -f myremote.yaml<br>INFO[0000] remote myremote created <br>INFO[0000] waiting for remote url <br>INFO[0000] remote url: ssh://default-myremote@219815023.us-west-2.elb.amazonaws.com/~/git/default-myremote </pre>
+<p><strong>4、推送部署</strong></p>
+<p>當安裝好Remote資源後，找到Remote里的remote url的值，然後在當前代碼庫中使用git remote add設置remote URL，使用git push 即可推送到指定的remote對象上。</p>
+<pre># add the remote to your git repo and push:<br> git remote add myremote ssh://default-myremote@219815023.us-west-2.elb.amazonaws.com/~/git/default-myremote<br> git push myremote master</pre>
+<p>下面是官方提供的一個演示動畫可供參考。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/c7f7f7d3c24a47de8713426a7e95e852" alt="《git push還能這樣用？Gitkube一鍵完成構建、部署到K8s集群》" width="1094" height="641" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/c7f7f7d3c24a47de8713426a7e95e852" alt="《git push還能這樣用？Gitkube一鍵完成構建、部署到K8s集群》" width="1094" height="641" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">七、總結</h2>
+<p>Git大家已經非常熟悉了，是如今用的最多的分散式版本控制工具，開發人員在寫完代碼提交到Git版本控制庫時，都會使用Git命令。在雲原生時代，如果也能利用Git的命令完成代碼庫鏡像的構建、推送和部署流程，不需要學習和了解新的工具，新的命令，降低了學習的成本，還提升了本地開發的效率，一舉兩得。</p>
+<p>Gitkube的設計理念非常好，利用了git的優勢完成容器鏡像的構建和部署工作，但目前Gitkube代碼庫的貢獻者在Github上並不活躍，2019年到目前為止，僅提交過3次Commit，Gitkube在使用過程中會有很多不完善的地方，廣大網友在企業內部使用時慎重，該文章只用作調用學習使用，希望能為後面的創新者提供一個好的思路，也希望Gitkube社區能活躍起來繼續完善Gitkube的功能。</p>
+
+<p>DevOps一直都在強調提高效率，只有讓一切人工參與的步驟自動化，讓沒有工具支撐的工作工具化，才能提高開發人員的開發效率。從代碼開發到代碼部署到測試環境，這個CICD的過程是最容易利用工具自動化的方式提高效率的，而且這個階段的工具也非常多，基於Docker容器、Kubernetes容器編排的生態下，雲原生下的CICD會更加的百花齊放。</p>
+
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/9605#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.231 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:27:15 -->
+
+<!-- super cache -->

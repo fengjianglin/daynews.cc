@@ -1,0 +1,626 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/10270#primaryimage","url":"http://p1.pstatp.com/large/dfic-imagehandler/6d2c1ad7-31c6-4b3d-89a8-069f1cc8a15f"},{"@type":"WebPage","@id":"https://daynews.cc/technology/10270#webpage","url":"https://daynews.cc/technology/10270","inLanguage":"zh-TW","name":"o2o\u9644\u8fd1\u7684\u5546\u5bb6\u529f\u80fd\u5e38\u898b\u7684\u6f14\u7b97\u6cd5\uff1ageohash\u548cspatial4j\u8abf\u8a66\u5be6\u6230 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/10270#primaryimage"},"datePublished":"2019-12-05T23:55:05+00:00","dateModified":"2019-12-05T23:55:05+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="開篇 我調試了很多開源項目，包括開源商城、IM即時通訊等很多，感興趣的可以看看源碼點我頭像進去，覺得有用給個關注吧。 最近在看o2o相關的原理，網上說了很多geohash演算法的原理。但其實原理網上有很多，但真正的調試少之又少，今天就來寫代碼調試一下geo演算法和spatial4工具j。輕鬆實現，附近的商家功能。覺得有用，就點個贊轉個發吧……" />
+<meta name="twitter:title" content="o2o附近的商家功能常見的演算法：geohash和spatial4j調試實戰 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/dfic-imagehandler/6d2c1ad7-31c6-4b3d-89a8-069f1cc8a15f" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="o2o附近的商家功能常見的演算法：geohash和spatial4j調試實戰 - 天天要聞" />
+<meta property="og:description" content="開篇 我調試了很多開源項目，包括開源商城、IM即時通訊等很多，感興趣的可以看看源碼點我頭像進去，覺得有用給個關注吧。 最近在看o2o相關的原理，網上說了很多geohash演算法的原理。但其實原理網上有很多，但真正的調試少之又少，今天就來寫代碼調試一下geo演算法和spatial4工具j。輕鬆實現，附近的商家功能。覺得有用，就點個贊轉個發吧……" />
+<meta property="og:url" content="https://daynews.cc/technology/10270" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-05T23:55:05+00:00" />
+	<title>o2o附近的商家功能常見的演算法：geohash和spatial4j調試實戰 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/10270" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">o2o附近的商家功能常見的演算法：geohash和spatial4j調試實戰</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-06T07:55:05+00:00">
+		2 週 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<h2>開篇</h2>
+<pre>我調試了很多開源項目，包括開源商城、IM即時通訊等很多，感興趣的可以看看源碼點我頭像進去，覺得有用給個關注吧。</pre>
+<p>最近在看o2o相關的原理，網上說了很多geohash演算法的原理。但其實原理網上有很多，但真正的調試少之又少，今天就來寫代碼調試一下geo演算法和spatial4工具j。輕鬆實現，附近的商家功能<strong>。覺得有用，就點個贊</strong>轉個發吧<strong>。看文章的時候最好是跟著做，如果沒時間就收藏轉發吧。</strong></p>
+
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/dfic-imagehandler/6d2c1ad7-31c6-4b3d-89a8-069f1cc8a15f" alt="《o2o附近的商家功能常見的演算法：geohash和spatial4j調試實戰》" width="640" height="394" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/dfic-imagehandler/6d2c1ad7-31c6-4b3d-89a8-069f1cc8a15f" alt="《o2o附近的商家功能常見的演算法：geohash和spatial4j調試實戰》" width="640" height="394" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2>geohash演算法原理簡單介紹</h2>
+<p>geo 是地理位置的geography 的縮寫，hash其實就是hash演算法。大家都知道，我們平常用的百度地圖，高德地圖其實每一個點都是有經緯度的。你可以理解為geohash，其實就是經緯度經過一些列運算出來的hash值，相似的經緯度得到的geohash值前綴幾乎一致，這樣就可以把一個區域內的點都可以直接在資料庫中查出來，當然具體原理自己可以去搜索。<strong>這裡就不介紹了，今天重點介紹，如何使用。</strong></p>
+<p><strong>源碼可以到github上看：</strong>https://github.com/kungfoo/geohash-java</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/a7bae646a14f4ed08a5ab21a2c37a5e2" alt="《o2o附近的商家功能常見的演算法：geohash和spatial4j調試實戰》" width="190" height="218" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/a7bae646a14f4ed08a5ab21a2c37a5e2" alt="《o2o附近的商家功能常見的演算法：geohash和spatial4j調試實戰》" width="190" height="218" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2>spatial4j工具</h2>
+<p>其實地球是球形的大家都知道，但基本上在地圖上你可以認為是平面。<strong>例如查詢附近1km的範圍你怎麼查呢？給定圓心坐標和半徑，求該圓外切正方形四個頂點的坐標</strong>。不是嗎？這個計算我們就用到spatial4j了。github上的地址是：https://github.com/locationtech/spatial4j</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/908e1486cb184f7eb823ce4c975d9f30" alt="《o2o附近的商家功能常見的演算法：geohash和spatial4j調試實戰》" width="212" height="198" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/908e1486cb184f7eb823ce4c975d9f30" alt="《o2o附近的商家功能常見的演算法：geohash和spatial4j調試實戰》" width="212" height="198" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2>核心調試</h2>
+<p><strong>1、建表，建工程</strong></p>
+<p>新建一個spring boot 工程，集成mybatis等，當然建個商戶表，有商戶名稱，經緯度，geohash等欄位。</p>
+<pre>CREATE TABLE `merchant` (<br> `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增主鍵',<br> `merchant_name` VARCHAR(64) NOT NULL COMMENT '名稱',<br> `longitude` DOUBLE(9,6) NOT NULL COMMENT '經度',<br> `latitude` DOUBLE(8,6) NOT NULL COMMENT '緯度',<br> `geo_code` CHAR(12) NOT NULL COMMENT 'geohash編碼',<br> PRIMARY KEY (`id`),<br>		KEY `idx_merchant_longitude_latitude` (`longitude`,`latitude`),<br> KEY `idx_merchant_geo_code` (`geo_code`)<br>)COMMENT='商戶表' CHARSET=utf8mb4 ENGINE=InnoDB;</pre>
+
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/142efe4c932243428d8d5eaae9d22629" alt="《o2o附近的商家功能常見的演算法：geohash和spatial4j調試實戰》" width="351" height="711" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/142efe4c932243428d8d5eaae9d22629" alt="《o2o附近的商家功能常見的演算法：geohash和spatial4j調試實戰》" width="351" height="711" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>2、方法一、查詢附近的1km的用</strong>spatial4j實現</p>
+<p>A、首先引入jar包：</p>
+<pre> &lt;dependency&gt;<br> &lt;groupId&gt;com.spatial4j&lt;/groupId&gt;<br> &lt;artifactId&gt;spatial4j&lt;/artifactId&gt;<br> &lt;version&gt;0.5&lt;/version&gt;<br> &lt;/dependency&gt;</pre>
+
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/f2ce9514a17f438b8976d7991e294004" alt="《o2o附近的商家功能常見的演算法：geohash和spatial4j調試實戰》" width="567" height="162" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/f2ce9514a17f438b8976d7991e294004" alt="《o2o附近的商家功能常見的演算法：geohash和spatial4j調試實戰》" width="567" height="162" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>B、計算四個點的的值</p>
+<pre>public static void main(String[] args) {<br> //起始點經緯度<br> double lon = 116.312528, lat = 39.983733;<br> // 千米<br> int radius = 1;<br> SpatialContext geo = SpatialContext.GEO;<br> Rectangle rectangle = geo.getDistCalc().calcBoxByDistFromPt(<br> geo.makePoint(lon, lat), <br> radius * DistanceUtils.KM_TO_DEG, geo, null);<br><br> System.out.println(rectangle.getMinX() + <br> "-" + rectangle.getMaxX());// 經度範圍<br> System.out.println(rectangle.getMinY() + <br> "-" + rectangle.getMaxY());// 緯度範圍<br> }</pre>
+
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/18ae5c4daf46434f96a66ef1f3336996" alt="《o2o附近的商家功能常見的演算法：geohash和spatial4j調試實戰》" width="640" height="515" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/18ae5c4daf46434f96a66ef1f3336996" alt="《o2o附近的商家功能常見的演算法：geohash和spatial4j調試實戰》" width="640" height="515" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>C、根據範圍，在資料庫中查找即可，查到附近1km的數據。當然，經緯度最好做聯合索引。這兩個數據是上面算出來的。</p>
+<pre>SELECT id, merchant_name<br>FROM merchant<br>WHERE (longitude BETWEEN ? AND ?) AND (latitude BETWEEN ? AND ?);</pre>
+<p><strong>3、根據geohash查詢。此時會用到geo_code 欄位。</strong></p>
+<p><strong>A、引入geohash的jar包</strong></p>
+<pre>&lt;!-- https://mvnrepository.com/artifact/ch.hsr/geohash --&gt;<br>&lt;dependency&gt;<br> &lt;groupId&gt;ch.hsr&lt;/groupId&gt;<br> &lt;artifactId&gt;geohash&lt;/artifactId&gt;<br> &lt;version&gt;1.3.0&lt;/version&gt;<br>&lt;/dependency&gt;<br></pre>
+
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/46fe9f69c4d1456eb53c3c47e18393bb" alt="《o2o附近的商家功能常見的演算法：geohash和spatial4j調試實戰》" width="429" height="145" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/46fe9f69c4d1456eb53c3c47e18393bb" alt="《o2o附近的商家功能常見的演算法：geohash和spatial4j調試實戰》" width="429" height="145" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>B、對照geohash的長度對應範圍表，我們可以知道，查詢附近1km的數據，只要長度是5就可以了。具體計算，GeohashUtils.encodeLatLon(lat, lon, 5)，代入底線sql即可。</p>
+<pre>SELECT id, merchant_name<br>FROM merchant<br>WHERE geo_code LIKE CONCAT(?, '%');</pre>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/29307c484b434d9185d0b082b0334b99" alt="《o2o附近的商家功能常見的演算法：geohash和spatial4j調試實戰》" width="302" height="388" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/29307c484b434d9185d0b082b0334b99" alt="《o2o附近的商家功能常見的演算法：geohash和spatial4j調試實戰》" width="302" height="388" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>C、但geohash有邊界問題誤差。因為geohash是某個區域的共同的hash，索引邊界以外的距離很近的點可能造成geohash完全不同，那麼怎麼辦呢？其實也不難解決，你這個時候把周圍的八個區域的geohash都算出來即可。</strong></p>
+<pre>public static void main(String[] args) {<br> // 移動設備經緯度<br> double lon = 116.312528, lat = 39.983733;<br> GeoHash geoHash = GeoHash.<br> withCharacterPrecision<br> (lat, lon, 6);<br> // 當前<br> System.out.println(geoHash.toBase32());<br> // N, NE, E, SE, S, SW, W, NW<br> System.out.println("---------------------------");<br> //東南西北，東北、西北、東南、西南等<br> GeoHash[] adjacent = geoHash.getAdjacent();<br> for (GeoHash hash : adjacent) {<br> System.out.println(hash.toBase32());<br> }<br> }</pre>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/a7bae646a14f4ed08a5ab21a2c37a5e2" alt="《o2o附近的商家功能常見的演算法：geohash和spatial4j調試實戰》" width="190" height="218" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/a7bae646a14f4ed08a5ab21a2c37a5e2" alt="《o2o附近的商家功能常見的演算法：geohash和spatial4j調試實戰》" width="190" height="218" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/78a87323d0d743d0a5ed608c77001d30" alt="《o2o附近的商家功能常見的演算法：geohash和spatial4j調試實戰》" width="640" height="756" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/78a87323d0d743d0a5ed608c77001d30" alt="《o2o附近的商家功能常見的演算法：geohash和spatial4j調試實戰》" width="640" height="756" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>D、mysql查詢，查詢出這幾個區域的商家即可<strong>，geohash邊界問題就可以解決。</strong></p>
+<pre>SELECT id, merchant_name<br>FROM merchant<br>WHERE geo_code IN (?, ?, ?, ?, ?, ?, ?, ?, ?);</pre>
+<h2>結語</h2>
+<p>o2o中最常見的應用場景就是附近的商家，希望此篇文章對於o2o的同學有些幫助。覺得有用就點個贊轉發一下吧。</p>
+<h2>另外我還調試了其他很多開源項目</h2>
+<p><a class="pgc-link" data-content="mp" href="https://www.toutiao.com/i6746562213982503428/?group_id=6746562213982503428" target="_blank">Java 開源的基於微服務 Spring cloud 快速開發腳手架調試實戰</a></p>
+<p><a class="pgc-link" data-content="mp" href="https://www.toutiao.com/i6748783442067997198/?group_id=6748783442067997198" target="_blank">超好用的 Java 開源 驗證碼 神器</a></p>
+<p><a class="pgc-link" data-content="mp" href="https://www.toutiao.com/i6739121901391577613/?group_id=6739121901391577613" target="_blank">Java 搭建的開源的spring boot商城系統實戰</a></p>
+<p><a class="pgc-link" data-content="mp" href="https://www.toutiao.com/i6763979893676966407/?group_id=6763979893676966407" target="_blank">前後端分離的開源在線考試系統調試實戰</a></p>
+<p><a class="pgc-link" data-content="mp" href="https://www.toutiao.com/i6758058868175012366/?group_id=6758058868175012366" target="_blank">調試個開源Java 輕量級高性能IM，單機支持幾十萬至百萬在線用戶</a></p>
+<p><a class="pgc-link" data-content="mp" href="https://www.toutiao.com/i6744696995924935172/?group_id=6744696995924935172" target="_blank">Java 百分之百開源 CMS 系統項目調試實戰</a></p>
+<p><a class="pgc-link" data-content="mp" href="https://www.toutiao.com/i6759523985941070344/?group_id=6759523985941070344" target="_blank">前端牛人寫的開源的CMS系統調試實戰，流體布局兼容手機端瀏覽器</a></p>
+<p>覺得有用可以給個關注哦</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/10270#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.212 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:32:07 -->
+
+<!-- super cache -->

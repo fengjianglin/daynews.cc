@@ -1,0 +1,450 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>C++:為何不建議用string作為函數參數 - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="在C++中，函數形參一般帶「&amp;」和「*」，例如：int*、char*、int&amp;等。這是為什麼呢？此處以常用的string字元串數據類型來引入今天要講的話題； 在C語言中是沒有字元串這個數據類型的，C++在C語言的基礎上升級了string類。如果很多從CSharp、Java等高級語言轉C++的開發人員在用字元串做函數參數的時……" />
+		<meta name="keywords" content="C++:為何不建議用string作為函數參數 - 天天要聞,科技," />
+		<meta itemprop="image" content="http://p1.pstatp.com/large/pgc-image/22e22beb82184a4c85960abdb6968c62"/>
+		<meta name="description" itemprop="description" content="在C++中，函數形參一般帶「&amp;」和「*」，例如：int*、char*、int&amp;等。這是為什麼呢？此處以常用的string字元串數據類型來引入今天要講的話題； 在C語言中是沒有字元串這個數據類型的，C++在C語言的基礎上升級了string類。如果很多從CSharp、Java等高級語言轉C++的開發人員在用字元串做函數參數的時……" />
+		
+<!-- This site is optimized with the SEO -->
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="https://daynews.cc/technology/9569" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="C++:為何不建議用string作為函數參數 - 天天要聞" />
+<meta property="og:description" content="在C++中，函數形參一般帶「&amp;」和「*」，例如：int*、char*、int&amp;等。這是為什麼呢？此處以常用的string字元串數據類型來引入今天要講的話題； 在C語言中是沒有字元串這個數據類型的，C++在C語言的基礎上升級了string類。如果很多從CSharp、Java等高級語言轉C++的開發人員在用字元串做函數參數的時……" />
+<meta property="og:url" content="https://daynews.cc/technology/9569" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-10T15:55:10+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="在C++中，函數形參一般帶「&amp;」和「*」，例如：int*、char*、int&amp;等。這是為什麼呢？此處以常用的string字元串數據類型來引入今天要講的話題； 在C語言中是沒有字元串這個數據類型的，C++在C語言的基礎上升級了string類。如果很多從CSharp、Java等高級語言轉C++的開發人員在用字元串做函數參數的時……" />
+<meta name="twitter:title" content="C++:為何不建議用string作為函數參數 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/22e22beb82184a4c85960abdb6968c62" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/9569#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/22e22beb82184a4c85960abdb6968c62"},{"@type":"WebPage","@id":"https://daynews.cc/technology/9569#webpage","url":"https://daynews.cc/technology/9569","inLanguage":"zh-TW","name":"C++:\u70ba\u4f55\u4e0d\u5efa\u8b70\u7528string\u4f5c\u70ba\u51fd\u6578\u53c3\u6578 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/9569#primaryimage"},"datePublished":"2019-12-10T15:55:10+00:00","dateModified":"2019-12-10T15:55:10+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<!-- / SEO. -->
+
+<link rel='stylesheet' id='animate-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/animate.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/bootstrap.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/superfish.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/layer.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='https://daynews.cc/wp-content/themes/Kratos/style.css' type='text/css' media='all' />
+<link rel="amphtml" href="https://daynews.cc/technology/9569/amp">		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.min.js'></script>
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154709495-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-154709495-1');
+		</script>
+		<!-- Google Adsense -->
+		<script data-ad-client="ca-pub-8261739837930821" async 
+			src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="https://daynews.cc"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="/">首頁</a></li>
+<li><a href="/entertainment">娛樂</a></li>
+<li><a href="/emotion">情感</a></li>
+<li><a href="https://daynews.cc/international">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="https://daynews.cc/technology">科技</a></li>
+<li><a href="/sports">體育</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/nba">NBA</a></li>
+	<li><a href="/premier">英超</a></li>
+</ul>
+</li>
+<li><a href="/history">歷史</a></li>
+<li><a href="/game">遊戲</a></li>
+<li><a href="https://daynews.cc/health">養生</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/lose">減肥</a></li>
+</ul>
+</li>
+<li><a href="https://daynews.cc/constellation">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">C++:為何不建議用string作為函數參數</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-10				                <i class="fa fa-commenting-o"></i> 1,850條評論
+				                <i class="fa fa-eye"></i> 3,886次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 1942人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+<p>在C++中，函數形參一般帶「&amp;」和「*」，例如：int*、char*、int&amp;等。這是為什麼呢？此處以常用的string字元串數據類型來引入今天要講的話題；</p>
+<p>在C語言中是沒有字元串這個數據類型的，C++在C語言的基礎上升級了string類。如果很多從CSharp、Java等高級語言轉C++的開發人員在用字元串做函數參數的時候都會很自然的用string類型，但是作為正宗的C++開發者都會建議你不要用string類型作為函數參數。</p>
+<h2 class="pgc-h-arrow-right">CSharp的數據類型</h2>
+<p>CSharp裡面把數據類型分為兩大類，值類型和引用類型；值類型包括基本數據類型(int ,double等)，結構和枚舉；引用類型包括介面，數組，Object類型，類，委託，字元串，null類型等；一般來說，結構體類型的數據就是值類型，而類構造的數據就是引用類型；</p>
+<p>引用類型和值類型都繼承自System.Object類。不同的是，幾乎所有的引用類型都直接從System.Object繼承，而值類型則繼承其子類，即直接繼承System.ValueType。</p>
+<p>請看下面這段代碼：</p>
+<pre> public class People<br> {<br> public string Name { get; set; }<br> public int Age { get; set; }<br> public void reset(string name, int age)<br> {<br> name = "xiaoli";<br> age = 200;<br> }<br> public void reset(People p)<br> {<br> p.Name = "xiaoli";<br> p.Age = 200;<br> }<br> }<br> class Program<br> {<br> static void Main(string[] args)<br> {<br> string name = "xiaoming";<br> int age = 100;<br> People p = new People();<br> p.Name = name;<br> p.Age = age;<br> People p2 = new People();<br> p2.Name = "xiaohua";<br> p2.Age = 90;<br> Console.WriteLine(p.Name);<br> Console.WriteLine(p.Age);<br> p.reset(name,age);<br> Console.WriteLine(name);<br> Console.WriteLine(age);<br> p.reset(p);<br> Console.WriteLine(p.Name);<br> Console.WriteLine(p.Age);<br> Console.Read();<br> }</pre>
+<p>運行結果為：</p>
+<pre>xiaoming<br>100<br>xiaoming<br>100<br>xiaoli<br>200</pre>
+<p>int類型為值類型，形參是不能改變實參的值的，但是People是引用類型，形參可以改變實參的值。引用類型指向的其實是一個內存地址，string 雖然是引用類型 不過是不可變的。</p>
+<p>但是CSharp提供ref關鍵字來使得值類型的實參在傳遞時也可以被修改</p>
+<pre>public class People<br> {<br> public string Name { get; set; }<br> public int Age { get; set; }<br> public void reset(ref string name, ref int age)<br> {<br> name = "xiaoli";<br> age = 200;<br> }<br> public void reset(ref People p)<br> {<br> p.Name = "xiaoli";<br> p.Age = 200;<br> }<br> }<br> class Program<br> {<br> static void Main(string[] args)<br> {<br> string name = "xiaoming";<br> int age = 100;<br> People p = new People();<br> p.Name = name;<br> p.Age = age;<br> People p2 = new People();<br> p2.Name = "xiaohua";<br> p2.Age = 90;<br> Console.WriteLine(p.Name);<br> Console.WriteLine(p.Age);<br> p.reset(ref name,ref age);<br> Console.WriteLine(name);<br> Console.WriteLine(age);<br> p.reset(ref p);<br> Console.WriteLine(p.Name);<br> Console.WriteLine(p.Age);<br> Console.Read();<br> }<br> }</pre>
+<h2 class="pgc-h-arrow-right">為何C++函數參數都帶*或者&amp;</h2>
+<p>前面通過CSharp講到數據分值類型和引用類型，在C++中，引用類型是要顯示定義的。</p>
+<pre>int n;<br>int&amp; r = n;</pre>
+<p>如果在函數參數傳遞時，形參不聲明為引用類型，參數傳遞方式是傳值的。傳引用的方式要求函數的形參是引用。</p>
+<p>那究竟形參帶&amp;與不帶有什麼區別呢？</p>
+<pre>void func(int&amp; i){i = 110 ;}<br>void func2(int i){i = 110 ;}<br>void main()<br>{<br>	int n = 200 ;<br>	int n2 = 300 ;<br>	func(n);<br>	func2(n2);<br>	cout&lt;&lt;n&lt;&lt;endl;<br>	cout&lt;&lt;n2&lt;&lt;endl;<br>	system("pause");<br>}</pre>
+<p><strong>首先看運行結果：</strong></p>
+<pre>110<br>300</pre>
+<p><strong>再看彙編的區別：</strong></p>
+<pre>	func(n);<br>00C4443C lea eax,[n] <br>00C4443F push eax <br>00C44440 call func (0C41271h) <br>00C44445 add esp,4 <br>	func2(n2);<br>00C44448 mov eax,dword ptr [n2] <br>00C4444B push eax <br>00C4444C call func2 (0C4143Dh) <br>00C44451 add esp,4 </pre>
+<p>先說一下幾個指令：</p>
+<p>lea：load effective address, 載入有效地址，可以將有效地址傳送到指定的的寄存器；</p>
+<p>mov：在CPU內或CPU和存儲器之間傳送字或位元組</p>
+<p>push：入棧</p>
+<p>從上面運行結果和彙編代碼來看，當採用引用類型作為形參時，它將變為實參列表中相應變數的別名，對形參進行的任何更改都將真正更改正在調用它的函數中的變數。引用變數本身並不需要分配內存，而是直接對被引用對象取的別名；</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/22e22beb82184a4c85960abdb6968c62" src="http://p1.pstatp.com/large/pgc-image/22e22beb82184a4c85960abdb6968c62" alt="《C++:為何不建議用string作為函數參數》" /></p>
+<p class="pgc-img-caption">引用變數示意</p>
+</p>
+</div>
+<p><strong>當採用值傳遞方式時：當函數被調用時，在「棧」中就會分配出一塊新的存儲空間，用來存放形參和函數中定義的變數（局部變數）。實參的值會被複制到棧中存放對應形參的地方，所以形參的值才等於實參。函數執行過程中對形參的修改，其實只是修改了實參的一個拷貝，因此不會影響實參。</strong></p>
+<h2 class="pgc-h-arrow-right">好處</h2>
+<p>從彙編代碼可以看出，普通值傳遞的傳參方式，是需要複製實參的，然後將實參的賦本傳遞給形參。而引用傳參方式直接取實參的有效地址，所以在運行效率上引用傳參速度更快更節省內存開銷。實參對象所佔內存越大，開銷越大，對效率的影響也越大；</p>
+<h2 class="pgc-h-arrow-right">指針傳遞（地址調用）</h2>
+<p>還有一種方式也能避免普通值傳參方式的大開銷和低效率問題，那就是直接將對象的地址傳遞給形參。</p>
+<pre>void func(int&amp; i){i = 110 ;}<br>void func2(int i){i = 110 ;}<br>void func3(int* i){*i = 110 ;}<br>void main()<br>{<br>	int n = 200 ;<br>	int n2 = 300 ;<br>	int n3 = 400 ;<br>	int* n4 = &amp;n3 ; <br>	func(n);<br>	func2(n2);<br>	func3(&amp;n3);<br>	func3(n4);<br>	cout&lt;&lt;n&lt;&lt;endl;<br>	cout&lt;&lt;n2&lt;&lt;endl;<br>	cout&lt;&lt;n3&lt;&lt;endl;<br>	system("pause");<br>}</pre>
+<p>查看彙編代碼：</p>
+<pre>	func(n);<br>00327009 lea eax,[n] <br>0032700C push eax <br>0032700D call func (0321271h) <br>00327012 add esp,4 <br>	func2(n2);<br>00327015 mov eax,dword ptr [n2] <br>00327018 push eax <br>00327019 call func2 (032143Dh) <br>0032701E add esp,4 <br>	func3(&amp;n3);<br>00327021 lea eax,[n3] <br>00327024 push eax <br>00327025 call func3 (0321442h) <br>0032702A add esp,4 <br>	func3(n4);<br>0032702D mov eax,dword ptr [n4] <br>00327030 push eax <br>00327031 call func3 (0321442h) <br>00327036 add esp,4 </pre>
+<p>從上述彙編代碼可以看出func3(n4);本質上是值傳遞，它所傳遞的是一個地址值，不管其所指向的對象如何，其在函數調用時複製的只是一個四位元組的地址而已，對內存開銷和效率影響不大。而func3(&amp;n3);卻又是引用傳參方式。</p>
+<h2 class="pgc-h-arrow-right">如何避免實參被修改</h2>
+<p>有沒有什麼辦法既保證效率又保證實參的安全性？既然不想實參在函數調用過程中被修改，那麼C++有一個關鍵字&#8211;const可以達到目的。</p>
+<pre>void func(const int&amp; i){i = 110 ;}<br>void func3(const int* i){*i = 110 ;}</pre>
+<p>上述兩個方法體的代碼都會報錯：表達式必須是可修改的左值。</p>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="9569" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/9569"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/9569";
+		var title='%E3%80%90C%2B%2B%3A%E7%82%BA%E4%BD%95%E4%B8%8D%E5%BB%BA%E8%AD%B0%E7%94%A8string%E4%BD%9C%E7%82%BA%E5%87%BD%E6%95%B8%E5%8F%83%E6%95%B8%E3%80%91';
+		var qqtitle='%E3%80%90C%2B%2B%3A%E7%82%BA%E4%BD%95%E4%B8%8D%E5%BB%BA%E8%AD%B0%E7%94%A8string%E4%BD%9C%E7%82%BA%E5%87%BD%E6%95%B8%E5%8F%83%E6%95%B8%E3%80%91';
+		var excerpt='%E5%9C%A8C%2B%2B%E4%B8%AD%EF%BC%8C%E5%87%BD%E6%95%B8%E5%BD%A2%E5%8F%83%E4%B8%80%E8%88%AC%E5%B8%B6%E3%80%8C%26amp%3B%E3%80%8D%E5%92%8C%E3%80%8C%2A%E3%80%8D%EF%BC%8C%E4%BE%8B%E5%A6%82%EF%BC%9Aint%2A%E3%80%81char%2A%E3%80%81int%26amp%3B%E7%AD%89%E3%80%82%E9%80%99%E6%98%AF%E7%82%BA%E4%BB%80%E9%BA%BC%E5%91%A2%EF%BC%9F%E6%AD%A4%E8%99%95%E4%BB%A5%E5%B8%B8%E7%94%A8%E7%9A%84string%E5%AD%97%E5%85%83%E4%B8%B2%E6%95%B8%E6%93%9A%E9%A1%9E%E5%9E%8B%E4%BE%86%E5%BC%95%E5%85%A5%E4%BB%8A%E5%A4%A9%E8%A6%81%E8%AC%9B%E7%9A%84%E8%A9%B1%E9%A1%8C%EF%BC%9B%20%E5%9C%A8C%E8%AA%9E%E8%A8%80%E4%B8%AD%E6%98%AF%E6%B2%92%E6%9C%89%E5%AD%97%E5%85%83%E4%B8%B2%E9%80%99%E5%80%8B%E6%95%B8%E6%93%9A%E9%A1%9E%E5%9E%8B%E7%9A%84%EF%BC%8CC%2B%2B%E5%9C%A8C%E8%AA%9E%E8%A8%80%E7%9A%84%E5%9F%BA%E7%A4%8E%E4%B8%8A%E5%8D%87%E7%B4%9A%E4%BA%86string%E9%A1%9E%E3%80%82%E5%A6%82%E6%9E%9C%E5%BE%88%E5%A4%9A%E5%BE%9ECSharp%E3%80%81Java%E7%AD%89%E9%AB%98%E7%B4%9A%E8%AA%9E%E8%A8%80%E8%BD%89C%2B%2B%E7%9A%84%E9%96%8B%E7%99%BC%E4%BA%BA%E5%93%A1%E5%9C%A8%E7%94%A8%E5%AD%97%E5%85%83%E4%B8%B2%E5%81%9A%E5%87%BD%E6%95%B8%E5%8F%83%E6%95%B8%E7%9A%84%E6%99%82%E2%80%A6%E2%80%A6';
+		var wbexcerpt='%E5%9C%A8C%2B%2B%E4%B8%AD%EF%BC%8C%E5%87%BD%E6%95%B8%E5%BD%A2%E5%8F%83%E4%B8%80%E8%88%AC%E5%B8%B6%E3%80%8C%26amp%3B%E3%80%8D%E5%92%8C%E3%80%8C%2A%E3%80%8D%EF%BC%8C%E4%BE%8B%E5%A6%82%EF%BC%9Aint%2A%E3%80%81char%2A%E3%80%81int%26amp%3B%E7%AD%89%E3%80%82%E9%80%99%E6%98%AF%E7%82%BA%E4%BB%80%E9%BA%BC%E5%91%A2%EF%BC%9F%E6%AD%A4%E8%99%95%E4%BB%A5%E5%B8%B8%E7%94%A8%E7%9A%84string%E5%AD%97%E5%85%83%E4%B8%B2%E6%95%B8%E6%93%9A%E9%A1%9E%E5%9E%8B%E4%BE%86%E5%BC%95%E5%85%A5%E4%BB%8A%E5%A4%A9%E8%A6%81%E8%AC%9B%E7%9A%84%E8%A9%B1%E9%A1%8C%EF%BC%9B%20%E5%9C%A8C%E8%AA%9E%E8%A8%80%E4%B8%AD%E6%98%AF%E6%B2%92%E6%9C%89%E5%AD%97%E5%85%83%E4%B8%B2%E9%80%99%E5%80%8B%E6%95%B8%E6%93%9A%E9%A1%9E%E5%9E%8B%E7%9A%84%EF%BC%8CC%2B%2B%E5%9C%A8C%E8%AA%9E%E8%A8%80%E7%9A%84%E5%9F%BA%E7%A4%8E%E4%B8%8A%E5%8D%87%E7%B4%9A%E4%BA%86string%E9%A1%9E%E3%80%82%E5%A6%82%E6%9E%9C%E5%BE%88%E5%A4%9A%E5%BE%9ECSharp%E3%80%81Java%E7%AD%89%E9%AB%98%E7%B4%9A%E8%AA%9E%E8%A8%80%E8%BD%89C%2B%2B%E7%9A%84%E9%96%8B%E7%99%BC%E4%BA%BA%E5%93%A1%E5%9C%A8%E7%94%A8%E5%AD%97%E5%85%83%E4%B8%B2%E5%81%9A%E5%87%BD%E6%95%B8%E5%8F%83%E6%95%B8%E7%9A%84%E6%99%82%E2%80%A6%E2%80%A6';
+		var pic="http://p1.pstatp.com/large/pgc-image/22e22beb82184a4c85960abdb6968c62";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="長城郭岩松聊智能化：萬物互聯從一個平台開始" href="https://daynews.cc/technology/9570">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="刺激！上市2天翻倍，國產晶元核心固件供應商，英特爾是其客戶.." href="https://daynews.cc/technology/9568">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="/technology/9569#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='9569' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼" href="https://daynews.cc/constellation/20739" rel="bookmark"><i class="fa  fa-book"></i> 伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼                            </a>
+                            <a class="list-group-item visible-md" title="伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼" href="https://daynews.cc/constellation/20739" rel="bookmark"><i class="fa  fa-book"></i> 伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼                            </a>
+                                                    <a class="list-group-item visible-lg" title="12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪" href="https://daynews.cc/constellation/20740" rel="bookmark"><i class="fa  fa-book"></i> 12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪                            </a>
+                            <a class="list-group-item visible-md" title="12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪" href="https://daynews.cc/constellation/20740" rel="bookmark"><i class="fa  fa-book"></i> 12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪                            </a>
+                                                    <a class="list-group-item visible-lg" title="十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮" href="https://daynews.cc/constellation/20741" rel="bookmark"><i class="fa  fa-book"></i> 十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮                            </a>
+                            <a class="list-group-item visible-md" title="十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮" href="https://daynews.cc/constellation/20741" rel="bookmark"><i class="fa  fa-book"></i> 十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮                            </a>
+                                                    <a class="list-group-item visible-lg" title="小聶：跑動中的腰腹力量如何運用" href="https://daynews.cc/lose/20597" rel="bookmark"><i class="fa  fa-book"></i> 小聶：跑動中的腰腹力量如何運用                            </a>
+                            <a class="list-group-item visible-md" title="小聶：跑動中的腰腹力量如何運用" href="https://daynews.cc/lose/20597" rel="bookmark"><i class="fa  fa-book"></i> 小聶：跑動中的腰腹力量如何運用                            </a>
+                                                    <a class="list-group-item visible-lg" title="小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力" href="https://daynews.cc/lose/20598" rel="bookmark"><i class="fa  fa-book"></i> 小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力                            </a>
+                            <a class="list-group-item visible-md" title="小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力" href="https://daynews.cc/lose/20598" rel="bookmark"><i class="fa  fa-book"></i> 小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力                            </a>
+                                                    <a class="list-group-item visible-lg" title="十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古" href="https://daynews.cc/history/19786" rel="bookmark"><i class="fa  fa-book"></i> 十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古                            </a>
+                            <a class="list-group-item visible-md" title="十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古" href="https://daynews.cc/history/19786" rel="bookmark"><i class="fa  fa-book"></i> 十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古                            </a>
+                                                    <a class="list-group-item visible-lg" title="當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？" href="https://daynews.cc/history/19787" rel="bookmark"><i class="fa  fa-book"></i> 當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？                            </a>
+                            <a class="list-group-item visible-md" title="當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？" href="https://daynews.cc/history/19787" rel="bookmark"><i class="fa  fa-book"></i> 當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？                            </a>
+                                                    <a class="list-group-item visible-lg" title="春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？" href="https://daynews.cc/history/19789" rel="bookmark"><i class="fa  fa-book"></i> 春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？                            </a>
+                            <a class="list-group-item visible-md" title="春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？" href="https://daynews.cc/history/19789" rel="bookmark"><i class="fa  fa-book"></i> 春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？                            </a>
+                                                    <a class="list-group-item visible-lg" title="軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸" href="https://daynews.cc/history/19788" rel="bookmark"><i class="fa  fa-book"></i> 軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸                            </a>
+                            <a class="list-group-item visible-md" title="軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸" href="https://daynews.cc/history/19788" rel="bookmark"><i class="fa  fa-book"></i> 軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸                            </a>
+                                                    <a class="list-group-item visible-lg" title="劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？" href="https://daynews.cc/history/19790" rel="bookmark"><i class="fa  fa-book"></i> 劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？                            </a>
+                            <a class="list-group-item visible-md" title="劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？" href="https://daynews.cc/history/19790" rel="bookmark"><i class="fa  fa-book"></i> 劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-md" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-lg" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a><a class="list-group-item visible-md" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a><a class="list-group-item visible-lg" title="最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？" href="https://daynews.cc/international/18303" rel="bookmark"><i class="fa  fa-book"></i> 最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？</a><a class="list-group-item visible-md" title="最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？" href="https://daynews.cc/international/18303" rel="bookmark"><i class="fa  fa-book"></i> 最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？</a><a class="list-group-item visible-lg" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="https://daynews.cc/entertainment/10879" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-md" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="https://daynews.cc/entertainment/10879" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-lg" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="https://daynews.cc/technology/10158" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-md" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="https://daynews.cc/technology/10158" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-lg" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="https://daynews.cc/game/13764" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-md" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="https://daynews.cc/game/13764" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-lg" title="這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩" href="https://daynews.cc/lose/20687" rel="bookmark"><i class="fa  fa-book"></i> 這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩</a><a class="list-group-item visible-md" title="這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩" href="https://daynews.cc/lose/20687" rel="bookmark"><i class="fa  fa-book"></i> 這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩</a><a class="list-group-item visible-lg" title="夢三國：路人戰力匹配中最值得玩的輔助英雄推薦" href="https://daynews.cc/game/20261" rel="bookmark"><i class="fa  fa-book"></i> 夢三國：路人戰力匹配中最值得玩的輔助英雄推薦</a><a class="list-group-item visible-md" title="夢三國：路人戰力匹配中最值得玩的輔助英雄推薦" href="https://daynews.cc/game/20261" rel="bookmark"><i class="fa  fa-book"></i> 夢三國：路人戰力匹配中最值得玩的輔助英雄推薦</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="球星篇：落選草根矮個子中鋒硬剛奧尼爾？移動金鐘-----本.華萊士" href="https://daynews.cc/nba/6186" rel="bookmark"><i class="fa  fa-book"></i> 球星篇：落選草根矮個子中鋒硬剛奧尼爾？移動金鐘-----本.華萊士                            </a>
+                            <a class="list-group-item visible-md" title="球星篇：落選草根矮個子中鋒硬剛奧尼爾？移動金鐘-----本.華萊士" href="https://daynews.cc/nba/6186" rel="bookmark"><i class="fa  fa-book"></i> 球星篇：落選草根矮個子中鋒硬剛奧尼爾？移動金鐘-----本.華萊士                            </a>
+                                                    <a class="list-group-item visible-lg" title="上世紀，在漢墓發現一堆竹簡，翻譯成書後，西方專家大呼不可能" href="https://daynews.cc/history/13632" rel="bookmark"><i class="fa  fa-book"></i> 上世紀，在漢墓發現一堆竹簡，翻譯成書後，西方專家大呼不可能                            </a>
+                            <a class="list-group-item visible-md" title="上世紀，在漢墓發現一堆竹簡，翻譯成書後，西方專家大呼不可能" href="https://daynews.cc/history/13632" rel="bookmark"><i class="fa  fa-book"></i> 上世紀，在漢墓發現一堆竹簡，翻譯成書後，西方專家大呼不可能                            </a>
+                                                    <a class="list-group-item visible-lg" title="因扎吉：一個將機會主義詮釋到極致的超級美男子" href="https://daynews.cc/sports/11140" rel="bookmark"><i class="fa  fa-book"></i> 因扎吉：一個將機會主義詮釋到極致的超級美男子                            </a>
+                            <a class="list-group-item visible-md" title="因扎吉：一個將機會主義詮釋到極致的超級美男子" href="https://daynews.cc/sports/11140" rel="bookmark"><i class="fa  fa-book"></i> 因扎吉：一個將機會主義詮釋到極致的超級美男子                            </a>
+                                                    <a class="list-group-item visible-lg" title="3戰輸74分戰績倒數第二，囤積1狀元2榜眼1探花擺爛，這教練該裁" href="https://daynews.cc/nba/5985" rel="bookmark"><i class="fa  fa-book"></i> 3戰輸74分戰績倒數第二，囤積1狀元2榜眼1探花擺爛，這教練該裁                            </a>
+                            <a class="list-group-item visible-md" title="3戰輸74分戰績倒數第二，囤積1狀元2榜眼1探花擺爛，這教練該裁" href="https://daynews.cc/nba/5985" rel="bookmark"><i class="fa  fa-book"></i> 3戰輸74分戰績倒數第二，囤積1狀元2榜眼1探花擺爛，這教練該裁                            </a>
+                                                    <a class="list-group-item visible-lg" title="60歲倪萍《我就是演員》中演技炸裂，國民主持人原來也是老戲骨" href="https://daynews.cc/entertainment/10931" rel="bookmark"><i class="fa  fa-book"></i> 60歲倪萍《我就是演員》中演技炸裂，國民主持人原來也是老戲骨                            </a>
+                            <a class="list-group-item visible-md" title="60歲倪萍《我就是演員》中演技炸裂，國民主持人原來也是老戲骨" href="https://daynews.cc/entertainment/10931" rel="bookmark"><i class="fa  fa-book"></i> 60歲倪萍《我就是演員》中演技炸裂，國民主持人原來也是老戲骨                            </a>
+                                                    <a class="list-group-item visible-lg" title="接班武磊？賽季首個10分球員自曝使用說明書，有他未來可期" href="https://daynews.cc/sports/2825" rel="bookmark"><i class="fa  fa-book"></i> 接班武磊？賽季首個10分球員自曝使用說明書，有他未來可期                            </a>
+                            <a class="list-group-item visible-md" title="接班武磊？賽季首個10分球員自曝使用說明書，有他未來可期" href="https://daynews.cc/sports/2825" rel="bookmark"><i class="fa  fa-book"></i> 接班武磊？賽季首個10分球員自曝使用說明書，有他未來可期                            </a>
+                                                    <a class="list-group-item visible-lg" title="巴薩想硬扛？切爾西王牌因一人進入視野，巴薩還得賣人“填坑”" href="https://daynews.cc/premier/19648" rel="bookmark"><i class="fa  fa-book"></i> 巴薩想硬扛？切爾西王牌因一人進入視野，巴薩還得賣人“填坑”                            </a>
+                            <a class="list-group-item visible-md" title="巴薩想硬扛？切爾西王牌因一人進入視野，巴薩還得賣人“填坑”" href="https://daynews.cc/premier/19648" rel="bookmark"><i class="fa  fa-book"></i> 巴薩想硬扛？切爾西王牌因一人進入視野，巴薩還得賣人“填坑”                            </a>
+                                                    <a class="list-group-item visible-lg" title="科技股大主線 未來十倍股的搖籃..." href="https://daynews.cc/technology/10178" rel="bookmark"><i class="fa  fa-book"></i> 科技股大主線 未來十倍股的搖籃...                            </a>
+                            <a class="list-group-item visible-md" title="科技股大主線 未來十倍股的搖籃..." href="https://daynews.cc/technology/10178" rel="bookmark"><i class="fa  fa-book"></i> 科技股大主線 未來十倍股的搖籃...                            </a>
+                                                    <a class="list-group-item visible-lg" title="王者榮耀：來自我的王者人生以及意外擁有艾琳的詳細過程" href="https://daynews.cc/game/14168" rel="bookmark"><i class="fa  fa-book"></i> 王者榮耀：來自我的王者人生以及意外擁有艾琳的詳細過程                            </a>
+                            <a class="list-group-item visible-md" title="王者榮耀：來自我的王者人生以及意外擁有艾琳的詳細過程" href="https://daynews.cc/game/14168" rel="bookmark"><i class="fa  fa-book"></i> 王者榮耀：來自我的王者人生以及意外擁有艾琳的詳細過程                            </a>
+                                                    <a class="list-group-item visible-lg" title="33歲老將煥發第二春 9投7中止住爵士三連敗 格林：隊友全場在找我" href="https://daynews.cc/sports/2187" rel="bookmark"><i class="fa  fa-book"></i> 33歲老將煥發第二春 9投7中止住爵士三連敗 格林：隊友全場在找我                            </a>
+                            <a class="list-group-item visible-md" title="33歲老將煥發第二春 9投7中止住爵士三連敗 格林：隊友全場在找我" href="https://daynews.cc/sports/2187" rel="bookmark"><i class="fa  fa-book"></i> 33歲老將煥發第二春 9投7中止住爵士三連敗 格林：隊友全場在找我                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="kratos_tags-4" class="widget widget_kratos_tags clearfix"><h4 class="widget-title">標籤</h4><div class="tag_clouds"></div></aside><aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="https://daynews.cc/nba">NBA</a> (1,526)
+</li>
+	<li class="cat-item cat-item-23"><a href="https://daynews.cc/international">國際</a> (2,241)
+</li>
+	<li class="cat-item cat-item-14"><a href="https://daynews.cc/entertainment">娛樂</a> (2,348)
+</li>
+	<li class="cat-item cat-item-15"><a href="https://daynews.cc/emotion">情感</a> (1,582)
+</li>
+	<li class="cat-item cat-item-22"><a href="https://daynews.cc/constellation">星座</a> (1,060)
+</li>
+	<li class="cat-item cat-item-17"><a href="https://daynews.cc/history">歷史</a> (1,759)
+</li>
+	<li class="cat-item cat-item-25"><a href="https://daynews.cc/lose">減肥</a> (495)
+</li>
+	<li class="cat-item cat-item-24"><a href="https://daynews.cc/technology">科技</a> (2,163)
+</li>
+	<li class="cat-item cat-item-19"><a href="https://daynews.cc/premier">英超</a> (1,372)
+</li>
+	<li class="cat-item cat-item-18"><a href="https://daynews.cc/game">遊戲</a> (2,055)
+</li>
+	<li class="cat-item cat-item-21"><a href="https://daynews.cc/health">養生</a> (1,278)
+</li>
+	<li class="cat-item cat-item-16"><a href="https://daynews.cc/sports">體育</a> (2,098)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='https://daynews.cc/date/2019/12'>2019 年 12 月</a>&nbsp;(16975)</li>
+	<li><a href='https://daynews.cc/date/2019/11'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='https://daynews.cc/date/2019/10'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="https://daynews.cc">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.easing.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.qrcode.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/layer.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/modernizr.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.waypoints.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.stellar.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/hoverIntent.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/superfish.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/kratos.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-includes/js/wp-embed.min.js'></script>
+			</body>
+
+</html>
+<!-- Dynamic page generated in 0.427 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 13:58:51 -->
+
+<!-- super cache -->

@@ -1,4004 +1,4004 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="//daynews.cc/wp-content/plugins/wordpress-seo/css/main-sitemap.xsl"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
-		<loc>https://daynews.cc/entertainment/14354.html</loc>
-		<lastmod>2019-12-15T19:40:10+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/entertainment/14353.html</loc>
+		<loc>https://daynews.cc/entertainment/14353</loc>
 		<lastmod>2019-12-15T19:40:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15812.html</loc>
+		<loc>https://daynews.cc/sports/15812</loc>
 		<lastmod>2019-12-15T19:40:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15810.html</loc>
+		<loc>https://daynews.cc/sports/15810</loc>
 		<lastmod>2019-12-15T19:40:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15811.html</loc>
+		<loc>https://daynews.cc/sports/15811</loc>
 		<lastmod>2019-12-15T19:40:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15371.html</loc>
+		<loc>https://daynews.cc/technology/15371</loc>
 		<lastmod>2019-12-15T19:45:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14927.html</loc>
+		<loc>https://daynews.cc/international/14927</loc>
 		<lastmod>2019-12-15T19:45:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14926.html</loc>
+		<loc>https://daynews.cc/international/14926</loc>
 		<lastmod>2019-12-15T19:45:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/lose/17242.html</loc>
+		<loc>https://daynews.cc/lose/17242</loc>
 		<lastmod>2019-12-15T19:45:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17360.html</loc>
+		<loc>https://daynews.cc/constellation/17360</loc>
 		<lastmod>2019-12-15T19:45:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15369.html</loc>
+		<loc>https://daynews.cc/technology/15369</loc>
 		<lastmod>2019-12-15T19:50:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15370.html</loc>
+		<loc>https://daynews.cc/technology/15370</loc>
 		<lastmod>2019-12-15T19:50:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15367.html</loc>
+		<loc>https://daynews.cc/technology/15367</loc>
 		<lastmod>2019-12-15T19:55:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15368.html</loc>
+		<loc>https://daynews.cc/technology/15368</loc>
 		<lastmod>2019-12-15T19:55:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15365.html</loc>
+		<loc>https://daynews.cc/technology/15365</loc>
 		<lastmod>2019-12-15T20:00:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15366.html</loc>
+		<loc>https://daynews.cc/technology/15366</loc>
 		<lastmod>2019-12-15T20:00:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15364.html</loc>
+		<loc>https://daynews.cc/technology/15364</loc>
 		<lastmod>2019-12-15T20:00:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15363.html</loc>
+		<loc>https://daynews.cc/technology/15363</loc>
 		<lastmod>2019-12-15T20:00:15+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14925.html</loc>
+		<loc>https://daynews.cc/international/14925</loc>
 		<lastmod>2019-12-15T20:00:16+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14924.html</loc>
+		<loc>https://daynews.cc/international/14924</loc>
 		<lastmod>2019-12-15T20:00:17+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15362.html</loc>
+		<loc>https://daynews.cc/technology/15362</loc>
 		<lastmod>2019-12-15T20:05:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14923.html</loc>
+		<loc>https://daynews.cc/international/14923</loc>
 		<lastmod>2019-12-15T20:05:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/lose/17241.html</loc>
+		<loc>https://daynews.cc/lose/17241</loc>
 		<lastmod>2019-12-15T20:05:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/lose/17238.html</loc>
+		<loc>https://daynews.cc/lose/17238</loc>
 		<lastmod>2019-12-15T20:05:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/lose/17239.html</loc>
+		<loc>https://daynews.cc/lose/17239</loc>
 		<lastmod>2019-12-15T20:05:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/lose/17240.html</loc>
+		<loc>https://daynews.cc/lose/17240</loc>
 		<lastmod>2019-12-15T20:05:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17359.html</loc>
+		<loc>https://daynews.cc/constellation/17359</loc>
 		<lastmod>2019-12-15T20:05:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17358.html</loc>
+		<loc>https://daynews.cc/constellation/17358</loc>
 		<lastmod>2019-12-15T20:10:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17357.html</loc>
+		<loc>https://daynews.cc/constellation/17357</loc>
 		<lastmod>2019-12-15T20:10:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/health/17146.html</loc>
+		<loc>https://daynews.cc/health/17146</loc>
 		<lastmod>2019-12-15T20:10:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16209.html</loc>
+		<loc>https://daynews.cc/nba/16209</loc>
 		<lastmod>2019-12-15T20:10:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/health/17145.html</loc>
+		<loc>https://daynews.cc/health/17145</loc>
 		<lastmod>2019-12-15T20:10:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16208.html</loc>
+		<loc>https://daynews.cc/nba/16208</loc>
 		<lastmod>2019-12-15T20:10:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16207.html</loc>
+		<loc>https://daynews.cc/nba/16207</loc>
 		<lastmod>2019-12-15T20:10:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16206.html</loc>
+		<loc>https://daynews.cc/nba/16206</loc>
 		<lastmod>2019-12-15T20:10:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16205.html</loc>
+		<loc>https://daynews.cc/nba/16205</loc>
 		<lastmod>2019-12-15T20:15:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16204.html</loc>
+		<loc>https://daynews.cc/nba/16204</loc>
 		<lastmod>2019-12-15T20:15:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16409.html</loc>
+		<loc>https://daynews.cc/premier/16409</loc>
 		<lastmod>2019-12-15T20:15:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16410.html</loc>
+		<loc>https://daynews.cc/premier/16410</loc>
 		<lastmod>2019-12-15T20:15:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16408.html</loc>
+		<loc>https://daynews.cc/premier/16408</loc>
 		<lastmod>2019-12-15T20:15:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16407.html</loc>
+		<loc>https://daynews.cc/premier/16407</loc>
 		<lastmod>2019-12-15T20:15:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16406.html</loc>
+		<loc>https://daynews.cc/premier/16406</loc>
 		<lastmod>2019-12-15T20:15:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16405.html</loc>
+		<loc>https://daynews.cc/premier/16405</loc>
 		<lastmod>2019-12-15T20:20:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16404.html</loc>
+		<loc>https://daynews.cc/premier/16404</loc>
 		<lastmod>2019-12-15T20:20:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16403.html</loc>
+		<loc>https://daynews.cc/premier/16403</loc>
 		<lastmod>2019-12-15T20:20:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16889.html</loc>
+		<loc>https://daynews.cc/game/16889</loc>
 		<lastmod>2019-12-15T20:20:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16888.html</loc>
+		<loc>https://daynews.cc/game/16888</loc>
 		<lastmod>2019-12-15T20:20:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16886.html</loc>
+		<loc>https://daynews.cc/game/16886</loc>
 		<lastmod>2019-12-15T20:20:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16887.html</loc>
+		<loc>https://daynews.cc/game/16887</loc>
 		<lastmod>2019-12-15T20:20:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16885.html</loc>
+		<loc>https://daynews.cc/game/16885</loc>
 		<lastmod>2019-12-15T20:20:15+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16884.html</loc>
+		<loc>https://daynews.cc/game/16884</loc>
 		<lastmod>2019-12-15T20:20:16+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16608.html</loc>
+		<loc>https://daynews.cc/history/16608</loc>
 		<lastmod>2019-12-15T20:25:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16606.html</loc>
+		<loc>https://daynews.cc/history/16606</loc>
 		<lastmod>2019-12-15T20:25:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16607.html</loc>
+		<loc>https://daynews.cc/history/16607</loc>
 		<lastmod>2019-12-15T20:25:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16605.html</loc>
+		<loc>https://daynews.cc/history/16605</loc>
 		<lastmod>2019-12-15T20:25:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16603.html</loc>
+		<loc>https://daynews.cc/history/16603</loc>
 		<lastmod>2019-12-15T20:25:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16604.html</loc>
+		<loc>https://daynews.cc/history/16604</loc>
 		<lastmod>2019-12-15T20:25:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16601.html</loc>
+		<loc>https://daynews.cc/history/16601</loc>
 		<lastmod>2019-12-15T20:25:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16602.html</loc>
+		<loc>https://daynews.cc/history/16602</loc>
 		<lastmod>2019-12-15T20:25:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16600.html</loc>
+		<loc>https://daynews.cc/history/16600</loc>
 		<lastmod>2019-12-15T20:25:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15809.html</loc>
+		<loc>https://daynews.cc/sports/15809</loc>
 		<lastmod>2019-12-15T20:25:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15808.html</loc>
+		<loc>https://daynews.cc/sports/15808</loc>
 		<lastmod>2019-12-15T20:30:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15807.html</loc>
+		<loc>https://daynews.cc/sports/15807</loc>
 		<lastmod>2019-12-15T20:30:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15806.html</loc>
+		<loc>https://daynews.cc/sports/15806</loc>
 		<lastmod>2019-12-15T20:30:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15804.html</loc>
+		<loc>https://daynews.cc/sports/15804</loc>
 		<lastmod>2019-12-15T20:30:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15805.html</loc>
+		<loc>https://daynews.cc/sports/15805</loc>
 		<lastmod>2019-12-15T20:30:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15802.html</loc>
+		<loc>https://daynews.cc/sports/15802</loc>
 		<lastmod>2019-12-15T20:30:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15803.html</loc>
+		<loc>https://daynews.cc/sports/15803</loc>
 		<lastmod>2019-12-15T20:30:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14715.html</loc>
+		<loc>https://daynews.cc/emotion/14715</loc>
 		<lastmod>2019-12-15T20:30:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15801.html</loc>
+		<loc>https://daynews.cc/sports/15801</loc>
 		<lastmod>2019-12-15T20:30:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14714.html</loc>
+		<loc>https://daynews.cc/emotion/14714</loc>
 		<lastmod>2019-12-15T20:35:04+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14713.html</loc>
+		<loc>https://daynews.cc/emotion/14713</loc>
 		<lastmod>2019-12-15T20:35:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14712.html</loc>
+		<loc>https://daynews.cc/emotion/14712</loc>
 		<lastmod>2019-12-15T20:35:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14710.html</loc>
+		<loc>https://daynews.cc/emotion/14710</loc>
 		<lastmod>2019-12-15T20:35:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14711.html</loc>
+		<loc>https://daynews.cc/emotion/14711</loc>
 		<lastmod>2019-12-15T20:35:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14709.html</loc>
+		<loc>https://daynews.cc/emotion/14709</loc>
 		<lastmod>2019-12-15T20:35:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14352.html</loc>
+		<loc>https://daynews.cc/entertainment/14352</loc>
 		<lastmod>2019-12-15T20:35:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14351.html</loc>
+		<loc>https://daynews.cc/entertainment/14351</loc>
 		<lastmod>2019-12-15T20:35:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14350.html</loc>
+		<loc>https://daynews.cc/entertainment/14350</loc>
 		<lastmod>2019-12-15T20:40:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14349.html</loc>
+		<loc>https://daynews.cc/entertainment/14349</loc>
 		<lastmod>2019-12-15T20:40:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14348.html</loc>
+		<loc>https://daynews.cc/entertainment/14348</loc>
 		<lastmod>2019-12-15T20:40:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14346.html</loc>
+		<loc>https://daynews.cc/entertainment/14346</loc>
 		<lastmod>2019-12-15T20:40:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14347.html</loc>
+		<loc>https://daynews.cc/entertainment/14347</loc>
 		<lastmod>2019-12-15T20:40:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14343.html</loc>
+		<loc>https://daynews.cc/entertainment/14343</loc>
 		<lastmod>2019-12-15T20:40:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14344.html</loc>
+		<loc>https://daynews.cc/entertainment/14344</loc>
 		<lastmod>2019-12-15T20:40:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14345.html</loc>
+		<loc>https://daynews.cc/entertainment/14345</loc>
 		<lastmod>2019-12-15T20:40:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15800.html</loc>
+		<loc>https://daynews.cc/sports/15800</loc>
 		<lastmod>2019-12-15T20:40:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15799.html</loc>
+		<loc>https://daynews.cc/sports/15799</loc>
 		<lastmod>2019-12-15T20:40:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15361.html</loc>
+		<loc>https://daynews.cc/technology/15361</loc>
 		<lastmod>2019-12-15T20:45:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15360.html</loc>
+		<loc>https://daynews.cc/technology/15360</loc>
 		<lastmod>2019-12-15T20:45:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15359.html</loc>
+		<loc>https://daynews.cc/technology/15359</loc>
 		<lastmod>2019-12-15T20:45:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15358.html</loc>
+		<loc>https://daynews.cc/technology/15358</loc>
 		<lastmod>2019-12-15T20:50:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14922.html</loc>
+		<loc>https://daynews.cc/international/14922</loc>
 		<lastmod>2019-12-15T20:50:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15357.html</loc>
+		<loc>https://daynews.cc/technology/15357</loc>
 		<lastmod>2019-12-15T20:50:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/lose/17237.html</loc>
+		<loc>https://daynews.cc/lose/17237</loc>
 		<lastmod>2019-12-15T20:50:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/lose/17236.html</loc>
+		<loc>https://daynews.cc/lose/17236</loc>
 		<lastmod>2019-12-15T20:50:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17356.html</loc>
+		<loc>https://daynews.cc/constellation/17356</loc>
 		<lastmod>2019-12-15T20:50:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15356.html</loc>
+		<loc>https://daynews.cc/technology/15356</loc>
 		<lastmod>2019-12-15T20:55:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15355.html</loc>
+		<loc>https://daynews.cc/technology/15355</loc>
 		<lastmod>2019-12-15T20:55:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15354.html</loc>
+		<loc>https://daynews.cc/technology/15354</loc>
 		<lastmod>2019-12-15T21:00:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14921.html</loc>
+		<loc>https://daynews.cc/international/14921</loc>
 		<lastmod>2019-12-15T21:00:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14920.html</loc>
+		<loc>https://daynews.cc/international/14920</loc>
 		<lastmod>2019-12-15T21:00:15+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14919.html</loc>
+		<loc>https://daynews.cc/international/14919</loc>
 		<lastmod>2019-12-15T21:00:16+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14918.html</loc>
+		<loc>https://daynews.cc/international/14918</loc>
 		<lastmod>2019-12-15T21:00:17+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14916.html</loc>
+		<loc>https://daynews.cc/international/14916</loc>
 		<lastmod>2019-12-15T21:15:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14917.html</loc>
+		<loc>https://daynews.cc/international/14917</loc>
 		<lastmod>2019-12-15T21:15:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14914.html</loc>
+		<loc>https://daynews.cc/international/14914</loc>
 		<lastmod>2019-12-15T21:15:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14915.html</loc>
+		<loc>https://daynews.cc/international/14915</loc>
 		<lastmod>2019-12-15T21:15:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14913.html</loc>
+		<loc>https://daynews.cc/international/14913</loc>
 		<lastmod>2019-12-15T21:15:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17355.html</loc>
+		<loc>https://daynews.cc/constellation/17355</loc>
 		<lastmod>2019-12-15T21:15:15+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17354.html</loc>
+		<loc>https://daynews.cc/constellation/17354</loc>
 		<lastmod>2019-12-15T21:20:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/health/17144.html</loc>
+		<loc>https://daynews.cc/health/17144</loc>
 		<lastmod>2019-12-15T21:20:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16203.html</loc>
+		<loc>https://daynews.cc/nba/16203</loc>
 		<lastmod>2019-12-15T21:20:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/health/17143.html</loc>
+		<loc>https://daynews.cc/health/17143</loc>
 		<lastmod>2019-12-15T21:20:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16202.html</loc>
+		<loc>https://daynews.cc/nba/16202</loc>
 		<lastmod>2019-12-15T21:20:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16201.html</loc>
+		<loc>https://daynews.cc/nba/16201</loc>
 		<lastmod>2019-12-15T21:20:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16200.html</loc>
+		<loc>https://daynews.cc/nba/16200</loc>
 		<lastmod>2019-12-15T21:20:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16199.html</loc>
+		<loc>https://daynews.cc/nba/16199</loc>
 		<lastmod>2019-12-15T21:25:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16402.html</loc>
+		<loc>https://daynews.cc/premier/16402</loc>
 		<lastmod>2019-12-15T21:25:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16401.html</loc>
+		<loc>https://daynews.cc/premier/16401</loc>
 		<lastmod>2019-12-15T21:25:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16400.html</loc>
+		<loc>https://daynews.cc/premier/16400</loc>
 		<lastmod>2019-12-15T21:25:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16399.html</loc>
+		<loc>https://daynews.cc/premier/16399</loc>
 		<lastmod>2019-12-15T21:25:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16398.html</loc>
+		<loc>https://daynews.cc/premier/16398</loc>
 		<lastmod>2019-12-15T21:25:15+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16397.html</loc>
+		<loc>https://daynews.cc/premier/16397</loc>
 		<lastmod>2019-12-15T21:30:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16883.html</loc>
+		<loc>https://daynews.cc/game/16883</loc>
 		<lastmod>2019-12-15T21:30:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16882.html</loc>
+		<loc>https://daynews.cc/game/16882</loc>
 		<lastmod>2019-12-15T21:30:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16881.html</loc>
+		<loc>https://daynews.cc/game/16881</loc>
 		<lastmod>2019-12-15T21:30:17+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16879.html</loc>
+		<loc>https://daynews.cc/game/16879</loc>
 		<lastmod>2019-12-15T21:30:18+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16880.html</loc>
+		<loc>https://daynews.cc/game/16880</loc>
 		<lastmod>2019-12-15T21:30:18+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16599.html</loc>
+		<loc>https://daynews.cc/history/16599</loc>
 		<lastmod>2019-12-15T21:30:19+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16598.html</loc>
+		<loc>https://daynews.cc/history/16598</loc>
 		<lastmod>2019-12-15T21:30:20+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16597.html</loc>
+		<loc>https://daynews.cc/history/16597</loc>
 		<lastmod>2019-12-15T21:30:21+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16596.html</loc>
+		<loc>https://daynews.cc/history/16596</loc>
 		<lastmod>2019-12-15T21:35:04+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16595.html</loc>
+		<loc>https://daynews.cc/history/16595</loc>
 		<lastmod>2019-12-15T21:35:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16593.html</loc>
+		<loc>https://daynews.cc/history/16593</loc>
 		<lastmod>2019-12-15T21:35:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16594.html</loc>
+		<loc>https://daynews.cc/history/16594</loc>
 		<lastmod>2019-12-15T21:35:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16591.html</loc>
+		<loc>https://daynews.cc/history/16591</loc>
 		<lastmod>2019-12-15T21:35:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16592.html</loc>
+		<loc>https://daynews.cc/history/16592</loc>
 		<lastmod>2019-12-15T21:35:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15798.html</loc>
+		<loc>https://daynews.cc/sports/15798</loc>
 		<lastmod>2019-12-15T21:35:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15797.html</loc>
+		<loc>https://daynews.cc/sports/15797</loc>
 		<lastmod>2019-12-15T21:40:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15795.html</loc>
+		<loc>https://daynews.cc/sports/15795</loc>
 		<lastmod>2019-12-15T21:40:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15796.html</loc>
+		<loc>https://daynews.cc/sports/15796</loc>
 		<lastmod>2019-12-15T21:40:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14707.html</loc>
+		<loc>https://daynews.cc/emotion/14707</loc>
 		<lastmod>2019-12-15T21:40:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14708.html</loc>
+		<loc>https://daynews.cc/emotion/14708</loc>
 		<lastmod>2019-12-15T21:40:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14706.html</loc>
+		<loc>https://daynews.cc/emotion/14706</loc>
 		<lastmod>2019-12-15T21:40:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14705.html</loc>
+		<loc>https://daynews.cc/emotion/14705</loc>
 		<lastmod>2019-12-15T21:40:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15353.html</loc>
+		<loc>https://daynews.cc/technology/15353</loc>
 		<lastmod>2019-12-15T21:45:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15351.html</loc>
+		<loc>https://daynews.cc/technology/15351</loc>
 		<lastmod>2019-12-15T21:45:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15352.html</loc>
+		<loc>https://daynews.cc/technology/15352</loc>
 		<lastmod>2019-12-15T21:45:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15349.html</loc>
+		<loc>https://daynews.cc/technology/15349</loc>
 		<lastmod>2019-12-15T21:45:17+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15350.html</loc>
+		<loc>https://daynews.cc/technology/15350</loc>
 		<lastmod>2019-12-15T21:45:17+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15348.html</loc>
+		<loc>https://daynews.cc/technology/15348</loc>
 		<lastmod>2019-12-15T21:50:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14912.html</loc>
+		<loc>https://daynews.cc/international/14912</loc>
 		<lastmod>2019-12-15T21:50:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14911.html</loc>
+		<loc>https://daynews.cc/international/14911</loc>
 		<lastmod>2019-12-15T21:50:15+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14910.html</loc>
+		<loc>https://daynews.cc/international/14910</loc>
 		<lastmod>2019-12-15T21:55:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15347.html</loc>
+		<loc>https://daynews.cc/technology/15347</loc>
 		<lastmod>2019-12-15T21:55:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14908.html</loc>
+		<loc>https://daynews.cc/international/14908</loc>
 		<lastmod>2019-12-15T21:55:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14909.html</loc>
+		<loc>https://daynews.cc/international/14909</loc>
 		<lastmod>2019-12-15T21:55:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14907.html</loc>
+		<loc>https://daynews.cc/international/14907</loc>
 		<lastmod>2019-12-15T22:00:15+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15346.html</loc>
+		<loc>https://daynews.cc/technology/15346</loc>
 		<lastmod>2019-12-15T22:00:15+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14906.html</loc>
+		<loc>https://daynews.cc/international/14906</loc>
 		<lastmod>2019-12-15T22:00:16+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14905.html</loc>
+		<loc>https://daynews.cc/international/14905</loc>
 		<lastmod>2019-12-15T22:00:17+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14904.html</loc>
+		<loc>https://daynews.cc/international/14904</loc>
 		<lastmod>2019-12-15T22:00:19+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15345.html</loc>
+		<loc>https://daynews.cc/technology/15345</loc>
 		<lastmod>2019-12-15T22:05:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/lose/17235.html</loc>
+		<loc>https://daynews.cc/lose/17235</loc>
 		<lastmod>2019-12-15T22:05:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/lose/17234.html</loc>
+		<loc>https://daynews.cc/lose/17234</loc>
 		<lastmod>2019-12-15T22:05:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17353.html</loc>
+		<loc>https://daynews.cc/constellation/17353</loc>
 		<lastmod>2019-12-15T22:10:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17352.html</loc>
+		<loc>https://daynews.cc/constellation/17352</loc>
 		<lastmod>2019-12-15T22:10:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17351.html</loc>
+		<loc>https://daynews.cc/constellation/17351</loc>
 		<lastmod>2019-12-15T22:10:15+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17350.html</loc>
+		<loc>https://daynews.cc/constellation/17350</loc>
 		<lastmod>2019-12-15T22:10:16+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17349.html</loc>
+		<loc>https://daynews.cc/constellation/17349</loc>
 		<lastmod>2019-12-15T22:10:17+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17348.html</loc>
+		<loc>https://daynews.cc/constellation/17348</loc>
 		<lastmod>2019-12-15T22:10:20+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/health/17142.html</loc>
+		<loc>https://daynews.cc/health/17142</loc>
 		<lastmod>2019-12-15T22:15:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16198.html</loc>
+		<loc>https://daynews.cc/nba/16198</loc>
 		<lastmod>2019-12-15T22:15:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/health/17141.html</loc>
+		<loc>https://daynews.cc/health/17141</loc>
 		<lastmod>2019-12-15T22:15:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16197.html</loc>
+		<loc>https://daynews.cc/nba/16197</loc>
 		<lastmod>2019-12-15T22:15:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16396.html</loc>
+		<loc>https://daynews.cc/premier/16396</loc>
 		<lastmod>2019-12-15T22:20:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16395.html</loc>
+		<loc>https://daynews.cc/premier/16395</loc>
 		<lastmod>2019-12-15T22:20:16+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16393.html</loc>
+		<loc>https://daynews.cc/premier/16393</loc>
 		<lastmod>2019-12-15T22:20:17+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16394.html</loc>
+		<loc>https://daynews.cc/premier/16394</loc>
 		<lastmod>2019-12-15T22:20:17+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16590.html</loc>
+		<loc>https://daynews.cc/history/16590</loc>
 		<lastmod>2019-12-15T22:20:21+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16589.html</loc>
+		<loc>https://daynews.cc/history/16589</loc>
 		<lastmod>2019-12-15T22:25:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16587.html</loc>
+		<loc>https://daynews.cc/history/16587</loc>
 		<lastmod>2019-12-15T22:25:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16588.html</loc>
+		<loc>https://daynews.cc/history/16588</loc>
 		<lastmod>2019-12-15T22:25:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16585.html</loc>
+		<loc>https://daynews.cc/history/16585</loc>
 		<lastmod>2019-12-15T22:25:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16586.html</loc>
+		<loc>https://daynews.cc/history/16586</loc>
 		<lastmod>2019-12-15T22:25:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16584.html</loc>
+		<loc>https://daynews.cc/history/16584</loc>
 		<lastmod>2019-12-15T22:25:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16582.html</loc>
+		<loc>https://daynews.cc/history/16582</loc>
 		<lastmod>2019-12-15T22:25:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16583.html</loc>
+		<loc>https://daynews.cc/history/16583</loc>
 		<lastmod>2019-12-15T22:25:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15794.html</loc>
+		<loc>https://daynews.cc/sports/15794</loc>
 		<lastmod>2019-12-15T22:25:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15793.html</loc>
+		<loc>https://daynews.cc/sports/15793</loc>
 		<lastmod>2019-12-15T22:30:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15792.html</loc>
+		<loc>https://daynews.cc/sports/15792</loc>
 		<lastmod>2019-12-15T22:30:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15791.html</loc>
+		<loc>https://daynews.cc/sports/15791</loc>
 		<lastmod>2019-12-15T22:30:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15789.html</loc>
+		<loc>https://daynews.cc/sports/15789</loc>
 		<lastmod>2019-12-15T22:30:17+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15790.html</loc>
+		<loc>https://daynews.cc/sports/15790</loc>
 		<lastmod>2019-12-15T22:30:17+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14704.html</loc>
+		<loc>https://daynews.cc/emotion/14704</loc>
 		<lastmod>2019-12-15T22:35:04+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14703.html</loc>
+		<loc>https://daynews.cc/emotion/14703</loc>
 		<lastmod>2019-12-15T22:35:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14702.html</loc>
+		<loc>https://daynews.cc/emotion/14702</loc>
 		<lastmod>2019-12-15T22:35:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14700.html</loc>
+		<loc>https://daynews.cc/emotion/14700</loc>
 		<lastmod>2019-12-15T22:35:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14701.html</loc>
+		<loc>https://daynews.cc/emotion/14701</loc>
 		<lastmod>2019-12-15T22:35:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14697.html</loc>
+		<loc>https://daynews.cc/emotion/14697</loc>
 		<lastmod>2019-12-15T22:35:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14698.html</loc>
+		<loc>https://daynews.cc/emotion/14698</loc>
 		<lastmod>2019-12-15T22:35:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14699.html</loc>
+		<loc>https://daynews.cc/emotion/14699</loc>
 		<lastmod>2019-12-15T22:35:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14342.html</loc>
+		<loc>https://daynews.cc/entertainment/14342</loc>
 		<lastmod>2019-12-15T22:35:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14696.html</loc>
+		<loc>https://daynews.cc/emotion/14696</loc>
 		<lastmod>2019-12-15T22:35:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14340.html</loc>
+		<loc>https://daynews.cc/entertainment/14340</loc>
 		<lastmod>2019-12-15T22:40:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14341.html</loc>
+		<loc>https://daynews.cc/entertainment/14341</loc>
 		<lastmod>2019-12-15T22:40:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14339.html</loc>
+		<loc>https://daynews.cc/entertainment/14339</loc>
 		<lastmod>2019-12-15T22:40:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14337.html</loc>
+		<loc>https://daynews.cc/entertainment/14337</loc>
 		<lastmod>2019-12-15T22:40:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14338.html</loc>
+		<loc>https://daynews.cc/entertainment/14338</loc>
 		<lastmod>2019-12-15T22:40:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14336.html</loc>
+		<loc>https://daynews.cc/entertainment/14336</loc>
 		<lastmod>2019-12-15T22:40:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14334.html</loc>
+		<loc>https://daynews.cc/entertainment/14334</loc>
 		<lastmod>2019-12-15T22:40:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14335.html</loc>
+		<loc>https://daynews.cc/entertainment/14335</loc>
 		<lastmod>2019-12-15T22:40:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14333.html</loc>
+		<loc>https://daynews.cc/entertainment/14333</loc>
 		<lastmod>2019-12-15T22:40:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15344.html</loc>
+		<loc>https://daynews.cc/technology/15344</loc>
 		<lastmod>2019-12-15T22:45:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15343.html</loc>
+		<loc>https://daynews.cc/technology/15343</loc>
 		<lastmod>2019-12-15T22:45:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15341.html</loc>
+		<loc>https://daynews.cc/technology/15341</loc>
 		<lastmod>2019-12-15T22:45:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15342.html</loc>
+		<loc>https://daynews.cc/technology/15342</loc>
 		<lastmod>2019-12-15T22:45:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15340.html</loc>
+		<loc>https://daynews.cc/technology/15340</loc>
 		<lastmod>2019-12-15T22:45:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16196.html</loc>
+		<loc>https://daynews.cc/nba/16196</loc>
 		<lastmod>2019-12-15T22:45:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16392.html</loc>
+		<loc>https://daynews.cc/premier/16392</loc>
 		<lastmod>2019-12-15T22:45:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15339.html</loc>
+		<loc>https://daynews.cc/technology/15339</loc>
 		<lastmod>2019-12-15T22:50:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14903.html</loc>
+		<loc>https://daynews.cc/international/14903</loc>
 		<lastmod>2019-12-15T22:50:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14901.html</loc>
+		<loc>https://daynews.cc/international/14901</loc>
 		<lastmod>2019-12-15T22:50:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14902.html</loc>
+		<loc>https://daynews.cc/international/14902</loc>
 		<lastmod>2019-12-15T22:50:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14900.html</loc>
+		<loc>https://daynews.cc/international/14900</loc>
 		<lastmod>2019-12-15T22:50:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15338.html</loc>
+		<loc>https://daynews.cc/technology/15338</loc>
 		<lastmod>2019-12-15T23:00:15+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15337.html</loc>
+		<loc>https://daynews.cc/technology/15337</loc>
 		<lastmod>2019-12-15T23:00:16+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14899.html</loc>
+		<loc>https://daynews.cc/international/14899</loc>
 		<lastmod>2019-12-15T23:00:17+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14897.html</loc>
+		<loc>https://daynews.cc/international/14897</loc>
 		<lastmod>2019-12-15T23:00:18+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14898.html</loc>
+		<loc>https://daynews.cc/international/14898</loc>
 		<lastmod>2019-12-15T23:00:18+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14896.html</loc>
+		<loc>https://daynews.cc/international/14896</loc>
 		<lastmod>2019-12-15T23:00:19+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14895.html</loc>
+		<loc>https://daynews.cc/international/14895</loc>
 		<lastmod>2019-12-15T23:00:20+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/lose/17233.html</loc>
+		<loc>https://daynews.cc/lose/17233</loc>
 		<lastmod>2019-12-15T23:00:20+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15336.html</loc>
+		<loc>https://daynews.cc/technology/15336</loc>
 		<lastmod>2019-12-15T23:05:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14894.html</loc>
+		<loc>https://daynews.cc/international/14894</loc>
 		<lastmod>2019-12-15T23:05:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/lose/17231.html</loc>
+		<loc>https://daynews.cc/lose/17231</loc>
 		<lastmod>2019-12-15T23:10:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/lose/17232.html</loc>
+		<loc>https://daynews.cc/lose/17232</loc>
 		<lastmod>2019-12-15T23:10:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17347.html</loc>
+		<loc>https://daynews.cc/constellation/17347</loc>
 		<lastmod>2019-12-15T23:10:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17346.html</loc>
+		<loc>https://daynews.cc/constellation/17346</loc>
 		<lastmod>2019-12-15T23:10:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17345.html</loc>
+		<loc>https://daynews.cc/constellation/17345</loc>
 		<lastmod>2019-12-15T23:10:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17344.html</loc>
+		<loc>https://daynews.cc/constellation/17344</loc>
 		<lastmod>2019-12-15T23:10:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17343.html</loc>
+		<loc>https://daynews.cc/constellation/17343</loc>
 		<lastmod>2019-12-15T23:10:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/health/17140.html</loc>
+		<loc>https://daynews.cc/health/17140</loc>
 		<lastmod>2019-12-15T23:10:21+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16581.html</loc>
+		<loc>https://daynews.cc/history/16581</loc>
 		<lastmod>2019-12-15T23:30:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16580.html</loc>
+		<loc>https://daynews.cc/history/16580</loc>
 		<lastmod>2019-12-15T23:30:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16579.html</loc>
+		<loc>https://daynews.cc/history/16579</loc>
 		<lastmod>2019-12-15T23:30:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15788.html</loc>
+		<loc>https://daynews.cc/sports/15788</loc>
 		<lastmod>2019-12-15T23:30:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15787.html</loc>
+		<loc>https://daynews.cc/sports/15787</loc>
 		<lastmod>2019-12-15T23:30:15+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15785.html</loc>
+		<loc>https://daynews.cc/sports/15785</loc>
 		<lastmod>2019-12-15T23:30:16+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15786.html</loc>
+		<loc>https://daynews.cc/sports/15786</loc>
 		<lastmod>2019-12-15T23:30:16+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15784.html</loc>
+		<loc>https://daynews.cc/sports/15784</loc>
 		<lastmod>2019-12-15T23:30:17+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15783.html</loc>
+		<loc>https://daynews.cc/sports/15783</loc>
 		<lastmod>2019-12-15T23:30:18+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15782.html</loc>
+		<loc>https://daynews.cc/sports/15782</loc>
 		<lastmod>2019-12-15T23:30:19+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15781.html</loc>
+		<loc>https://daynews.cc/sports/15781</loc>
 		<lastmod>2019-12-15T23:35:04+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15780.html</loc>
+		<loc>https://daynews.cc/sports/15780</loc>
 		<lastmod>2019-12-15T23:35:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14695.html</loc>
+		<loc>https://daynews.cc/emotion/14695</loc>
 		<lastmod>2019-12-15T23:35:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14693.html</loc>
+		<loc>https://daynews.cc/emotion/14693</loc>
 		<lastmod>2019-12-15T23:35:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14694.html</loc>
+		<loc>https://daynews.cc/emotion/14694</loc>
 		<lastmod>2019-12-15T23:35:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14692.html</loc>
+		<loc>https://daynews.cc/emotion/14692</loc>
 		<lastmod>2019-12-15T23:35:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14690.html</loc>
+		<loc>https://daynews.cc/emotion/14690</loc>
 		<lastmod>2019-12-15T23:35:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14691.html</loc>
+		<loc>https://daynews.cc/emotion/14691</loc>
 		<lastmod>2019-12-15T23:35:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14689.html</loc>
+		<loc>https://daynews.cc/emotion/14689</loc>
 		<lastmod>2019-12-15T23:35:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14688.html</loc>
+		<loc>https://daynews.cc/emotion/14688</loc>
 		<lastmod>2019-12-15T23:40:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14687.html</loc>
+		<loc>https://daynews.cc/emotion/14687</loc>
 		<lastmod>2019-12-15T23:40:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14332.html</loc>
+		<loc>https://daynews.cc/entertainment/14332</loc>
 		<lastmod>2019-12-15T23:40:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14331.html</loc>
+		<loc>https://daynews.cc/entertainment/14331</loc>
 		<lastmod>2019-12-15T23:40:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14330.html</loc>
+		<loc>https://daynews.cc/entertainment/14330</loc>
 		<lastmod>2019-12-15T23:40:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14329.html</loc>
+		<loc>https://daynews.cc/entertainment/14329</loc>
 		<lastmod>2019-12-15T23:40:18+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15335.html</loc>
+		<loc>https://daynews.cc/technology/15335</loc>
 		<lastmod>2019-12-16T00:00:26+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15334.html</loc>
+		<loc>https://daynews.cc/technology/15334</loc>
 		<lastmod>2019-12-16T00:00:27+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15333.html</loc>
+		<loc>https://daynews.cc/technology/15333</loc>
 		<lastmod>2019-12-16T00:05:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15332.html</loc>
+		<loc>https://daynews.cc/technology/15332</loc>
 		<lastmod>2019-12-16T00:05:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15330.html</loc>
+		<loc>https://daynews.cc/technology/15330</loc>
 		<lastmod>2019-12-16T00:05:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15331.html</loc>
+		<loc>https://daynews.cc/technology/15331</loc>
 		<lastmod>2019-12-16T00:05:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15329.html</loc>
+		<loc>https://daynews.cc/technology/15329</loc>
 		<lastmod>2019-12-16T00:05:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15328.html</loc>
+		<loc>https://daynews.cc/technology/15328</loc>
 		<lastmod>2019-12-16T00:05:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14892.html</loc>
+		<loc>https://daynews.cc/international/14892</loc>
 		<lastmod>2019-12-16T00:05:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14893.html</loc>
+		<loc>https://daynews.cc/international/14893</loc>
 		<lastmod>2019-12-16T00:05:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14890.html</loc>
+		<loc>https://daynews.cc/international/14890</loc>
 		<lastmod>2019-12-16T00:05:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14891.html</loc>
+		<loc>https://daynews.cc/international/14891</loc>
 		<lastmod>2019-12-16T00:05:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14889.html</loc>
+		<loc>https://daynews.cc/international/14889</loc>
 		<lastmod>2019-12-16T00:10:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14887.html</loc>
+		<loc>https://daynews.cc/international/14887</loc>
 		<lastmod>2019-12-16T00:10:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14888.html</loc>
+		<loc>https://daynews.cc/international/14888</loc>
 		<lastmod>2019-12-16T00:10:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14886.html</loc>
+		<loc>https://daynews.cc/international/14886</loc>
 		<lastmod>2019-12-16T00:10:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14885.html</loc>
+		<loc>https://daynews.cc/international/14885</loc>
 		<lastmod>2019-12-16T00:10:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14884.html</loc>
+		<loc>https://daynews.cc/international/14884</loc>
 		<lastmod>2019-12-16T00:10:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/lose/17230.html</loc>
+		<loc>https://daynews.cc/lose/17230</loc>
 		<lastmod>2019-12-16T00:10:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/lose/17229.html</loc>
+		<loc>https://daynews.cc/lose/17229</loc>
 		<lastmod>2019-12-16T00:15:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16195.html</loc>
+		<loc>https://daynews.cc/nba/16195</loc>
 		<lastmod>2019-12-16T00:15:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16194.html</loc>
+		<loc>https://daynews.cc/nba/16194</loc>
 		<lastmod>2019-12-16T00:15:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16391.html</loc>
+		<loc>https://daynews.cc/premier/16391</loc>
 		<lastmod>2019-12-16T00:20:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16390.html</loc>
+		<loc>https://daynews.cc/premier/16390</loc>
 		<lastmod>2019-12-16T00:20:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16389.html</loc>
+		<loc>https://daynews.cc/premier/16389</loc>
 		<lastmod>2019-12-16T00:20:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16878.html</loc>
+		<loc>https://daynews.cc/game/16878</loc>
 		<lastmod>2019-12-16T00:20:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16877.html</loc>
+		<loc>https://daynews.cc/game/16877</loc>
 		<lastmod>2019-12-16T00:20:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16876.html</loc>
+		<loc>https://daynews.cc/game/16876</loc>
 		<lastmod>2019-12-16T00:20:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16874.html</loc>
+		<loc>https://daynews.cc/game/16874</loc>
 		<lastmod>2019-12-16T00:20:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16875.html</loc>
+		<loc>https://daynews.cc/game/16875</loc>
 		<lastmod>2019-12-16T00:20:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16578.html</loc>
+		<loc>https://daynews.cc/history/16578</loc>
 		<lastmod>2019-12-16T00:25:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16873.html</loc>
+		<loc>https://daynews.cc/game/16873</loc>
 		<lastmod>2019-12-16T00:25:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16576.html</loc>
+		<loc>https://daynews.cc/history/16576</loc>
 		<lastmod>2019-12-16T00:25:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16577.html</loc>
+		<loc>https://daynews.cc/history/16577</loc>
 		<lastmod>2019-12-16T00:25:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16574.html</loc>
+		<loc>https://daynews.cc/history/16574</loc>
 		<lastmod>2019-12-16T00:25:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16575.html</loc>
+		<loc>https://daynews.cc/history/16575</loc>
 		<lastmod>2019-12-16T00:25:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16571.html</loc>
+		<loc>https://daynews.cc/history/16571</loc>
 		<lastmod>2019-12-16T00:25:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16572.html</loc>
+		<loc>https://daynews.cc/history/16572</loc>
 		<lastmod>2019-12-16T00:25:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16573.html</loc>
+		<loc>https://daynews.cc/history/16573</loc>
 		<lastmod>2019-12-16T00:25:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16570.html</loc>
+		<loc>https://daynews.cc/history/16570</loc>
 		<lastmod>2019-12-16T00:25:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16569.html</loc>
+		<loc>https://daynews.cc/history/16569</loc>
 		<lastmod>2019-12-16T00:30:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15779.html</loc>
+		<loc>https://daynews.cc/sports/15779</loc>
 		<lastmod>2019-12-16T00:30:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15778.html</loc>
+		<loc>https://daynews.cc/sports/19328</loc>
 		<lastmod>2019-12-16T00:30:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15777.html</loc>
+		<loc>https://daynews.cc/sports/19327</loc>
 		<lastmod>2019-12-16T00:30:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15776.html</loc>
+		<loc>https://daynews.cc/sports/19326</loc>
 		<lastmod>2019-12-16T00:30:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15775.html</loc>
+		<loc>https://daynews.cc/sports/19325</loc>
 		<lastmod>2019-12-16T00:30:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15774.html</loc>
+		<loc>https://daynews.cc/sports/19324</loc>
 		<lastmod>2019-12-16T00:30:15+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15772.html</loc>
+		<loc>https://daynews.cc/sports/19322</loc>
 		<lastmod>2019-12-16T00:30:16+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15773.html</loc>
+		<loc>https://daynews.cc/sports/19323</loc>
 		<lastmod>2019-12-16T00:30:16+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15771.html</loc>
+		<loc>https://daynews.cc/sports/19321</loc>
 		<lastmod>2019-12-16T00:35:03+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14685.html</loc>
+		<loc>https://daynews.cc/emotion/14685</loc>
 		<lastmod>2019-12-16T00:35:04+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14686.html</loc>
+		<loc>https://daynews.cc/emotion/14686</loc>
 		<lastmod>2019-12-16T00:35:04+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14683.html</loc>
+		<loc>https://daynews.cc/emotion/14683</loc>
 		<lastmod>2019-12-16T00:35:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14684.html</loc>
+		<loc>https://daynews.cc/emotion/14684</loc>
 		<lastmod>2019-12-16T00:35:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14682.html</loc>
+		<loc>https://daynews.cc/emotion/14682</loc>
 		<lastmod>2019-12-16T00:35:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14680.html</loc>
+		<loc>https://daynews.cc/emotion/14680</loc>
 		<lastmod>2019-12-16T00:35:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14681.html</loc>
+		<loc>https://daynews.cc/emotion/14681</loc>
 		<lastmod>2019-12-16T00:35:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14679.html</loc>
+		<loc>https://daynews.cc/emotion/14679</loc>
 		<lastmod>2019-12-16T00:35:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14328.html</loc>
+		<loc>https://daynews.cc/entertainment/14328</loc>
 		<lastmod>2019-12-16T00:40:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14326.html</loc>
+		<loc>https://daynews.cc/entertainment/14326</loc>
 		<lastmod>2019-12-16T00:40:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14327.html</loc>
+		<loc>https://daynews.cc/entertainment/14327</loc>
 		<lastmod>2019-12-16T00:40:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14325.html</loc>
+		<loc>https://daynews.cc/entertainment/14325</loc>
 		<lastmod>2019-12-16T00:40:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14324.html</loc>
+		<loc>https://daynews.cc/entertainment/14324</loc>
 		<lastmod>2019-12-16T00:40:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14323.html</loc>
+		<loc>https://daynews.cc/entertainment/14323</loc>
 		<lastmod>2019-12-16T00:40:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14321.html</loc>
+		<loc>https://daynews.cc/entertainment/14321</loc>
 		<lastmod>2019-12-16T00:40:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14322.html</loc>
+		<loc>https://daynews.cc/entertainment/14322</loc>
 		<lastmod>2019-12-16T00:40:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15326.html</loc>
+		<loc>https://daynews.cc/technology/15326</loc>
 		<lastmod>2019-12-16T00:50:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15327.html</loc>
+		<loc>https://daynews.cc/technology/15327</loc>
 		<lastmod>2019-12-16T00:50:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15324.html</loc>
+		<loc>https://daynews.cc/technology/18967</loc>
 		<lastmod>2019-12-16T00:50:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15325.html</loc>
+		<loc>https://daynews.cc/technology/18968</loc>
 		<lastmod>2019-12-16T00:50:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14882.html</loc>
+		<loc>https://daynews.cc/international/14882</loc>
 		<lastmod>2019-12-16T00:50:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14883.html</loc>
+		<loc>https://daynews.cc/international/14883</loc>
 		<lastmod>2019-12-16T00:50:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15323.html</loc>
+		<loc>https://daynews.cc/technology/18966</loc>
 		<lastmod>2019-12-16T01:00:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15322.html</loc>
+		<loc>https://daynews.cc/technology/18965</loc>
 		<lastmod>2019-12-16T01:00:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14881.html</loc>
+		<loc>https://daynews.cc/international/14881</loc>
 		<lastmod>2019-12-16T01:00:16+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14879.html</loc>
+		<loc>https://daynews.cc/international/14879</loc>
 		<lastmod>2019-12-16T01:00:17+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14880.html</loc>
+		<loc>https://daynews.cc/international/14880</loc>
 		<lastmod>2019-12-16T01:00:17+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14878.html</loc>
+		<loc>https://daynews.cc/international/14878</loc>
 		<lastmod>2019-12-16T01:00:19+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14877.html</loc>
+		<loc>https://daynews.cc/international/14877</loc>
 		<lastmod>2019-12-16T01:05:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14876.html</loc>
+		<loc>https://daynews.cc/international/14876</loc>
 		<lastmod>2019-12-16T01:05:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/lose/17228.html</loc>
+		<loc>https://daynews.cc/lose/17228</loc>
 		<lastmod>2019-12-16T01:05:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/lose/17227.html</loc>
+		<loc>https://daynews.cc/lose/17227</loc>
 		<lastmod>2019-12-16T01:05:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17341.html</loc>
+		<loc>https://daynews.cc/constellation/17341</loc>
 		<lastmod>2019-12-16T01:10:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17342.html</loc>
+		<loc>https://daynews.cc/constellation/17342</loc>
 		<lastmod>2019-12-16T01:10:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17340.html</loc>
+		<loc>https://daynews.cc/constellation/17340</loc>
 		<lastmod>2019-12-16T01:10:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17339.html</loc>
+		<loc>https://daynews.cc/constellation/17339</loc>
 		<lastmod>2019-12-16T01:10:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17338.html</loc>
+		<loc>https://daynews.cc/constellation/17338</loc>
 		<lastmod>2019-12-16T01:10:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17337.html</loc>
+		<loc>https://daynews.cc/constellation/17337</loc>
 		<lastmod>2019-12-16T01:10:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/health/17139.html</loc>
+		<loc>https://daynews.cc/health/17139</loc>
 		<lastmod>2019-12-16T01:10:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/health/17138.html</loc>
+		<loc>https://daynews.cc/health/17138</loc>
 		<lastmod>2019-12-16T01:10:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16193.html</loc>
+		<loc>https://daynews.cc/nba/16193</loc>
 		<lastmod>2019-12-16T01:15:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16192.html</loc>
+		<loc>https://daynews.cc/nba/16192</loc>
 		<lastmod>2019-12-16T01:15:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16191.html</loc>
+		<loc>https://daynews.cc/nba/16191</loc>
 		<lastmod>2019-12-16T01:15:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16190.html</loc>
+		<loc>https://daynews.cc/nba/16190</loc>
 		<lastmod>2019-12-16T01:15:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16189.html</loc>
+		<loc>https://daynews.cc/nba/16189</loc>
 		<lastmod>2019-12-16T01:15:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16388.html</loc>
+		<loc>https://daynews.cc/premier/16388</loc>
 		<lastmod>2019-12-16T01:15:15+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16387.html</loc>
+		<loc>https://daynews.cc/premier/16387</loc>
 		<lastmod>2019-12-16T01:20:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16386.html</loc>
+		<loc>https://daynews.cc/premier/16386</loc>
 		<lastmod>2019-12-16T01:20:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16872.html</loc>
+		<loc>https://daynews.cc/game/16872</loc>
 		<lastmod>2019-12-16T01:20:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16871.html</loc>
+		<loc>https://daynews.cc/game/16871</loc>
 		<lastmod>2019-12-16T01:20:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16870.html</loc>
+		<loc>https://daynews.cc/game/16870</loc>
 		<lastmod>2019-12-16T01:20:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16869.html</loc>
+		<loc>https://daynews.cc/game/16869</loc>
 		<lastmod>2019-12-16T01:20:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16868.html</loc>
+		<loc>https://daynews.cc/game/16868</loc>
 		<lastmod>2019-12-16T01:25:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16867.html</loc>
+		<loc>https://daynews.cc/game/16867</loc>
 		<lastmod>2019-12-16T01:25:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16865.html</loc>
+		<loc>https://daynews.cc/game/16865</loc>
 		<lastmod>2019-12-16T01:25:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16866.html</loc>
+		<loc>https://daynews.cc/game/16866</loc>
 		<lastmod>2019-12-16T01:25:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16567.html</loc>
+		<loc>https://daynews.cc/history/16567</loc>
 		<lastmod>2019-12-16T01:25:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16568.html</loc>
+		<loc>https://daynews.cc/history/16568</loc>
 		<lastmod>2019-12-16T01:25:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16566.html</loc>
+		<loc>https://daynews.cc/history/16566</loc>
 		<lastmod>2019-12-16T01:25:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16565.html</loc>
+		<loc>https://daynews.cc/history/16565</loc>
 		<lastmod>2019-12-16T01:25:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16564.html</loc>
+		<loc>https://daynews.cc/history/16564</loc>
 		<lastmod>2019-12-16T01:25:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15770.html</loc>
+		<loc>https://daynews.cc/sports/19320</loc>
 		<lastmod>2019-12-16T01:30:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15768.html</loc>
+		<loc>https://daynews.cc/sports/19318</loc>
 		<lastmod>2019-12-16T01:30:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15769.html</loc>
+		<loc>https://daynews.cc/sports/19319</loc>
 		<lastmod>2019-12-16T01:30:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15767.html</loc>
+		<loc>https://daynews.cc/sports/19317</loc>
 		<lastmod>2019-12-16T01:30:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15766.html</loc>
+		<loc>https://daynews.cc/sports/19316</loc>
 		<lastmod>2019-12-16T01:30:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15765.html</loc>
+		<loc>https://daynews.cc/sports/19315</loc>
 		<lastmod>2019-12-16T01:30:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15763.html</loc>
+		<loc>https://daynews.cc/sports/19313</loc>
 		<lastmod>2019-12-16T01:30:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15764.html</loc>
+		<loc>https://daynews.cc/sports/19314</loc>
 		<lastmod>2019-12-16T01:30:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15762.html</loc>
+		<loc>https://daynews.cc/sports/19312</loc>
 		<lastmod>2019-12-16T01:30:15+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14678.html</loc>
+		<loc>https://daynews.cc/emotion/14678</loc>
 		<lastmod>2019-12-16T01:35:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14677.html</loc>
+		<loc>https://daynews.cc/emotion/14677</loc>
 		<lastmod>2019-12-16T01:35:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14320.html</loc>
+		<loc>https://daynews.cc/entertainment/14320</loc>
 		<lastmod>2019-12-16T01:35:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14318.html</loc>
+		<loc>https://daynews.cc/entertainment/14318</loc>
 		<lastmod>2019-12-16T01:35:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14319.html</loc>
+		<loc>https://daynews.cc/entertainment/14319</loc>
 		<lastmod>2019-12-16T01:35:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14317.html</loc>
+		<loc>https://daynews.cc/entertainment/14317</loc>
 		<lastmod>2019-12-16T01:35:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14316.html</loc>
+		<loc>https://daynews.cc/entertainment/14316</loc>
 		<lastmod>2019-12-16T01:40:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14315.html</loc>
+		<loc>https://daynews.cc/entertainment/14315</loc>
 		<lastmod>2019-12-16T01:40:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14314.html</loc>
+		<loc>https://daynews.cc/entertainment/14314</loc>
 		<lastmod>2019-12-16T01:40:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14312.html</loc>
+		<loc>https://daynews.cc/entertainment/14312</loc>
 		<lastmod>2019-12-16T01:40:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14313.html</loc>
+		<loc>https://daynews.cc/entertainment/14313</loc>
 		<lastmod>2019-12-16T01:40:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14310.html</loc>
+		<loc>https://daynews.cc/entertainment/14310</loc>
 		<lastmod>2019-12-16T01:40:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14311.html</loc>
+		<loc>https://daynews.cc/entertainment/14311</loc>
 		<lastmod>2019-12-16T01:40:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14874.html</loc>
+		<loc>https://daynews.cc/international/14874</loc>
 		<lastmod>2019-12-16T01:50:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14875.html</loc>
+		<loc>https://daynews.cc/international/14875</loc>
 		<lastmod>2019-12-16T01:50:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14873.html</loc>
+		<loc>https://daynews.cc/international/14873</loc>
 		<lastmod>2019-12-16T01:55:04+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14872.html</loc>
+		<loc>https://daynews.cc/international/14872</loc>
 		<lastmod>2019-12-16T01:55:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14870.html</loc>
+		<loc>https://daynews.cc/international/14870</loc>
 		<lastmod>2019-12-16T01:55:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14871.html</loc>
+		<loc>https://daynews.cc/international/14871</loc>
 		<lastmod>2019-12-16T01:55:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14868.html</loc>
+		<loc>https://daynews.cc/international/14868</loc>
 		<lastmod>2019-12-16T01:55:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14869.html</loc>
+		<loc>https://daynews.cc/international/14869</loc>
 		<lastmod>2019-12-16T01:55:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15321.html</loc>
+		<loc>https://daynews.cc/technology/18964</loc>
 		<lastmod>2019-12-16T02:00:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15320.html</loc>
+		<loc>https://daynews.cc/technology/18963</loc>
 		<lastmod>2019-12-16T02:00:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14867.html</loc>
+		<loc>https://daynews.cc/international/14867</loc>
 		<lastmod>2019-12-16T02:00:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17335.html</loc>
+		<loc>https://daynews.cc/constellation/17335</loc>
 		<lastmod>2019-12-16T02:00:15+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17336.html</loc>
+		<loc>https://daynews.cc/constellation/17336</loc>
 		<lastmod>2019-12-16T02:00:15+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17334.html</loc>
+		<loc>https://daynews.cc/constellation/17334</loc>
 		<lastmod>2019-12-16T02:00:16+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17333.html</loc>
+		<loc>https://daynews.cc/constellation/17333</loc>
 		<lastmod>2019-12-16T02:00:18+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15319.html</loc>
+		<loc>https://daynews.cc/technology/18962</loc>
 		<lastmod>2019-12-16T02:05:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15317.html</loc>
+		<loc>https://daynews.cc/technology/18960</loc>
 		<lastmod>2019-12-16T02:05:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15318.html</loc>
+		<loc>https://daynews.cc/technology/18961</loc>
 		<lastmod>2019-12-16T02:05:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14866.html</loc>
+		<loc>https://daynews.cc/technology/18959</loc>
 		<lastmod>2019-12-16T02:05:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15316.html</loc>
+		<loc>https://daynews.cc/international/14866</loc>
 		<lastmod>2019-12-16T02:05:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14865.html</loc>
+		<loc>https://daynews.cc/international/14865</loc>
 		<lastmod>2019-12-16T02:05:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17332.html</loc>
+		<loc>https://daynews.cc/constellation/17332</loc>
 		<lastmod>2019-12-16T02:10:04+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17331.html</loc>
+		<loc>https://daynews.cc/constellation/17331</loc>
 		<lastmod>2019-12-16T02:10:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16187.html</loc>
+		<loc>https://daynews.cc/nba/16187</loc>
 		<lastmod>2019-12-16T02:10:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16188.html</loc>
+		<loc>https://daynews.cc/nba/16188</loc>
 		<lastmod>2019-12-16T02:10:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16186.html</loc>
+		<loc>https://daynews.cc/nba/16186</loc>
 		<lastmod>2019-12-16T02:10:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16184.html</loc>
+		<loc>https://daynews.cc/nba/16184</loc>
 		<lastmod>2019-12-16T02:10:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16185.html</loc>
+		<loc>https://daynews.cc/nba/16185</loc>
 		<lastmod>2019-12-16T02:10:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16183.html</loc>
+		<loc>https://daynews.cc/nba/16183</loc>
 		<lastmod>2019-12-16T02:10:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16182.html</loc>
+		<loc>https://daynews.cc/nba/16182</loc>
 		<lastmod>2019-12-16T02:15:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16181.html</loc>
+		<loc>https://daynews.cc/nba/16181</loc>
 		<lastmod>2019-12-16T02:15:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16385.html</loc>
+		<loc>https://daynews.cc/premier/16385</loc>
 		<lastmod>2019-12-16T02:15:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16384.html</loc>
+		<loc>https://daynews.cc/premier/16384</loc>
 		<lastmod>2019-12-16T02:15:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16383.html</loc>
+		<loc>https://daynews.cc/premier/16383</loc>
 		<lastmod>2019-12-16T02:15:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16382.html</loc>
+		<loc>https://daynews.cc/premier/16382</loc>
 		<lastmod>2019-12-16T02:20:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16864.html</loc>
+		<loc>https://daynews.cc/game/16864</loc>
 		<lastmod>2019-12-16T02:20:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16381.html</loc>
+		<loc>https://daynews.cc/premier/16381</loc>
 		<lastmod>2019-12-16T02:20:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16863.html</loc>
+		<loc>https://daynews.cc/game/16863</loc>
 		<lastmod>2019-12-16T02:20:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16862.html</loc>
+		<loc>https://daynews.cc/game/16862</loc>
 		<lastmod>2019-12-16T02:20:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16860.html</loc>
+		<loc>https://daynews.cc/game/16860</loc>
 		<lastmod>2019-12-16T02:20:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16861.html</loc>
+		<loc>https://daynews.cc/game/16861</loc>
 		<lastmod>2019-12-16T02:20:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16858.html</loc>
+		<loc>https://daynews.cc/game/16858</loc>
 		<lastmod>2019-12-16T02:20:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16859.html</loc>
+		<loc>https://daynews.cc/game/16859</loc>
 		<lastmod>2019-12-16T02:20:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16857.html</loc>
+		<loc>https://daynews.cc/game/16857</loc>
 		<lastmod>2019-12-16T02:20:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16856.html</loc>
+		<loc>https://daynews.cc/game/16856</loc>
 		<lastmod>2019-12-16T02:25:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16563.html</loc>
+		<loc>https://daynews.cc/history/20125</loc>
 		<lastmod>2019-12-16T02:25:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16562.html</loc>
+		<loc>https://daynews.cc/history/20124</loc>
 		<lastmod>2019-12-16T02:25:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16560.html</loc>
+		<loc>https://daynews.cc/history/20122</loc>
 		<lastmod>2019-12-16T02:25:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16561.html</loc>
+		<loc>https://daynews.cc/history/20123</loc>
 		<lastmod>2019-12-16T02:25:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16558.html</loc>
+		<loc>https://daynews.cc/history/20120</loc>
 		<lastmod>2019-12-16T02:25:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16559.html</loc>
+		<loc>https://daynews.cc/history/20121</loc>
 		<lastmod>2019-12-16T02:25:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15761.html</loc>
+		<loc>https://daynews.cc/sports/19311</loc>
 		<lastmod>2019-12-16T02:30:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15759.html</loc>
+		<loc>https://daynews.cc/sports/19309</loc>
 		<lastmod>2019-12-16T02:30:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15760.html</loc>
+		<loc>https://daynews.cc/sports/19310</loc>
 		<lastmod>2019-12-16T02:30:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15758.html</loc>
+		<loc>https://daynews.cc/sports/19308</loc>
 		<lastmod>2019-12-16T02:30:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15757.html</loc>
+		<loc>https://daynews.cc/sports/19307</loc>
 		<lastmod>2019-12-16T02:30:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14676.html</loc>
+		<loc>https://daynews.cc/emotion/14676</loc>
 		<lastmod>2019-12-16T02:35:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14309.html</loc>
+		<loc>https://daynews.cc/entertainment/14309</loc>
 		<lastmod>2019-12-16T02:35:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14308.html</loc>
+		<loc>https://daynews.cc/entertainment/14308</loc>
 		<lastmod>2019-12-16T02:35:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14306.html</loc>
+		<loc>https://daynews.cc/entertainment/14306</loc>
 		<lastmod>2019-12-16T02:35:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14307.html</loc>
+		<loc>https://daynews.cc/entertainment/14307</loc>
 		<lastmod>2019-12-16T02:35:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14305.html</loc>
+		<loc>https://daynews.cc/entertainment/14305</loc>
 		<lastmod>2019-12-16T02:40:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14303.html</loc>
+		<loc>https://daynews.cc/entertainment/14303</loc>
 		<lastmod>2019-12-16T02:40:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14304.html</loc>
+		<loc>https://daynews.cc/entertainment/14304</loc>
 		<lastmod>2019-12-16T02:40:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14302.html</loc>
+		<loc>https://daynews.cc/entertainment/14302</loc>
 		<lastmod>2019-12-16T02:40:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14301.html</loc>
+		<loc>https://daynews.cc/entertainment/14301</loc>
 		<lastmod>2019-12-16T02:40:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14864.html</loc>
+		<loc>https://daynews.cc/technology/18958</loc>
 		<lastmod>2019-12-16T02:45:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15315.html</loc>
+		<loc>https://daynews.cc/international/14864</loc>
 		<lastmod>2019-12-16T02:45:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14862.html</loc>
+		<loc>https://daynews.cc/international/14862</loc>
 		<lastmod>2019-12-16T02:45:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14863.html</loc>
+		<loc>https://daynews.cc/international/14863</loc>
 		<lastmod>2019-12-16T02:45:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15314.html</loc>
+		<loc>https://daynews.cc/technology/18957</loc>
 		<lastmod>2019-12-16T02:50:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14860.html</loc>
+		<loc>https://daynews.cc/international/14860</loc>
 		<lastmod>2019-12-16T02:50:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14861.html</loc>
+		<loc>https://daynews.cc/international/14861</loc>
 		<lastmod>2019-12-16T02:50:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17330.html</loc>
+		<loc>https://daynews.cc/constellation/17330</loc>
 		<lastmod>2019-12-16T02:50:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17327.html</loc>
+		<loc>https://daynews.cc/constellation/17327</loc>
 		<lastmod>2019-12-16T02:50:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17328.html</loc>
+		<loc>https://daynews.cc/constellation/17328</loc>
 		<lastmod>2019-12-16T02:50:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17329.html</loc>
+		<loc>https://daynews.cc/constellation/17329</loc>
 		<lastmod>2019-12-16T02:50:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17326.html</loc>
+		<loc>https://daynews.cc/constellation/17326</loc>
 		<lastmod>2019-12-16T02:50:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15313.html</loc>
+		<loc>https://daynews.cc/technology/18956</loc>
 		<lastmod>2019-12-16T02:55:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15312.html</loc>
+		<loc>https://daynews.cc/technology/18955</loc>
 		<lastmod>2019-12-16T02:55:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15311.html</loc>
+		<loc>https://daynews.cc/technology/18954</loc>
 		<lastmod>2019-12-16T02:55:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15310.html</loc>
+		<loc>https://daynews.cc/technology/18953</loc>
 		<lastmod>2019-12-16T03:00:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15309.html</loc>
+		<loc>https://daynews.cc/technology/18952</loc>
 		<lastmod>2019-12-16T03:00:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14859.html</loc>
+		<loc>https://daynews.cc/international/14859</loc>
 		<lastmod>2019-12-16T03:00:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14857.html</loc>
+		<loc>https://daynews.cc/international/14857</loc>
 		<lastmod>2019-12-16T03:00:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14858.html</loc>
+		<loc>https://daynews.cc/international/14858</loc>
 		<lastmod>2019-12-16T03:00:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14855.html</loc>
+		<loc>https://daynews.cc/international/14855</loc>
 		<lastmod>2019-12-16T03:00:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14856.html</loc>
+		<loc>https://daynews.cc/international/14856</loc>
 		<lastmod>2019-12-16T03:00:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15308.html</loc>
+		<loc>https://daynews.cc/technology/18951</loc>
 		<lastmod>2019-12-16T03:05:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16180.html</loc>
+		<loc>https://daynews.cc/nba/16180</loc>
 		<lastmod>2019-12-16T03:05:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16178.html</loc>
+		<loc>https://daynews.cc/nba/16178</loc>
 		<lastmod>2019-12-16T03:10:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16179.html</loc>
+		<loc>https://daynews.cc/nba/16179</loc>
 		<lastmod>2019-12-16T03:10:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16176.html</loc>
+		<loc>https://daynews.cc/nba/16176</loc>
 		<lastmod>2019-12-16T03:10:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16177.html</loc>
+		<loc>https://daynews.cc/nba/16177</loc>
 		<lastmod>2019-12-16T03:10:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16175.html</loc>
+		<loc>https://daynews.cc/nba/16175</loc>
 		<lastmod>2019-12-16T03:10:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16380.html</loc>
+		<loc>https://daynews.cc/premier/16380</loc>
 		<lastmod>2019-12-16T03:10:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16379.html</loc>
+		<loc>https://daynews.cc/premier/16379</loc>
 		<lastmod>2019-12-16T03:10:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16378.html</loc>
+		<loc>https://daynews.cc/premier/16378</loc>
 		<lastmod>2019-12-16T03:15:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16376.html</loc>
+		<loc>https://daynews.cc/premier/16376</loc>
 		<lastmod>2019-12-16T03:15:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16377.html</loc>
+		<loc>https://daynews.cc/premier/16377</loc>
 		<lastmod>2019-12-16T03:15:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16375.html</loc>
+		<loc>https://daynews.cc/premier/16375</loc>
 		<lastmod>2019-12-16T03:15:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16373.html</loc>
+		<loc>https://daynews.cc/premier/16373</loc>
 		<lastmod>2019-12-16T03:15:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16374.html</loc>
+		<loc>https://daynews.cc/premier/16374</loc>
 		<lastmod>2019-12-16T03:15:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16854.html</loc>
+		<loc>https://daynews.cc/game/16854</loc>
 		<lastmod>2019-12-16T03:15:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16855.html</loc>
+		<loc>https://daynews.cc/game/16855</loc>
 		<lastmod>2019-12-16T03:15:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16853.html</loc>
+		<loc>https://daynews.cc/game/16853</loc>
 		<lastmod>2019-12-16T03:20:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16852.html</loc>
+		<loc>https://daynews.cc/game/16852</loc>
 		<lastmod>2019-12-16T03:20:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16850.html</loc>
+		<loc>https://daynews.cc/game/16850</loc>
 		<lastmod>2019-12-16T03:20:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16851.html</loc>
+		<loc>https://daynews.cc/game/16851</loc>
 		<lastmod>2019-12-16T03:20:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16556.html</loc>
+		<loc>https://daynews.cc/history/20118</loc>
 		<lastmod>2019-12-16T03:20:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16557.html</loc>
+		<loc>https://daynews.cc/history/20119</loc>
 		<lastmod>2019-12-16T03:20:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15756.html</loc>
+		<loc>https://daynews.cc/sports/19306</loc>
 		<lastmod>2019-12-16T03:20:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15755.html</loc>
+		<loc>https://daynews.cc/sports/19305</loc>
 		<lastmod>2019-12-16T03:25:04+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15753.html</loc>
+		<loc>https://daynews.cc/sports/19303</loc>
 		<lastmod>2019-12-16T03:25:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15754.html</loc>
+		<loc>https://daynews.cc/sports/19304</loc>
 		<lastmod>2019-12-16T03:25:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15751.html</loc>
+		<loc>https://daynews.cc/sports/19301</loc>
 		<lastmod>2019-12-16T03:25:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15752.html</loc>
+		<loc>https://daynews.cc/sports/19302</loc>
 		<lastmod>2019-12-16T03:25:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14675.html</loc>
+		<loc>https://daynews.cc/emotion/14675</loc>
 		<lastmod>2019-12-16T03:25:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14300.html</loc>
+		<loc>https://daynews.cc/entertainment/14300</loc>
 		<lastmod>2019-12-16T03:30:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14298.html</loc>
+		<loc>https://daynews.cc/entertainment/14298</loc>
 		<lastmod>2019-12-16T03:30:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14299.html</loc>
+		<loc>https://daynews.cc/entertainment/14299</loc>
 		<lastmod>2019-12-16T03:30:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14297.html</loc>
+		<loc>https://daynews.cc/entertainment/14297</loc>
 		<lastmod>2019-12-16T03:30:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14674.html</loc>
+		<loc>https://daynews.cc/emotion/14674</loc>
 		<lastmod>2019-12-16T03:30:15+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14673.html</loc>
+		<loc>https://daynews.cc/emotion/14673</loc>
 		<lastmod>2019-12-16T03:35:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14672.html</loc>
+		<loc>https://daynews.cc/emotion/14672</loc>
 		<lastmod>2019-12-16T03:35:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14296.html</loc>
+		<loc>https://daynews.cc/entertainment/14296</loc>
 		<lastmod>2019-12-16T03:35:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14294.html</loc>
+		<loc>https://daynews.cc/entertainment/14294</loc>
 		<lastmod>2019-12-16T03:35:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14295.html</loc>
+		<loc>https://daynews.cc/entertainment/14295</loc>
 		<lastmod>2019-12-16T03:35:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14292.html</loc>
+		<loc>https://daynews.cc/entertainment/14292</loc>
 		<lastmod>2019-12-16T03:35:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14293.html</loc>
+		<loc>https://daynews.cc/entertainment/14293</loc>
 		<lastmod>2019-12-16T03:35:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14290.html</loc>
+		<loc>https://daynews.cc/entertainment/14290</loc>
 		<lastmod>2019-12-16T03:35:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14291.html</loc>
+		<loc>https://daynews.cc/entertainment/14291</loc>
 		<lastmod>2019-12-16T03:35:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14289.html</loc>
+		<loc>https://daynews.cc/entertainment/14289</loc>
 		<lastmod>2019-12-16T03:40:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14288.html</loc>
+		<loc>https://daynews.cc/entertainment/14288</loc>
 		<lastmod>2019-12-16T03:40:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14286.html</loc>
+		<loc>https://daynews.cc/entertainment/14286</loc>
 		<lastmod>2019-12-16T03:40:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14287.html</loc>
+		<loc>https://daynews.cc/entertainment/14287</loc>
 		<lastmod>2019-12-16T03:40:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14669.html</loc>
+		<loc>https://daynews.cc/emotion/14669</loc>
 		<lastmod>2019-12-16T03:40:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14670.html</loc>
+		<loc>https://daynews.cc/emotion/14670</loc>
 		<lastmod>2019-12-16T03:40:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14671.html</loc>
+		<loc>https://daynews.cc/emotion/14671</loc>
 		<lastmod>2019-12-16T03:40:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14668.html</loc>
+		<loc>https://daynews.cc/emotion/14668</loc>
 		<lastmod>2019-12-16T03:40:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14666.html</loc>
+		<loc>https://daynews.cc/emotion/14666</loc>
 		<lastmod>2019-12-16T03:40:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14667.html</loc>
+		<loc>https://daynews.cc/emotion/14667</loc>
 		<lastmod>2019-12-16T03:40:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15307.html</loc>
+		<loc>https://daynews.cc/technology/18950</loc>
 		<lastmod>2019-12-16T03:45:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14854.html</loc>
+		<loc>https://daynews.cc/international/14854</loc>
 		<lastmod>2019-12-16T03:45:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14853.html</loc>
+		<loc>https://daynews.cc/international/14853</loc>
 		<lastmod>2019-12-16T03:45:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17325.html</loc>
+		<loc>https://daynews.cc/constellation/17325</loc>
 		<lastmod>2019-12-16T03:45:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16849.html</loc>
+		<loc>https://daynews.cc/game/16849</loc>
 		<lastmod>2019-12-16T03:45:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16372.html</loc>
+		<loc>https://daynews.cc/premier/16372</loc>
 		<lastmod>2019-12-16T03:45:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16848.html</loc>
+		<loc>https://daynews.cc/game/16848</loc>
 		<lastmod>2019-12-16T03:45:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14852.html</loc>
+		<loc>https://daynews.cc/international/14852</loc>
 		<lastmod>2019-12-16T03:50:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16173.html</loc>
+		<loc>https://daynews.cc/nba/16173</loc>
 		<lastmod>2019-12-16T03:50:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16174.html</loc>
+		<loc>https://daynews.cc/nba/16174</loc>
 		<lastmod>2019-12-16T03:50:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16172.html</loc>
+		<loc>https://daynews.cc/nba/16172</loc>
 		<lastmod>2019-12-16T03:50:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15305.html</loc>
+		<loc>https://daynews.cc/technology/18948</loc>
 		<lastmod>2019-12-16T04:05:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15306.html</loc>
+		<loc>https://daynews.cc/technology/18949</loc>
 		<lastmod>2019-12-16T04:05:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15303.html</loc>
+		<loc>https://daynews.cc/technology/18946</loc>
 		<lastmod>2019-12-16T04:05:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15304.html</loc>
+		<loc>https://daynews.cc/technology/18947</loc>
 		<lastmod>2019-12-16T04:05:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15302.html</loc>
+		<loc>https://daynews.cc/technology/18945</loc>
 		<lastmod>2019-12-16T04:05:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14851.html</loc>
+		<loc>https://daynews.cc/technology/18944</loc>
 		<lastmod>2019-12-16T04:05:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15301.html</loc>
+		<loc>https://daynews.cc/international/14851</loc>
 		<lastmod>2019-12-16T04:05:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14849.html</loc>
+		<loc>https://daynews.cc/international/14849</loc>
 		<lastmod>2019-12-16T04:10:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14850.html</loc>
+		<loc>https://daynews.cc/international/14850</loc>
 		<lastmod>2019-12-16T04:10:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14848.html</loc>
+		<loc>https://daynews.cc/international/14848</loc>
 		<lastmod>2019-12-16T04:10:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14847.html</loc>
+		<loc>https://daynews.cc/international/18473</loc>
 		<lastmod>2019-12-16T04:10:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14845.html</loc>
+		<loc>https://daynews.cc/international/18471</loc>
 		<lastmod>2019-12-16T04:10:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14846.html</loc>
+		<loc>https://daynews.cc/international/18472</loc>
 		<lastmod>2019-12-16T04:10:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16171.html</loc>
+		<loc>https://daynews.cc/nba/16171</loc>
 		<lastmod>2019-12-16T04:15:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/lose/17226.html</loc>
+		<loc>https://daynews.cc/lose/17226</loc>
 		<lastmod>2019-12-16T04:15:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16170.html</loc>
+		<loc>https://daynews.cc/nba/16170</loc>
 		<lastmod>2019-12-16T04:15:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16169.html</loc>
+		<loc>https://daynews.cc/nba/16169</loc>
 		<lastmod>2019-12-16T04:15:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16168.html</loc>
+		<loc>https://daynews.cc/nba/16168</loc>
 		<lastmod>2019-12-16T04:15:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16371.html</loc>
+		<loc>https://daynews.cc/premier/16371</loc>
 		<lastmod>2019-12-16T04:15:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16369.html</loc>
+		<loc>https://daynews.cc/premier/16369</loc>
 		<lastmod>2019-12-16T04:20:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16370.html</loc>
+		<loc>https://daynews.cc/premier/16370</loc>
 		<lastmod>2019-12-16T04:20:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16367.html</loc>
+		<loc>https://daynews.cc/premier/16367</loc>
 		<lastmod>2019-12-16T04:20:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16368.html</loc>
+		<loc>https://daynews.cc/premier/16368</loc>
 		<lastmod>2019-12-16T04:20:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16846.html</loc>
+		<loc>https://daynews.cc/game/16846</loc>
 		<lastmod>2019-12-16T04:20:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16847.html</loc>
+		<loc>https://daynews.cc/game/16847</loc>
 		<lastmod>2019-12-16T04:20:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16844.html</loc>
+		<loc>https://daynews.cc/game/16844</loc>
 		<lastmod>2019-12-16T04:20:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16845.html</loc>
+		<loc>https://daynews.cc/game/16845</loc>
 		<lastmod>2019-12-16T04:20:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16554.html</loc>
+		<loc>https://daynews.cc/history/20116</loc>
 		<lastmod>2019-12-16T04:25:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16555.html</loc>
+		<loc>https://daynews.cc/history/20117</loc>
 		<lastmod>2019-12-16T04:25:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16843.html</loc>
+		<loc>https://daynews.cc/game/16843</loc>
 		<lastmod>2019-12-16T04:25:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15750.html</loc>
+		<loc>https://daynews.cc/sports/19300</loc>
 		<lastmod>2019-12-16T04:25:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16553.html</loc>
+		<loc>https://daynews.cc/history/20115</loc>
 		<lastmod>2019-12-16T04:25:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15749.html</loc>
+		<loc>https://daynews.cc/sports/19299</loc>
 		<lastmod>2019-12-16T04:25:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15747.html</loc>
+		<loc>https://daynews.cc/sports/19297</loc>
 		<lastmod>2019-12-16T04:25:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15748.html</loc>
+		<loc>https://daynews.cc/sports/19298</loc>
 		<lastmod>2019-12-16T04:25:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15746.html</loc>
+		<loc>https://daynews.cc/sports/19296</loc>
 		<lastmod>2019-12-16T04:25:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15745.html</loc>
+		<loc>https://daynews.cc/sports/19295</loc>
 		<lastmod>2019-12-16T04:30:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15744.html</loc>
+		<loc>https://daynews.cc/sports/19294</loc>
 		<lastmod>2019-12-16T04:30:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15743.html</loc>
+		<loc>https://daynews.cc/sports/19293</loc>
 		<lastmod>2019-12-16T04:30:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14664.html</loc>
+		<loc>https://daynews.cc/emotion/14664</loc>
 		<lastmod>2019-12-16T04:30:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14665.html</loc>
+		<loc>https://daynews.cc/emotion/14665</loc>
 		<lastmod>2019-12-16T04:30:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14285.html</loc>
+		<loc>https://daynews.cc/entertainment/14285</loc>
 		<lastmod>2019-12-16T04:30:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14283.html</loc>
+		<loc>https://daynews.cc/entertainment/14283</loc>
 		<lastmod>2019-12-16T04:35:04+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14284.html</loc>
+		<loc>https://daynews.cc/entertainment/14284</loc>
 		<lastmod>2019-12-16T04:35:04+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14282.html</loc>
+		<loc>https://daynews.cc/entertainment/14282</loc>
 		<lastmod>2019-12-16T04:35:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14280.html</loc>
+		<loc>https://daynews.cc/entertainment/14280</loc>
 		<lastmod>2019-12-16T04:35:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14281.html</loc>
+		<loc>https://daynews.cc/entertainment/14281</loc>
 		<lastmod>2019-12-16T04:35:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14278.html</loc>
+		<loc>https://daynews.cc/entertainment/14278</loc>
 		<lastmod>2019-12-16T04:35:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14279.html</loc>
+		<loc>https://daynews.cc/entertainment/14279</loc>
 		<lastmod>2019-12-16T04:35:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14276.html</loc>
+		<loc>https://daynews.cc/entertainment/14276</loc>
 		<lastmod>2019-12-16T04:35:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14277.html</loc>
+		<loc>https://daynews.cc/entertainment/14277</loc>
 		<lastmod>2019-12-16T04:35:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14663.html</loc>
+		<loc>https://daynews.cc/emotion/14663</loc>
 		<lastmod>2019-12-16T04:35:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14661.html</loc>
+		<loc>https://daynews.cc/emotion/14661</loc>
 		<lastmod>2019-12-16T04:40:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14662.html</loc>
+		<loc>https://daynews.cc/emotion/14662</loc>
 		<lastmod>2019-12-16T04:40:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14275.html</loc>
+		<loc>https://daynews.cc/entertainment/14275</loc>
 		<lastmod>2019-12-16T04:40:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14273.html</loc>
+		<loc>https://daynews.cc/entertainment/14273</loc>
 		<lastmod>2019-12-16T04:40:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14274.html</loc>
+		<loc>https://daynews.cc/entertainment/14274</loc>
 		<lastmod>2019-12-16T04:40:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14271.html</loc>
+		<loc>https://daynews.cc/entertainment/14271</loc>
 		<lastmod>2019-12-16T04:40:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14272.html</loc>
+		<loc>https://daynews.cc/entertainment/14272</loc>
 		<lastmod>2019-12-16T04:40:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15300.html</loc>
+		<loc>https://daynews.cc/technology/15300</loc>
 		<lastmod>2019-12-16T04:50:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15299.html</loc>
+		<loc>https://daynews.cc/technology/15299</loc>
 		<lastmod>2019-12-16T04:50:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15297.html</loc>
+		<loc>https://daynews.cc/technology/15297</loc>
 		<lastmod>2019-12-16T04:50:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15298.html</loc>
+		<loc>https://daynews.cc/technology/15298</loc>
 		<lastmod>2019-12-16T04:50:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15296.html</loc>
+		<loc>https://daynews.cc/technology/15296</loc>
 		<lastmod>2019-12-16T04:50:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14844.html</loc>
+		<loc>https://daynews.cc/international/18470</loc>
 		<lastmod>2019-12-16T04:55:04+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14842.html</loc>
+		<loc>https://daynews.cc/international/18468</loc>
 		<lastmod>2019-12-16T04:55:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14843.html</loc>
+		<loc>https://daynews.cc/international/18469</loc>
 		<lastmod>2019-12-16T04:55:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14840.html</loc>
+		<loc>https://daynews.cc/international/18466</loc>
 		<lastmod>2019-12-16T04:55:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14841.html</loc>
+		<loc>https://daynews.cc/international/18467</loc>
 		<lastmod>2019-12-16T04:55:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14839.html</loc>
+		<loc>https://daynews.cc/international/18465</loc>
 		<lastmod>2019-12-16T04:55:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14837.html</loc>
+		<loc>https://daynews.cc/international/18463</loc>
 		<lastmod>2019-12-16T04:55:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14838.html</loc>
+		<loc>https://daynews.cc/international/18464</loc>
 		<lastmod>2019-12-16T04:55:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14836.html</loc>
+		<loc>https://daynews.cc/international/18462</loc>
 		<lastmod>2019-12-16T04:55:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14835.html</loc>
+		<loc>https://daynews.cc/international/18461</loc>
 		<lastmod>2019-12-16T05:00:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/lose/17225.html</loc>
+		<loc>https://daynews.cc/lose/17225</loc>
 		<lastmod>2019-12-16T05:00:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16165.html</loc>
+		<loc>https://daynews.cc/nba/16165</loc>
 		<lastmod>2019-12-16T05:05:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16166.html</loc>
+		<loc>https://daynews.cc/nba/16166</loc>
 		<lastmod>2019-12-16T05:05:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16167.html</loc>
+		<loc>https://daynews.cc/nba/16167</loc>
 		<lastmod>2019-12-16T05:05:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16163.html</loc>
+		<loc>https://daynews.cc/nba/16163</loc>
 		<lastmod>2019-12-16T05:05:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16164.html</loc>
+		<loc>https://daynews.cc/nba/16164</loc>
 		<lastmod>2019-12-16T05:05:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16162.html</loc>
+		<loc>https://daynews.cc/nba/16162</loc>
 		<lastmod>2019-12-16T05:05:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16161.html</loc>
+		<loc>https://daynews.cc/nba/16161</loc>
 		<lastmod>2019-12-16T05:05:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16160.html</loc>
+		<loc>https://daynews.cc/nba/16160</loc>
 		<lastmod>2019-12-16T05:05:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16366.html</loc>
+		<loc>https://daynews.cc/premier/16366</loc>
 		<lastmod>2019-12-16T05:05:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16364.html</loc>
+		<loc>https://daynews.cc/premier/16364</loc>
 		<lastmod>2019-12-16T05:10:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16365.html</loc>
+		<loc>https://daynews.cc/premier/16365</loc>
 		<lastmod>2019-12-16T05:10:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16363.html</loc>
+		<loc>https://daynews.cc/premier/16363</loc>
 		<lastmod>2019-12-16T05:10:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16842.html</loc>
+		<loc>https://daynews.cc/game/16842</loc>
 		<lastmod>2019-12-16T05:10:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16841.html</loc>
+		<loc>https://daynews.cc/game/16841</loc>
 		<lastmod>2019-12-16T05:15:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16839.html</loc>
+		<loc>https://daynews.cc/game/16839</loc>
 		<lastmod>2019-12-16T05:15:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16840.html</loc>
+		<loc>https://daynews.cc/game/16840</loc>
 		<lastmod>2019-12-16T05:15:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16551.html</loc>
+		<loc>https://daynews.cc/history/20113</loc>
 		<lastmod>2019-12-16T05:15:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16552.html</loc>
+		<loc>https://daynews.cc/history/20114</loc>
 		<lastmod>2019-12-16T05:15:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15742.html</loc>
+		<loc>https://daynews.cc/sports/19292</loc>
 		<lastmod>2019-12-16T05:15:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16550.html</loc>
+		<loc>https://daynews.cc/history/20112</loc>
 		<lastmod>2019-12-16T05:15:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15740.html</loc>
+		<loc>https://daynews.cc/sports/19290</loc>
 		<lastmod>2019-12-16T05:15:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15741.html</loc>
+		<loc>https://daynews.cc/sports/19291</loc>
 		<lastmod>2019-12-16T05:15:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15739.html</loc>
+		<loc>https://daynews.cc/sports/19289</loc>
 		<lastmod>2019-12-16T05:15:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15738.html</loc>
+		<loc>https://daynews.cc/sports/19288</loc>
 		<lastmod>2019-12-16T05:20:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15736.html</loc>
+		<loc>https://daynews.cc/sports/19286</loc>
 		<lastmod>2019-12-16T05:20:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15737.html</loc>
+		<loc>https://daynews.cc/sports/19287</loc>
 		<lastmod>2019-12-16T05:20:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15735.html</loc>
+		<loc>https://daynews.cc/sports/19285</loc>
 		<lastmod>2019-12-16T05:20:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14660.html</loc>
+		<loc>https://daynews.cc/emotion/14660</loc>
 		<lastmod>2019-12-16T05:20:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14270.html</loc>
+		<loc>https://daynews.cc/entertainment/14270</loc>
 		<lastmod>2019-12-16T05:25:04+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14268.html</loc>
+		<loc>https://daynews.cc/entertainment/14268</loc>
 		<lastmod>2019-12-16T05:25:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14269.html</loc>
+		<loc>https://daynews.cc/entertainment/14269</loc>
 		<lastmod>2019-12-16T05:25:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14266.html</loc>
+		<loc>https://daynews.cc/entertainment/14266</loc>
 		<lastmod>2019-12-16T05:25:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14267.html</loc>
+		<loc>https://daynews.cc/entertainment/14267</loc>
 		<lastmod>2019-12-16T05:25:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14265.html</loc>
+		<loc>https://daynews.cc/entertainment/14265</loc>
 		<lastmod>2019-12-16T05:25:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14263.html</loc>
+		<loc>https://daynews.cc/entertainment/14263</loc>
 		<lastmod>2019-12-16T05:25:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14264.html</loc>
+		<loc>https://daynews.cc/entertainment/14264</loc>
 		<lastmod>2019-12-16T05:25:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14262.html</loc>
+		<loc>https://daynews.cc/entertainment/14262</loc>
 		<lastmod>2019-12-16T05:25:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14261.html</loc>
+		<loc>https://daynews.cc/entertainment/14261</loc>
 		<lastmod>2019-12-16T05:30:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15294.html</loc>
+		<loc>https://daynews.cc/technology/15294</loc>
 		<lastmod>2019-12-16T05:50:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15295.html</loc>
+		<loc>https://daynews.cc/technology/15295</loc>
 		<lastmod>2019-12-16T05:50:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15293.html</loc>
+		<loc>https://daynews.cc/technology/15293</loc>
 		<lastmod>2019-12-16T05:50:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15292.html</loc>
+		<loc>https://daynews.cc/international/18459</loc>
 		<lastmod>2019-12-16T05:50:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14833.html</loc>
+		<loc>https://daynews.cc/international/18460</loc>
 		<lastmod>2019-12-16T05:50:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14834.html</loc>
+		<loc>https://daynews.cc/technology/15292</loc>
 		<lastmod>2019-12-16T05:50:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14831.html</loc>
+		<loc>https://daynews.cc/international/18457</loc>
 		<lastmod>2019-12-16T05:55:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14832.html</loc>
+		<loc>https://daynews.cc/international/18458</loc>
 		<lastmod>2019-12-16T05:55:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14829.html</loc>
+		<loc>https://daynews.cc/international/18455</loc>
 		<lastmod>2019-12-16T05:55:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14830.html</loc>
+		<loc>https://daynews.cc/international/18456</loc>
 		<lastmod>2019-12-16T05:55:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14827.html</loc>
+		<loc>https://daynews.cc/international/18453</loc>
 		<lastmod>2019-12-16T05:55:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14828.html</loc>
+		<loc>https://daynews.cc/international/18454</loc>
 		<lastmod>2019-12-16T05:55:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14826.html</loc>
+		<loc>https://daynews.cc/international/18452</loc>
 		<lastmod>2019-12-16T06:00:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16157.html</loc>
+		<loc>https://daynews.cc/nba/16157</loc>
 		<lastmod>2019-12-16T06:00:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16158.html</loc>
+		<loc>https://daynews.cc/nba/16158</loc>
 		<lastmod>2019-12-16T06:00:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16159.html</loc>
+		<loc>https://daynews.cc/nba/16159</loc>
 		<lastmod>2019-12-16T06:00:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16155.html</loc>
+		<loc>https://daynews.cc/nba/16155</loc>
 		<lastmod>2019-12-16T06:00:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16156.html</loc>
+		<loc>https://daynews.cc/nba/16156</loc>
 		<lastmod>2019-12-16T06:00:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16154.html</loc>
+		<loc>https://daynews.cc/nba/16154</loc>
 		<lastmod>2019-12-16T06:00:15+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16153.html</loc>
+		<loc>https://daynews.cc/nba/16153</loc>
 		<lastmod>2019-12-16T06:10:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16151.html</loc>
+		<loc>https://daynews.cc/nba/16151</loc>
 		<lastmod>2019-12-16T06:10:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16152.html</loc>
+		<loc>https://daynews.cc/nba/16152</loc>
 		<lastmod>2019-12-16T06:10:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16362.html</loc>
+		<loc>https://daynews.cc/premier/16362</loc>
 		<lastmod>2019-12-16T06:10:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16838.html</loc>
+		<loc>https://daynews.cc/game/16838</loc>
 		<lastmod>2019-12-16T06:10:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16837.html</loc>
+		<loc>https://daynews.cc/game/16837</loc>
 		<lastmod>2019-12-16T06:15:04+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16835.html</loc>
+		<loc>https://daynews.cc/game/16835</loc>
 		<lastmod>2019-12-16T06:15:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16836.html</loc>
+		<loc>https://daynews.cc/game/16836</loc>
 		<lastmod>2019-12-16T06:15:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16549.html</loc>
+		<loc>https://daynews.cc/history/20111</loc>
 		<lastmod>2019-12-16T06:15:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16834.html</loc>
+		<loc>https://daynews.cc/game/16834</loc>
 		<lastmod>2019-12-16T06:15:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16547.html</loc>
+		<loc>https://daynews.cc/history/20109</loc>
 		<lastmod>2019-12-16T06:15:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16548.html</loc>
+		<loc>https://daynews.cc/history/20110</loc>
 		<lastmod>2019-12-16T06:15:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16546.html</loc>
+		<loc>https://daynews.cc/history/20108</loc>
 		<lastmod>2019-12-16T06:15:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16545.html</loc>
+		<loc>https://daynews.cc/history/20107</loc>
 		<lastmod>2019-12-16T06:20:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16543.html</loc>
+		<loc>https://daynews.cc/history/20105</loc>
 		<lastmod>2019-12-16T06:20:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16544.html</loc>
+		<loc>https://daynews.cc/history/20106</loc>
 		<lastmod>2019-12-16T06:20:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16542.html</loc>
+		<loc>https://daynews.cc/history/20104</loc>
 		<lastmod>2019-12-16T06:20:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16541.html</loc>
+		<loc>https://daynews.cc/history/20103</loc>
 		<lastmod>2019-12-16T06:20:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15733.html</loc>
+		<loc>https://daynews.cc/sports/19283</loc>
 		<lastmod>2019-12-16T06:20:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15734.html</loc>
+		<loc>https://daynews.cc/sports/19284</loc>
 		<lastmod>2019-12-16T06:20:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15731.html</loc>
+		<loc>https://daynews.cc/sports/19281</loc>
 		<lastmod>2019-12-16T06:20:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15732.html</loc>
+		<loc>https://daynews.cc/sports/19282</loc>
 		<lastmod>2019-12-16T06:20:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15730.html</loc>
+		<loc>https://daynews.cc/sports/19280</loc>
 		<lastmod>2019-12-16T06:20:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15729.html</loc>
+		<loc>https://daynews.cc/sports/19279</loc>
 		<lastmod>2019-12-16T06:25:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15727.html</loc>
+		<loc>https://daynews.cc/sports/19277</loc>
 		<lastmod>2019-12-16T06:25:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15728.html</loc>
+		<loc>https://daynews.cc/sports/19278</loc>
 		<lastmod>2019-12-16T06:25:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15726.html</loc>
+		<loc>https://daynews.cc/sports/19276</loc>
 		<lastmod>2019-12-16T06:25:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14658.html</loc>
+		<loc>https://daynews.cc/emotion/14658</loc>
 		<lastmod>2019-12-16T06:25:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14659.html</loc>
+		<loc>https://daynews.cc/emotion/14659</loc>
 		<lastmod>2019-12-16T06:25:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14656.html</loc>
+		<loc>https://daynews.cc/emotion/14656</loc>
 		<lastmod>2019-12-16T06:25:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14657.html</loc>
+		<loc>https://daynews.cc/emotion/14657</loc>
 		<lastmod>2019-12-16T06:25:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14655.html</loc>
+		<loc>https://daynews.cc/emotion/14655</loc>
 		<lastmod>2019-12-16T06:30:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14653.html</loc>
+		<loc>https://daynews.cc/emotion/14653</loc>
 		<lastmod>2019-12-16T06:30:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14654.html</loc>
+		<loc>https://daynews.cc/emotion/14654</loc>
 		<lastmod>2019-12-16T06:30:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14652.html</loc>
+		<loc>https://daynews.cc/emotion/14652</loc>
 		<lastmod>2019-12-16T06:30:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14260.html</loc>
+		<loc>https://daynews.cc/entertainment/14260</loc>
 		<lastmod>2019-12-16T06:30:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14258.html</loc>
+		<loc>https://daynews.cc/entertainment/14258</loc>
 		<lastmod>2019-12-16T06:30:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14259.html</loc>
+		<loc>https://daynews.cc/entertainment/14259</loc>
 		<lastmod>2019-12-16T06:30:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14257.html</loc>
+		<loc>https://daynews.cc/entertainment/14257</loc>
 		<lastmod>2019-12-16T06:30:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14255.html</loc>
+		<loc>https://daynews.cc/entertainment/14255</loc>
 		<lastmod>2019-12-16T06:35:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14256.html</loc>
+		<loc>https://daynews.cc/entertainment/14256</loc>
 		<lastmod>2019-12-16T06:35:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14254.html</loc>
+		<loc>https://daynews.cc/entertainment/14254</loc>
 		<lastmod>2019-12-16T06:35:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14252.html</loc>
+		<loc>https://daynews.cc/entertainment/17805</loc>
 		<lastmod>2019-12-16T06:35:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14253.html</loc>
+		<loc>https://daynews.cc/entertainment/17806</loc>
 		<lastmod>2019-12-16T06:35:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15291.html</loc>
+		<loc>https://daynews.cc/technology/15291</loc>
 		<lastmod>2019-12-16T06:50:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15289.html</loc>
+		<loc>https://daynews.cc/technology/15289</loc>
 		<lastmod>2019-12-16T06:50:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15290.html</loc>
+		<loc>https://daynews.cc/technology/15290</loc>
 		<lastmod>2019-12-16T06:50:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14825.html</loc>
+		<loc>https://daynews.cc/international/18451</loc>
 		<lastmod>2019-12-16T06:50:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14824.html</loc>
+		<loc>https://daynews.cc/international/18450</loc>
 		<lastmod>2019-12-16T06:55:03+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14822.html</loc>
+		<loc>https://daynews.cc/international/18448</loc>
 		<lastmod>2019-12-16T06:55:04+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14823.html</loc>
+		<loc>https://daynews.cc/international/18449</loc>
 		<lastmod>2019-12-16T06:55:04+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14820.html</loc>
+		<loc>https://daynews.cc/international/18446</loc>
 		<lastmod>2019-12-16T06:55:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14821.html</loc>
+		<loc>https://daynews.cc/international/18447</loc>
 		<lastmod>2019-12-16T06:55:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14819.html</loc>
+		<loc>https://daynews.cc/international/18445</loc>
 		<lastmod>2019-12-16T06:55:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15288.html</loc>
+		<loc>https://daynews.cc/technology/15288</loc>
 		<lastmod>2019-12-16T07:00:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15286.html</loc>
+		<loc>https://daynews.cc/technology/15286</loc>
 		<lastmod>2019-12-16T07:00:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15287.html</loc>
+		<loc>https://daynews.cc/technology/15287</loc>
 		<lastmod>2019-12-16T07:00:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/lose/17224.html</loc>
+		<loc>https://daynews.cc/international/18444</loc>
 		<lastmod>2019-12-16T07:00:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14818.html</loc>
+		<loc>https://daynews.cc/lose/17224</loc>
 		<lastmod>2019-12-16T07:00:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17324.html</loc>
+		<loc>https://daynews.cc/constellation/17324</loc>
 		<lastmod>2019-12-16T07:00:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/health/17137.html</loc>
+		<loc>https://daynews.cc/health/17137</loc>
 		<lastmod>2019-12-16T07:00:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16150.html</loc>
+		<loc>https://daynews.cc/nba/16150</loc>
 		<lastmod>2019-12-16T07:00:15+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/health/17136.html</loc>
+		<loc>https://daynews.cc/health/17136</loc>
 		<lastmod>2019-12-16T07:00:15+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16149.html</loc>
+		<loc>https://daynews.cc/nba/16149</loc>
 		<lastmod>2019-12-16T07:05:04+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16148.html</loc>
+		<loc>https://daynews.cc/nba/16148</loc>
 		<lastmod>2019-12-16T07:05:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16147.html</loc>
+		<loc>https://daynews.cc/nba/16147</loc>
 		<lastmod>2019-12-16T07:05:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16145.html</loc>
+		<loc>https://daynews.cc/nba/16145</loc>
 		<lastmod>2019-12-16T07:05:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16146.html</loc>
+		<loc>https://daynews.cc/nba/16146</loc>
 		<lastmod>2019-12-16T07:05:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16361.html</loc>
+		<loc>https://daynews.cc/premier/16361</loc>
 		<lastmod>2019-12-16T07:05:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16833.html</loc>
+		<loc>https://daynews.cc/game/16833</loc>
 		<lastmod>2019-12-16T07:05:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16832.html</loc>
+		<loc>https://daynews.cc/game/16832</loc>
 		<lastmod>2019-12-16T07:10:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16830.html</loc>
+		<loc>https://daynews.cc/game/16830</loc>
 		<lastmod>2019-12-16T07:10:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16831.html</loc>
+		<loc>https://daynews.cc/game/16831</loc>
 		<lastmod>2019-12-16T07:10:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16828.html</loc>
+		<loc>https://daynews.cc/game/16828</loc>
 		<lastmod>2019-12-16T07:10:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16829.html</loc>
+		<loc>https://daynews.cc/game/16829</loc>
 		<lastmod>2019-12-16T07:10:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16826.html</loc>
+		<loc>https://daynews.cc/game/16826</loc>
 		<lastmod>2019-12-16T07:10:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16827.html</loc>
+		<loc>https://daynews.cc/game/16827</loc>
 		<lastmod>2019-12-16T07:10:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16824.html</loc>
+		<loc>https://daynews.cc/game/16824</loc>
 		<lastmod>2019-12-16T07:10:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16825.html</loc>
+		<loc>https://daynews.cc/game/16825</loc>
 		<lastmod>2019-12-16T07:10:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16540.html</loc>
+		<loc>https://daynews.cc/history/20102</loc>
 		<lastmod>2019-12-16T07:10:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16538.html</loc>
+		<loc>https://daynews.cc/history/20100</loc>
 		<lastmod>2019-12-16T07:15:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16539.html</loc>
+		<loc>https://daynews.cc/history/20101</loc>
 		<lastmod>2019-12-16T07:15:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16536.html</loc>
+		<loc>https://daynews.cc/history/20098</loc>
 		<lastmod>2019-12-16T07:15:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16537.html</loc>
+		<loc>https://daynews.cc/history/20099</loc>
 		<lastmod>2019-12-16T07:15:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16535.html</loc>
+		<loc>https://daynews.cc/history/20097</loc>
 		<lastmod>2019-12-16T07:15:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15724.html</loc>
+		<loc>https://daynews.cc/sports/19274</loc>
 		<lastmod>2019-12-16T07:15:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15725.html</loc>
+		<loc>https://daynews.cc/sports/19275</loc>
 		<lastmod>2019-12-16T07:15:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16534.html</loc>
+		<loc>https://daynews.cc/history/20096</loc>
 		<lastmod>2019-12-16T07:15:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15722.html</loc>
+		<loc>https://daynews.cc/sports/19272</loc>
 		<lastmod>2019-12-16T07:15:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15723.html</loc>
+		<loc>https://daynews.cc/sports/19273</loc>
 		<lastmod>2019-12-16T07:15:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15721.html</loc>
+		<loc>https://daynews.cc/sports/19271</loc>
 		<lastmod>2019-12-16T07:20:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15720.html</loc>
+		<loc>https://daynews.cc/sports/19270</loc>
 		<lastmod>2019-12-16T07:20:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14650.html</loc>
+		<loc>https://daynews.cc/emotion/14650</loc>
 		<lastmod>2019-12-16T07:20:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/emotion/14651.html</loc>
+		<loc>https://daynews.cc/emotion/14651</loc>
 		<lastmod>2019-12-16T07:20:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15285.html</loc>
+		<loc>https://daynews.cc/emotion/18027</loc>
+		<lastmod>2019-12-16T07:20:09+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/emotion/18028</loc>
+		<lastmod>2019-12-16T07:20:09+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/emotion/18026</loc>
+		<lastmod>2019-12-16T07:20:10+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/emotion/18024</loc>
 		<lastmod>2019-12-16T07:25:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15283.html</loc>
+		<loc>https://daynews.cc/emotion/18025</loc>
+		<lastmod>2019-12-16T07:25:05+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/technology/15285</loc>
+		<lastmod>2019-12-16T07:25:05+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/emotion/18022</loc>
 		<lastmod>2019-12-16T07:25:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15284.html</loc>
+		<loc>https://daynews.cc/emotion/18023</loc>
 		<lastmod>2019-12-16T07:25:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14250.html</loc>
+		<loc>https://daynews.cc/technology/15283</loc>
+		<lastmod>2019-12-16T07:25:06+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/technology/15284</loc>
+		<lastmod>2019-12-16T07:25:06+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/entertainment/17803</loc>
 		<lastmod>2019-12-16T07:25:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14251.html</loc>
+		<loc>https://daynews.cc/entertainment/17804</loc>
 		<lastmod>2019-12-16T07:25:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15282.html</loc>
+		<loc>https://daynews.cc/technology/15282</loc>
 		<lastmod>2019-12-16T07:25:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14247.html</loc>
+		<loc>https://daynews.cc/entertainment/17800</loc>
 		<lastmod>2019-12-16T07:25:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14248.html</loc>
+		<loc>https://daynews.cc/entertainment/17801</loc>
 		<lastmod>2019-12-16T07:25:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14249.html</loc>
+		<loc>https://daynews.cc/entertainment/17802</loc>
 		<lastmod>2019-12-16T07:25:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15281.html</loc>
+		<loc>https://daynews.cc/entertainment/17799</loc>
 		<lastmod>2019-12-16T07:30:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14246.html</loc>
+		<loc>https://daynews.cc/technology/15281</loc>
+		<lastmod>2019-12-16T07:30:08+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/entertainment/17798</loc>
+		<lastmod>2019-12-16T07:30:09+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/entertainment/17797</loc>
 		<lastmod>2019-12-16T07:30:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15280.html</loc>
+		<loc>https://daynews.cc/technology/15280</loc>
 		<lastmod>2019-12-16T07:35:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15279.html</loc>
+		<loc>https://daynews.cc/technology/15279</loc>
 		<lastmod>2019-12-16T07:40:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15278.html</loc>
+		<loc>https://daynews.cc/technology/15278</loc>
 		<lastmod>2019-12-16T07:45:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15277.html</loc>
+		<loc>https://daynews.cc/technology/15277</loc>
 		<lastmod>2019-12-16T07:55:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15275.html</loc>
+		<loc>https://daynews.cc/technology/15275</loc>
 		<lastmod>2019-12-16T07:55:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15276.html</loc>
+		<loc>https://daynews.cc/technology/15276</loc>
 		<lastmod>2019-12-16T07:55:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15272.html</loc>
+		<loc>https://daynews.cc/technology/15272</loc>
 		<lastmod>2019-12-16T07:55:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15273.html</loc>
+		<loc>https://daynews.cc/technology/15273</loc>
 		<lastmod>2019-12-16T07:55:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15274.html</loc>
+		<loc>https://daynews.cc/technology/15274</loc>
 		<lastmod>2019-12-16T07:55:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14817.html</loc>
+		<loc>https://daynews.cc/international/18443</loc>
 		<lastmod>2019-12-16T07:55:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15271.html</loc>
+		<loc>https://daynews.cc/technology/15271</loc>
 		<lastmod>2019-12-16T08:05:04+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14816.html</loc>
+		<loc>https://daynews.cc/international/18442</loc>
 		<lastmod>2019-12-16T08:05:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14815.html</loc>
+		<loc>https://daynews.cc/international/18441</loc>
 		<lastmod>2019-12-16T08:05:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14812.html</loc>
+		<loc>https://daynews.cc/international/18438</loc>
 		<lastmod>2019-12-16T08:05:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14813.html</loc>
+		<loc>https://daynews.cc/international/18439</loc>
 		<lastmod>2019-12-16T08:05:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14814.html</loc>
+		<loc>https://daynews.cc/international/18440</loc>
 		<lastmod>2019-12-16T08:05:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17323.html</loc>
+		<loc>https://daynews.cc/constellation/17323</loc>
 		<lastmod>2019-12-16T08:10:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15270.html</loc>
+		<loc>https://daynews.cc/technology/15270</loc>
 		<lastmod>2019-12-16T08:10:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17321.html</loc>
+		<loc>https://daynews.cc/constellation/17321</loc>
 		<lastmod>2019-12-16T08:10:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17322.html</loc>
+		<loc>https://daynews.cc/constellation/17322</loc>
 		<lastmod>2019-12-16T08:10:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15269.html</loc>
+		<loc>https://daynews.cc/technology/15269</loc>
 		<lastmod>2019-12-16T08:10:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/health/17135.html</loc>
+		<loc>https://daynews.cc/health/17135</loc>
 		<lastmod>2019-12-16T08:15:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16142.html</loc>
+		<loc>https://daynews.cc/nba/16142</loc>
 		<lastmod>2019-12-16T08:15:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16143.html</loc>
+		<loc>https://daynews.cc/nba/16143</loc>
 		<lastmod>2019-12-16T08:15:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16144.html</loc>
+		<loc>https://daynews.cc/nba/16144</loc>
 		<lastmod>2019-12-16T08:15:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16141.html</loc>
+		<loc>https://daynews.cc/nba/16141</loc>
 		<lastmod>2019-12-16T08:15:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16140.html</loc>
+		<loc>https://daynews.cc/nba/16140</loc>
 		<lastmod>2019-12-16T08:15:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16138.html</loc>
+		<loc>https://daynews.cc/nba/16138</loc>
 		<lastmod>2019-12-16T08:15:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16139.html</loc>
+		<loc>https://daynews.cc/nba/16139</loc>
 		<lastmod>2019-12-16T08:15:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15268.html</loc>
+		<loc>https://daynews.cc/technology/15268</loc>
 		<lastmod>2019-12-16T08:15:17+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16360.html</loc>
+		<loc>https://daynews.cc/premier/16360</loc>
 		<lastmod>2019-12-16T08:20:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16359.html</loc>
+		<loc>https://daynews.cc/premier/16359</loc>
 		<lastmod>2019-12-16T08:20:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16358.html</loc>
+		<loc>https://daynews.cc/premier/16358</loc>
 		<lastmod>2019-12-16T08:20:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15267.html</loc>
+		<loc>https://daynews.cc/technology/15267</loc>
 		<lastmod>2019-12-16T08:20:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16356.html</loc>
+		<loc>https://daynews.cc/premier/16356</loc>
 		<lastmod>2019-12-16T08:20:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16357.html</loc>
+		<loc>https://daynews.cc/premier/16357</loc>
 		<lastmod>2019-12-16T08:20:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16823.html</loc>
+		<loc>https://daynews.cc/game/16823</loc>
 		<lastmod>2019-12-16T08:20:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16822.html</loc>
+		<loc>https://daynews.cc/game/16822</loc>
 		<lastmod>2019-12-16T08:20:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15266.html</loc>
+		<loc>https://daynews.cc/technology/15266</loc>
 		<lastmod>2019-12-16T08:20:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16821.html</loc>
+		<loc>https://daynews.cc/game/16821</loc>
 		<lastmod>2019-12-16T08:25:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16820.html</loc>
+		<loc>https://daynews.cc/game/16820</loc>
 		<lastmod>2019-12-16T08:25:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16817.html</loc>
+		<loc>https://daynews.cc/game/16817</loc>
 		<lastmod>2019-12-16T08:25:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16818.html</loc>
+		<loc>https://daynews.cc/game/16818</loc>
 		<lastmod>2019-12-16T08:25:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16819.html</loc>
+		<loc>https://daynews.cc/game/16819</loc>
 		<lastmod>2019-12-16T08:25:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16533.html</loc>
+		<loc>https://daynews.cc/history/20095</loc>
 		<lastmod>2019-12-16T08:25:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16816.html</loc>
+		<loc>https://daynews.cc/game/16816</loc>
 		<lastmod>2019-12-16T08:25:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16532.html</loc>
+		<loc>https://daynews.cc/history/20094</loc>
 		<lastmod>2019-12-16T08:25:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16531.html</loc>
+		<loc>https://daynews.cc/history/20093</loc>
 		<lastmod>2019-12-16T08:25:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16530.html</loc>
+		<loc>https://daynews.cc/history/20092</loc>
 		<lastmod>2019-12-16T08:30:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16527.html</loc>
+		<loc>https://daynews.cc/history/20089</loc>
 		<lastmod>2019-12-16T08:30:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16528.html</loc>
+		<loc>https://daynews.cc/history/20090</loc>
 		<lastmod>2019-12-16T08:30:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16529.html</loc>
+		<loc>https://daynews.cc/history/20091</loc>
 		<lastmod>2019-12-16T08:30:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16525.html</loc>
+		<loc>https://daynews.cc/history/20087</loc>
 		<lastmod>2019-12-16T08:30:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16526.html</loc>
+		<loc>https://daynews.cc/history/20088</loc>
 		<lastmod>2019-12-16T08:30:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15717.html</loc>
+		<loc>https://daynews.cc/sports/19267</loc>
 		<lastmod>2019-12-16T08:30:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15718.html</loc>
+		<loc>https://daynews.cc/sports/19268</loc>
 		<lastmod>2019-12-16T08:30:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15719.html</loc>
+		<loc>https://daynews.cc/sports/19269</loc>
 		<lastmod>2019-12-16T08:30:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15716.html</loc>
+		<loc>https://daynews.cc/sports/19266</loc>
 		<lastmod>2019-12-16T08:35:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15715.html</loc>
+		<loc>https://daynews.cc/sports/19265</loc>
 		<lastmod>2019-12-16T08:35:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15714.html</loc>
+		<loc>https://daynews.cc/sports/19264</loc>
 		<lastmod>2019-12-16T08:35:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14245.html</loc>
+		<loc>https://daynews.cc/emotion/18021</loc>
+		<lastmod>2019-12-16T08:35:07+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/emotion/18020</loc>
+		<lastmod>2019-12-16T08:35:08+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/emotion/18019</loc>
+		<lastmod>2019-12-16T08:35:09+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/emotion/18018</loc>
+		<lastmod>2019-12-16T08:35:10+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/emotion/18016</loc>
+		<lastmod>2019-12-16T08:40:08+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/emotion/18017</loc>
+		<lastmod>2019-12-16T08:40:08+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/entertainment/17796</loc>
 		<lastmod>2019-12-16T08:40:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14244.html</loc>
+		<loc>https://daynews.cc/entertainment/17795</loc>
 		<lastmod>2019-12-16T08:40:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14243.html</loc>
+		<loc>https://daynews.cc/entertainment/17794</loc>
 		<lastmod>2019-12-16T08:40:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14240.html</loc>
+		<loc>https://daynews.cc/entertainment/17791</loc>
 		<lastmod>2019-12-16T08:40:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14241.html</loc>
+		<loc>https://daynews.cc/entertainment/17792</loc>
 		<lastmod>2019-12-16T08:40:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14242.html</loc>
+		<loc>https://daynews.cc/entertainment/17793</loc>
 		<lastmod>2019-12-16T08:40:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/entertainment/14239.html</loc>
+		<loc>https://daynews.cc/entertainment/17790</loc>
 		<lastmod>2019-12-16T08:40:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15265.html</loc>
+		<loc>https://daynews.cc/technology/15265</loc>
 		<lastmod>2019-12-16T08:45:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15263.html</loc>
+		<loc>https://daynews.cc/technology/15263</loc>
 		<lastmod>2019-12-16T08:50:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15264.html</loc>
+		<loc>https://daynews.cc/technology/15264</loc>
 		<lastmod>2019-12-16T08:50:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14811.html</loc>
+		<loc>https://daynews.cc/international/18437</loc>
 		<lastmod>2019-12-16T08:55:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14810.html</loc>
+		<loc>https://daynews.cc/international/18436</loc>
 		<lastmod>2019-12-16T08:55:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14809.html</loc>
+		<loc>https://daynews.cc/international/18435</loc>
 		<lastmod>2019-12-16T08:55:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14808.html</loc>
+		<loc>https://daynews.cc/international/18434</loc>
 		<lastmod>2019-12-16T08:55:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14807.html</loc>
+		<loc>https://daynews.cc/international/18433</loc>
 		<lastmod>2019-12-16T08:55:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15261.html</loc>
+		<loc>https://daynews.cc/technology/15261</loc>
 		<lastmod>2019-12-16T09:00:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15262.html</loc>
+		<loc>https://daynews.cc/technology/15262</loc>
 		<lastmod>2019-12-16T09:00:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14805.html</loc>
+		<loc>https://daynews.cc/international/18432</loc>
 		<lastmod>2019-12-16T09:00:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14806.html</loc>
+		<loc>https://daynews.cc/international/14805</loc>
 		<lastmod>2019-12-16T09:00:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14804.html</loc>
+		<loc>https://daynews.cc/international/14804</loc>
 		<lastmod>2019-12-16T09:00:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/lose/17223.html</loc>
+		<loc>https://daynews.cc/lose/17223</loc>
 		<lastmod>2019-12-16T09:05:04+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/lose/17222.html</loc>
+		<loc>https://daynews.cc/lose/17222</loc>
 		<lastmod>2019-12-16T09:05:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16137.html</loc>
+		<loc>https://daynews.cc/nba/16137</loc>
 		<lastmod>2019-12-16T09:05:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16136.html</loc>
+		<loc>https://daynews.cc/nba/16136</loc>
 		<lastmod>2019-12-16T09:05:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16134.html</loc>
+		<loc>https://daynews.cc/nba/16134</loc>
 		<lastmod>2019-12-16T09:10:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16135.html</loc>
+		<loc>https://daynews.cc/nba/16135</loc>
 		<lastmod>2019-12-16T09:10:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16133.html</loc>
+		<loc>https://daynews.cc/nba/16133</loc>
 		<lastmod>2019-12-16T09:10:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16132.html</loc>
+		<loc>https://daynews.cc/nba/16132</loc>
 		<lastmod>2019-12-16T09:10:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16355.html</loc>
+		<loc>https://daynews.cc/premier/16355</loc>
 		<lastmod>2019-12-16T09:10:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16354.html</loc>
+		<loc>https://daynews.cc/premier/16354</loc>
 		<lastmod>2019-12-16T09:10:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16353.html</loc>
+		<loc>https://daynews.cc/premier/16353</loc>
 		<lastmod>2019-12-16T09:10:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16352.html</loc>
+		<loc>https://daynews.cc/premier/16352</loc>
 		<lastmod>2019-12-16T09:10:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16351.html</loc>
+		<loc>https://daynews.cc/premier/16351</loc>
 		<lastmod>2019-12-16T09:15:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16350.html</loc>
+		<loc>https://daynews.cc/premier/16350</loc>
 		<lastmod>2019-12-16T09:15:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16815.html</loc>
+		<loc>https://daynews.cc/game/16815</loc>
 		<lastmod>2019-12-16T09:15:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16349.html</loc>
+		<loc>https://daynews.cc/premier/16349</loc>
 		<lastmod>2019-12-16T09:15:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16814.html</loc>
+		<loc>https://daynews.cc/game/16814</loc>
 		<lastmod>2019-12-16T09:15:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16813.html</loc>
+		<loc>https://daynews.cc/game/16813</loc>
 		<lastmod>2019-12-16T09:15:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16812.html</loc>
+		<loc>https://daynews.cc/game/16812</loc>
 		<lastmod>2019-12-16T09:15:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16809.html</loc>
+		<loc>https://daynews.cc/game/16809</loc>
 		<lastmod>2019-12-16T09:15:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16810.html</loc>
+		<loc>https://daynews.cc/game/16810</loc>
 		<lastmod>2019-12-16T09:15:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16811.html</loc>
+		<loc>https://daynews.cc/game/16811</loc>
 		<lastmod>2019-12-16T09:15:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16808.html</loc>
+		<loc>https://daynews.cc/game/16808</loc>
 		<lastmod>2019-12-16T09:20:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16807.html</loc>
+		<loc>https://daynews.cc/game/16807</loc>
 		<lastmod>2019-12-16T09:20:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16524.html</loc>
+		<loc>https://daynews.cc/history/20086</loc>
 		<lastmod>2019-12-16T09:20:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16806.html</loc>
+		<loc>https://daynews.cc/game/16806</loc>
 		<lastmod>2019-12-16T09:20:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16522.html</loc>
+		<loc>https://daynews.cc/history/20084</loc>
 		<lastmod>2019-12-16T09:20:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16523.html</loc>
+		<loc>https://daynews.cc/history/20085</loc>
 		<lastmod>2019-12-16T09:20:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16521.html</loc>
+		<loc>https://daynews.cc/history/20083</loc>
 		<lastmod>2019-12-16T09:20:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16518.html</loc>
+		<loc>https://daynews.cc/history/20080</loc>
 		<lastmod>2019-12-16T09:20:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16519.html</loc>
+		<loc>https://daynews.cc/history/20081</loc>
 		<lastmod>2019-12-16T09:20:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16520.html</loc>
+		<loc>https://daynews.cc/history/20082</loc>
 		<lastmod>2019-12-16T09:20:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15713.html</loc>
+		<loc>https://daynews.cc/sports/19263</loc>
 		<lastmod>2019-12-16T09:25:04+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15712.html</loc>
+		<loc>https://daynews.cc/sports/19262</loc>
 		<lastmod>2019-12-16T09:25:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15711.html</loc>
+		<loc>https://daynews.cc/sports/19261</loc>
 		<lastmod>2019-12-16T09:25:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15709.html</loc>
+		<loc>https://daynews.cc/sports/19259</loc>
 		<lastmod>2019-12-16T09:25:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15710.html</loc>
+		<loc>https://daynews.cc/sports/19260</loc>
 		<lastmod>2019-12-16T09:25:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15708.html</loc>
+		<loc>https://daynews.cc/sports/19258</loc>
 		<lastmod>2019-12-16T09:25:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15707.html</loc>
+		<loc>https://daynews.cc/sports/19257</loc>
 		<lastmod>2019-12-16T09:25:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15260.html</loc>
+		<loc>https://daynews.cc/emotion/18015</loc>
+		<lastmod>2019-12-16T09:25:11+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/emotion/18014</loc>
+		<lastmod>2019-12-16T09:30:07+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/emotion/18013</loc>
+		<lastmod>2019-12-16T09:30:08+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/emotion/18012</loc>
+		<lastmod>2019-12-16T09:30:09+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/emotion/18011</loc>
+		<lastmod>2019-12-16T09:30:10+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/emotion/18009</loc>
+		<lastmod>2019-12-16T09:30:11+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/emotion/18010</loc>
+		<lastmod>2019-12-16T09:30:11+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/entertainment/17789</loc>
+		<lastmod>2019-12-16T09:30:12+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/entertainment/17787</loc>
+		<lastmod>2019-12-16T09:35:04+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/entertainment/17788</loc>
+		<lastmod>2019-12-16T09:35:04+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/entertainment/17785</loc>
+		<lastmod>2019-12-16T09:35:05+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/entertainment/17786</loc>
+		<lastmod>2019-12-16T09:35:05+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/entertainment/17784</loc>
+		<lastmod>2019-12-16T09:35:06+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/entertainment/17781</loc>
+		<lastmod>2019-12-16T09:35:07+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/entertainment/17782</loc>
+		<lastmod>2019-12-16T09:35:07+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/entertainment/17783</loc>
+		<lastmod>2019-12-16T09:35:07+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/entertainment/17779</loc>
+		<lastmod>2019-12-16T09:35:08+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/entertainment/17780</loc>
+		<lastmod>2019-12-16T09:35:08+08:00</lastmod>
+	</url>
+	<url>
+		<loc>https://daynews.cc/technology/15260</loc>
 		<lastmod>2019-12-16T09:40:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15259.html</loc>
+		<loc>https://daynews.cc/technology/15259</loc>
 		<lastmod>2019-12-16T09:45:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15258.html</loc>
+		<loc>https://daynews.cc/technology/15258</loc>
 		<lastmod>2019-12-16T09:55:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15257.html</loc>
+		<loc>https://daynews.cc/technology/15257</loc>
 		<lastmod>2019-12-16T09:55:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14802.html</loc>
+		<loc>https://daynews.cc/international/14802</loc>
 		<lastmod>2019-12-16T09:55:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14803.html</loc>
+		<loc>https://daynews.cc/international/14803</loc>
 		<lastmod>2019-12-16T09:55:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14801.html</loc>
+		<loc>https://daynews.cc/international/14801</loc>
 		<lastmod>2019-12-16T09:55:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14800.html</loc>
+		<loc>https://daynews.cc/international/14800</loc>
 		<lastmod>2019-12-16T09:55:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15256.html</loc>
+		<loc>https://daynews.cc/technology/15256</loc>
 		<lastmod>2019-12-16T10:00:24+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14799.html</loc>
+		<loc>https://daynews.cc/international/14799</loc>
 		<lastmod>2019-12-16T10:00:25+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14798.html</loc>
+		<loc>https://daynews.cc/international/14798</loc>
 		<lastmod>2019-12-16T10:00:26+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/lose/17221.html</loc>
+		<loc>https://daynews.cc/lose/17221</loc>
 		<lastmod>2019-12-16T10:05:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/lose/17220.html</loc>
+		<loc>https://daynews.cc/lose/17220</loc>
 		<lastmod>2019-12-16T10:05:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17320.html</loc>
+		<loc>https://daynews.cc/constellation/17320</loc>
 		<lastmod>2019-12-16T10:05:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/constellation/17319.html</loc>
+		<loc>https://daynews.cc/constellation/17319</loc>
 		<lastmod>2019-12-16T10:10:04+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/health/17134.html</loc>
+		<loc>https://daynews.cc/health/17134</loc>
 		<lastmod>2019-12-16T10:10:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16131.html</loc>
+		<loc>https://daynews.cc/nba/16131</loc>
 		<lastmod>2019-12-16T10:10:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16129.html</loc>
+		<loc>https://daynews.cc/nba/16129</loc>
 		<lastmod>2019-12-16T10:10:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16130.html</loc>
+		<loc>https://daynews.cc/nba/16130</loc>
 		<lastmod>2019-12-16T10:10:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/nba/16128.html</loc>
+		<loc>https://daynews.cc/nba/16128</loc>
 		<lastmod>2019-12-16T10:10:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16348.html</loc>
+		<loc>https://daynews.cc/premier/16348</loc>
 		<lastmod>2019-12-16T10:10:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16347.html</loc>
+		<loc>https://daynews.cc/premier/16347</loc>
 		<lastmod>2019-12-16T10:10:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/premier/16346.html</loc>
+		<loc>https://daynews.cc/premier/16346</loc>
 		<lastmod>2019-12-16T10:20:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16804.html</loc>
+		<loc>https://daynews.cc/game/16804</loc>
 		<lastmod>2019-12-16T10:20:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16805.html</loc>
+		<loc>https://daynews.cc/game/16805</loc>
 		<lastmod>2019-12-16T10:20:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16802.html</loc>
+		<loc>https://daynews.cc/game/16802</loc>
 		<lastmod>2019-12-16T10:20:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16803.html</loc>
+		<loc>https://daynews.cc/game/16803</loc>
 		<lastmod>2019-12-16T10:20:12+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16800.html</loc>
+		<loc>https://daynews.cc/game/16800</loc>
 		<lastmod>2019-12-16T10:20:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16801.html</loc>
+		<loc>https://daynews.cc/game/16801</loc>
 		<lastmod>2019-12-16T10:20:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16798.html</loc>
+		<loc>https://daynews.cc/game/16798</loc>
 		<lastmod>2019-12-16T10:25:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16799.html</loc>
+		<loc>https://daynews.cc/game/16799</loc>
 		<lastmod>2019-12-16T10:25:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16797.html</loc>
+		<loc>https://daynews.cc/game/16797</loc>
 		<lastmod>2019-12-16T10:25:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16517.html</loc>
+		<loc>https://daynews.cc/history/20079</loc>
 		<lastmod>2019-12-16T10:25:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/game/16796.html</loc>
+		<loc>https://daynews.cc/game/16796</loc>
 		<lastmod>2019-12-16T10:25:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16516.html</loc>
+		<loc>https://daynews.cc/history/20078</loc>
 		<lastmod>2019-12-16T10:25:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16515.html</loc>
+		<loc>https://daynews.cc/history/20077</loc>
 		<lastmod>2019-12-16T10:25:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16513.html</loc>
+		<loc>https://daynews.cc/history/20075</loc>
 		<lastmod>2019-12-16T10:25:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16514.html</loc>
+		<loc>https://daynews.cc/history/20076</loc>
 		<lastmod>2019-12-16T10:25:10+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/history/16512.html</loc>
+		<loc>https://daynews.cc/history/20074</loc>
 		<lastmod>2019-12-16T10:25:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15706.html</loc>
+		<loc>https://daynews.cc/sports/19256</loc>
 		<lastmod>2019-12-16T10:30:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15705.html</loc>
+		<loc>https://daynews.cc/sports/19255</loc>
 		<lastmod>2019-12-16T10:30:11+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15703.html</loc>
+		<loc>https://daynews.cc/sports/19253</loc>
 		<lastmod>2019-12-16T10:30:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15704.html</loc>
+		<loc>https://daynews.cc/sports/19254</loc>
 		<lastmod>2019-12-16T10:30:13+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15702.html</loc>
+		<loc>https://daynews.cc/sports/19252</loc>
 		<lastmod>2019-12-16T10:30:14+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/sports/15701.html</loc>
+		<loc>https://daynews.cc/sports/19251</loc>
 		<lastmod>2019-12-16T10:30:15+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15255.html</loc>
-		<lastmod>2019-12-16T10:50:10+08:00</lastmod>
+		<loc>https://daynews.cc/emotion/18008</loc>
+		<lastmod>2019-12-16T10:35:05+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15254.html</loc>
-		<lastmod>2019-12-16T10:55:04+08:00</lastmod>
+		<loc>https://daynews.cc/emotion/18005</loc>
+		<lastmod>2019-12-16T10:35:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15252.html</loc>
-		<lastmod>2019-12-16T10:55:06+08:00</lastmod>
+		<loc>https://daynews.cc/emotion/18006</loc>
+		<lastmod>2019-12-16T10:35:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15253.html</loc>
-		<lastmod>2019-12-16T10:55:06+08:00</lastmod>
+		<loc>https://daynews.cc/emotion/18007</loc>
+		<lastmod>2019-12-16T10:35:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15250.html</loc>
-		<lastmod>2019-12-16T10:55:07+08:00</lastmod>
+		<loc>https://daynews.cc/emotion/18003</loc>
+		<lastmod>2019-12-16T10:35:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15251.html</loc>
-		<lastmod>2019-12-16T10:55:07+08:00</lastmod>
+		<loc>https://daynews.cc/emotion/18004</loc>
+		<lastmod>2019-12-16T10:35:07+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15248.html</loc>
-		<lastmod>2019-12-16T10:55:08+08:00</lastmod>
+		<loc>https://daynews.cc/emotion/18002</loc>
+		<lastmod>2019-12-16T10:35:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/technology/15249.html</loc>
-		<lastmod>2019-12-16T10:55:08+08:00</lastmod>
+		<loc>https://daynews.cc/entertainment/17778</loc>
+		<lastmod>2019-12-16T10:35:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14797.html</loc>
-		<lastmod>2019-12-16T10:55:09+08:00</lastmod>
+		<loc>https://daynews.cc/entertainment/17777</loc>
+		<lastmod>2019-12-16T10:35:09+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14796.html</loc>
-		<lastmod>2019-12-16T11:00:12+08:00</lastmod>
+		<loc>https://daynews.cc/entertainment/17776</loc>
+		<lastmod>2019-12-16T10:40:06+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14795.html</loc>
-		<lastmod>2019-12-16T11:00:13+08:00</lastmod>
+		<loc>https://daynews.cc/entertainment/17774</loc>
+		<lastmod>2019-12-16T10:40:08+08:00</lastmod>
 	</url>
 	<url>
-		<loc>https://daynews.cc/international/14793.html</loc>
-		<lastmod>2019-12-16T11:00:14+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/international/14794.html</loc>
-		<lastmod>2019-12-16T11:00:14+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/international/14792.html</loc>
-		<lastmod>2019-12-16T11:00:15+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/international/14791.html</loc>
-		<lastmod>2019-12-16T11:00:16+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/technology/15247.html</loc>
-		<lastmod>2019-12-16T11:00:18+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/lose/17219.html</loc>
-		<lastmod>2019-12-16T11:10:07+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/lose/17217.html</loc>
-		<lastmod>2019-12-16T11:10:09+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/lose/17218.html</loc>
-		<lastmod>2019-12-16T11:10:09+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/constellation/17318.html</loc>
-		<lastmod>2019-12-16T11:10:10+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/constellation/17317.html</loc>
-		<lastmod>2019-12-16T11:15:05+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/health/17133.html</loc>
-		<lastmod>2019-12-16T11:15:06+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/health/17132.html</loc>
-		<lastmod>2019-12-16T11:15:07+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/health/17130.html</loc>
-		<lastmod>2019-12-16T11:15:08+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/health/17131.html</loc>
-		<lastmod>2019-12-16T11:15:08+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/health/17127.html</loc>
-		<lastmod>2019-12-16T11:15:09+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/health/17128.html</loc>
-		<lastmod>2019-12-16T11:15:09+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/health/17129.html</loc>
-		<lastmod>2019-12-16T11:15:09+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/nba/16127.html</loc>
-		<lastmod>2019-12-16T11:15:10+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/nba/16126.html</loc>
-		<lastmod>2019-12-16T11:20:07+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/nba/16124.html</loc>
-		<lastmod>2019-12-16T11:20:08+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/nba/16125.html</loc>
-		<lastmod>2019-12-16T11:20:08+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/nba/16122.html</loc>
-		<lastmod>2019-12-16T11:20:09+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/nba/16123.html</loc>
-		<lastmod>2019-12-16T11:20:09+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/nba/16121.html</loc>
-		<lastmod>2019-12-16T11:20:10+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/technology/15246.html</loc>
-		<lastmod>2019-12-16T11:20:14+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/premier/16345.html</loc>
-		<lastmod>2019-12-16T11:25:06+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/premier/16343.html</loc>
-		<lastmod>2019-12-16T11:25:07+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/premier/16344.html</loc>
-		<lastmod>2019-12-16T11:25:07+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/premier/16341.html</loc>
-		<lastmod>2019-12-16T11:25:08+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/premier/16342.html</loc>
-		<lastmod>2019-12-16T11:25:08+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/game/16795.html</loc>
-		<lastmod>2019-12-16T11:25:09+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/premier/16340.html</loc>
-		<lastmod>2019-12-16T11:25:09+08:00</lastmod>
-	</url>
-	<url>
-		<loc>https://daynews.cc/game/16794.html</loc>
-		<lastmod>2019-12-16T11:25:10+08:00</lastmod>
+		<loc>https://daynews.cc/entertainment/17775</loc>
+		<lastmod>2019-12-16T10:40:08+08:00</lastmod>
 	</url>
 </urlset>
 <!-- XML Sitemap generated by Yoast SEO -->

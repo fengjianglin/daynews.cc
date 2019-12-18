@@ -1,0 +1,650 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>很開心，在使用mybatis的過程中我踩到一個坑 - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="​持續輸出原創文章，關注我吧 在實際開發過程中我踩到了mybatis的一個坑，我覺得值得記錄、分享一下。 先說說這個坑是什麼吧。如果你踩過這個坑，並且知道具體的原因，那這篇文章可以加深你的印象。如果你沒有踩過，那你可得好好看看，因為你總會遇到的。 具體如下：在mybatis中的OgnlOps.equal(0,&#8221;&#8221;)……" />
+		<meta name="keywords" content="很開心，在使用mybatis的過程中我踩到一個坑 - 天天要聞,科技," />
+		<meta itemprop="image" content="http://p1.pstatp.com/large/pgc-image/74ec0ecd827d409ab37af06e75bf316e"/>
+		<meta name="description" itemprop="description" content="​持續輸出原創文章，關注我吧 在實際開發過程中我踩到了mybatis的一個坑，我覺得值得記錄、分享一下。 先說說這個坑是什麼吧。如果你踩過這個坑，並且知道具體的原因，那這篇文章可以加深你的印象。如果你沒有踩過，那你可得好好看看，因為你總會遇到的。 具體如下：在mybatis中的OgnlOps.equal(0,&#8221;&#8221;)……" />
+		
+<!-- This site is optimized with the SEO -->
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="https://daynews.cc/technology/15331" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="很開心，在使用mybatis的過程中我踩到一個坑 - 天天要聞" />
+<meta property="og:description" content="​持續輸出原創文章，關注我吧 在實際開發過程中我踩到了mybatis的一個坑，我覺得值得記錄、分享一下。 先說說這個坑是什麼吧。如果你踩過這個坑，並且知道具體的原因，那這篇文章可以加深你的印象。如果你沒有踩過，那你可得好好看看，因為你總會遇到的。 具體如下：在mybatis中的OgnlOps.equal(0,&#8221;&#8221;)……" />
+<meta property="og:url" content="https://daynews.cc/technology/15331" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-15T16:05:08+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="​持續輸出原創文章，關注我吧 在實際開發過程中我踩到了mybatis的一個坑，我覺得值得記錄、分享一下。 先說說這個坑是什麼吧。如果你踩過這個坑，並且知道具體的原因，那這篇文章可以加深你的印象。如果你沒有踩過，那你可得好好看看，因為你總會遇到的。 具體如下：在mybatis中的OgnlOps.equal(0,&#8221;&#8221;)……" />
+<meta name="twitter:title" content="很開心，在使用mybatis的過程中我踩到一個坑 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/74ec0ecd827d409ab37af06e75bf316e" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/15331#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/74ec0ecd827d409ab37af06e75bf316e"},{"@type":"WebPage","@id":"https://daynews.cc/technology/15331#webpage","url":"https://daynews.cc/technology/15331","inLanguage":"zh-TW","name":"\u5f88\u958b\u5fc3\uff0c\u5728\u4f7f\u7528mybatis\u7684\u904e\u7a0b\u4e2d\u6211\u8e29\u5230\u4e00\u500b\u5751 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/15331#primaryimage"},"datePublished":"2019-12-15T16:05:08+00:00","dateModified":"2019-12-15T16:05:08+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<!-- / SEO. -->
+
+<link rel='stylesheet' id='animate-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/animate.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/bootstrap.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/superfish.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/layer.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='https://daynews.cc/wp-content/themes/Kratos/style.css' type='text/css' media='all' />
+<link rel="amphtml" href="https://daynews.cc/technology/15331/amp">		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.min.js'></script>
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154709495-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-154709495-1');
+		</script>
+		<!-- Google Adsense -->
+		<script data-ad-client="ca-pub-8261739837930821" async 
+			src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="https://daynews.cc"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="/">首頁</a></li>
+<li><a href="/entertainment">娛樂</a></li>
+<li><a href="/emotion">情感</a></li>
+<li><a href="https://daynews.cc/international">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="https://daynews.cc/technology">科技</a></li>
+<li><a href="/sports">體育</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/nba">NBA</a></li>
+	<li><a href="/premier">英超</a></li>
+</ul>
+</li>
+<li><a href="/history">歷史</a></li>
+<li><a href="/game">遊戲</a></li>
+<li><a href="https://daynews.cc/health">養生</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/lose">減肥</a></li>
+</ul>
+</li>
+<li><a href="https://daynews.cc/constellation">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">很開心，在使用mybatis的過程中我踩到一個坑</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-16				                <i class="fa fa-commenting-o"></i> 318條評論
+				                <i class="fa fa-eye"></i> 2,666次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 1282人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+<p>​持續輸出原創文章，關注我吧</p>
+<p>在實際開發過程中我踩到了mybatis的一個坑，我覺得值得記錄、分享一下。</p>
+<p>先說說這個坑是什麼吧。如果你踩過這個坑，並且知道具體的原因，那這篇文章可以加深你的印象。如果你沒有踩過，那你可得好好看看，因為你總會遇到的。</p>
+<p>具體如下：<strong>在mybatis中的OgnlOps.equal(0,&#8221;&#8221;)返回的是true。</strong></p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/74ec0ecd827d409ab37af06e75bf316e" src="http://p1.pstatp.com/large/pgc-image/74ec0ecd827d409ab37af06e75bf316e" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>首先這裡返回為true就違背了我們的常識，其次返回為true，會帶來什麼問題呢？</p>
+<p>看完本文你就清楚了。</p>
+<p>本文會按照遇到問題 &#8211;&gt; 分析問題 &#8211;&gt; 解決問題的行文思路，用<strong>追蹤源碼</strong>的方法，對這個問題進行剖析。</p>
+<p>同時分享一下我是怎麼用<strong>逆向排查</strong>的方法，通過Debug模式找到最關鍵的那一行源碼，然後明白前因後果，最後解決這個問題的。</p>
+<p>本文源碼：<strong>mybatis 3.5.3版本</strong>。</p>
+<h2 class="pgc-h-arrow-right">背景介紹，需求分析</h2>
+<p>先鋪墊一下背景，模擬一個需求。</p>
+<p>有一個訂單表，表結構如下：</p>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/d229d0a71a59474cbbb0e2ac49323a4c" src="http://p9.pstatp.com/large/pgc-image/d229d0a71a59474cbbb0e2ac49323a4c" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>為了簡化問題，我們假設表裡面只有兩條數據:</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/fefed6cfd5e0444b8157784355757556" src="http://p1.pstatp.com/large/pgc-image/fefed6cfd5e0444b8157784355757556" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" /></p>
+<p class="pgc-img-caption">
+</div>
+<blockquote class="js_blockquote_wrap">
+<p>訂單號為1234的訂單狀態為0【關閉】</p>
+<p>訂單號為4321的訂單狀態為1【開啟】</p>
+</blockquote>
+<p>已經開發好的功能是模糊查詢訂單名稱，介面如下：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/4fae63e6507e43828bd1e2d68d0cc407" src="http://p1.pstatp.com/large/pgc-image/4fae63e6507e43828bd1e2d68d0cc407" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>其對應的mapper.xml是這樣寫的，功能正常:</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/cb568888257242c09e88512e61a2ed18" src="http://p3.pstatp.com/large/pgc-image/cb568888257242c09e88512e61a2ed18" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>現在需要在已有功能上添加一個根據狀態過濾訂單的功能：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/6e807f6b0f8740228fa3c0f64391bc73" src="http://p1.pstatp.com/large/pgc-image/6e807f6b0f8740228fa3c0f64391bc73" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>假設某個頁面有這樣的一個下拉框，可以根據訂單狀態過濾訂單數據。</p>
+<blockquote class="js_blockquote_wrap">
+<p>當用戶選擇【已支付】時，後台接收到的是數字1，用Byte類型接收。</p>
+<p>當用戶選擇【未支付】時，後台接收到的是數字0，用Byte類型接收。</p>
+</blockquote>
+<h2 class="pgc-h-arrow-right">準備開發</h2>
+<p>現在明確了需求，根據訂單狀態進行過濾。</p>
+<p>很簡單，最主要的修改地方就是對mapper.xml的修改，至於怎麼從前端傳到xml來我就不詳細說明了，相信用過mybatis的朋友都知道。</p>
+<p>先在介面上加一個入參orderName:</p>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/009af4c7ff9a4009ac59fb27f1ffe582" src="http://p9.pstatp.com/large/pgc-image/009af4c7ff9a4009ac59fb27f1ffe582" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>然後改造一下對應的xml:</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/c71aa00230cc4ce0894f443616032fff" src="http://p3.pstatp.com/large/pgc-image/c71aa00230cc4ce0894f443616032fff" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>改造點很簡單，在xml文件裡面ctrl+c一下原來的if標籤，再ctrl+v出來改改裡面的名字就好了。</p>
+<h2 class="pgc-h-arrow-right">開始自測，遇到問題</h2>
+<p>請做好單元測試，即使這個功能非常簡單，顯而易見，你信心十足，但是做好單元測試，是一個程序員應有的職業素養。</p>
+<p>單元測試如下：分別傳入狀態0和1</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/8c2da41b2ff84aa4b46d84cf0fe03168" src="http://p3.pstatp.com/large/pgc-image/8c2da41b2ff84aa4b46d84cf0fe03168" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>按照我們現在表裡的數據，我們預期的結果是各自查詢出一條數據。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/fefed6cfd5e0444b8157784355757556" src="http://p1.pstatp.com/large/pgc-image/fefed6cfd5e0444b8157784355757556" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>運行起來，我們一起看看執行結果：</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/b13ace1476804527a45d5ca2d8ababa9" src="http://p3.pstatp.com/large/pgc-image/b13ace1476804527a45d5ca2d8ababa9" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" /></p>
+<p class="pgc-img-caption">
+</div>
+<blockquote class="js_blockquote_wrap">
+<p>status=0,查詢出來的條數 = 2</p>
+<p>status=1,查詢出來的條數 = 1</p>
+</blockquote>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/2fd46c86e42945c3b1c13c4d713fdc5b" src="http://p1.pstatp.com/large/pgc-image/2fd46c86e42945c3b1c13c4d713fdc5b" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>這結果和我們預期的不符呀！什麼情況？</p>
+<p>當時我遇到這個問題的時候，我就知道事情不簡單，其中必有蹊蹺。</p>
+<p>如果是兩年前，我遇到問題肯定是立馬面向搜索引擎編程。把遇到的問題一頓搜索，根據網友的建議，很快就很解決了。然而，也很快就忘記了。而且，遇到這個問題的時候，我當時是沒有聯網的。</p>
+<p>不要急著去問搜索引擎。不要慌，要分析，冷靜分析之後才有收穫。</p>
+<h2 class="pgc-h-arrow-right">分析問題</h2>
+<p>分析的第一步其實很容易想到，我們先把sql列印出來，看看最終執行的sql是什麼，就知道為什麼返回的結果和預期不符了。</p>
+<p>所以我們在application.properties裡面加上這行配置：</p>
+<blockquote class="js_blockquote_wrap">
+<p>logging.level.com.xxxx.xxxx.mapper = debug</p>
+<p>注:上面的xxxx換成自己的mapper包的路徑</p>
+</blockquote>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/70d4417aea354e4083760f27a36e5d14" src="http://p1.pstatp.com/large/pgc-image/70d4417aea354e4083760f27a36e5d14" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>加上sql列印後，我們發現當status為0時，mybatis並沒有給我們拼接where關鍵字。</p>
+<p>到這裡很自然的就能聯想到下一步：為什麼mybatis沒有給我們拼接where關鍵字？</p>
+<p>或者換一個問法:mybatis是<strong>在哪裡</strong>通過上<strong>什麼邏輯</strong>拼接sql的？</p>
+<p>常規的方法是加斷點進行追蹤，但是我想分享一個我當時排查的&#8221;騷&#8221;操作，定位問題非常快。那就是<strong>逆向排查</strong>。</p>
+<h2 class="pgc-h-arrow-right">逆向排查法</h2>
+<p>現在我們確定了是sql拼接的問題，我通過日誌，也拿到了完整的sql。</p>
+<p>日誌配置是這樣的:</p>
+<blockquote class="js_blockquote_wrap">
+<p>logging.pattern.console=%date{yyyy-MM-dd HH:mm:ss.SSS} %-5level[%thread]%C{56}.%method:%L -%msg%n</p>
+</blockquote>
+<p>列印出來的日誌是這樣的（截取了其中一部分）:</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/6e0325dcb92a4b5a9b8de3e68fa590d9" src="http://p1.pstatp.com/large/pgc-image/6e0325dcb92a4b5a9b8de3e68fa590d9" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>在<strong>org.apache.ibatis.logging.jdbc.BaseJdbcLogger的143行</strong>,debug方法中列印了日誌，這行日誌就是我的突破口。</p>
+<p>在這個地方，我整個sql都拿到了，如果往回走，就能很快的找到sql是在哪裡產生的。</p>
+<p>那我在BaseJdbcLogger的143行，打上斷點，並運行起來。</p>
+<p>通過idea的Debug模式，我們可以得到從程序運行開始，到斷點處的<strong>整個調用鏈路</strong>。(如果下面的圖片看不清楚，可以點開查看大圖)：</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/5eb0c17103b9465a9d7e72d5773241c0" src="http://p3.pstatp.com/large/pgc-image/5eb0c17103b9465a9d7e72d5773241c0" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>通過調用鏈，往後走三步，我們可以看到sql是從boundSql中獲取到的:</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/05c8f0eaa3074730a98e44b5f113c998" src="http://p3.pstatp.com/large/pgc-image/05c8f0eaa3074730a98e44b5f113c998" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>那麼boundSql是從哪裡來的呢？我們繼續往回走。</p>
+<p>往回走11步，我們可以看到boundSql的獲取過程:</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/b40e0709e5eb4f2f8b5f23e3f58f52ab" src="http://p3.pstatp.com/large/pgc-image/b40e0709e5eb4f2f8b5f23e3f58f52ab" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" /></p>
+<p class="pgc-img-caption">
+</div>
+<blockquote class="js_blockquote_wrap">
+<p>為了方便大家找到源碼，我把對應的方法名稱放在這裡:org.apache.ibatis.executor.CachingExecutor#query(org.apache.ibatis.mapping.MappedStatement, java.lang.Object, org.apache.ibatis.session.RowBounds, org.apache.ibatis.session.ResultHandler)</p>
+</p>
+</blockquote>
+<p>還記得我們開始的問題嗎，我們不知道sql是在哪裡通過什麼邏輯拼接的。</p>
+<p>而這就是前一部分的答案呀。sql就是通過org.apache.ibatis.executor.CachingExecutor的81行代碼產生的:</p>
+<blockquote class="js_blockquote_wrap">
+<p>BoundSql boundSql = ms.getBoundSql(parameterObject);</p>
+</blockquote>
+<p>所以接下來我們只需要在這行代碼的前面打上斷點，我們就能知道後半部分問題的答案了，通過什麼邏輯拼接而成?</p>
+<p>如果在你不是十分熟悉mybatis的情況下，你通過Debug模式正向的找到這行代碼，是需要花一點時間的，而我上面說的逆向排查，可以節約一大部分時間。</p>
+<h2 class="pgc-h-arrow-right">關鍵源碼</h2>
+<p>後面就是常規的正向查找的過程了，最終你會定位到這個全文最關鍵的地方:</p>
+<blockquote class="js_blockquote_wrap">
+<p>org.apache.ibatis.ognl.ASTNotEq#getValueBody</p>
+</blockquote>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/74ec0ecd827d409ab37af06e75bf316e" src="http://p1.pstatp.com/large/pgc-image/74ec0ecd827d409ab37af06e75bf316e" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>為什麼在mybatis中數字0和空字元串&#8221;&#8221;比返回的是true呢？源碼之下無秘密，繼續往下Debug你會找到這個地方：</p>
+<blockquote class="js_blockquote_wrap">
+<p>org.apache.ibatis.ognl.OgnlOps#doubleValue</p>
+</blockquote>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/f6ffefd3c2d44ce8adc047c54a492ff0" src="http://p3.pstatp.com/large/pgc-image/f6ffefd3c2d44ce8adc047c54a492ff0" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>這裡返回之後，真正的對比是在這裡：</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/2ef36269a56443b999b47834cb7ebc92" src="http://p3.pstatp.com/large/pgc-image/2ef36269a56443b999b47834cb7ebc92" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>v1和v2最終都變成了0.0。所以返回了true。</p>
+<p>由於OgnlOps.equal(0,&#8221;&#8221;)返回為true，所以整個表達式【OgnlOps.equal(0,&#8221;&#8221;) ？Boolean.FALSE : Boolean.TRUE】返回的是FALSE。</p>
+<p>接下來，需要回答的就是這三個問題了:</p>
+<blockquote class="js_blockquote_wrap">
+<p>v1=0是哪裡來的？</p>
+<p>v2=&#8221;&#8221;是從哪裡來的？</p>
+<p>返回FALSE會帶來什麼問題？</p>
+</blockquote>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/954ddb3bb0634a19b80e4e48ed5f7886" src="http://p1.pstatp.com/large/pgc-image/954ddb3bb0634a19b80e4e48ed5f7886" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>圖中標號為一的地方，就是v1的值，這個0是我傳入的查詢條件。</p>
+<p>圖中標號為二的地方，就是v2的值，這個&#8221;&#8221;的來源是我寫在mapper.xml文件中if標籤裡面的表達式。</p>
+<p>圖中標號為三的地方，為false的原因就是這個表達式【OgnlOps.equal(0,&#8221;&#8221;) ？Boolean.FALSE : Boolean.TRUE】返回的是false。返回為false了，就不會進入下面的代碼:<strong>contents.apply(context)</strong>。</p>
+<p>而這行代碼，就是回答我們之前提出問題的後半部分，mybatis通過什麼邏輯拼接sql?</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/e71cf5b690d44ecb8638735ae075ab24" src="http://p3.pstatp.com/large/pgc-image/e71cf5b690d44ecb8638735ae075ab24" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>就是解析我們寫在mapper.xml中的if標籤中的test條件，如果滿足條件，返回為true則拼接條件裡面的內容，即sql。</p>
+<p>由於這裡的if標籤是這樣的:</p>
+<blockquote class="js_blockquote_wrap">
+<p>&lt;if test=&#8221;orderStatus != null and orderStatus != &#8221;&#8221;&gt;</p>
+</blockquote>
+<p>其中orderStatus!=null返回為true,orderStatus !=&#8221;返回為false，所以整個表達式返回為false，則不拼接這個if標籤裡面的sql。</p>
+<p>至此，我們結合源碼，對於為什麼會出現問題分析完畢。</p>
+<h2 class="pgc-h-arrow-right">解決問題</h2>
+<p>其實問題分析完了，一種解決方法也就呼之欲出，我們只需要把mapper.xml文件中的if標籤修改為這樣即可:</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/b04a26e38f4e4608aba6a8af1247be99" src="http://p3.pstatp.com/large/pgc-image/b04a26e38f4e4608aba6a8af1247be99" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>或者改成這樣：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/7a438758e7cb4d2a9af34be81c7396ce" src="http://p1.pstatp.com/large/pgc-image/7a438758e7cb4d2a9af34be81c7396ce" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>再看看執行結果:</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/b5f774b7c0e14521a5d95d9084609663" src="http://p1.pstatp.com/large/pgc-image/b5f774b7c0e14521a5d95d9084609663" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>這樣就和我們預期的結果一致了。</p>
+<p>但是，你再回過頭的想一想，我最開始的改造mapper.xml是怎麼操作的：</p>
+<blockquote class="js_blockquote_wrap">
+<p>改造點很簡單，在xml文件裡面ctrl+c一下原來的if標籤，再ctrl+v出來改改裡面的名字就好了。</p>
+</blockquote>
+<p>是的，我無腦的使用了CV大法。導致我在歡聲笑語中寫出了bug。我orderStatus傳入的類型是一個Byte，和&#8221;&#8221;做判斷有任何意義嗎？</p>
+<p>但是我也感謝這次無腦的CV，讓我踩到了這個坑，並且研究清楚了。get到了新的知識點。</p>
+<p>同時，我也感謝自己做了單元測試，不然測試同學測試的時候拋出這樣的問題，我會覺得他不會用，他會覺得我是弱雞。</p>
+<h2 class="pgc-h-arrow-right">最後說幾句</h2>
+<p>在解決這個問題之後，我還是在網上查了一圈，發現也有人遇到了這樣的問題，但是我點開搜索出來的第一篇就是一個錯誤的描述，他說在mybatis中會把0當做null來處理？哥們你看源碼了嗎？或者說我們說的不是一回事？</p>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/9d9790ddc8684caba979fb059baaa50b" src="http://p9.pstatp.com/large/pgc-image/9d9790ddc8684caba979fb059baaa50b" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>然後還有其他的大量文章都只是扔給你一個解決方法，並沒有寫為什麼這樣寫就可以解決這個問題。而這樣的搜索結果在我看來是不完美的，因為很難留下深刻的印象，導致你或者你同事再次碰見這個問題的時候你會說：哦，這個問題呀，我之前碰見過。怎麼解決的，我給忘了。</p>
+<p>你這不廢話嗎？</p>
+<p>我之前在《面試了15位來自211/985院校的2020屆研究生之後的思考》這篇文章中寫到一段話，用在這裡也很合適:</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/ba3a32c0c91e41969e257a66648b6952" src="http://p3.pstatp.com/large/pgc-image/ba3a32c0c91e41969e257a66648b6952" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>後來我把這個問題分享在群里之後，群里一個朋友也給我分享了一篇文章，肥朝大佬寫的《還有這種操作?淺析為什麼要看源碼》。文中給出了另一種解決方案，有理有據，簡明扼要，是一篇很好的文章，大家可以看看。</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/53592889481144ba8c58acfc49037d34" src="http://p3.pstatp.com/large/pgc-image/53592889481144ba8c58acfc49037d34" alt="《很開心，在使用mybatis的過程中我踩到一個坑》" /></p>
+<p class="pgc-img-caption">
+</div>
+<h2 class="pgc-h-arrow-right">尾聲</h2>
+<p>文章寫到這裡也就接近尾聲了。如果你能在這篇文章中get到這個知識點，或者當你碰到這個問題的時候能想起這篇文章，這就是對這篇文章最大的讚賞，文章價值的最高體現。</p>
+<p>我更加希望的是，當你碰到這個問題，自己分析完了，在網上查詢的時候看到了我的這篇文章。因為自己分析出來的，永遠是印象最深刻的，其他的文章只是起點綴作用。</p>
+<p>才疏學淺，難免會有紕漏，如果你發現了錯誤的地方，還請你留言給我指出來，我對其加以修改。</p>
+<p>感謝您的閱讀，感謝您的關注。</p>
+<p>以上。</p>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="15331" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/15331"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/15331";
+		var title='%E3%80%90%E5%BE%88%E9%96%8B%E5%BF%83%EF%BC%8C%E5%9C%A8%E4%BD%BF%E7%94%A8mybatis%E7%9A%84%E9%81%8E%E7%A8%8B%E4%B8%AD%E6%88%91%E8%B8%A9%E5%88%B0%E4%B8%80%E5%80%8B%E5%9D%91%E3%80%91';
+		var qqtitle='%E3%80%90%E5%BE%88%E9%96%8B%E5%BF%83%EF%BC%8C%E5%9C%A8%E4%BD%BF%E7%94%A8mybatis%E7%9A%84%E9%81%8E%E7%A8%8B%E4%B8%AD%E6%88%91%E8%B8%A9%E5%88%B0%E4%B8%80%E5%80%8B%E5%9D%91%E3%80%91';
+		var excerpt='%E2%80%8B%E6%8C%81%E7%BA%8C%E8%BC%B8%E5%87%BA%E5%8E%9F%E5%89%B5%E6%96%87%E7%AB%A0%EF%BC%8C%E9%97%9C%E6%B3%A8%E6%88%91%E5%90%A7%20%E5%9C%A8%E5%AF%A6%E9%9A%9B%E9%96%8B%E7%99%BC%E9%81%8E%E7%A8%8B%E4%B8%AD%E6%88%91%E8%B8%A9%E5%88%B0%E4%BA%86mybatis%E7%9A%84%E4%B8%80%E5%80%8B%E5%9D%91%EF%BC%8C%E6%88%91%E8%A6%BA%E5%BE%97%E5%80%BC%E5%BE%97%E8%A8%98%E9%8C%84%E3%80%81%E5%88%86%E4%BA%AB%E4%B8%80%E4%B8%8B%E3%80%82%20%E5%85%88%E8%AA%AA%E8%AA%AA%E9%80%99%E5%80%8B%E5%9D%91%E6%98%AF%E4%BB%80%E9%BA%BC%E5%90%A7%E3%80%82%E5%A6%82%E6%9E%9C%E4%BD%A0%E8%B8%A9%E9%81%8E%E9%80%99%E5%80%8B%E5%9D%91%EF%BC%8C%E4%B8%A6%E4%B8%94%E7%9F%A5%E9%81%93%E5%85%B7%E9%AB%94%E7%9A%84%E5%8E%9F%E5%9B%A0%EF%BC%8C%E9%82%A3%E9%80%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%8A%A0%E6%B7%B1%E4%BD%A0%E7%9A%84%E5%8D%B0%E8%B1%A1%E3%80%82%E5%A6%82%E6%9E%9C%E4%BD%A0%E6%B2%92%E6%9C%89%E8%B8%A9%E9%81%8E%EF%BC%8C%E9%82%A3%E4%BD%A0%E5%8F%AF%E5%BE%97%E5%A5%BD%E5%A5%BD%E7%9C%8B%E7%9C%8B%EF%BC%8C%E5%9B%A0%E7%82%BA%E4%BD%A0%E7%B8%BD%E6%9C%83%E9%81%87%E5%88%B0%E7%9A%84%E3%80%82%20%E5%85%B7%E9%AB%94%E5%A6%82%E4%B8%8B%EF%BC%9A%E5%9C%A8mybatis%E4%B8%AD%E7%9A%84OgnlOps.equal%280%2C%26%238221%3B%26%238221%3B%29%E2%80%A6%E2%80%A6';
+		var wbexcerpt='%E2%80%8B%E6%8C%81%E7%BA%8C%E8%BC%B8%E5%87%BA%E5%8E%9F%E5%89%B5%E6%96%87%E7%AB%A0%EF%BC%8C%E9%97%9C%E6%B3%A8%E6%88%91%E5%90%A7%20%E5%9C%A8%E5%AF%A6%E9%9A%9B%E9%96%8B%E7%99%BC%E9%81%8E%E7%A8%8B%E4%B8%AD%E6%88%91%E8%B8%A9%E5%88%B0%E4%BA%86mybatis%E7%9A%84%E4%B8%80%E5%80%8B%E5%9D%91%EF%BC%8C%E6%88%91%E8%A6%BA%E5%BE%97%E5%80%BC%E5%BE%97%E8%A8%98%E9%8C%84%E3%80%81%E5%88%86%E4%BA%AB%E4%B8%80%E4%B8%8B%E3%80%82%20%E5%85%88%E8%AA%AA%E8%AA%AA%E9%80%99%E5%80%8B%E5%9D%91%E6%98%AF%E4%BB%80%E9%BA%BC%E5%90%A7%E3%80%82%E5%A6%82%E6%9E%9C%E4%BD%A0%E8%B8%A9%E9%81%8E%E9%80%99%E5%80%8B%E5%9D%91%EF%BC%8C%E4%B8%A6%E4%B8%94%E7%9F%A5%E9%81%93%E5%85%B7%E9%AB%94%E7%9A%84%E5%8E%9F%E5%9B%A0%EF%BC%8C%E9%82%A3%E9%80%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%8A%A0%E6%B7%B1%E4%BD%A0%E7%9A%84%E5%8D%B0%E8%B1%A1%E3%80%82%E5%A6%82%E6%9E%9C%E4%BD%A0%E6%B2%92%E6%9C%89%E8%B8%A9%E9%81%8E%EF%BC%8C%E9%82%A3%E4%BD%A0%E5%8F%AF%E5%BE%97%E5%A5%BD%E5%A5%BD%E7%9C%8B%E7%9C%8B%EF%BC%8C%E5%9B%A0%E7%82%BA%E4%BD%A0%E7%B8%BD%E6%9C%83%E9%81%87%E5%88%B0%E7%9A%84%E3%80%82%20%E5%85%B7%E9%AB%94%E5%A6%82%E4%B8%8B%EF%BC%9A%E5%9C%A8mybatis%E4%B8%AD%E7%9A%84OgnlOps.equal%280%2C%26%238221%3B%26%238221%3B%29%E2%80%A6%E2%80%A6';
+		var pic="http://p1.pstatp.com/large/pgc-image/74ec0ecd827d409ab37af06e75bf316e";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="最火的《中台戰略》內容大綱分享" href="https://daynews.cc/technology/15332">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="穿越三年寒冬，中國手機市場格局變化驚人" href="https://daynews.cc/technology/15329">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="/technology/15331#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='15331' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼" href="https://daynews.cc/constellation/20739" rel="bookmark"><i class="fa  fa-book"></i> 伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼                            </a>
+                            <a class="list-group-item visible-md" title="伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼" href="https://daynews.cc/constellation/20739" rel="bookmark"><i class="fa  fa-book"></i> 伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼                            </a>
+                                                    <a class="list-group-item visible-lg" title="12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪" href="https://daynews.cc/constellation/20740" rel="bookmark"><i class="fa  fa-book"></i> 12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪                            </a>
+                            <a class="list-group-item visible-md" title="12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪" href="https://daynews.cc/constellation/20740" rel="bookmark"><i class="fa  fa-book"></i> 12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪                            </a>
+                                                    <a class="list-group-item visible-lg" title="十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮" href="https://daynews.cc/constellation/20741" rel="bookmark"><i class="fa  fa-book"></i> 十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮                            </a>
+                            <a class="list-group-item visible-md" title="十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮" href="https://daynews.cc/constellation/20741" rel="bookmark"><i class="fa  fa-book"></i> 十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮                            </a>
+                                                    <a class="list-group-item visible-lg" title="小聶：跑動中的腰腹力量如何運用" href="https://daynews.cc/lose/20597" rel="bookmark"><i class="fa  fa-book"></i> 小聶：跑動中的腰腹力量如何運用                            </a>
+                            <a class="list-group-item visible-md" title="小聶：跑動中的腰腹力量如何運用" href="https://daynews.cc/lose/20597" rel="bookmark"><i class="fa  fa-book"></i> 小聶：跑動中的腰腹力量如何運用                            </a>
+                                                    <a class="list-group-item visible-lg" title="小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力" href="https://daynews.cc/lose/20598" rel="bookmark"><i class="fa  fa-book"></i> 小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力                            </a>
+                            <a class="list-group-item visible-md" title="小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力" href="https://daynews.cc/lose/20598" rel="bookmark"><i class="fa  fa-book"></i> 小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力                            </a>
+                                                    <a class="list-group-item visible-lg" title="十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古" href="https://daynews.cc/history/19786" rel="bookmark"><i class="fa  fa-book"></i> 十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古                            </a>
+                            <a class="list-group-item visible-md" title="十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古" href="https://daynews.cc/history/19786" rel="bookmark"><i class="fa  fa-book"></i> 十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古                            </a>
+                                                    <a class="list-group-item visible-lg" title="當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？" href="https://daynews.cc/history/19787" rel="bookmark"><i class="fa  fa-book"></i> 當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？                            </a>
+                            <a class="list-group-item visible-md" title="當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？" href="https://daynews.cc/history/19787" rel="bookmark"><i class="fa  fa-book"></i> 當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？                            </a>
+                                                    <a class="list-group-item visible-lg" title="春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？" href="https://daynews.cc/history/19789" rel="bookmark"><i class="fa  fa-book"></i> 春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？                            </a>
+                            <a class="list-group-item visible-md" title="春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？" href="https://daynews.cc/history/19789" rel="bookmark"><i class="fa  fa-book"></i> 春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？                            </a>
+                                                    <a class="list-group-item visible-lg" title="軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸" href="https://daynews.cc/history/19788" rel="bookmark"><i class="fa  fa-book"></i> 軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸                            </a>
+                            <a class="list-group-item visible-md" title="軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸" href="https://daynews.cc/history/19788" rel="bookmark"><i class="fa  fa-book"></i> 軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸                            </a>
+                                                    <a class="list-group-item visible-lg" title="劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？" href="https://daynews.cc/history/19790" rel="bookmark"><i class="fa  fa-book"></i> 劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？                            </a>
+                            <a class="list-group-item visible-md" title="劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？" href="https://daynews.cc/history/19790" rel="bookmark"><i class="fa  fa-book"></i> 劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-md" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-lg" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a><a class="list-group-item visible-md" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a><a class="list-group-item visible-lg" title="最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？" href="https://daynews.cc/international/18303" rel="bookmark"><i class="fa  fa-book"></i> 最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？</a><a class="list-group-item visible-md" title="最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？" href="https://daynews.cc/international/18303" rel="bookmark"><i class="fa  fa-book"></i> 最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？</a><a class="list-group-item visible-lg" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="https://daynews.cc/entertainment/10879" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-md" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="https://daynews.cc/entertainment/10879" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-lg" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="https://daynews.cc/technology/10158" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-md" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="https://daynews.cc/technology/10158" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-lg" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="https://daynews.cc/game/13764" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-md" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="https://daynews.cc/game/13764" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-lg" title="這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩" href="https://daynews.cc/lose/20687" rel="bookmark"><i class="fa  fa-book"></i> 這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩</a><a class="list-group-item visible-md" title="這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩" href="https://daynews.cc/lose/20687" rel="bookmark"><i class="fa  fa-book"></i> 這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩</a><a class="list-group-item visible-lg" title="夢三國：路人戰力匹配中最值得玩的輔助英雄推薦" href="https://daynews.cc/game/20261" rel="bookmark"><i class="fa  fa-book"></i> 夢三國：路人戰力匹配中最值得玩的輔助英雄推薦</a><a class="list-group-item visible-md" title="夢三國：路人戰力匹配中最值得玩的輔助英雄推薦" href="https://daynews.cc/game/20261" rel="bookmark"><i class="fa  fa-book"></i> 夢三國：路人戰力匹配中最值得玩的輔助英雄推薦</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="華為諾亞方舟實驗室田奇：學術界和工業界具有互補性，人才培養是核心" href="https://daynews.cc/technology/9573" rel="bookmark"><i class="fa  fa-book"></i> 華為諾亞方舟實驗室田奇：學術界和工業界具有互補性，人才培養是核心                            </a>
+                            <a class="list-group-item visible-md" title="華為諾亞方舟實驗室田奇：學術界和工業界具有互補性，人才培養是核心" href="https://daynews.cc/technology/9573" rel="bookmark"><i class="fa  fa-book"></i> 華為諾亞方舟實驗室田奇：學術界和工業界具有互補性，人才培養是核心                            </a>
+                                                    <a class="list-group-item visible-lg" title="曼聯7人進合同年恐免費轉會！索帥欽點續簽鐵衛，留兩小妖難度大" href="https://daynews.cc/premier/5579" rel="bookmark"><i class="fa  fa-book"></i> 曼聯7人進合同年恐免費轉會！索帥欽點續簽鐵衛，留兩小妖難度大                            </a>
+                            <a class="list-group-item visible-md" title="曼聯7人進合同年恐免費轉會！索帥欽點續簽鐵衛，留兩小妖難度大" href="https://daynews.cc/premier/5579" rel="bookmark"><i class="fa  fa-book"></i> 曼聯7人進合同年恐免費轉會！索帥欽點續簽鐵衛，留兩小妖難度大                            </a>
+                                                    <a class="list-group-item visible-lg" title="長公主管“內庫”，告訴你一個真實的皇家私房錢" href="https://daynews.cc/history/3651" rel="bookmark"><i class="fa  fa-book"></i> 長公主管“內庫”，告訴你一個真實的皇家私房錢                            </a>
+                            <a class="list-group-item visible-md" title="長公主管“內庫”，告訴你一個真實的皇家私房錢" href="https://daynews.cc/history/3651" rel="bookmark"><i class="fa  fa-book"></i> 長公主管“內庫”，告訴你一個真實的皇家私房錢                            </a>
+                                                    <a class="list-group-item visible-lg" title="西亞卡姆30+10+5猛龍輕鬆撕裂籃網！加索爾17+16" href="https://daynews.cc/nba/16220" rel="bookmark"><i class="fa  fa-book"></i> 西亞卡姆30+10+5猛龍輕鬆撕裂籃網！加索爾17+16                            </a>
+                            <a class="list-group-item visible-md" title="西亞卡姆30+10+5猛龍輕鬆撕裂籃網！加索爾17+16" href="https://daynews.cc/nba/16220" rel="bookmark"><i class="fa  fa-book"></i> 西亞卡姆30+10+5猛龍輕鬆撕裂籃網！加索爾17+16                            </a>
+                                                    <a class="list-group-item visible-lg" title="“花木蘭”最想讓誰演，12位古裝女將任你挑" href="https://daynews.cc/entertainment/10768" rel="bookmark"><i class="fa  fa-book"></i> “花木蘭”最想讓誰演，12位古裝女將任你挑                            </a>
+                            <a class="list-group-item visible-md" title="“花木蘭”最想讓誰演，12位古裝女將任你挑" href="https://daynews.cc/entertainment/10768" rel="bookmark"><i class="fa  fa-book"></i> “花木蘭”最想讓誰演，12位古裝女將任你挑                            </a>
+                                                    <a class="list-group-item visible-lg" title="太極 | 內勁·六段架子和上線與下線" href="https://daynews.cc/lose/13359" rel="bookmark"><i class="fa  fa-book"></i> 太極 | 內勁·六段架子和上線與下線                            </a>
+                            <a class="list-group-item visible-md" title="太極 | 內勁·六段架子和上線與下線" href="https://daynews.cc/lose/13359" rel="bookmark"><i class="fa  fa-book"></i> 太極 | 內勁·六段架子和上線與下線                            </a>
+                                                    <a class="list-group-item visible-lg" title="兆威機電擬中小板上市，華為、vivo、OPPO均為客戶，但毛利率持續下滑" href="https://daynews.cc/technology/15294" rel="bookmark"><i class="fa  fa-book"></i> 兆威機電擬中小板上市，華為、vivo、OPPO均為客戶，但毛利率持續下滑                            </a>
+                            <a class="list-group-item visible-md" title="兆威機電擬中小板上市，華為、vivo、OPPO均為客戶，但毛利率持續下滑" href="https://daynews.cc/technology/15294" rel="bookmark"><i class="fa  fa-book"></i> 兆威機電擬中小板上市，華為、vivo、OPPO均為客戶，但毛利率持續下滑                            </a>
+                                                    <a class="list-group-item visible-lg" title="全球主要國家的稅收體系,看看哪個國家最狠?" href="https://daynews.cc/international/11999" rel="bookmark"><i class="fa  fa-book"></i> 全球主要國家的稅收體系,看看哪個國家最狠?                            </a>
+                            <a class="list-group-item visible-md" title="全球主要國家的稅收體系,看看哪個國家最狠?" href="https://daynews.cc/international/11999" rel="bookmark"><i class="fa  fa-book"></i> 全球主要國家的稅收體系,看看哪個國家最狠?                            </a>
+                                                    <a class="list-group-item visible-lg" title="12月2日足球競彩：卡利亞里 VS 桑普多利亞，布拉加 VS 里奧阿維" href="https://daynews.cc/premier/5226" rel="bookmark"><i class="fa  fa-book"></i> 12月2日足球競彩：卡利亞里 VS 桑普多利亞，布拉加 VS 里奧阿維                            </a>
+                            <a class="list-group-item visible-md" title="12月2日足球競彩：卡利亞里 VS 桑普多利亞，布拉加 VS 里奧阿維" href="https://daynews.cc/premier/5226" rel="bookmark"><i class="fa  fa-book"></i> 12月2日足球競彩：卡利亞里 VS 桑普多利亞，布拉加 VS 里奧阿維                            </a>
+                                                    <a class="list-group-item visible-lg" title="骨質疏鬆癥狀是什麼？是由哪些原因引起的？運動保健也可助康復！" href="https://daynews.cc/health/6982" rel="bookmark"><i class="fa  fa-book"></i> 骨質疏鬆癥狀是什麼？是由哪些原因引起的？運動保健也可助康復！                            </a>
+                            <a class="list-group-item visible-md" title="骨質疏鬆癥狀是什麼？是由哪些原因引起的？運動保健也可助康復！" href="https://daynews.cc/health/6982" rel="bookmark"><i class="fa  fa-book"></i> 骨質疏鬆癥狀是什麼？是由哪些原因引起的？運動保健也可助康復！                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="kratos_tags-4" class="widget widget_kratos_tags clearfix"><h4 class="widget-title">標籤</h4><div class="tag_clouds"></div></aside><aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="https://daynews.cc/nba">NBA</a> (1,526)
+</li>
+	<li class="cat-item cat-item-23"><a href="https://daynews.cc/international">國際</a> (2,241)
+</li>
+	<li class="cat-item cat-item-14"><a href="https://daynews.cc/entertainment">娛樂</a> (2,348)
+</li>
+	<li class="cat-item cat-item-15"><a href="https://daynews.cc/emotion">情感</a> (1,582)
+</li>
+	<li class="cat-item cat-item-22"><a href="https://daynews.cc/constellation">星座</a> (1,060)
+</li>
+	<li class="cat-item cat-item-17"><a href="https://daynews.cc/history">歷史</a> (1,759)
+</li>
+	<li class="cat-item cat-item-25"><a href="https://daynews.cc/lose">減肥</a> (495)
+</li>
+	<li class="cat-item cat-item-24"><a href="https://daynews.cc/technology">科技</a> (2,163)
+</li>
+	<li class="cat-item cat-item-19"><a href="https://daynews.cc/premier">英超</a> (1,372)
+</li>
+	<li class="cat-item cat-item-18"><a href="https://daynews.cc/game">遊戲</a> (2,055)
+</li>
+	<li class="cat-item cat-item-21"><a href="https://daynews.cc/health">養生</a> (1,278)
+</li>
+	<li class="cat-item cat-item-16"><a href="https://daynews.cc/sports">體育</a> (2,098)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='https://daynews.cc/date/2019/12'>2019 年 12 月</a>&nbsp;(16975)</li>
+	<li><a href='https://daynews.cc/date/2019/11'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='https://daynews.cc/date/2019/10'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="https://daynews.cc">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.easing.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.qrcode.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/layer.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/modernizr.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.waypoints.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.stellar.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/hoverIntent.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/superfish.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/kratos.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-includes/js/wp-embed.min.js'></script>
+			</body>
+
+</html>
+<!-- Dynamic page generated in 0.475 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 13:52:37 -->
+
+<!-- super cache -->

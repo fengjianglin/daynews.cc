@@ -1,0 +1,659 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/10397#primaryimage","url":"http://p9.pstatp.com/large/pgc-image/aeeb08a69b104677a8099e62c1d536a9"},{"@type":"WebPage","@id":"https://daynews.cc/technology/10397#webpage","url":"https://daynews.cc/technology/10397","inLanguage":"zh-TW","name":"\u56db\u9762\u4f4d\u5143\u7d44\u8df3\u52d5\uff08\u9ad8\u7d1a\u958b\u767c\u5d17\uff09\uff1a\u5206\u6563\u5f0f+\u4e2d\u9593\u4ef6+TCP+JVM+Hashmap - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/10397#primaryimage"},"datePublished":"2019-12-05T02:50:12+00:00","dateModified":"2019-12-05T02:50:12+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="位元組跳動的面試官都挺好，面試的內容是我面試那麼多家以來最全面的，問題也沒有特別刁鑽，都比較符合工作場景。 項目很重要，項目是敲門磚也是面試的大頭，如果我沒有簡歷上的兩個項目的話，估計簡歷都很難被撈起來，而且進入到3面。很多面試題都是從項目角度去提問的，而且回答的時候也可以結合項目回答，這個很加分。 除了項目所用技術之外，也要關注項目的業……" />
+<meta name="twitter:title" content="四面位元組跳動（高級開發崗）：分散式+中間件+TCP+JVM+Hashmap - 天天要聞" />
+<meta name="twitter:image" content="http://p9.pstatp.com/large/pgc-image/aeeb08a69b104677a8099e62c1d536a9" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="四面位元組跳動（高級開發崗）：分散式+中間件+TCP+JVM+Hashmap - 天天要聞" />
+<meta property="og:description" content="位元組跳動的面試官都挺好，面試的內容是我面試那麼多家以來最全面的，問題也沒有特別刁鑽，都比較符合工作場景。 項目很重要，項目是敲門磚也是面試的大頭，如果我沒有簡歷上的兩個項目的話，估計簡歷都很難被撈起來，而且進入到3面。很多面試題都是從項目角度去提問的，而且回答的時候也可以結合項目回答，這個很加分。 除了項目所用技術之外，也要關注項目的業……" />
+<meta property="og:url" content="https://daynews.cc/technology/10397" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-05T02:50:12+00:00" />
+	<title>四面位元組跳動（高級開發崗）：分散式+中間件+TCP+JVM+Hashmap - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/10397" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">四面位元組跳動（高級開發崗）：分散式+中間件+TCP+JVM+Hashmap</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-05T10:50:12+00:00">
+		2 週 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<p>位元組跳動的面試官都挺好，面試的內容是我面試那麼多家以來最全面的，問題也沒有特別刁鑽，都比較符合工作場景。</p>
+<p>項目很重要，項目是敲門磚也是面試的大頭，如果我沒有簡歷上的兩個項目的話，估計簡歷都很難被撈起來，而且進入到3面。很多面試題都是從項目角度去提問的，而且回答的時候也可以結合項目回答，這個很加分。</p>
+<p>除了項目所用技術之外，也要關注項目的業務以及架構，最好是能融合在一起講清楚。</p>
+<p>只有多面試，你才能將原有的<strong>「我以為」</strong>思維變成<strong>「原來是這樣」</strong>。</p>
+<h2><strong>一面：</strong></h2>
+<ol start="1">
+<li>TCP三次握手和四次握手？為什麼三次握手，TCP 的ack seq是ack次數還是ack位元組數？RST報文指的是什麼報文？</li>
+<li>http2的原理，https的原理，描述一下TSL的握手過程。</li>
+<li>JVM線上參數設置，為什麼這麼設置？能講講jdk的分代搜集器原理嗎？</li>
+<li>volatile 關鍵字是如何防止指令重排的,synchronized能防止指令重排嗎？</li>
+<li>那進一步說說synchronized的鎖消除與鎖優化，自旋鎖輕量級鎖與重量級鎖分別都是什麼？</li>
+<li>Innodb引擎一個數據頁的大小為什麼是16KB？20個mysql欄位，都是varchar(10),1000w數據情況下b+樹高度是多少？</li>
+<li>結合WAL機制和回滾段說一說innodb 事務引擎的MVCC原理？</li>
+<li>Select/Poll/Epoll 三種系統IO的區別？</li>
+<li>Zookeeper做服務的註冊中心,如果服務規模大於1000,會發生羊群效應網路風暴，怎麼優化？</li>
+<li>說一說你理解的countdownlatch？countdownlatch的底層原理？AQS又是什麼？</li>
+<li>線程池的各個參數，ThreadLocal?怎麼優化？知道FastThreadLocal嗎？</li>
+<li>裝飾者模式和代理模式挺像的，他們有什麼區別？</li>
+<li>你們用了SpringCloud，能從源碼角度講一講Eureka的底層架構與設計原理嗎？</li>
+<li>13億用戶量的微博plus,如何設計點贊系統才能保證高性能？</li>
+<li>用戶畫像系統，用戶標籤一直在增加，怎麼設計表結構？</li>
+<li>手寫一下線段樹代碼。</li>
+</ol>
+<h2><strong>二面：</strong></h2>
+<ol start="1">
+<li>Hashmap底層原理</li>
+<li>講講Netty的內存池演算法和對象池演算法，什麼情況下會內存泄漏？</li>
+<li>你剛才說Netty使用PooledUnsafeDirectByteBuf。Unsafe是什麼，java里能直接new嗎？</li>
+<li>分散式事務兩階段提交如果第二階段超時了怎麼辦？</li>
+<li>嗯，那tcc的原理能講一下嗎？新出來的Seata 有調研過嗎？</li>
+<li>分別從NIO層面和netty層面講解一下零拷貝。</li>
+<li>給你一個oom.hprof,讓分析內存泄漏可能的原因。</li>
+<li>微服務，怎麼拆的，為什麼要那麼拆，</li>
+<li>老生常談題目，mysql和redis的數據如何保證一致性，就是 cache asigned pattern.</li>
+<li>老生常談題目：如果保證redis的內存里全都是最熱的數據，考察的是redis的內存淘汰策略。LRU。</li>
+<li>redis說到了LRU,讓手寫一個lru演算法。（用LinkedHashMap實現）</li>
+<li>mysql為什麼用b+樹，和b樹區別？</li>
+<li>mysql 從二叉查找樹說到紅黑樹說到多叉樹再到b到b+，最後讓手寫了一個二叉查找樹的中序遍歷。</li>
+</ol>
+<h2><strong>三面：</strong></h2>
+<ol start="1">
+<li>你們用了rocketmq，說一說rocketmq是如何保證消息寫入的高性能，如何保證消息不丟失的？</li>
+<li>spring的設計思想。</li>
+<li>cpa定理，redis是cp的還是ap的？為什麼？zookeeper是cp的還是ap的，為什麼？</li>
+<li>說一說你理解的面向過程，面向對象和函數式編程</li>
+<li>你的技術職業規劃。</li>
+</ol>
+<h2><strong>HR：</strong></h2>
+<ol start="1">
+<li>你的優點。</li>
+<li>多久能入職。</li>
+<li>薪資問題。25k給不了，問20k行不行，平時多申請點補助。</li>
+</ol>
+<p><strong>對於很多Java工程師而言，想要提升技能，往往是自己摸索成長，不成體系的學習效果低效漫長且無助。</strong></p>
+<p>整理的這些架構技術希望對Java開發的朋友們有所參考以及少走彎路，本文的重點是你有沒有收穫與成長，其餘的都不重要，希望讀者們能謹記這一點。</p>
+<p><strong>在這裡，我將我收藏許久的Java架構進階學習資料（文檔+筆記+視頻+面試必備）分享出來，幫助大家在接下來的面試中能成功進入自己期望中理想的公司。</strong></p>
+<p><strong>文章篇幅限制，需要高清完整資料的朋友私信我【面試】即可獲取免費資料！！</strong></p>
+<h2><strong>螞蟻金服面試題：</strong></h2>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/aeeb08a69b104677a8099e62c1d536a9" alt="《四面位元組跳動（高級開發崗）：分散式+中間件+TCP+JVM+Hashmap》" width="640" height="389" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/aeeb08a69b104677a8099e62c1d536a9" alt="《四面位元組跳動（高級開發崗）：分散式+中間件+TCP+JVM+Hashmap》" width="640" height="389" class=""></noscript></amp-img>
+<p class="pgc-img-caption">螞蟻金服面試題</p>
+
+</div>
+<h2><strong>Java程序員技術面試必備知識</strong></h2>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/1175ac0ab13346c99117cf7f4d5072c5" alt="《四面位元組跳動（高級開發崗）：分散式+中間件+TCP+JVM+Hashmap》" width="640" height="357" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/1175ac0ab13346c99117cf7f4d5072c5" alt="《四面位元組跳動（高級開發崗）：分散式+中間件+TCP+JVM+Hashmap》" width="640" height="357" class=""></noscript></amp-img>
+<p class="pgc-img-caption">Java程序員技術面試必備知識</p>
+
+</div>
+<h2><strong>Java核心知識點整理</strong></h2>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/2159df34f70a4522971a95af1ffe895c" alt="《四面位元組跳動（高級開發崗）：分散式+中間件+TCP+JVM+Hashmap》" width="640" height="434" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/2159df34f70a4522971a95af1ffe895c" alt="《四面位元組跳動（高級開發崗）：分散式+中間件+TCP+JVM+Hashmap》" width="640" height="434" class=""></noscript></amp-img>
+<p class="pgc-img-caption">Java核心知識點整理</p>
+
+</div>
+<h2><strong>演算法刷題LeetCode中文版</strong></h2>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/efa9accc4c4e439d9c2cd2c0587c8ff6" alt="《四面位元組跳動（高級開發崗）：分散式+中間件+TCP+JVM+Hashmap》" width="640" height="278" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/efa9accc4c4e439d9c2cd2c0587c8ff6" alt="《四面位元組跳動（高級開發崗）：分散式+中間件+TCP+JVM+Hashmap》" width="640" height="278" class=""></noscript></amp-img>
+<p class="pgc-img-caption">演算法刷題LeetCode中文版</p>
+
+</div>
+<h2><strong>阿里巴巴Java開發手冊</strong></h2>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/918d1c65f2bb48738d3d4e480607567d" alt="《四面位元組跳動（高級開發崗）：分散式+中間件+TCP+JVM+Hashmap》" width="640" height="315" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/918d1c65f2bb48738d3d4e480607567d" alt="《四面位元組跳動（高級開發崗）：分散式+中間件+TCP+JVM+Hashmap》" width="640" height="315" class=""></noscript></amp-img>
+<p class="pgc-img-caption">阿里巴巴Java開發手冊</p>
+
+</div>
+<h2><strong>BAT面試的20道高頻資料庫問題解析</strong></h2>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/94ddbdd7c95d46649239e2528c443bce" alt="《四面位元組跳動（高級開發崗）：分散式+中間件+TCP+JVM+Hashmap》" width="640" height="307" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/94ddbdd7c95d46649239e2528c443bce" alt="《四面位元組跳動（高級開發崗）：分散式+中間件+TCP+JVM+Hashmap》" width="640" height="307" class=""></noscript></amp-img>
+<p class="pgc-img-caption">BAT面試的20道高頻資料庫問題解析</p>
+
+</div>
+<h2><strong>Java虛擬機與並發編程</strong></h2>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/c39532d0aef0437c9ea107876aa790fd" alt="《四面位元組跳動（高級開發崗）：分散式+中間件+TCP+JVM+Hashmap》" width="640" height="378" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/c39532d0aef0437c9ea107876aa790fd" alt="《四面位元組跳動（高級開發崗）：分散式+中間件+TCP+JVM+Hashmap》" width="640" height="378" class=""></noscript></amp-img>
+<p class="pgc-img-caption">Java虛擬機與並發編程</p>
+
+</div>
+<h2><strong>高效程序員的45個習慣：敏捷開發修鍊之道</strong></h2>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/5528b4a6952044fea1caf742729f3245" alt="《四面位元組跳動（高級開發崗）：分散式+中間件+TCP+JVM+Hashmap》" width="640" height="302" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/5528b4a6952044fea1caf742729f3245" alt="《四面位元組跳動（高級開發崗）：分散式+中間件+TCP+JVM+Hashmap》" width="640" height="302" class=""></noscript></amp-img>
+<p class="pgc-img-caption">高效程序員的45個習慣：敏捷開發修鍊之道</p>
+
+</div>
+<h2><strong>23種設計模式知識要點</strong></h2>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/3f973be40d484c58b668eb3d77e66226" alt="《四面位元組跳動（高級開發崗）：分散式+中間件+TCP+JVM+Hashmap》" width="640" height="426" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/3f973be40d484c58b668eb3d77e66226" alt="《四面位元組跳動（高級開發崗）：分散式+中間件+TCP+JVM+Hashmap》" width="640" height="426" class=""></noscript></amp-img>
+<p class="pgc-img-caption">23種設計模式知識要點</p>
+
+</div>
+<h2><strong>面試必殺技：高並發秒殺系統揭秘</strong></h2>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/6bd667e8db3a4a748ea95e920825b867" alt="《四面位元組跳動（高級開發崗）：分散式+中間件+TCP+JVM+Hashmap》" width="640" height="529" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/6bd667e8db3a4a748ea95e920825b867" alt="《四面位元組跳動（高級開發崗）：分散式+中間件+TCP+JVM+Hashmap》" width="640" height="529" class=""></noscript></amp-img>
+<p class="pgc-img-caption">面試必殺技：高並發秒殺系統揭秘</p>
+
+</div>
+<p>以上的這些學習資料都是免費分享的！希望大家都能夠拿到自己期望的offer，好圓了自己的大廠夢！</p>
+<p><strong>獲取方式：評論+轉發，關注我，私信回復【資料】即可獲取以上所有資料！</strong></p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/10397#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.196 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:23:52 -->
+
+<!-- super cache -->

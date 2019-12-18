@@ -1,0 +1,915 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/18560#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/38615920eea447bda8d409266e6fe541"},{"@type":"WebPage","@id":"https://daynews.cc/technology/18560#webpage","url":"https://daynews.cc/technology/18560","inLanguage":"zh-TW","name":"Electron7+VueCli4\u958b\u767c\u8de8\u5e73\u53f0\u684c\u9762\u61c9\u7528 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/18560#primaryimage"},"datePublished":"2019-12-17T21:00:12+00:00","dateModified":"2019-12-17T21:00:12+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="Electron是一個基於Chromium和 Node.js，可以使用 HTML、CSS和JavaScript構建跨平台應用的技術框架，兼容 Mac、Windows 和 Linux。雖然B/S是目前開發的主流，但是C/S仍然有很大的市場需求。受限於瀏覽器的沙盒限制，網頁應用無法滿足某些場景下的使用需求，而桌面應用可以讀寫本地文件、調用更多……" />
+<meta name="twitter:title" content="Electron7+VueCli4開發跨平台桌面應用 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/38615920eea447bda8d409266e6fe541" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Electron7+VueCli4開發跨平台桌面應用 - 天天要聞" />
+<meta property="og:description" content="Electron是一個基於Chromium和 Node.js，可以使用 HTML、CSS和JavaScript構建跨平台應用的技術框架，兼容 Mac、Windows 和 Linux。雖然B/S是目前開發的主流，但是C/S仍然有很大的市場需求。受限於瀏覽器的沙盒限制，網頁應用無法滿足某些場景下的使用需求，而桌面應用可以讀寫本地文件、調用更多……" />
+<meta property="og:url" content="https://daynews.cc/technology/18560" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-17T21:00:12+00:00" />
+	<title>Electron7+VueCli4開發跨平台桌面應用 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/18560" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">Electron7+VueCli4開發跨平台桌面應用</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-18T05:00:12+00:00">
+		10 小時 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/38615920eea447bda8d409266e6fe541" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="360" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/38615920eea447bda8d409266e6fe541" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="360" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/74103f7aec594f5bb12ed9ffdfb9d5ce" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="1205" height="155" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/74103f7aec594f5bb12ed9ffdfb9d5ce" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="1205" height="155" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>Electron是一個基於Chromium和 Node.js，可以使用 HTML、CSS和JavaScript構建跨平台應用的技術框架，兼容 Mac、Windows 和 Linux。雖然B/S是目前開發的主流，但是C/S仍然有很大的市場需求。受限於瀏覽器的沙盒限制，網頁應用無法滿足某些場景下的使用需求，而桌面應用可以讀寫本地文件、調用更多系統資源，再加上Web開發的低成本、高效率的優勢，這種方式越來越受到開發者的喜愛。</p>
+<p>本文一步一步教你如何使用Electron7和vue-cli4，在完全保留vue開發web應用的習慣下，搭建桌面應用。</p>
+<p>本文不涉及Electron和vue的開發教程，僅以實現兩者結合為目的，如深入學習Electron和vue，請訪問各自官方。</p>
+<h2 class="pgc-h-arrow-right">1 創建項目</h2>
+<p><strong>1.1 加速npm下載</strong></p>
+<p>將npm倉庫鏡像改為淘寶鏡像</p>
+<pre>npm config set registry http://registry.npm.taobao.org/</pre>
+<p>也可以使用cnpm加速安裝，需要先安裝cnpm：</p>
+<pre>npm install -g cnpm --registry=https://registry.npm.taobao.org</pre>
+<p><strong>1.2 為什麼不使用SimulatedGREG/electron-vue</strong></p>
+<p>SimulatedGREG/electron-vue已經很久沒有更新了，而且其生成的工程結構並不是vue-cli3。所以放棄使用。</p>
+<p><strong>1.3 安裝/升級vue-cli4</strong></p>
+<p>先執行以下命令，確認下本地安裝的vue-cli版本：</p>
+<pre>vue -V</pre>
+<p>在寫本文時，我使用的是4.1.1版本。</p>
+<p>如果不是最新版，可以執行以下命令安裝/升級：</p>
+<pre>npm install @vue/cli -g</pre>
+<p><strong>1.4 創建vue項目</strong></p>
+<p>找個喜歡的目錄，執行以下命令，創建vue項目：</p>
+<p>（這裡把項目名稱定為electron7-vue-demo）</p>
+<pre>vue create electron7-vue-demo</pre>
+<p>會出現以下選項（如果熟悉此步驟可跳過本節內容）：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/dc073887d2ae4dfbbe3a20028949f0be" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="363" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/dc073887d2ae4dfbbe3a20028949f0be" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="363" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>選擇「Manually select features」 (自定義安裝)。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/cbe3c95f97d54ca88c6cbe3b49cd5e64" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="325" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/cbe3c95f97d54ca88c6cbe3b49cd5e64" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="325" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>這裡選擇了常用的模塊，請根據實際需求進行選擇。</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/06ccb0f4cef549bb91258675b900b1ef" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="1398" height="446" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/06ccb0f4cef549bb91258675b900b1ef" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="1398" height="446" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>如果選擇了router，這裡會詢問是否使用history模式。</p>
+<p>vue-router 默認使用hash模式（即通過url#hash來跳轉頁面），使用URL的hash來模擬一個完整的 URL，當URL改變時，頁面不會重新載入。</p>
+<p>如果使用history，URL的子路徑就會使用斜杠，例如 yoursite.com/user/id ，比較好看。但是需要伺服器進行配置來支持。</p>
+<p>這裡我們選擇「n」。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/dd367ae89c5048b9ba1ad4f4e420d604" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="312" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/dd367ae89c5048b9ba1ad4f4e420d604" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="312" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>選擇CSS預處理模塊，我習慣使用Stylus，這裡選了「Stylus」。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/0e31e5c5db704039bdf600cdcb1bf2eb" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="391" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/0e31e5c5db704039bdf600cdcb1bf2eb" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="391" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>選擇ESLint代碼格式檢查工具的配置，選擇「ESLint + Standard config」，標準配置。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/c8ce87165ebe4653898693f8e933261a" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="256" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/c8ce87165ebe4653898693f8e933261a" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="256" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>Line on save表示在保存代碼的時候，進行格式檢查。</p>
+<p>Lint and fix on commit表示在git commit的時候自動糾正格式。</p>
+<p>這裡只選擇「Lint on save」。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/8f08eed5c1e24a0a96d3f10713ad8554" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="1616" height="482" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/8f08eed5c1e24a0a96d3f10713ad8554" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="1616" height="482" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>這裡問把 babel, postcss, eslint 這些配置文件放哪？</p>
+<p>In dedicated config files 表示獨立文件</p>
+<p>In package.json 表示放在package.json里</p>
+<p>這裡選擇「In package.json」。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/6849a9f0bfde4a86bb4f2ce00e64a31f" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="223" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/6849a9f0bfde4a86bb4f2ce00e64a31f" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="223" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>是否為以後的項目保留這些設置？選擇「N」。</p>
+<p>然後耐心等待項目安裝完成。</p>
+<p><strong>1.5 安裝electron</strong></p>
+<blockquote>
+<p>※註：此過程可能需要科學上網，由於直接從國外鏡像下載較慢，可能需要等待很漫長的時間。如果你對自己的網速沒有超強自信，請跳過本節，前往1.6小節手動安裝。</p>
+</blockquote>
+<p>官方指導：https://nklayman.github.io/vue-cli-plugin-electron-builder/guide/</p>
+<p>進入到項目根目錄，執行：</p>
+<pre>vue add electron-builder</pre>
+<p>在安裝過程中，很可能會卡在這一步不動了（未科學上網）：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/f2f7cfa5e4474841b5219285ffb8cfe1" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="318" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/f2f7cfa5e4474841b5219285ffb8cfe1" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="318" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>沒關係，我們先強制結束掉。再執行一次vue add electron-builder，然後就可以順利通過了。</p>
+<p>接下來出現配置選項：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/58c819dec0664da28176bdb594e7d504" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="449" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/58c819dec0664da28176bdb594e7d504" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="449" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>沒有7.0.0？沒關係，先選擇6.0.0。</p>
+<p>然後耐心等待安裝完成。如果中間出現錯誤中斷了，請重複此步驟。</p>
+<p>安裝過程中會出現兩個warning：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/c7865bdb68a846698bcd644be40180b4" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="1886" height="446" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/c7865bdb68a846698bcd644be40180b4" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="1886" height="446" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>安裝完成後，會自動編譯並運行項目，但由於Vue Devtools的問題，導致運行失敗。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/214f23abb72a4fe0b63a79959dc264ca" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="218" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/214f23abb72a4fe0b63a79959dc264ca" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="218" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>原因是installVueDevtools未被使用。</p>
+<p>結合剛才的WARNING，我們在/src/background.js發現以下注釋：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/78b4ccbaa5ec42e9aebb7df6b85cd306" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="255" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/78b4ccbaa5ec42e9aebb7df6b85cd306" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="255" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>大致意思是：</p>
+<blockquote>
+<p>Devtools擴展工具在Electron6.0.0.以上不好使了。 詳見：https://github.com/nklayman/vue-cli-plugin-electron-builder/issues/378</p>
+<p>在Win10黑暗主題模式下，裝了Devtools後，Electron就無法啟動。 如果你沒有使用Win10黑暗主題，可以去掉下面的注釋。 另外，如果上面鏈接的問題已經關閉，你可以更新Electron並去掉下面的注釋。</p>
+</blockquote>
+<p>在寫作本文時（2019年12月17日），這個issue還是open狀態。我用的是macOS，所以我去掉了注釋。</p>
+<p>現在升級electron到7.0，修改/package.json</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/198dbbb0144947cc91d4f43dd277ca5b" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="395" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/198dbbb0144947cc91d4f43dd277ca5b" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="395" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>執行以下命令，完成升級安裝：</p>
+<pre>npm install</pre>
+<p><strong>1.6 手動安裝electron</strong></p>
+<blockquote>
+<p>※註：如果已經通過1.5章節的操作，請直接跳過本小節。</p>
+</blockquote>
+<p>如果使用自動安裝，安裝完成後會自動在src目錄下生成background.js並修改package.json。但由於不能科學上網或網速很慢的話，只能手動進行配置並安裝了。這種方式簡單粗暴，一步到位（electron7.0）。</p>
+<p>修改package.json，添加以下7行：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/5ceac352b519478e970a278a768be6f8" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="762" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/5ceac352b519478e970a278a768be6f8" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="762" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>在src目錄下新建background.js，複製以下代碼：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/c9f5dc0fac6d4e82aab1734f1de29764" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="1135" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/c9f5dc0fac6d4e82aab1734f1de29764" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="1135" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>以上代碼是1.5小節使用自動化方式安裝後生成的。為什麼要注釋掉installVueDevtools（Chrome Vue DevTools插件），請回顧1.5小節最後的說明。</p>
+<p>執行以下命令，完成升級安裝：</p>
+<pre>npm install</pre>
+<p>如果未科學上網，可能會卡在這一步：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/e5e7238de5c94aeaace5f12c06aa4f58" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="1650" height="446" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/e5e7238de5c94aeaace5f12c06aa4f58" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="1650" height="446" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>這時候就需要終止，並刪除node_modules/electron目錄。</p>
+<p>然後使用cnpm進行安裝：</p>
+<pre>cnpm install</pre>
+<p><strong>1.7 編譯並啟動APP</strong></p>
+<p>執行以下命令，開始編譯APP，並啟動開發環境APP：</p>
+<pre>npm run electron:serve</pre>
+<p>首次啟動可能會等待很久，出現以下信息：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/e65dcc5fd2ce4c0d9d1aaa2b53bd505a" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="330" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/e65dcc5fd2ce4c0d9d1aaa2b53bd505a" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="330" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>這是因為在請求安裝vuejs devtools插件。需要科學上網才能安裝成功。如果不能科學上網也沒關係，耐心等待5次請求失敗後會自動跳過。</p>
+<p>編譯成功後，就會出現開發環境的APP了。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/6b54a0f23fa741ac8f0a5a4474b12c62" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="481" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/6b54a0f23fa741ac8f0a5a4474b12c62" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="481" class=""></noscript></amp-img>
+<p class="pgc-img-caption">macOS Electron啟動界面（dark主題）</p>
+
+</div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/2539e123d06541d19399ad13a6f9e29a" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="340" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/2539e123d06541d19399ad13a6f9e29a" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="340" class=""></noscript></amp-img>
+<p class="pgc-img-caption">Windows10 Electron啟動界面（dark主題）</p>
+
+</div>
+<h2 class="pgc-h-arrow-right">2 項目基本設定</h2>
+<p><strong>2.1 主進程和渲染進程簡介</strong></p>
+<p>在開始下面的步驟之前，很有必要簡單了解下Electron的應用架構。</p>
+<p>【主進程】</p>
+<p>Electron 運行 package.json 的 main 腳本（background.js）的進程被稱為主進程。 在主進程中運行的腳本通過創建web頁面來展示用戶界面。 一個 Electron 應用總是有且只有一個主進程。</p>
+<p>【渲染進程】</p>
+<p>由於 Electron 使用了 Chromium 來展示 web 頁面，所以 Chromium 的多進程架構也被使用到。 每個 Electron 中的 web 頁面運行在它自己的渲染進程中。</p>
+<p>在普通的瀏覽器中，web頁面通常在一個沙盒環境中運行，不被允許去接觸原生的資源。 然而 Electron 的用戶在 Node.js 的 API 支持下可以在頁面中和操作系統進行一些底層交互。</p>
+<p>【主進程與渲染進程的關係】</p>
+<p>主進程使用 BrowserWindow 實例創建頁面。 每個 BrowserWindow 實例都在自己的渲染進程里運行頁面。 當一個 BrowserWindow 實例被銷毀後，相應的渲染進程也會被終止。</p>
+<p>主進程管理所有的web頁面和它們對應的渲染進程。 每個渲染進程都是獨立的，它只關心它所運行的 web 頁面。</p>
+<blockquote>
+<p>具體可參閱官方文檔：https://electronjs.org/docs/tutorial/application-architecture#main-and-renderer-processes</p>
+</blockquote>
+<p><strong>2.2 APP窗口大小</strong></p>
+<p>修改src/background.js：</p>
+<p><strong>2.3 取消跨域限制</strong></p>
+<p>修改src/background.js：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/5cda5cdd0e0c4d8e904c3fe9bf4bd2d2" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="528" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/5cda5cdd0e0c4d8e904c3fe9bf4bd2d2" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="528" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>2.4 取消菜單欄</strong></p>
+<p>在我們生成的桌面APP中，我們可以看到默認的菜單欄。</p>
+<p>在windows中，菜單欄在APP窗口內的頂部；在macOS中，菜單欄位於電腦屏幕頂部。</p>
+<p>為了方便項目將來也能直接生成純web應用，盡量把APP的全部功能都做到渲染進程里，這裡我們取消菜單欄。</p>
+<p>由於macOS的特殊性，頂部菜單欄無法刪除，所以我們針對macOS特殊處理，把菜單欄只保留「關於」和「退出」。</p>
+<p>修改src/background.js：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/318009cbccae4dbc8ce9573a0b841f68" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="716" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/318009cbccae4dbc8ce9573a0b841f68" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="716" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/96015b2489a04bae941a97e60866016a" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="331" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/96015b2489a04bae941a97e60866016a" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="331" class=""></noscript></amp-img>
+<p class="pgc-img-caption">windows界面菜單欄已消失</p>
+
+</div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/aa04a78d3c5b4ffe82c02e7b751d4d70" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="345" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/aa04a78d3c5b4ffe82c02e7b751d4d70" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="345" class=""></noscript></amp-img>
+<p class="pgc-img-caption">macOS界面菜單欄已簡化</p>
+
+</div>
+<blockquote>
+<p>macOS菜單欄名稱label的「App Demo」會在build版本生效，dev版本會顯示「Electron」</p>
+</blockquote>
+<blockquote>
+<p>更多關於菜單欄設置，請參閱：https://electronjs.org/docs/api/menu</p>
+</blockquote>
+<p><strong>2.5 設置APP窗口圖標</strong></p>
+<p>準備windows和macOS兩版圖標。</p>
+<p>windows: app.ico 最小尺寸：256×256</p>
+<p>macOS: app.png或app.icns 最小尺寸：512×512 （後續3.1章節用到）</p>
+<p>把圖標文件放到public/目錄下，項目結構如下：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/87393ea4dccb4909aa9d149f4ac80614" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="679" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/87393ea4dccb4909aa9d149f4ac80614" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="679" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>可以順便把favicon.ico也修改一下，但是在桌面版APP上是用不到的。如果以後生成純web項目才會用到。</p>
+<p>修改background.js，讓APP窗口應用圖標：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/621e1438442b44fe8da36a69b4fc4954" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="473" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/621e1438442b44fe8da36a69b4fc4954" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="473" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<blockquote>
+<p>這裡的${__static}對應的是public目錄</p>
+</blockquote>
+<p>現在，Windows系統上可以看到開發環境的APP窗口圖標已經生效了。</p>
+<p>macOS圖標請參照4.1章節，並且需要在build後才能生效。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/a89af403bb6845e1b1174aa2e76c81f5" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="361" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/a89af403bb6845e1b1174aa2e76c81f5" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="361" class=""></noscript></amp-img>
+<p class="pgc-img-caption">windows APP窗口及任務欄圖標</p>
+
+</div>
+<p><strong>2.6 設置APP窗口標題欄名稱</strong></p>
+<p>修改public/index.html:</p>
+<p>我們把electron-vue-demo改為App Demo。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/1b78b862948d48ff8e0efda7c2d74e56" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="265" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/1b78b862948d48ff8e0efda7c2d74e56" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="265" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">3 build最終產品</h2>
+<p>這裡我們已經集成了electron-builder工具，官方文檔可以參閱：www.electron.build/</p>
+<p><strong>3.1 設置APP及安裝包圖標</strong></p>
+<p>在2.5章節，我們的圖標生效於運行APP的窗口。本小節將生效於最終生成的可執行文件和安裝包圖標。需要準備的圖標文件請回看2.5章節。</p>
+<p>修改vue.config.js</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/3f94cc9e8e6d4b89b835ed3d1fa353fb" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="539" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/3f94cc9e8e6d4b89b835ed3d1fa353fb" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="539" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>運行build後的mac版本，可以看到圖標都已生效了。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/17be8eaf66a14d99947ca4790a84dc41" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="400" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/17be8eaf66a14d99947ca4790a84dc41" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="400" class=""></noscript></amp-img>
+<p class="pgc-img-caption">macOS APP Dock圖標</p>
+
+</div>
+<p>安裝包和可執行文件的截圖就不再放出了。</p>
+<blockquote>
+<p>更多詳細介紹，可參閱： www.electron.build/icons.html</p>
+</blockquote>
+<p><strong>3.2 設置APP名稱</strong></p>
+<p>APP名稱包括安裝包中APP的名稱、可執行文件的文件名。</p>
+<p>修改vue.config.js:</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/12e2a04737464cbf98abddd308ad0983" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="517" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/12e2a04737464cbf98abddd308ad0983" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="517" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>3.3 打包APP</strong></p>
+<p>執行以下命令，可以build工程：</p>
+<pre>npm run electron:build</pre>
+<p>複製代碼</p>
+<p>最終在dist_electron目錄下生成build後的產品。</p>
+<p>【windows版本】</p>
+<p>目錄如下：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/5ea8a285ab054e91b266f44fdcecacaf" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="493" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/5ea8a285ab054e91b266f44fdcecacaf" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="493" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>這裡其實就win-unpacked和AppDemo Setup 0.1.0.exe有用。</p>
+<blockquote>
+<p>※註：在32位環境下打包生成的是32位APP，在64位環境下打包生成的是64位APP。</p>
+</blockquote>
+<h4 class="heading">【mac版本】</h4>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/f501f40eeec74784b075443fec56cec5" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="482" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/f501f40eeec74784b075443fec56cec5" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="482" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>3.4 可能出現的錯誤</strong></p>
+<p>我曾經在Win10 64bit 1809版本上build失敗，保存信息中提示：</p>
+<pre>Error output:<br>Can't open output file<br>Error - aborting creation process</pre>
+<p>與此同時，在win7和win10 1803版本build正常。經研究，無果。後來把windows升級到1903版本，問題解決了。應該是vue-cli-plugin-electron-builder插件與系統之間的問題導致。</p>
+<h2 class="pgc-h-arrow-right">4 關於項目開發的一些經驗</h2>
+<p>在完成以上章節後，後面基本可以完全按照web方式開發了。這裡簡單分享下一些小經驗。</p>
+<p><strong>4.1 src目錄結構參考</strong></p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/0a3714941f4d42828e6a89aa920e89eb" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="620" height="1130" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/0a3714941f4d42828e6a89aa920e89eb" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="620" height="1130" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>下面對部分重要目錄簡要說明：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/6b412165921440038c84dd33b664c50e" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="289" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/6b412165921440038c84dd33b664c50e" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="289" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>4.2 換膚功能的實現</strong></p>
+<p>很多項目都有實時換膚的需求，在實際開發中，雖然我們使用了Sass、Less、Stylus等高端樣式工具，但最終經過編譯還是要回歸到最原始的CSS。換膚的本質還是實時替換皮膚樣式文件。</p>
+<h4 class="heading">【失敗案例】</h4>
+<p>以Stylus為例，抽象出皮膚文件skin.styl:</p>
+<pre>$color-bg = #fff<br>$color-text = #333</pre>
+<p>在業務樣式中引用：</p>
+<pre>@import 'skin.styl'<br><br>body<br> background: $color-bg<br> color: $color-text</pre>
+<p>當經過編譯後，生成的css為：</p>
+<pre>body {background: #fff; color: #333;}</pre>
+<p>樣式已經寫死了，無法換膚。</p>
+<p>那麼應該怎麼做呢？</p>
+<p>【成功案例】</p>
+<p>項目根目錄下的public目錄是靜態目錄，也就是說在build最終產品的時候，它裡面的文件將原封不動保留。所以，可以將皮膚文件放在這裡。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/eb40a1924fb7490791a707a02ca3881f" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="683" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/eb40a1924fb7490791a707a02ca3881f" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="683" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>由於Electron的是基於chromium內核，所以不用擔心代碼的瀏覽器兼容問題。接下來就是發揮CSS3變數var(–*)的時候了。</p>
+<p>public/skin/skin01/skin.css：</p>
+<pre>:root {<br>    --color-bg: #fff;<br>    --color-text: #333;<br>}</pre>
+<p>public/skin/skin02/skin.css：</p>
+<pre>:root {<br>    --color-bg: #263238;<br>    --color-text: #b2ccd6;<br>}</pre>
+<p>修改src/App.vue：</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/7907136e0cee4a8bb559fcb612e6a222" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="581" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/7907136e0cee4a8bb559fcb612e6a222" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="581" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>在public/index.html引入皮膚樣式，注意加上id=”app-skin”：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/554ad4c2b2b54970a966af449ece3a29" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="250" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/554ad4c2b2b54970a966af449ece3a29" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="250" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>篇幅有限，這裡就不寫通過js修改皮膚的代碼了。通過調試工具手動修改skin的css路徑，可看到換膚效果：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/d3d57f4406104b1e8f6df7b8cdcef9c4" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="331" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/d3d57f4406104b1e8f6df7b8cdcef9c4" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="331" class=""></noscript></amp-img>
+<p class="pgc-img-caption">skin01淺色皮膚 </p>
+
+</div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/86b6afa80e8f487da5cc0dbaeede1b0e" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="331" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/86b6afa80e8f487da5cc0dbaeede1b0e" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="331" class=""></noscript></amp-img>
+<p class="pgc-img-caption">skin02深色皮膚</p>
+
+</div>
+<p><strong>4.3 註冊快捷鍵打開devTools</strong></p>
+<p>在Electron中打開devTools是通過主線程中調用win.webContents.openDevTools()實現的。以上教程僅在開發環境初始啟動的時候打開devTools，但是一旦關閉就不能再打開了。下面講一下怎麼通過快捷鍵打開devTools。</p>
+<p>修改src/background.js:</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/821f028e56b94b54b3ebdcf346171bd8" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="393" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/821f028e56b94b54b3ebdcf346171bd8" alt="《Electron7+VueCli4開發跨平台桌面應用》" width="640" height="393" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>在windows下，按Ctrl+Shift+i即可打開devTools</p>
+<p>在macOS下，按Commond+Shift+i即可打開devTools</p>
+<p>為什麼沒用F12？因為windows系統中，F12是系統保留快捷鍵，無法使用。官方原話是這麼解釋的：</p>
+<blockquote>
+<p>The F12 key is reserved for use by the debugger at all times, so it should not be registered as a hot key. Even when you are not debugging an application, F12 is reserved in case a kernel-mode debugger or a just-in-time debugger is resident.</p>
+</blockquote>
+<p>但是可以使用Ctrl+F12，只要不單獨使用F12就可以。</p>
+<p>以上代碼在開發環境和生產環境中均有效，為保證生產環境的安全，建議不要在生產環境中使用。放到上面的if語句中即可。</p>
+<p>文中涉及的代碼可到作者微信公眾號中複製，公眾號名稱：卧梅又聞花。</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/18560#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.857 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:31:36 -->
+
+<!-- super cache -->

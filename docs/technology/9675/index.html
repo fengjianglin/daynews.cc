@@ -1,0 +1,532 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>為啥HashMap的默認容量是16？ - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="集合是Java開發日常開發中經常會使用到的，而作為一種典型的K-V結構的數據結構，HashMap對於Java開發者一定不陌生。 在日常開發中，我們經常會像如下方式以下創建一個HashMap： Map&lt;String, String&gt; map = new HashMap&lt;String, String&gt;(); 但是，大家……" />
+		<meta name="keywords" content="為啥HashMap的默認容量是16？ - 天天要聞,科技," />
+		<meta itemprop="image" content="http://p1.pstatp.com/large/pgc-image/7e290d1dec4e4f5e9c7d36639b76664f"/>
+		<meta name="description" itemprop="description" content="集合是Java開發日常開發中經常會使用到的，而作為一種典型的K-V結構的數據結構，HashMap對於Java開發者一定不陌生。 在日常開發中，我們經常會像如下方式以下創建一個HashMap： Map&lt;String, String&gt; map = new HashMap&lt;String, String&gt;(); 但是，大家……" />
+		
+<!-- This site is optimized with the SEO -->
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="https://daynews.cc/technology/9675" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="為啥HashMap的默認容量是16？ - 天天要聞" />
+<meta property="og:description" content="集合是Java開發日常開發中經常會使用到的，而作為一種典型的K-V結構的數據結構，HashMap對於Java開發者一定不陌生。 在日常開發中，我們經常會像如下方式以下創建一個HashMap： Map&lt;String, String&gt; map = new HashMap&lt;String, String&gt;(); 但是，大家……" />
+<meta property="og:url" content="https://daynews.cc/technology/9675" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-10T03:00:14+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="集合是Java開發日常開發中經常會使用到的，而作為一種典型的K-V結構的數據結構，HashMap對於Java開發者一定不陌生。 在日常開發中，我們經常會像如下方式以下創建一個HashMap： Map&lt;String, String&gt; map = new HashMap&lt;String, String&gt;(); 但是，大家……" />
+<meta name="twitter:title" content="為啥HashMap的默認容量是16？ - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/7e290d1dec4e4f5e9c7d36639b76664f" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/9675#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/7e290d1dec4e4f5e9c7d36639b76664f"},{"@type":"WebPage","@id":"https://daynews.cc/technology/9675#webpage","url":"https://daynews.cc/technology/9675","inLanguage":"zh-TW","name":"\u70ba\u5565HashMap\u7684\u9ed8\u8a8d\u5bb9\u91cf\u662f16\uff1f - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/9675#primaryimage"},"datePublished":"2019-12-10T03:00:14+00:00","dateModified":"2019-12-10T03:00:14+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<!-- / SEO. -->
+
+<link rel='stylesheet' id='animate-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/animate.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/bootstrap.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/superfish.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/layer.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='https://daynews.cc/wp-content/themes/Kratos/style.css' type='text/css' media='all' />
+<link rel="amphtml" href="https://daynews.cc/technology/9675/amp">		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.min.js'></script>
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154709495-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-154709495-1');
+		</script>
+		<!-- Google Adsense -->
+		<script data-ad-client="ca-pub-8261739837930821" async 
+			src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="https://daynews.cc"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="/">首頁</a></li>
+<li><a href="/entertainment">娛樂</a></li>
+<li><a href="/emotion">情感</a></li>
+<li><a href="https://daynews.cc/international">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="https://daynews.cc/technology">科技</a></li>
+<li><a href="/sports">體育</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/nba">NBA</a></li>
+	<li><a href="/premier">英超</a></li>
+</ul>
+</li>
+<li><a href="/history">歷史</a></li>
+<li><a href="/game">遊戲</a></li>
+<li><a href="https://daynews.cc/health">養生</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/lose">減肥</a></li>
+</ul>
+</li>
+<li><a href="https://daynews.cc/constellation">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">為啥HashMap的默認容量是16？</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-10				                <i class="fa fa-commenting-o"></i> 2,010條評論
+				                <i class="fa fa-eye"></i> 3,262次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 1244人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+<p>集合是Java開發日常開發中經常會使用到的，而作為一種典型的K-V結構的數據結構，HashMap對於Java開發者一定不陌生。</p>
+<p>在日常開發中，我們經常會像如下方式以下創建一個HashMap：</p>
+<pre>Map&lt;String, String&gt; map = new HashMap&lt;String, String&gt;();</pre>
+<p>但是，大家有沒有想過，上面的代碼中，我們並沒有給HashMap指定容量，那麼，這時候一個新創建的HashMap的默認容量是多少呢？為什麼呢？</p>
+<p>本文就來分析下這個問題。</p>
+<p>什麼是容量</p>
+<p>在Java中，保存數據有兩種比較簡單的數據結構：數組和鏈表。數組的特點是：定址容易，插入和刪除困難；而鏈表的特點是：定址困難，插入和刪除容易。HashMap就是將數組和鏈表組合在一起，發揮了兩者的優勢，我們可以將其理解為鏈表的數組。</p>
+<p>在HashMap中，有兩個比較容易混淆的關鍵欄位：size和capacity ，這其中capacity就是Map的容量，而size我們稱之為Map中的元素個數。</p>
+<p>簡單打個比方你就更容易理解了：HashMap就是一個「桶」，那麼容量（capacity）就是這個桶當前最多可以裝多少元素，而元素個數（size）表示這個桶已經裝了多少元素。</p>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/7e290d1dec4e4f5e9c7d36639b76664f" src="http://p1.pstatp.com/large/pgc-image/7e290d1dec4e4f5e9c7d36639b76664f" alt="《為啥HashMap的默認容量是16？》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>如以下代碼：</p>
+<pre>Map&lt;String, String&gt; map = new HashMap&lt;String, String&gt;();<br>map.put("hollis", "hollischuang");<br><br>Class&lt;?&gt; mapType = map.getClass();<br>Method capacity = mapType.getDeclaredMethod("capacity");<br>capacity.setAccessible(true);<br>System.out.println("capacity : " + capacity.invoke(map));<br><br>Field size = mapType.getDeclaredField("size");<br>size.setAccessible(true);<br>System.out.println("size : " + size.get(map));</pre>
+<p>輸出結果：</p>
+<pre>capacity : 16、size : 1</pre>
+<p>上面我們定義了一個新的HashMap，並想其中put了一個元素，然後通過反射的方式列印capacity和size，其容量是16，已經存放的元素個數是1。</p>
+<p>通過前面的例子，我們發現了，當我們創建一個HashMap的時候，如果沒有指定其容量，那麼會得到一個默認容量為16的Map，那麼，這個容量是怎麼來的呢？又為什麼是這個數字呢？</p>
+<p>容量與哈希</p>
+<p>要想講清楚這個默認容量的緣由，我們要首先要知道這個容量有什麼用？</p>
+<p>我們知道，容量就是一個HashMap中&#8221;桶&#8221;的個數，那麼，當我們想要往一個HashMap中put一個元素的時候，需要通過一定的演算法計算出應該把他放到哪個桶中，這個過程就叫做哈希（hash），對應的就是HashMap中的hash方法。</p>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/536cd8275d57407ebc16f382253c95f7" src="http://p3.pstatp.com/large/pgc-image/536cd8275d57407ebc16f382253c95f7" alt="《為啥HashMap的默認容量是16？》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>我們知道，hash方法的功能是根據Key來定位這個K-V在鏈表數組中的位置的。也就是hash方法的輸入應該是個Object類型的Key，輸出應該是個int類型的數組下標。如果讓你設計這個方法，你會怎麼做？</p>
+<p>其實簡單，我們只要調用Object對象的hashCode()方法，該方法會返回一個整數，然後用這個數對HashMap的容量進行取模就行了。</p>
+<p>如果真的是這麼簡單的話，那HashMap的容量設置就會簡單很多了，但是考慮到效率等問題，HashMap的hash方法實現還是有一定的複雜的。</p>
+<p>hash的實現</p>
+<p>具體實現上，由兩個方法int hash(Object k)和int indexFor(int h, int length)來實現。</p>
+<blockquote>
+<p>hash ：該方法主要是將Object轉換成一個整型。</p>
+<p>indexFor ：該方法主要是將hash生成的整型轉換成鏈表數組中的下標。</p>
+</blockquote>
+<p>為了聚焦本文的重點，我們只來看一下indexFor方法。我們先來看下Java 7（Java8中雖然沒有這樣一個單獨的方法，但是查詢下標的演算法也是和Java 7一樣的）中該實現細節：</p>
+<pre>static int indexFor(int h, int length) {<br> return h &amp; (length-1);<br>}</pre>
+<p>indexFor方法其實主要是將hashcode換成鏈表數組中的下標。其中的兩個參數h表示元素的hashcode值，length表示HashMap的容量。那麼return h &amp; (length-1) 是什麼意思呢？</p>
+<p>其實，他就是取模。Java之所有使用位運算(&amp;)來代替取模運算(%)，最主要的考慮就是效率。</p>
+<blockquote>
+<p>位運算(&amp;)效率要比代替取模運算(%)高很多，主要原因是位運算直接對內存數據進行操作，不需要轉成十進位，因此處理速度非常快。</p>
+</blockquote>
+<p>那麼，為什麼可以使用位運算(&amp;)來實現取模運算(%)呢？這實現的原理如下：</p>
+<pre>X % 2^n = X &amp; (2^n – 1)</pre>
+<p>假設n為3，則2^3 = 8，表示成2進位就是1000。2^3 -1 = 7 ，即0111。</p>
+<p>此時X &amp; (2^3 – 1) 就相當於取X的2進位的最後三位數。</p>
+<p>從2進位角度來看，X / 8相當於 X &gt;&gt; 3，即把X右移3位，此時得到了X / 8的商，而被移掉的部分(後三位)，則是X % 8，也就是餘數。</p>
+<p>上面的解釋不知道你有沒有看懂，沒看懂的話其實也沒關係，你只需要記住這個技巧就可以了。或者你可以找幾個例子試一下。</p>
+<pre>6 % 8 = 6 ，6 &amp; 7 = 6<br><br>10 &amp; 8 = 2 ，10 &amp; 7 = 2</pre>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/2c0506eb2bbb4823a61c46409502a552" src="http://p1.pstatp.com/large/pgc-image/2c0506eb2bbb4823a61c46409502a552" alt="《為啥HashMap的默認容量是16？》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>所以，return h &amp; (length-1);只要保證length的長度是2^n 的話，就可以實現取模運算了。</p>
+<p>所以，<strong>因為位運算直接對內存數據進行操作，不需要轉成十進位，所以位運算要比取模運算的效率更高，所以HashMap在計算元素要存放在數組中的index的時候，使用位運算代替了取模運算。之所以可以做等價代替，前提是要求HashMap的容量一定要是2^n</strong> 。</p>
+<p>那麼，既然是2^n ，為啥一定要是16呢？為什麼不能是4、8或者32呢？</p>
+<p>關於這個默認容量的選擇，JDK並沒有給出官方解釋，筆者也沒有在網上找到關於這個任何有價值的資料。（如果哪位有相關的權威資料或者想法，可以留言交流）</p>
+<p>根據作者的推斷，這應該就是個經驗值（Experience Value），既然一定要設置一個默認的2^n 作為初始值，那麼就需要在效率和內存使用上做一個權衡。這個值既不能太小，也不能太大。</p>
+<p>太小了就有可能頻繁發生擴容，影響效率。太大了又浪費空間，不划算。</p>
+<p>所以，16就作為一個經驗值被採用了。</p>
+<blockquote>
+<p>在JDK 8中，關於默認容量的定義為：static final int DEFAULT_INITIAL_CAPACITY = 1 &lt;&lt; 4; // aka 16 ，其故意把16寫成1&lt;&lt;4，就是提醒開發者，這個地方要是2的冪。值得玩味的是：注釋中的 <strong>aka 16</strong> 也是1.8中新增的，</p>
+</blockquote>
+<p>那麼，接下來我們再來談談，HashMap是如何保證其容量一定可以是2^n 的呢？如果用戶自己設置了的話又會怎麼樣呢？</p>
+<p>關於這部分，HashMap在兩個可能改變其容量的地方都做了兼容處理，分別是指定容量初始化時以及擴容時。</p>
+<p>指定容量初始化</p>
+<p>當我們通過HashMap(int initialCapacity)設置初始容量的時候，HashMap並不一定會直接採用我們傳入的數值，而是經過計算，得到一個新值，目的是提高hash的效率。(1-&gt;1、3-&gt;4、7-&gt;8、9-&gt;16)</p>
+<blockquote>
+<p>在JDK 1.7和JDK 1.8中，HashMap初始化這個容量的時機不同。JDK 1.8中，在調用HashMap的構造函數定義HashMap的時候，就會進行容量的設定。而在JDK 1.7中，要等到第一次put操作時才進行這一操作。</p>
+</blockquote>
+<p>看一下JDK是如何找到比傳入的指定值大的第一個2的冪的：</p>
+<pre>int n = cap - 1;<br>n |= n &gt;&gt;&gt; 1;<br>n |= n &gt;&gt;&gt; 2;<br>n |= n &gt;&gt;&gt; 4;<br>n |= n &gt;&gt;&gt; 8;<br>n |= n &gt;&gt;&gt; 16;<br>return (n &lt; 0) ? 1 : (n &gt;= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;</pre>
+<p>上面的演算法目的挺簡單，就是：根據用戶傳入的容量值（代碼中的cap），通過計算，得到第一個比他大的2的冪並返回。</p>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/6d1237e2014040f2b1d2431363e0c0d4" src="http://p3.pstatp.com/large/pgc-image/6d1237e2014040f2b1d2431363e0c0d4" alt="《為啥HashMap的默認容量是16？》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>請關註上面的幾個例子中，藍色字體部分的變化情況，或許你會發現些規律。5-&gt;8、9-&gt;16、19-&gt;32、37-&gt;64都是主要經過了兩個階段。</p>
+<blockquote>
+<p>Step 1，5-&gt;7</p>
+<p>Step 2，7-&gt;8</p>
+<p>Step 1，9-&gt;15</p>
+<p>Step 2，15-&gt;16</p>
+<p>Step 1，19-&gt;31</p>
+<p>Step 2，31-&gt;32</p>
+</blockquote>
+<p>對應到以上代碼中，Step1：</p>
+<pre>n |= n &gt;&gt;&gt; 1;<br>n |= n &gt;&gt;&gt; 2;<br>n |= n &gt;&gt;&gt; 4;<br>n |= n &gt;&gt;&gt; 8;<br>n |= n &gt;&gt;&gt; 16;</pre>
+<p>對應到以上代碼中，Step2：</p>
+<pre>return (n &lt; 0) ? 1 : (n &gt;= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;</pre>
+<p>Step 2 比較簡單，就是做一下極限值的判斷，然後把Step 1得到的數值+1。</p>
+<p>Step 1 怎麼理解呢？其實是對一個二進位數依次向右移位，然後與原值取或。其目的對於一個數字的二進位，從第一個不為0的位開始，把後面的所有位都設置成1。</p>
+<p>隨便拿一個二進位數，套一遍上面的公式就發現其目的了：</p>
+<pre>1100 1100 1100 &gt;&gt;&gt;1 = 0110 0110 0110<br>1100 1100 1100 | 0110 0110 0110 = 1110 1110 1110<br>1110 1110 1110 &gt;&gt;&gt;2 = 0011 1011 1011<br>1110 1110 1110 | 0011 1011 1011 = 1111 1111 1111<br>1111 1111 1111 &gt;&gt;&gt;4 = 1111 1111 1111<br>1111 1111 1111 | 1111 1111 1111 = 1111 1111 1111</pre>
+<p>通過幾次無符號右移和按位或運算，我們把1100 1100 1100轉換成了1111 1111 1111 ，再把1111 1111 1111加1，就得到了1 0000 0000 0000，這就是大於1100 1100 1100的第一個2的冪。</p>
+<p>好了，我們現在解釋清楚了Step 1和Step 2的代碼。就是可以把一個數轉化成第一個比他自身大的2的冪。</p>
+<p>但是還有一種特殊情況套用以上公式不行，這些數字就是2的冪自身。如果數字4套用公式的話。得到的會是 8，不過其實這個問題也被解決了</p>
+<p>總之，HashMap根據用戶傳入的初始化容量，利用無符號右移和按位或運算等方式計算出第一個大於該數的2的冪。</p>
+<p>擴容</p>
+<p>除了初始化的時候回指定HashMap的容量，在進行擴容的時候，其容量也可能會改變。</p>
+<p>HashMap有擴容機制，就是當達到擴容條件時會進行擴容。HashMap的擴容條件就是當HashMap中的元素個數（size）超過臨界值（threshold）時就會自動擴容。</p>
+<p>在HashMap中，threshold = loadFactor * capacity。</p>
+<p>loadFactor是裝載因子，表示HashMap滿的程度，默認值為0.75f，設置成0.75有一個好處，那就是0.75正好是3/4，而capacity又是2的冪。所以，兩個數的乘積都是整數。</p>
+<p>對於一個默認的HashMap來說，默認情況下，當其size大於12(16*0.75)時就會觸發擴容。</p>
+<p>下面是HashMap中的擴容方法(resize)中的一段：</p>
+<pre>if ((newCap = oldCap &lt;&lt; 1) &lt; MAXIMUM_CAPACITY &amp;&amp;<br> oldCap &gt;= DEFAULT_INITIAL_CAPACITY)<br> newThr = oldThr &lt;&lt; 1; // double threshold<br>}</pre>
+<p>從上面代碼可以看出，擴容後的table大小變為原來的兩倍，這一步執行之後，就會進行擴容後table的調整，這部分非本文重點，省略。</p>
+<p>可見，當HashMap中的元素個數（size）超過臨界值（threshold）時就會自動擴容，擴容成原容量的2倍，即從16擴容到32、64、128 &#8230;</p>
+<p>所以，通過保證初始化容量均為2的冪，並且擴容時也是擴容到之前容量的2倍，所以，保證了HashMap的容量永遠都是2的冪。</p>
+<p>總結</p>
+<p>HashMap作為一種數據結構，元素在put的過程中需要進行hash運算，目的是計算出該元素存放在hashMap中的具體位置。</p>
+<p>hash運算的過程其實就是對目標元素的Key進行hashcode，再對Map的容量進行取模，而JDK 的工程師為了提升取模的效率，使用位運算代替了取模運算，這就要求Map的容量一定得是2的冪。</p>
+<p>而作為默認容量，太大和太小都不合適，所以16就作為一個比較合適的經驗值被採用了。</p>
+<p>為了保證任何情況下Map的容量都是2的冪，HashMap在兩個地方都做了限制。</p>
+<p>首先是，如果用戶制定了初始容量，那麼HashMap會計算出比該數大的第一個2的冪作為初始容量。</p>
+<p>另外，在擴容的時候，也是進行成倍的擴容，即4變成8，8變成16。</p>
+<p>本文，通過分析為什麼HashMap的默認容量是16，我們深入HashMap的原理，分析了下背後的原理，從代碼中我們可以發現，JDK 的工程師把各種位運算運用到了極致，想盡各種辦法優化效率。值得我們學習！<br />我們選擇的這個行業就一直要持續的學習，又很吃青春飯。</p>
+<p>小編整理的Java學習資料分享一波！送給每一位想學習Java小夥伴，用來提升自己。想要獲取的可以</p>
+<p><strong>關注我的頭條號並在後台私信我：555</strong>，即可獲取。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/dfic-imagehandler/7448d82c-0d1c-4c8f-8992-6871ae1aa2f1" src="http://p1.pstatp.com/large/dfic-imagehandler/7448d82c-0d1c-4c8f-8992-6871ae1aa2f1" alt="《為啥HashMap的默認容量是16？》" /></p>
+<p class="pgc-img-caption">
+</div>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="9675" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/9675"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/9675";
+		var title='%E3%80%90%E7%82%BA%E5%95%A5HashMap%E7%9A%84%E9%BB%98%E8%AA%8D%E5%AE%B9%E9%87%8F%E6%98%AF16%EF%BC%9F%E3%80%91';
+		var qqtitle='%E3%80%90%E7%82%BA%E5%95%A5HashMap%E7%9A%84%E9%BB%98%E8%AA%8D%E5%AE%B9%E9%87%8F%E6%98%AF16%EF%BC%9F%E3%80%91';
+		var excerpt='%E9%9B%86%E5%90%88%E6%98%AFJava%E9%96%8B%E7%99%BC%E6%97%A5%E5%B8%B8%E9%96%8B%E7%99%BC%E4%B8%AD%E7%B6%93%E5%B8%B8%E6%9C%83%E4%BD%BF%E7%94%A8%E5%88%B0%E7%9A%84%EF%BC%8C%E8%80%8C%E4%BD%9C%E7%82%BA%E4%B8%80%E7%A8%AE%E5%85%B8%E5%9E%8B%E7%9A%84K-V%E7%B5%90%E6%A7%8B%E7%9A%84%E6%95%B8%E6%93%9A%E7%B5%90%E6%A7%8B%EF%BC%8CHashMap%E5%B0%8D%E6%96%BCJava%E9%96%8B%E7%99%BC%E8%80%85%E4%B8%80%E5%AE%9A%E4%B8%8D%E9%99%8C%E7%94%9F%E3%80%82%20%E5%9C%A8%E6%97%A5%E5%B8%B8%E9%96%8B%E7%99%BC%E4%B8%AD%EF%BC%8C%E6%88%91%E5%80%91%E7%B6%93%E5%B8%B8%E6%9C%83%E5%83%8F%E5%A6%82%E4%B8%8B%E6%96%B9%E5%BC%8F%E4%BB%A5%E4%B8%8B%E5%89%B5%E5%BB%BA%E4%B8%80%E5%80%8BHashMap%EF%BC%9A%20Map%26lt%3BString%2C%20String%26gt%3B%20map%20%3D%20new%20HashMap%26lt%3BString%2C%20String%26gt%3B%28%29%3B%20%E4%BD%86%E6%98%AF%EF%BC%8C%E5%A4%A7%E5%AE%B6%E2%80%A6%E2%80%A6';
+		var wbexcerpt='%E9%9B%86%E5%90%88%E6%98%AFJava%E9%96%8B%E7%99%BC%E6%97%A5%E5%B8%B8%E9%96%8B%E7%99%BC%E4%B8%AD%E7%B6%93%E5%B8%B8%E6%9C%83%E4%BD%BF%E7%94%A8%E5%88%B0%E7%9A%84%EF%BC%8C%E8%80%8C%E4%BD%9C%E7%82%BA%E4%B8%80%E7%A8%AE%E5%85%B8%E5%9E%8B%E7%9A%84K-V%E7%B5%90%E6%A7%8B%E7%9A%84%E6%95%B8%E6%93%9A%E7%B5%90%E6%A7%8B%EF%BC%8CHashMap%E5%B0%8D%E6%96%BCJava%E9%96%8B%E7%99%BC%E8%80%85%E4%B8%80%E5%AE%9A%E4%B8%8D%E9%99%8C%E7%94%9F%E3%80%82%20%E5%9C%A8%E6%97%A5%E5%B8%B8%E9%96%8B%E7%99%BC%E4%B8%AD%EF%BC%8C%E6%88%91%E5%80%91%E7%B6%93%E5%B8%B8%E6%9C%83%E5%83%8F%E5%A6%82%E4%B8%8B%E6%96%B9%E5%BC%8F%E4%BB%A5%E4%B8%8B%E5%89%B5%E5%BB%BA%E4%B8%80%E5%80%8BHashMap%EF%BC%9A%20Map%26lt%3BString%2C%20String%26gt%3B%20map%20%3D%20new%20HashMap%26lt%3BString%2C%20String%26gt%3B%28%29%3B%20%E4%BD%86%E6%98%AF%EF%BC%8C%E5%A4%A7%E5%AE%B6%E2%80%A6%E2%80%A6';
+		var pic="http://p1.pstatp.com/large/pgc-image/7e290d1dec4e4f5e9c7d36639b76664f";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="金蝶金融獲螞蟻金服投資，已多方位布局信貸市場" href="https://daynews.cc/technology/9676">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="擬收購Foresight，Uber加碼自動駕駛？" href="https://daynews.cc/technology/9672">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="/technology/9675#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='9675' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼" href="https://daynews.cc/constellation/20739" rel="bookmark"><i class="fa  fa-book"></i> 伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼                            </a>
+                            <a class="list-group-item visible-md" title="伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼" href="https://daynews.cc/constellation/20739" rel="bookmark"><i class="fa  fa-book"></i> 伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼                            </a>
+                                                    <a class="list-group-item visible-lg" title="12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪" href="https://daynews.cc/constellation/20740" rel="bookmark"><i class="fa  fa-book"></i> 12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪                            </a>
+                            <a class="list-group-item visible-md" title="12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪" href="https://daynews.cc/constellation/20740" rel="bookmark"><i class="fa  fa-book"></i> 12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪                            </a>
+                                                    <a class="list-group-item visible-lg" title="十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮" href="https://daynews.cc/constellation/20741" rel="bookmark"><i class="fa  fa-book"></i> 十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮                            </a>
+                            <a class="list-group-item visible-md" title="十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮" href="https://daynews.cc/constellation/20741" rel="bookmark"><i class="fa  fa-book"></i> 十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮                            </a>
+                                                    <a class="list-group-item visible-lg" title="小聶：跑動中的腰腹力量如何運用" href="https://daynews.cc/lose/20597" rel="bookmark"><i class="fa  fa-book"></i> 小聶：跑動中的腰腹力量如何運用                            </a>
+                            <a class="list-group-item visible-md" title="小聶：跑動中的腰腹力量如何運用" href="https://daynews.cc/lose/20597" rel="bookmark"><i class="fa  fa-book"></i> 小聶：跑動中的腰腹力量如何運用                            </a>
+                                                    <a class="list-group-item visible-lg" title="小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力" href="https://daynews.cc/lose/20598" rel="bookmark"><i class="fa  fa-book"></i> 小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力                            </a>
+                            <a class="list-group-item visible-md" title="小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力" href="https://daynews.cc/lose/20598" rel="bookmark"><i class="fa  fa-book"></i> 小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力                            </a>
+                                                    <a class="list-group-item visible-lg" title="十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古" href="https://daynews.cc/history/19786" rel="bookmark"><i class="fa  fa-book"></i> 十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古                            </a>
+                            <a class="list-group-item visible-md" title="十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古" href="https://daynews.cc/history/19786" rel="bookmark"><i class="fa  fa-book"></i> 十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古                            </a>
+                                                    <a class="list-group-item visible-lg" title="當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？" href="https://daynews.cc/history/19787" rel="bookmark"><i class="fa  fa-book"></i> 當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？                            </a>
+                            <a class="list-group-item visible-md" title="當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？" href="https://daynews.cc/history/19787" rel="bookmark"><i class="fa  fa-book"></i> 當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？                            </a>
+                                                    <a class="list-group-item visible-lg" title="春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？" href="https://daynews.cc/history/19789" rel="bookmark"><i class="fa  fa-book"></i> 春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？                            </a>
+                            <a class="list-group-item visible-md" title="春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？" href="https://daynews.cc/history/19789" rel="bookmark"><i class="fa  fa-book"></i> 春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？                            </a>
+                                                    <a class="list-group-item visible-lg" title="軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸" href="https://daynews.cc/history/19788" rel="bookmark"><i class="fa  fa-book"></i> 軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸                            </a>
+                            <a class="list-group-item visible-md" title="軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸" href="https://daynews.cc/history/19788" rel="bookmark"><i class="fa  fa-book"></i> 軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸                            </a>
+                                                    <a class="list-group-item visible-lg" title="劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？" href="https://daynews.cc/history/19790" rel="bookmark"><i class="fa  fa-book"></i> 劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？                            </a>
+                            <a class="list-group-item visible-md" title="劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？" href="https://daynews.cc/history/19790" rel="bookmark"><i class="fa  fa-book"></i> 劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-md" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-lg" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a><a class="list-group-item visible-md" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a><a class="list-group-item visible-lg" title="最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？" href="https://daynews.cc/international/18303" rel="bookmark"><i class="fa  fa-book"></i> 最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？</a><a class="list-group-item visible-md" title="最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？" href="https://daynews.cc/international/18303" rel="bookmark"><i class="fa  fa-book"></i> 最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？</a><a class="list-group-item visible-lg" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="https://daynews.cc/entertainment/10879" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-md" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="https://daynews.cc/entertainment/10879" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-lg" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="https://daynews.cc/technology/10158" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-md" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="https://daynews.cc/technology/10158" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-lg" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="https://daynews.cc/game/13764" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-md" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="https://daynews.cc/game/13764" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-lg" title="這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩" href="https://daynews.cc/lose/20687" rel="bookmark"><i class="fa  fa-book"></i> 這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩</a><a class="list-group-item visible-md" title="這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩" href="https://daynews.cc/lose/20687" rel="bookmark"><i class="fa  fa-book"></i> 這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩</a><a class="list-group-item visible-lg" title="夢三國：路人戰力匹配中最值得玩的輔助英雄推薦" href="https://daynews.cc/game/20261" rel="bookmark"><i class="fa  fa-book"></i> 夢三國：路人戰力匹配中最值得玩的輔助英雄推薦</a><a class="list-group-item visible-md" title="夢三國：路人戰力匹配中最值得玩的輔助英雄推薦" href="https://daynews.cc/game/20261" rel="bookmark"><i class="fa  fa-book"></i> 夢三國：路人戰力匹配中最值得玩的輔助英雄推薦</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="美國機場3名兒童扶梯旁玩耍 男童不幸摔死 員工只救到女童" href="https://daynews.cc/international/8902" rel="bookmark"><i class="fa  fa-book"></i> 美國機場3名兒童扶梯旁玩耍 男童不幸摔死 員工只救到女童                            </a>
+                            <a class="list-group-item visible-md" title="美國機場3名兒童扶梯旁玩耍 男童不幸摔死 員工只救到女童" href="https://daynews.cc/international/8902" rel="bookmark"><i class="fa  fa-book"></i> 美國機場3名兒童扶梯旁玩耍 男童不幸摔死 員工只救到女童                            </a>
+                                                    <a class="list-group-item visible-lg" title="心理測試：假如有4位少年，誰是貴族的？測你多久才能苦盡甘來！" href="https://daynews.cc/emotion/11610" rel="bookmark"><i class="fa  fa-book"></i> 心理測試：假如有4位少年，誰是貴族的？測你多久才能苦盡甘來！                            </a>
+                            <a class="list-group-item visible-md" title="心理測試：假如有4位少年，誰是貴族的？測你多久才能苦盡甘來！" href="https://daynews.cc/emotion/11610" rel="bookmark"><i class="fa  fa-book"></i> 心理測試：假如有4位少年，誰是貴族的？測你多久才能苦盡甘來！                            </a>
+                                                    <a class="list-group-item visible-lg" title="增長乏力，印度GDP數據開掛似的投機取巧還能繼續靈驗下去嗎？" href="https://daynews.cc/international/8930" rel="bookmark"><i class="fa  fa-book"></i> 增長乏力，印度GDP數據開掛似的投機取巧還能繼續靈驗下去嗎？                            </a>
+                            <a class="list-group-item visible-md" title="增長乏力，印度GDP數據開掛似的投機取巧還能繼續靈驗下去嗎？" href="https://daynews.cc/international/8930" rel="bookmark"><i class="fa  fa-book"></i> 增長乏力，印度GDP數據開掛似的投機取巧還能繼續靈驗下去嗎？                            </a>
+                                                    <a class="list-group-item visible-lg" title="eStar冬冠名單惹LOL玩家指責 貓神ID遭質疑 曝光時間成主因" href="https://daynews.cc/game/17102" rel="bookmark"><i class="fa  fa-book"></i> eStar冬冠名單惹LOL玩家指責 貓神ID遭質疑 曝光時間成主因                            </a>
+                            <a class="list-group-item visible-md" title="eStar冬冠名單惹LOL玩家指責 貓神ID遭質疑 曝光時間成主因" href="https://daynews.cc/game/17102" rel="bookmark"><i class="fa  fa-book"></i> eStar冬冠名單惹LOL玩家指責 貓神ID遭質疑 曝光時間成主因                            </a>
+                                                    <a class="list-group-item visible-lg" title="皮蓬：詹姆斯杜蘭特我都不放在眼裡，我才是NBA歷史第一小前鋒" href="https://daynews.cc/nba/6597" rel="bookmark"><i class="fa  fa-book"></i> 皮蓬：詹姆斯杜蘭特我都不放在眼裡，我才是NBA歷史第一小前鋒                            </a>
+                            <a class="list-group-item visible-md" title="皮蓬：詹姆斯杜蘭特我都不放在眼裡，我才是NBA歷史第一小前鋒" href="https://daynews.cc/nba/6597" rel="bookmark"><i class="fa  fa-book"></i> 皮蓬：詹姆斯杜蘭特我都不放在眼裡，我才是NBA歷史第一小前鋒                            </a>
+                                                    <a class="list-group-item visible-lg" title="養成好的習慣，水到渠成；懂得付出，才會明白有舍才有得！" href="https://daynews.cc/emotion/14692" rel="bookmark"><i class="fa  fa-book"></i> 養成好的習慣，水到渠成；懂得付出，才會明白有舍才有得！                            </a>
+                            <a class="list-group-item visible-md" title="養成好的習慣，水到渠成；懂得付出，才會明白有舍才有得！" href="https://daynews.cc/emotion/14692" rel="bookmark"><i class="fa  fa-book"></i> 養成好的習慣，水到渠成；懂得付出，才會明白有舍才有得！                            </a>
+                                                    <a class="list-group-item visible-lg" title="11月打完，東西部格局基本形成！最令人失望的五支球隊誕生了" href="https://daynews.cc/nba/6461" rel="bookmark"><i class="fa  fa-book"></i> 11月打完，東西部格局基本形成！最令人失望的五支球隊誕生了                            </a>
+                            <a class="list-group-item visible-md" title="11月打完，東西部格局基本形成！最令人失望的五支球隊誕生了" href="https://daynews.cc/nba/6461" rel="bookmark"><i class="fa  fa-book"></i> 11月打完，東西部格局基本形成！最令人失望的五支球隊誕生了                            </a>
+                                                    <a class="list-group-item visible-lg" title="絕食五年最終死亡，這種深海怪蟲反而被捧為暗黑美食" href="https://daynews.cc/international/8904" rel="bookmark"><i class="fa  fa-book"></i> 絕食五年最終死亡，這種深海怪蟲反而被捧為暗黑美食                            </a>
+                            <a class="list-group-item visible-md" title="絕食五年最終死亡，這種深海怪蟲反而被捧為暗黑美食" href="https://daynews.cc/international/8904" rel="bookmark"><i class="fa  fa-book"></i> 絕食五年最終死亡，這種深海怪蟲反而被捧為暗黑美食                            </a>
+                                                    <a class="list-group-item visible-lg" title="謝霆鋒有多拼？拍戲20年，受傷12次" href="https://daynews.cc/entertainment/200" rel="bookmark"><i class="fa  fa-book"></i> 謝霆鋒有多拼？拍戲20年，受傷12次                            </a>
+                            <a class="list-group-item visible-md" title="謝霆鋒有多拼？拍戲20年，受傷12次" href="https://daynews.cc/entertainment/200" rel="bookmark"><i class="fa  fa-book"></i> 謝霆鋒有多拼？拍戲20年，受傷12次                            </a>
+                                                    <a class="list-group-item visible-lg" title="曝21歲非洲中場完成談判！本月22日轉會中國球隊，身價僅5萬歐" href="https://daynews.cc/sports/15872" rel="bookmark"><i class="fa  fa-book"></i> 曝21歲非洲中場完成談判！本月22日轉會中國球隊，身價僅5萬歐                            </a>
+                            <a class="list-group-item visible-md" title="曝21歲非洲中場完成談判！本月22日轉會中國球隊，身價僅5萬歐" href="https://daynews.cc/sports/15872" rel="bookmark"><i class="fa  fa-book"></i> 曝21歲非洲中場完成談判！本月22日轉會中國球隊，身價僅5萬歐                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="kratos_tags-4" class="widget widget_kratos_tags clearfix"><h4 class="widget-title">標籤</h4><div class="tag_clouds"></div></aside><aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="https://daynews.cc/nba">NBA</a> (1,526)
+</li>
+	<li class="cat-item cat-item-23"><a href="https://daynews.cc/international">國際</a> (2,241)
+</li>
+	<li class="cat-item cat-item-14"><a href="https://daynews.cc/entertainment">娛樂</a> (2,348)
+</li>
+	<li class="cat-item cat-item-15"><a href="https://daynews.cc/emotion">情感</a> (1,582)
+</li>
+	<li class="cat-item cat-item-22"><a href="https://daynews.cc/constellation">星座</a> (1,060)
+</li>
+	<li class="cat-item cat-item-17"><a href="https://daynews.cc/history">歷史</a> (1,759)
+</li>
+	<li class="cat-item cat-item-25"><a href="https://daynews.cc/lose">減肥</a> (495)
+</li>
+	<li class="cat-item cat-item-24"><a href="https://daynews.cc/technology">科技</a> (2,163)
+</li>
+	<li class="cat-item cat-item-19"><a href="https://daynews.cc/premier">英超</a> (1,372)
+</li>
+	<li class="cat-item cat-item-18"><a href="https://daynews.cc/game">遊戲</a> (2,055)
+</li>
+	<li class="cat-item cat-item-21"><a href="https://daynews.cc/health">養生</a> (1,278)
+</li>
+	<li class="cat-item cat-item-16"><a href="https://daynews.cc/sports">體育</a> (2,098)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='https://daynews.cc/date/2019/12'>2019 年 12 月</a>&nbsp;(16975)</li>
+	<li><a href='https://daynews.cc/date/2019/11'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='https://daynews.cc/date/2019/10'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="https://daynews.cc">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.easing.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.qrcode.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/layer.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/modernizr.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.waypoints.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.stellar.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/hoverIntent.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/superfish.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/kratos.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-includes/js/wp-embed.min.js'></script>
+			</body>
+
+</html>
+<!-- Dynamic page generated in 0.436 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:14:06 -->
+
+<!-- super cache -->

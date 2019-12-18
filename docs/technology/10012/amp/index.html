@@ -1,0 +1,657 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/10012#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/Rjyqi5H761LSgl"},{"@type":"WebPage","@id":"https://daynews.cc/technology/10012#webpage","url":"https://daynews.cc/technology/10012","inLanguage":"zh-TW","name":"\u795e\u7d93\u67b6\u69cb\u641c\u7d22\u5728\u8996\u983b\u7406\u89e3\u4e2d\u7814\u7a76\u9032\u5c55\u7684\u7d9c\u8ff0 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/10012#primaryimage"},"datePublished":"2019-12-07T15:45:17+00:00","dateModified":"2019-12-07T15:45:17+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="作者 | Michael S. Ryoo 研究員與 AJ Piergiovanni 學生研究員（Google 機器人團隊） 來源 | TensorFlow（ID：TensorFlow_official） 視頻理解一直是項頗具挑戰性的難題。視頻中包含時空數據，因此要提取特徵表示需要同時提取其表面信息與包含的動作信息。無論是對視頻語義內容的自……" />
+<meta name="twitter:title" content="神經架構搜索在視頻理解中研究進展的綜述 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/Rjyqi5H761LSgl" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="神經架構搜索在視頻理解中研究進展的綜述 - 天天要聞" />
+<meta property="og:description" content="作者 | Michael S. Ryoo 研究員與 AJ Piergiovanni 學生研究員（Google 機器人團隊） 來源 | TensorFlow（ID：TensorFlow_official） 視頻理解一直是項頗具挑戰性的難題。視頻中包含時空數據，因此要提取特徵表示需要同時提取其表面信息與包含的動作信息。無論是對視頻語義內容的自……" />
+<meta property="og:url" content="https://daynews.cc/technology/10012" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-07T15:45:17+00:00" />
+	<title>神經架構搜索在視頻理解中研究進展的綜述 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/10012" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">神經架構搜索在視頻理解中研究進展的綜述</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-07T23:45:17+00:00">
+		2 週 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+ <amp-img src="http://p1.pstatp.com/large/pgc-image/Rjyqi5H761LSgl" alt="《神經架構搜索在視頻理解中研究進展的綜述》" width="640" height="333" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/Rjyqi5H761LSgl" alt="《神經架構搜索在視頻理解中研究進展的綜述》" width="640" height="333" class=""></noscript></amp-img>
+<p>作者 | Michael S. Ryoo 研究員與 AJ Piergiovanni 學生研究員（Google 機器人團隊）</p>
+<p>來源 | TensorFlow（<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">ID：</i>TensorFlow_official）</p>
+<p>視頻理解一直是項頗具挑戰性的難題。視頻中包含時空數據，因此要提取特徵表示需要同時提取其表面信息與包含的動作信息。無論是對視頻語義內容的自動理解（如網路視頻分類或體育運動識別），還是對機器人的感知和學習而言（與人類一樣，機器人攝像頭的輸入信息大多是連續的動態視頻，少為單張靜態的照片），這都至關重要。</p>
+<p>深度學習模型的能力非常依賴於其神經架構。用於處理視頻的卷積神經網路的常見構建方法是將現有的 2D 架構（例如 Inception 和 ResNet）手動擴展為 3D，或者精心設計融合表面信息和動作信息的雙流卷積神經網路架構 (two-stream CNN architectures)。不過，我們仍在探索如何設計出可充分利用視頻中時空信息的理想視頻架構。雖然我們對用於圖像的神經架構<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>已進行了廣泛的研究（如 Zoph 等人的研究、Real 等人的研究），但用於視頻的神經架構<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>仍缺乏研究，即尚未開發出機器自動優化架構的視頻處理神經網路。處理視頻的卷積神經網路 (Video CNNs) 的構建通常需要大量計算和內存資源，因此很難設計一種既能高效<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>又可捕獲其特徵的方法。</p>
+<p>為應對這些挑戰，我們對自動<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>進行了一系列研究，旨在探索更理想的神經網路架構，從而實現視頻理解。下文我們將展示三種不同的神經網路架構進化演算法：學習層及其模塊配置 (EvaNet)；學習多流連接 (AssembleNet)；構建計算高效的緊湊網路 (TinyVideoNet)。我們開發的視頻架構在多個公開的數據集上的性能遠勝現有的人工模型，並在網路運行時實現了 10 至 100 倍的性能提升。</p>
+<p><strong class="highlight-text">EvaNet：</strong><strong class="highlight-text">首個進化的視頻架構</strong></p>
+<p><strong>EvaNet </strong>是我們在構建視頻架構上的首次嘗試（詳情請參閱我們在 ICCV 2019 上發表的<strong>《進化用於視頻的時空神經架構》</strong><strong>(Evolving Space-Time Neural Architectures for Videos)）。</strong></p>
+<p>EvaNet 是一種模塊級架構<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>，側重於尋找時空卷積層的類型，及其最優順序或最優並行配置。此<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>採用帶有變異運算元的進化演算法，以迭代更新架構群。如此一來，我們可以更高效地對<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>空間進行並行<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>，而這正是視頻架構<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>在考慮各種時空層及其組合時所必需的條件。EvaNet 可演化成多個模塊（在網路中的不同位置），進而生成不同架構。</p>
+<p>實驗結果證明，通過進化異構模塊獲得此類 Video CNN 架構具有諸多優點。該方法證明，由多個並行層組成的 Non-Trivial Modules 最高效，因為它們速度更快，展現出更勝於人工設計模塊的性能。</p>
+<p>另一個有趣的方面是，我們在進化中獲得了許多性能同樣出色的不同架構，無需額外計算。如果集成這些架構，我們可以進一步提升性能。由於架構的並行性質，使得即便是一個模型集合，其計算效率也要高於其他標準的視頻網路（例如 (2+1)D ResNet）。我們已開放此項目的源代碼。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/Rjyqi5m6cjKF2P" alt="《神經架構搜索在視頻理解中研究進展的綜述》" width="640" height="316" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/Rjyqi5m6cjKF2P" alt="《神經架構搜索在視頻理解中研究進展的綜述》" width="640" height="316" class=""></noscript></amp-img></p>
+<p class="pgc-img-caption">各類 EvaNet 架構的示例圖：每個著色框（不論大小）均表示一個層，框的顏色對應其類型：3D 卷積（藍色）、(2+1)D 卷積（橙色）、iTGM（綠色）、最大池化（灰色）、平均（紫色）和 1×1 卷積（粉色）。通常通過對層進行分組來形成模塊（較大框）。每個框中的數字表示過濾器大小。</p>
+<p><strong class="highlight-text">AssembleNet：</strong><strong class="highlight-text">構建更強大、更出色的（多流）模型</strong></p>
+<p>在《AssembleNet：在視頻架構中<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>多流神經連接》(AssembleNet: Searching for Multi-Stream Neural Connectivity in Video Architectures)中，我們研究了一種新方法，針對不同的子網路和輸入模態（例如 RGB 和光流）及時間解析度進行融合。</p>
+<p>AssembleNet 是一種會學習的架構，因此可提供通用方法來學習不同模態特徵表示輸入間的「連接」，並針對目標任務進行優化。我們引入了一種綜合機制，能夠將多種形式的多流卷積神經網路表示為有向圖並<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">結合</i>高效的進化演算法，進而探索<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">高層</i>網路連接。通過視頻中的表面信息和動作的視覺線索更好的學習特徵表示。</p>
+<p>不同於先前使用 Late Fusion 或 Fixed Intermediate Fusion 的雙流模型，AssembleNet 在通過連接權重學習指導架構變異的同時，進化出眾多過連接的、多流的、多解析度架構。我們首次研究了帶有不同中間連接的四流架構，其中有 RGB 流和視覺流這 2 種流，而每種流的時間解析度均各不相同。</p>
+<p>通過對隨機初始多流架構池經過 50 至 150 輪的進化，我們發現了下圖所示的 AssembleNet 架構示例。我們在兩個非常流行的視頻識別數據集（Charades 和 Moments-in-Time (MiT)）上測試了 AssembleNet。該架構首次在 MiT 的性能上超過 34%。而在 Charades 的性能上更令人吃驚，平均精度 (mean Average Precision) 為 58.6%，這一數據超過了先前已知的最佳結果（42.5 和 45.2）。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/Rjyqi6GDAHIPLt" alt="《神經架構搜索在視頻理解中研究進展的綜述》" width="640" height="480" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/Rjyqi6GDAHIPLt" alt="《神經架構搜索在視頻理解中研究進展的綜述》" width="640" height="480" class=""></noscript></amp-img></p>
+<p class="pgc-img-caption">使用 MiT 數據集演化的 AssembleNet 模型：每個節點對應一個時空卷積層塊，而每個箭頭代表卷積層的連接。箭頭顏色越深，表示連接越強。AssembleNet 是一種可學習的多流架構，可針對目標任務進行優化</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/Rjyqi6j2pfT5YL" alt="《神經架構搜索在視頻理解中研究進展的綜述》" width="640" height="280" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/Rjyqi6j2pfT5YL" alt="《神經架構搜索在視頻理解中研究進展的綜述》" width="640" height="280" class=""></noscript></amp-img></p>
+<p class="pgc-img-caption">AssembleNet 與主流人工設計模型對比圖（左側使用 Charades 數據集，右側使用 MiT 數據集）。AssembleNet-50 或 AssembleNet-101 與雙流 ResNet-50 或 ResNet-101 擁有相同數量的參數。</p>
+<p><strong class="highlight-text">Tiny Video Network：</strong><strong class="highlight-text">速度最快的視頻理解網路</strong></p>
+<p>為了使 Video CNN 模型適合運行於現實環境（如機器人需要的環境）中的設備，我們必須擁有實時高效的計算。</p>
+<p>不過，如要在處理視頻理解任務時獲得最佳 (state-of-the-art, SOTA) 結果，我們還需要應用許多輸入幀的超大型網路，這些網路通常擁有數十到數百個卷積層。因此，這些網路經常受到運行太慢的影響，具體表現為：在現代 GPU 和 CPU 上，每運行 1 秒視頻剪輯至少分別需要 500 多毫秒和 2000 多毫秒。在 Tiny Video Network 中，我們通過自動設計網路，以一小部分計算成本提供同等性能，進而解決了此問題。我們的 TinyVideoNet 可提供更高的精度，並且能更快速甚至實時地高效運行，具體表現為：在GPU 和 CPU 上，每運行約 1 秒的視頻剪輯分別用時 10 毫秒和 37 至 100 毫秒，此結果比人工設計的現代模型快了數百倍。</p>
+<p>為實現上述性能提升，我們在架構進化過程中明確考慮模型運行時間並強制演算法<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>空間，同時加入空間或時間解析度和通道大小，從而減少計算量。下圖展示了通過 TinyVideoNet 發現的兩種簡單且十分高效的架構。有趣的是，通過學習獲得的模型架構比典型的視頻架構擁有更少的卷積層：Tiny Video Network 更喜歡輕量級元素，例如 2D pooling、Gating Layers和 Squeeze-and-Excitation Layers。此外，TinyVideoNet 還能夠<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">結合</i>優化參數和運行時，從而提供用於未來網路探索的高效網路。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/Rjyqi73ZicF2C" alt="《神經架構搜索在視頻理解中研究進展的綜述》" width="640" height="225" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/Rjyqi73ZicF2C" alt="《神經架構搜索在視頻理解中研究進展的綜述》" width="640" height="225" class=""></noscript></amp-img></p>
+<p>圖：TVN-1架構（上） TVN-2架構（下）</p>
+<p>進化後，TinyVideoNet (TVN) 架構可以在最大限度提升識別性能的時候，同時保證計算時間不超過期望限制。例如，TVN-1運行在 CPU 和 GPU 上所需的時間分別為 37 毫秒和 10 毫秒。TVN-2運行在 CPU 和 GPU 上所需的時間分別為 65 毫秒和 13 毫秒。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RjyqiP5IpCXiUZ" alt="《神經架構搜索在視頻理解中研究進展的綜述》" width="640" height="241" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RjyqiP5IpCXiUZ" alt="《神經架構搜索在視頻理解中研究進展的綜述》" width="640" height="241" class=""></noscript></amp-img></p>
+<p class="pgc-img-caption">TinyVideoNet 模型與先前模型的 CPU 運行時對比（左圖），以及 TinyVideoNet 與 (2+1)D ResNet 模型的運行時和模型精度對比（右圖）。請注意，TinyVideoNet 提取的是此時間精度空間中不存在其他模型的一部分（即極速但仍精確的部分）。</p>
+<p><strong class="highlight-text">結論</strong></p>
+<p>據我們所知，這是業界將神經架構<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>應用於視頻理解的首次研究。我們在處理公共數據集時，使用全新進化演算法生成的視頻架構對比人工設計卷積神經網路架構有顯著優勢。此外，我們還可利用架構進化學習的視頻模型 TinyVideoNet。這項研究不但為我們開闢了全新方向，並展示出用於視頻理解的機器進化卷積神經網路的廣闊前景。</p>
+<p>本研究由 Michael S. Ryoo、AJ Piergiovanni 和 Anelia Angelova 共同完成。此外，Alex Toshev 和 Mingxing Tan 也對本研究做出了貢獻。感謝 Vincent Vanhoucke、Juhana Kangaspunta、Esteban Real、Ping Yu 和 Sarah Sirajuddin 以及 Google 機器人團隊積极參与討論，並為我們提供支持。</p>
+<p>如果您想<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">詳細了解</i> 本文提及 的相關內容，請參閱以下文檔。這些文檔深入探討了這篇文章中提及的許多主題：</p>
+<ul>
+<li>
+<p><strong>Inception</strong></p>
+<p>https://<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">www.</i>cv-foundation.org/openaccess/content_cvpr_2016/papers/Szegedy_Rethinking_the_Inception_CVPR_2016_paper.pdf</p>
+</li>
+<li>
+<p><strong>ResNet</strong></p>
+<p>https://arxiv.org/abs/1512.03385</p>
+</li>
+<li>
+<p><strong>Zoph 等人的研究</strong></p>
+<p>https://ai.googleblog<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">.com</i>/2017/05/using-machine-learning-to-explore.html</p>
+</li>
+<li>
+<p><strong>Real 等人的研究</strong></p>
+<p>https://ai.googleblog<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">.com</i>/2018/03/using-evolutionary-automl-to-discover.html</p>
+</li>
+<li>
+<p><strong>EvaNet</strong></p>
+<p>https://arxiv.org/abs/1811.10636</p>
+</li>
+<li>
+<p><strong>AssembleNet</strong></p>
+<p>https://arxiv.org/abs/1905.13209</p>
+</li>
+<li>
+<p><strong>TinyVideoNet</strong></p>
+<p>https://arxiv.org/abs/1910.06961</p>
+</li>
+<li>
+<p><strong>ICCV 2019</strong></p>
+<p><i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">http</i>://iccv2019.thecvf<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">.com</i>/</p>
+</li>
+<li>
+<p><strong>《進化用於視頻的時空神經架構》</strong></p>
+<p>https://arxiv.org/abs/1811.10636</p>
+</li>
+<li>
+<p><strong>進化演算法</strong></p>
+<p>https://ai.googleblog<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">.com</i>/2018/03/using-evolutionary-automl-to-discover.html</p>
+</li>
+<li>
+<p><strong>(2+1)D </strong></p>
+<p>https://arxiv.org/abs/1711.11248</p>
+</li>
+<li>
+<p><strong>項目源代碼</strong></p>
+<p>https://github<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">.com</i>/google-research/google-research/tree/master/evanet</p>
+</li>
+<li>
+<p><strong>《AssembleNet：</strong><strong>在視頻架構中<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>多流神經連接》</strong></p>
+<p>https://arxiv.org/abs/1905.13209</p>
+</li>
+<li>
+<p><strong>雙流模型</strong></p>
+<p>https://arxiv.org/abs/1406.2199</p>
+</li>
+<li>
+<p><strong>連接權重學習</strong></p>
+<p>https://arxiv.org/pdf/1905.13209.pdf</p>
+</li>
+<li>
+<p><strong>Charades</strong></p>
+<p>https://allenai.org/plato/charades/</p>
+</li>
+<li>
+<p><strong>Moments-in-Time</strong></p>
+<p><i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">http</i>://moments.csail.mit.edu/</p>
+</li>
+<li>
+<p><strong>Tiny Video Network</strong></p>
+<p>https://arxiv.org/abs/1910.06961</p>
+</li>
+<li>
+<p><strong>Squeeze-and-Excitation</strong></p>
+<p>https://arxiv.org/abs/1709.01507</p>
+</li>
+</ul>
+<p class="pgc-end-source">【End】</p>
+<p class="pgc-end-source"><em>（*本文為AI科技大本營轉載文章，</em><em>轉載</em><em>請聯繫作者）</em></p>
+<p class="pgc-end-source">精彩公開課</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RjyqiPc9bnTgGp" alt="《神經架構搜索在視頻理解中研究進展的綜述》" width="640" height="1213" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RjyqiPc9bnTgGp" alt="《神經架構搜索在視頻理解中研究進展的綜述》" width="640" height="1213" class=""></noscript></amp-img>
+</p></div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/10012#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.236 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:29:23 -->
+
+<!-- super cache -->

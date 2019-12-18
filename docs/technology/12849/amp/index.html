@@ -1,0 +1,789 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/12849#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/6c76309122af4c52bd6fd0f8fdc289dd"},{"@type":"WebPage","@id":"https://daynews.cc/technology/12849#webpage","url":"https://daynews.cc/technology/12849","inLanguage":"zh-TW","name":"\u667a\u80fd\u99d5\u99db\u8eca\u8f09\u6fc0\u5149\u96f7\u9054\u95dc\u9375\u6280\u8853\u8207\u61c9\u7528\u6f14\u7b97\u6cd5 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/12849#primaryimage"},"datePublished":"2019-12-12T14:50:11+00:00","dateModified":"2019-12-12T14:50:11+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="參會請掃描圖中二維碼 ​作者 ：陳曉冬等 【近期文章】 佐思汽研2020年多用戶報告撰寫計劃表 《周彥武研究特輯：智能駕駛硬體指南》 「佐思研究年報及季報」 主機廠自動駕駛策略研究 | 汽車視覺產業研究 | 低速自動駕駛產業研究 | 商用車自動駕駛產業研究 | 新興造車企業布局及智能網聯功能對比分析 | 汽車MLCC研究報告 | 汽車分時……" />
+<meta name="twitter:title" content="智能駕駛車載激光雷達關鍵技術與應用演算法 - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/6c76309122af4c52bd6fd0f8fdc289dd" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="智能駕駛車載激光雷達關鍵技術與應用演算法 - 天天要聞" />
+<meta property="og:description" content="參會請掃描圖中二維碼 ​作者 ：陳曉冬等 【近期文章】 佐思汽研2020年多用戶報告撰寫計劃表 《周彥武研究特輯：智能駕駛硬體指南》 「佐思研究年報及季報」 主機廠自動駕駛策略研究 | 汽車視覺產業研究 | 低速自動駕駛產業研究 | 商用車自動駕駛產業研究 | 新興造車企業布局及智能網聯功能對比分析 | 汽車MLCC研究報告 | 汽車分時……" />
+<meta property="og:url" content="https://daynews.cc/technology/12849" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-12T14:50:11+00:00" />
+	<title>智能駕駛車載激光雷達關鍵技術與應用演算法 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/12849" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">智能駕駛車載激光雷達關鍵技術與應用演算法</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-12T22:50:11+00:00">
+		6 天 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/6c76309122af4c52bd6fd0f8fdc289dd" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="215" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/6c76309122af4c52bd6fd0f8fdc289dd" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="215" class=""></noscript></amp-img>
+<p class="pgc-img-caption">參會請掃描圖中二維碼</p>
+
+</div>
+<p><strong>​</strong>作者 ：陳曉冬等<strong><br></strong></p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/f94123600367407c91889b36898f03c9" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="413" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/f94123600367407c91889b36898f03c9" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="413" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/78bf84d2f00444b0880c47a4cb4f275a" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="432" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/78bf84d2f00444b0880c47a4cb4f275a" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="432" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/fdd1555e9f364ccca28e615c8807127f" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="1080" height="145" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/fdd1555e9f364ccca28e615c8807127f" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="1080" height="145" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/5206c86e22ae43718f5ed7128c7864a4" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="656" height="61" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/5206c86e22ae43718f5ed7128c7864a4" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="656" height="61" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/50125ba2cf7546c4bd68ccb807b2dae3" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="605" height="784" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/50125ba2cf7546c4bd68ccb807b2dae3" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="605" height="784" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/7484254a9e704e47895dd831d2f74fa5" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="504" height="497" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/7484254a9e704e47895dd831d2f74fa5" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="504" height="497" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/b921f67d52ce4aa491a2d01da7083717" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="600" height="785" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/b921f67d52ce4aa491a2d01da7083717" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="600" height="785" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/33c6ceee258f44e68d4026ed6f7d0f57" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="598" height="503" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/33c6ceee258f44e68d4026ed6f7d0f57" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="598" height="503" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/a6f63b13358842d199d66375945cc512" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="283" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/a6f63b13358842d199d66375945cc512" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="283" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/1ad0efcbe7214f26996e03f89c6fe7ba" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="545" height="361" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/1ad0efcbe7214f26996e03f89c6fe7ba" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="545" height="361" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/2cea1b2f298948cabbb021aa66069445" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="545" height="519" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/2cea1b2f298948cabbb021aa66069445" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="545" height="519" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/7ac698d3f14443349a5402886186e45e" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="563" height="661" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/7ac698d3f14443349a5402886186e45e" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="563" height="661" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/a79aeb109d02434589f3b97e7c0676b2" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="539" height="761" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/a79aeb109d02434589f3b97e7c0676b2" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="539" height="761" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/1418db787bca46ed81fa2d4f2089ed7b" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="543" height="769" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/1418db787bca46ed81fa2d4f2089ed7b" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="543" height="769" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/3b2b5fbcf5af4513933d932323735423" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="558" height="706" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/3b2b5fbcf5af4513933d932323735423" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="558" height="706" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/8323753fbe2b480ba09945b5b3769282" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="545" height="586" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/8323753fbe2b480ba09945b5b3769282" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="545" height="586" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/23a1f39424924d58a9601728751eff4a" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="552" height="254" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/23a1f39424924d58a9601728751eff4a" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="552" height="254" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/80e198a3ab5a4821a111045e4a738eb6" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="555" height="419" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/80e198a3ab5a4821a111045e4a738eb6" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="555" height="419" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/63862cf432854c31b10131f09efd74b1" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="561" height="620" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/63862cf432854c31b10131f09efd74b1" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="561" height="620" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/4733ad265f824c80b3c5d8d373074a20" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="552" height="524" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/4733ad265f824c80b3c5d8d373074a20" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="552" height="524" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/8ba9286be99147d1b48f4d948d43d8a1" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="549" height="591" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/8ba9286be99147d1b48f4d948d43d8a1" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="549" height="591" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/af162db8f467436c9b7e6d493f075602" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="545" height="711" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/af162db8f467436c9b7e6d493f075602" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="545" height="711" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/31fcfdfc373048e694011e5a2ee95cfb" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="556" height="629" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/31fcfdfc373048e694011e5a2ee95cfb" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="556" height="629" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/f23c4969c66848208946ae702d6100b4" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="552" height="656" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/f23c4969c66848208946ae702d6100b4" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="552" height="656" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/140cd438ca134efeb684c89b0ec87174" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="1072" height="348" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/140cd438ca134efeb684c89b0ec87174" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="1072" height="348" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/639ab57dfa954a6682f7c8cecb060bf2" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="264" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/639ab57dfa954a6682f7c8cecb060bf2" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="264" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/9686057c537041d0a26ebd68ec9105a5" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="475" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/9686057c537041d0a26ebd68ec9105a5" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="475" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/a30b09c0ded94462a482c66365f2c07f" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="734" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/a30b09c0ded94462a482c66365f2c07f" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="734" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/8e866a5d24274ee3bb811b05fbd1f80d" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="674" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/8e866a5d24274ee3bb811b05fbd1f80d" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="674" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/7db1e7cd2c3a426796a19967e0f79389" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="531" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/7db1e7cd2c3a426796a19967e0f79389" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="531" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/5ffb426cf7134295901b18f74b8dfd74" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="549" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/5ffb426cf7134295901b18f74b8dfd74" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="549" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/d4ac77d219704f93832ebf6b3a5c834f" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="468" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/d4ac77d219704f93832ebf6b3a5c834f" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="468" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/10c2f9b7c6a648a6968529c82ebc305d" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="263" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/10c2f9b7c6a648a6968529c82ebc305d" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="263" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/50123587321e48d09271dfde6f557c35" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="693" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/50123587321e48d09271dfde6f557c35" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="693" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/909c6560e9ad42759be41c792ad34d23" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="674" height="92" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/909c6560e9ad42759be41c792ad34d23" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="674" height="92" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/932a44c929904925968a887ef5405729" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="513" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/932a44c929904925968a887ef5405729" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="513" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/bf8bd574cebb4f059b5c7c7fd4f79695" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="590" height="635" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/bf8bd574cebb4f059b5c7c7fd4f79695" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="590" height="635" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/d3f41c32b6a34319850967bdb127f526" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="582" height="789" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/d3f41c32b6a34319850967bdb127f526" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="582" height="789" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/7376f34388054e3eb6a2ce1326f3bce7" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="590" height="251" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/7376f34388054e3eb6a2ce1326f3bce7" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="590" height="251" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/d35492e6ef844445a1a4269244804280" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="590" height="679" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/d35492e6ef844445a1a4269244804280" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="590" height="679" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/bd7deb27f24d453dab8e34e29319fbd1" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="586" height="553" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/bd7deb27f24d453dab8e34e29319fbd1" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="586" height="553" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/c1e573aa0bee4524b2730ee791235cbf" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="593" height="477" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/c1e573aa0bee4524b2730ee791235cbf" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="593" height="477" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/8215cde0debb42a7a7302f70d4624b39" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="638" height="745" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/8215cde0debb42a7a7302f70d4624b39" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="638" height="745" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/976bf0f9a30a4e2094d5f3bcb519fa38" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="593" height="681" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/976bf0f9a30a4e2094d5f3bcb519fa38" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="593" height="681" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/95c62ab78f5b4e42a1fb52be2cd0eabe" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="585" height="241" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/95c62ab78f5b4e42a1fb52be2cd0eabe" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="585" height="241" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/5c234be6b4d0406581196bd6beef55c1" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="592" height="432" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/5c234be6b4d0406581196bd6beef55c1" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="592" height="432" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/77b148a5e3614566a5d691c39f670080" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="591" height="478" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/77b148a5e3614566a5d691c39f670080" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="591" height="478" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/40acf6cd7b4e4f5b87eb009ac45230c1" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="597" height="797" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/40acf6cd7b4e4f5b87eb009ac45230c1" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="597" height="797" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/9b13cc66342c4cfd97e30503062398e4" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="583" height="710" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/9b13cc66342c4cfd97e30503062398e4" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="583" height="710" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/8b034d159ddb44b0897b36ab16d17947" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="620" height="181" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/8b034d159ddb44b0897b36ab16d17947" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="620" height="181" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/7c2bbfb1495541cfb2b574dbad8b2610" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="601" height="804" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/7c2bbfb1495541cfb2b574dbad8b2610" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="601" height="804" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/4f9435a5d69c4544aafc9df55bf8eedd" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="593" height="686" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/4f9435a5d69c4544aafc9df55bf8eedd" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="593" height="686" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/fcd71edc4dc74bd4ae79a6ae8b721da2" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="591" height="170" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/fcd71edc4dc74bd4ae79a6ae8b721da2" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="591" height="170" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/cb62113cc8084c89b21cb4e570f8bcb1" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="1759" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/cb62113cc8084c89b21cb4e570f8bcb1" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="1759" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/31223be00a26474b815e6b7828d8e19a" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="1799" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/31223be00a26474b815e6b7828d8e19a" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="1799" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/c951e90272244ce19f489634c3b2c53e" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="386" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/c951e90272244ce19f489634c3b2c53e" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="386" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/fa687dd26c5045bfb6afd3f5325e23d6" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="424" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/fa687dd26c5045bfb6afd3f5325e23d6" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="640" height="424" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/61d503498496439ca49fac8715b8ce65" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="1080" height="238" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/61d503498496439ca49fac8715b8ce65" alt="《智能駕駛車載激光雷達關鍵技術與應用演算法》" width="1080" height="238" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<hr>
+<p><strong>【近期文章】</strong></p>
+<p>佐思汽研2020年多用戶報告撰寫計劃表</p>
+<p>《周彥武研究特輯：智能駕駛硬體指南》</p>
+
+<p><strong>「佐思研究年報及季報」</strong></p>
+<p>主機廠自動駕駛策略研究 | 汽車視覺產業研究 | 低速自動駕駛產業研究 | 商用車自動駕駛產業研究 | 新興造車企業布局及智能網聯功能對比分析 | 汽車MLCC研究報告 | 汽車分時租賃研究報告 | 5G自動駕駛專題研究 | 汽車模擬研究 |<strong> </strong>高精度地圖產業研究 | 域控制器研究 | 自動泊車與自主泊車研究 | 激光雷達研究 | 毫米波雷達研究 | 處理器和計算機晶元研究 | 紅外技術及在夜視和DMS研究 | 中國毫米波雷達市場分析 | 汽車功率半導體研究 | HUD行業研究與供應商競爭力分析報告 | ADAS與自動駕駛Tier1研究 | 商用車自動駕駛研究 | 乘用車攝像頭季報 | 自主車廠車聯網產品分析 | T-Box市場研究報告 | 汽車網關產業研究 | 乘用車攝像頭季報Q2 | 豐田汽車新四化布局 | 寶馬集團新四化布局和戰略研究 | 全球及中國車載語音行業 | 中國及全球汽車線束、連接器與線纜研究 | 戴姆勒新四化布局和戰略研究 | 日產新四化研究 | 本田新四化研究 | 吉利新四化研究 | 大眾集團新四化布局和戰略研究</p>
+
+<p><strong>「佐思研究月報」</strong></p>
+<p>車聯網月報 | ADAS/智能汽車月報 | 汽車座艙電子月報 | 汽車視覺和汽車雷達月報 | 電池、電機、電控月報 </p>
+<p><strong>聯繫人: 廖棪 13718845418（同微信） 卞亞娟 18600021096（同微信）</strong></p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/12849#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.308 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:34:49 -->
+
+<!-- super cache -->

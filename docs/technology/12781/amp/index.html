@@ -1,0 +1,792 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/12781#primaryimage","url":"http://p1.pstatp.com/large/dfic-imagehandler/c9a0e204-c17f-48d4-b396-ac7238234577"},{"@type":"WebPage","@id":"https://daynews.cc/technology/12781#webpage","url":"https://daynews.cc/technology/12781","inLanguage":"zh-TW","name":"Jdk1.8\u65b0\u7279\u6027\u5be6\u6230\uff1a41\u500b\u6848\u4f8b\u5be6\u6230\uff0c\u4e00\u6b21\u6027\u7e3d\u7d50\u5206\u4eab - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/12781#primaryimage"},"datePublished":"2019-12-13T01:55:06+00:00","dateModified":"2019-12-13T01:55:06+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="推薦閱讀： 騰訊面試復盤：資料庫+數據結構+JVM+網路+JAVA+分散式+操作系統 阿里一線架構師分享的技術圖譜，進階加薪全靠它 前言 一直想把jdk1.8的新特性整理下，恰好看到老外的git(文後有鏈接)，在這個結構上繼續完善了說明和功能，做了41個單元測試案例，方便新人學習。以下內容很乾，對於一個萌新小白來說，學習jdk1.8的新特……" />
+<meta name="twitter:title" content="Jdk1.8新特性實戰：41個案例實戰，一次性總結分享 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/dfic-imagehandler/c9a0e204-c17f-48d4-b396-ac7238234577" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Jdk1.8新特性實戰：41個案例實戰，一次性總結分享 - 天天要聞" />
+<meta property="og:description" content="推薦閱讀： 騰訊面試復盤：資料庫+數據結構+JVM+網路+JAVA+分散式+操作系統 阿里一線架構師分享的技術圖譜，進階加薪全靠它 前言 一直想把jdk1.8的新特性整理下，恰好看到老外的git(文後有鏈接)，在這個結構上繼續完善了說明和功能，做了41個單元測試案例，方便新人學習。以下內容很乾，對於一個萌新小白來說，學習jdk1.8的新特……" />
+<meta property="og:url" content="https://daynews.cc/technology/12781" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-13T01:55:06+00:00" />
+	<title>Jdk1.8新特性實戰：41個案例實戰，一次性總結分享 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/12781" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">Jdk1.8新特性實戰：41個案例實戰，一次性總結分享</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-13T09:55:06+00:00">
+		5 天 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<h2 class="pgc-h-arrow-right">推薦閱讀：</h2>
+<ul class="">
+<li><a class="pgc-link" data-content="mp" href="https://www.toutiao.com/i6767668422005228046/?group_id=6767668422005228046" target="_blank">騰訊面試復盤：資料庫+數據結構+JVM+網路+JAVA+分散式+操作系統</a></li>
+<li><a class="pgc-link" data-content="mp" href="https://www.toutiao.com/i6752861414169248260/?group_id=6752861414169248260" target="_blank">阿里一線架構師分享的技術圖譜，進階加薪全靠它</a></li>
+</ul>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/dfic-imagehandler/c9a0e204-c17f-48d4-b396-ac7238234577" alt="《Jdk1.8新特性實戰：41個案例實戰，一次性總結分享》" width="640" height="481" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/dfic-imagehandler/c9a0e204-c17f-48d4-b396-ac7238234577" alt="《Jdk1.8新特性實戰：41個案例實戰，一次性總結分享》" width="640" height="481" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">前言</h2>
+<p>一直想把jdk1.8的新特性整理下，恰好看到老外的git(文後有鏈接)，在這個結構上繼續完善了說明和功能，做了41個單元測試案例，方便新人學習。以下內容很乾，對於一個萌新小白來說，學習jdk1.8的新特性，基本看一遍就知道個7788了，在熟讀兩遍最後跟著寫一遍，那麼在實際項目中就可以運用了。不過！新特性，雖然很好。但如果想用，那麼自己一定要看看相對應的源碼並多練習，否則真的容易給自己搞暈，又很難閱讀。</p>
+<h2 class="pgc-h-arrow-right">零、回顧一個抽象類</h2>
+<p>在jdk1.8之前，因為介面里只能做方法定義不能有方法的實現，因此我們通常會在抽象類裡面實現默認的方法｛一般這個默認的方法是抽象後公用的方法，不需要每一個繼承者都去實現，只需調用即可｝。就像下面這樣；</p>
+<blockquote>
+<p>在定義的時候；</p>
+</blockquote>
+<pre>public abstract class AFormula {<br><br> abstract double calculate(int a);<br><br> // 平方<br> double sqrt(int a) {<br> return Math.sqrt(a);<br> }<br><br>}</pre>
+<blockquote>
+<p>在使用的時候；</p>
+</blockquote>
+<pre>@Test<br>public void test_00() {<br> AFormula aFormula = new AFormula() {<br> @Override<br> double calculate(int a) {<br> return a * a;<br> }<br> };<br> System.out.println(aFormula.calculate(2)); //求平方：4<br> System.out.println(aFormula.sqrt(2)); //求開方：1.4142135623730951<br>}</pre>
+<h2 class="pgc-h-arrow-right">一、在介面中提供默認的方法實現（有點像抽象類）</h2>
+<p>在jdk1.8裡面，不僅可以定義介面，還可以在介面中提供默認的實現。這一個小小的改變卻讓整個抽象設計都隨著改變了！</p>
+<blockquote>
+<p>在定義的時候；{default 關鍵字必須}</p>
+</blockquote>
+<pre>public interface IFormula {<br><br> double calculate(int a);<br><br> // 平方<br> default double sqrt(int a) {<br> return Math.sqrt(a);<br> }<br><br>}</pre>
+<blockquote>
+<p>在使用的時候(一)；</p>
+</blockquote>
+<pre>@Test<br>public void test_01() {<br> IFormula formula = new IFormula() {<br> @Override<br> public double calculate(int a) {<br> return a * a;<br> }<br> };<br> System.out.println(formula.calculate(2));<br> System.out.println(formula.sqrt(2));<br>}</pre>
+<blockquote>
+<p>在使用的時候(二)；如果只是一裡面方式這麼使用，那麼就沒多大意思了。我一直說過；好的代碼都很騷！</p>
+</blockquote>
+<ol start="1">
+<li>a; a是一個入參名稱，可以其他任何名字</li>
+<li>-&gt;a*a； 箭頭指向是具體的實現</li>
+<li>但是，這樣其實不太適合加日誌了</li>
+</ol>
+<pre>@Test<br>public void test_02() {<br> // 入參a 和 實現<br> IFormula formula = a -&gt; a * a;<br> System.out.println(formula.calculate(2));<br> System.out.println(formula.sqrt(2));<br>}</pre>
+<h2 class="pgc-h-arrow-right">二、Lambda 表達式</h2>
+<p>因為有介面中可以增加默認的方法實現，那麼Java肯定是因為要簡化開發才出現的這麼個設計。所以你會從各個我們以前的List、Set等等所有介面中看到默認的方法實現。</p>
+<p>從一段熟悉的排序列子入手</p>
+<pre>List&lt;String&gt; names = Arrays.asList("peter", "anna", "mike", "xenia");<br><br>Collections.sort(names, new Comparator&lt;String&gt;() {<br> @Override<br> public int compare(String a, String b) {<br> return b.compareTo(a);<br> }<br>});</pre>
+<p>Collections 工具類提供了靜態方法 sort 方法，入參是一個 List 集合，和一個 Comparator 比較器，以便對給定的 List 集合進行排序。上面的示例代碼創建了一個匿名內部類作為入參，這種類似的操作在我們日常的工作中隨處可見。</p>
+<p>Java 8 中不再推薦這種寫法，而是推薦使用 Lambda 表達：</p>
+<pre>Collections.sort(names, (String a, String b) -&gt; {<br> return b.compareTo(a);<br>});</pre>
+<p>上面的這段同樣功能的代碼塊，簡短乾淨了許多。就像婆媳一樣可能剛開始看不習慣，但是接觸接觸就喜歡了。因為，它還可以更加簡短優秀；</p>
+<pre>Collections.sort(names, (String a, String b) -&gt; b.compareTo(a));<br></pre>
+<p>為了追求極致，我們還可以讓它再短點：｛當然過你的實現不是一行代碼，那麼不能這麼干｝</p>
+<pre>names.sort((a, b) -&gt; b.compareTo(a));<br></pre>
+<p>java.util.List 集合現在已經添加了 sort 方法。而且 Java 編譯器能夠根據類型推斷機制判斷出參數類型，這樣，你連入參的類型都可以省略啦，怎麼樣，是不是感覺很騷氣呢！</p>
+<blockquote>
+<p>java.util.List.sort</p>
+</blockquote>
+<pre>default void sort(Comparator&lt;? super E&gt; c) {<br> Object[] a = this.toArray();<br> Arrays.sort(a, (Comparator) c);<br> ListIterator&lt;E&gt; i = this.listIterator();<br> for (Object e : a) {<br> i.next();<br> i.set((E) e);<br> }<br>}</pre>
+<p>好了！你以為這就結束了嗎，不！它還可以更短！(得益於Comparator介面中還提供了stack默認方法，也就是說介面中不是只可有default默認實現，還可以有靜態方法)</p>
+<pre>names.sort(Comparator.reverseOrder());<br></pre>
+<h2 class="pgc-h-arrow-right">三、函數式介面 Functional Interfaces</h2>
+<blockquote>
+<p>How does lambda expressions fit into Java’s type system? Each lambda corresponds to a given type, specified by an interface. A so called functional interface must contain exactly one abstract method declaration. Each lambda expression of that type will be matched to this abstract method. Since default methods are not abstract you’re free to add default methods to your functional interface.</p>
+</blockquote>
+<p>通過上面的例子我們可以看到通過Lambda可以開發出同樣功能的邏輯但是代碼卻很簡單，那麼Jvm是如何進行類型推斷，並且找到對應的方法呢？</p>
+<p>通過官文介紹以及我們使用發現，並不是每個介面都可以縮寫成Lambda表達式的開發方式。其實是只有那些函數式介面(Functional Interface)才能縮寫成 Lambda 表示式。</p>
+<p>所謂函數式介面(Functional Interface)就是只包含一個抽象方法的聲明。針對該介面類型的所有 Lambda 表達式都會與這個抽象方法匹配。{另外，只是在介面上添加default並不算抽象方法}</p>
+<p>總結：為了保證一個介面明確的被定義為一個函數式介面(Functional Interface)，我們需要為該介面添加註解：@FunctionalInterface。這樣，一旦你添加了第二個抽象方法，編譯器會立刻拋出錯誤提示。｛不填寫，但是只寫一個default也可以｝</p>
+<blockquote>
+<p>定義含有註解@FunctionalInterface的介面</p>
+</blockquote>
+<pre>@FunctionalInterface<br>public interface IConverter&lt;F, T&gt; {<br><br> T convert(F from);<br><br>}</pre>
+<ol start="1">
+<li>先來一段傳統方式 &amp; 簡單易懂哈，因為看習慣了</li>
+</ol>
+<pre>IConverter&lt;String, Integer&gt; converter01 = new IConverter&lt;String, Integer&gt;() {<br>@Override<br>public Integer convert(String from) {<br> return Integer.valueOf(from);<br>}<br></pre>
+<ol start="2">
+<li>稍微簡化下，化個妝 &amp; (form)，只有一個參數括弧可以不要</li>
+</ol>
+<pre>IConverter&lt;String, Integer&gt; converter02 = (from) -&gt; {<br> return Integer.valueOf(from);<br>};<br></pre>
+<ol start="3">
+<li>繼續簡化，因為他的實現只有一行代碼，可以更加簡短</li>
+</ol>
+<pre>IConverter&lt;String, Integer&gt; converter03 = from -&gt; Integer.valueOf(from);<br></pre>
+<ol start="4">
+<li>還能短點，其實這個另類屬於下一段的內容了，先放這有個印象</li>
+</ol>
+<pre>IConverter&lt;Integer, String&gt; converter04 = String::valueOf;<br></pre>
+<h2 class="pgc-h-arrow-right">四、方法和構造函數的便捷引用</h2>
+<p>在上面我們先加了印象片段 XX::xx，它也是Java8的新特性便捷式引用，這四個點可能你在其他語言里也見過。</p>
+<pre>IConverter&lt;Integer, String&gt; converter04 = String::valueOf;<br>String converted04 = converter04.convert(11);<br>System.out.println(converted04);<br></pre>
+<p>這四個點::的關鍵字，不只是可以引用方法和構造函數，還可以引用普通方法。</p>
+<pre>public class Something{<br> public String startsWith(String s) {<br> return String.valueOf(s.charAt(0));<br> }<br>}<br></pre>
+<pre>IConverter&lt;String, String&gt; converter01 = s -&gt; String.valueOf(s.charAt(0)); //[參照物]直接把邏輯放到這調用<br>IConverter&lt;String, String&gt; converter02 = something::startsWith; //引用的方法體裡面邏輯可以更多，否則只是一句代碼並不能適合所有的情況<br>System.out.println(converter01.convert("Java"));<br>System.out.println(converter02.convert("Java"));<br></pre>
+<p>接下來我們在使用這四個點，來看下如何引用類的構造器。首先我們創建一個這樣的類；</p>
+<pre>public class Person {<br> String firstName;<br> String lastName;<br><br> Person() {}<br><br> Person(String firstName, String lastName) {<br> this.firstName = firstName;<br> this.lastName = lastName;<br> }<br>}<br></pre>
+<p>然後我還需要頂一個工廠類，用於生成Person對象；</p>
+<pre>@FunctionalInterface<br>public interface IPersonFactory&lt;P extends Person&gt; {<br><br> P create(String firstName, String lastName);<br><br>}<br></pre>
+<p>現在就到了用四餅::的時候了；</p>
+<pre>IPersonFactory&lt;Person&gt; personFactory = Person::new; //[參照物]：(firstName, lastName) -&gt; new Person(firstName, lastName);<br>Person person = personFactory.create("Peter", "Parker");<br></pre>
+<p>提醒；工廠函數中依然只能有一個函數，否則會報錯</p>
+<p>四餅::，可以讓我們直接引用到Person類的構造函數，然後 Java 編譯器能夠根據類的簽名選中正確的構造器去實現 PersonFactory.create 方法。</p>
+<h2 class="pgc-h-arrow-right">五、Lambda作用範圍</h2>
+<blockquote>
+<p>Accessing outer scope variables from lambda expressions is very similar to anonymous objects. You can access final variables from the local outer scope as well as instance fields and static variables.</p>
+</blockquote>
+<p>Lambda表達式訪問外部的變數(局部變數，成員變數，靜態變數，介面的默認方法),它與匿名內部類訪問外部變數非常相似。</p>
+<h3 class="line">1. 訪問局部變數</h3>
+<p>我們可以從lambda表達式的外部範圍讀取最終局部變數num；</p>
+<pre>int num = 1;<br>IConverter&lt;Integer, String&gt; stringConverter = from -&gt; String.valueOf(from + num);<br>String convert = stringConverter.convert(2);<br>System.out.println(convert); // 3<br></pre>
+<p>但是這個num是不可變值，這樣改變值會報錯；</p>
+<pre>int num = 1;<br>IConverter&lt;Integer, String&gt; stringConverter =<br> (from) -&gt; String.valueOf(from + num);<br>num = 3;<br></pre>
+<blockquote>
+<p>Variable used in lambda expression should be final or effectively final</p>
+</blockquote>
+<p>另外在lambda表達式內部修改也是不允許的；</p>
+<pre>int num = 1;<br>IConverter&lt;Integer, String&gt; converter = (from) -&gt; {<br> String value = String.valueOf(from + num);<br> num = 3;<br> return value;<br>};<br></pre>
+<blockquote>
+<p>Variable used in lambda expression should be final or effectively final</p>
+</blockquote>
+<h3 class="line">2. 訪問成員變數和靜態變數</h3>
+<p>在 Lambda 表達式中訪問局部變數。與局部變數相比，在 Lambda 表達式中對成員變數和靜態變數擁有讀寫許可權：</p>
+<pre>public class Lambda4 {<br><br> // 靜態變數<br> static int outerStaticNum;<br> // 成員變數<br> int outerNum;<br><br> void testScopes() {<br> IConverter&lt;Integer, String&gt; stringConverter1 = (from) -&gt; {<br> // 對成員變數賦值<br> outerNum = 23;<br> return String.valueOf(from);<br> };<br><br> IConverter&lt;Integer, String&gt; stringConverter2 = (from) -&gt; {<br> // 對靜態變數賦值<br> outerStaticNum = 72;<br> return String.valueOf(from);<br> };<br> }<br><br>}<br></pre>
+<h3 class="line">3. 訪問默認介面方法</h3>
+<p>還記得第一節的IFormula示例嗎？</p>
+<pre>public interface IFormula {<br><br> double calculate(int a);<br><br> // 平方<br> default double sqrt(int a) {<br> return Math.sqrt(a);<br> }<br><br>}<br></pre>
+<p>當時，我們在介面中定義了一個帶有默認實現的 sqrt 求平方根方法，在匿名內部類中我們可以很方便的訪問此方法：</p>
+<pre>IFormula formula = new IFormula() {<br> @Override<br> public double calculate(int a) {<br> return a * a;<br> }<br>};<br></pre>
+<p>但是不能通過lambda表達式訪問默認方法，這樣的代碼沒法通過編譯；</p>
+<pre>IFormula formula = (a) -&gt; sqrt(a * a);<br></pre>
+<p>帶有默認實現的介面方法，是不能在 lambda 表達式中訪問的，上面這段代碼將無法被編譯通過。</p>
+<h2 class="pgc-h-arrow-right">六、內置的函數式介面</h2>
+<p>JDK 1.8 API 包含了很多內置的函數式介面。其中就包括我們在老版本中經常見到的 Comparator 和 Runnable，Java 8 為他們都添加了 @FunctionalInterface 註解，以用來支持 Lambda 表達式。</p>
+<p>例如我們舊版本的Jdk中常用的 Comparator 和 Runnable 外，還有一些新的函數式介面，可以通過函數註解實現Lamdba支持，它們很多都借鑒於知名的 Google Guava 庫。</p>
+<p>即使你已經熟悉這個類庫，也應該密切關注那些介面是如何通過一些有用的方法擴展來擴展的：</p>
+<h3 class="line">1. Predicate 斷言</h3>
+<p>Predicate 是一個可以指定入參類型，並返回 boolean 值的函數式介面。它內部提供了一些帶有默認實現的方法，可以 被用來組合一個複雜的邏輯判斷（and, or, negate）：</p>
+<pre>@Test<br>public void test11() {<br> Predicate&lt;String&gt; predicate = (s) -&gt; s.length() &gt; 0;<br><br> boolean foo0 = predicate.test("foo"); // true<br> boolean foo1 = predicate.negate().test("foo"); // negate否定相當於!true<br><br> Predicate&lt;Boolean&gt; nonNull = Objects::nonNull;<br> Predicate&lt;Boolean&gt; isNull = Objects::isNull;<br><br> Predicate&lt;String&gt; isEmpty = String::isEmpty;<br> Predicate&lt;String&gt; isNotEmpty = isEmpty.negate();<br>}<br></pre>
+<h3 class="line">2. Functions</h3>
+<p>Function 函數式介面的作用是，我們可以為其提供一個原料，他給生產一個最終的產品。通過它提供的默認方法，組合,鏈行處理(compose, andThen)：</p>
+<pre>@Test<br>public void test12() {<br> Function&lt;String, Integer&gt; toInteger = Integer::valueOf; //轉Integer<br> Function&lt;String, String&gt; backToString = toInteger.andThen(String::valueOf); //轉String<br> Function&lt;String, String&gt; afterToStartsWith = backToString.andThen(new Something()::startsWith); //截取第一位 <br> String apply = afterToStartsWith.apply("123");// "123"<br> System.out.println(apply);<br>}<br></pre>
+<h3 class="line">3. Suppliers</h3>
+<p>Supplier 與 Function 不同，它不接受入參，直接為我們生產一個指定的結果，有點像生產者模式：</p>
+<pre>@Test<br>public void test13() {<br> Supplier&lt;Person&gt; personSupplier0 = Person::new;<br> personSupplier0.get(); // new Person<br> Supplier&lt;String&gt; personSupplier1 = Something::test01; //這個test方法是靜態的，且無入參<br> personSupplier1.get(); // hi<br><br> Supplier&lt;String&gt; personSupplier2 = new Something()::test02;<br>}<br></pre>
+<h3 class="line">4. Consumers</h3>
+<p>對於 Consumer，我們需要提供入參，用來被消費，如下面這段示例代碼：</p>
+<pre>@Test<br>public void test14() {<br> // 參照物，方便知道下面的Lamdba表達式寫法<br> Consumer&lt;Person&gt; greeter01 = new Consumer&lt;Person&gt;() {<br> @Override<br> public void accept(Person p) {<br> System.out.println("Hello, " + p.firstName);<br> }<br> };<br> Consumer&lt;Person&gt; greeter02 = (p) -&gt; System.out.println("Hello, " + p.firstName);<br> greeter02.accept(new Person("Luke", "Skywalker")); //Hello, Luke<br> Consumer&lt;Person&gt; greeter03 = new MyConsumer&lt;Person&gt;()::accept; // 也可以通過定義類和方法的方式去調用，這樣才是實際開發的姿勢<br> greeter03.accept(new Person("Luke", "Skywalker")); //Hello, Luke<br>}<br></pre>
+<h3 class="line">5. Comparators</h3>
+<p>Comparator 在 Java 8 之前是使用比較普遍的。Java 8 中除了將其升級成了函數式介面，還為它拓展了一些默認方法：</p>
+<pre>@Test<br>public void test15(){<br> Comparator&lt;Person&gt; comparator01 = (p1, p2) -&gt; p1.firstName.compareTo(p2.firstName);<br> Comparator&lt;Person&gt; comparator02 = Comparator.comparing(p -&gt; p.firstName); //等同於上面的方式<br> Person p1 = new Person("John", "Doe");<br> Person p2 = new Person("Alice", "Wonderland");<br> comparator01.compare(p1, p2); // &gt; 0<br> comparator02.reversed().compare(p1, p2); // &lt; 0<br>}<br></pre>
+<h2 class="pgc-h-arrow-right">七、Optionals</h2>
+<p>首先，Optional 它不是一個函數式介面，設計它的目的是為了防止空指針異常（NullPointerException），要知道在 Java 編程中，空指針異常可是臭名昭著的。</p>
+<p>讓我們來快速了解一下 Optional 要如何使用！你可以將 Optional 看做是包裝對象（可能是 null, 也有可能非 null）的容器。當你定義了</p>
+<p>一個方法，這個方法返回的對象可能是空，也有可能非空的時候，你就可以考慮用 Optional 來包裝它，這也是在 Java 8 被推薦使用的做法。</p>
+<pre>@Test<br>public void test16(){<br> Optional&lt;String&gt; optional = Optional.of("bam");<br> optional.isPresent(); // true<br> optional.get(); // "bam"<br> optional.orElse("fallback"); // "bam"<br> optional.ifPresent((s) -&gt; System.out.println(s.charAt(0))); // "b"<br> Optional&lt;Person&gt; optionalPerson = Optional.of(new Person());<br> optionalPerson.ifPresent(s -&gt; System.out.println(s.firstName));<br>}<br></pre>
+<h2 class="pgc-h-arrow-right">八、Stream 流</h2>
+<p>什麼是 Stream 流？</p>
+<p>簡單來說，我們可以使用 java.util.Stream 對一個包含一個或多個元素的集合做各種操作。這些操作可能是 中間操作 亦或是 終端操作。 終端操作會返回一個結果，而中間操作會返回一個 Stream 流。</p>
+<p>需要注意的是，你只能對實現了 java.util.Collection 介面的類做流的操作。</p>
+<p>Stream 流支持同步執行，也支持並發執行。</p>
+<p>注意：Map不支持Stream流，但是他的key和value是支持的！</p>
+<p>讓我們先看看Stream流是如何工作的。首先，我們以字元串列表的形式創建一個示例；</p>
+<pre>List&lt;String&gt; stringCollection = new ArrayList&lt;&gt;();<br>stringCollection.add("ddd2");<br>stringCollection.add("aaa2");<br>stringCollection.add("bbb1");<br>stringCollection.add("aaa1");<br>stringCollection.add("bbb3");<br>stringCollection.add("ccc");<br>stringCollection.add("bbb2");<br>stringCollection.add("ddd1");<br></pre>
+<h3 class="line">1. Filter 過濾</h3>
+<p>Filter 的入參是一個 Predicate, 上面已經說到，Predicate 是一個斷言的中間操作，它能夠幫我們篩選出我們需要的集合元素。它的返參同樣 是一個 Stream 流，我們可以通過 foreach 終端操作，來列印被篩選的元素：</p>
+<pre>@Test<br>public void test17(){<br> stringCollection<br> .stream()<br> .filter((s) -&gt; s.startsWith("a"))<br> .forEach(System.out::println);<br>}<br></pre>
+<h3 class="line">2. Sorted 排序</h3>
+<p>Sorted 同樣是一個中間操作，它的返參是一個 Stream 流。另外，我們可以傳入一個 Comparator 用來自定義排序，如果不傳，則使用默認的排序規則。</p>
+<pre>@Test<br>public void test18() {<br> stringCollection<br> .stream()<br> .sorted()<br> .filter((s) -&gt; s.startsWith("a"))<br> .forEach(System.out::println);<br>}<br></pre>
+<blockquote>
+<p>注意；這個sorted 只是做了一個排序的視圖進行輸出，實際沒有將List內的數據進行排序</p>
+</blockquote>
+<pre>System.out.println(stringCollection);<br>// ddd2, aaa2, bbb1, aaa1, bbb3, ccc, bbb2, ddd1<br></pre>
+<h3 class="line">3. Map 轉換</h3>
+<p>中間操作映射通過給定的函數將每個元素轉換為另一個對象。例如下面的示例，通過 map 我們將每一個 string 轉成大寫：</p>
+<pre>@Test<br>public void test19(){<br> stringCollection<br> .stream()<br> .map(String::toUpperCase)<br> .sorted(Comparator.reverseOrder()) //等同於(a, b) -&gt; b.compareTo(a)<br> .forEach(System.out::println);<br>}<br></pre>
+<p>這個可以用做DTO數據對象轉換，領域驅動設計開發中將DTO轉為DO向後台傳輸。</p>
+<h3 class="line">4. Match 匹配</h3>
+<p>顧名思義，match 用來做匹配操作，它的返回值是一個 boolean 類型。通過 match, 我們可以方便的驗證一個 list 中是否存在某個類型的元素。</p>
+<pre>@Test<br>public void test20(){<br> // anyMatch：驗證 list 中 string 是否有以 a 開頭的, 匹配到第一個，即返回 true<br> boolean anyStartsWithA =<br> stringCollection<br> .stream()<br> .anyMatch((s) -&gt; s.startsWith("a"));<br> System.out.println(anyStartsWithA); // true<br> // allMatch：驗證 list 中 string 是否都是以 a 開頭的<br> boolean allStartsWithA =<br> stringCollection<br> .stream()<br> .allMatch((s) -&gt; s.startsWith("a"));<br> System.out.println(allStartsWithA); // false<br> // noneMatch：驗證 list 中 string 是否都不是以 z 開頭的<br> boolean noneStartsWithZ =<br> stringCollection<br> .stream()<br> .noneMatch((s) -&gt; s.startsWith("z"));<br> System.out.println(noneStartsWithZ); // true<br>}<br></pre>
+<h3 class="line">5. Count 計數</h3>
+<p>count 是一個終端操作，它能夠統計 stream 流中的元素總數，返回值是 long 類型。</p>
+<pre>@Test<br>public void test21() {<br> // count：先對 list 中字元串開頭為 b 進行過濾，讓後統計數量<br> long startsWithB =<br> stringCollection<br> .stream()<br> .filter((s) -&gt; s.startsWith("b"))<br> .count();<br> System.out.println(startsWithB); // 3<br>}</pre>
+<h3 class="line">6. Reduce</h3>
+<p>Reduce 中文翻譯為：減少、縮小。通過入參的 Function，我們能夠將 list 歸約成一個值。它的返回類型是 Optional 類型。</p>
+<pre>@Test<br>public void test22() {<br> Optional&lt;String&gt; reduced =<br> stringCollection<br> .stream()<br> .sorted()<br> .reduce((s1, s2) -&gt; s1 + "#" + s2);<br> reduced.ifPresent(System.out::println);<br> // aaa1#aaa2#bbb1#bbb2#bbb3#ccc#ddd1#ddd2<br>}</pre>
+<h2 class="pgc-h-arrow-right">九、Parallel-Streams 並行流</h2>
+<p>如上所述，流可以是順序的，也可以是並行的。順序流上的操作在單個線程上執行，而並行流上的操作在多個線程上並發執行。</p>
+<p>下面的示例演示了使用並行流來提高性能是多麼的容易。親測提升了1倍性能！</p>
+<p>首先，我們創建一個較大的List：</p>
+<pre>int max = 1000000;<br>List&lt;String&gt; values = new ArrayList&lt;&gt;(max);<br>for (int i = 0; i &lt; max; i++) {<br> UUID uuid = UUID.randomUUID();<br> values.add(uuid.toString());<br>}</pre>
+<h3 class="line">1. Sequential Sort 順序流排序</h3>
+<pre>@Test<br>public void test23() {<br> int max = 1000000;<br> List&lt;String&gt; values = new ArrayList&lt;&gt;(max);<br> for (int i = 0; i &lt; max; i++) {<br> UUID uuid = UUID.randomUUID();<br> values.add(uuid.toString());<br> }<br> // 納秒<br> long t0 = System.nanoTime();<br> long count = values.stream().sorted().count();<br> System.out.println(count);<br> long t1 = System.nanoTime();<br> // 納秒轉微秒<br> long millis = TimeUnit.NANOSECONDS.toMillis(t1 - t0);<br> System.out.println(String.format("順序流排序耗時: %d ms", millis));<br> //順序流排序耗時: 712 ms<br>}</pre>
+<h3 class="line">2. Parallel Sort 並行流排序</h3>
+<pre>@Test<br>public void test24(){<br> int max = 1000000;<br> List&lt;String&gt; values = new ArrayList&lt;&gt;(max);<br> for (int i = 0; i &lt; max; i++) {<br> UUID uuid = UUID.randomUUID();<br> values.add(uuid.toString());<br> }<br> long t0 = System.nanoTime();<br> long count = values.parallelStream().sorted().count();<br> System.out.println(count);<br> long t1 = System.nanoTime();<br> long millis = TimeUnit.NANOSECONDS.toMillis(t1 - t0);<br> System.out.println(String.format("parallel sort took: %d ms", millis));<br> //parallel sort took: 385 ms<br>}</pre>
+<p>如您所見，這兩個代碼片段幾乎相同，但並行排序大約快50%。您只需將stream（）更改為parallelStream（）。</p>
+<h2 class="pgc-h-arrow-right">十、Map 集合</h2>
+<p>如前所講，Map是不支持 Stream 流的，因為 Map 介面並沒有像 Collection 介面那樣，定義了 stream() 方法。但是，我們可以對其 key, values, entry 使用 流操作，如 map.keySet().stream(), map.values().stream() 和 map.entrySet().stream().</p>
+<p>另外, JDK 8 中對 map 提供了一些其他新特性:</p>
+<pre>@Test<br>public void test25() {<br> Map&lt;Integer, String&gt; map = new HashMap&lt;&gt;();<br> for (int i = 0; i &lt; 10; i++) {<br> // 與老版不同的是，putIfAbent() 方法在 put 之前， 不用在寫if null continue了<br> // 會判斷 key 是否已經存在，存在則直接返回 value, 否則 put, 再返回 value<br> map.putIfAbsent(i, "val" + i);<br> }<br> // forEach 可以很方便地對 map 進行遍歷操作<br> map.forEach((key, value) -&gt; System.out.println(value));<br>}</pre>
+<p>之後我們做一個Map對象的轉換輸出；（定義兩個類BeanA、BeanB）</p>
+<pre>@Test<br>public void test26() {<br> Map&lt;Integer, BeanA&gt; map = new HashMap&lt;&gt;();<br> for (int i = 0; i &lt; 10; i++) {<br> // 與老版不同的是，putIfAbent() 方法在 put 之前， 不用在寫if null continue了<br> // 會判斷 key 是否已經存在，存在則直接返回 value, 否則 put, 再返回 value<br> map.putIfAbsent(i, new BeanA(i, "明明" + i, i + 20, "89021839021830912809" + i));<br> }<br> Stream&lt;BeanB&gt; beanBStream00 = map.values().stream().map(new Function&lt;BeanA, BeanB&gt;() {<br> @Override<br> public BeanB apply(BeanA beanA) {<br> return new BeanB(beanA.getName(), beanA.getAge());<br> }<br> });<br> Stream&lt;BeanB&gt; beanBStream01 = map.values().stream().map(beanA -&gt; new BeanB(beanA.getName(), beanA.getAge()));<br> beanBStream01.forEach(System.out::println);<br>}</pre>
+<p>除了上面的 putIfAbsent() 和 forEach() 外，我們還可以很方便地對某個 key 的值做相關操作：</p>
+<pre>@Test<br>public void test27() {<br> // 如下：對 key 為 3 的值，內部會先判斷值是否存在，存在，則做 value + key 的拼接操作<br> map.computeIfPresent(3, (num, val) -&gt; val + num);<br> map.get(3); // val33<br><br> // 先判斷 key 為 9 的元素是否存在，存在，則做刪除操作<br> map.computeIfPresent(9, (num, val) -&gt; null);<br> map.containsKey(9); // false<br><br> // computeIfAbsent(), 當 key 不存在時，才會做相關處理<br> // 如下：先判斷 key 為 23 的元素是否存在，不存在，則添加<br> map.computeIfAbsent(23, num -&gt; "val" + num);<br> map.containsKey(23); // true<br><br> // 先判斷 key 為 3 的元素是否存在，存在，則不做任何處理<br> map.computeIfAbsent(3, num -&gt; "bam");<br> map.get(3); // val33<br>}</pre>
+<p>關於刪除操作，JDK 8 中提供了能夠新的 remove() API:</p>
+<pre>@Test<br>public void test28() {<br> map.remove(3, "val3");<br> map.get(3); // val33<br><br> map.remove(3, "val33");<br> map.get(3); // null<br>}</pre>
+<p>如上代碼，只有當給定的 key 和 value 完全匹配時，才會執行刪除操作。</p>
+<p>關於添加方法，JDK 8 中提供了帶有默認值的 getOrDefault() 方法：</p>
+<pre>@Test<br>public void test29() {<br> // 若 key 42 不存在，則返回 not found<br> map.getOrDefault(42, "not found"); // not found<br>}<br></pre>
+<p>對於 value 的合併操作也變得更加簡單：</p>
+<pre>@Test<br>public void test30() {<br> // merge 方法，會先判斷進行合併的 key 是否存在，不存在，則會添加元素<br> map.merge(9, "val9", (value, newValue) -&gt; value.concat(newValue));<br> map.get(9); // val9<br> // 若 key 的元素存在，則對 value 執行拼接操作<br> map.merge(9, "concat", (value, newValue) -&gt; value.concat(newValue));<br> map.get(9); // val9concat<br>}</pre>
+<h2 class="pgc-h-arrow-right">十一、日期 Date API</h2>
+<p>Java 8 中在包 java.time 下添加了新的日期 API. 它和 Joda-Time 庫相似，但又不完全相同。接下來，我會通過一些示例代碼介紹一下新 API 中 最關鍵的特性：</p>
+<h3 class="line">1. Clock</h3>
+<p>Clock 提供對當前日期和時間的訪問。我們可以利用它來替代 System.currentTimeMillis() 方法。另外，通過 clock.instant() 能夠獲取一個 instant 實例， 此實例能夠方便地轉換成老版本中的 java.util.Date 對象。</p>
+<pre>@Test<br>public void test31(){<br> Clock clock = Clock.systemDefaultZone();<br> long millis = clock.millis();<br> Instant instant = clock.instant();<br> Date legacyDate = Date.from(instant); // 老版本 java.util.Date<br>}</pre>
+<h3 class="line">2. Timezones 時區</h3>
+<p>ZoneId 代表時區類。通過靜態工廠方法方便地獲取它，入參我們可以傳入某個時區編碼。另外，時區類還定義了一個偏移量，用來在當前時刻或某時間 與目標時區時間之間進行轉換。</p>
+<pre>@Test<br>public void test32() {<br> System.out.println(ZoneId.getAvailableZoneIds());<br> // prints all available timezone ids<br><br> ZoneId zone1 = ZoneId.of("Europe/Berlin");<br> ZoneId zone2 = ZoneId.of("Brazil/East");<br> System.out.println(zone1.getRules());<br> System.out.println(zone2.getRules());<br><br> //[Asia/Aden, America/Cuiaba, Etc/GMT+9, Etc/Gada/Atlantic, Atlantic/St_Helena, Australia/Tasmania, Libya, Europe/Guernsey, America/Grand_Turk, US/Pacific-New, Asia/Samarkand, America/Argentina/Cordoba, Asia/Phnom_Penh, Africa/Kigali, Asia/Almaty, US/Alaska, Asi...<br> // ZoneRules[currentStandardOffset=+01:00]<br> // ZoneRules[currentStandardOffset=-03:00]<br>}</pre>
+<h3 class="line">3. LocalTime</h3>
+<p>LocalTime 表示一個沒有指定時區的時間類，例如，10 p.m.或者 17：30:15，下面示例代碼中，將會使用上面創建的 時區對象創建兩個 LocalTime。然後我們會比較兩個時間，並計算它們之間的小時和分鐘的不同。</p>
+<pre>@Test<br>public void test33(){<br> ZoneId zone1 = ZoneId.of("Europe/Berlin");<br> ZoneId zone2 = ZoneId.of("Brazil/East");<br> LocalTime now1 = LocalTime.now(zone1);<br> LocalTime now2 = LocalTime.now(zone2);<br> System.out.println(now1.isBefore(now2)); // false<br> long hoursBetween = ChronoUnit.HOURS.between(now1, now2);<br> long minutesBetween = ChronoUnit.MINUTES.between(now1, now2);<br> System.out.println(hoursBetween); // -3<br> System.out.println(minutesBetween); // -239<br>}</pre>
+<p>LocalTime 提供多個靜態工廠方法，目的是為了簡化對時間對象實例的創建和操作，包括對時間字元串進行解析的操作等。</p>
+<pre>@Test<br>public void test34(){<br> LocalTime late = LocalTime.of(23, 59, 59);<br> System.out.println(late); // 23:59:59<br> DateTimeFormatter germanFormatter =<br> DateTimeFormatter<br> .ofLocalizedTime(FormatStyle.SHORT)<br> .withLocale(Locale.GERMAN);<br> LocalTime leetTime = LocalTime.parse("13:37", germanFormatter);<br> System.out.println(leetTime); // 13:37<br>}</pre>
+<h3 class="line">4. LocalDate</h3>
+<p>LocalDate 是一個日期對象，例如：2014-03-11。它和 LocalTime 一樣是個 final 類型對象。下面的例子演示了如何通過加減日，月，年等來計算一個新的日期。</p>
+<pre>@Test<br>public void test35(){<br> LocalDate today = LocalDate.now();<br> // 今天加一天<br> LocalDate tomorrow = today.plus(1, ChronoUnit.DAYS);<br> // 明天減兩天<br> LocalDate yesterday = tomorrow.minusDays(2);<br> // 2014 年七月的第四天<br> LocalDate independenceDay = LocalDate.of(2014, Month.JULY, 4);<br> DayOfWeek dayOfWeek = independenceDay.getDayOfWeek();<br> System.out.println(dayOfWeek); // 星期五<br>}</pre>
+<p>也可以直接解析日期字元串，生成 LocalDate 實例。（和 LocalTime 操作一樣簡單）</p>
+<pre>@Test<br>public void test36(){<br> DateTimeFormatter germanFormatter =<br> DateTimeFormatter<br> .ofLocalizedDate(FormatStyle.MEDIUM)<br> .withLocale(Locale.GERMAN);<br> LocalDate xmas = LocalDate.parse("24.12.2014", germanFormatter);<br> System.out.println(xmas); // 2014-12-24<br>}</pre>
+<h3 class="line">5. LocalDateTime</h3>
+<p>LocalDateTime 是一個日期-時間對象。你也可以將其看成是 LocalDate 和 LocalTime 的結合體。操作上，也大致相同。</p>
+<pre>@Test<br>public void test37(){<br> LocalDateTime sylvester = LocalDateTime.of(2014, Month.DECEMBER, 31, 23, 59, 59);<br> DayOfWeek dayOfWeek = sylvester.getDayOfWeek();<br> System.out.println(dayOfWeek); // 星期三<br> Month month = sylvester.getMonth();<br> System.out.println(month); // 十二月<br> // 獲取改時間是該天中的第幾分鐘<br> long minuteOfDay = sylvester.getLong(ChronoField.MINUTE_OF_DAY);<br> System.out.println(minuteOfDay); // 1439<br>}</pre>
+<p>如果再加上的時區信息，LocalDateTime 還能夠被轉換成 Instance 實例。Instance 能夠被轉換成老版本中 java.util.Date 對象。</p>
+<pre>@Test<br>public void test38(){<br> LocalDateTime sylvester = LocalDateTime.of(2014, Month.DECEMBER, 31, 23, 59, 59);<br> Instant instant = sylvester<br> .atZone(ZoneId.systemDefault())<br> .toInstant();<br> Date legacyDate = Date.from(instant);<br> System.out.println(legacyDate); // Wed Dec 31 23:59:59 CET 2014<br>}</pre>
+<p>格式化 LocalDateTime 對象就和格式化 LocalDate 或者 LocalTime 一樣。除了使用預定義的格式以外，也可以自定義格式化輸出。</p>
+<pre>@Test<br>public void test39(){<br> DateTimeFormatter formatter =<br> DateTimeFormatter<br> .ofPattern("MMM dd, yyyy - HH:mm");<br> LocalDateTime parsed = LocalDateTime.parse("Nov 03, 2014 - 07:13", formatter);<br> String string = formatter.format(parsed);<br> System.out.println(string); // Nov 03, 2014 - 07:13<br>}</pre>
+<p>Unlike java.text.NumberFormat the new DateTimeFormatter is immutable and thread-safe.</p>
+<p>For details on the pattern syntax read here.</p>
+<h2 class="pgc-h-arrow-right">十二、Annotations 註解</h2>
+<p>Java8中的注釋是可重複的。讓我們直接深入到一個例子中來解決這個問題。{在SpringBoot的啟動類中就可以看到這中類型的註解}</p>
+<p>首先，我們定義一個包裝器注釋，它包含一個實際注釋數組：</p>
+<pre>@Repeatable(Hints.class)<br>public @interface Hint {<br> String value();<br>}<br><br>public @interface Hints {<br> Hint[] value();<br>}</pre>
+<p>Java 8通過聲明注釋@Repeatable，使我們能夠使用同一類型的多個注釋。</p>
+<p>第一種形態：使用註解容器（老方法）</p>
+<pre> @Test<br> public void test40() {<br> @Hints({@Hint("hint1"), @Hint("hint2")})<br> class Person {<br> }<br> }</pre>
+<p>第二種形態：使用可重複註解（新方法）</p>
+<pre>@Test<br>public void test41() {<br> @Hint("hint1")<br> @Hint("hint2")<br> class Person {<br> }<br>}</pre>
+<p>java編譯器使用變數2隱式地在引擎蓋下設置@Hints注釋。這對於通過反射讀取注釋信息很重要。</p>
+<pre>@Test<br>public void test41() {<br> @Hint("hint1")<br> @Hint("hint2")<br> class Person {<br> }<br> Hint hint = Person.class.getAnnotation(Hint.class);<br> System.out.println(hint); // null<br> Hints hints1 = Person.class.getAnnotation(Hints.class);<br> System.out.println(hints1.value().length); // 2<br> Hint[] hints2 = Person.class.getAnnotationsByType(Hint.class<br> System.out.println(hints2.length); // 2<br>}</pre>
+<p>儘管我們絕對不會在 Person 類上聲明 @Hints 註解，但是它的信息仍然是可以通過 getAnnotation(Hints.class) 來讀取的。 並且，getAnnotationsByType 方法會更方便，因為它賦予了所有 @Hints 註解標註的方法直接的訪問許可權。</p>
+<pre>@Target({ElementType.TYPE_PARAMETER, ElementType.TYPE_USE})<br>@interface MyAnnotation {}</pre>
+<blockquote>
+<p>作者：bugstack蟲洞棧<br>原文鏈接：https://juejin.im/post/5df18edae51d4557fb20eeb0</p>
+</blockquote>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/12781#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.291 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:28:33 -->
+
+<!-- super cache -->

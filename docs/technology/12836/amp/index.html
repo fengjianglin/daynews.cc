@@ -1,0 +1,680 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/12836#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/93928fe7ca26460da3a94f134cfa646a"},{"@type":"WebPage","@id":"https://daynews.cc/technology/12836#webpage","url":"https://daynews.cc/technology/12836","inLanguage":"zh-TW","name":"\u4e00\u6b3e\u80fd\u8b93\u958b\u767c\u4eba\u54e1\u653e\u534a\u5929\u5047\u7684\u5de5\u5177-DevSpace - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/12836#primaryimage"},"datePublished":"2019-12-12T17:00:12+00:00","dateModified":"2019-12-12T17:00:12+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="一、介紹 DevSpace是一個開源的、用GO語言寫的客戶端命令行工具。DevSpace能夠讓開發團隊在Kubernetes上無縫的構建應用、運行和擴展應用。DevSpace是下一代用於構建雲原生的軟體開發工具，能夠幫助開發團隊在Kubernetes上構建現代的、分散式的、高可用的微服務應用。 DevSpace具有的功能包含：①直接在Ku……" />
+<meta name="twitter:title" content="一款能讓開發人員放半天假的工具-DevSpace - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/93928fe7ca26460da3a94f134cfa646a" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="一款能讓開發人員放半天假的工具-DevSpace - 天天要聞" />
+<meta property="og:description" content="一、介紹 DevSpace是一個開源的、用GO語言寫的客戶端命令行工具。DevSpace能夠讓開發團隊在Kubernetes上無縫的構建應用、運行和擴展應用。DevSpace是下一代用於構建雲原生的軟體開發工具，能夠幫助開發團隊在Kubernetes上構建現代的、分散式的、高可用的微服務應用。 DevSpace具有的功能包含：①直接在Ku……" />
+<meta property="og:url" content="https://daynews.cc/technology/12836" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-12T17:00:12+00:00" />
+	<title>一款能讓開發人員放半天假的工具-DevSpace - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/12836" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">一款能讓開發人員放半天假的工具---DevSpace</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-13T01:00:12+00:00">
+		6 天 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<h2 class="pgc-h-arrow-right">一、介紹</h2>
+<p>DevSpace是一個<strong>開源的</strong>、用<strong>GO語言</strong>寫的<strong>客戶端命令行工具</strong>。DevSpace能夠讓開發團隊在Kubernetes上無縫的構建應用、運行和擴展應用。DevSpace是下一代用於構建雲原生的軟體開發工具，能夠幫助開發團隊在Kubernetes上構建現代的、分散式的、高可用的微服務應用。</p>
+<p>DevSpace具有的功能包含：<strong>①直接在Kubernetes內部構建、測試和調試應用。②熱載入，不需要重建鏡像和重啟容器就能夠更新運行時容器。③在團隊內部以及垮開發、測試和生產統一部署流程。④自動化鏡像構建和部署等重複任務。</strong></p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/93928fe7ca26460da3a94f134cfa646a" alt="《一款能讓開發人員放半天假的工具---DevSpace》" width="640" height="410" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/93928fe7ca26460da3a94f134cfa646a" alt="《一款能讓開發人員放半天假的工具---DevSpace》" width="640" height="410" class=""></noscript></amp-img>
+<p class="pgc-img-caption">devspace init</p>
+
+</div>
+<h2 class="pgc-h-arrow-right">二、架構</h2>
+<p>下面是DevSpace的架構圖和工作流程。DevSpace作為一個單獨的二進位命令行工具可以直接在計算機上運行，理想情況下，可以直接在IDE的終端上使用它。DevSpace不需要安裝伺服器端組件，因為它使用kube-context直接與Kubernetes集群通信，跟kubectl一樣。</p>
+
+<p>DevSpace的工作流程是：</p>
+<p>①讀取代碼庫根目錄下的devspace.yaml文件，該文件存儲了整個工作流程。</p>
+<p>②使用構建工具如Docker、Kaniko進行鏡像構建。</p>
+<p>③將構建的鏡像推送到鏡像倉庫。</p>
+<p>④查找並使用kube-context。</p>
+<p>⑤部署項目到Kubernetes集群中。</p>
+<p>⑥開啟Dev Mode。<strong>開發模式下為了提高開發效率，DevSpace提供了通過File Sync同步的熱載入功能，不需要重新部署就可以更新容器；通過埠映射可以通過localhost訪問容器；通過終端或Logs了解和控制容器；通過Remote Debugger在IDE端直接調試</strong>。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/d79c206dafae44cb93b17d503f64a8e2" alt="《一款能讓開發人員放半天假的工具---DevSpace》" width="640" height="360" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/d79c206dafae44cb93b17d503f64a8e2" alt="《一款能讓開發人員放半天假的工具---DevSpace》" width="640" height="360" class=""></noscript></amp-img>
+<p class="pgc-img-caption">DevSpace架構圖</p>
+
+</div>
+<h2 class="pgc-h-arrow-right">三、特性</h2>
+<p>DevSpace能夠幫助開發人員不在那些重複的構建和部署任務上浪費時間，可以直接在Kubernetes內部自動化工作流程和構建雲原生的應用。DevSpace具有以下特性：</p>
+<p><strong>1、使用devspace build自動化鏡像的構建</strong></p>
+<p><strong>2、使用devspace deploy自動化部署應用</strong></p>
+<p><strong>3、使用devspace dev高效的集群內開發模式</strong></p>
+<p><strong>4、使用devspace ui啟動功能豐富的本地UI界面。</strong>在界面上查看流式日誌、打開交互終端和開啟埠映射等等。通過使用當前的kube-context完全在本地運行。</p>
+<p><strong>5、與Kubernetes交互的便捷命令。</strong></p>
+<ul class="">
+<li>devspace enter打開一個交互終端會話窗口。</li>
+<li>devspace logs/devspace logs -f 快速顯示實時的日誌。</li>
+<li>devspace sync快速啟動雙向、實時的文件同步。</li>
+<li>devspace analyze能夠分析容器崩潰、端點缺失、調度異常等問題並給出報告。</li>
+<li>devspace purge快速刪除所有的helm charts，manifests等。</li>
+<li>devspace use context 顯示上下文列表，選擇當前上下文kube-context。</li>
+<li>devspace use namespace 顯示命名空間的列表，設置默認的命名空間。</li>
+<li>devspace remove context 顯示上下文的列表，選擇刪除kube-context。</li>
+</ul>
+<p><strong>6、強大的配置功能</strong></p>
+<ul class="">
+<li>聲明式配置文件，可以與源碼一起加入版本控制。</li>
+<li>配置變數，在配置文件中可以通過參數進行設置，能夠與其他團隊共享一份配置文件。</li>
+<li>配置覆蓋，通過覆蓋Dockerfile或ENTRYPOINT,來分離開發、預覽和生產環境。</li>
+<li>鉤子，可以在每個構建或部署階段之前或之後執行自定義的命令。</li>
+<li>多配置，可以用在高級部署場景。</li>
+</ul>
+<p><strong>7、輕量級的、便捷的設置</strong></p>
+<ul class="">
+<li>只需要安裝一個二進位客戶端，不需要其他依賴。</li>
+<li>完全用GO編寫，能兼容各種平台。</li>
+<li>能夠自動生成配置文件，如Dockerfile、Helm chart或Kubernetes manifests。</li>
+</ul>
+<h2 class="pgc-h-arrow-right">四、安裝</h2>
+<p><strong>1、安裝DevSpace</strong></p>
+<p>DevSpace支持多種平台安裝，這裡以Linux為準。</p>
+<pre>$ curl -s -L "https://github.com/devspace-cloud/devspace/releases/latest" | sed -nE 's!.*"([^"]*devspace-linux-amd64)".*!https://github.com\1!p' | xargs -n 1 curl -L -o devspace &amp;&amp; chmod +x devspace;<br>$ sudo mv devspace /usr/local/bin;</pre>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/ccaad3079a664818b05fd402c20e2c8a" alt="《一款能讓開發人員放半天假的工具---DevSpace》" width="1268" height="128" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/ccaad3079a664818b05fd402c20e2c8a" alt="《一款能讓開發人員放半天假的工具---DevSpace》" width="1268" height="128" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>2、下載樣例項目</strong></p>
+<p>DevSpace支持多種類型的語言，如Node.js、Python、Golang、PHP、Ruby等，這裡以Golang語言為例。</p>
+<pre>$ git clone https://github.com/devspace-cloud/quickstart-golang &amp;&amp; cd quickstart-golang</pre>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/174f98a993a848a5a05515959d6442c6" alt="《一款能讓開發人員放半天假的工具---DevSpace》" width="1092" height="148" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/174f98a993a848a5a05515959d6442c6" alt="《一款能讓開發人員放半天假的工具---DevSpace》" width="1092" height="148" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>3、初始化</strong></p>
+<p>初始化項目會創建配置文件devspace.yaml，這個文件會告訴DevSpace如何部署這個項目。執行命令進行初始化：</p>
+<pre>$ devspace init</pre>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/45dfb4e7be094d21a2e534cc37307f48" alt="《一款能讓開發人員放半天假的工具---DevSpace》" width="640" height="391" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/45dfb4e7be094d21a2e534cc37307f48" alt="《一款能讓開發人員放半天假的工具---DevSpace》" width="640" height="391" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>創建好的devspace.yaml文件內容如下：</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/dfae1677262f47ac93995ae719780325" alt="《一款能讓開發人員放半天假的工具---DevSpace》" width="565" height="505" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/dfae1677262f47ac93995ae719780325" alt="《一款能讓開發人員放半天假的工具---DevSpace》" width="565" height="505" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>4、選擇Kubernetes集群</strong></p>
+<p>選擇這個項目部署上去的集群，這裡選擇搭建的minikube集群環境，也可以使用其他雲平台。使用如下命令告訴DevSpace要使用哪個命名空間。</p>
+<pre># Tell DevSpace which namespace to use (will be created automatically during deployment)<br>$ devspace use namespace my-namespace</pre>
+<p>這裡使用minikube里的default命名空間。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/db38e472073e45fbace774bdcd8da51d" alt="《一款能讓開發人員放半天假的工具---DevSpace》" width="962" height="105" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/db38e472073e45fbace774bdcd8da51d" alt="《一款能讓開發人員放半天假的工具---DevSpace》" width="962" height="105" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>5、部署</strong></p>
+<p><strong>注意:由於在部署時會拉取golang.org地址下載的依賴包，在Dockerfile里需要指定GOPROXY的環境變數。</strong></p>
+<p>Dockerfile里添加這兩個環境變數：</p>
+<pre># set go proxy<br>ENV GO111MODULE on<br>ENV GOPROXY https://goproxy.io</pre>
+<p>執行如下命令進行部署。</p>
+<pre>$ devspace deploy</pre>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/3954bbc66ec4427e92bb5c678b852ef8" alt="《一款能讓開發人員放半天假的工具---DevSpace》" width="640" height="229" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/3954bbc66ec4427e92bb5c678b852ef8" alt="《一款能讓開發人員放半天假的工具---DevSpace》" width="640" height="229" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>查看default命名空間下的pod，可以看出這個項目已經處於Running狀態。</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/2a496ddb2cc04037b62f8107a779e872" alt="《一款能讓開發人員放半天假的工具---DevSpace》" width="846" height="74" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/2a496ddb2cc04037b62f8107a779e872" alt="《一款能讓開發人員放半天假的工具---DevSpace》" width="846" height="74" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>6、瀏覽器查看</strong></p>
+<p>執行如下命令可以在瀏覽器中打開這個應用。</p>
+<pre>$ devspace open</pre>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/bb284d524c3b4bf1810b28fcc37b820f" alt="《一款能讓開發人員放半天假的工具---DevSpace》" width="832" height="271" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/bb284d524c3b4bf1810b28fcc37b820f" alt="《一款能讓開發人員放半天假的工具---DevSpace》" width="832" height="271" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>會自動打開瀏覽器，可以看到當前程序已經在起來了。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/f27780d987fa411d8b8c51798eb6a00b" alt="《一款能讓開發人員放半天假的工具---DevSpace》" width="640" height="458" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/f27780d987fa411d8b8c51798eb6a00b" alt="《一款能讓開發人員放半天假的工具---DevSpace》" width="640" height="458" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>7、開發模式</strong></p>
+<p>項目一旦成功部署到Kubernetes集群後，就可以啟動<strong>開發模式</strong>，使用<strong>終端代理、埠轉發和實時代碼同步</strong>直接在Kubernetes集群內部進行編碼。執行如下命令：</p>
+<pre>$ devspace dev</pre>
+<p>執行後，可以通過http://localhost:PORT在瀏覽器中訪問服務。當修改源碼後，DevSpace會自動同步變更的問題就到Kubernetes容器中。這裡用到的是nodemon這種熱載入的工具來保證更新變動的文件。<u>在實際執行的時候，報錯如下，目前在github上提了issue，有了解的也請指導一下！！！</u></p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/6d803e339e25496380a03c6c5359fbcf" alt="《一款能讓開發人員放半天假的工具---DevSpace》" width="1029" height="200" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/6d803e339e25496380a03c6c5359fbcf" alt="《一款能讓開發人員放半天假的工具---DevSpace》" width="1029" height="200" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>8、開發界面</strong></p>
+<p>如果devspace dev執行成功，會啟動一個開發界面，埠是8090，也可以運行devspace ui命令啟動這個界面。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/aa3b877c79a84adcb3b4a35a1430f2c4" alt="《一款能讓開發人員放半天假的工具---DevSpace》" width="656" height="85" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/aa3b877c79a84adcb3b4a35a1430f2c4" alt="《一款能讓開發人員放半天假的工具---DevSpace》" width="656" height="85" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>開發界面會顯示當前開發環境所在的KubeContext和Namespace，能夠開發Web Terminal進入當前項目的容器、顯示devspace.yaml文件內容，方便開發人員查看和調試。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/c2f636ea89e14d4fbbdd19b132698c6d" alt="《一款能讓開發人員放半天假的工具---DevSpace》" width="640" height="352" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/c2f636ea89e14d4fbbdd19b132698c6d" alt="《一款能讓開發人員放半天假的工具---DevSpace》" width="640" height="352" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">五、總結</h2>
+<p>DevSpace的設計更加的巧妙，並且DevSpace能適配多種構建工具與部署工具，DevSpace提供的命令行命令也非常齊全，並且也支持IDE中的Terminal，如ATOM、VS Code和Eclipse。DevSpace的同步機制是本地文件與運行在Kubernetes中的容器內部的文件同步，並使用熱載入技術在不重啟容器的情況下更新變更的代碼，真正可以做到持續不斷的開發、調試。</p>
+<p>DevSpace也多種方式劃分不同的開發階段，如果Dev、Staging 和Production。在構建階段，可以通過不同的Dockerfile劃分，可以使用相關的Dockerfile不同的ENTRYPOINT劃分。在部署階段，可以使用不同的命令或參數，可以使用不同的鏡像名稱或標籤，可以使用不同的環境變數。不管你有什麼樣的需求，DevSpace都有一個方案為你解決，DevSpace值得一試。</p>
+<p>之前開發人員開發完成之後，還能在等待部署的環節休息一會，喝杯咖啡，現在好了，代碼實時同步，實時部署，無縫集成，抽空喝咖啡的時間也沒有了，哈哈。不過話說回來，開發工具提高了開發人員的效率，之前一天幹完的工作，現在半天就搞定了，是不是可以放半天假呢，希望在未來能夠實現。</p>
+<p>工欲善其事，必先利其器！</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/12836#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.368 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:33:20 -->
+
+<!-- super cache -->

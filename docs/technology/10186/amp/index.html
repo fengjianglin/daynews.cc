@@ -1,0 +1,697 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/10186#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/c79a945f7bbc404a82dc893be014f1b2"},{"@type":"WebPage","@id":"https://daynews.cc/technology/10186#webpage","url":"https://daynews.cc/technology/10186","inLanguage":"zh-TW","name":"\u4e0d\u7528\u627e\u4e86\uff0cPostgreSQL 12 GA\u7684\u65b0\u7279\u6027\u90fd\u5728\u9019\u88e1 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/10186#primaryimage"},"datePublished":"2019-12-06T11:00:17+00:00","dateModified":"2019-12-06T11:00:17+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="2019數據技術嘉年華 劉偉先生現場演講圖 本期，我們請到雲和恩墨軟體開發部研究院研究員 劉偉 先生，其主要研究方向為開源資料庫，分散式資料庫，擅長自動化運維以及資料庫內核研究。本次嘉年華他帶來題為：PostgreSQL 12 GA的新特性詳解 主題分享。下面，讓我們一同來學習劉偉筆下的滿滿乾貨吧！ PostgreSQL 12終於在201……" />
+<meta name="twitter:title" content="不用找了，PostgreSQL 12 GA的新特性都在這裡 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/c79a945f7bbc404a82dc893be014f1b2" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="不用找了，PostgreSQL 12 GA的新特性都在這裡 - 天天要聞" />
+<meta property="og:description" content="2019數據技術嘉年華 劉偉先生現場演講圖 本期，我們請到雲和恩墨軟體開發部研究院研究員 劉偉 先生，其主要研究方向為開源資料庫，分散式資料庫，擅長自動化運維以及資料庫內核研究。本次嘉年華他帶來題為：PostgreSQL 12 GA的新特性詳解 主題分享。下面，讓我們一同來學習劉偉筆下的滿滿乾貨吧！ PostgreSQL 12終於在201……" />
+<meta property="og:url" content="https://daynews.cc/technology/10186" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-06T11:00:17+00:00" />
+	<title>不用找了，PostgreSQL 12 GA的新特性都在這裡 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/10186" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">不用找了，PostgreSQL 12 GA的新特性都在這裡</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-06T19:00:17+00:00">
+		2 週 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/c79a945f7bbc404a82dc893be014f1b2" alt="《不用找了，PostgreSQL 12 GA的新特性都在這裡》" width="640" height="426" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/c79a945f7bbc404a82dc893be014f1b2" alt="《不用找了，PostgreSQL 12 GA的新特性都在這裡》" width="640" height="426" class=""></noscript></amp-img>
+<p class="pgc-img-caption">2019數據技術嘉年華 劉偉先生現場演講圖</p>
+
+</div>
+<p>本期，我們請到雲和恩墨軟體開發部研究院研究員 <strong>劉偉 </strong>先生，其主要研究方向為開源資料庫，分散式資料庫，擅長自動化運維以及資料庫內核研究。本次嘉年華他帶來題為：<strong>PostgreSQL 12 GA的新特性詳解 </strong>主題分享。下面，讓我們一同來學習劉偉筆下的滿滿乾貨吧！</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/ae8c3a80e92447a0add9e86186745649" alt="《不用找了，PostgreSQL 12 GA的新特性都在這裡》" width="702" height="34" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/ae8c3a80e92447a0add9e86186745649" alt="《不用找了，PostgreSQL 12 GA的新特性都在這裡》" width="702" height="34" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>PostgreSQL 12終於在2019年10月3日正式宣布 GA 版本的發布。目前來看，這個版本必將是一個承上啟下，為未來更強的功能奠定基礎的版本了。</p>
+
+<p>整體來看，這次迭代主要有三個方面的內容，它們分別是，<strong>SQL的執行優化</strong>；<strong>配置的優化</strong>；以及最重要的：<strong>存儲引擎介面的獨立</strong>。</p>
+
+<h2>SQL的執行優化</h2>
+
+<p><strong>第一個重要的變更：重建索引的並行化處理。</strong></p>
+
+<p>比如在遇到<strong>索引數據損壞、索引膨脹、索引的創建選項變更、無效索引重建</strong>等情況，在之前版本中，重建索引需要在表上加全局只讀鎖，阻止其他會話的寫入。而在現在，則通過一個細分的多步事務操作，避免了這個問題，具體如下：</p>
+<p><strong>1. 首先，是開啟事務，創建臨時索引。</strong></p>
+<p><strong>2. 在臨時索引上開始插入數據，這裡需要注意的是，如果是重建表上的所有索引，那麼這裡也會同時創建對應數量的臨時索引。</strong></p>
+<p><strong>3. 當前一步插入數據完成，再插入創建索引期間產生的新的數據。</strong></p>
+<p><strong>4. 所有數據都插入完畢後，使用臨時縮影替換掉原先的索引。</strong></p>
+<p><strong>5. 最後刪除老索引完成整體操作。</strong></p>
+
+<p><strong>第二個重要的變更：生成列功能的加入。</strong></p>
+
+<p>在資料庫的使用中，難免會遇到需要的資料庫表的某一列或者某幾列使用函數生成的數據。這種時候，如果每次都是實時地進行運算，那麼這個計算代價比較大，尤其是表非常大的時候。</p>
+
+<p>生成列的出現就是為了解決這個問題。每當數據插入資料庫表的時候，對於生成列來說，就會生成其對應的數據，而不需要用戶的明確輸入，當然實際上用戶也無法輸入。</p>
+
+<p>在PG的實現裡面，包含了對生成列的索引的處理。</p>
+
+<p>但是目前這個功能的實現也不是萬能的，它存在很多的限制。下面我列出其中一些：</p>
+
+<p><strong>1. 目前只能實現某一行的計算。</strong></p>
+<p><strong>2. 不支持子查詢。</strong></p>
+<p><strong>3. 不能使用別的生成列。</strong></p>
+<p><strong>4. 能用作分區鍵。</strong></p>
+
+<p><strong>第三個重要的變更：優化器層面的處理，即CTE的inline優化。</strong></p>
+
+<p><strong>CTE</strong>，實際上指的就是with語法指定的在主SQL語句前面的查詢，通常會作為臨時表提供給主查詢結構使用。</p>
+
+<p>在之前的實現形態中，執行時候會首先查詢出來CTE內的數據作為臨時表，然後去對執行主查詢對應的操作，而在PostgreSQL 12中，這裡進行了名為<strong>inline</strong>的優化：</p>
+<p>如果ctw表達式指定的表，在主查詢中製備使用了一次，那麼，資料庫會直接使用子查詢，而非預先查詢的方式來執行之後的查詢與處理，這裡與c等編程語言的inline意味類似。</p>
+
+<p>通過子查詢進行進一步的優化，可以很大程度地提升性能。</p>
+
+<p>這個特性也可以人工控制，對於一些不滿足條件的CTE也進行inline處理（MATERIALIZED），或者對滿足條件的情況下，依然不使用inline方式處理（NOT MATERIALIZED）。</p>
+
+<p><strong>第四個重要的變更：緩存執行計劃，目前雖然未見得有多麼重要，但在未來，可能會有很大作用的一個功能。</strong></p>
+
+<p>眾所周知，Oracle是緩存執行計劃的，而類似MySQL，PostgreSQL這些開源資料庫，都是SQL語句每次現場解析來處理的。而現在，PostgreSQL 12中，首先做到了執行計劃的緩存———雖然這個功能影響範圍目前十分有限：</p>
+<p>目前只有明確使用了prepare語句，創建了臨時過程，或者乾脆就是存儲過程PL/pgSQL，否則無法使用到緩存的執行計劃，遠遠達不到像Oracle那樣，普通SQL語句都可以緩存執行計劃。</p>
+
+<p>但是，可以展望的未來，就勢必會有這麼一個優化。而這，也將是後續PG的迭代版本需要去做到的事情。</p>
+
+<p><strong>第五個重要的變更：實際上是配置的變更，但其主題影響的是SQL執行，因此在這裡簡單說一下，就是JIT在PostgreSQL 12中，默認是打開的狀態。</strong></p>
+
+<p>關於<strong>JIT</strong>，在這裡簡單描述一下：把SQL語句中的簡單計算，直接編譯為機器彙編碼執行，效率遠高於需要從SQL轉C調用的普通SQL執行效率，除了需要在SQL解析階段稍微多一點CPU之外，沒有其他壞處，而打開這個特性，獲得的好處是巨大的，參考圖來自德哥的博客：</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/ece5edfcca0a4647b38f7b509131e7fb" alt="《不用找了，PostgreSQL 12 GA的新特性都在這裡》" width="640" height="482" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/ece5edfcca0a4647b38f7b509131e7fb" alt="《不用找了，PostgreSQL 12 GA的新特性都在這裡》" width="640" height="482" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2>配置的優化</h2>
+
+<p>除了SQL優化這個開發人員最關心的話題之外，對於運維來說，PG 12這個版本也做到很多的變化。</p>
+
+<p><strong>第一個，是新增了兩個管理用的視圖，以及一個新的函數：</strong></p>
+
+<p><strong>– pg_stat_progress_create_index 查看當前正在創建的索引進度</strong></p>
+<ul class="list-paddingleft-2">
+<li>已經執行的數據塊數量</li>
+<li>已經執行的行數量</li>
+<li>使用/等待鎖的情況</li>
+</ul>
+<p><strong>– pg_stat_progress_cluster 查看當前vacuum full/cluster進度</strong></p>
+<ul class="list-paddingleft-2">
+<li>數據塊讀寫數量</li>
+</ul>
+<ul class="list-paddingleft-2">
+<li>數據條目讀寫數量</li>
+</ul>
+<p><strong>– pg_ls_archive_statusdir() 列出歸檔狀態文件夾內容</strong></p>
+
+<p>這個變化讓DBA可以對資料庫中發生的重度行為有更詳細的了解，以下定更好的決策。</p>
+
+<p><strong>第二個，是我認為絕對值得大書一筆，在PG歷史上留下精彩篇章的變更：「幹掉」recovery.conf文件，配置項目合併入postgresql.conf配置文件。</strong></p>
+
+<p>這個文件幾乎伴隨著PG的出現就已經存在了，在PG 9.0版本之前漫長的年代，這個文件負責了redo（WAL/XLOG）的回放配置，因此叫做<strong>recovery.conf</strong>。在9.0之後，流複製出現，於是理所當然地，流複製的配置，也被放到這個文件裡面了。而後，實際上這個文件更多地扮演者流複製配置而非數據恢復的角色。但是，與數據恢復僅僅需要離線操作不同，流複製在很多時候，是需要有在線變更手段的，而recovery.conf不支持reload，就成了一個需要解決的麻煩事了。</p>
+
+<p>在PostgreSQL開始，這個文件原先的項目合併到postgresql.conf之後，為了避免配置衝突，PG自己新增了一個強行的限制：如果檢查到數據目錄有recovery.conf這個文件，則不允許資料庫啟動。</p>
+
+<p>這個合併，不僅僅是個單純的合併，也牽扯到很多相關參數的改名以及默認值變更：</p>
+<p><strong>– 以下參數允許reload</strong></p>
+<ul class="list-paddingleft-2">
+<li>archive_cleanup_command</li>
+<li>promote_trigger_file</li>
+<li>recovery_end_command</li>
+<li>recovery_min_apply_delay</li>
+</ul>
+<p><strong>– 名稱與默認值變更</strong></p>
+<ul class="list-paddingleft-2">
+<li>trigger_file 名稱變更為promote_trigger_file</li>
+<li>取消standby_mode 配置選項</li>
+<li>不允許指定多個recovery target</li>
+<li>默認恢復到last時間線（之前是current）</li>
+<li>使用cluster name作為默認的wal receiver的application name</li>
+</ul>
+<p>相信未來的後續版本，PG主從切換之後，standby不需要重啟就可以變更主庫，也不是一件不可能的事情了。</p>
+
+<p><strong>第三個，是PG的日常問題，vacuum的優化：</strong></p>
+<ul class="list-paddingleft-2">
+<li>設置VACUUM不回收尾部空白頁</li>
+</ul>
+<ul class="list-paddingleft-2">
+<li>設置VACUUM跳過對索引的掃描</li>
+</ul>
+<ul class="list-paddingleft-2">
+<li>設置VACUUM遇到無法立即獲取的鎖則跳過</li>
+</ul>
+<p>這些設置當然可以極大程度地減小vacuum對資料庫的影響，但對PG的未來來說，更好地解決這個問題的方式，當然是新的存儲引擎。</p>
+
+<h2>獨立存儲引擎</h2>
+
+<p>就實際來說，MySQL早些年的MyISAM，實現質量並不好，不支持事務，表級別的讀寫鎖。但因為存儲引擎獨立介面，MySQL等到了InnoDB，InnoDB實現了全套事務存儲引擎，且現在已完全取代了MyISAM的地位。</p>
+
+<p>而PG本身就實現了事務存儲引擎，這個獨立存儲引擎的需求雖然很多年前早已規劃，但實際上拆分出來正經去做，才是這個迭代的事情。</p>
+
+<p>目前，PG單獨處理了數據存儲，索引存儲的介面，第三方可以直接實現對應的介面和數據結構，就可以讓PG利用到新增的存儲引擎。</p>
+
+<p>在社區里，已經有兩個非常重要的存儲引擎產生–雖然距離生成環境尚且還有一段距離，但這兩個存儲引擎都解決了PG本身存在多年的痼疾，未來可期。</p>
+
+<p>兩個非常重要的存儲引擎，就是EDB的<strong>zheap</strong>（開發中），以及Greenplum團隊共享的<strong>zedstore</strong>（開發中）存儲引擎。</p>
+
+<p><strong>首先，說一說zheap。</strong></p>
+
+<p>PostgreSQL的存儲實現中，其中dirty的一部分，vacuum，在實際生產環境中，成了一個每個運維都必須面對的問題。在zheap中，通過引入undo日誌，zheap試圖同時解決vacuum問題，以及32位事務id導致的vacuum freeze（事務ID回卷）問題。</p>
+
+<p>在zheap中，並沒有對heap（後文以此代稱「pg」原生存儲引擎）的索引，執行計劃等進行處理，而只是單純處理了其數據存儲部分，也就是把undo從數據文件剝離出來成為undo日誌。</p>
+
+<p>目前其實現是：undo日誌一直向前寫（類似WAL日誌），單獨的purge進程從undo日誌最老的日誌開始回收，數據變更會保留在undo日誌的數據指針，方便需要查詢「老」數據的情況。這麼一來，就可以避免數據文件的膨脹，以及vacuum的全表掃描的代價了。</p>
+
+<p><strong>而zedstore則代表了不同的方向：OLAP。</strong></p>
+
+<p>greenplum所處理的，就是MPP數據倉庫，而在數據倉庫來說，通常掃描一個表特定幾列的情況，會遠多於需要同時掃所有列的情況，因此zedstore設計目的，就是一個列存資料庫。</p>
+
+<p>zedstore的實現中，每個條目，都有一個名為tid的虛擬主鍵，表的某一列或者某幾列，就保存在使用tid作為主鍵的B樹索引中。通過支持tid到多列的索引，也相當於實現了「行列混合存儲」。</p>
+
+<p>zedstore另外一個重要的實現，就是壓縮。zedstore數據存儲的時候，是只壓縮數據，不壓縮數據塊元數據的，這麼搞雖然犧牲了一定比例的壓縮比（考慮到數據塊頭的大小，未必有多大代價）。但得到的好處就是顯而易見了：數據塊以壓縮的形態存儲在共享池中，由用戶會話解壓縮各自所需的數據–作為對比的MySQL InnoDB壓縮，就是整個數據塊級別的壓縮，於是共享池裡面，就得同時保存數據塊的壓縮與未壓縮版本，平白消耗了寶貴的內存。</p>
+
+<p>這就是我今天與大家分享的全部內容，謝謝！</p>
+
+<p>註：PPT下載鏈接：https://www.modb.pro/doc/1314</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/10186#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.274 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:36:34 -->
+
+<!-- super cache -->

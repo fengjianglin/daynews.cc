@@ -1,0 +1,643 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/10083#primaryimage","url":"http://p9.pstatp.com/large/pgc-image/bbbf6d123a7242fa8d40cc9640d8f49c"},{"@type":"WebPage","@id":"https://daynews.cc/technology/10083#webpage","url":"https://daynews.cc/technology/10083","inLanguage":"zh-TW","name":"\u641e\u4e86\u500b\u6a5f\u5668\u5b78\u7fd2\u4ea4\u6613\u7cfb\u7d71\uff0c5000 \u7f8e\u5143\u6295\u8cc7\u8b8a\u6210\u4e86 20 \u842c - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/10083#primaryimage"},"datePublished":"2019-12-07T05:05:11+00:00","dateModified":"2019-12-07T05:05:11+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="最近，我開發了一個加密貨幣自動交易系統。因為有科研和軟體工程方面的背景，我忽略了那些不是很科學的東西，比如市場營銷。經過多次迭代，我開發的 ML 交易系統，在 12 個月內把 5 千美元的投資變成了 20 萬，最好的戰績是連續 4 個月不虧損。雖然在一天的某個時段虧損，但整體交易日幾乎都是盈利的。本文，我將分享在開發該交易系統時遇到的問題……" />
+<meta name="twitter:title" content="搞了個機器學習交易系統，5000 美元投資變成了 20 萬 - 天天要聞" />
+<meta name="twitter:image" content="http://p9.pstatp.com/large/pgc-image/bbbf6d123a7242fa8d40cc9640d8f49c" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="搞了個機器學習交易系統，5000 美元投資變成了 20 萬 - 天天要聞" />
+<meta property="og:description" content="最近，我開發了一個加密貨幣自動交易系統。因為有科研和軟體工程方面的背景，我忽略了那些不是很科學的東西，比如市場營銷。經過多次迭代，我開發的 ML 交易系統，在 12 個月內把 5 千美元的投資變成了 20 萬，最好的戰績是連續 4 個月不虧損。雖然在一天的某個時段虧損，但整體交易日幾乎都是盈利的。本文，我將分享在開發該交易系統時遇到的問題……" />
+<meta property="og:url" content="https://daynews.cc/technology/10083" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-07T05:05:11+00:00" />
+	<title>搞了個機器學習交易系統，5000 美元投資變成了 20 萬 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/10083" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">搞了個機器學習交易系統，5000 美元投資變成了 20 萬</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-07T13:05:11+00:00">
+		2 週 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<blockquote>
+<p>最近，我開發了一個加密貨幣自動交易系統。因為有科研和軟體工程方面的背景，我忽略了那些不是很科學的東西，比如市場營銷。經過多次迭代，我開發的 ML 交易系統，在 12 個月內把 5 千美元的投資變成了 20 萬，最好的戰績是連續 4 個月不虧損。雖然在一天的某個時段虧損，但整體交易日幾乎都是盈利的。本文，我將分享在開發該交易系統時遇到的問題以及從中總結的經驗。</p>
+</blockquote>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/bbbf6d123a7242fa8d40cc9640d8f49c" alt="《搞了個機器學習交易系統，5000 美元投資變成了 20 萬》" width="640" height="427" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/bbbf6d123a7242fa8d40cc9640d8f49c" alt="《搞了個機器學習交易系統，5000 美元投資變成了 20 萬》" width="640" height="427" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2>這種交易可以用演算法來描述嗎？</h2>
+<p>開篇之前還是要提醒廣大開發人員：投資有風險，交易需謹慎。通常，大部分人認為市場是無法預測的，也有很多學術研究為此提供了數據支撐，但這種觀點太武斷了，畢竟還有很多專業交易員可以根據自己的一套規則給投資人一些專業意見。</p>
+<p>在建立演算法之前，我們需要先知道市場交易的參與者：</p>
+<ul class="">
+<li>散戶投資者：可能在朋友的推薦下購買比特幣，或者把挖到的比特幣賣掉變現。</li>
+<li>機構投資者：具有大額交易能力的機構或個體，對市場的走勢影響很大。</li>
+<li>專業交易員：試圖跑贏市場，根據消息、技術分析指標或者直覺進行交易。</li>
+<li>演算法：基於市場數據做出決策，自動執行交易。</li>
+</ul>
+<p>在依賴數據分析的人看來，散戶和機構投資者的行為隨機性比較強，這類市場活動是不可預測的，這類隨機活動會把市場價格推高，要是足夠幸運的話，可以跟著分一杯羹。但有時候也會站錯隊。所以，長期來看，最後的盈利可能為零。</p>
+<p>我們更感興趣的應該是專業交易員和演算法。這兩者本質上一樣，都基於一系列規則做出決策。如果能夠知道具體規則，就可以設計一個系統自動執行。例如，如果某個演算法可以算出在市場出現 MACD（一種被廣泛使用的技術分析指標）信號時買入，就可以稍微修改一下參數，搶在該指標出現之前買入，並在將價格推高之後賣掉。當然，這只是一個非常簡單的例子。大部分演算法都很複雜，比如基於機器學習的模型，況且還忽略了市場流通性、交易延遲和交易手續費等問題。關鍵在於，我們必須知道規則和演算法，才可以設計系統。</p>
+<p>時間尺度是一個很重要的因素。相比實時（秒級別）數據，日交易數據更隨機一些。因為時間尺度越大，市場活動受政治新聞、法律裁決、公眾情緒、社會炒作、商業決策等因素的影響就越大。交易機構的大筆交易也會帶來重大影響，但這種情況不會經常發生。這些都不是可被演算法利用的，我們也無法對此進行建模。如果把市場活動定位到分鐘或者秒級別，就可以找到一些模式。這些模式可以被演算法利用，我們的目標就是利用這些模式來盈利。</p>
+<h2>系統關鍵特性</h2>
+<p>買賣發生在兩個或多個市場參與者之間，有人賺錢，就有人虧錢。大家都想賺錢，那麼你的技術優勢是什麼呢？在交易領域，我們把這種競爭優勢叫作 edge，可能來自這些方面：</p>
+<ul class="">
+<li>交易延遲：我們與交易平台之間的連接比別人更快。這意味著我們可以更快地獲取到市場數據，並搶在別人之前提交訂單。金融機構通常不吝花費數百萬美元來最小化與交易平台之間的延遲。</li>
+<li>基礎設施：基礎設施具有更高容錯性和更好的性能，或者比其他競爭者能夠更好地處理邊緣情況。</li>
+<li>數據：我們可能比其他人掌握了更好的數據。這裡的「好」可以指很多方面，比如，數據是從更可靠的來源收集來的，還經過仔細的清理和預處理。</li>
+<li>模型：我們基於數據構建出更好的預測模型。我們可能使用了最新的深度學習技術，掌握了更優化的函數、更好的特徵和不一樣的訓練演算法。</li>
+<li>准入市場：我們可以進入那些不是所有人都可以進入的市場。例如，南韓的一些交易平台只有本國公民可以參與。為避免與美國國稅局發生瓜葛，很多國際交易平台不接受美國公民。</li>
+</ul>
+<p>人們常犯的一個錯誤是 <strong>重度依賴模型</strong>，因為它看起來太「性感」了。很多開發者試圖通過深度學習或增強深度學習演算法來構建交易系統，但大部分都失敗了。他們自認為他們的優勢在於模型，卻忽略了其他因素。他們沒有優化伺服器布局，使用開源軟體下單和收集數據，還使用非常容易獲取到的公開數據集來訓練模型。或許，這可以給他們帶來一點優勢，但不足以彌補在其他方面犯下的錯誤。</p>
+<p>我也使用了一些機器學習模型，但最大的優勢還是來自於花了很大成本在構建基礎設施。幾乎所有的開源交易軟體都不夠好，將它們用於學習目的或許可以，但並不適合用在現實當中。在一開始我也使用了開源組件，但經過多次迭代之後，我都是自己開發組件，包括實時數據收集、清理、回測和模擬，訂單的管理和規範化，監控以及實時交易。</p>
+<h2>選擇市場</h2>
+<p>市場就是指在某個交易平台進行交易的資產。例如，BTC/USDT 在 Binance 上交易，BTC/USD 在 Coinbase 上交易。現在有數百個不同的數字貨幣交易平台，每一個交易平台都可以交易數十種資產。我們該怎麼選擇？最理想的市場應該具有高流通性，交易手續費低，快速且安全可靠。</p>
+<p>總的來說，流通性是指在不顯著影響市場價格的情況下能夠交易的數量。流通性好的市場價差低，滑點小，交易成本低，可以進行大額交易。交易量是衡量流通性的一個指標。具有高交易量的市場通常（但不一定）具有高流通性。可惜的是，現在還沒有公開評價體系可以告訴我們哪個交易平台是可靠的，即使 cer.live 有在嘗試。搜索網站沒什麼用，因為交易平台會向網站支付費用，讓自己的排名更靠前。</p>
+<p>評估市場唯一可靠的方式是自己收集和分析數據。交易是真是假？價差和滑點的分布是怎樣的？一些交易平台通過演算法明目張胆地造假交易數據，還有一些使用更複雜的技術讓自己的數據看起來更真實。</p>
+<h2>具體實現</h2>
+<p>交易成本演算法實現為了能夠盈利，我們的交易獲利必須高過所有交易成本的總和。對於大多數人來說，交易手續費佔了大頭，滑點通常會被忽略，但實際上它也很重要。假設我們買入 qty 個 BTC，並在稍後某個時間點賣出，那麼凈交易成本就是：</p>
+<p>trade_cost(qty) = (2 * qty * exchange_fee) + (qty * spread) + slippage_buy(qty) + slippage_sell(qty)&lt;br&gt;&lt;/br&gt;(2 * qty * exchange_fee) 是交易手續費。假設收費費是 0.01%，那麼一次買入和一次賣出就需要支付兩次費用。</p>
+<p>(qty * spread) 是買賣價差，我們在買入價買入，在賣出價賣出。即使市場完全不發生變動，我們仍然會在略高於賣出價的價格買入。價差會隨時間發生變化，所以需要把它納入到交易決策中。如果我們在 Binace 上交易 BTC/USDT，單日的價差分布可能像下面這樣。大多數時候不到 1 美元，非流通時間可以達到 5 美元以上。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/96ae2c7b84f547629e8ba665c7743288" alt="《搞了個機器學習交易系統，5000 美元投資變成了 20 萬》" width="1080" height="324" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/96ae2c7b84f547629e8ba665c7743288" alt="《搞了個機器學習交易系統，5000 美元投資變成了 20 萬》" width="1080" height="324" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>slippage_buy(qty) 和 slippage_sell(qty) 是因市場流通性不足而導致的價格滑點。交易量越大，我們要付出的滑點成本就越高。Binance 上的 BTC/USDT 滑點分布情況如下所示。每一行對應一個特定的交易規模，範圍從 0.1 到 2.0 BTC，X 軸表示成本占支付價格的百分比。在流通性較低時進行交易意味著滑點成本很容易超過交易費用和價差，就像我們從圖中看到的那樣。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/4e23f34430c1447a897918025d6fbeeb" alt="《搞了個機器學習交易系統，5000 美元投資變成了 20 萬》" width="640" height="971" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/4e23f34430c1447a897918025d6fbeeb" alt="《搞了個機器學習交易系統，5000 美元投資變成了 20 萬》" width="640" height="971" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>這些成本有多重要？這要視具體情況而定。如果我們每天只交易一次，更關注市場大幅度波動，那麼就可以忽略大部分的成本。如果價格浮動可以達到 10%，那麼 0.5% 的交易手續費根本不算什麼。交易頻次越高，這些成本就越重要。市場在短時間內一般不會出現太大波動，所以交易成本就變得尤為重要。</p>
+<p>另一個重要因素是交易量。交易量越大意味著越高的利潤，但交易費用也更高。交易費用和價差與交易量成線性關係，但滑點不是。使用平倉限價訂單而不是市場訂單是保護自己不受大幅滑點成本影響的一種方法，但需要額外的基礎設施來管理部分訂單。同樣，交易頻次越高，我們在不被交易成本抵消的情況下獲利的交易量就越少。</p>
+<h2>時間維度問題</h2>
+<p>我們該怎麼知道是應該進行高頻交易還是每天只交易一次？為了做出權衡，我們先來看看這兩種極端的情況。</p>
+<p>時間越短，市場越是不會發生大幅度波動。每次交易只會獲得非常少的利潤，但我們可以提高交易頻次。但正如之前討論的那樣，高交易成本會把這些利潤都吃掉。即使我們能夠完美地預測毫秒級的市場波動，這個模型也不會太管用。向交易平台發送一個 HTTP 請求並等待交易平台的匹配引擎處理，這通常需要幾十到幾百毫秒，等到訂單處理完畢，市場又發生了變化，之前的預測就失效了。</p>
+<p>另一個極端情況是基於某些東西進行交易，或者進行每日交易。隔天交易讓我們完全可以忽略交易成本，延遲也變得不那麼重要了。但是，較長時間的市場波動會受到現實世界因素的影響，比如社會新聞、事件或其他隨機事件（比如機構投資活動）。如果我們只是依賴模式匹配（機器學習），就別指望能做好預測。我們能夠掌握的這類數據很少，根本不足以用來訓練模型。我們也無法可靠地測試和評估我們的演算法。數據少，噪音多，基於這點數據所做的測試無異於猴子扔飛鏢。</p>
+<p>所以，我們需要在覆蓋交易成本、掌握足夠的數據集和從數據中識別模式這些因素之間做出權衡。時間尺度越小，模式和樣本就會越多，但也要注意交易成本和延遲，它們都受市場流通性和交易 API 的影響。</p>
+<p>除了使用自然時鐘間隔（比如秒），我們還可以使用基於其他度量指標的間隔，例如交易量。例如，我們可以把間隔定義為 1.0 BTC，而不是 1 秒，這種交易可以一秒或者一分鐘發生一次，具體取決於市場的繁忙情況。這是因為我們希望在市場活動劇烈的時候更頻繁地交易，而在不那麼劇烈的時候少交易一些。基於交易量的聚合數據包含了更為規範化的特徵分布和標籤，對於機器學習演算法的訓練更為有利。不過這種交易方式也有一些缺點。例如，基於交易量進行交易有可能會太晚，因為在交易高峰之後，市場又往前移動了。理想情況下，我們要先於其他市場參與者下單，也就是搶在交易量上升之前。</p>
+<p>總的來說，時間尺度和如何定義時間間隔是需要加以優化的超參數。流通性高、交易費用低、API 延遲低，這樣的市場可以讓我們在更頻繁的交易中獲得更多利潤。</p>
+<h2>優化函數</h2>
+<p>我們需要選擇最優的指標數據來訓練機器模型，而基於原始價格數據訓練回歸模型是一個顯而易見的選擇。但價格數據並不是固定的，而大多數現代機器學習技術需要或者使用固定數據才會獲得更好的效果。所以，在金融領域，我們通常對收益而不是價格進行建模。時間 t 的收益 r(t) 表示如下：</p>
+<p>r(t) = (p(t) / p(t-1)) – 1&lt;br&gt;&lt;/br&gt;收益比零大說明價格上漲，小於零說明價格下跌。時間 t 可以用上一小節討論的那些方式來定義。你可以計算每分鐘的收益，一天的收益，或者基於交易量的收益。</p>
+<p>另一個是對數收益，它衡量的是同樣的指標，但更接近正太分布，而且為訓練機器學習演算法提供了更為便利的統計屬性：</p>
+<p>logr(t) = log(p(t)) – log(p(t-1))&lt;br&gt;&lt;/br&gt;我們可以考慮基於固定時間尺度的對數收益數據訓練回歸模型，這幾乎成了一個標準。不過，我們還有其他選擇。例如，在《金融機器學習進展》這本書中，作者討論了如何選擇合理的閾值，並將數據轉換為分類問題。</p>
+<p>在實際當中，我們有很多種方式來定義 p(t)。對於 BTC，它通常是指中間價。不過，我們不能基於中間價進行交易。在買入時，價格高於中間價，在賣出時，價格低於中間價。之前已經說過，我們還需要付出滑點成本，它是交易量的函數。所以，價格實際上是時間、交易（買入還是賣出）和交易量的函數，即 p(t,s,q)。上面的公式應該是這樣的：</p>
+<p>logr(t, quantity) = log(p(t, BUY, quantity)) – log(p(t-1, SELL, quantity))&lt;br&gt;&lt;/br&gt;我們還有其他類型的價格可以使用，比如微價格（microprice）。選擇合適的價格類型究竟有多重要？這取決於時間尺度和市場流通性。在流通性好、低滑點成本的市場里，基於中間價的收益模型更為有效，但在流通性差的市場中則完全無用。</p>
+<p>訓練、回測和實時交易一般的交易演算法訓練流程是這樣的：</p>
+<ul class="">
+<li>數據收集</li>
+<li>數據預處理和清理</li>
+<li>創建特徵</li>
+<li>訓練模型</li>
+<li>回測</li>
+<li>實時交易</li>
+</ul>
+<p>我們在模型訓練期間所做的優化，比如對數收益的預測準確性，只是盈虧指標的代理指標。盈虧指標才是我們真正關心的，所以我們需要進行回測。回測是指使用訓練好的模型基於歷史數據進行全方位的模擬。商業版回測軟體可能會非常昂貴，它們可以模擬交易延遲、非標準訂單類型、交易傭金和滑點。它們還可以自動優化超參數，輸出圖表和統計數據用於評估模型。</p>
+<p>但不管回測軟體有多好，它們與真實的交易環境仍然是不一樣的。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/cbeae56db19d4bc18940d6eab18601a2" alt="《搞了個機器學習交易系統，5000 美元投資變成了 20 萬》" width="640" height="235" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/cbeae56db19d4bc18940d6eab18601a2" alt="《搞了個機器學習交易系統，5000 美元投資變成了 20 萬》" width="640" height="235" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>雖然回測軟體可以模擬延遲，但真實世界是很難預測的。真實世界中的延遲在低活動期間可能很穩定，但在高活動期間會很大。它們還具有季節性，API 也是如此。在模擬環境中，一切都很完美，但在現實世界中，API 會出問題，比如請求會被限制，在繁忙時段訂單會被隨機拒絕。在真實世界中，我們可以影響其他市場參與者，但這些行為無法模擬。回測還會受數據的限制。我們從交易 API 獲得的歷史數據通常帶有噪音，而且不完整——我們無法保證它們是否能夠真實反映當前的交易狀態。</p>
+<p>因此，回測主要作為一種過濾器，或者作為一種樂觀的估計。即使模型在回測時表現不好，在現實世界中仍然有可能表現好。模型在回測時表現很好，並不能保證在現實世界中一定會表現好。除非你非常小心，否則回測容易出現過擬合，並可能產生錯誤的結果。</p>
+<p>這也是為什麼很多有關交易系統的學術論文在實際當中不是很管用。研究的最後一步通常是基於歷史數據進行回測，如果模型運行得很好，研究人員就宣告大功告成，但他們忽略了一個事實，即他們的模型在真實的環境中可能永遠無法盈利。研究人員無法使用實時交易基礎設施來測試模型，如果他們可以做到，而且演算法在現實世界中運行良好，那他們肯定不會把論文發表出來。</p>
+<p>訓練交易機器學習演算法是很困難的。在很多其他機器學習場景中，訓練測試性能與實際性能直接相關。例如，如果我們使用恰當的訓練 / 驗證 / 測試 split 來測試推薦系統，並且數據分布不會隨時間發生顯著變化，那麼我們就可以非常肯定地認為，在測試數據集上表現良好的模型在生產環境中也是如此。在交易領域，我們的訓練和回測與現實環境非常不一樣，以至於我們無法做出任何保證。我們只能希望基於某種代理指標訓練出來的模型在回測時表現良好，也希望它們在現實世界中也有同樣的表現。</p>
+<p>其他問題除此之外，我們還有其他很多問題需要解決。</p>
+<ul class="">
+<li>非 IID 數據：市場數據的分布既不獨立也不固定，要訓練出準確的模型極具挑戰性。這些數據帶有噪音。或許市場活動是有模式可循的，但它們通常被一些隨機活動隱藏了起來。</li>
+<li>訂單重建：在交易和回測基礎設施里，訂單重建是一個常見的瓶頸。我們該如何有效地走好這一步？交易 API 不穩定，經常出現波動，我們該怎麼處理？</li>
+<li>最小化延遲：有哪些手段可以用來最小化端到端的延遲？</li>
+<li>構建特徵：哪些特徵對於我們的演算法來說是最有用的？我們該如何實時地構建這些特徵？</li>
+<li>訂單管理：因為交易 API 不太穩定，我們需要自己管理訂單。一個典型的訂單管理系統應該是怎樣的？</li>
+</ul>
+<p>容錯：如果發生故障該怎麼辦？我們該怎麼恢復？</p>
+<h2>相關資源</h2>
+<p>交易行業是我參與過的最為神秘的一個行業。你在網上找到的相關資料摻雜著各種劣質內容，有很多只是想藉機賣東西給你。我接觸過的大多數成功的交易員都曾在專業的交易公司工作過，他們在那裡學會了訣竅，但不會在網上分享任何東西。在金融領域，分享知識並沒有形成一種文化。所以，對於剛進入這個領域的新手來說，這個領域看起來相當複雜，以至於讓他們不知所措。實踐可能成了最好的學習方式。在金融市場，交易基礎設施和高頻交易數據價值連城，但加密貨幣市場的數據對所有人開放，可以作為學習之用。不管怎樣，我還是總結了一些有用的資源。</p>
+<ul class="">
+<li>《金融機器學習進展》——一本嚴肅的書，介紹了機器學習技術在金融市場的應用。它更多的關注學術方面，有些不是很實用。雖然我並不完全同意這本書所講的內容，但它仍然很好地介紹了在構建交易系統時遇到的各種挑戰和陷阱。</li>
+<li>《高頻金融交易入門》——涵蓋了自動化交易中使用的常見術語和方法，偏學術，有些東西很難消化，但值得一讀。</li>
+<li>《被隨機愚弄：隱藏在生活和金融市場中的機會》——不是一本關於交易技術的書，作者是期權交易員，教你如何思考金融市場和生活中隨機出現的機會。</li>
+<li>arXiv q-fin——閱讀近期發表的研究論文是提出新想法或學習如何思考問題的一種好方法。它們有趣且有教育意義，但請不要太在意結果。正如前面提到的，學者們幾乎不會公開發表真正有效的東西。</li>
+</ul>
+<h2>總結</h2>
+<p>我希望本文提出的一些想法能夠為想要構建自動化交易系統的讀者提供一些見解。複雜的問題通常沒有通用的解決方案，重要的是要充分理解問題的各個方面，然後根據具體情況做出合理的決策。</p>
+<p>原文鏈接：</p>
+<p>https://www.tradientblog.com/2019/11/lessons-learned-building-an-ml-trading-system-that-turned-5k-into-200k/</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/10083#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.257 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:28:39 -->
+
+<!-- super cache -->

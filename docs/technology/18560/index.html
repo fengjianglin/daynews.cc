@@ -1,0 +1,780 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>Electron7+VueCli4開發跨平台桌面應用 - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="Electron是一個基於Chromium和 Node.js，可以使用 HTML、CSS和JavaScript構建跨平台應用的技術框架，兼容 Mac、Windows 和 Linux。雖然B/S是目前開發的主流，但是C/S仍然有很大的市場需求。受限於瀏覽器的沙盒限制，網頁應用無法滿足某些場景下的使用需求，而桌面應用可以讀寫本地文件、調用更多……" />
+		<meta name="keywords" content="Electron7+VueCli4開發跨平台桌面應用 - 天天要聞,科技," />
+		<meta itemprop="image" content="http://p1.pstatp.com/large/pgc-image/38615920eea447bda8d409266e6fe541"/>
+		<meta name="description" itemprop="description" content="Electron是一個基於Chromium和 Node.js，可以使用 HTML、CSS和JavaScript構建跨平台應用的技術框架，兼容 Mac、Windows 和 Linux。雖然B/S是目前開發的主流，但是C/S仍然有很大的市場需求。受限於瀏覽器的沙盒限制，網頁應用無法滿足某些場景下的使用需求，而桌面應用可以讀寫本地文件、調用更多……" />
+		
+<!-- This site is optimized with the SEO -->
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="https://daynews.cc/technology/18560" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Electron7+VueCli4開發跨平台桌面應用 - 天天要聞" />
+<meta property="og:description" content="Electron是一個基於Chromium和 Node.js，可以使用 HTML、CSS和JavaScript構建跨平台應用的技術框架，兼容 Mac、Windows 和 Linux。雖然B/S是目前開發的主流，但是C/S仍然有很大的市場需求。受限於瀏覽器的沙盒限制，網頁應用無法滿足某些場景下的使用需求，而桌面應用可以讀寫本地文件、調用更多……" />
+<meta property="og:url" content="https://daynews.cc/technology/18560" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-17T21:00:12+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="Electron是一個基於Chromium和 Node.js，可以使用 HTML、CSS和JavaScript構建跨平台應用的技術框架，兼容 Mac、Windows 和 Linux。雖然B/S是目前開發的主流，但是C/S仍然有很大的市場需求。受限於瀏覽器的沙盒限制，網頁應用無法滿足某些場景下的使用需求，而桌面應用可以讀寫本地文件、調用更多……" />
+<meta name="twitter:title" content="Electron7+VueCli4開發跨平台桌面應用 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/38615920eea447bda8d409266e6fe541" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/18560#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/38615920eea447bda8d409266e6fe541"},{"@type":"WebPage","@id":"https://daynews.cc/technology/18560#webpage","url":"https://daynews.cc/technology/18560","inLanguage":"zh-TW","name":"Electron7+VueCli4\u958b\u767c\u8de8\u5e73\u53f0\u684c\u9762\u61c9\u7528 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/18560#primaryimage"},"datePublished":"2019-12-17T21:00:12+00:00","dateModified":"2019-12-17T21:00:12+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<!-- / SEO. -->
+
+<link rel='stylesheet' id='animate-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/animate.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/bootstrap.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/superfish.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/layer.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='https://daynews.cc/wp-content/themes/Kratos/style.css' type='text/css' media='all' />
+<link rel="amphtml" href="https://daynews.cc/technology/18560/amp">		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.min.js'></script>
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154709495-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-154709495-1');
+		</script>
+		<!-- Google Adsense -->
+		<script data-ad-client="ca-pub-8261739837930821" async 
+			src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="https://daynews.cc"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="/">首頁</a></li>
+<li><a href="/entertainment">娛樂</a></li>
+<li><a href="/emotion">情感</a></li>
+<li><a href="https://daynews.cc/international">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="https://daynews.cc/technology">科技</a></li>
+<li><a href="/sports">體育</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/nba">NBA</a></li>
+	<li><a href="/premier">英超</a></li>
+</ul>
+</li>
+<li><a href="/history">歷史</a></li>
+<li><a href="/game">遊戲</a></li>
+<li><a href="https://daynews.cc/health">養生</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/lose">減肥</a></li>
+</ul>
+</li>
+<li><a href="https://daynews.cc/constellation">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">Electron7+VueCli4開發跨平台桌面應用</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-18				                <i class="fa fa-commenting-o"></i> 406條評論
+				                <i class="fa fa-eye"></i> 1,464次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 402人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/38615920eea447bda8d409266e6fe541" src="http://p1.pstatp.com/large/pgc-image/38615920eea447bda8d409266e6fe541" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/74103f7aec594f5bb12ed9ffdfb9d5ce" src="http://p1.pstatp.com/large/pgc-image/74103f7aec594f5bb12ed9ffdfb9d5ce" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>Electron是一個基於Chromium和 Node.js，可以使用 HTML、CSS和JavaScript構建跨平台應用的技術框架，兼容 Mac、Windows 和 Linux。雖然B/S是目前開發的主流，但是C/S仍然有很大的市場需求。受限於瀏覽器的沙盒限制，網頁應用無法滿足某些場景下的使用需求，而桌面應用可以讀寫本地文件、調用更多系統資源，再加上Web開發的低成本、高效率的優勢，這種方式越來越受到開發者的喜愛。</p>
+<p>本文一步一步教你如何使用Electron7和vue-cli4，在完全保留vue開發web應用的習慣下，搭建桌面應用。</p>
+<p>本文不涉及Electron和vue的開發教程，僅以實現兩者結合為目的，如深入學習Electron和vue，請訪問各自官方。</p>
+<h2 class="pgc-h-arrow-right">1 創建項目</h2>
+<p><strong>1.1 加速npm下載</strong></p>
+<p>將npm倉庫鏡像改為淘寶鏡像</p>
+<pre>npm config set registry http://registry.npm.taobao.org/</pre>
+<p>也可以使用cnpm加速安裝，需要先安裝cnpm：</p>
+<pre>npm install -g cnpm --registry=https://registry.npm.taobao.org</pre>
+<p><strong>1.2 為什麼不使用SimulatedGREG/electron-vue</strong></p>
+<p>SimulatedGREG/electron-vue已經很久沒有更新了，而且其生成的工程結構並不是vue-cli3。所以放棄使用。</p>
+<p><strong>1.3 安裝/升級vue-cli4</strong></p>
+<p>先執行以下命令，確認下本地安裝的vue-cli版本：</p>
+<pre>vue -V</pre>
+<p>在寫本文時，我使用的是4.1.1版本。</p>
+<p>如果不是最新版，可以執行以下命令安裝/升級：</p>
+<pre>npm install @vue/cli -g</pre>
+<p><strong>1.4 創建vue項目</strong></p>
+<p>找個喜歡的目錄，執行以下命令，創建vue項目：</p>
+<p>（這裡把項目名稱定為electron7-vue-demo）</p>
+<pre>vue create electron7-vue-demo</pre>
+<p>會出現以下選項（如果熟悉此步驟可跳過本節內容）：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/dc073887d2ae4dfbbe3a20028949f0be" src="http://p1.pstatp.com/large/pgc-image/dc073887d2ae4dfbbe3a20028949f0be" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>選擇「Manually select features」 (自定義安裝)。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/cbe3c95f97d54ca88c6cbe3b49cd5e64" src="http://p1.pstatp.com/large/pgc-image/cbe3c95f97d54ca88c6cbe3b49cd5e64" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>這裡選擇了常用的模塊，請根據實際需求進行選擇。</p>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/06ccb0f4cef549bb91258675b900b1ef" src="http://p9.pstatp.com/large/pgc-image/06ccb0f4cef549bb91258675b900b1ef" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>如果選擇了router，這裡會詢問是否使用history模式。</p>
+<p>vue-router 默認使用hash模式（即通過url#hash來跳轉頁面），使用URL的hash來模擬一個完整的 URL，當URL改變時，頁面不會重新載入。</p>
+<p>如果使用history，URL的子路徑就會使用斜杠，例如 yoursite.com/user/id ，比較好看。但是需要伺服器進行配置來支持。</p>
+<p>這裡我們選擇「n」。</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/dd367ae89c5048b9ba1ad4f4e420d604" src="http://p3.pstatp.com/large/pgc-image/dd367ae89c5048b9ba1ad4f4e420d604" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>選擇CSS預處理模塊，我習慣使用Stylus，這裡選了「Stylus」。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/0e31e5c5db704039bdf600cdcb1bf2eb" src="http://p1.pstatp.com/large/pgc-image/0e31e5c5db704039bdf600cdcb1bf2eb" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>選擇ESLint代碼格式檢查工具的配置，選擇「ESLint + Standard config」，標準配置。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/c8ce87165ebe4653898693f8e933261a" src="http://p1.pstatp.com/large/pgc-image/c8ce87165ebe4653898693f8e933261a" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>Line on save表示在保存代碼的時候，進行格式檢查。</p>
+<p>Lint and fix on commit表示在git commit的時候自動糾正格式。</p>
+<p>這裡只選擇「Lint on save」。</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/8f08eed5c1e24a0a96d3f10713ad8554" src="http://p3.pstatp.com/large/pgc-image/8f08eed5c1e24a0a96d3f10713ad8554" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>這裡問把 babel, postcss, eslint 這些配置文件放哪？</p>
+<p>In dedicated config files 表示獨立文件</p>
+<p>In package.json 表示放在package.json里</p>
+<p>這裡選擇「In package.json」。</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/6849a9f0bfde4a86bb4f2ce00e64a31f" src="http://p3.pstatp.com/large/pgc-image/6849a9f0bfde4a86bb4f2ce00e64a31f" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>是否為以後的項目保留這些設置？選擇「N」。</p>
+<p>然後耐心等待項目安裝完成。</p>
+<p><strong>1.5 安裝electron</strong></p>
+<blockquote>
+<p>※註：此過程可能需要科學上網，由於直接從國外鏡像下載較慢，可能需要等待很漫長的時間。如果你對自己的網速沒有超強自信，請跳過本節，前往1.6小節手動安裝。</p>
+</blockquote>
+<p>官方指導：https://nklayman.github.io/vue-cli-plugin-electron-builder/guide/</p>
+<p>進入到項目根目錄，執行：</p>
+<pre>vue add electron-builder</pre>
+<p>在安裝過程中，很可能會卡在這一步不動了（未科學上網）：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/f2f7cfa5e4474841b5219285ffb8cfe1" src="http://p1.pstatp.com/large/pgc-image/f2f7cfa5e4474841b5219285ffb8cfe1" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>沒關係，我們先強制結束掉。再執行一次vue add electron-builder，然後就可以順利通過了。</p>
+<p>接下來出現配置選項：</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/58c819dec0664da28176bdb594e7d504" src="http://p3.pstatp.com/large/pgc-image/58c819dec0664da28176bdb594e7d504" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>沒有7.0.0？沒關係，先選擇6.0.0。</p>
+<p>然後耐心等待安裝完成。如果中間出現錯誤中斷了，請重複此步驟。</p>
+<p>安裝過程中會出現兩個warning：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/c7865bdb68a846698bcd644be40180b4" src="http://p1.pstatp.com/large/pgc-image/c7865bdb68a846698bcd644be40180b4" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>安裝完成後，會自動編譯並運行項目，但由於Vue Devtools的問題，導致運行失敗。</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/214f23abb72a4fe0b63a79959dc264ca" src="http://p3.pstatp.com/large/pgc-image/214f23abb72a4fe0b63a79959dc264ca" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>原因是installVueDevtools未被使用。</p>
+<p>結合剛才的WARNING，我們在/src/background.js發現以下注釋：</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/78b4ccbaa5ec42e9aebb7df6b85cd306" src="http://p3.pstatp.com/large/pgc-image/78b4ccbaa5ec42e9aebb7df6b85cd306" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>大致意思是：</p>
+<blockquote>
+<p>Devtools擴展工具在Electron6.0.0.以上不好使了。 詳見：https://github.com/nklayman/vue-cli-plugin-electron-builder/issues/378</p>
+<p>在Win10黑暗主題模式下，裝了Devtools後，Electron就無法啟動。 如果你沒有使用Win10黑暗主題，可以去掉下面的注釋。 另外，如果上面鏈接的問題已經關閉，你可以更新Electron並去掉下面的注釋。</p>
+</blockquote>
+<p>在寫作本文時（2019年12月17日），這個issue還是open狀態。我用的是macOS，所以我去掉了注釋。</p>
+<p>現在升級electron到7.0，修改/package.json</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/198dbbb0144947cc91d4f43dd277ca5b" src="http://p1.pstatp.com/large/pgc-image/198dbbb0144947cc91d4f43dd277ca5b" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>執行以下命令，完成升級安裝：</p>
+<pre>npm install</pre>
+<p><strong>1.6 手動安裝electron</strong></p>
+<blockquote>
+<p>※註：如果已經通過1.5章節的操作，請直接跳過本小節。</p>
+</blockquote>
+<p>如果使用自動安裝，安裝完成後會自動在src目錄下生成background.js並修改package.json。但由於不能科學上網或網速很慢的話，只能手動進行配置並安裝了。這種方式簡單粗暴，一步到位（electron7.0）。</p>
+<p>修改package.json，添加以下7行：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/5ceac352b519478e970a278a768be6f8" src="http://p1.pstatp.com/large/pgc-image/5ceac352b519478e970a278a768be6f8" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>在src目錄下新建background.js，複製以下代碼：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/c9f5dc0fac6d4e82aab1734f1de29764" src="http://p1.pstatp.com/large/pgc-image/c9f5dc0fac6d4e82aab1734f1de29764" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>以上代碼是1.5小節使用自動化方式安裝後生成的。為什麼要注釋掉installVueDevtools（Chrome Vue DevTools插件），請回顧1.5小節最後的說明。</p>
+<p>執行以下命令，完成升級安裝：</p>
+<pre>npm install</pre>
+<p>如果未科學上網，可能會卡在這一步：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/e5e7238de5c94aeaace5f12c06aa4f58" src="http://p1.pstatp.com/large/pgc-image/e5e7238de5c94aeaace5f12c06aa4f58" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>這時候就需要終止，並刪除node_modules/electron目錄。</p>
+<p>然後使用cnpm進行安裝：</p>
+<pre>cnpm install</pre>
+<p><strong>1.7 編譯並啟動APP</strong></p>
+<p>執行以下命令，開始編譯APP，並啟動開發環境APP：</p>
+<pre>npm run electron:serve</pre>
+<p>首次啟動可能會等待很久，出現以下信息：</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/e65dcc5fd2ce4c0d9d1aaa2b53bd505a" src="http://p3.pstatp.com/large/pgc-image/e65dcc5fd2ce4c0d9d1aaa2b53bd505a" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>這是因為在請求安裝vuejs devtools插件。需要科學上網才能安裝成功。如果不能科學上網也沒關係，耐心等待5次請求失敗後會自動跳過。</p>
+<p>編譯成功後，就會出現開發環境的APP了。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/6b54a0f23fa741ac8f0a5a4474b12c62" src="http://p1.pstatp.com/large/pgc-image/6b54a0f23fa741ac8f0a5a4474b12c62" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">macOS Electron啟動界面（dark主題）</p>
+</p>
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/2539e123d06541d19399ad13a6f9e29a" src="http://p1.pstatp.com/large/pgc-image/2539e123d06541d19399ad13a6f9e29a" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">Windows10 Electron啟動界面（dark主題）</p>
+</p>
+</div>
+<h2 class="pgc-h-arrow-right">2 項目基本設定</h2>
+<p><strong>2.1 主進程和渲染進程簡介</strong></p>
+<p>在開始下面的步驟之前，很有必要簡單了解下Electron的應用架構。</p>
+<p>【主進程】</p>
+<p>Electron 運行 package.json 的 main 腳本（background.js）的進程被稱為主進程。 在主進程中運行的腳本通過創建web頁面來展示用戶界面。 一個 Electron 應用總是有且只有一個主進程。</p>
+<p>【渲染進程】</p>
+<p>由於 Electron 使用了 Chromium 來展示 web 頁面，所以 Chromium 的多進程架構也被使用到。 每個 Electron 中的 web 頁面運行在它自己的渲染進程中。</p>
+<p>在普通的瀏覽器中，web頁面通常在一個沙盒環境中運行，不被允許去接觸原生的資源。 然而 Electron 的用戶在 Node.js 的 API 支持下可以在頁面中和操作系統進行一些底層交互。</p>
+<p>【主進程與渲染進程的關係】</p>
+<p>主進程使用 BrowserWindow 實例創建頁面。 每個 BrowserWindow 實例都在自己的渲染進程里運行頁面。 當一個 BrowserWindow 實例被銷毀後，相應的渲染進程也會被終止。</p>
+<p>主進程管理所有的web頁面和它們對應的渲染進程。 每個渲染進程都是獨立的，它只關心它所運行的 web 頁面。</p>
+<blockquote>
+<p>具體可參閱官方文檔：https://electronjs.org/docs/tutorial/application-architecture#main-and-renderer-processes</p>
+</blockquote>
+<p><strong>2.2 APP窗口大小</strong></p>
+<p>修改src/background.js：</p>
+<p><strong>2.3 取消跨域限制</strong></p>
+<p>修改src/background.js：</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/5cda5cdd0e0c4d8e904c3fe9bf4bd2d2" src="http://p3.pstatp.com/large/pgc-image/5cda5cdd0e0c4d8e904c3fe9bf4bd2d2" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p><strong>2.4 取消菜單欄</strong></p>
+<p>在我們生成的桌面APP中，我們可以看到默認的菜單欄。</p>
+<p>在windows中，菜單欄在APP窗口內的頂部；在macOS中，菜單欄位於電腦屏幕頂部。</p>
+<p>為了方便項目將來也能直接生成純web應用，盡量把APP的全部功能都做到渲染進程里，這裡我們取消菜單欄。</p>
+<p>由於macOS的特殊性，頂部菜單欄無法刪除，所以我們針對macOS特殊處理，把菜單欄只保留「關於」和「退出」。</p>
+<p>修改src/background.js：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/318009cbccae4dbc8ce9573a0b841f68" src="http://p1.pstatp.com/large/pgc-image/318009cbccae4dbc8ce9573a0b841f68" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/96015b2489a04bae941a97e60866016a" src="http://p1.pstatp.com/large/pgc-image/96015b2489a04bae941a97e60866016a" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">windows界面菜單欄已消失</p>
+</p>
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/aa04a78d3c5b4ffe82c02e7b751d4d70" src="http://p1.pstatp.com/large/pgc-image/aa04a78d3c5b4ffe82c02e7b751d4d70" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">macOS界面菜單欄已簡化</p>
+</p>
+</div>
+<blockquote>
+<p>macOS菜單欄名稱label的「App Demo」會在build版本生效，dev版本會顯示「Electron」</p>
+</blockquote>
+<blockquote>
+<p>更多關於菜單欄設置，請參閱：https://electronjs.org/docs/api/menu</p>
+</blockquote>
+<p><strong>2.5 設置APP窗口圖標</strong></p>
+<p>準備windows和macOS兩版圖標。</p>
+<p>windows: app.ico 最小尺寸：256&#215;256</p>
+<p>macOS: app.png或app.icns 最小尺寸：512&#215;512 （後續3.1章節用到）</p>
+<p>把圖標文件放到public/目錄下，項目結構如下：</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/87393ea4dccb4909aa9d149f4ac80614" src="http://p3.pstatp.com/large/pgc-image/87393ea4dccb4909aa9d149f4ac80614" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>可以順便把favicon.ico也修改一下，但是在桌面版APP上是用不到的。如果以後生成純web項目才會用到。</p>
+<p>修改background.js，讓APP窗口應用圖標：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/621e1438442b44fe8da36a69b4fc4954" src="http://p1.pstatp.com/large/pgc-image/621e1438442b44fe8da36a69b4fc4954" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<blockquote>
+<p>這裡的${__static}對應的是public目錄</p>
+</blockquote>
+<p>現在，Windows系統上可以看到開發環境的APP窗口圖標已經生效了。</p>
+<p>macOS圖標請參照4.1章節，並且需要在build後才能生效。</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/a89af403bb6845e1b1174aa2e76c81f5" src="http://p3.pstatp.com/large/pgc-image/a89af403bb6845e1b1174aa2e76c81f5" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">windows APP窗口及任務欄圖標</p>
+</p>
+</div>
+<p><strong>2.6 設置APP窗口標題欄名稱</strong></p>
+<p>修改public/index.html:</p>
+<p>我們把electron-vue-demo改為App Demo。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/1b78b862948d48ff8e0efda7c2d74e56" src="http://p1.pstatp.com/large/pgc-image/1b78b862948d48ff8e0efda7c2d74e56" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<h2 class="pgc-h-arrow-right">3 build最終產品</h2>
+<p>這裡我們已經集成了electron-builder工具，官方文檔可以參閱：www.electron.build/</p>
+<p><strong>3.1 設置APP及安裝包圖標</strong></p>
+<p>在2.5章節，我們的圖標生效於運行APP的窗口。本小節將生效於最終生成的可執行文件和安裝包圖標。需要準備的圖標文件請回看2.5章節。</p>
+<p>修改vue.config.js</p>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/3f94cc9e8e6d4b89b835ed3d1fa353fb" src="http://p9.pstatp.com/large/pgc-image/3f94cc9e8e6d4b89b835ed3d1fa353fb" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>運行build後的mac版本，可以看到圖標都已生效了。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/17be8eaf66a14d99947ca4790a84dc41" src="http://p1.pstatp.com/large/pgc-image/17be8eaf66a14d99947ca4790a84dc41" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">macOS APP Dock圖標</p>
+</p>
+</div>
+<p>安裝包和可執行文件的截圖就不再放出了。</p>
+<blockquote>
+<p>更多詳細介紹，可參閱： www.electron.build/icons.html</p>
+</blockquote>
+<p><strong>3.2 設置APP名稱</strong></p>
+<p>APP名稱包括安裝包中APP的名稱、可執行文件的文件名。</p>
+<p>修改vue.config.js:</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/12e2a04737464cbf98abddd308ad0983" src="http://p1.pstatp.com/large/pgc-image/12e2a04737464cbf98abddd308ad0983" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p><strong>3.3 打包APP</strong></p>
+<p>執行以下命令，可以build工程：</p>
+<pre>npm run electron:build</pre>
+<p>複製代碼</p>
+<p>最終在dist_electron目錄下生成build後的產品。</p>
+<p>【windows版本】</p>
+<p>目錄如下：</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/5ea8a285ab054e91b266f44fdcecacaf" src="http://p3.pstatp.com/large/pgc-image/5ea8a285ab054e91b266f44fdcecacaf" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>這裡其實就win-unpacked和AppDemo Setup 0.1.0.exe有用。</p>
+<blockquote>
+<p>※註：在32位環境下打包生成的是32位APP，在64位環境下打包生成的是64位APP。</p>
+</blockquote>
+<h4 class="heading">【mac版本】</h4>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/f501f40eeec74784b075443fec56cec5" src="http://p1.pstatp.com/large/pgc-image/f501f40eeec74784b075443fec56cec5" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p><strong>3.4 可能出現的錯誤</strong></p>
+<p>我曾經在Win10 64bit 1809版本上build失敗，保存信息中提示：</p>
+<pre>Error output:<br>Can't open output file<br>Error - aborting creation process</pre>
+<p>與此同時，在win7和win10 1803版本build正常。經研究，無果。後來把windows升級到1903版本，問題解決了。應該是vue-cli-plugin-electron-builder插件與系統之間的問題導致。</p>
+<h2 class="pgc-h-arrow-right">4 關於項目開發的一些經驗</h2>
+<p>在完成以上章節後，後面基本可以完全按照web方式開發了。這裡簡單分享下一些小經驗。</p>
+<p><strong>4.1 src目錄結構參考</strong></p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/0a3714941f4d42828e6a89aa920e89eb" src="http://p1.pstatp.com/large/pgc-image/0a3714941f4d42828e6a89aa920e89eb" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>下面對部分重要目錄簡要說明：</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/6b412165921440038c84dd33b664c50e" src="http://p3.pstatp.com/large/pgc-image/6b412165921440038c84dd33b664c50e" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p><strong>4.2 換膚功能的實現</strong></p>
+<p>很多項目都有實時換膚的需求，在實際開發中，雖然我們使用了Sass、Less、Stylus等高端樣式工具，但最終經過編譯還是要回歸到最原始的CSS。換膚的本質還是實時替換皮膚樣式文件。</p>
+<h4 class="heading">【失敗案例】</h4>
+<p>以Stylus為例，抽象出皮膚文件skin.styl:</p>
+<pre>$color-bg = #fff<br>$color-text = #333</pre>
+<p>在業務樣式中引用：</p>
+<pre>@import 'skin.styl'<br><br>body<br> background: $color-bg<br> color: $color-text</pre>
+<p>當經過編譯後，生成的css為：</p>
+<pre>body {background: #fff; color: #333;}</pre>
+<p>樣式已經寫死了，無法換膚。</p>
+<p>那麼應該怎麼做呢？</p>
+<p>【成功案例】</p>
+<p>項目根目錄下的public目錄是靜態目錄，也就是說在build最終產品的時候，它裡面的文件將原封不動保留。所以，可以將皮膚文件放在這裡。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/eb40a1924fb7490791a707a02ca3881f" src="http://p1.pstatp.com/large/pgc-image/eb40a1924fb7490791a707a02ca3881f" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>由於Electron的是基於chromium內核，所以不用擔心代碼的瀏覽器兼容問題。接下來就是發揮CSS3變數var(&#8211;*)的時候了。</p>
+<p>public/skin/skin01/skin.css：</p>
+<pre>:root {<br>    --color-bg: #fff;<br>    --color-text: #333;<br>}</pre>
+<p>public/skin/skin02/skin.css：</p>
+<pre>:root {<br>    --color-bg: #263238;<br>    --color-text: #b2ccd6;<br>}</pre>
+<p>修改src/App.vue：</p>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/7907136e0cee4a8bb559fcb612e6a222" src="http://p9.pstatp.com/large/pgc-image/7907136e0cee4a8bb559fcb612e6a222" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>在public/index.html引入皮膚樣式，注意加上id=&#8221;app-skin&#8221;：</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/554ad4c2b2b54970a966af449ece3a29" src="http://p3.pstatp.com/large/pgc-image/554ad4c2b2b54970a966af449ece3a29" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>篇幅有限，這裡就不寫通過js修改皮膚的代碼了。通過調試工具手動修改skin的css路徑，可看到換膚效果：</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/d3d57f4406104b1e8f6df7b8cdcef9c4" src="http://p1.pstatp.com/large/pgc-image/d3d57f4406104b1e8f6df7b8cdcef9c4" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">skin01淺色皮膚 </p>
+</p>
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/86b6afa80e8f487da5cc0dbaeede1b0e" src="http://p1.pstatp.com/large/pgc-image/86b6afa80e8f487da5cc0dbaeede1b0e" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">skin02深色皮膚</p>
+</p>
+</div>
+<p><strong>4.3 註冊快捷鍵打開devTools</strong></p>
+<p>在Electron中打開devTools是通過主線程中調用win.webContents.openDevTools()實現的。以上教程僅在開發環境初始啟動的時候打開devTools，但是一旦關閉就不能再打開了。下面講一下怎麼通過快捷鍵打開devTools。</p>
+<p>修改src/background.js:</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/821f028e56b94b54b3ebdcf346171bd8" src="http://p3.pstatp.com/large/pgc-image/821f028e56b94b54b3ebdcf346171bd8" alt="《Electron7+VueCli4開發跨平台桌面應用》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>在windows下，按Ctrl+Shift+i即可打開devTools</p>
+<p>在macOS下，按Commond+Shift+i即可打開devTools</p>
+<p>為什麼沒用F12？因為windows系統中，F12是系統保留快捷鍵，無法使用。官方原話是這麼解釋的：</p>
+<blockquote>
+<p>The F12 key is reserved for use by the debugger at all times, so it should not be registered as a hot key. Even when you are not debugging an application, F12 is reserved in case a kernel-mode debugger or a just-in-time debugger is resident.</p>
+</blockquote>
+<p>但是可以使用Ctrl+F12，只要不單獨使用F12就可以。</p>
+<p>以上代碼在開發環境和生產環境中均有效，為保證生產環境的安全，建議不要在生產環境中使用。放到上面的if語句中即可。</p>
+<p>文中涉及的代碼可到作者微信公眾號中複製，公眾號名稱：卧梅又聞花。</p>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="18560" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/18560"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/18560";
+		var title='%E3%80%90Electron7%2BVueCli4%E9%96%8B%E7%99%BC%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%A1%8C%E9%9D%A2%E6%87%89%E7%94%A8%E3%80%91';
+		var qqtitle='%E3%80%90Electron7%2BVueCli4%E9%96%8B%E7%99%BC%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%A1%8C%E9%9D%A2%E6%87%89%E7%94%A8%E3%80%91';
+		var excerpt='Electron%E6%98%AF%E4%B8%80%E5%80%8B%E5%9F%BA%E6%96%BCChromium%E5%92%8C%20Node.js%EF%BC%8C%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8%20HTML%E3%80%81CSS%E5%92%8CJavaScript%E6%A7%8B%E5%BB%BA%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%87%89%E7%94%A8%E7%9A%84%E6%8A%80%E8%A1%93%E6%A1%86%E6%9E%B6%EF%BC%8C%E5%85%BC%E5%AE%B9%20Mac%E3%80%81Windows%20%E5%92%8C%20Linux%E3%80%82%E9%9B%96%E7%84%B6B%2FS%E6%98%AF%E7%9B%AE%E5%89%8D%E9%96%8B%E7%99%BC%E7%9A%84%E4%B8%BB%E6%B5%81%EF%BC%8C%E4%BD%86%E6%98%AFC%2FS%E4%BB%8D%E7%84%B6%E6%9C%89%E5%BE%88%E5%A4%A7%E7%9A%84%E5%B8%82%E5%A0%B4%E9%9C%80%E6%B1%82%E3%80%82%E5%8F%97%E9%99%90%E6%96%BC%E7%80%8F%E8%A6%BD%E5%99%A8%E7%9A%84%E6%B2%99%E7%9B%92%E9%99%90%E5%88%B6%EF%BC%8C%E7%B6%B2%E9%A0%81%E6%87%89%E7%94%A8%E7%84%A1%E6%B3%95%E6%BB%BF%E8%B6%B3%E6%9F%90%E4%BA%9B%E5%A0%B4%E6%99%AF%E4%B8%8B%E7%9A%84%E4%BD%BF%E7%94%A8%E9%9C%80%E6%B1%82%EF%BC%8C%E8%80%8C%E6%A1%8C%E9%9D%A2%E6%87%89%E7%94%A8%E5%8F%AF%E4%BB%A5%E8%AE%80%E5%AF%AB%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E3%80%81%E8%AA%BF%E7%94%A8%E6%9B%B4%E5%A4%9A%E2%80%A6%E2%80%A6';
+		var wbexcerpt='Electron%E6%98%AF%E4%B8%80%E5%80%8B%E5%9F%BA%E6%96%BCChromium%E5%92%8C%20Node.js%EF%BC%8C%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8%20HTML%E3%80%81CSS%E5%92%8CJavaScript%E6%A7%8B%E5%BB%BA%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%87%89%E7%94%A8%E7%9A%84%E6%8A%80%E8%A1%93%E6%A1%86%E6%9E%B6%EF%BC%8C%E5%85%BC%E5%AE%B9%20Mac%E3%80%81Windows%20%E5%92%8C%20Linux%E3%80%82%E9%9B%96%E7%84%B6B%2FS%E6%98%AF%E7%9B%AE%E5%89%8D%E9%96%8B%E7%99%BC%E7%9A%84%E4%B8%BB%E6%B5%81%EF%BC%8C%E4%BD%86%E6%98%AFC%2FS%E4%BB%8D%E7%84%B6%E6%9C%89%E5%BE%88%E5%A4%A7%E7%9A%84%E5%B8%82%E5%A0%B4%E9%9C%80%E6%B1%82%E3%80%82%E5%8F%97%E9%99%90%E6%96%BC%E7%80%8F%E8%A6%BD%E5%99%A8%E7%9A%84%E6%B2%99%E7%9B%92%E9%99%90%E5%88%B6%EF%BC%8C%E7%B6%B2%E9%A0%81%E6%87%89%E7%94%A8%E7%84%A1%E6%B3%95%E6%BB%BF%E8%B6%B3%E6%9F%90%E4%BA%9B%E5%A0%B4%E6%99%AF%E4%B8%8B%E7%9A%84%E4%BD%BF%E7%94%A8%E9%9C%80%E6%B1%82%EF%BC%8C%E8%80%8C%E6%A1%8C%E9%9D%A2%E6%87%89%E7%94%A8%E5%8F%AF%E4%BB%A5%E8%AE%80%E5%AF%AB%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E3%80%81%E8%AA%BF%E7%94%A8%E6%9B%B4%E5%A4%9A%E2%80%A6%E2%80%A6';
+		var pic="http://p1.pstatp.com/large/pgc-image/38615920eea447bda8d409266e6fe541";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="「四師兄估值」長信科技：又一翻倍科技股，你買了嗎？" href="https://daynews.cc/technology/18561">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="行情瀑布，幣圈散戶為夢想買單，他就是其中一個" href="https://daynews.cc/technology/18559">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="/technology/18560#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='18560' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼" href="https://daynews.cc/constellation/20739" rel="bookmark"><i class="fa  fa-book"></i> 伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼                            </a>
+                            <a class="list-group-item visible-md" title="伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼" href="https://daynews.cc/constellation/20739" rel="bookmark"><i class="fa  fa-book"></i> 伴君如伴虎，惹不得的星座，狠角色，讓人心生畏懼                            </a>
+                                                    <a class="list-group-item visible-lg" title="12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪" href="https://daynews.cc/constellation/20740" rel="bookmark"><i class="fa  fa-book"></i> 12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪                            </a>
+                            <a class="list-group-item visible-md" title="12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪" href="https://daynews.cc/constellation/20740" rel="bookmark"><i class="fa  fa-book"></i> 12.18-12.22星座運勢：抓住射手月末尾的小幸運，一石激起千層浪                            </a>
+                                                    <a class="list-group-item visible-lg" title="十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮" href="https://daynews.cc/constellation/20741" rel="bookmark"><i class="fa  fa-book"></i> 十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮                            </a>
+                            <a class="list-group-item visible-md" title="十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮" href="https://daynews.cc/constellation/20741" rel="bookmark"><i class="fa  fa-book"></i> 十二星座中這4大星座女，小時候長得丑，長大後必定變漂亮                            </a>
+                                                    <a class="list-group-item visible-lg" title="小聶：跑動中的腰腹力量如何運用" href="https://daynews.cc/lose/20597" rel="bookmark"><i class="fa  fa-book"></i> 小聶：跑動中的腰腹力量如何運用                            </a>
+                            <a class="list-group-item visible-md" title="小聶：跑動中的腰腹力量如何運用" href="https://daynews.cc/lose/20597" rel="bookmark"><i class="fa  fa-book"></i> 小聶：跑動中的腰腹力量如何運用                            </a>
+                                                    <a class="list-group-item visible-lg" title="小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力" href="https://daynews.cc/lose/20598" rel="bookmark"><i class="fa  fa-book"></i> 小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力                            </a>
+                            <a class="list-group-item visible-md" title="小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力" href="https://daynews.cc/lose/20598" rel="bookmark"><i class="fa  fa-book"></i> 小夥子肩寬腰細，扔垃圾都很帥，詮釋男性魅力                            </a>
+                                                    <a class="list-group-item visible-lg" title="十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古" href="https://daynews.cc/history/19786" rel="bookmark"><i class="fa  fa-book"></i> 十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古                            </a>
+                            <a class="list-group-item visible-md" title="十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古" href="https://daynews.cc/history/19786" rel="bookmark"><i class="fa  fa-book"></i> 十六歲的李清照名動汴梁，只因為這一首酒後之作，最後流傳千古                            </a>
+                                                    <a class="list-group-item visible-lg" title="當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？" href="https://daynews.cc/history/19787" rel="bookmark"><i class="fa  fa-book"></i> 當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？                            </a>
+                            <a class="list-group-item visible-md" title="當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？" href="https://daynews.cc/history/19787" rel="bookmark"><i class="fa  fa-book"></i> 當年闖關東流入東北的人口有多少？為什麼那麼多人要去東北開荒？                            </a>
+                                                    <a class="list-group-item visible-lg" title="春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？" href="https://daynews.cc/history/19789" rel="bookmark"><i class="fa  fa-book"></i> 春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？                            </a>
+                            <a class="list-group-item visible-md" title="春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？" href="https://daynews.cc/history/19789" rel="bookmark"><i class="fa  fa-book"></i> 春秋之初有多少諸侯國，有說法是一千二百國，您有何高見？                            </a>
+                                                    <a class="list-group-item visible-lg" title="軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸" href="https://daynews.cc/history/19788" rel="bookmark"><i class="fa  fa-book"></i> 軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸                            </a>
+                            <a class="list-group-item visible-md" title="軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸" href="https://daynews.cc/history/19788" rel="bookmark"><i class="fa  fa-book"></i> 軍閥名聲不怎麼樣，但面對日本侵略者卻毫不含糊看完後鼻子發酸                            </a>
+                                                    <a class="list-group-item visible-lg" title="劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？" href="https://daynews.cc/history/19790" rel="bookmark"><i class="fa  fa-book"></i> 劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？                            </a>
+                            <a class="list-group-item visible-md" title="劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？" href="https://daynews.cc/history/19790" rel="bookmark"><i class="fa  fa-book"></i> 劉備初到荊州，只能寄人籬下，後來是如何反客為主佔據荊州？                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-md" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-lg" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a><a class="list-group-item visible-md" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a><a class="list-group-item visible-lg" title="最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？" href="https://daynews.cc/international/18303" rel="bookmark"><i class="fa  fa-book"></i> 最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？</a><a class="list-group-item visible-md" title="最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？" href="https://daynews.cc/international/18303" rel="bookmark"><i class="fa  fa-book"></i> 最新：21家歐洲運營商明確選擇華為5G設備！加拿大卻另有打算？</a><a class="list-group-item visible-lg" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="https://daynews.cc/entertainment/10879" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-md" title="賈玲這個奇女子，竟然有這麼多悲慘故事" href="https://daynews.cc/entertainment/10879" rel="bookmark"><i class="fa  fa-book"></i> 賈玲這個奇女子，竟然有這麼多悲慘故事</a><a class="list-group-item visible-lg" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="https://daynews.cc/technology/10158" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-md" title="更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕" href="https://daynews.cc/technology/10158" rel="bookmark"><i class="fa  fa-book"></i> 更廣闊的星辰大海，第六屆國際智慧教育展覽會北京開幕</a><a class="list-group-item visible-lg" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="https://daynews.cc/game/13764" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-md" title="爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多" href="https://daynews.cc/game/13764" rel="bookmark"><i class="fa  fa-book"></i> 爐石傳說：狗賊被騷套路連打近兩條命，新版本上線套路就是多</a><a class="list-group-item visible-lg" title="這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩" href="https://daynews.cc/lose/20687" rel="bookmark"><i class="fa  fa-book"></i> 這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩</a><a class="list-group-item visible-md" title="這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩" href="https://daynews.cc/lose/20687" rel="bookmark"><i class="fa  fa-book"></i> 這魚肉多刺少特鮮美，用它煮湯喝，鮮嫩美味，吃到湯汁都不剩</a><a class="list-group-item visible-lg" title="夢三國：路人戰力匹配中最值得玩的輔助英雄推薦" href="https://daynews.cc/game/20261" rel="bookmark"><i class="fa  fa-book"></i> 夢三國：路人戰力匹配中最值得玩的輔助英雄推薦</a><a class="list-group-item visible-md" title="夢三國：路人戰力匹配中最值得玩的輔助英雄推薦" href="https://daynews.cc/game/20261" rel="bookmark"><i class="fa  fa-book"></i> 夢三國：路人戰力匹配中最值得玩的輔助英雄推薦</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="舊聞：關之琳說“我會顧慮對方太太怎麼想”，引黃霑和倪匡大爭論" href="https://daynews.cc/entertainment/14533" rel="bookmark"><i class="fa  fa-book"></i> 舊聞：關之琳說“我會顧慮對方太太怎麼想”，引黃霑和倪匡大爭論                            </a>
+                            <a class="list-group-item visible-md" title="舊聞：關之琳說“我會顧慮對方太太怎麼想”，引黃霑和倪匡大爭論" href="https://daynews.cc/entertainment/14533" rel="bookmark"><i class="fa  fa-book"></i> 舊聞：關之琳說“我會顧慮對方太太怎麼想”，引黃霑和倪匡大爭論                            </a>
+                                                    <a class="list-group-item visible-lg" title="尋到武磊替身！近5輪豪取10分！前西班牙人主帥魯比再現神奇" href="https://daynews.cc/sports/2918" rel="bookmark"><i class="fa  fa-book"></i> 尋到武磊替身！近5輪豪取10分！前西班牙人主帥魯比再現神奇                            </a>
+                            <a class="list-group-item visible-md" title="尋到武磊替身！近5輪豪取10分！前西班牙人主帥魯比再現神奇" href="https://daynews.cc/sports/2918" rel="bookmark"><i class="fa  fa-book"></i> 尋到武磊替身！近5輪豪取10分！前西班牙人主帥魯比再現神奇                            </a>
+                                                    <a class="list-group-item visible-lg" title="隊友稱C羅是其性格的一部分，征服意甲和歐洲還得靠他" href="https://daynews.cc/premier/5702" rel="bookmark"><i class="fa  fa-book"></i> 隊友稱C羅是其性格的一部分，征服意甲和歐洲還得靠他                            </a>
+                            <a class="list-group-item visible-md" title="隊友稱C羅是其性格的一部分，征服意甲和歐洲還得靠他" href="https://daynews.cc/premier/5702" rel="bookmark"><i class="fa  fa-book"></i> 隊友稱C羅是其性格的一部分，征服意甲和歐洲還得靠他                            </a>
+                                                    <a class="list-group-item visible-lg" title="怎樣才能控制好高血脂？5個建議，日常聽進去" href="https://daynews.cc/health/20570" rel="bookmark"><i class="fa  fa-book"></i> 怎樣才能控制好高血脂？5個建議，日常聽進去                            </a>
+                            <a class="list-group-item visible-md" title="怎樣才能控制好高血脂？5個建議，日常聽進去" href="https://daynews.cc/health/20570" rel="bookmark"><i class="fa  fa-book"></i> 怎樣才能控制好高血脂？5個建議，日常聽進去                            </a>
+                                                    <a class="list-group-item visible-lg" title="“因為我是姐姐，就該讓著弟弟嗎？”女兒的話，讓母親默默流淚" href="https://daynews.cc/emotion/1775" rel="bookmark"><i class="fa  fa-book"></i> “因為我是姐姐，就該讓著弟弟嗎？”女兒的話，讓母親默默流淚                            </a>
+                            <a class="list-group-item visible-md" title="“因為我是姐姐，就該讓著弟弟嗎？”女兒的話，讓母親默默流淚" href="https://daynews.cc/emotion/1775" rel="bookmark"><i class="fa  fa-book"></i> “因為我是姐姐，就該讓著弟弟嗎？”女兒的話，讓母親默默流淚                            </a>
+                                                    <a class="list-group-item visible-lg" title="從《士兵突擊》到《攀登者》，他用實力詮釋什麼是演員" href="https://daynews.cc/entertainment/14622" rel="bookmark"><i class="fa  fa-book"></i> 從《士兵突擊》到《攀登者》，他用實力詮釋什麼是演員                            </a>
+                            <a class="list-group-item visible-md" title="從《士兵突擊》到《攀登者》，他用實力詮釋什麼是演員" href="https://daynews.cc/entertainment/14622" rel="bookmark"><i class="fa  fa-book"></i> 從《士兵突擊》到《攀登者》，他用實力詮釋什麼是演員                            </a>
+                                                    <a class="list-group-item visible-lg" title="歷史上赫赫有名的暴君，卻寫下一首千古名篇，被抄成大唐第一名詩" href="https://daynews.cc/history/19958" rel="bookmark"><i class="fa  fa-book"></i> 歷史上赫赫有名的暴君，卻寫下一首千古名篇，被抄成大唐第一名詩                            </a>
+                            <a class="list-group-item visible-md" title="歷史上赫赫有名的暴君，卻寫下一首千古名篇，被抄成大唐第一名詩" href="https://daynews.cc/history/19958" rel="bookmark"><i class="fa  fa-book"></i> 歷史上赫赫有名的暴君，卻寫下一首千古名篇，被抄成大唐第一名詩                            </a>
+                                                    <a class="list-group-item visible-lg" title="GitHub 標星 1.6w+項目 HelloGitHub，讓開發更簡單的開源啟蒙手冊" href="https://daynews.cc/technology/12940" rel="bookmark"><i class="fa  fa-book"></i> GitHub 標星 1.6w+項目 HelloGitHub，讓開發更簡單的開源啟蒙手冊                            </a>
+                            <a class="list-group-item visible-md" title="GitHub 標星 1.6w+項目 HelloGitHub，讓開發更簡單的開源啟蒙手冊" href="https://daynews.cc/technology/12940" rel="bookmark"><i class="fa  fa-book"></i> GitHub 標星 1.6w+項目 HelloGitHub，讓開發更簡單的開源啟蒙手冊                            </a>
+                                                    <a class="list-group-item visible-lg" title="球員宣！保利尼奧即將加盟河北華夏幸福" href="https://daynews.cc/premier/5193" rel="bookmark"><i class="fa  fa-book"></i> 球員宣！保利尼奧即將加盟河北華夏幸福                            </a>
+                            <a class="list-group-item visible-md" title="球員宣！保利尼奧即將加盟河北華夏幸福" href="https://daynews.cc/premier/5193" rel="bookmark"><i class="fa  fa-book"></i> 球員宣！保利尼奧即將加盟河北華夏幸福                            </a>
+                                                    <a class="list-group-item visible-lg" title="印度近五年來外購武器數額猛增一半 本土製造滿足不了軍方需求？" href="https://daynews.cc/international/9459" rel="bookmark"><i class="fa  fa-book"></i> 印度近五年來外購武器數額猛增一半 本土製造滿足不了軍方需求？                            </a>
+                            <a class="list-group-item visible-md" title="印度近五年來外購武器數額猛增一半 本土製造滿足不了軍方需求？" href="https://daynews.cc/international/9459" rel="bookmark"><i class="fa  fa-book"></i> 印度近五年來外購武器數額猛增一半 本土製造滿足不了軍方需求？                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="kratos_tags-4" class="widget widget_kratos_tags clearfix"><h4 class="widget-title">標籤</h4><div class="tag_clouds"></div></aside><aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="https://daynews.cc/nba">NBA</a> (1,526)
+</li>
+	<li class="cat-item cat-item-23"><a href="https://daynews.cc/international">國際</a> (2,241)
+</li>
+	<li class="cat-item cat-item-14"><a href="https://daynews.cc/entertainment">娛樂</a> (2,348)
+</li>
+	<li class="cat-item cat-item-15"><a href="https://daynews.cc/emotion">情感</a> (1,582)
+</li>
+	<li class="cat-item cat-item-22"><a href="https://daynews.cc/constellation">星座</a> (1,060)
+</li>
+	<li class="cat-item cat-item-17"><a href="https://daynews.cc/history">歷史</a> (1,759)
+</li>
+	<li class="cat-item cat-item-25"><a href="https://daynews.cc/lose">減肥</a> (495)
+</li>
+	<li class="cat-item cat-item-24"><a href="https://daynews.cc/technology">科技</a> (2,163)
+</li>
+	<li class="cat-item cat-item-19"><a href="https://daynews.cc/premier">英超</a> (1,372)
+</li>
+	<li class="cat-item cat-item-18"><a href="https://daynews.cc/game">遊戲</a> (2,055)
+</li>
+	<li class="cat-item cat-item-21"><a href="https://daynews.cc/health">養生</a> (1,278)
+</li>
+	<li class="cat-item cat-item-16"><a href="https://daynews.cc/sports">體育</a> (2,098)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='https://daynews.cc/date/2019/12'>2019 年 12 月</a>&nbsp;(16975)</li>
+	<li><a href='https://daynews.cc/date/2019/11'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='https://daynews.cc/date/2019/10'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="https://daynews.cc">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.easing.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.qrcode.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/layer.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/modernizr.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.waypoints.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.stellar.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/hoverIntent.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/superfish.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/kratos.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-includes/js/wp-embed.min.js'></script>
+			</body>
+
+</html>
+<!-- Dynamic page generated in 0.555 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:09:31 -->
+
+<!-- super cache -->

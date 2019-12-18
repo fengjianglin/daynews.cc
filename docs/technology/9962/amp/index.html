@@ -1,0 +1,648 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/9962#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/a7c03804fe3e4508a4ac8a7b91d99451"},{"@type":"WebPage","@id":"https://daynews.cc/technology/9962#webpage","url":"https://daynews.cc/technology/9962","inLanguage":"zh-TW","name":"\u5403\u900fJava\u57fa\u790e\u5341\u56db\uff1a\u7e7c\u627f\u5f15\u767c\u7684\u201c\u8840\u6848\u201d - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/9962#primaryimage"},"datePublished":"2019-12-08T04:55:10+00:00","dateModified":"2019-12-08T04:55:10+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="在Java中，只允許單繼承，也就是說一個類只能繼承一個父類，但是可以實現多個介面。本文我們討論一下子類和父類的構造方法調用順序、代碼塊執行順序、方法的重寫與重載。 一、構造方法調用順序 1、何為構造方法 構造方法是類的一種特殊方法，用來初始化類的一個新的對象，每個類至少有一個構造方法，如果類中沒有顯式定義構造方法，編譯器在編譯的時候會生成……" />
+<meta name="twitter:title" content="吃透Java基礎十四：繼承引發的“血案” - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/a7c03804fe3e4508a4ac8a7b91d99451" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="吃透Java基礎十四：繼承引發的“血案” - 天天要聞" />
+<meta property="og:description" content="在Java中，只允許單繼承，也就是說一個類只能繼承一個父類，但是可以實現多個介面。本文我們討論一下子類和父類的構造方法調用順序、代碼塊執行順序、方法的重寫與重載。 一、構造方法調用順序 1、何為構造方法 構造方法是類的一種特殊方法，用來初始化類的一個新的對象，每個類至少有一個構造方法，如果類中沒有顯式定義構造方法，編譯器在編譯的時候會生成……" />
+<meta property="og:url" content="https://daynews.cc/technology/9962" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-08T04:55:10+00:00" />
+	<title>吃透Java基礎十四：繼承引發的“血案” - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/9962" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">吃透Java基礎十四：繼承引發的“血案”</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-08T12:55:10+00:00">
+		1 週 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<p>在Java中，只允許單繼承，也就是說一個類只能繼承一個父類，但是可以實現多個介面。本文我們討論一下子類和父類的構造方法調用順序、代碼塊執行順序、方法的重寫與重載。</p>
+<h2>一、構造方法調用順序</h2>
+<p><strong>1、何為構造方法</strong></p>
+<p>構造方法是類的一種特殊方法，用來初始化類的一個新的對象，每個類至少有一個構造方法，如果類中沒有顯式定義構造方法，編譯器在編譯的時候會生成一個默認的構造方法，默認的構造方法不包含任何參數，並且方法體為空。如果類中顯式地定義了一個或多個構造方法，則 Java 不再提供默認構造方法。</p>
+<p>構造方法必須具有和類名相同的名稱，而且沒有返回類型。構造方法的默認返回類型就是對象類型本身，並且構造方法不能被 static、final、synchronized、abstract 和 native 修飾。</p>
+<p>在一個類中，與類名相同的方法就是構造方法。每個類可以具有多個構造方法，但要求它們各自包含不同的方法參數。</p>
+<p>構造方法可以用public、protected、默認、private修飾。</p>
+<p><strong>2、子類構造方法調用父類構造方法</strong></p>
+<p>子類構造方法要麼調用父類無參構造方法（包括當父類沒有構造方法時。系統默認給的無參構造方法），要麼調用父類有參構造方法。當子類構造方法調用父類無參構造方法，一般都是默認不寫的，要寫的話就是super（），且要放在構造方法的第一句。當子類構造方法要調用父類有參數的構造方法，那麼子類的構造方法中必須要用super（參數）調用父類構造方法，且要放在構造方法的第一句。</p>
+<p>看完如下例子對子類父類構造函數調用順序應該就能明白了：</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/a7c03804fe3e4508a4ac8a7b91d99451" alt="《吃透Java基礎十四：繼承引發的“血案”》" width="640" height="572" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/a7c03804fe3e4508a4ac8a7b91d99451" alt="《吃透Java基礎十四：繼承引發的“血案”》" width="640" height="572" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>運行輸出：</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/dbec82e7059944afa0bfeadbf6a1b7d5" alt="《吃透Java基礎十四：繼承引發的“血案”》" width="1658" height="372" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/dbec82e7059944afa0bfeadbf6a1b7d5" alt="《吃透Java基礎十四：繼承引發的“血案”》" width="1658" height="372" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2>二、代碼塊執行順序</h2>
+<p>Java中代碼塊分為普通代碼塊和靜態代碼塊，普通代碼塊是屬於實例對象的，其實在編譯期編譯器會把普通代碼塊的內容放在構造函數裡面來執行的。靜態代碼塊是屬於類的，是隨著類的初始化而調用的，那麼類是什麼時候初始化呢？請參考之前寫的[吃透Java基礎三：觸發類初始化的五種方式](https://blog.csdn.net/u013277209/article/details/102699028)</p>
+<p><strong>1、普通代碼塊編譯後自動添加到構造函數最上面執行</strong></p>
+<p>看下面例子：</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/dde442f377e246b78062317cb118e5de" alt="《吃透Java基礎十四：繼承引發的“血案”》" width="640" height="233" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/dde442f377e246b78062317cb118e5de" alt="《吃透Java基礎十四：繼承引發的“血案”》" width="640" height="233" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>編譯後的class文件反編譯：</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/5409b1db03c947f7b86c899ff44c60a5" alt="《吃透Java基礎十四：繼承引發的“血案”》" width="640" height="251" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/5409b1db03c947f7b86c899ff44c60a5" alt="《吃透Java基礎十四：繼承引發的“血案”》" width="640" height="251" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>2、有繼承關係的靜態代碼塊和普通代碼塊調用順序</strong></p>
+<p>只需要記住一點：**靜態代碼塊是在類初始化的時候調用的，普通代碼塊是在創建對象實例的時候在構造函數裡面調用的，類初始化一定在創建對象實例之前，所以靜態代碼塊一定在普通代碼塊之前調用。**</p>
+<p>看如下例子：</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/f967144f20b04aceb38d504d19dd7c8a" alt="《吃透Java基礎十四：繼承引發的“血案”》" width="640" height="471" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/f967144f20b04aceb38d504d19dd7c8a" alt="《吃透Java基礎十四：繼承引發的“血案”》" width="640" height="471" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>運行輸出：</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/f888a75012694bd9bf4a2cba1dca3ca5" alt="《吃透Java基礎十四：繼承引發的“血案”》" width="1590" height="288" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/f888a75012694bd9bf4a2cba1dca3ca5" alt="《吃透Java基礎十四：繼承引發的“血案”》" width="1590" height="288" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2>三、方法的重載與重寫</h2>
+<p>方法的重寫(Overriding)和重載(Overloading)是java多態性的不同表現，重寫是父類與子類之間多態性的一種表現，重載可以理解成多態的具體表現形式。</p>
+<p><strong>1、重載</strong></p>
+<p>重載(overloading) 是在一個類裡面，方法名字相同，而參數不同。返回類型可以相同也可以不同。每個重載的方法（或者構造函數）都必須有一個獨一無二的參數類型列表。最常用的地方就是構造器的重載。</p>
+<p>規則：</p>
+<ul class="">
+<li>被重載的方法必須改變參數列表(參數個數或類型不一樣)。</li>
+</ul>
+<ul class="">
+<li>被重載的方法可以改變返回類型。</li>
+</ul>
+<ul class="">
+<li>被重載的方法可以改變訪問修飾符。</li>
+</ul>
+<ul class="">
+<li>被重載的方法可以聲明新的或更廣的檢查異常。</li>
+</ul>
+<ul class="">
+<li>方法能夠在同一個類中或者在一個子類中被重載。</li>
+</ul>
+<ul class="">
+<li>無法以返回值類型作為重載函數的區分標準。</li>
+</ul>
+<p>綜上：參數列表區分重載</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/cfc01ac00b08471d947667974829eacb" alt="《吃透Java基礎十四：繼承引發的“血案”》" width="640" height="386" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/cfc01ac00b08471d947667974829eacb" alt="《吃透Java基礎十四：繼承引發的“血案”》" width="640" height="386" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>2、重寫</strong></p>
+<p>重寫是子類對父類的允許訪問的方法的實現過程進行重新編寫, 方法名和形參都不能改變。子類重寫父類方法的規則：</p>
+<ul class="">
+<li>子類重寫的方法的方法名和形參列表與父類被重寫的方法的方法名和形參列表相同。</li>
+</ul>
+<ul class="">
+<li>子類重寫的方法的許可權修飾符不小於父類被重寫的方法的許可權修飾符，特殊情況：子類不能重寫父類被聲明為private許可權的方法。</li>
+</ul>
+<ul class="">
+<li>返回值類型：</li>
+</ul>
+<ol start="1">
+<li>父類是void，子類只能是void。</li>
+<li>父類是A類型，子類是A類或A類的子類。</li>
+<li>父類是基本數據類型（如：int），子類返回值類型必須相同。</li>
+</ol>
+<ul class="">
+<li> 子類重寫的方法拋出的異常的類型不大於父類被重寫的方法拋出的異常類型。</li>
+</ul>
+<p> 如下例子：</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/f463ed60fbeb4b22849a0916d004f8bc" alt="《吃透Java基礎十四：繼承引發的“血案”》" width="640" height="234" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/f463ed60fbeb4b22849a0916d004f8bc" alt="《吃透Java基礎十四：繼承引發的“血案”》" width="640" height="234" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/4511d064fb034e229ce3b4598f11cf6c" alt="《吃透Java基礎十四：繼承引發的“血案”》" width="640" height="530" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/4511d064fb034e229ce3b4598f11cf6c" alt="《吃透Java基礎十四：繼承引發的“血案”》" width="640" height="530" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/9962#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.245 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:25:24 -->
+
+<!-- super cache -->

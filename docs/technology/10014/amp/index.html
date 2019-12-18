@@ -1,0 +1,908 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/10014#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/5917e858c2124bf29c64267711445cca"},{"@type":"WebPage","@id":"https://daynews.cc/technology/10014#webpage","url":"https://daynews.cc/technology/10014","inLanguage":"zh-TW","name":"\u9084\u5728\u5c0b\u627eKafka\u6700\u65b0\u7684\u5b89\u88dd\u6559\u7a0b\u55ce\uff1f\u7cbe\u7d30\u7684\u5b89\u88dd\u6b65\u9a5f\u5206\u4eab\u7d66\u5927\u5bb6 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/10014#primaryimage"},"datePublished":"2019-12-07T15:45:15+00:00","dateModified":"2019-12-07T15:45:15+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="Kafka集群部署 概述 之前的大數據集群主要是離線處理的方式對集群的數據進行開發處理。當前的集群數據量已經達到了PB級別了，離線數據獲取主要是從數倉側進行全量或者增量的方式導入大數據平台，部分是通過SFTP的方式解析進入大數據平台，少量數據是通過介面的方式准實時接入到大數據平台。隨著業務的發展，對於實時數據的接入和應用顯得越來越重要了，……" />
+<meta name="twitter:title" content="還在尋找Kafka最新的安裝教程嗎？精細的安裝步驟分享給大家 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/5917e858c2124bf29c64267711445cca" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="還在尋找Kafka最新的安裝教程嗎？精細的安裝步驟分享給大家 - 天天要聞" />
+<meta property="og:description" content="Kafka集群部署 概述 之前的大數據集群主要是離線處理的方式對集群的數據進行開發處理。當前的集群數據量已經達到了PB級別了，離線數據獲取主要是從數倉側進行全量或者增量的方式導入大數據平台，部分是通過SFTP的方式解析進入大數據平台，少量數據是通過介面的方式准實時接入到大數據平台。隨著業務的發展，對於實時數據的接入和應用顯得越來越重要了，……" />
+<meta property="og:url" content="https://daynews.cc/technology/10014" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-07T15:45:15+00:00" />
+	<title>還在尋找Kafka最新的安裝教程嗎？精細的安裝步驟分享給大家 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/10014" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">還在尋找Kafka最新的安裝教程嗎？精細的安裝步驟分享給大家</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-07T23:45:15+00:00">
+		2 週 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<h2>Kafka集群部署</h2>
+<h2>概述</h2>
+<p>之前的大數據集群主要是離線處理的方式對集群的數據進行開發處理。當前的集群數據量已經達到了PB級別了，離線數據獲取主要是從數倉側進行全量或者增量的方式導入大數據平台，部分是通過SFTP的方式解析進入大數據平台，少量數據是通過介面的方式准實時接入到大數據平台。隨著業務的發展，對於實時數據的接入和應用顯得越來越重要了，接下來的時間會一直更新整個時間數據接入和應用的分享。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/5917e858c2124bf29c64267711445cca" alt="《還在尋找Kafka最新的安裝教程嗎？精細的安裝步驟分享給大家》" width="375" height="130" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/5917e858c2124bf29c64267711445cca" alt="《還在尋找Kafka最新的安裝教程嗎？精細的安裝步驟分享給大家》" width="375" height="130" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>我們都是知道kafak是一種分散式的，基於發布/訂閱的消息系統。以時間複雜度為O(1)的方式提供消息持久化能力，即使對TB級以上數據也能保證常數時間複雜度的訪問性能、高吞吐率。這個是非常符合當前接入實時數據進行處理的一個組件。</p>
+<p>為什麼說kafka是非常適合我當前的場景呢？當前市場kafka的應用場景常見有：消息系統、跟蹤網站活動、運營指標、日誌聚合、流處理、採集日誌、提交日誌。kafka具有以下的以下優點（特性）：</p>
+<p>· <strong>高吞吐、低延遲</strong>：kafka 每秒可以處理幾十萬條消息，它的延遲最低只有幾毫秒。</p>
+<p>· <strong>可擴展性</strong>：kafka 集群支持熱擴展</p>
+<p>· <strong>可靠性</strong>：消息被持久化到本地磁碟，並且支持數據備份防止數據丟失</p>
+<p>· <strong>容錯性</strong>：允許集群中節點失敗</p>
+<p>· <strong>高並發</strong>：支持數千個客戶端同時讀寫</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/fda73c75521443d1954ef880d44e3602" alt="《還在尋找Kafka最新的安裝教程嗎？精細的安裝步驟分享給大家》" width="630" height="517" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/fda73c75521443d1954ef880d44e3602" alt="《還在尋找Kafka最新的安裝教程嗎？精細的安裝步驟分享給大家》" width="630" height="517" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>即使在非常廉價的商用機器上也能做到單機支持每秒100K條以上消息的傳輸。支持Kafka Server間的消息分區，及分散式消費，同時保證每個Partition內的消息順序傳輸。同時支持離線數據處理（hive、HBASE）和實時數據處理（spark、storm）。</p>
+<p>話不多說，開啟我實際安裝過程。如下的安裝步驟都是可以在虛擬機裡面直接複製使用的。溫馨提醒，如果是在實際的生產環境進行部署的話，請記得掛著磁碟。</p>
+<p>希望對你們有幫助！！！其中標紅的部分，新手要特別注意，大神們就忽略了。也歡迎大家留言指正！</p>
+<h2>一、集群規劃</h2>
+<h2>二、集群環境準備</h2>
+<p>以下步驟無特殊說明則各節點均需執行</p>
+<h2>1）關閉防火牆(三台)</h2>
+<p># 需要用root用戶執行</p>
+<p>service iptables stop</p>
+<p>chkconfig iptables off</p>
+<h2>2）關閉selinux(三台)</h2>
+<p>vim /etc/selinux/config</p>
+
+<p># 注釋下面一行</p>
+<p>#SELINUX=enforcing</p>
+<p># 添加下面一行</p>
+<p>SELINUX=disabled</p>
+<h2>3）配置域名映射(三台)</h2>
+<p>vim /etc/hosts</p>
+
+<p># 在末尾添加以下幾行，注意填寫實際IP及hostname</p>
+<p>IP01 hostname01 kafka01</p>
+<p>IP02 hostname02 kafka02</p>
+<p>IP03 hostname03 kafka03</p>
+<p>重啟機器</p>
+<p>reboot -h now</p>
+<h2>4）配置免密登錄</h2>
+<p># 生成公鑰與私鑰, 執行以下命令後按三次回車鍵即可</p>
+<p>ssh-keygen -t rsa</p>
+<p>所有節點拷貝公鑰到kafka01</p>
+<p>ssh-copy-id kafka01</p>
+<p>複製kafka01認證到其他機器</p>
+<p><strong>在kafka01執行</strong></p>
+<p>scp /root/.ssh/authorized_keys kafka02:/root/.ssh</p>
+<p>scp /root/.ssh/authorized_keys kafka03:/root/.ssh</p>
+<p>若中間出錯，100%後面不為1212 (404X3，n個節點為404Xn)，可以通過機器互ping驗證</p>
+<h2>5）時間同步</h2>
+<p><strong>在kafka01執行</strong></p>
+<p>確認是否安裝ntpd服務</p>
+<p>rpm -qa | grep ntp</p>
+<p>若未安裝，在線安裝</p>
+<p>yum install -y ntp</p>
+<p>設置ntpd服務開機啟動</p>
+<p>chkconfig ntpd on</p>
+<p>修改配置文件</p>
+<p>vim /etc/ntp.conf</p>
+
+<p># 添加下面一行，注意修改子網IP,如192.168.11.0</p>
+<p>restrict 子網IP mask 255.255.255.0 nomodify notrap</p>
+<p># 注釋下面四行</p>
+<p>#server 0.centos.pool.ntp.org</p>
+<p>#server 1.centos.pool.ntp.org</p>
+<p>#server 2.centos.pool.ntp.org</p>
+<p>#server 3.centos.pool.ntp.org</p>
+<p># 取消注釋或添加下面兩行</p>
+<p>server 127.127.1.0 # local clock</p>
+<p>fudge 127.127.1.0 stratum 10</p>
+<p>配置以下內容，保證BIOS與系統時間同步</p>
+<p>vim /etc/sysconfig/ntpd</p>
+
+<p># 添加下面一行</p>
+<p>SYNC_HWLOCK=yes</p>
+<p><strong>在其他節點執行</strong></p>
+<p>配置另外幾台與kafka01時間同步</p>
+<p>crontab -e</p>
+
+<p>*/1 * * * * /usr/sbin/ntpdate kafka01</p>
+<h2>6）安裝jdk(三台)</h2>
+<p>查看並卸載自帶的openjdk</p>
+<p>rpm -qa | grep java</p>
+<p>rpm -e java-1.6.0-openjdk-1.6.0.41-1.13.13.1.el6_8.x86_64 tzdata-java-2016j-1.el6.noarch java-1.7.0-openjdk-1.7.0.131-2.6.9.0.el6_8.x86_64 –kafkaps</p>
+<p>創建文件夾</p>
+<p># 用於存放安裝包</p>
+<p>mkdir -p /export/software/</p>
+<p># 用於安裝軟體</p>
+<p>mkdir -p /export/servers/</p>
+<p>上傳到/export/software/並解壓jdk</p>
+<p>cd /export/software/</p>
+<p>tar -zxvf jdk-8u141-linux-x64.tar.gz -C ../servers/</p>
+
+<p>配置環境變數</p>
+<p>vim /etc/profile</p>
+
+<p># JAVA_HOME</p>
+<p>export JAVA_HOME=/export/servers/jdk1.8.0_141</p>
+<p>export PATH=:$JAVA_HOME/bin:$PATH</p>
+
+<p>source /etc/profile</p>
+<p>驗證</p>
+<p>java -version</p>
+<p>結果顯示如下</p>
+<p>java version “1.8.0_141”</p>
+<p>Java(TM) SE Runtime Environment (build 1.8.0_141-b15)</p>
+<p>Java HotSpot(TM) 64-Bit Server VM (build 25.141-b15, mixed mode)</p>
+<h2>三、Zookeeper集群安裝</h2>
+<h2>1）下載安裝包</h2>
+
+<p>下載完成後上傳到集群上</p>
+<h2>2）解壓安裝包</h2>
+<p>cd /export/software/</p>
+<p>tar -zxvf zookeeper-3.4.14.tar.gz -C ../servers/</p>
+<h2>3）創建軟鏈接</h2>
+<p>cd /export/servers/</p>
+<p>ln -s zookeeper-3.4.14 zookeeper</p>
+<h2>4）修改配置文件</h2>
+<p>cd /export/servers/zookeeper/conf</p>
+<p>cp zoo_sample.cfg zoo.cfg</p>
+<p>mkdir -p /export/servers/zookeeper/zkdatas/</p>
+
+<p>vim zoo.cfg</p>
+
+<p># 指定zk文件存儲目錄</p>
+<p>dataDir=/export/servers/zookeeper/zkdatas</p>
+<p># 取消下面兩行注釋</p>
+<p>autopurge.snapRetainCount=3</p>
+<p>autopurge.purgeInterval=1</p>
+<p># 添加下面三行</p>
+<p>server.1=kafka01:2888:3888</p>
+<p>server.2=kafka02:2888:3888</p>
+<p>server.3=kafka03:2888:3888</p>
+<h2>5）添加myid配置</h2>
+<p>echo 1 &gt; /export/servers/zookeeper/zkdatas/myid</p>
+<h2>6）分發安裝包</h2>
+<p>scp -r /export/servers/zookeeper-3.4.14/ kafka02:/export/servers/</p>
+<p>scp -r /export/servers/zookeeper-3.4.14/ kafka03:/export/servers/</p>
+<h2>7）其他機器創建軟鏈接及修改myid值</h2>
+<p>ln -s /export/servers/zookeeper-3.4.14/ /export/servers/zookeeper</p>
+<p>kafka02</p>
+<p>echo 2 &gt; /export/servers/zookeeper/zkdatas/myid</p>
+<p>kafka03</p>
+<p>echo 3 &gt; /export/servers/zookeeper/zkdatas/myid</p>
+<h2>8）啟動zookeeper集群</h2>
+<p>啟動腳本如下</p>
+<p><strong>zookeeper-start.sh</strong></p>
+<p>#!/bin/bash</p>
+
+<p>echo “1.啟動節點kafka01、kafka02和kafka03……”</p>
+<p>for n in kafka01 kafka02 kafka03</p>
+<p>do</p>
+<p>ssh $n “source /etc/profile;/export/servers/zookeeper/bin/zkServer.sh start”</p>
+<p>done</p>
+
+<p>#休眠1秒</p>
+<p>sleep 1</p>
+
+<p>echo “2.查看集群各節點狀態……”</p>
+<p>for n in kafa01 kafka02 kafka03</p>
+<p>do</p>
+<p>ssh $n “source /etc/profile;/export/servers/zookeeper/bin/zkServer.sh status”</p>
+<p>done</p>
+<p>停止腳本如下</p>
+<p><strong>zookeeper-stop.sh</strong></p>
+<p>#!/bin/bash</p>
+
+<p>echo “1.停止節點kafka01、kafka02和kafka03……”</p>
+<p>for n in kafka01 kafka02 kafka03</p>
+<p>do</p>
+<p>ssh $n “source /etc/profile;/export/servers/zookeeper/bin/zkServer.sh stop”</p>
+<p>done</p>
+<p>#休眠1秒</p>
+<p>sleep 1</p>
+
+<p>echo “4. 查看集群各節點狀態……”</p>
+<p>for n in kafka01 kafka02 kafka03</p>
+<p>do</p>
+<p>ssh $n “source /etc/profile;/export/servers/zookeeper/bin/zkServer.sh status”</p>
+<p>done</p>
+
+<h2>四、kafka集群安裝</h2>
+<h2>1）下載安裝包</h2>
+
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/4a33f5b5dc8847658476d828931a4163" alt="《還在尋找Kafka最新的安裝教程嗎？精細的安裝步驟分享給大家》" width="640" height="343" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/4a33f5b5dc8847658476d828931a4163" alt="《還在尋找Kafka最新的安裝教程嗎？精細的安裝步驟分享給大家》" width="640" height="343" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>下載完成後上傳到集群上</p>
+<h2>2）解壓安裝包</h2>
+<p>cd /export/software/</p>
+<p>tar -zxvf kafka_2.11-2.2.1.tgz -C ../servers/</p>
+<h2>3）創建軟鏈接</h2>
+<p>ln -s kafka_2.11-2.2.1/ kafka</p>
+<h2>4）創建logs文件夾</h2>
+<p>cd /export/servers/kafka</p>
+<p>mkdir logs</p>
+<h2>5）備份並修改配置文件</h2>
+<p>cd /export/servers/kafka/config</p>
+<p>cp server.properties server.properties.bak</p>
+<p>修改內容</p>
+<p>vim server.properties</p>
+
+<p>############################# Server Basics #############################</p>
+
+<p>#broker的全局唯一編號，不能重複</p>
+<p>broker.id=0</p>
+
+<p>############################# Socket Server Settings #############################</p>
+
+<p># 監聽列表</p>
+<p>listeners=PLAINTEXT://kafka01:9092</p>
+
+<p># 處理網路請求的線程數, 一般等於核心數</p>
+<p>num.network.threads=3</p>
+
+<p># 用來處理磁碟IO的線程數</p>
+<p>num.io.threads=8</p>
+
+<p># socket 發送緩衝區</p>
+<p>socket.send.buffer.bytes=102400</p>
+
+<p># socket 接收緩衝區</p>
+<p>socket.receive.buffer.bytes=102400</p>
+
+<p># socket請求最大數值，防止serverOOM</p>
+<p>socket.request.max.bytes=104857600</p>
+
+<p>############################# Log Basics #############################</p>
+
+<p># kafka運行日誌存放的路徑</p>
+<p>log.dirs=/export/servers/kafka/logs</p>
+
+<p># 默認分區數 會被命令行參數覆蓋</p>
+<p>num.partitions=3</p>
+
+<p># 用來恢復和清理data下數據的線程數量</p>
+<p>num.recovery.threads.per.data.dir=1</p>
+
+<p>############################# Internal Topic Settings #############################</p>
+<p># 內置主題 “__consumer_offsets” and “__transaction_state” 的副本數</p>
+<p>offsets.topic.replication.factor=3</p>
+<p>transaction.state.log.replication.factor=3</p>
+<p>transaction.state.log.min.isr=3</p>
+
+<p>############################# Log Flush Policy #############################</p>
+
+<p># The number of messages to accept before forcing a flush of data to disk</p>
+<p>#log.flush.interval.messages=10000</p>
+
+<p># The maximum amount of time a message can sit in a log before we force a flush</p>
+<p>#log.flush.interval.ms=1000</p>
+
+<p>############################## Log Retention Policy #############################</p>
+
+<p># topic數據默認保留時長, 10天</p>
+<p>log.retention.hours=240</p>
+
+<p># A size-based retention policy for logs. Segments are pruned from the log unless the remaining</p>
+<p># segments drop below log.retention.bytes. Functions independently of log.retention.hours.</p>
+<p>#log.retention.bytes=1073741824</p>
+
+<p># 一個消息長度, 超過再創建一個</p>
+<p>log.segment.bytes=1073741824</p>
+
+<p># 文件大小檢查周期</p>
+<p>log.retention.check.interval.ms=300000</p>
+
+<p>############################# Zookeeper #############################</p>
+
+<p># 配置連接Zookeeper集群地址</p>
+<p>zookeeper.connect=kafka01:2181,kafka02:2181,kafka03:2181</p>
+
+<p># zookeeper連接超時時間</p>
+<p>zookeeper.connection.timeout.ms=6000</p>
+
+<p>############################# Group Coordinator Settings #############################</p>
+
+<p>group.initial.rebalance.delay.ms=0</p>
+
+<p>############################# Other #############################</p>
+
+<p># 數據副本個數</p>
+<p>default.replication.factor=3</p>
+
+<p># 單條消息最大長度4Mb</p>
+<p>message.max.bytes=4000000</p>
+
+<p># broker可複製的消息的最大位元組數。值應該比message.max.bytes大</p>
+<p>replica.fetch.max.bytes=4194304</p>
+
+<p># 消費者能讀取的最大消息,值應該大於或等於message.max.bytes</p>
+<p>max.partition.fetch.bytes=4194304</p>
+
+<p># 允許刪除主題</p>
+<p>delete.topic.enable=true</p>
+<h2>6）各節點分別添加環境變數</h2>
+<p>vim /etc/profile</p>
+
+<p>#KAFKA_HOME</p>
+<p>export KAFKA_HOME=/export/servers/kafka/</p>
+<p>export PATH=$PATH:$KAFKA_HOME/bin</p>
+
+<p>source /etc/profile</p>
+<h2>7）分發安裝包</h2>
+<p>注意：kafka02和kafka03</p>
+<p>scp -r /export/servers/kafka_2.11-2.2.1/ kafka02:/export/servers/</p>
+<p>scp -r /export/servers/kafka_2.11-2.2.1/ kafka03:/export/servers/</p>
+<h2>8）其他機器創建軟鏈接及修改配置文件</h2>
+<p>ln -s /export/servers/kafka_2.11-2.2.1 /export/servers/kafka</p>
+<p>kafka02</p>
+<p>broker.id=1</p>
+
+<p>listeners=PLAINTEXT://kafka02:9092</p>
+
+<p>kafka03</p>
+<p>broker.id=2</p>
+
+<p>listeners=PLAINTEXT://kafka03:9092</p>
+<h2>9）啟動kafka集群</h2>
+<p>啟動腳本如下</p>
+<p>kafka-start.sh</p>
+<p>#!/bin/bash</p>
+
+<p>echo “正在啟動kafka集群……”</p>
+
+<p>for n in kafka01 kafka02 kafka03</p>
+<p>do</p>
+<p>ssh $n “source /etc/profile;/export/servers/kafka/bin/kafka-server-start.sh -daemon /export/servers/kafka/config/server.properties”</p>
+<p>done</p>
+
+<p>echo “啟動kafka集群完成……”</p>
+
+<p>停止腳本如下</p>
+<p>kafka-stop.sh</p>
+<p>#!/bin/bash</p>
+
+<p>echo “正在關閉kafka集群……”</p>
+
+<p>for n in kafka01 kafka02 kafka03</p>
+<p>do</p>
+<p>ssh $n “source /etc/profile;/export/servers/kafka/bin/kafka-server-stop.sh”</p>
+<p>done</p>
+
+<p>echo “關閉kafka集群完成……”</p>
+<h2>10）kafka測試</h2>
+<p># 創建topic</p>
+<p>kafka-topics.sh –create –zookeeper kafka01:2181,kafka02:2181,kafka03:2181 –replication-factor 3 –partitions 3 –topic topic-test</p>
+<p># 查看topic詳情</p>
+<p>kafka-topics.sh –describe –zookeeper kafka01:2181,kafka02:2181,kafka03:2181 localhost:2181 –topic topic-test</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/aace8d7efea244659148f13fd4816bad" alt="《還在尋找Kafka最新的安裝教程嗎？精細的安裝步驟分享給大家》" width="914" height="82" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/aace8d7efea244659148f13fd4816bad" alt="《還在尋找Kafka最新的安裝教程嗎？精細的安裝步驟分享給大家》" width="914" height="82" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p># 開啟消息生產者</p>
+<p>kafka-console-producer.sh –broker-list kafka01:9092,kafka02:9092,kafka03:9092 –topic topic-test</p>
+<p># 開啟消息消費者</p>
+<p>kafka-console-consumer.sh –bootstrap-server kafka01:9092,kafka02:9092,kafka03:9092 –from-beginning –topic topic-test</p>
+<p>在消息生產者發送消息消費者能收到即可</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/dfic-imagehandler/8b1514d2-4d5b-4575-9d1f-8c92a7b5a592" alt="《還在尋找Kafka最新的安裝教程嗎？精細的安裝步驟分享給大家》" width="640" height="480" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/dfic-imagehandler/8b1514d2-4d5b-4575-9d1f-8c92a7b5a592" alt="《還在尋找Kafka最新的安裝教程嗎？精細的安裝步驟分享給大家》" width="640" height="480" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/10014#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.239 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:26:22 -->
+
+<!-- super cache -->

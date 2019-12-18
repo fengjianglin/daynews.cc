@@ -1,0 +1,594 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/15297#primaryimage","url":"http://p9.pstatp.com/large/pgc-image/2bbf6ea0711346f78621e3fe021aec65"},{"@type":"WebPage","@id":"https://daynews.cc/technology/15297#webpage","url":"https://daynews.cc/technology/15297","inLanguage":"zh-TW","name":"\u4f60\u7684PHP\u9805\u76ee\u9047\u5230\u6027\u80fd\u554f\u984c\u4e86\u55ce\uff1f\u770b\u5b8c\u9019\u7bc7\u6027\u80fd\u5206\u6790\u604d\u7136\u5927\u609f - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/15297#primaryimage"},"datePublished":"2019-12-15T20:50:10+00:00","dateModified":"2019-12-15T20:50:10+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="你的項目中遇到性能問題了嗎？遇到性能問題你是如何解決的呢？你的解決方式是否正確呢？下面就跟大家一起分享php項目的性能問題。 PHP語言級性能分析 php在什麼情況下會遇到性能問題呢？ 在討論性能問題時，我們要明白，整個項目的性能問題不僅僅包含php這一塊，比如還有資料庫服務、緩存服務、文件系統等，因此php性能問題在整個項目中只佔一部分……" />
+<meta name="twitter:title" content="你的PHP項目遇到性能問題了嗎？看完這篇性能分析恍然大悟 - 天天要聞" />
+<meta name="twitter:image" content="http://p9.pstatp.com/large/pgc-image/2bbf6ea0711346f78621e3fe021aec65" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="你的PHP項目遇到性能問題了嗎？看完這篇性能分析恍然大悟 - 天天要聞" />
+<meta property="og:description" content="你的項目中遇到性能問題了嗎？遇到性能問題你是如何解決的呢？你的解決方式是否正確呢？下面就跟大家一起分享php項目的性能問題。 PHP語言級性能分析 php在什麼情況下會遇到性能問題呢？ 在討論性能問題時，我們要明白，整個項目的性能問題不僅僅包含php這一塊，比如還有資料庫服務、緩存服務、文件系統等，因此php性能問題在整個項目中只佔一部分……" />
+<meta property="og:url" content="https://daynews.cc/technology/15297" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-15T20:50:10+00:00" />
+	<title>你的PHP項目遇到性能問題了嗎？看完這篇性能分析恍然大悟 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/15297" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">你的PHP項目遇到性能問題了嗎？看完這篇性能分析恍然大悟</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-16T04:50:10+00:00">
+		2 天 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<p>你的項目中遇到性能問題了嗎？遇到性能問題你是如何解決的呢？你的解決方式是否正確呢？下面就跟大家一起分享php項目的性能問題。</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/2bbf6ea0711346f78621e3fe021aec65" alt="《你的PHP項目遇到性能問題了嗎？看完這篇性能分析恍然大悟》" width="500" height="318" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/2bbf6ea0711346f78621e3fe021aec65" alt="《你的PHP項目遇到性能問題了嗎？看完這篇性能分析恍然大悟》" width="500" height="318" class=""></noscript></amp-img>
+<p class="pgc-img-caption">PHP語言級性能分析</p>
+
+</div>
+<p>php在什麼情況下會遇到性能問題呢？</p>
+<p>在討論性能問題時，我們要明白，整個項目的性能問題不僅僅包含php這一塊，比如還有資料庫服務、緩存服務、文件系統等，因此php性能問題在整個項目中只佔一部分，在優化系統性能時要搞清楚是在優化系統整體性能還是在優化PHP單方面的性能。</p>
+<p>首先，PHP是一門編程語言，我們知道每一門編程語言都有自己的優勢及擅長的領域，所以使用php做了它不擅長的事情會很大概率遇到性能問題。再者，編碼者在開發時PHP語法使用不恰當，導致php運行慢。最後，就是我們無法預估的問題，沒有明確解決思路的性能問題。<strong>今天我們主要介紹PHP語言級的性能問題。</strong></p>
+<h2 class="pgc-h-arrow-right">1、PHP性能檢測的工具：ab</h2>
+<p>ab(apache benchmark)是由apache提供的壓力測試工具，安裝Apache時會自動安裝此插件。</p>
+<p>使用ab工具：</p>
+<p> <strong>ab -n1000 -c100 https://www.test.com</strong></p>
+<p>-n表示請求數，後面跟數字，總共發起的請求數</p>
+<p>-c表示並發數，後面跟數字，同一時刻的請求數</p>
+<p>url最後跟要檢測的目標地址</p>
+<p>我們對百度進行一個檢測，注意：對別的網站進行ab測試時，-n和-c後面的數字小點，不然會對目標網站造成一定的壓力，然後人家發現你就把你給kill了：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/f58423bf53f94f8785f4e49c6a9e3e3d" alt="《你的PHP項目遇到性能問題了嗎？看完這篇性能分析恍然大悟》" width="640" height="472" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/f58423bf53f94f8785f4e49c6a9e3e3d" alt="《你的PHP項目遇到性能問題了嗎？看完這篇性能分析恍然大悟》" width="640" height="472" class=""></noscript></amp-img>
+<p class="pgc-img-caption">ab壓測結果</p>
+
+</div>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/af3b1f4f4ec64b9ca46b082a306967f1" alt="《你的PHP項目遇到性能問題了嗎？看完這篇性能分析恍然大悟》" width="640" height="560" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/af3b1f4f4ec64b9ca46b082a306967f1" alt="《你的PHP項目遇到性能問題了嗎？看完這篇性能分析恍然大悟》" width="640" height="560" class=""></noscript></amp-img>
+<p class="pgc-img-caption">ab壓測結果</p>
+
+</div>
+<p>這裡我們只關注兩個數據：</p>
+<p>(1)、Requests per second：每秒可處理的請求數，越大越好 。</p>
+<p>(2)、Time per request：每個請求處理耗時數，越小越好。</p>
+<p>這樣我們在每次進行過性能優化後可以通過前後這兩項數據的對比確定優化有沒有效果。</p>
+<h2 class="pgc-h-arrow-right">2、PHP語言級性能優化</h2>
+<p>(1)、多使用PHP自身攜帶的功能處理邏輯</p>
+<p>如：有一個10000個用戶信息的二維數組$userInfoList，要把它轉為一維數組，且以uid為鍵名，username為鍵值，看多很多人寫的代碼都是通過foreach循環來實現，實際上這個是可以用PHP自帶的數組函數來搞定的：</p>
+<p><strong>一般代碼：</strong></p>
+<pre>&lt;?php<br>$userMap = array();<br>foreach ($userInfoList as $val) {<br> $userMap[$val['uid']] = $val['username'];<br>}<br><br>var_dump($userMap);</pre>
+<p><strong>php數組函數：</strong></p>
+<pre>&lt;?php<br>$userMap = array_column($userInfoList, 'username', 'uid');<br><br>var_dump($userMap);</pre>
+<p>這個函數就能實現這種功能，代碼簡單又容易理解，運行速度還比自己包裝的快。</p>
+<p>函數參數：array_column($array, $column, [$index_key]);</p>
+<p>(2)、php內置函數的也存在快與慢的差異</p>
+<p>比如：查找一個index是否存在於數組$array的key中，大家都能想到使用array_key_exists($index, $array)，當然有的同學也想到了使用isset($array[$index])這個函數。看下面代碼：</p>
+<pre>&lt;?php<br>$array = rang(2000, 10000)<br><br>$start = time();<br><br>for ($i = 0; $i &lt; 20000; $i ++) {<br><br>  isset($array[$i]); //測完這個注釋掉，打開下面測<br><br>  //array_key_exists($i, $array); //每項要多測幾次，用平均值做比較<br><br>}<br><br>$end = time();<br><br>$time = $end - $start;<br><br>echo $time;</pre>
+<p><strong>沒錯，這兩個函數都能實現相同的功能，然而在經過測算後發現，isset()函數的速度要快於array_key_exists()函數。所以大家平時使用內置函數時，要思考一下什麼時候該使用哪個同類型的函數。</strong></p>
+<p><u>建議phper們多了解些內置函數的實現思路及函數計算的時間複雜度，大概知道了運算的時間複雜度的量級，那麼在使用的時候就能夠選擇合適的函數。</u></p>
+<p>(3)、總結幾個比較常見的注意點</p>
+<ul class="">
+<li>減少PHP魔法函數的使用，也叫魔術方法</li>
+<li>最好禁用掉PHP錯誤抑制符@，雖然很方便，但是最好別用</li>
+<li>減少在循環體內做大量運算</li>
+<li>使用帶引號字元串做鍵值</li>
+</ul>
+<p>好了，今天的分享就到這裡了，如果喜歡我的內容，歡迎轉發，留言~~</p>
+<p>謝謝~~</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/15297#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.246 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:25:23 -->
+
+<!-- super cache -->

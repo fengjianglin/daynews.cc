@@ -1,0 +1,645 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/9955#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/0184092ed7c74ee2961af205d95df338"},{"@type":"WebPage","@id":"https://daynews.cc/technology/9955#webpage","url":"https://daynews.cc/technology/9955","inLanguage":"zh-TW","name":"Linux\u5d4c\u5165\u5f0f\uff0c\u9084\u50bb\u50bb\u4f7f\u7528sleep\u548c\u770b\u9580\u72d7\u4f86\u7ba1\u7406\u9032\u7a0b\u55ce\uff1fPCD\u4e86\u89e3\u4e0b - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/9955#primaryimage"},"datePublished":"2019-12-08T06:50:12+00:00","dateModified":"2019-12-08T06:50:12+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="不定期分享linux系統、shell腳本相關文章，喜歡大叔的作品，請關注我，本文在頭條原創首發，未經許可禁止轉載。 前言 Linux嵌入式系統的進程啟動，大多數是在rcS腳本之後啟動各個業務模塊，使用sleep命令控制腳本的間隔時間，比如腳本是這樣。 #！/bin/bashexport PATH=&quot;/xxx/bin:$PATH&quot;expor……" />
+<meta name="twitter:title" content="Linux嵌入式，還傻傻使用sleep和看門狗來管理進程嗎？PCD了解下 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/0184092ed7c74ee2961af205d95df338" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Linux嵌入式，還傻傻使用sleep和看門狗來管理進程嗎？PCD了解下 - 天天要聞" />
+<meta property="og:description" content="不定期分享linux系統、shell腳本相關文章，喜歡大叔的作品，請關注我，本文在頭條原創首發，未經許可禁止轉載。 前言 Linux嵌入式系統的進程啟動，大多數是在rcS腳本之後啟動各個業務模塊，使用sleep命令控制腳本的間隔時間，比如腳本是這樣。 #！/bin/bashexport PATH=&quot;/xxx/bin:$PATH&quot;expor……" />
+<meta property="og:url" content="https://daynews.cc/technology/9955" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-08T06:50:12+00:00" />
+	<title>Linux嵌入式，還傻傻使用sleep和看門狗來管理進程嗎？PCD了解下 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/9955" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">Linux嵌入式，還傻傻使用sleep和看門狗來管理進程嗎？PCD了解下</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-08T14:50:12+00:00">
+		1 週 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<pre>不定期分享linux系統、shell腳本相關文章，喜歡大叔的作品，請關注我，本文在頭條原創首發，未經許可禁止轉載。</pre>
+<h2><strong>前言</strong></h2>
+<p>Linux嵌入式系統的進程啟動，大多數是在rcS腳本之後啟動各個業務模塊，使用sleep命令控制腳本的間隔時間，比如腳本是這樣。</p>
+<pre>#！/bin/bash<br>export PATH="/xxx/bin:$PATH"<br>export LD_LIBRARY_PATH="/xxx/lib:$LD_LIBRARY_PATH"<br><br>/xxx/bin/proctest1 1&gt;/dev/null 2&gt;&amp;1 &amp;<br>slepp 1<br>/xxx/bin/proctest2 1&gt;/dev/null 2&gt;&amp;1 &amp;<br>sleep 1<br><br>...</pre>
+<p>而一些進程需要依賴Linux系統的環境或者某一個進程就緒後才繼續啟動其他進程，比如某一個網卡是否啟動，我們常用grep命令來過濾是否就緒，比如這樣：</p>
+<pre>ifconfig |grep lanxx <br>或者<br>ps x|grep [p]rocxx<br><br>[ $? -eq 0 ] &amp;&amp; /xxx/bin/porc1 </pre>
+<p>或者我們擔心進程在某些情況下是否掛掉，我在啟動腳本的最後還需要啟動一個app_watchdog腳本定時來檢查腳本是否存在，比如腳本是這樣：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/0184092ed7c74ee2961af205d95df338" alt="《Linux嵌入式，還傻傻使用sleep和看門狗來管理進程嗎？PCD了解下》" width="497" height="658" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/0184092ed7c74ee2961af205d95df338" alt="《Linux嵌入式，還傻傻使用sleep和看門狗來管理進程嗎？PCD了解下》" width="497" height="658" class=""></noscript></amp-img>
+<p class="pgc-img-caption">linux系統進程”看門狗”腳本</p>
+
+</div>
+<p>這樣的進程管理和進程看護，顯然不是很規範，而”看門狗”腳本會輪詢後台啟動的進程，大量的sleep和ps查詢，對於硬體配置不高的嵌入式產品就有些浪費資源。</p>
+<h2><strong>PCD是什麼，能夠做什麼？</strong></h2>
+<p>Process Control Daemon簡稱PCD，過程式控制制守護程序，主要用於基於Linux的嵌入式產品，是開源的、輕量級系統管理，可以減少系統的啟動時間並增強系統的可靠性。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/9fc4eb64716542f1bf944dc4943cb44f" alt="《Linux嵌入式，還傻傻使用sleep和看門狗來管理進程嗎？PCD了解下》" width="533" height="385" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/9fc4eb64716542f1bf944dc4943cb44f" alt="《Linux嵌入式，還傻傻使用sleep和看門狗來管理進程嗎？PCD了解下》" width="533" height="385" class=""></noscript></amp-img>
+<p class="pgc-img-caption">Process Control Daemon</p>
+
+</div>
+<ul class="">
+<li><strong>PCD能夠做什麼</strong></li>
+</ul>
+<ol start="1">
+<li>增強對系統中所有流程的控制和監視</li>
+<li>減少系統的啟動時間</li>
+<li>何時啟動每個進程，啟動前需要依賴哪些資源，啟動失敗該做什麼操作</li>
+<li>改善系統的穩定性</li>
+<li>形成進程啟動的圖形關係表</li>
+</ol>
+<h2><strong>PCD軟體的編譯安裝</strong></h2>
+<p>既然PCD主要用於嵌入式產品中，它支持的架構有：ARM、MIPS、X86、X64。這裡我使用centos6.7×64來進行說明。</p>
+<ul class="">
+<li>首先我們下載PCD軟體</li>
+</ul>
+<pre>wget https://excellmedia.dl.sourceforge.net/project/pcd/pcd-sdk-latest.tar.bz2</pre>
+<ul class="">
+<li>解壓PCD軟體</li>
+</ul>
+<pre>[root@api PCD]# tar -jxvf pcd-sdk-latest.tar.bz2 <br>pcd-1.1.6/<br>pcd-1.1.6/examples/<br>pcd-1.1.6/examples/parse-rules.sh<br>pcd-1.1.6/examples/graph.txt<br>pcd-1.1.6/examples/etc/<br>pcd-1.1.6/examples/etc/scripts/<br>pcd-1.1.6/examples/etc/scripts/product.pcd<br>pcd-1.1.6/examples/etc/scripts/system.pcd<br>pcd-1.1.6/examples/etc/scripts/component.pcd<br><br>...</pre>
+<ul class="">
+<li>配置PCD</li>
+</ul>
+<p>PCD支持通過Kconfig配置引擎配置PCD，類似於Linux Kernel配置方法，這裡使用make menuconfig在文本菜單中配置PCD，如下圖：</p>
+<pre>[root@api pcd-1.1.6]# make menuconfig</pre>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/bf547813f9c64b64a4b8c15fc22e2ab7" alt="《Linux嵌入式，還傻傻使用sleep和看門狗來管理進程嗎？PCD了解下》" width="402" height="360" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/bf547813f9c64b64a4b8c15fc22e2ab7" alt="《Linux嵌入式，還傻傻使用sleep和看門狗來管理進程嗎？PCD了解下》" width="402" height="360" class=""></noscript></amp-img>
+<p class="pgc-img-caption">PCD配置項主菜單</p>
+
+</div>
+<p>在這個菜單中我們可以選擇平台、設備交叉編譯器、設置安裝的目錄等。我們依次進入來選擇需要編譯的平台，如下圖：</p>
+<pre>PCD Configuration --&gt;<br>PCD Compile time configurations ---&gt;<br>Target Platform type (X86) ---&gt;</pre>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/e04253dfebfb40448ba1c5ee6bbe1b24" alt="《Linux嵌入式，還傻傻使用sleep和看門狗來管理進程嗎？PCD了解下》" width="533" height="438" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/e04253dfebfb40448ba1c5ee6bbe1b24" alt="《Linux嵌入式，還傻傻使用sleep和看門狗來管理進程嗎？PCD了解下》" width="533" height="438" class=""></noscript></amp-img>
+<p class="pgc-img-caption">選擇PCD編譯的平台ARM、MIPS等</p>
+
+</div>
+<p>也可以配置PCD的安裝目錄、頭文件目錄或者開啟其他選項信息等。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/34c27c033bcc44abaa2427026256b35f" alt="《Linux嵌入式，還傻傻使用sleep和看門狗來管理進程嗎？PCD了解下》" width="453" height="304" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/34c27c033bcc44abaa2427026256b35f" alt="《Linux嵌入式，還傻傻使用sleep和看門狗來管理進程嗎？PCD了解下》" width="453" height="304" class=""></noscript></amp-img>
+<p class="pgc-img-caption">PCD安裝目錄和其他信息</p>
+
+</div>
+<p class="">對於交叉編譯我們需要設備編譯器、頭文件、依賴的庫等，可以通過環境變數來配置：</p>
+<pre>export CC=armeb-linux-uclibceabi-gcc<br>#配置編譯器<br>export INCLUDE_DIR_PREFIX=/your_dir/include<br>#配置頭文件目錄<br>export INSTALL_DIR_PREFIX=/your_dir/INSTALL_DIR<br>#配置最後安裝的目錄<br>export LIB_DIR_PREFIX=/your_dir/lib<br>#配置需要依賴的庫文件<br>export CONFIG_ARM=y<br>#配置平台文件需要和編譯器對應<br>#其他為：CONFIG_X86 或 CONFIG_MIPS 或CONFIG_X64</pre>
+<ul class="">
+<li>編譯PCD軟體</li>
+</ul>
+<p>在配置完畢後需要編譯PCD軟體了，直接make，下圖是編譯過程。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/8cc74ace8d754ba0a10a6a86c9b53386" alt="《Linux嵌入式，還傻傻使用sleep和看門狗來管理進程嗎？PCD了解下》" width="557" height="566" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/8cc74ace8d754ba0a10a6a86c9b53386" alt="《Linux嵌入式，還傻傻使用sleep和看門狗來管理進程嗎？PCD了解下》" width="557" height="566" class=""></noscript></amp-img>
+<p class="pgc-img-caption">PCD編譯過程</p>
+
+</div>
+<p>編譯完畢會在pcd目錄產生一個bin目錄，我們需要的程序和lib都在這個目錄。</p>
+<pre>[root@api bin]# tree -l<br>.<br>├── host<br>└── target<br> ├── lib<br> │ ├── libipc.so<br> │ └── libpcd.so<br> └── usr<br> └── sbin<br> └── pcd<br><br>5 directories, 3 files</pre>
+<p>上面 user/bin/pcd 就是PCD程序，libipc.so，libpcd.so是pcd啟動時需要依賴的庫文件，在部署的時候需要將這兩個庫文件放到動態鏈接庫的目錄，比如這樣做：</p>
+<pre>export LD_LIBRARY_PATH="/xxx/lib:$LD_LIBRARY_PATH"</pre>
+<p>至此，PCD的編譯就完畢了，而對PCD規則管理和使用，下面繼續講解。</p>
+<h2>PCD的腳本文件和規則配置</h2>
+<p>首先我們看一下PCD程序的說明</p>
+<pre>[root@api sbin]# export LD_LIBRARY_PATH="/usr/lib:$LD_LIBRARY_PATH"</pre>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/89cd94c237394958bf8c7fdb794fad02" alt="《Linux嵌入式，還傻傻使用sleep和看門狗來管理進程嗎？PCD了解下》" width="552" height="208" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/89cd94c237394958bf8c7fdb794fad02" alt="《Linux嵌入式，還傻傻使用sleep和看門狗來管理進程嗎？PCD了解下》" width="552" height="208" class=""></noscript></amp-img>
+<p class="pgc-img-caption">PCD程序幫助說明</p>
+
+</div>
+<p>得到PCD的幫助說明後，我們可以這樣啟動PCD程序。</p>
+<pre>./pcd -f ./product.pcd -t 200 -v -d -e /log/pcderror.log<br>-f ：指定規則文件<br>-v ：顯示詳細信息<br>-d ：顯示調試信息<br>-t ：指定規則間隔時間200ms<br>-e ：指定pcd錯誤日誌路徑</pre>
+<p>對於PCD規則腳本我們可以定義一個住腳本，包含其它多個規則腳本，在上面的product.pcd 腳本中可以這樣定義，如下：</p>
+<pre>INCLUDE = ./system.pcd<br>INCLUDE = ./env.pcd<br>#此路徑需要寫絕對路徑</pre>
+<p>具體的腳本規則是：</p>
+<pre>RULE = HSG_PROC1<br>START_COND = NONE<br>COMMAND = /xxx/bin/proc1 &gt; /dev/null<br>SCHED = NICE,0<br>DAEMON = YES<br>END_COND = NONE<br>END_COND_TIMEOUT = -1<br>FAILURE_ACTION = RESTART<br>ACTIVE = YES</pre>
+<p>腳本規則詳細說明如下：</p>
+<pre>RULE = SYSTEM_PROC<br>#規則名稱，格式： 文件前綴_程序名稱<br><br>START_COND = {NONE | FILE,[filename] | RULE_COMPLETED,[rule],..<br> | NET_DEVICE,[netdev] | IPC_OWNER,[owner] | ENV_VAR,[variable,value]}<br>#前置條件可以判斷文件，網卡，變數，規則等是否就緒<br><br>COMMAND = &lt;Full path&gt; [parameters] [$variable] <br>#啟動參數，可以使用變數，在執行前使用export宣告變數即可<br><br>SCHED = NICE,-19..19 | FIFO,1..99<br>#程序啟動優先順序<br><br>DAEMON = YES | NO<br>#是否守護該進程，也就是代替watchdog腳本<br> <br>END_COND = NONE | FILE,[filename] | NET_DEVICE,[netdevice]<br> | WAIT,[delay] | EXIT,[status] | IPC_OWNER,[owner]<br>#結束前的提交，可以額是判斷文件，網卡，等待，對出狀態等。<br><br>END_COND_TIMEOUT = -1 | 0..99999 <br>#結束超時時間，一般是-1，不設置<br><br>FAILURE_ACTION = NONE | REBOOT | RESTART | EXEC_RULE<br>#進程啟動失敗時的動作<br><br>ACTIVE = YES | NO <br>#是否自動激活</pre>
+<p>從PCD的規則腳本可以看出PCD對於進程管理做出了充分考慮，可以指定進程啟動的前置條件或進程啟動失敗後的動作，是守護該進程，是否自動激活等。</p>
+<h2>最後展示一下PCD的啟動關係示例</h2>
+<p>到這裡PCD的介紹就完畢了，最後我們可以使用PCD自帶的工具禪城dot文件，來生成各個進程啟動的依賴關係，如下圖：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/efc533225a844ef0be0cd46bfb640974" alt="《Linux嵌入式，還傻傻使用sleep和看門狗來管理進程嗎？PCD了解下》" width="386" height="619" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/efc533225a844ef0be0cd46bfb640974" alt="《Linux嵌入式，還傻傻使用sleep和看門狗來管理進程嗎？PCD了解下》" width="386" height="619" class=""></noscript></amp-img>
+<p class="pgc-img-caption">PCD進程啟動關係示例圖</p>
+
+</div>
+<p>從圖中，我們可以很清晰看出各個進程的依賴關係，讓我們更方便的管理和展示，同時可以替代watchdog來自動啟動崩潰的進程，到此PCD的編譯和使用說明完畢。</p>
+<pre>最後喜歡大叔文章的可以關注我哦，歡迎大家評論留言。</pre>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/9955#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.279 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:35:58 -->
+
+<!-- super cache -->

@@ -1,0 +1,586 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/9587#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/e7fe56bf9e1a4cccab6a3b551fa3adea"},{"@type":"WebPage","@id":"https://daynews.cc/technology/9587#webpage","url":"https://daynews.cc/technology/9587","inLanguage":"zh-TW","name":"\u8a08\u7b97\u4e4b\u795e\u7684\u5e7e\u6b21\u98db\u8e8d\uff1a\u95dc\u65bc\u64cd\u4f5c\u7cfb\u7d71\u958b\u767c\u7684\u90a3\u6bb5\u6b77\u53f2 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/9587#primaryimage"},"datePublished":"2019-12-10T14:05:14+00:00","dateModified":"2019-12-10T14:05:14+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="早期操作系統：只是一些庫 一開始，操作系統並沒有做太多事情。基本上，它只是一組常用函數庫。例如，不是讓系統中的每個程序員都編寫低級I/O處理代碼，而是讓「OS」提供這樣的API，這樣開發人員的工作更加輕鬆。 通常，在這些老的大型機系統上，一次運行一個程序，由操作員來控制。這個操作員完成了你認為現代操作系統會做的許多事情（例如，決定運行作業……" />
+<meta name="twitter:title" content="計算之神的幾次飛躍：關於操作系統開發的那段歷史 - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/e7fe56bf9e1a4cccab6a3b551fa3adea" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="計算之神的幾次飛躍：關於操作系統開發的那段歷史 - 天天要聞" />
+<meta property="og:description" content="早期操作系統：只是一些庫 一開始，操作系統並沒有做太多事情。基本上，它只是一組常用函數庫。例如，不是讓系統中的每個程序員都編寫低級I/O處理代碼，而是讓「OS」提供這樣的API，這樣開發人員的工作更加輕鬆。 通常，在這些老的大型機系統上，一次運行一個程序，由操作員來控制。這個操作員完成了你認為現代操作系統會做的許多事情（例如，決定運行作業……" />
+<meta property="og:url" content="https://daynews.cc/technology/9587" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-10T14:05:14+00:00" />
+	<title>計算之神的幾次飛躍：關於操作系統開發的那段歷史 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/9587" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+</head>
+
+<body class="">
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+					</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">計算之神的幾次飛躍：關於操作系統開發的那段歷史</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=24&#038;d=mm&#038;r=g" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-10T22:05:14+00:00">
+		1 週 ago	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<div>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/e7fe56bf9e1a4cccab6a3b551fa3adea" alt="《計算之神的幾次飛躍：關於操作系統開發的那段歷史》" width="640" height="462" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/e7fe56bf9e1a4cccab6a3b551fa3adea" alt="《計算之神的幾次飛躍：關於操作系統開發的那段歷史》" width="640" height="462" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2><strong>早期操作系統：只是一些庫</strong></h2>
+<p>一開始，操作系統並沒有做太多事情。基本上，它只是一組常用函數庫。例如，不是讓系統中的每個程序員都編寫低級I/O處理代碼，而是讓「OS」提供這樣的API，這樣開發人員的工作更加輕鬆。</p>
+<p>通常，在這些老的大型機系統上，一次運行一個程序，由操作員來控制。這個操作員完成了你認為現代操作系統會做的許多事情（例如，決定運行作業的順序）。如果你是一個聰明的開發人員，就會對這個操作員很好，這樣他們可以將你的工作移動到隊列的前端。</p>
+<p>這種計算模式被稱為批（batch）處理，先把一些工作準備好，然後由操作員以「分批」的方式運行。此時，計算機並沒有以交互的方式使用，因為這樣做成本太高：讓用戶坐在計算機前使用它，大部分時間它都會閑置，所以會導致設施每小時浪費數千美元[BH00]。</p>
+<h2><strong>超越庫：保護</strong></h2>
+<p>在超越常用服務的簡單庫的發展過程中，操作系統在管理機器方面扮演著更為重要的角色。其中一個重要方面是意識到代表操作系統運行的代碼是特殊的。它控制了設備，因此對待它的方式應該與對待正常應用程序代碼的方式不同。為什麼這樣？好吧，想像一下，假設允許任何應用程序從磁碟上的任何地方讀取。因為任何程序都可以讀取任何文件，所以隱私的概念消失了。因此，將一個文件系統（file system）（管理你的文件）實現為一個庫是沒有意義的。實際上，還需要別的東西。</p>
+<p>因此，系統調用（system call）的概念誕生了，它是Atlas計算系統[K+61，L78]率先採用的。不是將操作系統常式作為一個庫來提供（你只需創建一個過程調用（procedure call）來訪問它們），這裡的想法是添加一些特殊的硬體指令和硬體狀態，讓向操作系統過渡變為更正式的、受控的過程。</p>
+<p>系統調用和過程調用之間的關鍵區別在於，系統調用將控制轉移（跳轉）到OS中，同時提高硬體特權級別（hardware privilege level）。用戶應用程序以所謂的用戶模式（user mode）運行，這意味著硬體限制了應用程序的功能。例如，以用戶模式運行的應用程序通常不能發起對磁碟的I/O請求，不能訪問任何物理內存頁或在網路上發送數據包。在發起系統調用時 [通常通過一個稱為陷阱（trap）的特殊硬體指令]，硬體將控制轉移到預先指定的陷阱處理程序（trap handler）（即預先設置的操作系統），並同時將特權級別提升到內核模式（kernel mode）。在內核模式下，操作系統可以完全訪問系統的硬體，因此可以執行諸如發起I/O請求或為程序提供更多內存等功能。當操作系統完成請求的服務時，它通過特殊的陷阱返回（return-from-trap）指令將控制權交還給用戶，該指令返回到用戶模式，同時將控制權交還給應用程序，回到應用離開的地方。</p>
+<h2><strong>多道程序時代</strong></h2>
+<p>操作系統的真正興起在大主機計算時代之後，即小型機（minicomputer）時代。像數字設備公司（DEC）的PDP系列這樣的經典機器，讓計算機變得更加實惠。因此，不再是每個大型組織擁有一台主機，而是組織內的一小群人可能擁有自己的計算機。毫不奇怪，這種成本下降的主要影響之一是開發者活動的增加。更聰明的人接觸到計算機，從而讓計算機系統做出更有趣和漂亮的事情。</p>
+<p>特別是，由於希望更好地利用機器資源，多道程序（multiprogramming）變得很普遍。操作系統不是一次只運行一項作業，而是將大量作業載入到內存中並在它們之間快速切換，從而提高CPU利用率。這種切換非常重要，因為I/O設備很慢。在處理I/O時讓程序占著CPU，浪費了CPU時間。那麼，為什麼不切換到另一份工作並運行一段時間？</p>
+<p>在I/O進行和任務中斷時，要支持多道程序和重疊運行。這一願望迫使操作系統創新，沿著多個方向進行概念發展。內存保護（memory protection）等問題變得重要。我們不希望一個程序能夠訪問另一個程序的內存。了解如何處理多道程序引入的並發（concurrency）問題也很關鍵。在中斷存在的情況下，確保操作系統正常運行是一個很大的挑戰。我們將在本書後面研究這些問題和相關主題。</p>
+<p>當時主要的實際進展之一是引入了UNIX操作系統，主要歸功于貝爾實驗室（電話公司）的Ken Thompson和Dennis Ritchie。UNIX從不同的操作系統獲得了許多好的想法（特別是來自Multics [O72]，還有一些來自TENEX [B+72]和Berkeley分時系統[S+68]等系統），但讓它們更簡單易用。很快，這個團隊就向世界各地的人們發送含有UNIX源代碼的磁帶，其中許多人隨後參與並添加到系統中。</p>
+<h2><strong>摩登時代</strong></h2>
+<p>除了小型計算機之外，還有一種新型機器，便宜，速度更快，而且適用於大眾：今天我們稱之為個人計算機（Personal Computer，PC）。在蘋果公司早期的機器（如Apple II）和IBM PC的引領下，這種新機器很快就成為計算的主導力量，因為它們的低成本讓每個桌子上都有一台機器，而不是每個工作小組共享一台小型機。</p>
+<p>遺憾的是，對於操作系統來說，個人計算機起初代表了一次巨大的倒退，因為早期的系統忘記了（或從未知道）小型機時代的經驗教訓。例如，早期的操作系統，如DOS（來自微軟的磁碟操作系統），並不認為內存保護很重要。因此，惡意程序（或者只是一個編程不好的應用程序）可能會在整個內存中亂寫亂七八糟的東西。第一代macOS（V9及更早版本）採取合作的方式進行作業調度。因此，意外陷入無限循環的線程可能會佔用整個系統，從而導致重新啟動。這一代系統中遺漏的操作系統功能造成的痛苦列表很長，太長了，因此無法在此進行全面的討論。</p>
+<p>幸運的是，經過一段時間的苦難後，小型計算機操作系統的老功能開始進入台式機。例如，macOS X的核心是 UNIX，包括人們期望從這樣一個成熟系統中獲得的所有功能。Windows在計算歷史中同樣採用了許多偉大的思想，特別是從Windows NT開始，這是微軟操作系統技術的一次巨大飛躍。即使在今天的手機上運行的操作系統（如Linux），也更像小型機在20世紀70年代運行的，而不像20世紀80年代PC運行的那種操作系統。很高興看到在操作系統開發鼎盛時期出現的好想法已經進入現代世界。更好的是，這些想法不斷發展，為用戶和應用程序提供更多功能，讓現代系統更加完善。</p>
+<h2><strong>UNIX的重要性</strong></h2>
+<p>在操作系統的歷史中，UNIX的重要性舉足輕重。受早期系統（特別是MIT著名的Multics系統）的影響，UNIX彙集了許多了不起的思想，創造了既簡單又強大的系統。</p>
+<p>最初的「貝爾實驗室」UNIX的基礎是統一的原則，即構建小而強大的程序，這些程序可以連接在一起形成更大的工作流。在你輸入命令的地方，shell提供了諸如管道（pipe）之類的原語，來支持這樣的元（meta-level）編程，因此很容易將程序串起來完成更大的任務。例如，要查找文本文件中包含單詞「foo」 的行，然後要計算存在多少行，請鍵入：grep foo file.txt | wc -l，從而使用grep和wc （單詞計數）程序來實現你的任務。</p>
+<p>UNIX環境對於程序員和開發人員都很友好，並為新的C編程語言提供了編譯器。程序員很容易編寫自己的程序並分享它們，這使得UNIX非常受歡迎。作為開放源碼軟體（open-source software）的早期形式，作者向所有請求的人免費提供副本，這可能幫助很大。</p>
+<p>代碼的可得性和可讀性也非常重要。用C語言編寫的美麗的小內核吸引其他人擺弄內核，添加新的、很酷的功能。例如，由Bill Joy領導的伯克利創業團隊發布了一個非常棒的發行版（Berkeley Systems Distribution，BSD），該發行版擁有先進的虛擬內存、文件系統和網路子系統。Joy後來與朋友共同創立了Sun Microsystems。</p>
+<p>遺憾的是，隨著公司試圖維護其所有權和利潤，UNIX的傳播速度有所放慢，這是律師參與其中的不幸（但常見的）結果。許多公司都有自己的變種：Sun Microsystems的SunOS、IBM的AIX、HP的HPUX（又名H-Pucks）以及SGI的IRIX。AT＆T/貝爾實驗室和這些其他廠商之間的法律糾紛給UNIX帶來了陰影，許多人想知道它是否能夠存活下來，尤其是Windows推出後並佔領了大部分PC市場……</p>
+<h2><strong>然後出現了Linux</strong></h2>
+<p>幸運的是，對於UNIX來說，一位名叫Linus Torvalds的年輕芬蘭黑客決定編寫他自己的UNIX版本，該版本嚴重依賴最初系統背後的原則和思想，但沒有借用原來的代碼集，從而避免了合法性問題。他徵集了世界各地許多其他人的幫助，不久，Linux就誕生了（同時也開啟了現代開源軟體運動）。</p>
+<p>隨著互聯網時代的到來，大多數公司（如谷歌、亞馬遜、Facebook和其他公司）選擇運行Linux，因為它是免費的，可以隨時修改以適應他們的需求。事實上，如果不存在這樣一個系統，很難想像這些新公司的成功。隨著智能手機成為佔主導地位的面向用戶的平台，出於許多相同的原因，Linux也在那裡找到了用武之地（通過Android）。史蒂夫·喬布斯將他的基於UNIX的NeXTStep操作環境帶到了蘋果公司，從而使得UNIX在台式機上非常流行（儘管很多蘋果技術用戶可能都不知道這一事實）。因此，UNIX今天比以往任何時候都更加重要。如果你相信有計算之神，那麼應該感謝這個美妙的結果。</p>
+<blockquote>
+<p>本文摘自《操作系統導論》，被認為是最適合入門學習操作系統的經典教材。</p>
+</blockquote>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/765f6b5ab6d64edfb78fac688032cb69" alt="《計算之神的幾次飛躍：關於操作系統開發的那段歷史》" width="640" height="640" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/765f6b5ab6d64edfb78fac688032cb69" alt="《計算之神的幾次飛躍：關於操作系統開發的那段歷史》" width="640" height="640" class=""></noscript></amp-img>
+<p class="pgc-img-caption">作者: [美] 雷姆茲·H.阿帕希杜塞爾、[美]安德莉亞·C.阿帕希杜塞爾 譯者：王海鵬</p>
+
+</div>
+<blockquote>
+<p>這是一本關於現代操作系統的書。全書圍繞<strong>虛擬化</strong>、<strong>並發</strong>和<strong>持久性</strong>這3個主要概念展開，介紹了所有現代系統的主要組件（包括調度、虛擬內存管理、磁碟和I/O子系統、文件系統 ）。全書共50章，分為3個部分，分別講述虛擬化、並發和持久性的相關內容。本書大部分章節均先提出特定的問題，然後通過書中介紹的技術、演算法和思想來解決這些問題。筆者以對話形式引入所介紹的主題概念，行文詼諧幽默卻又鞭辟入裡，力求幫助讀者理解操作系統中虛擬化、並發和持久性的原理。</p>
+<p>《操作系統導論》具有以下特色：</p>
+<p>主題突出，緊緊圍繞操作系統的三大主題元素——虛擬化、並發和持久性。</p>
+<p>以對話的方式引入背景，提出問題，進而闡釋原理，啟發動手實踐。</p>
+<p>包含眾多「補充」和「提示」，拓展讀者知識面，增加趣味性。</p>
+<p>使用真實代碼而不是偽代碼，讓讀者更加深入透徹地了解操作系統。</p>
+</blockquote>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		Categories: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/9587#comments">
+			Leave a Comment		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">Back to top</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.215 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 14:28:28 -->
+
+<!-- super cache -->
