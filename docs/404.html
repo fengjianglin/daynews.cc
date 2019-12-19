@@ -35,7 +35,7 @@
 		  var target = '.html';
 		  var cur_url = window.location.href;
 		  var start = cur_url.length - target.length;
-		  var arr = str.substr(start, target.length);
+		  var arr = cur_url.substr(start, target.length);
 		  if(arr == target){
 		    window.location.href = cur_url.replace(target, "/");
 		  }
