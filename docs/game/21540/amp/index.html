@@ -1,0 +1,643 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/game/21540#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/c9dfd188b6094f2486ed936d28e2caf8"},{"@type":"WebPage","@id":"https://daynews.cc/game/21540#webpage","url":"https://daynews.cc/game/21540","inLanguage":"zh-TW","name":"\u5efa\u7bc9\u5e2b\u89e3\u69cb\u904a\u6232\u95dc\u5361\u2014\u2014\u300a\u738b\u724c\u6230\u58eb\u300b\u57ce\u5be8\u95dc\u5361\u4f54\u9818\u64da\u9ede\u5730\u5716\u63a2\u7a76 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/game/21540#primaryimage"},"datePublished":"2019-12-19T03:50:07+00:00","dateModified":"2019-12-19T03:50:07+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="文/暴走的巫師 《王牌戰士》雖然並非最先於手機載體上製作MOBA+FPS類型的遊戲，但可以說是目前為止最精良的一款，由於也在製作佔領據點類型的關卡(嘆氣)，因此想藉由《王牌戰士》的城寨地圖來探討佔領據點玩法的地圖製作。對戰競技類型的FPS地圖因為公平競技之故，地圖很大幅度上是相互對稱的，主要偏向玩法是佔領據點或團隊死斗的模式，不同於放置炸……" />
+<meta name="twitter:title" content="建築師解構遊戲關卡——《王牌戰士》城寨關卡佔領據點地圖探究 - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/c9dfd188b6094f2486ed936d28e2caf8" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="建築師解構遊戲關卡——《王牌戰士》城寨關卡佔領據點地圖探究 - 天天要聞" />
+<meta property="og:description" content="文/暴走的巫師 《王牌戰士》雖然並非最先於手機載體上製作MOBA+FPS類型的遊戲，但可以說是目前為止最精良的一款，由於也在製作佔領據點類型的關卡(嘆氣)，因此想藉由《王牌戰士》的城寨地圖來探討佔領據點玩法的地圖製作。對戰競技類型的FPS地圖因為公平競技之故，地圖很大幅度上是相互對稱的，主要偏向玩法是佔領據點或團隊死斗的模式，不同於放置炸……" />
+<meta property="og:url" content="https://daynews.cc/game/21540" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="遊戲" />
+<meta property="article:published_time" content="2019-12-19T03:50:07+00:00" />
+	<title>建築師解構遊戲關卡——《王牌戰士》城寨關卡佔領據點地圖探究 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/game/21540" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+	.amp-wp-header .amp-wp-canonical-link {
+		font-size: 0.8em;
+		text-decoration: underline;
+		position: absolute;
+		right: 18px;	}
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+	
+	<script async custom-element="amp-auto-ads" 
+			src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
+	<script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+	
+</head>
+
+<body class="">
+	<amp-auto-ads type="adsense" data-ad-client="ca-pub-8261739837930821"></amp-auto-ads>
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+										<a class="amp-wp-canonical-link" href="https://daynews.cc/game/21540">
+				原網頁			</a>
+			</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">建築師解構遊戲關卡——《王牌戰士》城寨關卡佔領據點地圖探究</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://daynews.cc/wp-content/themes/Kratos/images/default_avatar.jpeg" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-19T11:50:07+00:00">
+		2019-12-19	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<amp-ad width="100vw" height="320"
+			 type="adsense"
+			 data-ad-client="ca-pub-8261739837930821"
+			 data-ad-slot="2502207318"
+			 data-auto-format="rspv"
+			 data-full-width="">
+		  <div overflow=""></div>
+		</amp-ad>
+		
+		<div>
+<div>
+<p>文/暴走的巫師</p>
+<p class="ql-align-center">
+</p><div class="pgc-img">
+   <amp-img src="http://p3.pstatp.com/large/pgc-image/c9dfd188b6094f2486ed936d28e2caf8" alt="《建築師解構遊戲關卡——《王牌戰士》城寨關卡佔領據點地圖探究》" width="640" height="307" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/c9dfd188b6094f2486ed936d28e2caf8" alt="《建築師解構遊戲關卡——《王牌戰士》城寨關卡佔領據點地圖探究》" width="640" height="307" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p class="ql-align-center">
+</p><p class="ql-align-justify">
+</p><p class="ql-align-justify">《王牌戰士》雖然並非最先於手機載體上製作MOBA+FPS類型的遊戲，但可以說是目前為止最精良的一款，由於也在製作佔領據點類型的關卡(嘆氣)，因此想藉由《王牌戰士》的城寨地圖來探討佔領據點玩法的地圖製作。對戰競技類型的FPS地圖因為公平競技之故，地圖很大幅度上是相互對稱的，主要偏向玩法是佔領據點或團隊死斗的模式，不同於放置炸彈模式或老漢推車模式是具有攻守性質的關卡玩法，正因為關卡地圖是對稱設計的而有了較易規範的準則，當然對於場景的美術表現上還是可以各自獨特的呈現。對於FPS或MOBA玩家而言，遊戲競技的公平性相當重要，因此地圖製作當然也要相當謹慎，以確保在維持場景美術效果也保有了遊戲功能及公平競技的要點。</p>
+<p class="ql-align-center">
+</p><div class="pgc-img">
+   <amp-img src="http://p1.pstatp.com/large/pgc-image/6f4ca8c3aefe4c848bb3493d5af31e48" alt="《建築師解構遊戲關卡——《王牌戰士》城寨關卡佔領據點地圖探究》" width="640" height="428" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/6f4ca8c3aefe4c848bb3493d5af31e48" alt="《建築師解構遊戲關卡——《王牌戰士》城寨關卡佔領據點地圖探究》" width="640" height="428" class=""></noscript></amp-img>
+<p class="pgc-img-caption">想像中的安全屋場景草圖</p>
+
+</div>
+<p class="ql-align-center">
+</p><p class="ql-align-justify">本來是想說以安全屋關卡來討論內容，草稿圖都畫好了，這是靠著記憶在早餐時間繪製出來的。偏偏就是這時候，想也繪製城寨地圖看看，就這麼剛好發現對這地圖印象如此模糊，於是憑藉著對稱的原則畫制了相當不同的結果，以至於這篇題目變成了「城寨」關卡了，哈哈哈，後來才看著B站玩家視頻繪製出白模，才有幾分相似。其實佔領據點的玩法概念相當單純，雙方佔領據點的時間長短來決定勝負，因此屬於短時長的競技類型(當然也可能相當激烈)，不過卻很符合手游的破碎化時間的把控。說到手游的破碎化時間，我認為《荒野亂斗》這類型以三分鐘為一場的遊戲體驗是相當適當的；二十分鐘可能也很極限了，比如《王者榮耀》；但是像《樂高無限》這類沙盒經營向的遊戲就覺得幾小時都還好說。</p>
+<p class="ql-align-center">
+</p><div class="pgc-img">
+   <amp-img src="http://p1.pstatp.com/large/pgc-image/cca9a1bbc4a24e77abbf93d40c0be342" alt="《建築師解構遊戲關卡——《王牌戰士》城寨關卡佔領據點地圖探究》" width="640" height="480" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/cca9a1bbc4a24e77abbf93d40c0be342" alt="《建築師解構遊戲關卡——《王牌戰士》城寨關卡佔領據點地圖探究》" width="640" height="480" class=""></noscript></amp-img>
+<p class="pgc-img-caption">想像中的城寨場景草圖</p>
+
+</div>
+<p class="ql-align-center">
+</p><p class="ql-align-justify"><strong>關卡基礎尺寸的設置</strong></p>
+<p class="ql-align-justify">佔領據點的核心機制是佔據據點的時間，以至於讓隊伍人員保持存活於據點範圍很重要，而補給點(通常是補充體力)就成了必要的配置，確保玩家競技過程有主次注重點，一是據點，二是維持在場能力的補給點。據點、補給點與出生點就滿足了佔領據點玩法的機制，其次的場景配置就是根據角色特性的搭配(影響地形、障礙等等)、角色的單位移動距離(影響地圖尺寸)、單位跳躍(影響高程設置)、關卡限制時長(影響地圖尺寸、角色數值)等等內容，以至於不同的遊戲項目即使同樣的核心機制都可能產出截然不同的場景成果。根據以上三個節點，其實將場景概分為九宮格便相當好理解，基本上《王牌戰士》的城寨及安全屋都能明確的區分出這些區塊，如此便能得到最基本的場景尺寸劃分。</p>
+<p class="ql-align-center">
+</p><div class="pgc-img">
+   <amp-img src="http://p3.pstatp.com/large/pgc-image/4e971477bbe74282bee1e40ae23b32c5" alt="《建築師解構遊戲關卡——《王牌戰士》城寨關卡佔領據點地圖探究》" width="640" height="398" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/4e971477bbe74282bee1e40ae23b32c5" alt="《建築師解構遊戲關卡——《王牌戰士》城寨關卡佔領據點地圖探究》" width="640" height="398" class=""></noscript></amp-img>
+<p class="pgc-img-caption">佔領據點的三點區域</p>
+
+</div>
+<p class="ql-align-center">
+</p><p class="ql-align-center">
+</p><p class="ql-align-justify"><strong>關卡的動線及阻擋</strong></p>
+<p class="ql-align-justify">FPS遊戲嘛，最重要的就是視野，有了良好的視野才有剛槍的本錢，如果是《彩虹六號:圍攻》還要考慮聲音。因此即使是單純的佔領據點玩法也可以創造出多高程變化的動線以確保不同攻擊特性的角色發揮的餘地，適度的高程變化和阻擋物可以讓關卡產生不少技巧性，比如《守望先鋒》的好萊塢中自動升降台的設置將場景的高程變化提供了更寬廣的作戰可能性。因此在場景製作的初期可以根據場景自身的特性提供不同高程的立方體提供後續創造高程的想像。其中以城寨來說最重要的阻擋是中央的四棟建築，建築配置使得動線足以劃分為三條以上的動線，這就是佔領據點類型最標準的九宮格劃分，比起安全屋關卡更具有「教科書」的意味。</p>
+<p class="ql-align-center">
+</p><div class="pgc-img">
+   <amp-img src="http://p1.pstatp.com/large/pgc-image/d3e251b015ad4872b57ad0bfa5194704" alt="《建築師解構遊戲關卡——《王牌戰士》城寨關卡佔領據點地圖探究》" width="640" height="672" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/d3e251b015ad4872b57ad0bfa5194704" alt="《建築師解構遊戲關卡——《王牌戰士》城寨關卡佔領據點地圖探究》" width="640" height="672" class=""></noscript></amp-img>
+<p class="pgc-img-caption">城寨關卡動線</p>
+
+</div>
+<p class="ql-align-center">
+</p><p class="ql-align-center">
+</p><p class="ql-align-justify">接著這些預設好的立方體在根據前段提及的遊戲機能的不同，將動線高低、阻擋物高低等根據角色、遊戲特性逐一細劃為匹配遊戲機能的場景空間。場景空建的對象也可以比照《遊戲研發的設計規範03》將所有對象類型化，圖中的場景對象基本上都是我以三的倍數為模矩所建制完成，比如根據角色跳躍高度將阻擋物的高度統一規範為60、90、120cm。</p>
+<p class="ql-align-justify">暴走的巫師：遊戲研發的設計規範03</p>
+<p class="ql-align-center">
+</p><div class="pgc-img">
+   <amp-img src="http://p9.pstatp.com/large/pgc-image/67878fcff8174a4ba86ab773a44a51bf" alt="《建築師解構遊戲關卡——《王牌戰士》城寨關卡佔領據點地圖探究》" width="640" height="411" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/67878fcff8174a4ba86ab773a44a51bf" alt="《建築師解構遊戲關卡——《王牌戰士》城寨關卡佔領據點地圖探究》" width="640" height="411" class=""></noscript></amp-img>
+<p class="pgc-img-caption">城寨關卡白模</p>
+
+</div>
+<p class="ql-align-center">
+</p><p class="ql-align-center">
+</p><p class="ql-align-justify"><strong>場景類型的對稱配置</strong></p>
+<p class="ql-align-justify">前頭說了，由於佔領據點的玩法為滿足公平性，而場景採用對稱性較為合適。其實也沒有如此的絕對，比如《王牌戰士》的安全屋就並非完全對稱，這也提供了一些作戰的技巧。但主要的場景類型基本上都可以被明確類型化的，在城寨地圖中，基本上只有四區域，兩者是據點旁的有高台/無高台建築，後兩者是據點外的長高程區域與短高程區域，搭配上隊伍雙方出生點及據點本身就完成了場景配置。在城寨地圖中隊伍雙方的場景配置是完全相反的，也有些地圖是恰好鏡射的，其目標都是為了達到對稱，但城寨這類全相反的場景配置較有可能創造出較複雜的對戰可能(高程變化單純的情況下)。</p>
+<p class="ql-align-center">
+</p><div class="pgc-img">
+   <amp-img src="http://p3.pstatp.com/large/pgc-image/e34902a0fba6473ba6682c27c1add843" alt="《建築師解構遊戲關卡——《王牌戰士》城寨關卡佔領據點地圖探究》" width="600" height="374" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/e34902a0fba6473ba6682c27c1add843" alt="《建築師解構遊戲關卡——《王牌戰士》城寨關卡佔領據點地圖探究》" width="600" height="374" class=""></noscript></amp-img>
+<p class="pgc-img-caption">城寨關卡發展圖</p>
+
+</div>
+<p class="ql-align-center">
+</p><p class="ql-align-center">
+</p><p class="ql-align-justify">因此可以將城寨關卡視為ABCD四類型組合，而安全屋由於中央據點木屋的非對稱性可以視為ABC類型組合。這些類型區分理論上是協助後續研發的場景製作，但《王牌戰士》這類遊戲的地圖應當是每一關卡都具有各自的獨特性的，以佔領據點玩法而言至少美術表現上是如此，但場景製作規範的模矩基本上都是足以沿用的。當然隨著場景的製作數量，也必然會加入些場景增損益的機制進來，但場景的尺寸變更就容易產生體驗時間上的變動，比如《彩虹六號:圍攻》的木屋、訓練基地等小地圖對於時間的掌控就不同於大地圖的效果，甚至小車的探點都顯得單純。</p>
+<p class="ql-align-justify">結語</p>
+<p class="ql-align-justify">我認為競技對戰類型的手游還是相當有潛力的，雖然這種競技對戰類型的遊戲基本上是大者恆大的狀態，遊戲體驗相當取決於遊戲玩家的數量、匹配機制，這裡是指競技類遊戲在線機器人陪玩其實體驗不佳，因此需要有足夠的用戶才能撐起一款競技對戰類型的遊戲。競技對戰類型的手游在場景製作上，2.5D的射擊手游如《荒野亂斗》、《英雄戰境》、《Space Pioneer》整體的場景關卡製作可能難以達到3D射擊遊戲的複雜程度或有趣程度，但手游在相對弱操作的影響下，3D射擊遊戲過於頻繁的交互也會造成體驗上的差異，比如需要輔助按鈕的存在。像《Tacticool》的TPS射擊手游就在操作上做了許多簡化，也控制不錯的遊戲時長，鏡頭的運用也相當得當，這本來是我想說明的對戰場景(其中包含了部分場景破壞的元素及動態對象元素)，因此射擊的競技對戰遊戲其實還有很寬廣的研發空間可行。</p>
+<p class="ql-align-center">
+</p><div class="pgc-img">
+   <amp-img src="http://p3.pstatp.com/large/pgc-image/f5416abc30f24c24b709452ad773b163" alt="《建築師解構遊戲關卡——《王牌戰士》城寨關卡佔領據點地圖探究》" width="600" height="374" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/f5416abc30f24c24b709452ad773b163" alt="《建築師解構遊戲關卡——《王牌戰士》城寨關卡佔領據點地圖探究》" width="600" height="374" class=""></noscript></amp-img>
+<p class="pgc-img-caption">城寨關卡白模雛形</p>
+
+</div>
+<p class="ql-align-center">
+</p><p class="ql-align-center">
+</p><p class="ql-align-justify">相關閱讀：</p>
+<p class="ql-align-justify"><a class="pgc-link" data-content="mp" href="https://www.toutiao.com/i6732988307296223747/?group_id=6732988307296223747" target="_blank">讀懂這本書，你就可以設計一個開放世界了</a></p>
+<p class="ql-align-justify"><a class="pgc-link" data-content="mp" href="https://www.toutiao.com/i6732620963596222983/?group_id=6732620963596222983" target="_blank">建築師解構遊戲關卡——以平面圖探討《彩虹六號：圍攻》</a></p>
+<p class="ql-align-justify">建築師解構遊戲關卡——以剖面透視圖探討《輻射避難所》</p>
+<p class="ql-align-justify"><a class="pgc-link" data-content="mp" href="https://www.toutiao.com/i6745976143200928259/?group_id=6745976143200928259" target="_blank">建築師解構遊戲關卡——以平面圖探討空間訊息</a>來自專欄：「巫師的遊戲場域」</p>
+<p class="ql-align-justify">地址：</p>
+<p class="ql-align-justify">https://zhuanlan.zhihu.com/p/84521995</p>
+
+</div>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		分類: <a href="https://daynews.cc/game" rel="category tag">遊戲</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/game/21540#comments">
+			寫評論		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">返回頂部</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+<!-- This is the static html file -->

@@ -1,0 +1,808 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/23144#primaryimage","url":"http://dingyue.ws.126.net/2019/1218/02f2fbc7j00q2p0id000qc000u0006tm.jpg"},{"@type":"WebPage","@id":"https://daynews.cc/technology/23144#webpage","url":"https://daynews.cc/technology/23144","inLanguage":"zh-TW","name":"\u566b\u5401\u56b1\uff01\u6587\u8a00\u6587\u4ea6\u80fd\u7de8\u7a0b\uff01\u6b64\u8aa0\u5e74\u5ea6\u6700\u9a37\u8a9e\u8a00\u4e5f - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/23144#primaryimage"},"datePublished":"2019-12-18T08:05:13+00:00","dateModified":"2019-12-18T08:05:13+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="文/栗子 曉查 來源：量子位（ID:QbitAI） 同學，你可知如何用文言文輸出「Hello World」？ 請君睜圓雙眼注視於此： △ 右邊一頓輸出 吾有一言。曰「「問天地好在。」」。書之。 卻為何輸出了三遍？ 只因有for循環，寫作「為是「甲」遍…云云」。甲等於三，便要問三次好。 這騷之過極的文言文編程語言，來自CMU本科生Huang……" />
+<meta name="twitter:title" content="噫吁嚱！文言文亦能編程！此誠年度最騷語言也 - 天天要聞" />
+<meta name="twitter:image" content="http://dingyue.ws.126.net/2019/1218/02f2fbc7j00q2p0id000qc000u0006tm.jpg" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="噫吁嚱！文言文亦能編程！此誠年度最騷語言也 - 天天要聞" />
+<meta property="og:description" content="文/栗子 曉查 來源：量子位（ID:QbitAI） 同學，你可知如何用文言文輸出「Hello World」？ 請君睜圓雙眼注視於此： △ 右邊一頓輸出 吾有一言。曰「「問天地好在。」」。書之。 卻為何輸出了三遍？ 只因有for循環，寫作「為是「甲」遍…云云」。甲等於三，便要問三次好。 這騷之過極的文言文編程語言，來自CMU本科生Huang……" />
+<meta property="og:url" content="https://daynews.cc/technology/23144" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-18T08:05:13+00:00" />
+<meta property="og:image" content="http://dingyue.ws.126.net/2019/1218/02f2fbc7j00q2p0id000qc000u0006tm.jpg" />
+	<title>噫吁嚱！文言文亦能編程！此誠年度最騷語言也 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/23144" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-anim-0.1.js' async custom-element="amp-anim"></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+	.amp-wp-header .amp-wp-canonical-link {
+		font-size: 0.8em;
+		text-decoration: underline;
+		position: absolute;
+		right: 18px;	}
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+	
+	<script async custom-element="amp-auto-ads" 
+			src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
+	<script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+	
+</head>
+
+<body class="">
+	<amp-auto-ads type="adsense" data-ad-client="ca-pub-8261739837930821"></amp-auto-ads>
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+										<a class="amp-wp-canonical-link" href="https://daynews.cc/technology/23144">
+				原網頁			</a>
+			</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">噫吁嚱！文言文亦能編程！此誠年度最騷語言也</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://daynews.cc/wp-content/themes/Kratos/images/default_avatar.jpeg" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-18T16:05:13+00:00">
+		2019-12-18	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<amp-ad width="100vw" height="320"
+			 type="adsense"
+			 data-ad-client="ca-pub-8261739837930821"
+			 data-ad-slot="2502207318"
+			 data-auto-format="rspv"
+			 data-full-width="">
+		  <div overflow=""></div>
+		</amp-ad>
+		
+		<div>
+<div class="page js-page on">
+<p>文/栗子 曉查</p>
+<p>來源：量子位（ID:QbitAI）</p>
+<p>同學，你可知如何用<strong>文言文</strong>輸出「Hello World」？</p>
+<p>請君睜圓雙眼注視於此：</p>
+<div class="photo">
+   <amp-img src="http://dingyue.ws.126.net/2019/1218/02f2fbc7j00q2p0id000qc000u0006tm.jpg" alt="《噫吁嚱！文言文亦能編程！此誠年度最騷語言也》" width="1080" height="245" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://dingyue.ws.126.net/2019/1218/02f2fbc7j00q2p0id000qc000u0006tm.jpg" alt="《噫吁嚱！文言文亦能編程！此誠年度最騷語言也》" width="1080" height="245" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p><strong>△</strong> 右邊一頓輸出</p>
+
+<blockquote>
+<p>
+   吾有一言。曰「「問天地好在。」」。書之。</p>
+</blockquote>
+<p>卻為何輸出了三遍？</p>
+<p>只因有<strong>for循環</strong>，寫作「為是「甲」遍…云云」。甲等於三，便要問三次好。</p>
+<div class="photo">
+   <amp-img src="http://dingyue.ws.126.net/2019/1218/a8feb9b4j00q2p0id003bc000u000drm.jpg" alt="《噫吁嚱！文言文亦能編程！此誠年度最騷語言也》" width="1080" height="495" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://dingyue.ws.126.net/2019/1218/a8feb9b4j00q2p0id003bc000u000drm.jpg" alt="《噫吁嚱！文言文亦能編程！此誠年度最騷語言也》" width="1080" height="495" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>這騷之過極的<strong>文言文編程語言</strong>，來自CMU本科生Huang Lingdong。</p>
+<p>可編譯成Javascript，也可編譯成Python，亦有線上編輯器 (IDE) 可直接玩耍。</p>
+<p>項目文理兩開花，已於GitHub摘得3000星，且圍觀眾人皆有話說。</p>
+<p>譬如，妒少年之才華：</p>
+<div class="photo">
+   <amp-img src="http://dingyue.ws.126.net/2019/1218/fe4f7b7bj00q2p0id000ac000mi002um.jpg" alt="《噫吁嚱！文言文亦能編程！此誠年度最騷語言也》" width="810" height="102" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://dingyue.ws.126.net/2019/1218/fe4f7b7bj00q2p0id000ac000mi002um.jpg" alt="《噫吁嚱！文言文亦能編程！此誠年度最騷語言也》" width="810" height="102" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<div class="photo">
+   <amp-img src="http://dingyue.ws.126.net/2019/1218/95dcb5a7j00q2p0id000fc000ma002qm.jpg" alt="《噫吁嚱！文言文亦能編程！此誠年度最騷語言也》" width="802" height="98" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://dingyue.ws.126.net/2019/1218/95dcb5a7j00q2p0id000fc000ma002qm.jpg" alt="《噫吁嚱！文言文亦能編程！此誠年度最騷語言也》" width="802" height="98" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>譬如，點未來之方向：</p>
+<div class="photo">
+   <amp-img src="http://dingyue.ws.126.net/2019/1218/cda1d5f1j00q2p0id000ec000u0002gm.jpg" alt="《噫吁嚱！文言文亦能編程！此誠年度最騷語言也》" width="1080" height="88" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://dingyue.ws.126.net/2019/1218/cda1d5f1j00q2p0id000ec000u0002gm.jpg" alt="《噫吁嚱！文言文亦能編程！此誠年度最騷語言也》" width="1080" height="88" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>中科院計算所研究員劉群老師亦感嘆：</p>
+<div class="photo">
+   <amp-img src="http://dingyue.ws.126.net/2019/1218/49bcf8e6j00q2p0id002ec000u000k9m.jpg" alt="《噫吁嚱！文言文亦能編程！此誠年度最騷語言也》" width="1080" height="729" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://dingyue.ws.126.net/2019/1218/49bcf8e6j00q2p0id002ec000u000k9m.jpg" alt="《噫吁嚱！文言文亦能編程！此誠年度最騷語言也》" width="1080" height="729" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+
+</div>
+<div class="page js-page">
+<p>當下，我等便前去觀膜一番，探索此語言藏有何種天地精華。</p>
+<p>文言文編程「黑話」</p>
+<p>Huang Lingdong同學應該是讀過<strong>《易經》</strong>，畢竟易經是最早論述二進位的古書。他用易經的<strong>陰</strong>和<strong>陽</strong>代表布爾變數中的0和1。</p>
+<p>「吾有」系列則被用來做定義：</p>
+
+<blockquote>
+<p>
+   <strong>吾有一數</strong>是定義<br>
+   <strong>int變數</strong>；</p>
+<p>   <strong>吾有一爻</strong>是定義<br>
+   <strong>布爾變數</strong>；</p>
+<p>   <strong>吾有一言</strong>是定義<br>
+   <strong>字元串</strong>；</p>
+<p>   <strong>吾有一術</strong>是定義<br>
+   <strong>函數</strong>；</p>
+<p>   <strong>吾有一列</strong>是定義<br>
+   <strong>數組</strong>；</p>
+<p>……</p>
+</blockquote>
+<div class="photo">
+   <amp-img src="http://dingyue.ws.126.net/2019/1218/b772863fj00q2p0id0015c000hs00dcm.jpg" alt="《噫吁嚱！文言文亦能編程！此誠年度最騷語言也》" width="640" height="480" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://dingyue.ws.126.net/2019/1218/b772863fj00q2p0id0015c000hs00dcm.jpg" alt="《噫吁嚱！文言文亦能編程！此誠年度最騷語言也》" width="640" height="480" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>一般的編程里，循環判斷有if、while、for，文言文編程在這件事上更是變化無窮。下面就是一段文言文書寫的判斷語句：</p>
+
+<blockquote>
+<p>
+   若三弗大於五者。乃得「「想當然耳」」。若非。乃得「「怪哉」」也。</p>
+</blockquote>
+<p>翻譯過來就是：</p>
+<p><code>if(3&lt;=5)</code></p>
+<p><code>{return "of course"}</code></p>
+<p><code>else</code></p>
+<p><code>{return "no way"}</code></p>
+<p>也許你會覺得if…else…語句用文言文太啰嗦，但是常用的for循環，用文言文表達卻更為簡潔。</p>
+
+<blockquote>
+<p>
+   為是百遍。 云云。</p>
+</blockquote>
+</div>
+<div class="page js-page">
+<p>它的意思是：</p>
+<p><code>for (var i = 0; i &lt; 100; i++)</code></p>
+<p><code>{ ... }</code></p>
+<p>如果需要判斷某個變數human是否在world中，我們一般用for (var human of world)，初學者看到for的這種用法可能會很困惑，而文言文的表示更接近普通人的理解。</p>
+
+<blockquote>
+<p>
+   凡「天地」中之「人」。 云云。</p>
+</blockquote>
+<p>古有《易經》，今有金庸小說，在展示定義函數的時候，Huang同學又皮了一下：</p>
+
+<blockquote>
+<p>
+   吾有一術。名之曰「六脈神劍」。欲行是術。必先得六數。曰「甲」。曰「乙」。曰「丙」。曰「丁」。曰「戊」。曰「己」乃行是術曰。是謂「六脈神劍」之術也。</p>
+</blockquote>
+<p>這裡Huang同學將函數名定義為「六脈神劍」，這個函數總共有6個輸入。</p>
+<p><code>funcion f(a,b,c,d,e,f)</code></p>
+<p><code>{…}</code></p>
+<p>還有更多好玩的函數定義：</p>
+<div class="photo">
+   <amp-img src="http://dingyue.ws.126.net/2019/1218/60e15fe8j00q2p0id0016c000u0008im.jpg" alt="《噫吁嚱！文言文亦能編程！此誠年度最騷語言也》" width="1080" height="306" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://dingyue.ws.126.net/2019/1218/60e15fe8j00q2p0id0016c000u0008im.jpg" alt="《噫吁嚱！文言文亦能編程！此誠年度最騷語言也》" width="1080" height="306" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>怎樣用文言文編程</p>
+<p>看完文言文編程的基本語法後，我們來看看怎麼用它來解決一些基本的問題。</p>
+<p>比如求100以內的素數，我們會用到一種「埃氏篩」（Sieve of Eratosthenes）演算法：</p>
+<div class="photo">
+   <amp-img src="http://dingyue.ws.126.net/2019/1218/a8b32e98j00q2p0id0032c000u000qam.jpg" alt="《噫吁嚱！文言文亦能編程！此誠年度最騷語言也》" width="1080" height="946" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://dingyue.ws.126.net/2019/1218/a8b32e98j00q2p0id0032c000u000qam.jpg" alt="《噫吁嚱！文言文亦能編程！此誠年度最騷語言也》" width="1080" height="946" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>看一下運行結果：</p>
+
+<blockquote>
+<p>
+   二。三。五。七。一十一。一十三。一十七。一十九。二十三。二十九。三十一。三十七。四十一。四十三。四十七。五十三。五十九。六十一。六十七。七十一。七十三。七十九。八十三。八十九。九十七</p>
+</blockquote>
+</div>
+<div class="page js-page">
+<p>你看懂是什麼意思了嗎？編譯器翻譯成JavaScript就是：</p>
+<p><code>var AI1SHI4SHAI1 = () =&gt; 0;</code></p>
+<p><code>AI1SHI4SHAI1 = function(JIA3) {</code></p>
+<p><code>var YAN3 = [];</code></p>
+<p><code>for (var _rand4 = 0; _rand4 &lt; JIA3; _rand4++) {</code></p>
+<p><code>YAN3.push(true);</code></p>
+<p><code>};</code></p>
+<p><code>var _ans154 = JIA3 / 2;</code></p>
+<p><code>var JIA3BAN4 = _ans154;</code></p>
+<p><code>var WU4 = 2;</code></p>
+<p><code>while (true) {</code></p>
+<p><code>if (WU4 == JIA3BAN4) {</code></p>
+<p><code>break;</code></p>
+<p><code>};</code></p>
+<p><code>var XU1_ = 2;</code></p>
+<p><code>while (true) {</code></p>
+<p><code>if (XU1_ == JIA3BAN4) {</code></p>
+<p><code>break;</code></p>
+<p><code>};</code></p>
+<p><code>var _ans155 = WU4 * XU1_;</code></p>
+<p><code>var HE2 = _ans155;</code></p>
+<p><code>if (HE2 &lt;= JIA3) {</code></p>
+<p><code>YAN3[HE2 - 1] = false;</code></p>
+<p><code>} else {</code></p>
+<p><code>break;</code></p>
+<p><code>};</code></p>
+<p><code>var _ans156 = 1 + XU1_;</code></p>
+
+</div>
+<div class="page js-page">
+<p><code>XU1_ = _ans156;</code></p>
+<p><code>};</code></p>
+<p><code>var _ans157 = 1 + WU4;</code></p>
+<p><code>WU4 = _ans157;</code></p>
+<p><code>};</code></p>
+<p><code>var ZHU1SU4 = [];</code></p>
+<p><code>var WU4 = 2;</code></p>
+<p><code>while (true) {</code></p>
+<p><code>if (WU4 == YAN3.length) {</code></p>
+<p><code>break;</code></p>
+<p><code>};</code></p>
+<p><code>var _ans158 = YAN3[WU4 - 1];</code></p>
+<p><code>var SU4YE2 = _ans158;</code></p>
+<p><code>if (SU4YE2) {</code></p>
+<p><code>ZHU1SU4.push(WU4);</code></p>
+<p><code>};</code></p>
+<p><code>var _ans159 = 1 + WU4;</code></p>
+<p><code>WU4 = _ans159;</code></p>
+<p><code>};</code></p>
+<p><code>return ZHU1SU4</code></p>
+<p><code>};</code></p>
+<p><code>var _ans160 = AI1SHI4SHAI1(100);</code></p>
+<p><code>console.log(_ans160);</code></p>
+<p>文言文編程不僅能輸出簡單的結果，連文字圖（ASCII Art）都可以用文言文畫出來，分形問題中著名的「曼德博集合」，用中文畫出來是這樣：</p>
+<div class="photo">
+   <amp-img src="http://dingyue.ws.126.net/2019/1218/6bf8daf7j00q2p0id006dc000u000i2m.jpg" alt="《噫吁嚱！文言文亦能編程！此誠年度最騷語言也》" width="1080" height="650" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://dingyue.ws.126.net/2019/1218/6bf8daf7j00q2p0id006dc000u000i2m.jpg" alt="《噫吁嚱！文言文亦能編程！此誠年度最騷語言也》" width="1080" height="650" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+
+</div>
+<div class="page js-page">
+<p><strong>△</strong>用中文畫出的曼德博集合</p>
+<p>你以為這就是編譯結果的最終形態了？錯錯錯！</p>
+<p>項目文件還有個腳本src/render.js，它可以把程序渲染成古代書籍的樣子。把O’Reilly系列圖書印刷成古代線裝書，真是想想就很激動啊。</p>
+<div class="photo">
+   <amp-img src="http://dingyue.ws.126.net/2019/1218/ff33aef2j00q2p0id0069c000u000n7m.jpg" alt="《噫吁嚱！文言文亦能編程！此誠年度最騷語言也》" width="1080" height="835" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://dingyue.ws.126.net/2019/1218/ff33aef2j00q2p0id0069c000u000n7m.jpg" alt="《噫吁嚱！文言文亦能編程！此誠年度最騷語言也》" width="1080" height="835" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>安裝與使用</p>
+<p>文言文編程只需將repo下載到本地，而且本地已經安裝Node，就能立即使用。現在它支持將wenyan lang轉換成JavaScript和Python：</p>
+<p><code>./build/wenyan.js examples/helloworld.wy -o helloworld.js</code></p>
+<p>在這段命令中，如果不指定語言，程序將自動轉化為JavaScript，若想轉化成Python，請加入參數「—lang py」或是「-l py」。</p>
+<p>用戶也可以自行編譯二進位文件。如果你只想嘗嘗鮮，在線IDE也是個不錯的選擇。</p>
+<p>何出此「言」</p>
+<p>至於，為何要炮製一門文言編程語言，少年為項目寫有一序，由此可窺一二 (後有解讀) ：</p>
+
+<blockquote>
+<p>
+   夫唐、虞之世，結繩而足治，屈指而足算。是時豈料百代之後，計算機械之巧，精於公輸之木鳶，善於武侯之流馬；程式語言之多，繁若《天官》之星宿，奇勝《山經》之走獸。鼠、蟹、鑽、魚，或以速稱。蛇、象、駱、犀，各爭文采。方知鬼之所以夜哭，天之所以雨粟。然<br>
+   <strong>以文言編程者 ，似所未有</strong>。此誠非文脈之所以傳，文心之所以保。嗟予小子，遂有斯志。</p>
+<p>   <strong>然則數寸之烏絲猶覆於頭</strong>，萬卷之素書未破於手；<br>
+   <strong>一身長羈於遠邦</strong>，兩耳久曠於雅言。<br>
+   <strong>然夫文章者吾之所宿好，程式者偶承時人之謬譽</strong>。故希孟不慚年少，莊生不望無涯。乃作斯言。誠未能嘔瀝長吉之心血，亦庶幾免於義山之流沫。既成之後，復學干將鑄劍而自飼，越王嚐糞而當先。自謂偶追《十書》之筆意，但恨少八家之淋漓。此子山所謂士衡撫掌而甘心，平子見陋而固宜。然則雖實覆甕之質，尚存斧正之望；雖乏呂相之金，易字之渴蓋同。<br>
+   <strong>此亦開源之大義</strong>，吾輩之所以勉勵也。一笑。</p>
+</blockquote>
+</div>
+<div class="page js-page">
+<p>文中典故之多，恐無法在此一一注釋，便以<strong>劃重點</strong>之法，粗粗領會其意味，並簡要傳達為白話：</p>
+
+<blockquote>
+<p>
+   上古人類結繩記事，不會想到後代竟然發明了計算機。今天編程語言眾星閃耀，只是沒有人用文言編程。我人在國外，想念這些古典的言語，同時又擅長編程又有頭髮，決定為開源事業貢獻一份力量。</p>
+</blockquote>
+<p>註：如想查看所有典故，請前往項目頁，出處皆有維基百科鏈接。</p>
+<div class="photo">
+   <amp-img src="http://dingyue.ws.126.net/2019/1218/95243bfdj00q2p0id001oc000sg00sgm.jpg" alt="《噫吁嚱！文言文亦能編程！此誠年度最騷語言也》" width="1024" height="1024" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://dingyue.ws.126.net/2019/1218/95243bfdj00q2p0id001oc000sg00sgm.jpg" alt="《噫吁嚱！文言文亦能編程！此誠年度最騷語言也》" width="1024" height="1024" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>量子位循蛛絲馬跡，得知少年名叫Huang Lingdong，來自卡耐基梅隆大學，如今大四，明年即將畢業。高中則畢業自上海世界外國語中學。</p>
+<p>黃姓少年一路腦洞盛開，時常開發畫風清奇之項目，量子位也曾為其另一項目撰文：</p>
+<p>任君信筆塗鴉，皆可化作夢境中之角色，生龍活虎，與其他人物一同玩耍遊盪。如百鬼夜行之雄風。</p>
+<div class="photo">
+   <amp-anim src="http://dingyue.ws.126.net/2019/1218/b227e914g00q2p0if00x8c000go00d8m.gif" alt="《噫吁嚱！文言文亦能編程！此誠年度最騷語言也》" width="600" height="476" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://dingyue.ws.126.net/2019/1218/b227e914g00q2p0if00x8c000go00d8m.gif" alt="《噫吁嚱！文言文亦能編程！此誠年度最騷語言也》" width="600" height="476" class=""></noscript></amp-anim><br>
+   <span></span>
+  </div>
+<p>而文言文編程語言，大抵是少年迄今最為驕傲且最為矚目之成就。</p>
+<p>各位可速速前往吸之，定然無法自拔。</p>
+<p>傳送門</p>
+<p>項目代碼：</p>
+<p>https://github.com/LingDong-/wenyan-lang</p>
+<p>項目主頁：</p>
+<p>http://wenyan-lang.lingdong.works/</p>
+<p>線上IDE試玩：</p>
+<p>http://wenyan-lang.lingdong.works/ide.html</p>
+<p>個人主頁：</p>
+<p>https://lingdong.works/</p>
+<div class="otitle_editor">
+<p class="otitle">(原標題：噫吁嚱！文言文亦能編程！此誠年度最騷語言也)</p>
+<p class="editor">(責任編輯：喬俊婧_NBJ11279)</p>
+
+</div>
+</div>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		分類: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/23144#comments">
+			寫評論		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">返回頂部</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+<!-- This is the static html file -->

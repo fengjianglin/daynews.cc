@@ -1,0 +1,716 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/22841#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/7235a4e0af204216829d9906adf6b025"},{"@type":"WebPage","@id":"https://daynews.cc/technology/22841#webpage","url":"https://daynews.cc/technology/22841","inLanguage":"zh-TW","name":"\u807d\u8aaaRedis\u90fd\u6703\u9047\u5230\u4e26\u767c\u3001\u96ea\u5d29\u7b49\u96e3\u984c\uff1f\u6211\u752810\u5206\u9418\u5c31\u89e3\u6c7a\u4e86 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/22841#primaryimage"},"datePublished":"2019-12-19T23:05:09+00:00","dateModified":"2019-12-19T23:05:09+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="一、Redis雪崩、穿透、並發等5大難題解決方案 緩存雪崩 數據未載入到緩存中，或者緩存同一時間大面積的失效，從而導致所有請求都去查資料庫，導致資料庫CPU和內存負載過高，甚至宕機。 比如一個雪崩的簡單過程： 1、redis集群大面積故障 2、緩存失效，但依然大量請求訪問緩存服務redis 3、redis大量失效後，大量請求轉向到mysq……" />
+<meta name="twitter:title" content="聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/7235a4e0af204216829d9906adf6b025" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了 - 天天要聞" />
+<meta property="og:description" content="一、Redis雪崩、穿透、並發等5大難題解決方案 緩存雪崩 數據未載入到緩存中，或者緩存同一時間大面積的失效，從而導致所有請求都去查資料庫，導致資料庫CPU和內存負載過高，甚至宕機。 比如一個雪崩的簡單過程： 1、redis集群大面積故障 2、緩存失效，但依然大量請求訪問緩存服務redis 3、redis大量失效後，大量請求轉向到mysq……" />
+<meta property="og:url" content="https://daynews.cc/technology/22841" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-19T23:05:09+00:00" />
+	<title>聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/22841" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+	.amp-wp-header .amp-wp-canonical-link {
+		font-size: 0.8em;
+		text-decoration: underline;
+		position: absolute;
+		right: 18px;	}
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+	
+	<script async custom-element="amp-auto-ads" 
+			src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
+	<script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+	
+</head>
+
+<body class="">
+	<amp-auto-ads type="adsense" data-ad-client="ca-pub-8261739837930821"></amp-auto-ads>
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+										<a class="amp-wp-canonical-link" href="https://daynews.cc/technology/22841">
+				原網頁			</a>
+			</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://daynews.cc/wp-content/themes/Kratos/images/default_avatar.jpeg" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-20T07:05:09+00:00">
+		2019-12-20	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<amp-ad width="100vw" height="320"
+			 type="adsense"
+			 data-ad-client="ca-pub-8261739837930821"
+			 data-ad-slot="2502207318"
+			 data-auto-format="rspv"
+			 data-full-width="">
+		  <div overflow=""></div>
+		</amp-ad>
+		
+		<div>
+<h2 class="pgc-h-arrow-right">一、Redis雪崩、穿透、並發等5大難題解決方案</h2>
+<p><strong>緩存雪崩</strong></p>
+<p>數據未載入到緩存中，或者緩存同一時間大面積的失效，從而導致所有請求都去查資料庫，導致資料庫CPU和內存負載過高，甚至宕機。</p>
+<p><strong>比如一個雪崩的簡單過程：</strong></p>
+<p>1、redis集群大面積故障</p>
+<p>2、緩存失效，但依然大量請求訪問緩存服務redis</p>
+<p>3、redis大量失效後，大量請求轉向到mysql資料庫</p>
+<p>4、mysql的調用量暴增，很快就扛不住了，甚至直接宕機</p>
+<p>5、由於大量的應用服務依賴mysql和redis的服務，這個時候很快會演變成各伺服器集群的雪崩，最後網站徹底崩潰。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/7235a4e0af204216829d9906adf6b025" alt="《聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了》" width="640" height="307" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/7235a4e0af204216829d9906adf6b025" alt="《聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了》" width="640" height="307" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>如何預防緩存雪崩：</strong></p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/dfic-imagehandler/ba234628-41c4-4bf4-8663-126c568e2208" alt="《聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了》" width="512" height="291" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/dfic-imagehandler/ba234628-41c4-4bf4-8663-126c568e2208" alt="《聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了》" width="512" height="291" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>1.緩存的高可用性</strong></p>
+<p>緩存層設計成高可用，防止緩存大面積故障。即使個別節點、個別機器、甚至是機房宕掉，依然可以提供服務，例如 Redis Sentinel 和 Redis Cluster 都實現了高可用。</p>
+<p><strong>2.緩存降級</strong></p>
+<p>可以利用ehcache等本地緩存(暫時支持)，但主要還是對源服務訪問進行限流、資源隔離（熔斷）、降級等。</p>
+<p>當訪問量劇增、服務出現問題仍然需要保證服務還是可用的。系統可以根據一些關鍵數據進行<strong>自動降級</strong>，也可以配置開關實現<strong>人工降級，</strong>這裡會涉及到運維的配合。</p>
+<p><strong>降級的最終目的是保證核心服務可用，即使是有損的。</strong></p>
+<p>比如推薦服務中，很多都是個性化的需求，假如個性化需求不能提供服務了，可以降級補充熱點數據，不至於造成前端頁面是個大空白。</p>
+<p>在進行降級之前要對系統進行梳理，比如：哪些業務是核心(必須保證)，哪些業務可以容許暫時不提供服務(利用靜態頁面替換)等，以及配合伺服器核心指標，來後設置整體預案，比如：</p>
+<p>（1）一般：比如有些服務偶爾因為網路抖動或者服務正在上線而超時，可以自動降級；</p>
+<p>（2）警告：有些服務在一段時間內成功率有波動（如在95~100%之間），可以自動降級或人工降級，並發送告警；</p>
+<p>（3）錯誤：比如可用率低於90%，或者資料庫連接池被打爆了，或者訪問量突然猛增到系統能承受的最大閥值，此時可以根據情況自動降級或者人工降級；</p>
+<p>（4）嚴重錯誤：比如因為特殊原因數據錯誤了，此時需要緊急人工降級。</p>
+<p><strong>3.Redis備份和快速預熱</strong></p>
+<p>1)Redis數據備份和恢復</p>
+<p>2)快速緩存預熱</p>
+<p><strong>4.提前演練</strong></p>
+<p>最後，建議還是在項目上線前，演練緩存層宕掉後，應用以及後端的負載情況以及可能出現的問題，對高可用提前預演，提前發現問題。</p>
+<p><strong>緩存穿透</strong></p>
+<p>緩存穿透是指查詢一個一不存在的數據。例如：從緩存redis沒有命中，需要從mysql資料庫查詢，查不到數據則不寫入緩存，這將導致這個不存在的數據每次請求都要到資料庫去查詢，造成緩存穿透。</p>
+<p>解決思路：</p>
+<p>如果查詢資料庫也為空，直接設置一個默認值存放到緩存，這樣第二次到緩衝中獲取就有值了，而不會繼續訪問資料庫。設置一個過期時間或者當有值的時候將緩存中的值替換掉即可。</p>
+<p>可以給key設置一些格式規則，然後查詢之前先過濾掉不符合規則的Key。</p>
+<p><strong>緩存並發</strong></p>
+<p>這裡的並髮指的是多個redis的client同時set key引起的並發問題。其實redis自身就是單線程操作，多個client並發操作，按照先到先執行的原則，先到的先執行，其餘的阻塞。當然，另外的解決方案是把redis.set操作放在隊列中使其串列化，必須的一個一個執行。</p>
+<p><strong>緩存預熱</strong></p>
+<p>緩存預熱就是系統上線後，將相關的緩存數據直接載入到緩存系統。</p>
+<p>這樣就可以避免在用戶請求的時候，先查詢資料庫，然後再將數據緩存的問題！用戶直接查詢事先被預熱的緩存數據！</p>
+<p>解決思路：</p>
+<p>1、直接寫個緩存刷新頁面，上線時手工操作下；</p>
+<p>2、數據量不大，可以在項目啟動的時候自動進行載入；</p>
+<p>目的就是在系統上線前，將數據載入到緩存中。</p>
+<h2 class="pgc-h-arrow-right">二、Redis為什麼是單線程，高並發快的3大原因詳解</h2>
+<p><strong>Redis的高並發和快速原因</strong></p>
+<p>1.redis是基於內存的，內存的讀寫速度非常快；</p>
+<p>2.redis是單線程的，省去了很多上下文切換線程的時間；</p>
+<p>3.redis使用多路復用技術，可以處理並發的連接。非阻塞IO 內部實現採用epoll，採用了epoll+自己實現的簡單的事件框架。epoll中的讀、寫、關閉、連接都轉化成了事件，然後利用epoll的多路復用特性，絕不在io上浪費一點時間。</p>
+<p>下面重點介紹單線程設計和IO多路復用核心設計快的原因。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/dfic-imagehandler/b1f48a1f-e37a-4c52-85e0-4139af274930" alt="《聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了》" width="515" height="287" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/dfic-imagehandler/b1f48a1f-e37a-4c52-85e0-4139af274930" alt="《聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了》" width="515" height="287" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>為什麼Redis是單線程的？</strong></p>
+<p><strong>1.官方答案</strong></p>
+<p>因為Redis是基於內存的操作，CPU不是Redis的瓶頸，Redis的瓶頸最有可能是機器內存的大小或者網路帶寬。既然單線程容易實現，而且CPU不會成為瓶頸，那就順理成章地採用單線程的方案了。</p>
+<p><strong>2.性能指標</strong></p>
+<p>關於redis的性能，官方網站也有，普通筆記本輕鬆處理每秒幾十萬的請求。</p>
+<p><strong>3.詳細原因</strong></p>
+<p><strong>1）不需要各種鎖的性能消耗</strong></p>
+<p>Redis的數據結構並不全是簡單的Key-Value，還有list，hash等複雜的結構，這些結構有可能會進行很細粒度的操作，比如在很長的列表後面添加一個元素，在hash當中添加或者刪除</p>
+<p>一個對象。這些操作可能就需要加非常多的鎖，導致的結果是同步開銷大大增加。</p>
+<p>總之，在單線程的情況下，就不用去考慮各種鎖的問題，不存在加鎖釋放鎖操作，沒有因為可能出現死鎖而導致的性能消耗。</p>
+<p><strong>2）單線程多進程集群方案</strong></p>
+<p>單線程的威力實際上非常強大，每核心效率也非常高，多線程自然是可以比單線程有更高的性能上限，但是在今天的計算環境中，即使是單機多線程的上限也往往不能滿足需要了，需要進一步摸索的是多伺服器集群化的方案，這些方案中多線程的技術照樣是用不上的。</p>
+<p><strong>所以單線程、多進程的集群不失為一個時髦的解決方案。</strong></p>
+<p><strong>3）CPU消耗</strong></p>
+<p>採用單線程，避免了不必要的上下文切換和競爭條件，也不存在多進程或者多線程導致的切換而消耗 CPU。</p>
+<p>但是如果CPU成為Redis瓶頸，或者不想讓伺服器其他CUP核閑置，那怎麼辦？</p>
+<p>可以考慮多起幾個Redis進程，Redis是key-value資料庫，不是關係資料庫，數據之間沒有約束。只要客戶端分清哪些key放在哪個Redis進程上就可以了。</p>
+<p>Redis單線程的優劣勢</p>
+<p><strong>單進程單線程優勢</strong></p>
+<ol start="1">
+<li>代碼更清晰，處理邏輯更簡單不用去考慮各種鎖的問題，不存在加鎖釋放鎖操作，沒有因為可能出現死鎖而導致的性能消耗不存在多進程或者多線程導致的切換而消耗CPU</li>
+</ol>
+<p><strong>單進程單線程弊端</strong></p>
+<ol start="1">
+<li>無法發揮多核CPU性能，不過可以通過在單機開多個Redis實例來完善；</li>
+</ol>
+<p><strong>IO多路復用技術</strong></p>
+<p>redis 採用網路IO多路復用技術來保證在多連接的時候， 系統的高吞吐量。</p>
+<p>多路-指的是多個socket連接，復用-指的是復用一個線程。多路復用主要有三種技術：select，poll，epoll。epoll是最新的也是目前最好的多路復用技術。</p>
+<p>這裡「多路」指的是多個網路連接，「復用」指的是復用同一個線程。採用多路 I/O 復用技術可以讓單個線程高效的處理多個連接請求（盡量減少網路IO的時間消耗），且Redis在內存中操作數據的速度非常快（內存內的操作不會成為這裡的性能瓶頸），主要以上兩點造就了Redis具有很高的吞吐量。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/79ad2c5ea78c4b7486573681048e49b5" alt="《聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了》" width="609" height="326" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/79ad2c5ea78c4b7486573681048e49b5" alt="《聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了》" width="609" height="326" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>Redis高並發快總結</strong></p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/dfic-imagehandler/c97e793b-a795-4026-83a0-82d5d39d958f" alt="《聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了》" width="515" height="287" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/dfic-imagehandler/c97e793b-a795-4026-83a0-82d5d39d958f" alt="《聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了》" width="515" height="287" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>1. Redis是純內存資料庫，一般都是簡單的存取操作，線程佔用的時間很多，時間的花費主要集中在IO上，所以讀取速度快。</p>
+<p>2. 再說一下IO，Redis使用的是非阻塞IO，IO多路復用，使用了單線程來輪詢描述符，將資料庫的開、關、讀、寫都轉換成了事件，減少了線程切換時上下文的切換和競爭。</p>
+<p>3. Redis採用了單線程的模型，保證了每個操作的原子性，也減少了線程的上下文切換和競爭。</p>
+<p>4. 另外，數據結構也幫了不少忙，Redis全程使用hash結構，讀取速度快，還有一些特殊的數據結構，對數據存儲進行了優化，如壓縮表，對短數據進行壓縮存儲，再如，跳錶，使用有序的數據結構加快讀取的速度。</p>
+<p>5. 還有一點，Redis採用自己實現的事件分離器，效率比較高，內部採用非阻塞的執行方式，吞吐能力比較大。</p>
+<h2 class="pgc-h-arrow-right">三、Redis緩存和MySQL數據一致性方案詳解</h2>
+<p><strong>需求起因</strong></p>
+<p>在高並發的業務場景下，資料庫大多數情況都是用戶並發訪問最薄弱的環節。所以，就需要使用redis做一個緩衝操作，讓請求先訪問到redis，而不是直接訪問MySQL等資料庫。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/13fff82d855944d68a40d7b4f536c453" alt="《聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了》" width="640" height="374" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/13fff82d855944d68a40d7b4f536c453" alt="《聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了》" width="640" height="374" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>這個業務場景，主要是解決讀數據從Redis緩存，一般都是按照下圖的流程來進行業務操作。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/1d6822e89a3b44cf8dcf99ab008e289e" alt="《聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了》" width="553" height="505" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/1d6822e89a3b44cf8dcf99ab008e289e" alt="《聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了》" width="553" height="505" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>讀取緩存步驟一般沒有什麼問題，但是一旦涉及到數據更新：資料庫和緩存更新，就容易出現<strong>緩存(Redis)和資料庫（MySQL）間的數據一致性問題</strong>。</p>
+<p>不管是先寫MySQL資料庫，再刪除Redis緩存；還是先刪除緩存，再寫庫，都有可能出現數據不一致的情況。舉一個例子：</p>
+<p>1.如果刪除了緩存Redis，還沒有來得及寫庫MySQL，另一個線程就來讀取，發現緩存為空，則去資料庫中讀取數據寫入緩存，此時緩存中為臟數據。</p>
+<p>2.如果先寫了庫，在刪除緩存前，寫庫的線程宕機了，沒有刪除掉緩存，則也會出現數據不一致情況。</p>
+<p>因為寫和讀是並發的，沒法保證順序,就會出現緩存和資料庫的數據不一致的問題。</p>
+<p>如來解決？這裡給出兩個解決方案，先易後難，結合業務和技術代價選擇使用。</p>
+<p><strong>緩存和資料庫一致性解決方案</strong></p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/dfic-imagehandler/d7bc2037-bb38-4112-b031-42af800d3e34" alt="《聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了》" width="512" height="291" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/dfic-imagehandler/d7bc2037-bb38-4112-b031-42af800d3e34" alt="《聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了》" width="512" height="291" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>1.第一種方案：採用延時雙刪策略</strong></p>
+<p>在寫庫前後都進行redis.del(key)操作，並且設定合理的超時時間。</p>
+<p>偽代碼如下：</p>
+<pre>public void write(String key,Object data){<br> redis.delKey(key);<br> db.updateData(data);<br> Thread.sleep(500);<br> redis.delKey(key);<br> }<br></pre>
+<p><strong>具體的步驟就是：</strong></p>
+<ul class="">
+<li>先刪除緩存；再寫資料庫；休眠500毫秒；再次刪除緩存。</li>
+</ul>
+<p><strong>那麼，這個500毫秒怎麼確定的，具體該休眠多久呢？</strong></p>
+<p>需要評估自己的項目的讀數據業務邏輯的耗時。這麼做的目的，就是確保讀請求結束，寫請求可以刪除讀請求造成的緩存臟數據。</p>
+<p>當然這種策略還要考慮redis和資料庫主從同步的耗時。最後的的寫數據的休眠時間：則在讀數據業務邏輯的耗時基礎上，加幾百ms即可。比如：休眠1秒。</p>
+<p><strong>設置緩存過期時間</strong></p>
+<p>從理論上來說，給緩存設置過期時間，是保證最終一致性的解決方案。所有的寫操作以資料庫為準，只要到達緩存過期時間，則後面的讀請求自然會從資料庫中讀取新值然後回填緩存。</p>
+<p><strong>該方案的弊端</strong></p>
+<p>結合雙刪策略+緩存超時設置，這樣最差的情況就是在超時時間內數據存在不一致，而且又增加了寫請求的耗時。</p>
+<p><strong>2、第二種方案：非同步更新緩存(基於訂閱binlog的同步機制)</strong></p>
+<p><strong>技術整體思路：</strong></p>
+<p>MySQL binlog增量訂閱消費+消息隊列+增量數據更新到redis</p>
+<ul class="">
+<li><strong>讀Redis</strong>：熱數據基本都在Redis<strong>寫MySQL</strong>:增刪改都是操作MySQL<strong>更新Redis數據</strong>：MySQ的數據操作binlog，來更新到Redis</li>
+</ul>
+<p><strong>Redis更新</strong></p>
+<p><strong>1）數據操作主要分為兩大塊：</strong></p>
+<ul class="">
+<li>一個是全量(將全部數據一次寫入到redis)一個是增量（實時更新）</li>
+</ul>
+<p>這裡說的是增量,指的是mysql的update、insert、delate變更數據。</p>
+<p><strong>2）讀取binlog後分析 ，利用消息隊列,推送更新各台的redis緩存數據。</strong></p>
+<p>這樣一旦MySQL中產生了新的寫入、更新、刪除等操作，就可以把binlog相關的消息推送至Redis，Redis再根據binlog中的記錄，對Redis進行更新。</p>
+<p>其實這種機制，很類似MySQL的主從備份機制，因為MySQL的主備也是通過binlog來實現的數據一致性。</p>
+<p>這裡可以結合使用canal(阿里的一款開源框架)，通過該框架可以對MySQL的binlog進行訂閱，而canal正是模仿了mysql的slave資料庫的備份請求，使得Redis的數據更新達到了相同的效果。</p>
+<p>當然，這裡的消息推送工具你也可以採用別的第三方：kafka、rabbitMQ等來實現推送更新Redis。</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		分類: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/22841#comments">
+			寫評論		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">返回頂部</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+<!-- This is the static html file -->

@@ -1,0 +1,621 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://daynews.cc/technology/23027#webpage","url":"https://daynews.cc/technology/23027","inLanguage":"zh-TW","name":"\u6bcf\u79d2570000\u7684\u5beb\u5165\uff0cMySQL\u5982\u4f55\u5be6\u73fe\uff1f - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"datePublished":"2019-12-18T23:10:05+00:00","dateModified":"2019-12-18T23:10:05+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="來源：吳炳錫 yq.aliyun.com/articles/278034 MySQL資料庫如何實現每秒570000的寫入，通過本文了解下。 一、需求 一個朋友接到一個需求，從大數據平台收到一個數據寫入在20億+，需要快速地載入到MySQL中，供第二天業務展示使用。 二、實現再分析 對於單表20億， 在MySQL運維，說真的這塊目前涉及得比……" />
+<meta name="twitter:title" content="每秒570000的寫入，MySQL如何實現？ - 天天要聞" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="每秒570000的寫入，MySQL如何實現？ - 天天要聞" />
+<meta property="og:description" content="來源：吳炳錫 yq.aliyun.com/articles/278034 MySQL資料庫如何實現每秒570000的寫入，通過本文了解下。 一、需求 一個朋友接到一個需求，從大數據平台收到一個數據寫入在20億+，需要快速地載入到MySQL中，供第二天業務展示使用。 二、實現再分析 對於單表20億， 在MySQL運維，說真的這塊目前涉及得比……" />
+<meta property="og:url" content="https://daynews.cc/technology/23027" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-18T23:10:05+00:00" />
+	<title>每秒570000的寫入，MySQL如何實現？ - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/23027" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+	.amp-wp-header .amp-wp-canonical-link {
+		font-size: 0.8em;
+		text-decoration: underline;
+		position: absolute;
+		right: 18px;	}
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+	
+	<script async custom-element="amp-auto-ads" 
+			src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
+	<script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+	
+</head>
+
+<body class="">
+	<amp-auto-ads type="adsense" data-ad-client="ca-pub-8261739837930821"></amp-auto-ads>
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+										<a class="amp-wp-canonical-link" href="https://daynews.cc/technology/23027">
+				原網頁			</a>
+			</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">每秒570000的寫入，MySQL如何實現？</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://daynews.cc/wp-content/themes/Kratos/images/default_avatar.jpeg" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-19T07:10:05+00:00">
+		2019-12-19	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<amp-ad width="100vw" height="320"
+			 type="adsense"
+			 data-ad-client="ca-pub-8261739837930821"
+			 data-ad-slot="2502207318"
+			 data-auto-format="rspv"
+			 data-full-width="">
+		  <div overflow=""></div>
+		</amp-ad>
+		
+		<div>
+<p>來源：吳炳錫</p>
+<p>yq.aliyun.com/articles/278034</p>
+<p>MySQL資料庫如何實現每秒570000的寫入，通過本文了解下。</p>
+<h3 class="pgc-h-arrow-right">一、需求</h3>
+
+<p>一個朋友接到一個需求，從大數據平台收到一個數據寫入在20億+，需要快速地載入到MySQL中，供第二天業務展示使用。</p>
+
+<h3 class="pgc-h-arrow-right">二、實現再分析</h3>
+
+<p>對於單表20億， 在MySQL運維，說真的這塊目前涉及得比較少，也基本沒什麼經驗，但對於InnoDB單表Insert 如果內存大於數據情況下，可以維持在10萬-15萬行寫入。但很多時間我們接受的項目還是數據超過內存的。這裡使用XeLabs TokuDB做一個測試。</p>
+
+<h3 class="pgc-h-arrow-right">三、XeLabs TokuDB 介紹</h3>
+
+<p>項目地址：</p>
+<p>https://github.com/XeLabs/tokudb</p>
+<p>相對官方TokuDB的優化：</p>
+
+<ul class="list-paddingleft-2">
+<li>內置了jemalloc 內存分配</li>
+<li>引入更多的內置的TokuDB性能指標</li>
+<li>支持Xtrabackup備份</li>
+<li>引入ZSTD壓縮演算法</li>
+<li>支持TokuDB的binlog_group_commit特性</li>
+</ul>
+<h3 class="pgc-h-arrow-right"></h3>
+<h3 class="pgc-h-arrow-right">四、測試表</h3>
+
+<p>TokuDB核心配置：</p>
+<pre>loose_tokudb_cache_size=4G<br>loose_tokudb_directio=ON<br>loose_tokudb_fsync_log_period=1000<br>tokudb_commit_sync=0<br></pre>
+
+<p>表結構</p>
+<pre>CREATETABLE`user_summary`(<br>`user_id`bigint(20)unsignedNOTNULLCOMMENT'用戶id/手機號',<br>`weight`varchar(5)DEFAULTNULLCOMMENT'和碼體重(KG)',<br>`level`varchar(20)DEFAULTNULLCOMMENT'重量級',<br>`beat_rate`varchar(12)DEFAULTNULLCOMMENT'擊敗率',<br>`level_num`int(10)DEFAULTNULLCOMMENT'同噸位人數',<br>UNIQUEKEY`u_user_id`(`user_id`)<br>)ENGINE=TokuDBDEFAULTCHARSET=utf8<br></pre>
+
+<p>利用load data寫入數據</p>
+<pre>root@localhost[zst]&gt;LOADDATAINFILE'/u01/work/134-136.txt'<br>INTOTABLEuser_summary(user_id,weight,level,beat_rate,level_num);<br>QueryOK,200000000rowsaffected(5min48.30sec)<br>Records:200000000Deleted:0Skipped:0Warnings:0<br></pre>
+
+<p>計算一下每秒寫入速度：</p>
+<pre>root@localhost[zst]&gt;select200000000/(5*60+48.30);<br>+------------------------+<br>|200000000/(5*60+48.30)|<br>+------------------------+<br>|574217.6285|<br>+------------------------+<br>1rowinset(0.00sec)<br></pre>
+
+<p>文件大小：</p>
+<pre>-rw-r--r--1rootroot8.5G11月2520:05134-136.txt<br>-rw-r-----1mysqlmysql8.6K11月2520:44user_summary.frm<br>-rw-r-----1mysqlmysql3.5G11月2520:51user_summary_main_229_1_1d_B_0.tokudb<br></pre>
+
+<p>實際文件8.5G，寫入TokuDB大小3.5G，只是接近於一半多點的壓縮量。對於20億數據寫入，實際測試在58分鐘多點就可以完成。可以滿足實際需求，另外對於磁碟IO比較好的機器（SSD類盤，雲上的雲盤），如果內存和數據差不多情況，這量級數據量測試在Innodb里需要添加自增列，可以在3個小多一點完成。從最佳實戰上來看，Innodb和TokuDB都寫入同樣的數據，InnoDB需要花大概是TokuDB3-4倍時間。文件大小區別，同樣20億數據：</p>
+<pre>-rw-r-----1mysqlmysql35G11月2523:29user2_main_26a_1_1d_B_0.tokudb<br>-rw-r-----1mysqlmysql176G11月2603:32user5.ibd<br></pre>
+
+<p>文件大小在5倍大小的區別。</p>
+
+<p>測試結論：</p>
+<p>利用TokuDB在某雲環境中8核8G內存，500G高速雲盤環境，多次測試可以輕鬆實現57萬每秒的寫入量。</p>
+
+<p>另外測試幾種場景也供大家參考：如果在TokuDB中使用帶自增的主鍵，主鍵無值讓MySQL內部產生寫入速度，下降比較明顯，同樣寫入2億數據，帶有自建主鍵：</p>
+<pre>root@localhost[zst]&gt;CREATETABLE`user3`(<br>-&gt;`user_id`bigint(20)unsignedNOTNULLCOMMENT'用戶id/手機號',<br>-&gt;`weight`varchar(5)DEFAULTNULLCOMMENT'和碼體重(KG)',<br>-&gt;`level`varchar(20)DEFAULTNULLCOMMENT'重量級',<br>-&gt;`beat_rate`varchar(12)DEFAULTNULLCOMMENT'擊敗率',<br>-&gt;`level_num`int(10)DEFAULTNULLCOMMENT'同噸位人數',<br>-&gt;`id`bigint(20)NOTNULLAUTO_INCREMENT,<br>-&gt;PRIMARYKEY(`id`),<br>-&gt;UNIQUEKEY`u_user_id`(`user_id`)<br>-&gt;)ENGINE=TokuDB;<br>QueryOK,0rowsaffected(0.03sec)<br><br>root@localhost[zst]&gt;LOADDATAINFILE'/u01/work/134-136.txt'INTOTABLEuser3(user_id,weight,level,beat_rate,level_num);<br>QueryOK,200000000rowsaffected(22min43.62sec)<br>Records:200000000Deleted:0Skipped:0Warnings:0<br></pre>
+
+<p>同樣的數據寫入在主鍵自增無值產生時，不能使用TokuDB的 Bulk loader data特性，相當於轉換為了單條的Insert實現，所以效果上慢太多。</p>
+
+<p>關於TokuDB Bulk Loader前提要求，這個表是空表，對於自增列，如自增列有值的情況下，也可以使用。建議實際使用中，如果自增列有值的情況下，可以考慮去除自增屬性，改成唯一索引，這樣減少自增的一些處理邏輯，讓TokuDB能跑地更快一點。另外在Bulk Loader處理中為了追求更快速的寫入，壓縮方面並不是很好。</p>
+
+<p>關於TokuDB Bulk Loader :</p>
+<p>https://github.com/percona/PerconaFT/wiki/TokuFT-Bulk-Loader</p>
+
+<h3 class="pgc-h-arrow-right">五、測試環境說明</h3>
+
+<p>測試使用CentOS7環境，編譯的XeLabs TokuDB版本百度雲地址：</p>
+<p>https://pan.baidu.com/s/1qYRyH3I 。</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		分類: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/23027#comments">
+			寫評論		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">返回頂部</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+<!-- This is the static html file -->

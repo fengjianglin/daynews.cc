@@ -1,0 +1,450 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>集成圖網路模型實現、基準測試，清華推出圖表示學習工具包 - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="機器之心報道 參與：張倩、杜偉 近日，清華大學知識工程研究室（KEG）推出了一個大規模圖表示學習工具包 CogDL，可以讓研究者和開發者更加方便地訓練和對比用於節點分類、鏈路預測以及其他圖任務的基準或定製模型。該工具包集成了 Deepwalk、LINE、node2vec、GraRep、NetMF、NetSMF、ProNE 等非圖神經網路和……" />
+		<meta name="keywords" content="集成圖網路模型實現、基準測試，清華推出圖表示學習工具包 - 天天要聞,科技," />
+		<meta itemprop="image" content="http://p3.pstatp.com/large/pgc-image/8439b96ea92b4390b24a97ccdea3eb3c"/>
+		<meta name="description" itemprop="description" content="機器之心報道 參與：張倩、杜偉 近日，清華大學知識工程研究室（KEG）推出了一個大規模圖表示學習工具包 CogDL，可以讓研究者和開發者更加方便地訓練和對比用於節點分類、鏈路預測以及其他圖任務的基準或定製模型。該工具包集成了 Deepwalk、LINE、node2vec、GraRep、NetMF、NetSMF、ProNE 等非圖神經網路和……" />
+		
+<!-- This site is optimized with the SEO -->
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="https://daynews.cc/technology/23092" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="集成圖網路模型實現、基準測試，清華推出圖表示學習工具包 - 天天要聞" />
+<meta property="og:description" content="機器之心報道 參與：張倩、杜偉 近日，清華大學知識工程研究室（KEG）推出了一個大規模圖表示學習工具包 CogDL，可以讓研究者和開發者更加方便地訓練和對比用於節點分類、鏈路預測以及其他圖任務的基準或定製模型。該工具包集成了 Deepwalk、LINE、node2vec、GraRep、NetMF、NetSMF、ProNE 等非圖神經網路和……" />
+<meta property="og:url" content="https://daynews.cc/technology/23092" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-18T14:45:10+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="機器之心報道 參與：張倩、杜偉 近日，清華大學知識工程研究室（KEG）推出了一個大規模圖表示學習工具包 CogDL，可以讓研究者和開發者更加方便地訓練和對比用於節點分類、鏈路預測以及其他圖任務的基準或定製模型。該工具包集成了 Deepwalk、LINE、node2vec、GraRep、NetMF、NetSMF、ProNE 等非圖神經網路和……" />
+<meta name="twitter:title" content="集成圖網路模型實現、基準測試，清華推出圖表示學習工具包 - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/8439b96ea92b4390b24a97ccdea3eb3c" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/23092#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/8439b96ea92b4390b24a97ccdea3eb3c"},{"@type":"WebPage","@id":"https://daynews.cc/technology/23092#webpage","url":"https://daynews.cc/technology/23092","inLanguage":"zh-TW","name":"\u96c6\u6210\u5716\u7db2\u8def\u6a21\u578b\u5be6\u73fe\u3001\u57fa\u6e96\u6e2c\u8a66\uff0c\u6e05\u83ef\u63a8\u51fa\u5716\u8868\u793a\u5b78\u7fd2\u5de5\u5177\u5305 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/23092#primaryimage"},"datePublished":"2019-12-18T14:45:10+00:00","dateModified":"2019-12-18T14:45:10+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<!-- / SEO. -->
+
+<link rel='stylesheet' id='animate-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/animate.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/bootstrap.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/superfish.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/layer.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='https://daynews.cc/wp-content/themes/Kratos/style.css' type='text/css' media='all' />
+<link rel="amphtml" href="https://daynews.cc/technology/23092/amp">		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.min.js'></script>
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154709495-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-154709495-1');
+		</script>
+		<!-- Google Adsense -->
+		<script data-ad-client="ca-pub-8261739837930821" async 
+			src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="https://daynews.cc"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="/">首頁</a></li>
+<li><a href="https://daynews.cc/entertainment">娛樂</a></li>
+<li><a href="https://daynews.cc/emotion">情感</a></li>
+<li><a href="https://daynews.cc/international">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="https://daynews.cc/technology">科技</a></li>
+<li><a href="https://daynews.cc/sports">體育</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/nba">NBA</a></li>
+	<li><a href="https://daynews.cc/premier">英超</a></li>
+</ul>
+</li>
+<li><a href="https://daynews.cc/history">歷史</a></li>
+<li><a href="https://daynews.cc/game">遊戲</a></li>
+<li><a href="https://daynews.cc/health">養生</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/lose">減肥</a></li>
+</ul>
+</li>
+<li><a href="https://daynews.cc/constellation">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">集成圖網路模型實現、基準測試，清華推出圖表示學習工具包</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-18				                <i class="fa fa-commenting-o"></i> 933條評論
+				                <i class="fa fa-eye"></i> 3,260次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 2115人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+<p>機器之心報道</p>
+<p><strong>參與：張倩、杜偉</strong></p>
+<blockquote>
+<p>近日，清華大學知識工程研究室（KEG）推出了一個大規模圖表示學習工具包 CogDL，可以讓研究者和開發者更加方便地訓練和對比用於節點分類、鏈路預測以及其他圖任務的基準或定製模型。該工具包集成了 Deepwalk、LINE、node2vec、GraRep、NetMF、NetSMF、ProNE 等非圖神經網路和 GCN、GAT、GraphSage、DrGCN、NSGCN、GraphSGAN 等圖神經網路基準模型的實現。</p>
+</blockquote>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/8439b96ea92b4390b24a97ccdea3eb3c" src="http://p3.pstatp.com/large/pgc-image/8439b96ea92b4390b24a97ccdea3eb3c" alt="《集成圖網路模型實現、基準測試，清華推出圖表示學習工具包》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>清華大學計算機科學與技術系長聘教授、計算機系副主任、知識工程研究院教師唐傑發微博介紹 CogDL 項目。</p>
+<ul class=" list-paddingleft-2">
+<li>項目頁面：http://keg.cs.tsinghua.edu.cn/cogdl/index.html</li>
+<li>GitHub 鏈接：https://github.com/THUDM/cogdl/</li>
+</ul>
+<p>與其他圖表示學習工具包相比，CogDL 具有以下特點：</p>
+<ul class=" list-paddingleft-2">
+<li>稀疏性：在具有數千萬節點的大規模網路上實現快速網路嵌入；</li>
+<li>任意性：能夠處理屬性化、多路和異構等不同圖結構的網路；</li>
+<li>並行處理：在多個 GPU 上實現不同種子和模型的並行訓練並自動輸出結果表格；</li>
+<li>可擴展性：輕鬆添加新的數據集、模型和任務並在所有現有的模型/數據集上測試。</li>
+</ul>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/8c081cd6d2094d1f9925d836dde905a7" src="http://p1.pstatp.com/large/pgc-image/8c081cd6d2094d1f9925d836dde905a7" alt="《集成圖網路模型實現、基準測試，清華推出圖表示學習工具包》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>CogDL 圖表示學習工具包的整體框架。</p>
+<p><strong>下游任務的 SOTA 結果和基準方法排行榜</strong></p>
+<p>對於節點分類（有無節點屬性）、鏈路預測（有無屬性、異構與否）和多路異構鏈路預測等下游任務，CogDL 提供了在這些任務上 SOTA 結果和基準方法的排行榜。</p>
+<p><strong>多標籤和有屬性的節點分類</strong></p>
+<p>如下圖所示，這是<strong>無監督多標籤節點分類設置</strong>的排行榜，開發者在真實世界的幾個數據集（PPI、Blogcatalog 和 Wikipedia）上運行所有的演算法並得出了排序後的實驗結果。</p>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/34f0a1a0e7f24eeab1dea8c55c19466b" src="http://p3.pstatp.com/large/pgc-image/34f0a1a0e7f24eeab1dea8c55c19466b" alt="《集成圖網路模型實現、基準測試，清華推出圖表示學習工具包》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>ProNE、NetMF 和 Note2Vec 位列前三甲。</p>
+<p>下圖展示了集中流行圖神經網路在內的<strong>監督式節點分類直推設置</strong>的排行榜。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/ea751557feb14a32ab25a59b6c76b3e5" src="http://p1.pstatp.com/large/pgc-image/ea751557feb14a32ab25a59b6c76b3e5" alt="《集成圖網路模型實現、基準測試，清華推出圖表示學習工具包》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>排名前三的是 NSGCN、DR-GAT 和 DR-GCN。</p>
+<p><strong>鏈路預測</strong></p>
+<p>對於鏈路預測任務，開發者分別採用了 <strong>ROC、AUC 和 F1-score</strong>，這些用來表徵隨機未觀察到鏈路中的頂點（vertices）比隨機不存在鏈路中頂點更相似的概率。他們對這些指標進行了評估並刪除了 PPI、Wikipedia 和 Blogcatalog 三種數據集上 15% 的邊緣計算。最後實驗重複了 10 次，並按順序進行排列。</p>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/684ec7c6fd5248378946e72f01d8bbe1" src="http://p3.pstatp.com/large/pgc-image/684ec7c6fd5248378946e72f01d8bbe1" alt="《集成圖網路模型實現、基準測試，清華推出圖表示學習工具包》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>ProNE 排名第一。</p>
+<p><strong>多路異構鏈路預測</strong></p>
+<p>最後，對於多路異構鏈路預測任務，開發者依然採用了 ROC 評估指標。同樣地，他們對該指標進行了評估並刪除了 Amazon、YouTube 和 Twitter 三種數據集上 15% 的邊緣計算。最後實驗重複了 10 次，並按順序進行排列。</p>
+</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/08e927f1893a4601a55f9067448f894f" src="http://p1.pstatp.com/large/pgc-image/08e927f1893a4601a55f9067448f894f" alt="《集成圖網路模型實現、基準測試，清華推出圖表示學習工具包》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>在此分類中排名前三的方法是 GATNE、NetMF 和 ProNE。</p>
+<p><strong>CogDL 怎麼用？</strong></p>
+<p>開發者在 GitHub 項目中介紹了 CogDL 的詳細使用方法。要使用該工具，首先需要安裝 Pytorch 和 Python，版本要求分別是：PyTorch version &gt;= 1.0.0；Python version &gt;= 3.6。</p>
+<p>接下來，可以使用 python train.py &#8211;task example_task &#8211;dataset example_dataset &#8211;model example_method 在 example_data 上運行 example_method，然後通過 example_task 來進行評估。</p>
+<p>CogDL 中的常規參數包括：</p>
+<ul class=" list-paddingleft-2">
+<li>-task，評估表示的下游任務，如 node_classification、unsupervised_node_classification、link_prediction multiplex_link_prediction 等；</li>
+<li>-datasets，支持的數據集包括&#8217;cora&#8217;、&#8217;citeseer&#8217;、&#8217;pumbed&#8217;、&#8217;PPI&#8217;、&#8217;wikipedia&#8217;、&#8217;blogcatalog&#8217;、&#8217;dblp&#8217;、&#8217;flickr&#8217;；</li>
+<li>-models，要運行的模型名稱包括『gcn』、『gat』、『graphsage』、『deepwalk』、『line』、 『node2vec』、『hope』、『grarep』、『netmf』、『netsmf』和『prone』。</li>
+</ul>
+<p>其他特定參數可以參見 GitHub。</p>
+<p>除了這種常規用法之外，CogDL 還支持用戶將自己表現良好的演算法和數據集添加到項目中。具體步驟也可以在 GitHub 頁面找到。</p>
+<p><strong>支持的數據集</strong></p>
+<p>下面兩個表格列出了 CogDL 支持的數據集，包括含有屬性的數據集和不含屬性的數據集。</p>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/7e363a61d7164e9d889d2072abea61a3" src="http://p9.pstatp.com/large/pgc-image/7e363a61d7164e9d889d2072abea61a3" alt="《集成圖網路模型實現、基準測試，清華推出圖表示學習工具包》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>沒有多標籤節點分類屬性的數據集。</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/62dc24e38ba44f8eb0d8e41cbad0bb9e" src="http://p3.pstatp.com/large/pgc-image/62dc24e38ba44f8eb0d8e41cbad0bb9e" alt="《集成圖網路模型實現、基準測試，清華推出圖表示學習工具包》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>含有多標籤節點分類屬性的數據集。</p>
+<p><strong>清華知識工程研究室（KEG）</strong></p>
+<p>清華大學知識工程研究室成立於 1996 年，致力於網路環境下知識工程理論、方法和應用研究。主要研究內容包括：社會網路分析與挖掘、新聞挖掘、語義 Web、知識圖譜構建等。研究成果在相關領域的 ACM/IEEE Transaction 以及計算機學會指定的 A 類國際期刊、會議上發表 70 余篇高水平論文。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/7e32ae5d5d3943a6b1d657052ce76c82" src="http://p1.pstatp.com/large/pgc-image/7e32ae5d5d3943a6b1d657052ce76c82" alt="《集成圖網路模型實現、基準測試，清華推出圖表示學習工具包》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>實驗室在理論與應用研究結合方面成績顯著，研發的科研人員社會網路挖掘系統 ArnetMiner 是國內最早研發的、也是至今訪問量最大的研究者社會網路分析與挖掘系統，系統目前已有 200 多個國家和地區 800 多萬獨立 IP 的訪問。</p>
+<p>該實驗室的負責人是清華大學計算機科學與技術系軟體研究所副所長李涓子，授課教師包括計算機科學與技術系長聘教授、計算機系副主任唐傑、清華大學計算機科學與技術系副教授許斌等。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/a35062c9f7f24caea4e01f53148488e0" src="http://p1.pstatp.com/large/pgc-image/a35062c9f7f24caea4e01f53148488e0" alt="《集成圖網路模型實現、基準測試，清華推出圖表示學習工具包》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>此外，研究室還有多位優秀的碩士、博士、博士後及訪問學生、工程師等。</p>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="23092" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/23092"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/23092";
+		var title='%E3%80%90%E9%9B%86%E6%88%90%E5%9C%96%E7%B6%B2%E8%B7%AF%E6%A8%A1%E5%9E%8B%E5%AF%A6%E7%8F%BE%E3%80%81%E5%9F%BA%E6%BA%96%E6%B8%AC%E8%A9%A6%EF%BC%8C%E6%B8%85%E8%8F%AF%E6%8E%A8%E5%87%BA%E5%9C%96%E8%A1%A8%E7%A4%BA%E5%AD%B8%E7%BF%92%E5%B7%A5%E5%85%B7%E5%8C%85%E3%80%91';
+		var qqtitle='%E3%80%90%E9%9B%86%E6%88%90%E5%9C%96%E7%B6%B2%E8%B7%AF%E6%A8%A1%E5%9E%8B%E5%AF%A6%E7%8F%BE%E3%80%81%E5%9F%BA%E6%BA%96%E6%B8%AC%E8%A9%A6%EF%BC%8C%E6%B8%85%E8%8F%AF%E6%8E%A8%E5%87%BA%E5%9C%96%E8%A1%A8%E7%A4%BA%E5%AD%B8%E7%BF%92%E5%B7%A5%E5%85%B7%E5%8C%85%E3%80%91';
+		var excerpt='%E6%A9%9F%E5%99%A8%E4%B9%8B%E5%BF%83%E5%A0%B1%E9%81%93%20%E5%8F%83%E8%88%87%EF%BC%9A%E5%BC%B5%E5%80%A9%E3%80%81%E6%9D%9C%E5%81%89%20%E8%BF%91%E6%97%A5%EF%BC%8C%E6%B8%85%E8%8F%AF%E5%A4%A7%E5%AD%B8%E7%9F%A5%E8%AD%98%E5%B7%A5%E7%A8%8B%E7%A0%94%E7%A9%B6%E5%AE%A4%EF%BC%88KEG%EF%BC%89%E6%8E%A8%E5%87%BA%E4%BA%86%E4%B8%80%E5%80%8B%E5%A4%A7%E8%A6%8F%E6%A8%A1%E5%9C%96%E8%A1%A8%E7%A4%BA%E5%AD%B8%E7%BF%92%E5%B7%A5%E5%85%B7%E5%8C%85%20CogDL%EF%BC%8C%E5%8F%AF%E4%BB%A5%E8%AE%93%E7%A0%94%E7%A9%B6%E8%80%85%E5%92%8C%E9%96%8B%E7%99%BC%E8%80%85%E6%9B%B4%E5%8A%A0%E6%96%B9%E4%BE%BF%E5%9C%B0%E8%A8%93%E7%B7%B4%E5%92%8C%E5%B0%8D%E6%AF%94%E7%94%A8%E6%96%BC%E7%AF%80%E9%BB%9E%E5%88%86%E9%A1%9E%E3%80%81%E9%8F%88%E8%B7%AF%E9%A0%90%E6%B8%AC%E4%BB%A5%E5%8F%8A%E5%85%B6%E4%BB%96%E5%9C%96%E4%BB%BB%E5%8B%99%E7%9A%84%E5%9F%BA%E6%BA%96%E6%88%96%E5%AE%9A%E8%A3%BD%E6%A8%A1%E5%9E%8B%E3%80%82%E8%A9%B2%E5%B7%A5%E5%85%B7%E5%8C%85%E9%9B%86%E6%88%90%E4%BA%86%20Deepwalk%E3%80%81LINE%E3%80%81node2vec%E3%80%81GraRep%E3%80%81NetMF%E3%80%81NetSMF%E3%80%81ProNE%20%E7%AD%89%E9%9D%9E%E5%9C%96%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF%E5%92%8C%E2%80%A6%E2%80%A6';
+		var wbexcerpt='%E6%A9%9F%E5%99%A8%E4%B9%8B%E5%BF%83%E5%A0%B1%E9%81%93%20%E5%8F%83%E8%88%87%EF%BC%9A%E5%BC%B5%E5%80%A9%E3%80%81%E6%9D%9C%E5%81%89%20%E8%BF%91%E6%97%A5%EF%BC%8C%E6%B8%85%E8%8F%AF%E5%A4%A7%E5%AD%B8%E7%9F%A5%E8%AD%98%E5%B7%A5%E7%A8%8B%E7%A0%94%E7%A9%B6%E5%AE%A4%EF%BC%88KEG%EF%BC%89%E6%8E%A8%E5%87%BA%E4%BA%86%E4%B8%80%E5%80%8B%E5%A4%A7%E8%A6%8F%E6%A8%A1%E5%9C%96%E8%A1%A8%E7%A4%BA%E5%AD%B8%E7%BF%92%E5%B7%A5%E5%85%B7%E5%8C%85%20CogDL%EF%BC%8C%E5%8F%AF%E4%BB%A5%E8%AE%93%E7%A0%94%E7%A9%B6%E8%80%85%E5%92%8C%E9%96%8B%E7%99%BC%E8%80%85%E6%9B%B4%E5%8A%A0%E6%96%B9%E4%BE%BF%E5%9C%B0%E8%A8%93%E7%B7%B4%E5%92%8C%E5%B0%8D%E6%AF%94%E7%94%A8%E6%96%BC%E7%AF%80%E9%BB%9E%E5%88%86%E9%A1%9E%E3%80%81%E9%8F%88%E8%B7%AF%E9%A0%90%E6%B8%AC%E4%BB%A5%E5%8F%8A%E5%85%B6%E4%BB%96%E5%9C%96%E4%BB%BB%E5%8B%99%E7%9A%84%E5%9F%BA%E6%BA%96%E6%88%96%E5%AE%9A%E8%A3%BD%E6%A8%A1%E5%9E%8B%E3%80%82%E8%A9%B2%E5%B7%A5%E5%85%B7%E5%8C%85%E9%9B%86%E6%88%90%E4%BA%86%20Deepwalk%E3%80%81LINE%E3%80%81node2vec%E3%80%81GraRep%E3%80%81NetMF%E3%80%81NetSMF%E3%80%81ProNE%20%E7%AD%89%E9%9D%9E%E5%9C%96%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF%E5%92%8C%E2%80%A6%E2%80%A6';
+		var pic="http://p3.pstatp.com/large/pgc-image/8439b96ea92b4390b24a97ccdea3eb3c";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="中興高管：已導入5nm晶元 操作系統出貨2億套" href="https://daynews.cc/technology/23093">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="Python讓圖表奔跑起來，Matplotlib的神奇用處" href="https://daynews.cc/technology/23091">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="/technology/23092#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='23092' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                    <aside id="custom_html-2" class="widget_text widget widget_custom_html clearfix"><div class="textwidget custom-html-widget"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- self-adaption-ads -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8261739837930821"
+     data-ad-slot="2502207318"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div></aside><aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="https://daynews.cc/nba">NBA</a> (1,715)
+</li>
+	<li class="cat-item cat-item-23"><a href="https://daynews.cc/international">國際</a> (2,621)
+</li>
+	<li class="cat-item cat-item-14"><a href="https://daynews.cc/entertainment">娛樂</a> (1,847)
+</li>
+	<li class="cat-item cat-item-15"><a href="https://daynews.cc/emotion">情感</a> (1,879)
+</li>
+	<li class="cat-item cat-item-22"><a href="https://daynews.cc/constellation">星座</a> (1,245)
+</li>
+	<li class="cat-item cat-item-17"><a href="https://daynews.cc/history">歷史</a> (2,072)
+</li>
+	<li class="cat-item cat-item-25"><a href="https://daynews.cc/lose">減肥</a> (620)
+</li>
+	<li class="cat-item cat-item-24"><a href="https://daynews.cc/technology">科技</a> (2,560)
+</li>
+	<li class="cat-item cat-item-19"><a href="https://daynews.cc/premier">英超</a> (1,519)
+</li>
+	<li class="cat-item cat-item-18"><a href="https://daynews.cc/game">遊戲</a> (2,382)
+</li>
+	<li class="cat-item cat-item-21"><a href="https://daynews.cc/health">養生</a> (1,405)
+</li>
+	<li class="cat-item cat-item-16"><a href="https://daynews.cc/sports">體育</a> (2,429)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='https://daynews.cc/date/2019/12'>2019 年 12 月</a>&nbsp;(19292)</li>
+	<li><a href='https://daynews.cc/date/2019/11'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='https://daynews.cc/date/2019/10'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside><aside id="custom_html-3" class="widget_text widget widget_custom_html clearfix"><div class="textwidget custom-html-widget"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- self-adaption-ads -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8261739837930821"
+     data-ad-slot="2502207318"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div></aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="https://daynews.cc">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.easing.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.qrcode.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/layer.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/modernizr.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.waypoints.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.stellar.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/hoverIntent.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/superfish.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/kratos.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-includes/js/wp-embed.min.js'></script>
+			</body>
+
+</html>
+<!-- This is the static html file -->

@@ -1,0 +1,514 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了 - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="一、Redis雪崩、穿透、並發等5大難題解決方案 緩存雪崩 數據未載入到緩存中，或者緩存同一時間大面積的失效，從而導致所有請求都去查資料庫，導致資料庫CPU和內存負載過高，甚至宕機。 比如一個雪崩的簡單過程： 1、redis集群大面積故障 2、緩存失效，但依然大量請求訪問緩存服務redis 3、redis大量失效後，大量請求轉向到mysq……" />
+		<meta name="keywords" content="聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了 - 天天要聞,科技," />
+		<meta itemprop="image" content="http://p1.pstatp.com/large/pgc-image/7235a4e0af204216829d9906adf6b025"/>
+		<meta name="description" itemprop="description" content="一、Redis雪崩、穿透、並發等5大難題解決方案 緩存雪崩 數據未載入到緩存中，或者緩存同一時間大面積的失效，從而導致所有請求都去查資料庫，導致資料庫CPU和內存負載過高，甚至宕機。 比如一個雪崩的簡單過程： 1、redis集群大面積故障 2、緩存失效，但依然大量請求訪問緩存服務redis 3、redis大量失效後，大量請求轉向到mysq……" />
+		
+<!-- This site is optimized with the SEO -->
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="https://daynews.cc/technology/22841" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了 - 天天要聞" />
+<meta property="og:description" content="一、Redis雪崩、穿透、並發等5大難題解決方案 緩存雪崩 數據未載入到緩存中，或者緩存同一時間大面積的失效，從而導致所有請求都去查資料庫，導致資料庫CPU和內存負載過高，甚至宕機。 比如一個雪崩的簡單過程： 1、redis集群大面積故障 2、緩存失效，但依然大量請求訪問緩存服務redis 3、redis大量失效後，大量請求轉向到mysq……" />
+<meta property="og:url" content="https://daynews.cc/technology/22841" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-19T23:05:09+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="一、Redis雪崩、穿透、並發等5大難題解決方案 緩存雪崩 數據未載入到緩存中，或者緩存同一時間大面積的失效，從而導致所有請求都去查資料庫，導致資料庫CPU和內存負載過高，甚至宕機。 比如一個雪崩的簡單過程： 1、redis集群大面積故障 2、緩存失效，但依然大量請求訪問緩存服務redis 3、redis大量失效後，大量請求轉向到mysq……" />
+<meta name="twitter:title" content="聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/7235a4e0af204216829d9906adf6b025" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/22841#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/7235a4e0af204216829d9906adf6b025"},{"@type":"WebPage","@id":"https://daynews.cc/technology/22841#webpage","url":"https://daynews.cc/technology/22841","inLanguage":"zh-TW","name":"\u807d\u8aaaRedis\u90fd\u6703\u9047\u5230\u4e26\u767c\u3001\u96ea\u5d29\u7b49\u96e3\u984c\uff1f\u6211\u752810\u5206\u9418\u5c31\u89e3\u6c7a\u4e86 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/22841#primaryimage"},"datePublished":"2019-12-19T23:05:09+00:00","dateModified":"2019-12-19T23:05:09+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<!-- / SEO. -->
+
+<link rel='stylesheet' id='animate-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/animate.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/bootstrap.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/superfish.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/layer.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='https://daynews.cc/wp-content/themes/Kratos/style.css' type='text/css' media='all' />
+<link rel="amphtml" href="https://daynews.cc/technology/22841/amp">		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.min.js'></script>
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154709495-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-154709495-1');
+		</script>
+		<!-- Google Adsense -->
+		<script data-ad-client="ca-pub-8261739837930821" async 
+			src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="https://daynews.cc"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="/">首頁</a></li>
+<li><a href="https://daynews.cc/entertainment">娛樂</a></li>
+<li><a href="https://daynews.cc/emotion">情感</a></li>
+<li><a href="https://daynews.cc/international">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="https://daynews.cc/technology">科技</a></li>
+<li><a href="https://daynews.cc/sports">體育</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/nba">NBA</a></li>
+	<li><a href="https://daynews.cc/premier">英超</a></li>
+</ul>
+</li>
+<li><a href="https://daynews.cc/history">歷史</a></li>
+<li><a href="https://daynews.cc/game">遊戲</a></li>
+<li><a href="https://daynews.cc/health">養生</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/lose">減肥</a></li>
+</ul>
+</li>
+<li><a href="https://daynews.cc/constellation">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-20				                <i class="fa fa-commenting-o"></i> 1,003條評論
+				                <i class="fa fa-eye"></i> 3,269次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 1061人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+<h2 class="pgc-h-arrow-right">一、Redis雪崩、穿透、並發等5大難題解決方案</h2>
+<p><strong>緩存雪崩</strong></p>
+<p>數據未載入到緩存中，或者緩存同一時間大面積的失效，從而導致所有請求都去查資料庫，導致資料庫CPU和內存負載過高，甚至宕機。</p>
+<p><strong>比如一個雪崩的簡單過程：</strong></p>
+<p>1、redis集群大面積故障</p>
+<p>2、緩存失效，但依然大量請求訪問緩存服務redis</p>
+<p>3、redis大量失效後，大量請求轉向到mysql資料庫</p>
+<p>4、mysql的調用量暴增，很快就扛不住了，甚至直接宕機</p>
+<p>5、由於大量的應用服務依賴mysql和redis的服務，這個時候很快會演變成各伺服器集群的雪崩，最後網站徹底崩潰。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/7235a4e0af204216829d9906adf6b025" src="http://p1.pstatp.com/large/pgc-image/7235a4e0af204216829d9906adf6b025" alt="《聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p><strong>如何預防緩存雪崩：</strong></p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/dfic-imagehandler/ba234628-41c4-4bf4-8663-126c568e2208" src="http://p1.pstatp.com/large/dfic-imagehandler/ba234628-41c4-4bf4-8663-126c568e2208" alt="《聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p><strong>1.緩存的高可用性</strong></p>
+<p>緩存層設計成高可用，防止緩存大面積故障。即使個別節點、個別機器、甚至是機房宕掉，依然可以提供服務，例如 Redis Sentinel 和 Redis Cluster 都實現了高可用。</p>
+<p><strong>2.緩存降級</strong></p>
+<p>可以利用ehcache等本地緩存(暫時支持)，但主要還是對源服務訪問進行限流、資源隔離（熔斷）、降級等。</p>
+<p>當訪問量劇增、服務出現問題仍然需要保證服務還是可用的。系統可以根據一些關鍵數據進行<strong>自動降級</strong>，也可以配置開關實現<strong>人工降級，</strong>這裡會涉及到運維的配合。</p>
+<p><strong>降級的最終目的是保證核心服務可用，即使是有損的。</strong></p>
+<p>比如推薦服務中，很多都是個性化的需求，假如個性化需求不能提供服務了，可以降級補充熱點數據，不至於造成前端頁面是個大空白。</p>
+<p>在進行降級之前要對系統進行梳理，比如：哪些業務是核心(必須保證)，哪些業務可以容許暫時不提供服務(利用靜態頁面替換)等，以及配合伺服器核心指標，來後設置整體預案，比如：</p>
+<p>（1）一般：比如有些服務偶爾因為網路抖動或者服務正在上線而超時，可以自動降級；</p>
+<p>（2）警告：有些服務在一段時間內成功率有波動（如在95~100%之間），可以自動降級或人工降級，並發送告警；</p>
+<p>（3）錯誤：比如可用率低於90%，或者資料庫連接池被打爆了，或者訪問量突然猛增到系統能承受的最大閥值，此時可以根據情況自動降級或者人工降級；</p>
+<p>（4）嚴重錯誤：比如因為特殊原因數據錯誤了，此時需要緊急人工降級。</p>
+<p><strong>3.Redis備份和快速預熱</strong></p>
+<p>1)Redis數據備份和恢復</p>
+<p>2)快速緩存預熱</p>
+<p><strong>4.提前演練</strong></p>
+<p>最後，建議還是在項目上線前，演練緩存層宕掉後，應用以及後端的負載情況以及可能出現的問題，對高可用提前預演，提前發現問題。</p>
+<p><strong>緩存穿透</strong></p>
+<p>緩存穿透是指查詢一個一不存在的數據。例如：從緩存redis沒有命中，需要從mysql資料庫查詢，查不到數據則不寫入緩存，這將導致這個不存在的數據每次請求都要到資料庫去查詢，造成緩存穿透。</p>
+<p>解決思路：</p>
+<p>如果查詢資料庫也為空，直接設置一個默認值存放到緩存，這樣第二次到緩衝中獲取就有值了，而不會繼續訪問資料庫。設置一個過期時間或者當有值的時候將緩存中的值替換掉即可。</p>
+<p>可以給key設置一些格式規則，然後查詢之前先過濾掉不符合規則的Key。</p>
+<p><strong>緩存並發</strong></p>
+<p>這裡的並髮指的是多個redis的client同時set key引起的並發問題。其實redis自身就是單線程操作，多個client並發操作，按照先到先執行的原則，先到的先執行，其餘的阻塞。當然，另外的解決方案是把redis.set操作放在隊列中使其串列化，必須的一個一個執行。</p>
+<p><strong>緩存預熱</strong></p>
+<p>緩存預熱就是系統上線後，將相關的緩存數據直接載入到緩存系統。</p>
+<p>這樣就可以避免在用戶請求的時候，先查詢資料庫，然後再將數據緩存的問題！用戶直接查詢事先被預熱的緩存數據！</p>
+<p>解決思路：</p>
+<p>1、直接寫個緩存刷新頁面，上線時手工操作下；</p>
+<p>2、數據量不大，可以在項目啟動的時候自動進行載入；</p>
+<p>目的就是在系統上線前，將數據載入到緩存中。</p>
+<h2 class="pgc-h-arrow-right">二、Redis為什麼是單線程，高並發快的3大原因詳解</h2>
+<p><strong>Redis的高並發和快速原因</strong></p>
+<p>1.redis是基於內存的，內存的讀寫速度非常快；</p>
+<p>2.redis是單線程的，省去了很多上下文切換線程的時間；</p>
+<p>3.redis使用多路復用技術，可以處理並發的連接。非阻塞IO 內部實現採用epoll，採用了epoll+自己實現的簡單的事件框架。epoll中的讀、寫、關閉、連接都轉化成了事件，然後利用epoll的多路復用特性，絕不在io上浪費一點時間。</p>
+<p>下面重點介紹單線程設計和IO多路復用核心設計快的原因。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/dfic-imagehandler/b1f48a1f-e37a-4c52-85e0-4139af274930" src="http://p1.pstatp.com/large/dfic-imagehandler/b1f48a1f-e37a-4c52-85e0-4139af274930" alt="《聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p><strong>為什麼Redis是單線程的？</strong></p>
+<p><strong>1.官方答案</strong></p>
+<p>因為Redis是基於內存的操作，CPU不是Redis的瓶頸，Redis的瓶頸最有可能是機器內存的大小或者網路帶寬。既然單線程容易實現，而且CPU不會成為瓶頸，那就順理成章地採用單線程的方案了。</p>
+<p><strong>2.性能指標</strong></p>
+<p>關於redis的性能，官方網站也有，普通筆記本輕鬆處理每秒幾十萬的請求。</p>
+<p><strong>3.詳細原因</strong></p>
+<p><strong>1）不需要各種鎖的性能消耗</strong></p>
+<p>Redis的數據結構並不全是簡單的Key-Value，還有list，hash等複雜的結構，這些結構有可能會進行很細粒度的操作，比如在很長的列表後面添加一個元素，在hash當中添加或者刪除</p>
+<p>一個對象。這些操作可能就需要加非常多的鎖，導致的結果是同步開銷大大增加。</p>
+<p>總之，在單線程的情況下，就不用去考慮各種鎖的問題，不存在加鎖釋放鎖操作，沒有因為可能出現死鎖而導致的性能消耗。</p>
+<p><strong>2）單線程多進程集群方案</strong></p>
+<p>單線程的威力實際上非常強大，每核心效率也非常高，多線程自然是可以比單線程有更高的性能上限，但是在今天的計算環境中，即使是單機多線程的上限也往往不能滿足需要了，需要進一步摸索的是多伺服器集群化的方案，這些方案中多線程的技術照樣是用不上的。</p>
+<p><strong>所以單線程、多進程的集群不失為一個時髦的解決方案。</strong></p>
+<p><strong>3）CPU消耗</strong></p>
+<p>採用單線程，避免了不必要的上下文切換和競爭條件，也不存在多進程或者多線程導致的切換而消耗 CPU。</p>
+<p>但是如果CPU成為Redis瓶頸，或者不想讓伺服器其他CUP核閑置，那怎麼辦？</p>
+<p>可以考慮多起幾個Redis進程，Redis是key-value資料庫，不是關係資料庫，數據之間沒有約束。只要客戶端分清哪些key放在哪個Redis進程上就可以了。</p>
+<p>Redis單線程的優劣勢</p>
+<p><strong>單進程單線程優勢</strong></p>
+<ol start="1">
+<li>代碼更清晰，處理邏輯更簡單不用去考慮各種鎖的問題，不存在加鎖釋放鎖操作，沒有因為可能出現死鎖而導致的性能消耗不存在多進程或者多線程導致的切換而消耗CPU</li>
+</ol>
+<p><strong>單進程單線程弊端</strong></p>
+<ol start="1">
+<li>無法發揮多核CPU性能，不過可以通過在單機開多個Redis實例來完善；</li>
+</ol>
+<p><strong>IO多路復用技術</strong></p>
+<p>redis 採用網路IO多路復用技術來保證在多連接的時候， 系統的高吞吐量。</p>
+<p>多路-指的是多個socket連接，復用-指的是復用一個線程。多路復用主要有三種技術：select，poll，epoll。epoll是最新的也是目前最好的多路復用技術。</p>
+<p>這裡「多路」指的是多個網路連接，「復用」指的是復用同一個線程。採用多路 I/O 復用技術可以讓單個線程高效的處理多個連接請求（盡量減少網路IO的時間消耗），且Redis在內存中操作數據的速度非常快（內存內的操作不會成為這裡的性能瓶頸），主要以上兩點造就了Redis具有很高的吞吐量。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/79ad2c5ea78c4b7486573681048e49b5" src="http://p1.pstatp.com/large/pgc-image/79ad2c5ea78c4b7486573681048e49b5" alt="《聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p><strong>Redis高並發快總結</strong></p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/dfic-imagehandler/c97e793b-a795-4026-83a0-82d5d39d958f" src="http://p1.pstatp.com/large/dfic-imagehandler/c97e793b-a795-4026-83a0-82d5d39d958f" alt="《聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>1. Redis是純內存資料庫，一般都是簡單的存取操作，線程佔用的時間很多，時間的花費主要集中在IO上，所以讀取速度快。</p>
+<p>2. 再說一下IO，Redis使用的是非阻塞IO，IO多路復用，使用了單線程來輪詢描述符，將資料庫的開、關、讀、寫都轉換成了事件，減少了線程切換時上下文的切換和競爭。</p>
+<p>3. Redis採用了單線程的模型，保證了每個操作的原子性，也減少了線程的上下文切換和競爭。</p>
+<p>4. 另外，數據結構也幫了不少忙，Redis全程使用hash結構，讀取速度快，還有一些特殊的數據結構，對數據存儲進行了優化，如壓縮表，對短數據進行壓縮存儲，再如，跳錶，使用有序的數據結構加快讀取的速度。</p>
+<p>5. 還有一點，Redis採用自己實現的事件分離器，效率比較高，內部採用非阻塞的執行方式，吞吐能力比較大。</p>
+<h2 class="pgc-h-arrow-right">三、Redis緩存和MySQL數據一致性方案詳解</h2>
+<p><strong>需求起因</strong></p>
+<p>在高並發的業務場景下，資料庫大多數情況都是用戶並發訪問最薄弱的環節。所以，就需要使用redis做一個緩衝操作，讓請求先訪問到redis，而不是直接訪問MySQL等資料庫。</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/13fff82d855944d68a40d7b4f536c453" src="http://p3.pstatp.com/large/pgc-image/13fff82d855944d68a40d7b4f536c453" alt="《聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>這個業務場景，主要是解決讀數據從Redis緩存，一般都是按照下圖的流程來進行業務操作。</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/1d6822e89a3b44cf8dcf99ab008e289e" src="http://p3.pstatp.com/large/pgc-image/1d6822e89a3b44cf8dcf99ab008e289e" alt="《聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>讀取緩存步驟一般沒有什麼問題，但是一旦涉及到數據更新：資料庫和緩存更新，就容易出現<strong>緩存(Redis)和資料庫（MySQL）間的數據一致性問題</strong>。</p>
+<p>不管是先寫MySQL資料庫，再刪除Redis緩存；還是先刪除緩存，再寫庫，都有可能出現數據不一致的情況。舉一個例子：</p>
+<p>1.如果刪除了緩存Redis，還沒有來得及寫庫MySQL，另一個線程就來讀取，發現緩存為空，則去資料庫中讀取數據寫入緩存，此時緩存中為臟數據。</p>
+<p>2.如果先寫了庫，在刪除緩存前，寫庫的線程宕機了，沒有刪除掉緩存，則也會出現數據不一致情況。</p>
+<p>因為寫和讀是並發的，沒法保證順序,就會出現緩存和資料庫的數據不一致的問題。</p>
+<p>如來解決？這裡給出兩個解決方案，先易後難，結合業務和技術代價選擇使用。</p>
+<p><strong>緩存和資料庫一致性解決方案</strong></p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/dfic-imagehandler/d7bc2037-bb38-4112-b031-42af800d3e34" src="http://p1.pstatp.com/large/dfic-imagehandler/d7bc2037-bb38-4112-b031-42af800d3e34" alt="《聽說Redis都會遇到並發、雪崩等難題？我用10分鐘就解決了》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p><strong>1.第一種方案：採用延時雙刪策略</strong></p>
+<p>在寫庫前後都進行redis.del(key)操作，並且設定合理的超時時間。</p>
+<p>偽代碼如下：</p>
+<pre>public void write(String key,Object data){<br> redis.delKey(key);<br> db.updateData(data);<br> Thread.sleep(500);<br> redis.delKey(key);<br> }<br></pre>
+<p><strong>具體的步驟就是：</strong></p>
+<ul class="">
+<li>先刪除緩存；再寫資料庫；休眠500毫秒；再次刪除緩存。</li>
+</ul>
+<p><strong>那麼，這個500毫秒怎麼確定的，具體該休眠多久呢？</strong></p>
+<p>需要評估自己的項目的讀數據業務邏輯的耗時。這麼做的目的，就是確保讀請求結束，寫請求可以刪除讀請求造成的緩存臟數據。</p>
+<p>當然這種策略還要考慮redis和資料庫主從同步的耗時。最後的的寫數據的休眠時間：則在讀數據業務邏輯的耗時基礎上，加幾百ms即可。比如：休眠1秒。</p>
+<p><strong>設置緩存過期時間</strong></p>
+<p>從理論上來說，給緩存設置過期時間，是保證最終一致性的解決方案。所有的寫操作以資料庫為準，只要到達緩存過期時間，則後面的讀請求自然會從資料庫中讀取新值然後回填緩存。</p>
+<p><strong>該方案的弊端</strong></p>
+<p>結合雙刪策略+緩存超時設置，這樣最差的情況就是在超時時間內數據存在不一致，而且又增加了寫請求的耗時。</p>
+<p><strong>2、第二種方案：非同步更新緩存(基於訂閱binlog的同步機制)</strong></p>
+<p><strong>技術整體思路：</strong></p>
+<p>MySQL binlog增量訂閱消費+消息隊列+增量數據更新到redis</p>
+<ul class="">
+<li><strong>讀Redis</strong>：熱數據基本都在Redis<strong>寫MySQL</strong>:增刪改都是操作MySQL<strong>更新Redis數據</strong>：MySQ的數據操作binlog，來更新到Redis</li>
+</ul>
+<p><strong>Redis更新</strong></p>
+<p><strong>1）數據操作主要分為兩大塊：</strong></p>
+<ul class="">
+<li>一個是全量(將全部數據一次寫入到redis)一個是增量（實時更新）</li>
+</ul>
+<p>這裡說的是增量,指的是mysql的update、insert、delate變更數據。</p>
+<p><strong>2）讀取binlog後分析 ，利用消息隊列,推送更新各台的redis緩存數據。</strong></p>
+<p>這樣一旦MySQL中產生了新的寫入、更新、刪除等操作，就可以把binlog相關的消息推送至Redis，Redis再根據binlog中的記錄，對Redis進行更新。</p>
+<p>其實這種機制，很類似MySQL的主從備份機制，因為MySQL的主備也是通過binlog來實現的數據一致性。</p>
+<p>這裡可以結合使用canal(阿里的一款開源框架)，通過該框架可以對MySQL的binlog進行訂閱，而canal正是模仿了mysql的slave資料庫的備份請求，使得Redis的數據更新達到了相同的效果。</p>
+<p>當然，這裡的消息推送工具你也可以採用別的第三方：kafka、rabbitMQ等來實現推送更新Redis。</p>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="22841" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/22841"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/22841";
+		var title='%E3%80%90%E8%81%BD%E8%AA%AARedis%E9%83%BD%E6%9C%83%E9%81%87%E5%88%B0%E4%B8%A6%E7%99%BC%E3%80%81%E9%9B%AA%E5%B4%A9%E7%AD%89%E9%9B%A3%E9%A1%8C%EF%BC%9F%E6%88%91%E7%94%A810%E5%88%86%E9%90%98%E5%B0%B1%E8%A7%A3%E6%B1%BA%E4%BA%86%E3%80%91';
+		var qqtitle='%E3%80%90%E8%81%BD%E8%AA%AARedis%E9%83%BD%E6%9C%83%E9%81%87%E5%88%B0%E4%B8%A6%E7%99%BC%E3%80%81%E9%9B%AA%E5%B4%A9%E7%AD%89%E9%9B%A3%E9%A1%8C%EF%BC%9F%E6%88%91%E7%94%A810%E5%88%86%E9%90%98%E5%B0%B1%E8%A7%A3%E6%B1%BA%E4%BA%86%E3%80%91';
+		var excerpt='%E4%B8%80%E3%80%81Redis%E9%9B%AA%E5%B4%A9%E3%80%81%E7%A9%BF%E9%80%8F%E3%80%81%E4%B8%A6%E7%99%BC%E7%AD%895%E5%A4%A7%E9%9B%A3%E9%A1%8C%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88%20%E7%B7%A9%E5%AD%98%E9%9B%AA%E5%B4%A9%20%E6%95%B8%E6%93%9A%E6%9C%AA%E8%BC%89%E5%85%A5%E5%88%B0%E7%B7%A9%E5%AD%98%E4%B8%AD%EF%BC%8C%E6%88%96%E8%80%85%E7%B7%A9%E5%AD%98%E5%90%8C%E4%B8%80%E6%99%82%E9%96%93%E5%A4%A7%E9%9D%A2%E7%A9%8D%E7%9A%84%E5%A4%B1%E6%95%88%EF%BC%8C%E5%BE%9E%E8%80%8C%E5%B0%8E%E8%87%B4%E6%89%80%E6%9C%89%E8%AB%8B%E6%B1%82%E9%83%BD%E5%8E%BB%E6%9F%A5%E8%B3%87%E6%96%99%E5%BA%AB%EF%BC%8C%E5%B0%8E%E8%87%B4%E8%B3%87%E6%96%99%E5%BA%ABCPU%E5%92%8C%E5%85%A7%E5%AD%98%E8%B2%A0%E8%BC%89%E9%81%8E%E9%AB%98%EF%BC%8C%E7%94%9A%E8%87%B3%E5%AE%95%E6%A9%9F%E3%80%82%20%E6%AF%94%E5%A6%82%E4%B8%80%E5%80%8B%E9%9B%AA%E5%B4%A9%E7%9A%84%E7%B0%A1%E5%96%AE%E9%81%8E%E7%A8%8B%EF%BC%9A%201%E3%80%81redis%E9%9B%86%E7%BE%A4%E5%A4%A7%E9%9D%A2%E7%A9%8D%E6%95%85%E9%9A%9C%202%E3%80%81%E7%B7%A9%E5%AD%98%E5%A4%B1%E6%95%88%EF%BC%8C%E4%BD%86%E4%BE%9D%E7%84%B6%E5%A4%A7%E9%87%8F%E8%AB%8B%E6%B1%82%E8%A8%AA%E5%95%8F%E7%B7%A9%E5%AD%98%E6%9C%8D%E5%8B%99redis%203%E3%80%81redis%E5%A4%A7%E9%87%8F%E5%A4%B1%E6%95%88%E5%BE%8C%EF%BC%8C%E5%A4%A7%E9%87%8F%E8%AB%8B%E6%B1%82%E8%BD%89%E5%90%91%E5%88%B0mysq%E2%80%A6%E2%80%A6';
+		var wbexcerpt='%E4%B8%80%E3%80%81Redis%E9%9B%AA%E5%B4%A9%E3%80%81%E7%A9%BF%E9%80%8F%E3%80%81%E4%B8%A6%E7%99%BC%E7%AD%895%E5%A4%A7%E9%9B%A3%E9%A1%8C%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88%20%E7%B7%A9%E5%AD%98%E9%9B%AA%E5%B4%A9%20%E6%95%B8%E6%93%9A%E6%9C%AA%E8%BC%89%E5%85%A5%E5%88%B0%E7%B7%A9%E5%AD%98%E4%B8%AD%EF%BC%8C%E6%88%96%E8%80%85%E7%B7%A9%E5%AD%98%E5%90%8C%E4%B8%80%E6%99%82%E9%96%93%E5%A4%A7%E9%9D%A2%E7%A9%8D%E7%9A%84%E5%A4%B1%E6%95%88%EF%BC%8C%E5%BE%9E%E8%80%8C%E5%B0%8E%E8%87%B4%E6%89%80%E6%9C%89%E8%AB%8B%E6%B1%82%E9%83%BD%E5%8E%BB%E6%9F%A5%E8%B3%87%E6%96%99%E5%BA%AB%EF%BC%8C%E5%B0%8E%E8%87%B4%E8%B3%87%E6%96%99%E5%BA%ABCPU%E5%92%8C%E5%85%A7%E5%AD%98%E8%B2%A0%E8%BC%89%E9%81%8E%E9%AB%98%EF%BC%8C%E7%94%9A%E8%87%B3%E5%AE%95%E6%A9%9F%E3%80%82%20%E6%AF%94%E5%A6%82%E4%B8%80%E5%80%8B%E9%9B%AA%E5%B4%A9%E7%9A%84%E7%B0%A1%E5%96%AE%E9%81%8E%E7%A8%8B%EF%BC%9A%201%E3%80%81redis%E9%9B%86%E7%BE%A4%E5%A4%A7%E9%9D%A2%E7%A9%8D%E6%95%85%E9%9A%9C%202%E3%80%81%E7%B7%A9%E5%AD%98%E5%A4%B1%E6%95%88%EF%BC%8C%E4%BD%86%E4%BE%9D%E7%84%B6%E5%A4%A7%E9%87%8F%E8%AB%8B%E6%B1%82%E8%A8%AA%E5%95%8F%E7%B7%A9%E5%AD%98%E6%9C%8D%E5%8B%99redis%203%E3%80%81redis%E5%A4%A7%E9%87%8F%E5%A4%B1%E6%95%88%E5%BE%8C%EF%BC%8C%E5%A4%A7%E9%87%8F%E8%AB%8B%E6%B1%82%E8%BD%89%E5%90%91%E5%88%B0mysq%E2%80%A6%E2%80%A6';
+		var pic="http://p1.pstatp.com/large/pgc-image/7235a4e0af204216829d9906adf6b025";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="凈利是BAT之和3倍，總部租用半層樓，老闆辦公桌沒有電腦用算盤" href="https://daynews.cc/technology/22843">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="明星富豪都喜歡放棄中國國籍，加入新加坡國籍" href="https://daynews.cc/technology/22840">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="/technology/22841#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='22841' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                    <aside id="custom_html-2" class="widget_text widget widget_custom_html clearfix"><div class="textwidget custom-html-widget"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- self-adaption-ads -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8261739837930821"
+     data-ad-slot="2502207318"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div></aside><aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="https://daynews.cc/nba">NBA</a> (1,715)
+</li>
+	<li class="cat-item cat-item-23"><a href="https://daynews.cc/international">國際</a> (2,621)
+</li>
+	<li class="cat-item cat-item-14"><a href="https://daynews.cc/entertainment">娛樂</a> (1,847)
+</li>
+	<li class="cat-item cat-item-15"><a href="https://daynews.cc/emotion">情感</a> (1,879)
+</li>
+	<li class="cat-item cat-item-22"><a href="https://daynews.cc/constellation">星座</a> (1,245)
+</li>
+	<li class="cat-item cat-item-17"><a href="https://daynews.cc/history">歷史</a> (2,072)
+</li>
+	<li class="cat-item cat-item-25"><a href="https://daynews.cc/lose">減肥</a> (620)
+</li>
+	<li class="cat-item cat-item-24"><a href="https://daynews.cc/technology">科技</a> (2,560)
+</li>
+	<li class="cat-item cat-item-19"><a href="https://daynews.cc/premier">英超</a> (1,519)
+</li>
+	<li class="cat-item cat-item-18"><a href="https://daynews.cc/game">遊戲</a> (2,382)
+</li>
+	<li class="cat-item cat-item-21"><a href="https://daynews.cc/health">養生</a> (1,405)
+</li>
+	<li class="cat-item cat-item-16"><a href="https://daynews.cc/sports">體育</a> (2,429)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='https://daynews.cc/date/2019/12'>2019 年 12 月</a>&nbsp;(19292)</li>
+	<li><a href='https://daynews.cc/date/2019/11'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='https://daynews.cc/date/2019/10'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside><aside id="custom_html-3" class="widget_text widget widget_custom_html clearfix"><div class="textwidget custom-html-widget"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- self-adaption-ads -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8261739837930821"
+     data-ad-slot="2502207318"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div></aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="https://daynews.cc">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.easing.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.qrcode.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/layer.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/modernizr.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.waypoints.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.stellar.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/hoverIntent.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/superfish.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/kratos.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-includes/js/wp-embed.min.js'></script>
+			</body>
+
+</html>
+<!-- This is the static html file -->

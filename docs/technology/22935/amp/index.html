@@ -1,0 +1,842 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/22935#primaryimage","url":"http://cms-bucket.ws.126.net/2019/12/19/4175ad36f1d144e68e75c16090ab7ebc.jpeg"},{"@type":"WebPage","@id":"https://daynews.cc/technology/22935#webpage","url":"https://daynews.cc/technology/22935","inLanguage":"zh-TW","name":"AI\u653b\u7834\u9ad8\u6578\u6838\u5fc3 1\u79d2\u5167\u7cbe\u78ba\u6c42\u89e3\u5fae\u5206\u65b9\u7a0b\u3001\u4e0d\u5b9a\u7a4d\u5206 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/22935#primaryimage"},"datePublished":"2019-12-19T08:05:11+00:00","dateModified":"2019-12-19T08:05:11+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="文/栗子 魚羊 來源：量子位 大家都知道，AI (神經網路) 連加減法這樣的簡單算術都做不好： 可現在，AI已經懂得微積分，把魔爪伸向你最愛的高數了。 它不光會求不定積分： 還能解常微分方程： 一階二階都可以。 這是Facebook發表的新模型，1秒給出的答案，超越了Mathematica和Matlab這兩隻付費數學軟體30秒的成績。 團……" />
+<meta name="twitter:title" content="AI攻破高數核心 1秒內精確求解微分方程、不定積分 - 天天要聞" />
+<meta name="twitter:image" content="http://cms-bucket.ws.126.net/2019/12/19/4175ad36f1d144e68e75c16090ab7ebc.jpeg" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="AI攻破高數核心 1秒內精確求解微分方程、不定積分 - 天天要聞" />
+<meta property="og:description" content="文/栗子 魚羊 來源：量子位 大家都知道，AI (神經網路) 連加減法這樣的簡單算術都做不好： 可現在，AI已經懂得微積分，把魔爪伸向你最愛的高數了。 它不光會求不定積分： 還能解常微分方程： 一階二階都可以。 這是Facebook發表的新模型，1秒給出的答案，超越了Mathematica和Matlab這兩隻付費數學軟體30秒的成績。 團……" />
+<meta property="og:url" content="https://daynews.cc/technology/22935" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-19T08:05:11+00:00" />
+<meta property="og:image" content="http://cms-bucket.ws.126.net/2019/12/19/4175ad36f1d144e68e75c16090ab7ebc.jpeg" />
+	<title>AI攻破高數核心 1秒內精確求解微分方程、不定積分 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/22935" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+	.amp-wp-header .amp-wp-canonical-link {
+		font-size: 0.8em;
+		text-decoration: underline;
+		position: absolute;
+		right: 18px;	}
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+	
+	<script async custom-element="amp-auto-ads" 
+			src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
+	<script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+	
+</head>
+
+<body class="">
+	<amp-auto-ads type="adsense" data-ad-client="ca-pub-8261739837930821"></amp-auto-ads>
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+										<a class="amp-wp-canonical-link" href="https://daynews.cc/technology/22935">
+				原網頁			</a>
+			</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">AI攻破高數核心 1秒內精確求解微分方程、不定積分</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://daynews.cc/wp-content/themes/Kratos/images/default_avatar.jpeg" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-19T16:05:11+00:00">
+		2019-12-19	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<amp-ad width="100vw" height="320"
+			 type="adsense"
+			 data-ad-client="ca-pub-8261739837930821"
+			 data-ad-slot="2502207318"
+			 data-auto-format="rspv"
+			 data-full-width="">
+		  <div overflow=""></div>
+		</amp-ad>
+		
+		<div>
+<div class="page js-page on">
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/4175ad36f1d144e68e75c16090ab7ebc.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="232" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/4175ad36f1d144e68e75c16090ab7ebc.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="232" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>文/栗子 魚羊</p>
+<p>來源：量子位</p>
+<p>大家都知道，AI (神經網路) 連<strong>加減法</strong>這樣的簡單算術都做不好：</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/43320bb1f7534b02922369733d0704ba.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="316" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/43320bb1f7534b02922369733d0704ba.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="316" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>可現在，AI已經懂得微積分，把魔爪伸向你最愛的<strong>高數</strong>了。</p>
+<p>它不光會求不定積分：</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/e226fd0c59b8487fb6dab21b2f6ba1d1.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="204" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/e226fd0c59b8487fb6dab21b2f6ba1d1.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="204" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>還能解常微分方程：</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/cfa9f8a095124882a2c87fecdb9181bc.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="36" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/cfa9f8a095124882a2c87fecdb9181bc.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="36" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>一階二階都可以。</p>
+<p>這是Facebook發表的新模型，1秒給出的答案，超越了Mathematica和Matlab這兩隻付費數學軟體30秒的成績。</p>
+<p>團隊說，這是<strong>Seq2Seq</strong>和<strong>Transformer</strong>搭配食用的結果。</p>
+<p>用自然語言處理 (NLP) 的方法來理解數學，果然行得通。</p>
+<p>這項成果，已經在推特上獲得了1700贊。許多小夥伴表示驚奇，比如：</p>
+<p>「感謝你們！在我原本的想像中，這完全是不可能的！」</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/13034c451f9f47b9afd785ae51ab5e67.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="97" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/13034c451f9f47b9afd785ae51ab5e67.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="97" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>而且，據說演算法很快就要開源了：</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/ba9e06bf2f15456aa474404abaea9db5.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="1028" height="198" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/ba9e06bf2f15456aa474404abaea9db5.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="1028" height="198" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+
+</div>
+<div class="page js-page">
+<p>到時候讓付費軟體怎麼辦？</p>
+<p><strong>巨大數據集的生成姿勢</strong></p>
+<p>要訓練模型做微積分題目，最重要的前提就是要有大大大的數據集。</p>
+<p>這裡有，<strong>積分數據集</strong>和<strong>常</strong><strong>微分方程數據集</strong>的製造方法：</p>
+<p><strong>函數，和它的積分</strong></p>
+<p>首先，就是要做出「一個函數&amp;它的微分」這樣的數據對。團隊用了三種方法：</p>
+<p><strong>第一種是正向生成 (Fwd) </strong>，指生成隨機函數 (最多n個運算符) ，再用現成的工具求積分。把工具求不出的函數扔掉。</p>
+<p><strong>第二種是反向生成 (Bwd) </strong>，指生成隨機函數，再對函數求導。填補了第一種方法收集不到的一些函數，因為就算工具求不出積分，也一定可以求導。</p>
+<p><strong>第三種是用了分部積分的反向生成 (Ibp) </strong>。前面的反向生成有個問題，就是不太可能覆蓋到<strong>f(x)=x3sin(x)</strong>的積分：</p>
+<p>F(x)=-x3cos(x)+3x2sin(x)+6xcos(x)-6sin(x)</p>
+<p>因為這個函數太長了，隨機生成很難做到。</p>
+<p>另外，反向生成的產物，大多會是函數的積分比函數要短，正向生成則相反。</p>
+<p>為了解決這個問題，團隊用了<strong>分部積分</strong>：生成兩個隨機函數F和G，分別算出導數f和g。</p>
+<p>如果fG已經出現在前兩種方法得到的訓練集里，它的積分就是已知，可以用來求出Fg：</p>
+<p>∫Fg=FG-∫fG</p>
+<p>反過來也可以，如果Fg已經在訓練集里，就用它的積分求出fG。</p>
+<p>每求出一個新函數的積分，就把它加入訓練集。</p>
+<p>如果fG和Fg都不在訓練集里，就重新生成一對F和G。</p>
+<p>如此一來，不藉助外部的積分工具，也能輕鬆得到<strong>x10sin(x)</strong>這樣的函數了。</p>
+<p><strong>一階常微分方程，和它的解</strong></p>
+
+</div>
+<div class="page js-page">
+<p>從一個二元函數<strong>F(x,y)</strong>說起。</p>
+<p>有個方程F(x,y)=c，可對y求解得到<strong>y=f(x,c)</strong>。就是說有一個二元函數f，對任意x和c都滿足：</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/64887b91b75b4ce8b3e4c6c4875099e7.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="298" height="68" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/64887b91b75b4ce8b3e4c6c4875099e7.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="298" height="68" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>再對x求導，就得到一個微分方程：</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/4583dd96d61d4f9f9ec0e644df6b8629.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="137" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/4583dd96d61d4f9f9ec0e644df6b8629.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="137" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>fc表示從x到f(x,c)的映射，也就是這個微分方程的解。</p>
+<p>這樣，對於任何的常數c，fc都是一階微分方程的解。</p>
+<p>把fc替換回y，就有了整潔的微分方程：</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/d844651e2e7f4c17a48fe9f7b443e795.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="160" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/d844651e2e7f4c17a48fe9f7b443e795.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="160" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>這樣一來，想做出「<strong>一階常微分方程&amp;解</strong>」的成對數據集，只要生成一個f(x,c)，對c有解的那種，再找出它滿足的微分方程F就可以了，比如：</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/a58b8affd53c48d090ea5a21a3ff8e04.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="151" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/a58b8affd53c48d090ea5a21a3ff8e04.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="151" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p><strong>二階常微分方程，和它的解</strong></p>
+<p>二階的原理，是從一階那裡擴展來的，只要把f(x,c)變成f(x,c1,c2) ，對c2有解。</p>
+<p>微分方程F要滿足：</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/95d7d50469274d77bd52e96a0d8b5ac6.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="476" height="62" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/95d7d50469274d77bd52e96a0d8b5ac6.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="476" height="62" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>把它對x求導，會得到：</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/cf91f7744dfb4534aad3682b03a17032.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="110" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/cf91f7744dfb4534aad3682b03a17032.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="110" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+
+</div>
+<div class="page js-page">
+<p>fc1,c2表示，從x到f(x,c1,c2)的映射。</p>
+<p>如果這個方程對c1有解，就可以推出另外一個三元函數G，它對任意x都滿足：</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/0a396661838f4342ad1bb3495dbd6c23.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="66" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/0a396661838f4342ad1bb3495dbd6c23.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="66" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>再對x求導，就會得到：</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/fdf661632a054c8aa2762bc9bedd9321.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="89" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/fdf661632a054c8aa2762bc9bedd9321.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="89" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>最後，整理出清爽的微分方程：</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/1cfc9770240542e78ee8812850d6cce6.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="980" height="144" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/1cfc9770240542e78ee8812850d6cce6.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="980" height="144" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>它的解就是fc1,c2。</p>
+<p>至於生成過程，舉個例子：</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/2c102b0ba41d4ea2a5fbdbae85a0979c.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="1080" height="378" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/2c102b0ba41d4ea2a5fbdbae85a0979c.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="1080" height="378" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>現在，<strong>求積分</strong>和<strong>求解微分方程</strong>兩個訓練集都有了。那麼問題也來了，AI要怎麼理解這些複雜的式子，然後學會求解方法呢？</p>
+<p><strong>將數學視作自然語言</strong></p>
+<p>積分方程和微分方程，都可以視作將一個表達式轉換為另一個表達式，研究人員認為，這是機器翻譯的一個特殊實例，可以用NLP的方法來解決。</p>
+<p>第一步，是<strong>將數學表達式以樹的形式表示</strong>。</p>
+<p>運算符和函數為內部節點，數字、常數和變數等為葉子節點。</p>
+<p>比如3x^2 + cos(2x) – 1就可以表示為：</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/0eca7ea21d7c4639858cafd7ba3e4ded.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="358" height="350" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/0eca7ea21d7c4639858cafd7ba3e4ded.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="358" height="350" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>再舉一個複雜一點的例子，這樣一個偏微分表達式：</p>
+
+</div>
+<div class="page js-page">
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/148f67e61c6849dbbc3dbbe4e243f0b7.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="194" height="68" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/148f67e61c6849dbbc3dbbe4e243f0b7.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="194" height="68" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>用樹的形式表示，就是：</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/92e9262018304acd9518f6e5a8cbc3aa.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="534" height="358" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/92e9262018304acd9518f6e5a8cbc3aa.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="534" height="358" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>採用樹的形式，就能消除運算順序的歧義，照顧優先順序和關聯性，並且省去了括弧。</p>
+<p>在沒有空格、標點符號、多餘的括弧這樣的無意義符號的情況下，不同的表達式會生成不同的樹。表達式和樹之間是一一對應的。</p>
+<p>第二步，<strong>引入seq2seq模型</strong>。</p>
+<p>seq2seq模型具有兩種重要特性：</p>
+<p>輸入和輸出序列都可以具有任意長度，並且長度可以不同。</p>
+<p>輸入序列和輸出序列中的字詞不需要一一對應。</p>
+<p>因此，seq2seq模型非常適合求解微積分的問題。</p>
+<p>使用seq2seq模型生成樹，首先，要將樹映射到序列。</p>
+<p>使用前綴表示法，將每個父節點寫在其子節點之前，從左至右列出。</p>
+<p>比如2 + 3 * (5 + 2)，表示為樹是：</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/f62262f8d7634f51910810c9af58aa84.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="248" height="248" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/f62262f8d7634f51910810c9af58aa84.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="248" height="248" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>表示為序列就是 [+ 2 * 3 + 5 2]。</p>
+<p>樹和前綴序列之間也是一一映射的。</p>
+<p>第三步，<strong>生成隨機表達式</strong>。</p>
+<p>要創建訓練數據，就需要生成隨機數學表達式。前文已經介紹了數據集的生成策略，這裡著重講一下生成隨機表達式的演算法。</p>
+<p>使用n個內部節點對表達式進行統一採樣並非易事。比如遞歸這樣的方法，就會傾向於生成深樹而非寬樹，偏左樹而非偏右樹，實際上是無法以相同的概率生成不同種類的樹的。</p>
+<p>所以，以隨機二叉樹為例，具體的方法是：從一個空的根節點開始，在每一步中確定下一個內部節點在空節點中的位置。重複進行直到所有內部節點都被分配為止。</p>
+
+</div>
+<div class="page js-page">
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/3f2ca9c110964b51b0b9cd33d7823af0.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="169" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/3f2ca9c110964b51b0b9cd33d7823af0.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="169" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>不過，在通常情況下，數學表達式樹不一定是二叉樹，內部節點可能只有1個子節點。如此，就要考慮根節點和下一內部節點參數數量的二維概率分布，記作 L(e,n)。</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/3bd3355be8fb4f1fa0c6ac429fca807c.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="291" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/3bd3355be8fb4f1fa0c6ac429fca807c.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="291" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>接下來，就是對隨機樹進行採樣，從可能的運算符和整數、變數、常量列表中隨機選擇內部節點及葉子節點來對樹進行「裝飾」。</p>
+<p>最後，<strong>計算表達式的數量</strong>。</p>
+<p>經由前面的步驟，可以看出，表達式實際上是由一組有限的變數、常量、整數和一系列運算符組成的。</p>
+<p>於是，問題可以概括成：</p>
+<p>最多包含n個內部節點的樹</p>
+<p>一組p1個一元運算符（如cos，sin，exp，log）</p>
+<p>一組p2個二進位運算符（如+，-，×，pow）</p>
+<p>一組L個葉子值，其中包含變數（如x，y，z），常量（如e，π），整數（如 {-10，…，10}）</p>
+<p>如果p1 = 0，則表達式用二叉樹表示。</p>
+<p>這樣，具有n個內部節點的二叉樹恰好具有n + 1個葉子節點。每個節點和葉子可以分別取p1和L個不同的值。</p>
+<p>具有n個二進位運算符的表達式數量就可以表示為：</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/618a1fab620944c8b687303a78465426.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="920" height="108" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/618a1fab620944c8b687303a78465426.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="920" height="108" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>如果p1 &gt; 0，表達式數量則為：</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/d45f45d6b5774e46a60d9042f94b7e33.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="56" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/d45f45d6b5774e46a60d9042f94b7e33.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="56" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>可以觀察到，葉子節點和二元運算符的數量會明顯影響問題空間的大小。</p>
+
+</div>
+<div class="page js-page">
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/dfc5ac06b29148d2b450de80fc9efa1d.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="1080" height="413" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/dfc5ac06b29148d2b450de80fc9efa1d.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="1080" height="413" class=""></noscript></amp-img><br>
+   <span>△不同數目運算符和葉子節點的表達式數量</span>
+  </div>
+<p><strong>勝過商業軟體</strong></p>
+<p>實驗中，研究人員訓練seq2seq模型預測給定問題的解決方案。採用的模型，是8個注意力頭（attention head），6層，512維的Transformer模型。</p>
+<p>研究人員在一個擁有5000個方程的數據集中，對模型求解微積分方程的準確率進行了評估。</p>
+<p>結果表明，對於微分方程，波束搜索解碼能大大提高模型的準確率。</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/4e391fb0c1d648f5ac7d7ebb2b282d08.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="90" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/4e391fb0c1d648f5ac7d7ebb2b282d08.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="90" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>而與最先進的商業科學計算軟體相比，新模型不僅更快，準確率也更高。</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/4686e52c31334f01a6df2cd9d55f7076.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="984" height="324" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/4686e52c31334f01a6df2cd9d55f7076.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="984" height="324" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>在包含500個方程的測試集上，商業軟體中表現最好的是Mathematica。</p>
+<p>比如，在一階微分方程中，與使用貪婪搜索解碼演算法（集束大小為1）的新模型相比，Mathematica不落下風，但新方法通常1秒以內就能解完方程，Mathematica的解題時間要長的多（限制時間30s，若超過30s則視作沒有得到解）。</p>
+<p>而當新方法進行大小為50的波束搜索時，模型準確率就從81.2%提升到了97%，遠勝於Mathematica（77.2%）</p>
+<p>並且，在某一些Mathematica和Matlab無力解決的問題上，新模型都給出了有效解。</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/b3a79fa258d94ff0a8101f0fc9532548.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="160" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/b3a79fa258d94ff0a8101f0fc9532548.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="160" class=""></noscript></amp-img><br>
+   <span>△商業科學計算軟體沒有找到解的方程</span>
+  </div>
+
+</div>
+<div class="page js-page">
+<p><strong>邀請AI參加IMO</strong></p>
+<p>這個會解微積分的AI一登場，就吸引了眾多網友的目光，引發熱烈討論。網友們紛紛稱讚：鵝妹子嚶。</p>
+<p>有網友這樣說道：</p>
+<p>這篇論文超級有趣的地方在於，它有可能解決複雜度比積分要高得高得高得多的問題。</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/ea3351f6df9e479eb554c4d1a07b82d3.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="115" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/ea3351f6df9e479eb554c4d1a07b82d3.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="115" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>還有網友認為，這項研究太酷了，該模型能夠歸納和整合一些sympy無法實現的功能。</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/0dce46ba085a440c9b91c0b293ec5458.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="101" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/0dce46ba085a440c9b91c0b293ec5458.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="101" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>不過，也有網友認為，在與Mathematica的對比上，研究人員的實驗設定顯得不夠嚴謹。</p>
+<p>默認設置下，Mathematica是在複數域中進行計算的，這會增加其操作的難度。但作者把包含複數係數的表達式視作「無效」。所以他們在使用Mathematica的時候將設置調整為實數域了？</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/0a11fbf58d0e4fd6b503a7bbf77f7276.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="92" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/0a11fbf58d0e4fd6b503a7bbf77f7276.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="92" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>我很好奇Mathematica是否可以解決該系統無法解決的問題。</p>
+<p>30s的限制時間對於計算機代數系統有點武斷了。</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/0a31153c2f9c4514a59bc0cae0c34d55.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="90" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/0a31153c2f9c4514a59bc0cae0c34d55.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="90" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>但總之，面對越來越機智的AI，已經有人發起了挑戰賽，邀請AI挑戰IMO金牌。</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/eefbd1ec4b5a4315a72202b0063b7223.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="361" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/eefbd1ec4b5a4315a72202b0063b7223.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="361" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p><strong>Facebook AI研究院出品</strong></p>
+
+</div>
+<div class="page js-page">
+<p>這篇論文有兩位共同一作。</p>
+<p>Guillaume Lample，來自法國布雷斯特，是Facebook AI研究院、皮埃爾和瑪麗·居里大學在讀博士。</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/caa872044257495bb747ed7bb1ef8341.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="550" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/caa872044257495bb747ed7bb1ef8341.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="550" height="550" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<p>他曾於巴黎綜合理工學院和CMU分別獲得數學與計算機科學和人工智慧碩士學位。2014年進入Facebook實習。</p>
+<p>François Charton，Facebook AI研究院的客座企業家（Visiting entrepreneur），主要研究方向是數學和因果關係。</p>
+<div class="photo">
+   <amp-img src="http://cms-bucket.ws.126.net/2019/12/19/6eaa491ac86a47f6b8e63d30784e72fd.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="400" height="400" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://cms-bucket.ws.126.net/2019/12/19/6eaa491ac86a47f6b8e63d30784e72fd.jpeg" alt="《AI攻破高數核心 1秒內精確求解微分方程、不定積分》" width="400" height="400" class=""></noscript></amp-img><br>
+   <span></span>
+  </div>
+<div class="otitle_editor">
+<p class="otitle">(原標題：AI攻破高數核心，1秒內精確求解微分方程、不定積分)</p>
+<p class="editor">(責任編輯：姚立偉_NT6056)</p>
+
+</div>
+</div>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		分類: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/22935#comments">
+			寫評論		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">返回頂部</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+<!-- This is the static html file -->

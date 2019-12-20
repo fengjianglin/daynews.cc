@@ -1,0 +1,1071 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/22852#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/b3a1fdfbdba44eabad17d87ecf79bef1"},{"@type":"WebPage","@id":"https://daynews.cc/technology/22852#webpage","url":"https://daynews.cc/technology/22852","inLanguage":"zh-TW","name":"\u5fae\u4fe1\u5718\u968a\u5206\u4eab\uff1a\u6975\u81f4\u512a\u5316\uff0ciOS\u7248\u5fae\u4fe1\u7de8\u8b6f\u901f\u5ea63\u500d\u63d0\u5347\u7684\u5be6\u8e10\u7e3d\u7d50 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/22852#primaryimage"},"datePublished":"2019-12-19T22:10:08+00:00","dateModified":"2019-12-19T22:10:08+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="1、引言 歲月真是個養豬場，這幾年，人胖了，微信代碼也翻了。 記得 14 年轉崗來微信時，用自己筆記本編譯微信工程才十來分鐘。如今用公司配的 17 年款 27-inch iMac 編譯要接近半小時；偶然間更新完代碼，又莫名其妙需要全新編譯。在這麼低的編譯效率下，開發心情受到嚴重影響。 於是年初我向上頭請示，優化微信編譯效率，上頭也同意了。……" />
+<meta name="twitter:title" content="微信團隊分享：極致優化，iOS版微信編譯速度3倍提升的實踐總結 - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/b3a1fdfbdba44eabad17d87ecf79bef1" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="微信團隊分享：極致優化，iOS版微信編譯速度3倍提升的實踐總結 - 天天要聞" />
+<meta property="og:description" content="1、引言 歲月真是個養豬場，這幾年，人胖了，微信代碼也翻了。 記得 14 年轉崗來微信時，用自己筆記本編譯微信工程才十來分鐘。如今用公司配的 17 年款 27-inch iMac 編譯要接近半小時；偶然間更新完代碼，又莫名其妙需要全新編譯。在這麼低的編譯效率下，開發心情受到嚴重影響。 於是年初我向上頭請示，優化微信編譯效率，上頭也同意了。……" />
+<meta property="og:url" content="https://daynews.cc/technology/22852" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-19T22:10:08+00:00" />
+	<title>微信團隊分享：極致優化，iOS版微信編譯速度3倍提升的實踐總結 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/22852" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+	.amp-wp-header .amp-wp-canonical-link {
+		font-size: 0.8em;
+		text-decoration: underline;
+		position: absolute;
+		right: 18px;	}
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+	
+	<script async custom-element="amp-auto-ads" 
+			src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
+	<script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+	
+</head>
+
+<body class="">
+	<amp-auto-ads type="adsense" data-ad-client="ca-pub-8261739837930821"></amp-auto-ads>
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+										<a class="amp-wp-canonical-link" href="https://daynews.cc/technology/22852">
+				原網頁			</a>
+			</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">微信團隊分享：極致優化，iOS版微信編譯速度3倍提升的實踐總結</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://daynews.cc/wp-content/themes/Kratos/images/default_avatar.jpeg" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-20T06:10:08+00:00">
+		2019-12-20	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<amp-ad width="100vw" height="320"
+			 type="adsense"
+			 data-ad-client="ca-pub-8261739837930821"
+			 data-ad-slot="2502207318"
+			 data-auto-format="rspv"
+			 data-full-width="">
+		  <div overflow=""></div>
+		</amp-ad>
+		
+		<div>
+<h2 class="pgc-h-arrow-right">1、引言</h2>
+<p>歲月真是個養豬場，這幾年，人胖了，微信代碼也翻了。</p>
+<p>記得 14 年轉崗來微信時，用自己筆記本編譯微信工程才十來分鐘。如今用公司配的 17 年款 27-inch iMac 編譯要接近半小時；偶然間更新完代碼，又莫名其妙需要全新編譯。在這麼低的編譯效率下，開發心情受到嚴重影響。</p>
+<p>於是年初我向上頭請示，優化微信編譯效率，上頭也同意了。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/b3a1fdfbdba44eabad17d87ecf79bef1" alt="《微信團隊分享：極致優化，iOS版微信編譯速度3倍提升的實踐總結》" width="600" height="253" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/b3a1fdfbdba44eabad17d87ecf79bef1" alt="《微信團隊分享：極致優化，iOS版微信編譯速度3倍提升的實踐總結》" width="600" height="253" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>學習交流：</strong></p>
+<blockquote>
+<p>– 即時通訊/推送技術開發交流5群：215477170 [推薦]</p>
+<p>– 移動端IM開發入門文章：《新手入門一篇就夠：從零開發移動端IM》</p>
+</blockquote>
+<p>（本文同步發佈於：http://www.52im.net/thread-2873-1-1.html）</p>
+<h2 class="pgc-h-arrow-right">2、相關文章</h2>
+<blockquote>
+<p>《微信團隊分享：微信移動端的全文檢索多音字問題解決方案》</p>
+<p>《微信團隊分享：iOS版微信的高性能通用key-value組件技術實踐》</p>
+<p>《微信團隊分享：iOS版微信是如何防止特殊字元導致的炸群、APP崩潰的？》</p>
+<p>《微信團隊原創分享：iOS版微信的內存監控系統技術實踐》</p>
+<p>《iOS後台喚醒實戰：微信收款到賬語音提醒技術總結》</p>
+<p>《微信團隊分享：微信Android版小視頻編碼填過的那些坑》</p>
+<p>《微信手機端的本地數據全文檢索優化之路》</p>
+<p>《微信團隊披露：微信界面卡死超級bug「15。。。。」的來龍去脈》</p>
+<p>《微信客戶端團隊負責人技術訪談：如何著手客戶端性能監控和優化》</p>
+<p>《微信團隊原創分享：Android版微信的臃腫之困與模塊化實踐之路》</p>
+<p>《微信團隊原創分享：微信客戶端SQLite資料庫損壞修復實踐》</p>
+<p>《微信團隊原創分享：Android版微信從300KB到30MB的技術演進》</p>
+<p>《微信團隊原創分享：Android內存泄漏監控和優化技巧總結》</p>
+<p>《全面總結iOS版微信升級iOS9遇到的各種「坑」》</p>
+<p>《微信團隊原創資源混淆工具：讓你的APK立減1M》</p>
+<p>《Android版微信安裝包「減肥」實戰記錄》</p>
+<p>《iOS版微信安裝包「減肥」實戰記錄》</p>
+<p>《移動端IM實踐：iOS版微信界面卡頓監測方案》</p>
+<p>《移動端IM實踐：iOS版微信小視頻功能技術方案實錄》</p>
+<p>《移動端IM實踐：iOS版微信的多設備字體適配方案探討》</p>
+<p>《手把手教你讀取Android版微信和手Q的聊天記錄(僅作技術研究學習)》</p>
+<p>《微信團隊分享：Kotlin漸被認可，Android版微信的技術嘗鮮之旅》</p>
+</blockquote>
+<h2 class="pgc-h-arrow-right">3、現有方案</h2>
+<p>在動手之前，先搜索目前已有方案，大概情況如下。</p>
+<h4 class="pgc-h-arrow-right">3.1 優化工程配置</h4>
+<p>1）將 Debug Information Format 改為 DWARF：</p>
+<p>Debug 時是不需要生成符號表，可以檢查一下子工程（尤其開源庫）有沒有設置正確。</p>
+<p>2）將 Build Active Architecture Only 改為 Yes：</p>
+<p>Debug 時是不需要生成全架構，可以檢查一下子工程（尤其開源庫）有沒有設置正確。</p>
+<p>3）優化頭文件搜索路徑：</p>
+<p>避免工程 Header Search Paths 設置了路徑遞歸引用：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/c9782986521d4431a72ed8fdced51fed" alt="《微信團隊分享：極致優化，iOS版微信編譯速度3倍提升的實踐總結》" width="640" height="236" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/c9782986521d4431a72ed8fdced51fed" alt="《微信團隊分享：極致優化，iOS版微信編譯速度3倍提升的實踐總結》" width="640" height="236" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>Xcode 編譯源文件時，會根據 Header Search Paths 自動添加 -I 參數，如果遞歸引用的路徑下子目錄越多，-I 參數也越多，編譯器預處理頭文件效率就越低，所以不能簡單的設置路徑遞歸引用。同樣 Framework Search Paths 也類似處理。</p>
+<h4 class="pgc-h-arrow-right">3.2 使用 CocoaPods 管理第三方庫</h4>
+<p>這是業界常用的做法，利用 cocoapods 插件 cocoapods-packager 將任意的 pod 打包成 Static Library，省去重複編譯的時間；但缺點是不方便調試源碼，如果庫代碼反覆修改，需要重新生成二進位並上傳到內部伺服器，等等。</p>
+<h4 class="pgc-h-arrow-right">3.3 CCache</h4>
+<p>CCache 是一個能夠把編譯的中間產物緩存起來的工具，不需要過多修改項目配置，也不需要修改開發工具鏈。Xcode 9 有個很偶然的 bug，在源碼沒有任何修改的情況下經常觸發全新編譯，用 CCache 很好的解決這一問題。但隨著 Xcode 10 修復全量編譯問題，這一方案逐步棄用了。</p>
+<h4 class="pgc-h-arrow-right">3.4 distcc</h4>
+<p>distcc 是一個分散式編譯工具，它原理是把本地多個編譯任務分發到網路中多個機器，其他機器編譯完成後，再把產物返回給本機上執行鏈接，最終得到編譯結果。</p>
+<h4 class="pgc-h-arrow-right">3.5 硬體解決</h4>
+<p>如把 Derived Data 目錄放到由內存創建的虛擬磁碟，或者購買最新款的 iMac Pro…</p>
+<h2 class="pgc-h-arrow-right">4、實踐過程</h2>
+<h4 class="pgc-h-arrow-right">4.1 優化編譯選項</h4>
+<p>1）優化頭文件搜索路徑：</p>
+<p>把一些遞歸引用路徑去了後，整體編譯速度快了 20s。</p>
+<p>2）關閉 Enable Index-While-Building Functionality：</p>
+<p>這選項無意中找到的（Xcode 9 的新特性？），默認打開，作用是 Xcode 編譯時會順帶建立代碼索引，但影響編譯速度。關閉後整體編譯速度快 80s（Xcode 會換回以前的方式，在空閑時間建立代碼索引）。</p>
+<h4 class="pgc-h-arrow-right">4.2 優化 kinda</h4>
+<p>kinda 是今年引入支付跨平台框架（C++），但編譯速度奇慢，一個源文件編譯都要 30s。另外生成的二進位大小在 App 佔比較高，感覺有不少冗餘代碼，理論上減少冗餘代碼也能加快編譯速度。</p>
+<p><strong>經過分析 LinkMap 文件和使用 Xcode Preprocess 某些源文件，發現有以下問題：</strong></p>
+<blockquote>
+<p>1）proto 文件生成的代碼較多；</p>
+<p>2）某個基類/宏使用了大量模版。</p>
+</blockquote>
+<p><strong>對於問題一：</strong>可以設置 proto 文件選項為 optimize_for=CODE_SIZE 來讓 protobuf 編譯器生成精簡版代碼。但我是用自己的工具生成（具體原理可看《iOS版微信安裝包「減肥」實戰記錄》），代碼更少。</p>
+<p><strong>對於問題二：</strong>由於模版是編譯期間的多態（增加代碼膨脹和編譯時間），所以可以把模版基類改成虛基類這種運行時的多態；另外推薦使用 hyper_function 取代 std::function，使得基類用通用函數指針，就能存儲任意 lambda 回調函數，從而避免基類模板化。</p>
+<p><strong>例如：</strong></p>
+<blockquote>
+<p>template&lt;typenameRequest, typenameResponse&gt;</p>
+<p>classBaseCgi {</p>
+<p>public:</p>
+<p> BaseCgi(Request request, std::function&lt;void(Response &amp;)&gt; &amp;callback) {</p>
+<p> _request = request;</p>
+<p> _callback = callback;</p>
+<p> }</p>
+
+<p> voidonRequest(std::vector&lt;uint8_t&gt; &amp;outData) {</p>
+<p> _request.toData(outData);</p>
+<p> }</p>
+
+<p> voidonResponse(std::vector&lt;uint8_t&gt; &amp;inData) {</p>
+<p> Response response;</p>
+<p> response.fromData(inData);</p>
+<p> callback(response);</p>
+<p> }</p>
+
+<p>public:</p>
+<p> Request _request;</p>
+<p> std::function&lt;void(Response &amp;)&gt; _callback;</p>
+<p>};</p>
+
+<p>classCgiA : publicBaseCgi&lt;RequestA, ResponseA&gt; {</p>
+<p>public:</p>
+<p> CgiA(RequestA &amp;request, std::function&lt;void(ResponseA &amp;)&gt; &amp;callback) :</p>
+<p> BaseCgi(request, callback) {}</p>
+<p>};</p>
+</blockquote>
+<p><strong>可改成：</strong></p>
+<blockquote>
+<p>class BaseRequest {</p>
+<p>public:</p>
+<p> virtual void toData(std::vector&lt;uint8_t&gt; &amp;outData) = 0;</p>
+<p>};</p>
+
+<p>classBaseResponse {</p>
+<p>public:</p>
+<p> virtualvoidfromData(std::vector&lt;uint8_t&gt; &amp;outData) = 0;</p>
+<p>};</p>
+
+<p>classBaseCgi {</p>
+<p>public:</p>
+<p> template&lt;typenameRequest, typenameResponse&gt;</p>
+<p> BaseCgi(Request &amp;request, hyper_function&lt;void(Response &amp;)&gt; callback) {</p>
+<p> _request = newRequest(request);</p>
+<p> _response = newResponse;</p>
+<p> _callback = callback;</p>
+<p> }</p>
+
+<p> voidonRequest(std::vector&lt;uint8_t&gt; &amp;outData) {</p>
+<p> _request-&gt;toData(outData);</p>
+<p> }</p>
+
+<p> voidonResponse(std::vector&lt;uint8_t&gt; &amp;inData) {</p>
+<p> _response-&gt;fromData(inData);</p>
+<p> _callback(*_response);</p>
+<p> }</p>
+
+<p>public:</p>
+<p> BaseRequest *_request;</p>
+<p> BaseResponse *_response;</p>
+<p> hyper_function&lt;void(BaseResponse &amp;)&gt; _callback;</p>
+<p>};</p>
+
+<p>classRequestA : publicBaseRequest { … };</p>
+
+<p>classResponseA : publicBaseResponse { … };</p>
+
+<p>classCgiA : publicBaseCgi {</p>
+<p>public:</p>
+<p> CgiA(RequestA &amp;request, hyper_function&lt;void(ResponseA &amp;)&gt; &amp;callback) :</p>
+<p> BaseCgi(request, callback) {}</p>
+<p>};</p>
+</blockquote>
+<p>BaseCgi 由模版基類變成只有構造函數是模板的基類，onRequest 和 onResponse 邏輯代碼並不因為基類模版實例化而被「複製黏貼」。</p>
+<p><strong>經過上述優化：</strong>整體編譯速度快了 70s，而 kinda 二進位也減少了 60%，效果特別明顯。</p>
+<h4 class="pgc-h-arrow-right">4.3 使用 PCH 預編譯頭文件</h4>
+<p>PCH（Precompile Prefix Header File）文件，也就是預編譯頭文件，其文件里的內容能被項目中的其他所有源文件訪問。通常放一些通用的宏和頭文件，方便編寫代碼，提高效率。</p>
+<p>另外 PCH 文件預編譯完成後，後面用到 PCH 文件的源文件編譯速度也會加快。缺點是 PCH 文件和 PCH 引用到的頭文件內容一旦發生變化，引用到 PCH 的所有源文件都要重新編譯。所以使用時要謹慎。</p>
+<p><strong>在 Xcode 里設置 Prefix Header 和 Precompile Prefix Header 即可使用 PCH 文件並對它進行預編譯：</strong></p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/b34e81ec91be4eceb7c903c34960f35d" alt="《微信團隊分享：極致優化，iOS版微信編譯速度3倍提升的實踐總結》" width="750" height="169" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/b34e81ec91be4eceb7c903c34960f35d" alt="《微信團隊分享：極致優化，iOS版微信編譯速度3倍提升的實踐總結》" width="750" height="169" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>微信使用 PCH 預編譯後：</strong>編譯速度提升非常可觀，快了接近 280s。</p>
+<h2 class="pgc-h-arrow-right">5、終極優化</h2>
+<p>通過上述優化，微信工程的編譯時間由原來的 1,626.4s 下降到 1,182.8s，快了將近 450s，但仍然需要 20 分鐘，令人不滿意。</p>
+<p>如果繼續優化，得從編譯器下手。正如我們平常做的客戶端性能優化，在優化之前，先分析原理，輸出每個地方的耗時，針對耗時做相對應的優化。</p>
+<h4 class="pgc-h-arrow-right">5.1 編譯原理</h4>
+<p>編譯器，是把一種語言（通常是高級語言）轉換為另一種語言（通常是低級語言）的程序。</p>
+<p><strong>大多數編譯器由三部分組成：</strong></p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/385792d95cd446b197aec13fb668dccc" alt="《微信團隊分享：極致優化，iOS版微信編譯速度3倍提升的實踐總結》" width="474" height="76" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/385792d95cd446b197aec13fb668dccc" alt="《微信團隊分享：極致優化，iOS版微信編譯速度3倍提升的實踐總結》" width="474" height="76" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>各部分的作用如下：</strong></p>
+<blockquote>
+<p>前端（Frontend）：負責解析源碼，檢查錯誤，生成抽象語法樹（AST），並把 AST 轉化成類彙編中間代碼；</p>
+<p>優化器（Optimizer）：對中間代碼進行架構無關的優化，提高運行效率，減少代碼體積，例如刪除 if (0) 無效分支；</p>
+<p>後端（Backend）：把中間代碼轉換成目標平台的機器碼。</p>
+</blockquote>
+<p>LLVM 實現了更通用的編譯框架，它提供了一系列模塊化的編譯器組件和工具鏈。首先它定義了一種 LLVM IR（Intermediate Representation，中間表達碼）。Frontend 把原始語言轉換成 LLVM IR；LLVM Optimizer 優化 LLVM IR；Backend 把 LLVM IR 轉換為目標平台的機器語言。這樣一來，不管是新的語言，還是新的平台，只要實現對應的 Frontend 和 Backend，新的編譯器就出來了。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/5936837423414a1eb7155f68f69b7225" alt="《微信團隊分享：極致優化，iOS版微信編譯速度3倍提升的實踐總結》" width="558" height="206" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/5936837423414a1eb7155f68f69b7225" alt="《微信團隊分享：極致優化，iOS版微信編譯速度3倍提升的實踐總結》" width="558" height="206" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>在 Xcode，C/C++/ObjC 的編譯器是 Clang（前端）+LLVM（後端），簡稱 Clang。</p>
+<p><strong>Clang 的編譯過程有這幾個階段：</strong></p>
+<blockquote>
+<p>➜ clang -ccc-print-phases main.m</p>
+<p>0: input, “main.m”, objective-c</p>
+<p>1: preprocessor, {0}, objective-c-cpp-output</p>
+<p>2: compiler, {1}, ir</p>
+<p>3: backend, {2}, assembler</p>
+<p>4: assembler, {3}, object</p>
+<p>5: linker, {4}, image</p>
+<p>6: bind-arch, “x86_64”, {5}, image</p>
+</blockquote>
+<p><strong>1）預處理：</strong></p>
+<p>這階段的工作主要是頭文件導入，宏展開/替換，預編譯指令處理，以及注釋的去除。</p>
+<p><strong>2）編譯：</strong></p>
+<p>這階段做的事情比較多，主要有：</p>
+<blockquote>
+<p>a. 詞法分析（Lexical Analysis）：將代碼轉換成一系列 token，如大中小括弧 paren'()’ square'[]’ brace'{}’、標識符 identifier、字元串 string_literal、數字常量 numeric_constant 等等；</p>
+<p>b. 語法分析（Semantic Analysis）：將 token 流組成抽象語法樹 AST；</p>
+<p>c. 靜態分析（Static Analysis）：檢查代碼錯誤，例如參數類型是否錯誤，調用對象方法是否有實現；</p>
+<p>d. 中間代碼生成（Code Generation）：將語法樹自頂向下遍歷逐步翻譯成 LLVM IR。</p>
+</blockquote>
+<p><strong>3）生成彙編代碼：</strong></p>
+<p>LLVM 將 LLVM IR 生成當前平台的彙編代碼，期間 LLVM 根據編譯設置的優化級別 Optimization Level 做對應的優化（Optimize），例如 Debug 的 -O0 不需要優化，而 Release 的 -Os 是儘可能優化代碼效率並減少體積。</p>
+<p><strong>4）生成目標文件：</strong></p>
+<p>彙編器（Assembler）將彙編代碼轉換為機器代碼，它會創建一個目標對象文件，以 .o 結尾。</p>
+<p><strong>5）鏈接：</strong></p>
+<p>鏈接器（Linker）把若干個目標文件鏈接在一起，生成可執行文件。</p>
+<h4 class="pgc-h-arrow-right">5.2 分析耗時</h4>
+<p>Clang/LLVM 編譯器是開源的，我們可以從官網下載其源碼，根據上述編譯過程，在每個編譯階段埋點輸出耗時，生成定製化的編譯器。在自己準備動手的前一周，國外大神 Aras Pranckevičius 已經在 LLVM 項目提交了 rL357340 修改：clang 增加 -ftime-trace 選項，編譯時生成 Chrome（chrome://tracing） JSON 格式的耗時報告，列出所有階段的耗時。</p>
+<p><strong>效果如下：</strong></p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/e7a67de6d8dc4d51815e72a3402a1f40" alt="《微信團隊分享：極致優化，iOS版微信編譯速度3倍提升的實踐總結》" width="640" height="415" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/e7a67de6d8dc4d51815e72a3402a1f40" alt="《微信團隊分享：極致優化，iOS版微信編譯速度3倍提升的實踐總結》" width="640" height="415" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>說明如下：</strong></p>
+<blockquote>
+<p>1）整體編譯（ExecuteCompiler）耗時 8,423.8ms</p>
+<p>2）其中前端（Frontend）耗時 5,307.9ms，後端（Backend）耗時 3,009.6ms</p>
+<p>3）而前端編譯裡頭文件 SourceA 耗時 xx ms，B 耗時 xx ms，…</p>
+<p>4）頭文件處理里 Parse ClassA 耗時 xx ms，B 耗時 xx ms，…</p>
+<p>5）等等</p>
+</blockquote>
+<p>這就是我想要的耗時報告！</p>
+<p>接下來修改工程 CC={YOUR PATH}/clang，讓 Xcode 編譯時使用自己的編譯器；同時編譯選項 OTHER_CFLAGS 後面增加 -ftime-trace，每個源文件編譯後輸出耗時報告。</p>
+<p><strong>最終把所有報告匯聚起來，形成整體的編譯耗時：</strong></p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/6c8d71552b334f0793248cb07b75d4dc" alt="《微信團隊分享：極致優化，iOS版微信編譯速度3倍提升的實踐總結》" width="1280" height="426" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/6c8d71552b334f0793248cb07b75d4dc" alt="《微信團隊分享：極致優化，iOS版微信編譯速度3倍提升的實踐總結》" width="1280" height="426" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>由整體耗時可以看出：</strong></p>
+<blockquote>
+<p>1）編譯器前端處理（Frontend）耗時 7,659.2s，佔整體 87%；</p>
+<p>2）而前端處理下頭文件處理（Source）耗時 7,146.2s，佔整體 71.9%！</p>
+</blockquote>
+<p><strong>猜測：</strong>頭文件嵌套嚴重，每個源文件都要引入幾十個甚至幾百個頭文件，每個頭文件源碼要做預處理、詞法分析、語法分析等等。實際上源文件不需要使用某些頭文件里的定義（如 class、function），所以編譯時間才那麼長。</p>
+<p>於是又寫了個工具，統計所有頭文件被引用次數、總處理時間、頭文件分組（指一個耗時頂部的頭文件所引用到的所有子頭文件的集合）。</p>
+<p><strong>列出一份表格（截取 Top10）：</strong></p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/927bed78f48c4f09ac71e3339d65d3ce" alt="《微信團隊分享：極致優化，iOS版微信編譯速度3倍提升的實踐總結》" width="940" height="169" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/927bed78f48c4f09ac71e3339d65d3ce" alt="《微信團隊分享：極致優化，iOS版微信編譯速度3倍提升的實踐總結》" width="940" height="169" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>如上表所示：</strong></p>
+<blockquote>
+<p>Header1 處理時間 1187.7s，被引用 2,304 次；</p>
+<p>Header2 處理時間 1,124.9s，被引用 3,831 次；</p>
+<p>後面 Header3～10 都是被 Header1 引用。</p>
+</blockquote>
+<p>所以可以嘗試優化 TopN 頭文件里的頭文件引用，盡量不包含其他頭文件。</p>
+<h4 class="pgc-h-arrow-right">5.3 解決耗時</h4>
+<p>通常我們寫代碼時，如果用到某個類，就直接 include 該類聲明所在頭文件，但在頭文件，我們可以用前置聲明解決。</p>
+<p><strong>因此優化頭文件思路很簡單：</strong>就是能用前置聲明，就用前置聲明替代 include。</p>
+<p><strong>實際上改動量非常大：</strong>我跟組內另外的同事 vakeee 分工優化 Header1 和 Header2，花了整整 5 個工作日，才改完。效果還是有，整體編譯時間減少 80s。</p>
+<p>但需要優化的頭文件還有幾十個，我們不可能繼續做這種體力活。因此我們可以做這樣的工具，通過 AST 找到代碼里出現的標識符（包括類型、函數、宏），以及標識符定義所在文件，然後分析是否需要 include 它定義所在文件。</p>
+<p><strong>先看看代碼如何轉換 AST，如以下代碼：</strong></p>
+<blockquote>
+<p>// HeaderA.h</p>
+<p>struct StructA {</p>
+<p> intval;</p>
+<p>};</p>
+
+<p>// HeaderB.h</p>
+<p>structStructB {</p>
+<p> intval;</p>
+<p>};</p>
+
+<p>// main.c</p>
+<p>#include “HeaderA.h”</p>
+<p>#include “HeaderB.h”</p>
+
+<p>inttestAndReturn(structStructA *a, structStructB *b) {</p>
+<p> returna-&gt;val;</p>
+<p>}</p>
+</blockquote>
+<p><strong>控制台輸入：</strong></p>
+<blockquote>
+<p>➜ TestContainer clang -Xclang -ast-dump -fsyntax-only main.c</p>
+<p>TranslationUnitDecl 0x7f8f36834208 &lt;&lt;invalid sloc&gt;&gt; &lt;invalid sloc&gt;</p>
+<p>|-RecordDecl 0x7faa62831d78 &lt;./HeaderA.h:12:1, line:14:1&gt; line:12:8 struct StructA definition</p>
+<p>| `-FieldDecl 0x7faa6383da38 &lt;line:13:2, col:6&gt; col:6 referenced val ‘int’</p>
+<p>|-RecordDecl 0x7faa6383da80 &lt;./HeaderB.h:12:1, line:14:1&gt; line:12:8 struct StructB definition</p>
+<p>| `-FieldDecl 0x7faa6383db38 &lt;line:13:2, col:6&gt; col:6 val ‘int’</p>
+<p>`-FunctionDecl 0x7faa6383de50 &lt;main.c:35:1, line:37:1&gt; line:35:5 testAndReturn ‘int (struct StructA *, struct StructB *)’</p>
+<p> |-ParmVarDecl 0x7faa6383dc30 &lt;col:19, col:35&gt; col:35 used a ‘struct StructA *’</p>
+<p> |-ParmVarDecl 0x7faa6383dd40 &lt;col:38, col:54&gt; col:54 b ‘struct StructB *’</p>
+<p> `-CompoundStmt 0x7faa6383dfc8 &lt;col:57, line:37:1&gt;</p>
+<p> `-ReturnStmt 0x7faa6383dfb8 &lt;line:36:2, col:12&gt;</p>
+<p> `-ImplicitCastExpr 0x7faa6383dfa0 &lt;col:9, col:12&gt; ‘int'&lt;LValueToRValue&gt;</p>
+<p> `-MemberExpr 0x7faa6383df70 &lt;col:9, col:12&gt; ‘int’lvalue -&gt;val 0x7faa6383da38</p>
+<p> `-ImplicitCastExpr 0x7faa6383df58 &lt;col:9&gt; ‘struct StructA *'&lt;LValueToRValue&gt;</p>
+<p> `-DeclRefExpr 0x7faa6383df38 &lt;col:9&gt; ‘struct StructA *’lvalue ParmVar 0x7faa6383dc30 ‘a”struct StructA *’</p>
+</blockquote>
+<p><strong>從上可以看出：</strong>每一行包括 AST Node 的類型、所在位置（文件名，行號，列號）和結點描述信息。頭文件定義的類也包含進 AST 中。AST Node 常見類型有 Decl（如 RecordDecl 結構體定義，FunctionDecl 函數定義）、Stmt（如 CompoundStmt 函數體括弧內實現）。</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/fb51b5d68e4f40f9bc1fb409dfb3ce10" alt="《微信團隊分享：極致優化，iOS版微信編譯速度3倍提升的實踐總結》" width="640" height="287" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/fb51b5d68e4f40f9bc1fb409dfb3ce10" alt="《微信團隊分享：極致優化，iOS版微信編譯速度3倍提升的實踐總結》" width="640" height="287" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>Clang AST 有三個重要的基類：</strong>ASTFrontendAction、ASTConsumer 以及 RecursiveASTVisitor。</p>
+<p>ClangTool 類讀入命令行配置項後初始化 CompilerInstance；CompilerInstance 成員函數 ExcutionAction 會調用 ASTFrontendAction 3 個成員函數 BeginSourceFile（準備遍歷 AST）、Execute（解析 AST）、EndSourceFileAction（結束遍歷）。</p>
+<p>ASTFrontendAction 有個重要的純虛函數 CreateASTConsumer（會被自己 BeginSourceFile 調用），用於返回讀取 AST 的 ASTConsumer 對象。</p>
+<p><strong>代碼如下：</strong></p>
+<blockquote>
+<p>class MyFrontendAction : public clang::ASTFrontendAction {</p>
+<p>public:</p>
+<p> virtualstd::unique_ptr&lt;clang::ASTConsumer&gt; CreateASTConsumer(clang::CompilerInstance &amp;CI, llvm::StringRef file) override {</p>
+<p> TheRewriter.setSourceMgr(CI.getASTContext().getSourceManager(), CI.getASTContext().getLangOpts());</p>
+<p> returnllvm::make_unique&lt;MyASTConsumer&gt;(&amp;CI);</p>
+<p> }</p>
+<p>};</p>
+
+<p>intmain(intargc, constchar**argv) {</p>
+<p> clang::tooling::CommonOptionsParser op(argc, argv, OptsCategory);</p>
+<p> clang::tooling::ClangTool Tool(op.getCompilations(), op.getSourcePathList());</p>
+<p> intresult = Tool.run(clang::tooling::newFrontendActionFactory&lt;MyFrontendAction&gt;().get());</p>
+
+<p> returnresult;</p>
+<p>}</p>
+</blockquote>
+<p>ASTConsumer 有若干個可以 override 的方法，用來接收 AST 解析過程中的回調，其中之一是工具用到的 HandleTranslationUnit 方法。當編譯單元 TranslationUnit 的 AST 完整解析後，HandleTranslationUnit 會被回調。我們在 HandleTranslationUnit 使用 RecursiveASTVisitor 對象以深度優先的方式遍歷 AST 所有結點。</p>
+<p><strong>代碼如下：</strong></p>
+<blockquote>
+<p>class MyASTVisitor</p>
+<p>: public clang::RecursiveASTVisitor&lt;MyASTVisitor&gt; {</p>
+<p>public:</p>
+<p> explicitMyASTVisitor(clang::ASTContext *Ctx) {}</p>
+
+<p> boolVisitFunctionDecl(clang::FunctionDecl* decl) {</p>
+<p> // FunctionDecl 下的所有參數聲明允許前置聲明取代 include</p>
+<p> // 如上面 Demo 代碼里 StructA、StructB</p>
+<p> returntrue;</p>
+<p> }</p>
+
+<p> boolVisitMemberExpr(clang::MemberExpr* expr) {</p>
+<p> // 被引用的成員所在的類，需要 include 它定義所在文件</p>
+<p> // 如 StructA</p>
+<p> returntrue;</p>
+<p> }</p>
+
+<p> boolVisitXXX(XXX) {</p>
+<p> returntrue;</p>
+<p> }</p>
+
+<p> // 同一個類型，可能出現若干次判定結果</p>
+<p> // 如果其中一個判斷的結果需要 include，則 include</p>
+<p> // 否則使用前置聲明代替 include</p>
+<p> // 例如 StructA 只能 include，StructB 可以前置聲明</p>
+<p>};</p>
+
+<p>class MyASTConsumer : public clang::ASTConsumer {</p>
+<p>private:</p>
+<p> MyASTVisitor Visitor;</p>
+<p>public:</p>
+<p> explicitMyASTConsumer(clang::CompilerInstance *aCI)</p>
+<p> : Visitor(&amp;(aCI-&gt;getASTContext())) {}</p>
+
+<p> void HandleTranslationUnit(clang::ASTContext &amp;context) override {</p>
+<p> clang::TranslationUnitDecl *decl = context.getTranslationUnitDecl();</p>
+<p> Visitor.TraverseTranslationUnitDecl(decl);</p>
+<p> }</p>
+<p>};</p>
+</blockquote>
+<p>工具框架大致如上所示。</p>
+<p>不過早在 2011 年 Google 內部做了個基於 Clang libTooling 的工具 include-what-you-use，用來整理 C/C++ 頭文件。</p>
+<p><strong>這個工具的使用效果如下：</strong></p>
+<blockquote>
+<p>➜ include-what-you-use main.c</p>
+<p>HeaderA.h has correct #includes/fwd-decls)</p>
+<p>HeaderB.h has correct #includes/fwd-decls)</p>
+<p>main.c should add these lines:</p>
+<p>struct StructB;</p>
+<p>main.c should remove these lines:</p>
+<p>– #include “HeaderB.h” // lines 2-2</p>
+<p>The full include-list formain.c:</p>
+<p>#include “HeaderA.h” // for StructA</p>
+<p>struct StructB;</p>
+</blockquote>
+<p>我們在 IWYU 基礎上，增加了 ObjC 語言的支持，並增強它的邏輯，讓結果更好看（通常 IWYU 處理完後，會引入很多頭文件和前置聲明，我們做剪枝處理，進一步去掉多餘的頭文件和前置聲明，篇幅限制就不多做解釋了）。</p>
+<p>微信源碼通過工具優化頭文件引入後，整體編譯時間降到了 <strong>710s</strong>。另外頭文件依賴的減少，也能降低因修改頭文件引起大規模源碼重編的可能性。</p>
+<p><strong>我們再用編譯耗時分析工具分析當前瓶頸：</strong></p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/8584643175d246938bbcd3eaa983fade" alt="《微信團隊分享：極致優化，iOS版微信編譯速度3倍提升的實踐總結》" width="940" height="224" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/8584643175d246938bbcd3eaa983fade" alt="《微信團隊分享：極致優化，iOS版微信編譯速度3倍提升的實踐總結》" width="940" height="224" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>WCDB 頭文件處理時間太長了，業務代碼（如 Model 類）沒有很好的隔離 WCDB 代碼，把 WINQ 暴露出去，外面被動 include WCDB 頭文件。解決方法有很多，例如 WCDB 相關放 category 頭文件（XXModel+WCDB.h）里引入，或者跟其他庫一樣，把 放 PCH。</p>
+<p>最終編譯時間優化到 <strong>540s</strong> 以下，<strong>是原來的三分之一</strong>，編譯效率得到巨大的提升。</p>
+<h2 class="pgc-h-arrow-right">6、優化總結</h2>
+<p><strong>總結微信的編譯優化方案：</strong></p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/e35054fb22a74a59bfd3301007c33aaa" alt="《微信團隊分享：極致優化，iOS版微信編譯速度3倍提升的實踐總結》" width="940" height="108" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/e35054fb22a74a59bfd3301007c33aaa" alt="《微信團隊分享：極致優化，iOS版微信編譯速度3倍提升的實踐總結》" width="940" height="108" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>即：</strong></p>
+<blockquote>
+<p>A）優化頭文件搜索路徑；</p>
+<p>B）關閉 Enable Index-While-Building Functionality；</p>
+<p>C）優化 PB/模版，減少冗餘代碼；</p>
+<p>D）使用 PCH 預編譯；</p>
+<p>E）使用工具優化頭文件引入；盡量避免頭文件里包含 C++ 標準庫。</p>
+</blockquote>
+<h2 class="pgc-h-arrow-right">7、未來展望</h2>
+<p>期待公司的藍盾分散式編譯 for ObjC；另外可以把業務代碼模塊化，項目文件按模塊載入，目前 kinda/小程序/mars 在很好的實踐中。</p>
+<h2 class="pgc-h-arrow-right">8、參考文獻</h2>
+<blockquote>
+<p>[1] 如何將 iOS 項目的編譯速度提高5倍</p>
+<p>[2] 深入剖析 iOS 編譯 Clang / LLVM</p>
+<p>[3] Clang之語法抽象語法樹AST</p>
+<p>[4] time-trace: timeline / flame chart profiler for Clang</p>
+<p>[5] Introduction to the Clang AST</p>
+</blockquote>
+<h2 class="pgc-h-arrow-right">附錄：QQ、微信團隊原創技術文章匯總</h2>
+<blockquote>
+<p>《微信朋友圈千億訪問量背後的技術挑戰和實踐總結》</p>
+<p>《騰訊技術分享：騰訊是如何大幅降低帶寬和網路流量的(圖片壓縮篇)》</p>
+<p>《騰訊技術分享：騰訊是如何大幅降低帶寬和網路流量的(音視頻技術篇)》</p>
+<p>《微信團隊分享：微信移動端的全文檢索多音字問題解決方案》</p>
+<p>《騰訊技術分享：Android版手機QQ的緩存監控與優化實踐》</p>
+<p>《微信團隊分享：iOS版微信的高性能通用key-value組件技術實踐》</p>
+<p>《微信團隊分享：iOS版微信是如何防止特殊字元導致的炸群、APP崩潰的？》</p>
+<p>《騰訊技術分享：Android手Q的線程死鎖監控系統技術實踐》</p>
+<p>《微信團隊原創分享：iOS版微信的內存監控系統技術實踐》</p>
+<p>《讓互聯網更快：新一代QUIC協議在騰訊的技術實踐分享》</p>
+<p>《iOS後台喚醒實戰：微信收款到賬語音提醒技術總結》</p>
+<p>《騰訊技術分享：社交網路圖片的帶寬壓縮技術演進之路》</p>
+<p>《微信團隊分享：視頻圖像的超解析度技術原理和應用場景》</p>
+<p>《微信團隊分享：微信每日億次實時音視頻聊天背後的技術解密》</p>
+<p>《QQ音樂團隊分享：Android中的圖片壓縮技術詳解（上篇）》</p>
+<p>《QQ音樂團隊分享：Android中的圖片壓縮技術詳解（下篇）》</p>
+<p>《騰訊團隊分享：手機QQ中的人臉識別酷炫動畫效果實現詳解》</p>
+<p>《騰訊團隊分享 ：一次手Q聊天界面中圖片顯示bug的追蹤過程分享》</p>
+<p>《微信團隊分享：微信Android版小視頻編碼填過的那些坑》</p>
+<p>《微信手機端的本地數據全文檢索優化之路》</p>
+<p>《企業微信客戶端中組織架構數據的同步更新方案優化實戰》</p>
+<p>《微信團隊披露：微信界面卡死超級bug「15。。。。」的來龍去脈》</p>
+<p>《QQ 18年：解密8億月活的QQ後台服務介面隔離技術》</p>
+<p>《月活8.89億的超級IM微信是如何進行Android端兼容測試的》</p>
+<p>《以手機QQ為例探討移動端IM中的「輕應用」》</p>
+<p>《一篇文章get微信開源移動端資料庫組件WCDB的一切！》</p>
+<p>《微信客戶端團隊負責人技術訪談：如何著手客戶端性能監控和優化》</p>
+<p>《微信後台基於時間序的海量數據冷熱分級架構設計實踐》</p>
+<p>《微信團隊原創分享：Android版微信的臃腫之困與模塊化實踐之路》</p>
+<p>《微信後台團隊：微信後台非同步消息隊列的優化升級實踐分享》</p>
+<p>《微信團隊原創分享：微信客戶端SQLite資料庫損壞修復實踐》</p>
+<p>《騰訊原創分享(一)：如何大幅提升移動網路下手機QQ的圖片傳輸速度和成功率》</p>
+<p>《騰訊原創分享(二)：如何大幅壓縮移動網路下APP的流量消耗（下篇）》</p>
+<p>《騰訊原創分享(三)：如何大幅壓縮移動網路下APP的流量消耗（上篇）》</p>
+<p>《微信Mars：微信內部正在使用的網路層封裝庫，即將開源》</p>
+<p>《如約而至：微信自用的移動端IM網路層跨平台組件庫Mars已正式開源》</p>
+<p>《開源libco庫：單機千萬連接、支撐微信8億用戶的後台框架基石 [源碼下載]》</p>
+<p>《微信新一代通信安全解決方案：基於TLS1.3的MMTLS詳解》</p>
+<p>《微信團隊原創分享：Android版微信後台保活實戰分享(進程保活篇)》</p>
+<p>《微信團隊原創分享：Android版微信後台保活實戰分享(網路保活篇)》</p>
+<p>《Android版微信從300KB到30MB的技術演進(PPT講稿) [附件下載]》</p>
+<p>《微信團隊原創分享：Android版微信從300KB到30MB的技術演進》</p>
+<p>《微信技術總監談架構：微信之道——大道至簡(演講全文)》</p>
+<p>《微信技術總監談架構：微信之道——大道至簡(PPT講稿) [附件下載]》</p>
+<p>《如何解讀《微信技術總監談架構：微信之道——大道至簡》》</p>
+<p>《微信海量用戶背後的後台系統存儲架構(視頻+PPT) [附件下載]》</p>
+<p>《微信非同步化改造實踐：8億月活、單機千萬連接背後的後台解決方案》</p>
+<p>《微信朋友圈海量技術之道PPT [附件下載]》</p>
+<p>《微信對網路影響的技術試驗及分析（論文全文）》</p>
+<p>《一份微信後台技術架構的總結性筆記》</p>
+<p>《架構之道：3個程序員成就微信朋友圈日均10億發布量[有視頻]》</p>
+<p>《快速裂變：見證微信強大後台架構從0到1的演進歷程（一）》</p>
+<p>《快速裂變：見證微信強大後台架構從0到1的演進歷程（二）》</p>
+<p>《微信團隊原創分享：Android內存泄漏監控和優化技巧總結》</p>
+<p>《全面總結iOS版微信升級iOS9遇到的各種「坑」》</p>
+<p>《微信團隊原創資源混淆工具：讓你的APK立減1M》</p>
+<p>《微信團隊原創Android資源混淆工具：AndResGuard [有源碼]》</p>
+<p>《Android版微信安裝包「減肥」實戰記錄》</p>
+<p>《iOS版微信安裝包「減肥」實戰記錄》</p>
+<p>《移動端IM實踐：iOS版微信界面卡頓監測方案》</p>
+<p>《微信「紅包照片」背後的技術難題》</p>
+<p>《移動端IM實踐：iOS版微信小視頻功能技術方案實錄》</p>
+<p>《移動端IM實踐：Android版微信如何大幅提升交互性能（一）》</p>
+<p>《移動端IM實踐：Android版微信如何大幅提升交互性能（二）》</p>
+<p>《移動端IM實踐：實現Android版微信的智能心跳機制》</p>
+<p>《移動端IM實踐：WhatsApp、Line、微信的心跳策略分析》</p>
+<p>《移動端IM實踐：谷歌消息推送服務(GCM)研究（來自微信）》</p>
+<p>《移動端IM實踐：iOS版微信的多設備字體適配方案探討》</p>
+<p>《信鴿團隊原創：一起走過 iOS10 上消息推送(APNS)的坑》</p>
+<p>《騰訊信鴿技術分享：百億級實時消息推送的實戰經驗》</p>
+<p>《IPv6技術詳解：基本概念、應用現狀、技術實踐（上篇）》</p>
+<p>《IPv6技術詳解：基本概念、應用現狀、技術實踐（下篇）》</p>
+<p>《騰訊TEG團隊原創：基於MySQL的分散式資料庫TDSQL十年鍛造經驗分享》</p>
+<p>《微信多媒體團隊訪談：音視頻開發的學習、微信的音視頻技術和挑戰等》</p>
+<p>《了解iOS消息推送一文就夠：史上最全iOS Push技術詳解》</p>
+<p>《騰訊技術分享：微信小程序音視頻技術背後的故事》</p>
+<p>《騰訊資深架構師乾貨總結：一文讀懂大型分散式系統設計的方方面面》</p>
+<p>《微信多媒體團隊梁俊斌訪談：聊一聊我所了解的音視頻技術》</p>
+<p>《騰訊音視頻實驗室：使用AI黑科技實現超低碼率的高清實時視頻聊天》</p>
+<p>《騰訊技術分享：微信小程序音視頻與WebRTC互通的技術思路和實踐》</p>
+<p>《手把手教你讀取Android版微信和手Q的聊天記錄(僅作技術研究學習)》</p>
+<p>《微信技術分享：微信的海量IM聊天消息序列號生成實踐（演算法原理篇）》</p>
+<p>《微信技術分享：微信的海量IM聊天消息序列號生成實踐（容災方案篇）》</p>
+<p>《騰訊技術分享：GIF動圖技術詳解及手機QQ動態表情壓縮技術實踐》</p>
+<p>《微信團隊分享：Kotlin漸被認可，Android版微信的技術嘗鮮之旅》</p>
+<p>《社交軟體紅包技術解密(一)：全面解密QQ紅包技術方案——架構、技術實現等》</p>
+<p>《社交軟體紅包技術解密(二)：解密微信搖一搖紅包從0到1的技術演進》</p>
+<p>《社交軟體紅包技術解密(三)：微信搖一搖紅包雨背後的技術細節》</p>
+<p>《社交軟體紅包技術解密(四)：微信紅包系統是如何應對高並發的》</p>
+<p>《社交軟體紅包技術解密(五)：微信紅包系統是如何實現高可用性的》</p>
+<p>《社交軟體紅包技術解密(六)：微信紅包系統的存儲層架構演進實踐》</p>
+<p>《社交軟體紅包技術解密(九)：談談手Q紅包的功能邏輯、容災、運維、架構等》</p>
+<p>《QQ設計團隊分享：新版 QQ 8.0 語音消息改版背後的功能設計思路》</p>
+<p>《微信團隊分享：極致優化，iOS版微信編譯速度3倍提升的實踐總結》</p>
+<p>&gt;&gt; 更多同類文章 ……</p>
+</blockquote>
+<p>（本文同步發佈於：http://www.52im.net/thread-2873-1-1.html）</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		分類: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/22852#comments">
+			寫評論		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">返回頂部</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+<!-- This is the static html file -->

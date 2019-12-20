@@ -1,0 +1,609 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/23168#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/RkyDfB7EPKWyXr"},{"@type":"WebPage","@id":"https://daynews.cc/technology/23168#webpage","url":"https://daynews.cc/technology/23168","inLanguage":"zh-TW","name":"\u79d1\u666e\uff1a\u98db\u6a5f\u4e0a\u662f\u5982\u4f55\u5be6\u73feWi-Fi\u8986\u84cb\u7684\uff1f - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/23168#primaryimage"},"datePublished":"2019-12-18T05:45:16+00:00","dateModified":"2019-12-18T05:45:16+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="神譯局是36氪旗下編譯團隊，關注科技、商業、職場、生活等領域，重點介紹國外的新技術、新觀點、新風向。 編者按：飛機上聯網早已不是夢想。但你有沒有想過，在萬米高空中高速飛行的情況下，飛機是如何實現網路覆蓋的呢？飛機上的Wi-Fi目前還比較差，未來能不能實現快速上網？誰為Wi-Fi買單？文章帶你探索飛機上Wi-Fi的奧秘。本文譯自Medium……" />
+<meta name="twitter:title" content="科普：飛機上是如何實現Wi-Fi覆蓋的？ - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/RkyDfB7EPKWyXr" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="科普：飛機上是如何實現Wi-Fi覆蓋的？ - 天天要聞" />
+<meta property="og:description" content="神譯局是36氪旗下編譯團隊，關注科技、商業、職場、生活等領域，重點介紹國外的新技術、新觀點、新風向。 編者按：飛機上聯網早已不是夢想。但你有沒有想過，在萬米高空中高速飛行的情況下，飛機是如何實現網路覆蓋的呢？飛機上的Wi-Fi目前還比較差，未來能不能實現快速上網？誰為Wi-Fi買單？文章帶你探索飛機上Wi-Fi的奧秘。本文譯自Medium……" />
+<meta property="og:url" content="https://daynews.cc/technology/23168" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-18T05:45:16+00:00" />
+	<title>科普：飛機上是如何實現Wi-Fi覆蓋的？ - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/23168" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+	.amp-wp-header .amp-wp-canonical-link {
+		font-size: 0.8em;
+		text-decoration: underline;
+		position: absolute;
+		right: 18px;	}
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+	
+	<script async custom-element="amp-auto-ads" 
+			src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
+	<script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+	
+</head>
+
+<body class="">
+	<amp-auto-ads type="adsense" data-ad-client="ca-pub-8261739837930821"></amp-auto-ads>
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+										<a class="amp-wp-canonical-link" href="https://daynews.cc/technology/23168">
+				原網頁			</a>
+			</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">科普：飛機上是如何實現Wi-Fi覆蓋的？</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://daynews.cc/wp-content/themes/Kratos/images/default_avatar.jpeg" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-18T13:45:16+00:00">
+		2019-12-18	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		<amp-ad width="100vw" height="320"
+			 type="adsense"
+			 data-ad-client="ca-pub-8261739837930821"
+			 data-ad-slot="2502207318"
+			 data-auto-format="rspv"
+			 data-full-width="">
+		  <div overflow=""></div>
+		</amp-ad>
+		
+		<div>
+<blockquote>
+<p>神譯局是36氪旗下編譯團隊，關注科技、商業、職場、生活等領域，重點介紹國外的新技術、新觀點、新風向。</p>
+</blockquote>
+<p>編者按：飛機上聯網早已不是夢想。但你有沒有想過，在萬米高空中高速飛行的情況下，飛機是如何實現網路覆蓋的呢？飛機上的Wi-Fi目前還比較差，未來能不能實現快速上網？誰為Wi-Fi買單？文章帶你探索飛機上Wi-Fi的奧秘。本文譯自Medium，作者Sarvesh Mathi，原標題為” The Magical Science of Wi-Fi on Airplanes”，希望對您有所啟發。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/RkyDfB7EPKWyXr" alt="《科普：飛機上是如何實現Wi-Fi覆蓋的？》" width="640" height="480" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/RkyDfB7EPKWyXr" alt="《科普：飛機上是如何實現Wi-Fi覆蓋的？》" width="640" height="480" class=""></noscript></amp-img></p>
+<p>在飛機飛行時能上網，誰會不喜歡？！根據2018年全球旅行者研究(Global Traveler study)顯示， 94%的全球旅行者認為在飛機上提供網路將增強他們的旅行體驗，30%的人在預訂機票時會明確關注這一功能。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RkyDfC4AU1C8X6" alt="《科普：飛機上是如何實現Wi-Fi覆蓋的？》" width="640" height="365" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RkyDfC4AU1C8X6" alt="《科普：飛機上是如何實現Wi-Fi覆蓋的？》" width="640" height="365" class=""></noscript></amp-img></p>
+<p>來源：2018年全球旅行者研究(2018 Global Traveler study)</p>
+<p>目前，航空公司為每位乘客提供機上食品和零售等服務的費用為17美元。機上Wi-Fi將增加4美元的額外收入，到2035年，預計將為航空公司帶來300億美元的額外收入。</p>
+<p>看到這些數據後，你就不會驚訝於世界各地的航空公司爭相將機上Wi-Fi加入他們的便利設施列表了。但是，一家航空公司是如何做到把便捷的網路服務提供給在海平面以上6英里處以560英里每小時飛行的乘客呢?</p>
+<p>有兩種方式可以使飛機上覆蓋互聯網：</p>
+<p>1. 空對地(ATG)系統</p>
+<p>這是第一個被開發出來的系統，它的工作原理類似於通過手機使用的地面移動數據網路。但不同的是，移動信號塔向下聚焦，而為飛機提供互聯網的信號塔向上投射信號。安裝在飛機腹部的天線接收信號，並將其發送到機載伺服器。該伺服器有一個數據機，可以將射頻信號轉換成計算機信號，反之亦然，通過飛機內部安裝的Wi-Fi接入點可以為乘客提供接入服務。飛機天線和飛行航線上的發射塔之間進行信息的交換。這些塔依次連接到由服務提供商運行的操作中心，這些服務提供商類似於你家寬頻ISP的控制中心。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/RkyDfCXApqDdp5" alt="《科普：飛機上是如何實現Wi-Fi覆蓋的？》" width="530" height="396" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/RkyDfCXApqDdp5" alt="《科普：飛機上是如何實現Wi-Fi覆蓋的？》" width="530" height="396" class=""></noscript></amp-img></p>
+<p>地面信號塔向上發射信號 來源:ThePointsGuy</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/RkyDfDKRBWYxT" alt="《科普：飛機上是如何實現Wi-Fi覆蓋的？》" width="640" height="425" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/RkyDfDKRBWYxT" alt="《科普：飛機上是如何實現Wi-Fi覆蓋的？》" width="640" height="425" class=""></noscript></amp-img></p>
+<p>Gogo的ATG-4系統由腹部下的兩個主天線、兩側天線、機載伺服器和飛機內部的多個Wi-Fi路由器天線組成</p>
+<p>上圖顯示的是Gogo公司的ATG-4系統，它是目前美國航空公司中使用最多的ATG系統。Gogo的覆蓋範圍橫跨北美，包括200多座塔樓。</p>
+<p>但ATG系統有兩個明顯的缺點:</p>
+<p>1. 工作頻率較低(800 MHz)，每次飛行的峰值數據速度限制在10mbps。相比之下，美國的固網平均網速接近100mbps。當一架飛機上有多個用戶同時登錄時，每個用戶的登錄速度很慢，連看郵件都得等很長時間。</p>
+<p>2. 在網路塔較少的地區，比如大面積的沙漠或者在水上，這些地區的覆蓋率參差不齊。這使得ATG系統對於國際旅行來說，是一個不受歡迎的選擇。</p>
+<p>2. 衛星系統</p>
+<p>使用衛星的空中Wi-Fi更複雜，但也更快、更可靠。</p>
+<p>天線安裝在飛機頂部，而不是在飛機腹下。頂部天線接收來自環繞地球運行的衛星的信號。但由於衛星和飛機都在以非常快的速度移動，而且相距約2.2萬英里，所以天線需要不斷調整位置來接收信號。除了機載伺服器和Wi-Fi接入點外，還會有一個單獨的設備根據飛行位置和速度控制天線的移動。這些衛星與地面站相連，而地面站與服務提供商建立的操作中心進一步相連。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RkyDfDy8kjiUHK" alt="《科普：飛機上是如何實現Wi-Fi覆蓋的？》" width="640" height="500" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RkyDfDy8kjiUHK" alt="《科普：飛機上是如何實現Wi-Fi覆蓋的？》" width="640" height="500" class=""></noscript></amp-img></p>
+<p>Gogo公司的衛星系統，包括一個衛星天線，一個機載伺服器，Kandu（用來控制天線移動），Modman（用來轉換信號），以及飛機內的多個Wi-Fi接入點</p>
+<p>基於衛星的空中Wi-Fi的兩個主要優勢是:</p>
+<p>1. 除了北極和南極，其他地方都可以買用。在長途飛行中，天線可能需要重新定位來連接到不同的衛星，但通常不會超過一次。這使得基於衛星的系統成為國際旅行的首選。</p>
+<p>2. 頻率更高，速度更快。分配給衛星互聯網的兩個主要頻率是Ku-band (12-18 GHz)和Ka-band (26-40 GHz)。這兩個頻段允許每架飛機的峰值帶寬在30-100 Mbps之間，顯著高於ATG系統提供的10 Mbps。</p>
+<p>然而，這個系統有三個主要的缺點:</p>
+<p>1. 與簡單的ATG系統相比，它在設備、維護和帶寬成本方面都更加昂貴。這使得衛星服務在小型航空公司和區域航線航空公司中不那麼受歡迎。</p>
+<p>2. 數據傳輸的距離非常遠，因此增加了延遲。雖然速度更快，但當你點擊一個鏈接時，在頁面開始載入之前會有明顯的延遲，但一旦開始載入，就幾乎會立即載入完。而ATG系統延遲較低，點擊一個鏈接後會立即開始載入，但需要很長時間才能載入完。</p>
+<p>3.除了設備、安裝和維護成本外，機上Wi-Fi系統的另一個隱性成本是燃料成本。雖然多根天線看起來沒什麼，但安裝在飛機外部的天線所引起的形狀變化卻使飛機在空氣動力學上表現變差，因為這增加了阻力，增加了燃料消耗。目前，服務提供商正想辦法減小天線的尺寸以降低成本。Gogo最新的2Ku天線不到4英寸厚，這樣飛機的凸起要小得多。</p>
+<p>基於衛星的Wi-Fi系統主要供應商有:</p>
+<p>1. Gogo利用國際海事衛星組織（Inmarsat）的衛星提供基於Ka波段的衛星連接，利用國際通信衛星組織(Intelsat)和SES的衛星，提供基於Ku波段的連接。該公司最新和最好的產品是2Ku系統，該系統使用兩個天線，而不是一個，一個用於上行，一個用於下行，有望使每架飛機的網速達到100兆/秒，每個用戶的網速達到15兆/秒。世界各地的航空公司正在迅速採用一種系統，該系統可以實現乘客最渴望的功能之一——視頻流。目前使用Gogo系統的航空公司包括阿拉斯加航空、美國航空、達美航空、聯合航空、維珍美國航空、國泰航空、英國航空和日本航空。</p>
+<p>2. 自2013年以來，ViaSat一直為捷藍航空(JetBlue)在美國的航班提供更快的Ka波段互聯網服務。目前，捷藍航空的FlyFi在速度和價格上都處於行業領先地位。這家航空公司免費提供高達20mbps的Wi-Fi。</p>
+<p>3.歐洲航空網路(EAN)與國際海事衛星組織(Inmarsat)與德國電信(Deutsche Telekom)的合作夥伴關係，後者還運營著全球唯一的Ka波段衛星服務GX Aviation。歐洲航空網路(EAN)已開始為歐洲航空公司提供機上互聯網服務。這項服務同時使用兩種技術，一種基於衛星的下行系統和一種基於ATG系統的上行系統，以提供更快和更可靠的網路服務。這個系統也被稱為地面到軌道(GTO)。國際海事衛星組織(Inmarsat)擁有這些衛星，而德國電信(Deutsche Telekom)在歐盟各地安裝了300多座LTE基站。歐洲航空網路宣稱其空中Wi-Fi速度比目前所有的空中Wi-Fi系統都要快。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RkyDgHv11FKzDd" alt="《科普：飛機上是如何實現Wi-Fi覆蓋的？》" width="489" height="263" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RkyDgHv11FKzDd" alt="《科普：飛機上是如何實現Wi-Fi覆蓋的？》" width="489" height="263" class=""></noscript></amp-img></p>
+<p>提供Wi-Fi的航空公司並不僅限於上述幾家，旅遊網站eDreams列出了一份提供機上Wi-Fi服務的航空公司名單。</p>
+<p>機上Wi-Fi誰來買單</p>
+<p>1. 一些服務提供商(如Gogo)設定價格，處理客戶體驗問題，以此來獲得收入，與航空公司進行分成。</p>
+<p>2. 一些航空公司獲得收入，並向服務提供商支付所使用帶寬費用（批發價）。</p>
+<p>除了少數幾家提供免費Wi-Fi接入服務的航空公司外，大多數人認為這是一個創收機會，而不僅僅是一項福利。儘管在空中提供互聯網服務的成本無疑很高，但航空公司知道他們的商務客戶(由僱主買單的客戶)是會訂購這項服務的，因此也為這種便利增加了自己的利潤。儘管只有少數乘客選擇這項服務，但航空公司和互聯網服務提供商仍可以設定高昂的機票費用(每張機票的價格在15美元至20美元之間，或者每年600美元)。</p>
+<p>捷藍航空(JetBlue)等一些航空公司自己掏錢，向乘客免費提供Wi-Fi服務，以此在競爭激烈的市場中脫穎而出。許多航空公司還為他們的高級別客戶提供免費網路服務，以保持他們的忠誠度，而其他一些航空公司則會找到一家企業贊助商來承擔Wi-Fi費用，作為其在網路上投放廣告的回報。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RkyDgIEJ6rOv8w" alt="《科普：飛機上是如何實現Wi-Fi覆蓋的？》" width="640" height="426" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RkyDgIEJ6rOv8w" alt="《科普：飛機上是如何實現Wi-Fi覆蓋的？》" width="640" height="426" class=""></noscript></amp-img></p>
+<p>航空公司還會通過圖像和音頻壓縮過濾器來實現減少數據消耗，從而節省帶寬成本。航空公司能夠在一夜之間安裝ATG系統，而衛星系統只需幾天時間。</p>
+<p>放眼未來</p>
+<p>未來，機上Wi-Fi會變得更快、更可靠。高通量衛星將更有效地利用給定的衛星頻率，並採用一種新的天線技術，這種技術依賴於點波束而不是寬波束。傳統的衛星使用寬波束，僅用一束光就能覆蓋一個國家那麼大的區域。這樣做的明顯缺點是，在這個波束內的所有飛行必須共享帶寬。有了點波束，HTS衛星可以聚焦在一架飛機上，而衛星可以發出多個這樣的波束，使每架飛機的帶寬大大提高。Gogo目前也正在努力爭取在2021年之前為美國和加拿大的ATG飛機提供5G服務。</p>
+<p>隨著更多服務商的加入和技術的進步，你很快就能在飛行時享受到在家中一般的網速了。不過，這也意味著你再也不能以坐飛機為借口來不回老闆郵件了。</p>
+<p>譯者：Jane</p>
+<p>推薦閱讀：向上銷售：為什麼蘋果總能讓你買更貴的iPhone？</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		分類: <a href="https://daynews.cc/technology" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/23168#comments">
+			寫評論		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">返回頂部</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="4c2faa84438c" type="gtag"><script type="application/json">{"vars":{"gtag_id":"UA-154709495-1","config":{"UA-154709495-1":{"groups":"default"}}}}</script></amp-analytics>
+</body>
+</html>
+<!-- This is the static html file -->
