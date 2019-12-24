@@ -1,0 +1,610 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/26917/#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/Rl9J9RWG438qKM"},{"@type":"WebPage","@id":"https://daynews.cc/technology/26917/#webpage","url":"https://daynews.cc/technology/26917/","inLanguage":"zh-TW","name":"Flutter+Serverless\u7aef\u5230\u7aef\u7814\u767c\u67b6\u69cb\u5be6\u8e10 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/26917/#primaryimage"},"datePublished":"2019-12-20T09:45:08+00:00","dateModified":"2019-12-20T09:45:08+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="背景 Serverless（無服務架構）被譽為下一代雲計算，自概念推出以來，因為能帶來研發交付速度提升與成本的降低在業內異常火爆。閑魚客戶端基於Flutter進行架構演進與創新，通過Flutter統一Android和iOS雙端提升研發效能之後，希望通過Flutter+Serverless解決以下問題，從而進一步提升整體研發效率。 各角色間……" />
+<meta name="twitter:title" content="Flutter+Serverless端到端研發架構實踐 - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/Rl9J9RWG438qKM" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Flutter+Serverless端到端研發架構實踐 - 天天要聞" />
+<meta property="og:description" content="背景 Serverless（無服務架構）被譽為下一代雲計算，自概念推出以來，因為能帶來研發交付速度提升與成本的降低在業內異常火爆。閑魚客戶端基於Flutter進行架構演進與創新，通過Flutter統一Android和iOS雙端提升研發效能之後，希望通過Flutter+Serverless解決以下問題，從而進一步提升整體研發效率。 各角色間……" />
+<meta property="og:url" content="https://daynews.cc/technology/26917/" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-20T09:45:08+00:00" />
+	<title>Flutter+Serverless端到端研發架構實踐 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/26917/" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+	.amp-wp-header .amp-wp-canonical-link {
+		font-size: 0.8em;
+		text-decoration: underline;
+		position: absolute;
+		right: 18px;	}
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+	
+</head>
+
+<body class="">
+
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+										<a class="amp-wp-canonical-link" href="https://daynews.cc/technology/26917/">
+				原網頁			</a>
+			</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">Flutter+Serverless端到端研發架構實踐</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://daynews.cc/wp-content/themes/Kratos/images/default_avatar.jpeg" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-20T17:45:08+00:00">
+		2019-12-20	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		
+		<div>
+<p><strong class="highlight-text">背景</strong></p>
+<p>Serverless（無服務架構）被譽為下一代雲計算，自概念推出以來，因為能帶來研發交付速度提升與成本的降低在業內異常火爆。閑魚客戶端基於Flutter進行架構演進與創新，通過Flutter統一Android和iOS雙端提升研發效能之後，希望通過Flutter+Serverless解決以下問題，從而進一步提升整體研發效率。</p>
+<ul>
+<li>
+<p>各角色間存在大量的協同，導致整體研發效率低。</p>
+</li>
+<li>
+<p>移動端離業務越來越遠，服務端沒有時間做底層領域沉澱。</p>
+</li>
+</ul>
+<p><strong class="highlight-text">研發架構的演進</strong></p>
+<p>接下來我們帶著這裡兩個問題回顧前後端研發架構演進的歷史。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/Rl9J9RWG438qKM" alt="《Flutter+Serverless端到端研發架構實踐》" width="938" height="251" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/Rl9J9RWG438qKM" alt="《Flutter+Serverless端到端研發架構實踐》" width="938" height="251" class=""></noscript></amp-img></p>
+<p>PC互聯網早期沒有還沒有前後端的概念，此階段單個業務需求通常一個開發人員可以完成研發，前端網頁與後端邏輯都寫在一個工程中。隨著業務越來越複雜，原本開發者負責前後端研發已經變得效率低下，此階段隨著移動互聯網的爆發，服務端需要服務與PC、Android、iOS等多種前端。</p>
+<p>服務端總是有一個疑問：服務端設計介面時，是應該面向UI，還是應該面向通用服務？一個方案是抽取一部分服務端做BFF（Backend For Frontend服務於前端的後端），作為前後端之間的適配層，核心是解決數據的聚合與編排，重新探索更合理的分層協作模式。</p>
+<p>服務端寫BFF帶來新的問題，總是包介面無法提升個人能力。如果BFF由端側同學開發可以解決這個問題，具體技術方案也是接下來我們要思考的問題。</p>
+<p><strong class="highlight-text">雲端一體化技術方案</strong></p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/Rl9J9S44EjLdZa" alt="《Flutter+Serverless端到端研發架構實踐》" width="908" height="262" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/Rl9J9S44EjLdZa" alt="《Flutter+Serverless端到端研發架構實踐》" width="908" height="262" class=""></noscript></amp-img></p>
+<p>Serverless由BaaS（Backend as a Sevice）與Faas（Function as a Service）兩部分組成。BaaS主要包括資料庫存儲、消息隊列等能力，針對複雜的需求建議由服務端在BaaS層封裝領域服務供FaaS層使用。作為端側開發，核心<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">關注</i>客戶端與FaaS層的代碼開發。</p>
+<p>目前公司FaaS環境已經支持Java、Kotlin、Swift、Dart、Node.js等多種語言與框架，閑魚通過Android（Flutter）、iOS（Flutter）、FaaS（Dart Runtime）都使用Dart達到語言一體，並且實現協議一體與工程一體。</p>
+<p><strong>語言一體：</strong>Android、iOS、FaaS層使用Dart語言開發，實現三端語言統一，有效屏蔽FaaS層語言學習成本。</p>
+<p><strong>協議一體：</strong>通過一體化框架屏蔽通信細節，前後端同一份State，減少協議轉換，前端同學調用FaaS服務時，如同調用本地函數一樣簡潔。</p>
+<p><strong>工程一體：</strong>前後端可以在同一個工程中進行開發，利用Dart特性可以通過Hot Reload機制進行快速開發聯調。</p>
+<p>閑魚基於FaaS搭建Dart Runtime環境可參考《Dart編譯技術在服務端的探索和應用》。</p>
+<p><strong class="highlight-text">下單頁一體化實踐</strong></p>
+<p>下面以閑魚下單頁一體化為例，通過頁面渲染與交互兩部分展開一體化實踐過程。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/Rl9J9SWa6XpCG" alt="《Flutter+Serverless端到端研發架構實踐》" width="640" height="800" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/Rl9J9SWa6XpCG" alt="《Flutter+Serverless端到端研發架構實踐》" width="640" height="800" class=""></noscript></amp-img></p>
+<p><strong>下單渲染一體化 </strong></p>
+<p>從上圖左側可以看出，客戶端渲染此頁面需要在端側請求5個介面，處理渲染介面之間的邏輯，把介面返回的Data轉為為ViewModel。經過一體化改造之後，原有在端側的邏輯都移到FaaS層，包括聚合5個領域服務，處理業務邏輯，進行欄位映射與頁面編排，端側無任何渲染與業務邏輯，直接獲取返回的ViewModel刷新頁面。以下是雲端一體之後的流程圖。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/Rl9J9T2CZHyLmJ" alt="《Flutter+Serverless端到端研發架構實踐》" width="557" height="669" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/Rl9J9T2CZHyLmJ" alt="《Flutter+Serverless端到端研發架構實踐》" width="557" height="669" class=""></noscript></amp-img></p>
+<p><strong>下單頁交互操作一體化 </strong></p>
+<p>從上圖右側可以看出，有4種操作都會改變實付款，原本這些操作處理邏輯都在端側處理，一體化改造之後，端側不存在任何計算邏輯，客戶端每次操作都會請求服務端，有FaaS進行紅包是否過期等數據校驗，再返回頁面數據進行刷新。</p>
+<p><strong>一體化研發框架</strong></p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/Rl9J9TY5HQSYvH" alt="《Flutter+Serverless端到端研發架構實踐》" width="640" height="563" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/Rl9J9TY5HQSYvH" alt="《Flutter+Serverless端到端研發架構實踐》" width="640" height="563" class=""></noscript></amp-img></p>
+<p>Nexus Framework：基於Flutter的一體化移動端UI框架。</p>
+<p>Logic Engine：基於Flutter的一體化通信與調度框架。</p>
+<p>Nexus Server: 基於Dart Runtime的一體化服務端框架。</p>
+<p><strong class="highlight-text">代碼示例</strong></p>
+<p>下圖為客戶端下單頁初始化的代碼示例</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/Rl9J9zH5OfeJVs" alt="《Flutter+Serverless端到端研發架構實踐》" width="640" height="334" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/Rl9J9zH5OfeJVs" alt="《Flutter+Serverless端到端研發架構實踐》" width="640" height="334" class=""></noscript></amp-img></p>
+<p>下圖為FaaS層對客戶端發起的初始化請求的處理</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/Rl9J9zo5SkRvp9" alt="《Flutter+Serverless端到端研發架構實踐》" width="640" height="414" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/Rl9J9zo5SkRvp9" alt="《Flutter+Serverless端到端研發架構實踐》" width="640" height="414" class=""></noscript></amp-img></p>
+<p>以上是Flutter+FaaS雙端協議一體的開發示例，雙端都是通過BinderAction進行交互，Action中的State是同一個類型，從而有效屏蔽通信細節，提高研發效率。</p>
+<p><strong class="highlight-text">收益與效果</strong></p>
+<p>下單頁已經上線，回顧整個研發過程，雲端一體研發架構不僅僅只是新的技術方案，價值在於擴展端側工作邊界，帶來生產關係的重塑。</p>
+<p><strong>協同效率提升</strong>：相比Flutter帶來的雙端一體來說，該三端一體的架構進一步提升了30%整體研發效率。</p>
+<p><strong>業務閉環</strong>：端側還可以更快速地反饋與響應業務，不斷嘗試，從而搭建起更完善的產品模型，為業務創造更多的價值。</p>
+<p><strong>人員成長</strong>：端側從只<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">關注</i>用戶體驗的開發資源，轉變為整個業務研發的技術負責人，從只<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">關注</i>端側的局部視角到更專註業務閉環的全局視角。Faas層調用底層領域服務來完成自己的業務，原來服務端可以更加地去專註領域服務的沉澱。</p>
+<p><strong class="highlight-text">總結與展望</strong></p>
+<p>Flutter+Serverless三端一體研發架構，能夠解決本篇提出的原有研發架構的兩個問題，通過改變端側職能邊界有效減少協同，客戶端可以負責整個業務，服務端有更多的時間進行領域沉澱，但是閑魚實踐Flutter+Serverless三端一體研發架構時也遇到以下挑戰：</p>
+<ul>
+<li>
+<p>FaaS層研發體驗需要繼續提升 調試只能通過GAIA日誌查看，目前規劃是把平台日誌抓取到本地，並且提供FaaS代碼遠程調試功能。</p>
+</li>
+<li>
+<p>運維成本增加 問題定位、請求鏈路、壓測、安全生產的工作轉移，如何摸平與服務的差異。</p>
+</li>
+</ul>
+<p>以上是實踐過程中發現的新的挑戰都已經列入下一階段工作中，後續會持續分享這些挑戰的思考與解決方案。</p>
+<p>閑魚團隊是Flutter+Dart FaaS前後端一體化新技術的行業領軍者，就是現在！<strong class="highlight-text">客戶端／服務端java／架構／前端／質量工程師</strong>面向社會招聘，base杭州阿里巴巴西溪園區，一起做有創想空間的社區產品、做深度頂級的開源項目，一起拓展技術邊界成就極致！</p>
+<p>*投喂簡歷給小閑魚→<strong class="highlight-text">guicai.gxy@alibaba-inc<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-6">.com</i></strong></p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/R693yELCMK8FG4" alt="《Flutter+Serverless端到端研發架構實踐》" width="71" height="14" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/R693yELCMK8FG4" alt="《Flutter+Serverless端到端研發架構實踐》" width="71" height="14" class=""></noscript></amp-img></p>
+<p>開源項目、峰會直擊、關鍵洞察、深度解讀</p>
+<p>請認準<strong class="highlight-text">閑魚技術</strong></p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		分類: <a href="https://daynews.cc/technology/" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/26917/#comments">
+			寫評論		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">返回頂部</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="354f0d2beeef" type="baiduanalytics"><script type="application/json">{"vars":{"token":"882f12dcdadf8f87fabf76b550649115"},"triggers":{"trackPageview":{"on":"visible","request":"pageview"}}}</script></amp-analytics>
+</body>
+</html>
+<!-- This is the static html file -->

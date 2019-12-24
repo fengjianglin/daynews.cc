@@ -1,0 +1,759 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/26518/#primaryimage","url":"http://p9.pstatp.com/large/pgc-image/b19cda196c2d4634ac65032de1b70491"},{"@type":"WebPage","@id":"https://daynews.cc/technology/26518/#webpage","url":"https://daynews.cc/technology/26518/","inLanguage":"zh-TW","name":"Docker+K8S \u96c6\u7fa4\u74b0\u5883\u642d\u5efa\u53ca\u5206\u6563\u5f0f\u61c9\u7528\u90e8\u7f72 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/26518/#primaryimage"},"datePublished":"2019-12-22T05:15:09+00:00","dateModified":"2019-12-22T05:15:09+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="1.安裝docker yum install docker #啟動服務 systemctl start docker.service systemctl enable docker.service #測試 docker version 2.安裝etcd yum install etcd -y #啟動etcd systemctl start……" />
+<meta name="twitter:title" content="Docker+K8S 集群環境搭建及分散式應用部署 - 天天要聞" />
+<meta name="twitter:image" content="http://p9.pstatp.com/large/pgc-image/b19cda196c2d4634ac65032de1b70491" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Docker+K8S 集群環境搭建及分散式應用部署 - 天天要聞" />
+<meta property="og:description" content="1.安裝docker yum install docker #啟動服務 systemctl start docker.service systemctl enable docker.service #測試 docker version 2.安裝etcd yum install etcd -y #啟動etcd systemctl start……" />
+<meta property="og:url" content="https://daynews.cc/technology/26518/" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-22T05:15:09+00:00" />
+	<title>Docker+K8S 集群環境搭建及分散式應用部署 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/26518/" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+	.amp-wp-header .amp-wp-canonical-link {
+		font-size: 0.8em;
+		text-decoration: underline;
+		position: absolute;
+		right: 18px;	}
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+	
+</head>
+
+<body class="">
+
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+										<a class="amp-wp-canonical-link" href="https://daynews.cc/technology/26518/">
+				原網頁			</a>
+			</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">Docker+K8S 集群環境搭建及分散式應用部署</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://daynews.cc/wp-content/themes/Kratos/images/default_avatar.jpeg" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-22T13:15:09+00:00">
+		2019-12-22	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		
+		<div>
+<p>1.安裝docker</p>
+<blockquote>
+<p>yum install docker </p>
+<p>#啟動服務 </p>
+<p>systemctl start docker.service </p>
+<p>systemctl enable docker.service </p>
+<p>#測試 </p>
+<p>docker version</p>
+</blockquote>
+<p>2.安裝etcd</p>
+<blockquote>
+<p>yum install etcd -y</p>
+<p>#啟動etcd</p>
+<p>systemctl start etcd</p>
+<p>systemctl enable etcd</p>
+<p>#輸入如下命令查看 etcd 健康狀況</p>
+<p>etcdctl -C http://localhost:2379 cluster-health</p>
+<p>#安裝 Kubernetes</p>
+<p>yum install kubernetes -y</p>
+</blockquote>
+<p>安裝好後，編輯文件 /etc/kubernetes/apiserver，將 KUBE_ADMISSION_CONTROL 後面的 ServiceAccount 去掉，如：</p>
+<blockquote>
+<p>KUBE_ADMISSION_CONTROL=”–admission-control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ResourceQuota”</p>
+</blockquote>
+<p>然後分別啟動以下程序（Master）：</p>
+<blockquote>
+<p>systemctl start kube-apiserver</p>
+<p>systemctl enable kube-apiserver</p>
+<p>systemctl start kube-controller-manager</p>
+<p>systemctl enable kube-controller-manager</p>
+<p>systemctl start kube-scheduler</p>
+<p>systemctl enable kube-scheduler</p>
+</blockquote>
+<p>接下來啟動 Node 節點的程序：</p>
+<blockquote>
+<p>systemctl start kubelet</p>
+<p>systemctl enable kubelet</p>
+<p>systemctl start kube-proxy</p>
+<p>systemctl enable kube-proxy</p>
+</blockquote>
+<p>這樣，一個簡單的 K8S 集群環境就已經搭建完成了，我們可以運行以下命令來查看集群狀態。</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/b19cda196c2d4634ac65032de1b70491" alt="《Docker+K8S 集群環境搭建及分散式應用部署》" width="307" height="68" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/b19cda196c2d4634ac65032de1b70491" alt="《Docker+K8S 集群環境搭建及分散式應用部署》" width="307" height="68" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>但目前該集群環境還不能很好的工作，因為需要對集群中 pod 的網路進行統一管理，所以需要創建覆蓋網路 flannel。 </p>
+<p>1.安裝 flannel：</p>
+<blockquote>
+<p>yum install flannel -y</p>
+</blockquote>
+<p>2.編輯文件 /etc/sysconfig/flanneld，增加以下代碼:</p>
+<blockquote>
+<p>–logtostderr=false –log_dir=/var/log/k8s/flannel/ –etcd-prefix=/atomic.io/network –etcd-endpoints=http://localhost:2379 –iface=enp0s3</p>
+</blockquote>
+<p>其中 –iface 對應的是網卡的名字。</p>
+<p>3.配置 etcd 中關於 flanneld 的 key</p>
+<p>flannel 使用 etcd 進行配置，來保證多個 flannel 實例之間的配置一致性，所以需要在 etcd 上進行如下配置：</p>
+<blockquote>
+<p>etcdctl mk /atomic.io/network/config ‘{ “Network”: “10.0.0.0/16” }’ </p>
+</blockquote>
+<p>/atomic.io/network/config 這個 key 與上文 /etc/sysconfig/flannel 中的配置項 FLANNEL_ETCD_PREFIX 是相對應的，錯誤的話啟動就會出錯）</p>
+<p>Network 是配置網段，不能和物理機 IP 衝突，可以隨便定義，盡量避開物理機 IP 段。</p>
+<p>4.啟動修改後的 flannel ，並依次重啟 docker、kubernete：</p>
+<blockquote>
+<p>systemctl enable flanneld </p>
+<p>systemctl start flanneld</p>
+<p>service docker restart</p>
+<p>systemctl restart kube-apiserver</p>
+<p>systemctl restart kube-controller-manager</p>
+<p>systemctl restart kube-scheduler</p>
+<p>systemctl enable flanneld</p>
+<p>systemctl start flanneld</p>
+<p>service docker restart</p>
+<p>systemctl restart kubelet</p>
+<p>systemctl restart kube-proxy</p>
+</blockquote>
+<p>這樣，我們將應用部署到 Docker 容器中時，就可以通過物理IP訪問到容器了。</p>
+
+<p>分散式應用部署</p>
+<p>1.搭建一個基於 SpringBoot 的框架,這裡不再贅述。默認已經搭建好。 </p>
+<p>2.編寫Dockerfile，內容示例如下:</p>
+<blockquote>
+<p>#下載java8的鏡像</p>
+<p>FROM java:8</p>
+<p>#將本地文件掛到到/tmp目錄</p>
+<p>VOLUME /tmp</p>
+<p>#複製文件到容器</p>
+<p>ADD demo-0.0.1-SNAPSHOT.jar /demo.jar</p>
+<p>#暴露8080埠</p>
+<p>EXPOSE 8080</p>
+<p>#配置啟動容器後執行的命令</p>
+<p>ENTRYPOINT [“java”,”-jar”,”/demo.jar”]</p>
+</blockquote>
+<p>通過 docker build 命令創建鏡像：</p>
+<blockquote>
+<p>docker build -t demo .</p>
+</blockquote>
+<p>這時，我們執行 docker images 就將看到剛才構建的鏡像，如：</p>
+
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/d5e9adbd562e42dcbc7b38b0793703a1" alt="《Docker+K8S 集群環境搭建及分散式應用部署》" width="1017" height="54" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/d5e9adbd562e42dcbc7b38b0793703a1" alt="《Docker+K8S 集群環境搭建及分散式應用部署》" width="1017" height="54" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>利用 K8S 部署 SpringBoot 應用</p>
+<p>1.創建 rc 文件 demo-rc.yaml：</p>
+<blockquote>
+<p>apiVersion: v1</p>
+<p>kind: ReplicationController</p>
+<p>metadata:</p>
+<p> name: demo</p>
+<p>spec:</p>
+<p> # 節點數，設置為多個可以實現負載均衡效果</p>
+<p> replicas: 1</p>
+<p> selector:</p>
+<p> app: demo</p>
+<p> template:</p>
+<p> metadata:</p>
+<p> labels:</p>
+<p> app: demo</p>
+<p> spec:</p>
+<p> containers:</p>
+<p> – name: demo</p>
+<p> #鏡像名</p>
+<p> image: demo</p>
+<p> #本地有鏡像就不會去倉庫拉取</p>
+<p> imagePullPolicy: IfNotPresent</p>
+<p> ports:</p>
+<p> – containerPort: 8080</p>
+</blockquote>
+<p>以下命令創建 pod：</p>
+<blockquote>
+<p>kubectl create -f demo-rc.yaml </p>
+</blockquote>
+<p>創建成功後，我們可以查看 pod：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/005ffa2ac4ce4695b17a8c20e80245f0" alt="《Docker+K8S 集群環境搭建及分散式應用部署》" width="470" height="78" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/005ffa2ac4ce4695b17a8c20e80245f0" alt="《Docker+K8S 集群環境搭建及分散式應用部署》" width="470" height="78" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>ContainerCreating 提示正在創建中，這時可以查看創建日誌:</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/27e3d60ebe3f4e5597bfc35c3c28b790" alt="《Docker+K8S 集群環境搭建及分散式應用部署》" width="640" height="316" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/27e3d60ebe3f4e5597bfc35c3c28b790" alt="《Docker+K8S 集群環境搭建及分散式應用部署》" width="640" height="316" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>可以發現他提示：redhat-cat.crt 不存在，我們先通過ll命令查看下該文件：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/5da08c0aeb0d49b7a527e8c3e6a6a786" alt="《Docker+K8S 集群環境搭建及分散式應用部署》" width="959" height="70" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/5da08c0aeb0d49b7a527e8c3e6a6a786" alt="《Docker+K8S 集群環境搭建及分散式應用部署》" width="959" height="70" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>可以發現該文件是個鏈接文件，它指向的是 /etc/rhsm/ca/redhat-uep.pem，而這個文件發現確實不存在，那這個文件又是怎麼來的呢？答案就在這個路徑里，我們需要安裝 rhsm 這個軟體，執行命令安裝：</p>
+<blockquote>
+<p>yum install *rhsm* -y</p>
+</blockquote>
+<p>等待一段時間後，安裝即完成。</p>
+<p>安裝完成後，執行 ll 命令查看該文件是否存在：</p>
+<blockquote>
+<p>[root@MiWiFi-R3-srv ~]# ll /etc/rhsm/ca/redhat-uep.pem </p>
+<p>ls: 無法訪問/etc/rhsm/ca/redhat-uep.pem: 沒有那個文件或目錄</p>
+</blockquote>
+<p>我們發現，依然沒有該文件，不過沒關心，我們可以手動創建：</p>
+<blockquote>
+<p>touch /etc/rhsm/ca/redhat-uep.pem</p>
+</blockquote>
+<p>執行完以上操作後，我們先將 rc 刪除，再創建：</p>
+<blockquote>
+<p>[root@MiWiFi-R3-srv ~]# kubectl delete rc demo</p>
+<p>replicationcontroller “demo” deleted</p>
+<p>[root@MiWiFi-R3-srv ~]# kubectl create -f demo-rc.yaml </p>
+<p>replicationcontroller “demo” created</p>
+</blockquote>
+<p>等待一段時間後，重新查看 po，我們發現已經成功啟動：</p>
+<blockquote>
+<p>[root@MiWiFi-R3-srv ~]# kubectl get po</p>
+<p>NAME READY STATUS RESTARTS AGE</p>
+<p>demo-hdmxs 1/1 Running 0 1m</p>
+</blockquote>
+<p>這時，我們還無法通過區域網訪問應用，還需要創建 Service：</p>
+<p>1.創建 service 文件 demo-svc.yaml:</p>
+<blockquote>
+<p>apiVersion: v1</p>
+<p>kind: Service</p>
+<p>metadata:</p>
+<p> name: demo</p>
+<p>spec:</p>
+<p> type: NodePort</p>
+<p> ports:</p>
+<p> – port: 8080</p>
+<p> targetPort: 8080</p>
+<p> # 節點暴露給外部的埠（範圍必須為30000-32767）</p>
+<p> nodePort: 30001</p>
+<p> selector:</p>
+<p> app: demo</p>
+</blockquote>
+<p>2.執行命令：</p>
+<blockquote>
+<p>[root@MiWiFi-R3-srv ~]# kubectl create -f demo-svc.yaml </p>
+<p>service “demo” created</p>
+</blockquote>
+<p>3.我們可以查看剛才創建 service:</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/6432cf17e68d44d9975f917a389fdd08" alt="《Docker+K8S 集群環境搭建及分散式應用部署》" width="678" height="95" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/6432cf17e68d44d9975f917a389fdd08" alt="《Docker+K8S 集群環境搭建及分散式應用部署》" width="678" height="95" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>這時，我們就可以通過 ip:30001 訪問應用了，如圖：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/284196069f0c4cd4b0042ceb9604d57c" alt="《Docker+K8S 集群環境搭建及分散式應用部署》" width="640" height="293" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/284196069f0c4cd4b0042ceb9604d57c" alt="《Docker+K8S 集群環境搭建及分散式應用部署》" width="640" height="293" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>如果訪問不到，需要關閉防火牆：</p>
+<blockquote>
+<p>systemctl stop firewalld</p>
+<p>iptables -P FORWARD ACCEPT</p>
+</blockquote>
+<p><strong>需要C/C++ Linux伺服器開發學習資料私信「資料」（資料包括C/C++，Linux，golang技術，Nginx，ZeroMQ，MySQL，Redis，fastdfs，MongoDB，ZK，流媒體，CDN，P2P，K8S，Docker，TCP/IP，協程，DPDK，ffmpeg等），免費分享</strong></p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		分類: <a href="https://daynews.cc/technology/" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/26518/#comments">
+			寫評論		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">返回頂部</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="354f0d2beeef" type="baiduanalytics"><script type="application/json">{"vars":{"token":"882f12dcdadf8f87fabf76b550649115"},"triggers":{"trackPageview":{"on":"visible","request":"pageview"}}}</script></amp-analytics>
+</body>
+</html>
+<!-- This is the static html file -->

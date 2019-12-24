@@ -1,0 +1,486 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>Jeff Dean講述AI晶元的未來發展趨勢 - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="【導讀】深度學習和硬體怎樣結合？計算機界神級人物、谷歌人工智慧主管Jeff Dean發表了獨自署名論文《The Deep Learning Revolution and Its Implications for Computer Architecture and Chip Design》，17頁pdf論文，長文介紹了後摩爾定律時代的機器學……" />
+		<meta name="keywords" content="Jeff Dean講述AI晶元的未來發展趨勢 - 天天要聞,科技," />
+		<meta itemprop="image" content="http://p3.pstatp.com/large/pgc-image/RlLt6NN7i9xpMO"/>
+		<meta name="description" itemprop="description" content="【導讀】深度學習和硬體怎樣結合？計算機界神級人物、谷歌人工智慧主管Jeff Dean發表了獨自署名論文《The Deep Learning Revolution and Its Implications for Computer Architecture and Chip Design》，17頁pdf論文，長文介紹了後摩爾定律時代的機器學……" />
+		
+<!-- This site is optimized with the SEO -->
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="https://daynews.cc/technology/26508/" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Jeff Dean講述AI晶元的未來發展趨勢 - 天天要聞" />
+<meta property="og:description" content="【導讀】深度學習和硬體怎樣結合？計算機界神級人物、谷歌人工智慧主管Jeff Dean發表了獨自署名論文《The Deep Learning Revolution and Its Implications for Computer Architecture and Chip Design》，17頁pdf論文，長文介紹了後摩爾定律時代的機器學……" />
+<meta property="og:url" content="https://daynews.cc/technology/26508/" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-22T05:55:13+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="【導讀】深度學習和硬體怎樣結合？計算機界神級人物、谷歌人工智慧主管Jeff Dean發表了獨自署名論文《The Deep Learning Revolution and Its Implications for Computer Architecture and Chip Design》，17頁pdf論文，長文介紹了後摩爾定律時代的機器學……" />
+<meta name="twitter:title" content="Jeff Dean講述AI晶元的未來發展趨勢 - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/RlLt6NN7i9xpMO" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/26508/#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/RlLt6NN7i9xpMO"},{"@type":"WebPage","@id":"https://daynews.cc/technology/26508/#webpage","url":"https://daynews.cc/technology/26508/","inLanguage":"zh-TW","name":"Jeff Dean\u8b1b\u8ff0AI\u6676\u5143\u7684\u672a\u4f86\u767c\u5c55\u8da8\u52e2 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/26508/#primaryimage"},"datePublished":"2019-12-22T05:55:13+00:00","dateModified":"2019-12-22T05:55:13+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<!-- / SEO. -->
+
+<link rel='stylesheet' id='animate-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/animate.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/bootstrap.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/superfish.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/layer.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='https://daynews.cc/wp-content/themes/Kratos/style.css' type='text/css' media='all' />
+<link rel="amphtml" href="https://daynews.cc/technology/26508/amp/">		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.min.js'></script>
+		
+		<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?882f12dcdadf8f87fabf76b550649115";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+		</script>
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="https://daynews.cc"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="/">首頁</a></li>
+<li><a href="https://daynews.cc/entertainment/">娛樂</a></li>
+<li><a href="https://daynews.cc/emotion/">情感</a></li>
+<li><a href="https://daynews.cc/international/">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="https://daynews.cc/technology/">科技</a></li>
+<li><a href="https://daynews.cc/sports/">體育</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/nba/">NBA</a></li>
+	<li><a href="https://daynews.cc/premier/">英超</a></li>
+</ul>
+</li>
+<li><a href="https://daynews.cc/history/">歷史</a></li>
+<li><a href="https://daynews.cc/game/">遊戲</a></li>
+<li><a href="https://daynews.cc/health/">養生</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/lose/">減肥</a></li>
+</ul>
+</li>
+<li><a href="https://daynews.cc/constellation/">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">Jeff Dean講述AI晶元的未來發展趨勢</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-22				                <i class="fa fa-commenting-o"></i> 1,364條評論
+				                <i class="fa fa-eye"></i> 4,876次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 3147人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+<p>【導讀】深度學習和硬體怎樣結合？計算機界神級人物、谷歌人工智慧主管Jeff Dean發表了獨自署名論文《The Deep Learning Revolution and Its Implications for Computer Architecture and Chip Design》，17頁pdf論文，<strong>長文介紹了後摩爾定律時代的機器學習研究進展，以及他對未來發展趨勢的預測判斷。</strong></p>
+<p> <img layer-src="http://p3.pstatp.com/large/pgc-image/RlLt6NN7i9xpMO" src="http://p3.pstatp.com/large/pgc-image/RlLt6NN7i9xpMO" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" /></p>
+<p><strong>摘要</strong></p>
+<p>在過去的十年里，機器學習，<strong>特別是基於人工神經網路的深度學習方法取得了一系列顯著的進步，從而提高了我們在更廣泛的領域建立更精確系統的能力</strong>，包括計算機視覺、語音識別、語言翻譯和自然語言理解任務。這篇論文是2020年國際固態電路會議(ISSCC)的主題演講的配套論文，討論了機器學習的一些進展，以及這些進展對我們需要構建的計算設備的影響，特別是在後摩爾定律時代。它還討論了一些方法，機器學習也可以幫助電路設計過程的某些方面。<strong>最後，它提供了至少一個有趣方向的草圖，朝向更大規模的多任務模型，這些模型是稀疏激活的，並且使用了比今天的機器學習模型更動態的、基於實例和任務的路由</strong>。</p>
+<p> <img layer-src="http://p3.pstatp.com/large/pgc-image/RlLt6O08n9lsKE" src="http://p3.pstatp.com/large/pgc-image/RlLt6O08n9lsKE" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" /></p>
+<p><strong>地址鏈接：</strong></p>
+<p>https://<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">www</i>.zhuanzhi.ai/paper/29cfa3ee4438c3f2717c1f5ab41b320c</p>
+<p>https://ar<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">xi</i>v.org/abs/1911.05289</p>
+<p><strong>引言</strong></p>
+<p>在過去的十年中，機器學習(ML)，特別是<strong>基於人工神經網路的深度學習方法取得了一系列顯著的進步，以提高我們在廣泛領域構建更精確系統的能力</strong>[LeCun et al. 2015]。重大進展的主要領域包括<strong>計算機視覺</strong>(Krizhevsky et al. 2012, Szegedy et al. 2015, He et al. 2016, Real et al. 2017, Tan and Le 2019],<strong>語音識別</strong>(Hinton et al. 2012, Chan et al. 2016],<strong>語言翻譯</strong>(Wu et al. 2016)和其他<strong>自然語言任務</strong>[Collobert et al. 2011, Mikolov et al. 2013, Sutskever et al. 2014, Shazeer et al. 2017, Vaswani et al. 2017, Devlin et al. 2018]。機器學習研究社區也能夠訓練系統來完成一些具有挑戰性的任務,<strong>從互動的學習環境中,通常使用強化學習,展示成功和有前途的進步</strong>在玩圍棋等領域[Silver et al. 2017], 玩視頻遊戲如雅達利遊戲[Mnih et al. 2013, Mnih et al. 2015)和《星際爭霸》之類的遊戲(Vinyals et al . 2019年),完成機器人任務，如大幅改善抓取看不見的物體[Levine et al. 2016, Kalashnikov et al. 2018]，模擬觀察到的人類行為[Sermanet et al. 2018]，使用自動駕駛汽車導航複雜的城市環境[Angelova et al. 2015, Bansal et al. 2018]。</p>
+<p><strong>作為計算機視覺領域取得巨大進步的一個例證</strong>，圖1顯示了Imagenet挑戰賽(斯坦福大學[Deng et al. 2009]舉辦的年度競賽)隨時間推移的改進情況。Imagenet挑戰賽向參賽者提供了1000個類別的100萬幅彩色圖像的訓練集，然後使用這些數據來訓練一個模型，以推廣到相同類別的圖像的評估集。在2010年和2011年，在使用深度學習方法之前，獲勝的參賽者使用手工設計的計算機視覺功能，前5名的錯誤率超過25%。2012年，Alex Krishevsky、Ilya Sutskever和Geoffrey Hinton使用一種深度神經網路，通常被稱為「AlexNet」，在競賽中獲得第一名，前5名的出錯率大幅降低到16% [Krishevsky et al. 2012]。<strong>他們的團隊是2012年唯一使用神經網路的團隊</strong>。第二年，<strong>深度學習計算機視覺革命(deep learning computer vision revolution)全面展開，來自使用深度神經網路的團隊的參賽作品占絕大多數</strong>，獲勝錯誤率再次大幅下降至11.7%。我們從一項仔細的研究中得知，Andrej Karpathy在執行這項任務時，如果人類練習約20小時，則人為誤差略高於5%，如果另一個人僅練習幾小時，則人為誤差為12% [Karpathy 2014]。在2011年到2017年間，獲獎的Imagenet的錯誤率從2011年的26%急劇下降到2017年的2.3%。</p>
+<p> <img layer-src="http://p1.pstatp.com/large/pgc-image/RlLt6OT5c7Ful0" src="http://p1.pstatp.com/large/pgc-image/RlLt6OT5c7Ful0" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" /></p>
+<p class="pgc-img-caption"><em>圖1:ImageNet 分類競賽獲勝者隨時間的準確性</em></p>
+<p><strong>這些在計算機視覺、語音識別、語言理解和大規模強化學習等基礎領域的進步，對許多領域都產生了巨大的影響</strong>。我們已經在許多不同的領域和醫學領域看到了一系列穩定的成果，將過去十年中產生的基礎研究成果應用於這些問題領域。例如，醫學成像診斷任務的前景領域包括糖尿病視網膜病變(Gulshan et al. 2016, Krause et al. 2018)、乳腺癌病理學(Liu et，2017年)、肺癌CT掃描解釋(Ardila et，2019年)和皮膚病學(Esteva et，2017年)。對語言翻譯有用的順序預測方法也有助於對電子病歷中各種不同的與醫學相關的任務進行準確預測[Rajkomar et al. 2018]。這些早期跡象為機器學習在衛生和醫療保健的許多領域產生重大影響指明了道路[Rajkomar等人2019年，Esteva等人2019年]。</p>
+<p>其他通過使用基於深度學習的方法而得到改善的領域包括<strong>量子化學</strong>(Gilmer et，2017年)、<strong>地震預測</strong>(DeVries et，2018年)、<strong>洪水預測</strong>(Nevo et，2019年)、<strong>基因組學</strong>(Poplin et，2018年)、<strong>蛋白質摺疊</strong>(Evans et，2018年)、<strong>高能物理</strong>(Baldi et，2014年)和<strong>農</strong>業(Ramcharan et，2017年)。</p>
+<p>有了這些重大的進展，很明顯ML改變許多不同領域的潛力是巨大的。</p>
+<p><strong toutiao-origin="strong">摩爾定律，後摩爾定律，以及機器學習的計算需求</strong></p>
+<p>深度學習和人工神經網路背後的許多關鍵思想和演算法早在20世紀60年代、70年代、80年代和90年代就已經出現了[Minsky and Papert 1969, Rumelhart et al. <i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">198</i>8, Tesauro <i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">199</i>4]。在20世紀<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">80年代末</i>和90年代初，ML和AI社區中出現了一股熱潮，因為人們意識到<strong>神經網路可以用有趣的方式解決一些問題，它們的巨大優勢來自於它們接受非常原始的(有時是異構的)輸入數據的能力，以及在訓練模型執行某些預測任務的過程中讓模型自動建立層次表示的能力</strong>。然而，在那個時候，計算機還沒有強大到可以讓這種方法處理任何小的、幾乎是玩具大小的問題。當時的一些工作試圖使用並行演算法來擴展神經網路訓練的可用計算量[Shaw <i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">198</i>1, Dean <i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">199</i>0]，但在大多數情況下，人工智慧和ML社區中大多數人的<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">關注</i>點從基於神經網路的方法轉移了。<strong>在摩爾定律的推動下，計算性能提高了20多年，直到21世紀的後期，計算機才開始變得足夠強大，能夠在現實和現實問題上訓練大型神經網路</strong>，如Imagenet [Deng等，2009]，而不是MNIST [LeCun et al. 2000]和CIFAR [Krizhevsky et al. 2009]。特別是GPU卡上的通用計算範式(GPGPU) [Luebke et al. 2006]，由於GPU卡相對於cpu的高浮點性能，開始允許神經網路在真正重要的困難問題上顯示有趣的結果。</p>
+<p> <img layer-src="http://p3.pstatp.com/large/pgc-image/RlLt6OmEX4LbhX" src="http://p3.pstatp.com/large/pgc-image/RlLt6OmEX4LbhX" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" /></p>
+<p class="pgc-img-caption"><em>圖2:摩爾定律和後摩爾定律時期的計算性能</em></p>
+<p>這可能是不幸的，正如我們開始有足夠的計算性能來處理有趣的現實世界的問題，<strong>機器學習的規模和適用性的增加導致了需要額外的計算資源的巨大需求來處理更大的問題</strong>，計算行業作為一個整體已經經歷了一個戲劇性的放緩，在一般用途的CPU性能的年復一年的提高。圖2顯示了這種顯著的放緩，我們已經從每1.5年(<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">198</i>5年至2003年)或2年(2003年至2010年)將通用CPU性能翻一番，發展到現在的通用CPU性能預計每20年才會翻一番[Hennessy and Patterson 2017]。圖3顯示了最近一些重要的機器學習進展的計算需求的急劇增加(注意對數y軸，最佳擬合線顯示了這組重要的ML研究結果的計算需求翻倍時間為3.43個月)[OpenAI 2018]。圖4顯示了戲劇性的飆升在機器學習領域的研究成果及其應用,通過論文發表的數量測量machine-learning-related Ar<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">xi</i>v的類別,一個廣受歡迎的紙品預印本託管服務,超過32倍的論文發表在2018年和2009年(每2年)增長率的兩倍多。<strong>現在每天有超過100篇與機器學習相關的研究論文發表在Ar<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">xi</i>v上，而且這種增長沒有放緩的跡象</strong>。</p>
+<p> <img layer-src="http://p3.pstatp.com/large/pgc-image/RlLt6PG1exQDZV" src="http://p3.pstatp.com/large/pgc-image/RlLt6PG1exQDZV" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" /></p>
+<p class="pgc-img-caption"><em>圖3:一些重要的人工智慧進展及其計算需求</em></p>
+<p> <img layer-src="http://p1.pstatp.com/large/pgc-image/RlLt6uY7XfTSFe" src="http://p1.pstatp.com/large/pgc-image/RlLt6uY7XfTSFe" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" /></p>
+<p class="pgc-img-caption"><em>圖4:2009年以來與機器學習相關的Ar<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">xi</i>v論文</em></p>
+<p><strong>機器學習專用硬體</strong></p>
+<p>在2011年和2012年，谷歌的一個小團隊的研究人員和系統工程師建立了一個名為DistBelief的早期分散式系統，以支持對超大規模的神經網路進行並行、分散式訓練，他們將模型和數據並行訓練結合起來，並通過許多不同的計算副本對模型的參數進行非同步更新[Dean et al. 2012]。這使得我們能夠在更大的數據集上訓練更大的神經網路，並且，到2012年年中，使用DistBelief作為基礎框架，我們看到語音識別(Hinton et al. 2012)和圖像分類模型(Le et al. 2012)的精度顯著提高。然而，<strong>這些模型在需要數億用戶的系統設置中的服務是另一回事，因為計算需求非常大。</strong>包絡計算表明，要部署深度神經網路系統，使我們使用基於cpu的計算設備對我們的主要語音識別系統顯示出顯著的字錯誤率改進，就需要將谷歌數據中心的計算機數量增加一倍(有一些大膽但仍然可信的假設，認為由於準確性更高，使用會顯著增加)。如果這在經濟上是合理的，它仍然需要大量的時間，因為它將涉及澆築混凝土，簽訂風車農場合同，訂購和安裝大量的計算機等等，而語音系統只是冰山一角，就我們所看到的神經網路應用於我們的許多核心問題和產品的可能性而言。<strong>這個思維練習讓我們開始考慮為神經網路建立專門的硬體，首先是推理，然後是訓練和推理系統。</strong></p>
+<p><strong toutiao-origin="strong">為什麼專門的硬體對深度學習模型有意義?</strong></p>
+<p>深度學習模型有三個特性，這使得它們不同於許多其他類型的通用計算。<strong>首先，他們對低精度的計算非常寬容</strong>。<strong>第二, 除此之外，大多數模型所執行的計算只是一小部分操作的不同組合</strong>，比如矩陣乘法、向量運算、卷積核的應用以及其他密集的線性代數計算[Vanhoucke et al. 2011]。另外，在過去40年中開發的許多機制使得通用程序能夠在現代cpu上以高性能運行，例如分支預測器、推測執行、超線程執行處理核、深度緩存內存層次結構和TLB子系統，<strong>對於機器學習計算來說都是不必要的</strong>。因此，我們有機會構建專門用於密集的、低精度的線性代數的計算硬體，除此之外別無它物，但仍然可以在指定程序的層次上進行編程，這些程序是大多數線性代數式運算的不同組成部分。這些特性的匯合與從20世紀80年代開始為電信應用開發專用數字信號處理器(dsp)的觀察結果並無不同。然而，一個關鍵的區別是，由於深度學習廣泛適用於許多領域和領域的大量計算問題，這種硬體，儘管其支持的操作集很窄，但可以用於各種各樣的重要計算，而不是更狹義的dsp應用。基於我們對深度神經網路在語音識別和圖像分類等高容量推理應用中急劇增加的計算需求的思考實驗，我們決定開始努力設計一系列被稱為張量處理單元的加速器來加速深度學習推理和訓練。<strong>第一個這樣的系統，稱為TPUv1，是一個旨在針對推理加速的單片機設計[Jouppi et，2017]。</strong></p>
+<p>對於推斷(在對一個模型進行了訓練之後，我們希望將已經訓練好的模型應用到新的輸入中，以便進行預測)，<strong>8位整型計算已經被證明對於許多重要的模型來說是足夠的</strong>[Jouppi et，2017]，隨著研究社區中進一步廣泛的工作正在進行，使用更低的精度權重，以及鼓勵權重和/或激活的技術來進一步推動這個邊界。</p>
+<p>TPUv1的核心是一個65,536個8位的乘法累積矩陣乘法單元，最高吞吐量為92 TeraOps/秒(上限)。TPUv1平均比其同時代的GPU或CPU快15 &#8211; 30倍，TOPS/Watt大約高30 &#8211; 80倍，<strong>能夠運行代表當時谷歌數據中心95%的神經網路推理需求的生產神經網路應用程序</strong>，具有顯著的成本和功率優勢[Jouppi et，2017]。</p>
+<p><strong>在低功耗移動設備上的推理對於機器學習的許多用途也非常重要</strong>。如果能夠在設備上運行機器學習模型(設備本身通常是用於語音或視覺等領域的模型的原始數據輸入的來源)，就會有很大的延遲和隱私方面的好處。可以採用與TPUv1相同的設計原則(一種針對高性能/瓦特的低精度線性代數計算的簡單設計)，並將這些原則應用於更低功耗的環境，例如移動<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">電話</i>。谷歌的Edge TPU就是這種系統的一個例子，它在2W的功率範圍內提供4個陀螺。設備上的計算對於許多有趣的深度學慣用例來說已經是至關重要的，在這些用例中，我們希望計算機視覺、語音和其他類型的模型能夠直接運行在感官輸入上，而不需要連接。一個這樣的例子是在設備上的農業應用，比如在木薯田中間識別疾病，木薯田可能沒有可靠的網路連接[Ramcharan et al. 2017]。</p>
+<p>隨著機器學習在世界範圍內的廣泛應用和它作為一種關鍵計算類型的重要性的日益增長，<strong>一場劍橋式的新型有趣的機器學習計算加速器的爆炸正在進行中</strong>。有超過XX家風險投資支持的初創公司，以及各種大型、成熟的公司，它們都在生產各種用於機器學習的新晶元和系統。例如Cerebras、Graphcore和Nervana(被Intel收購)專註於ML培訓的各種設計。而阿里巴巴等其他公司則在設計專註於推理的晶元。<strong>一些設計避開了更大的內存容量DRAM或HBM，專註於非常高性能的設計，為模型足夠小</strong>，他們的整個參數集和中間值適合SRAM。其他公司則專註於包括DRAM或HBM在內的設計，這些設計使它們適用於更大規模的模型。有些，比如Cerebras，正在探索完整的晶片級集成。其他公司，如谷歌的Edge TPUs，正在為移動<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">電話</i>和分散式感測設備等環境的推理構建非常低功耗的晶元。</p>
+<p><strong>為訓練設計定製的機器學習硬體(而不僅僅是推理)是一項比單片機推理加速器更複雜的工作</strong>。其原因是，單片訓練系統無法解決許多我們希望在合理時間內(如數小時或數天，而不是數周或數月)解決的問題，因為單片系統不能提供足夠的計算能力。此外，在更大的數據集上訓練更大的模型的願望是這樣的，即使單個晶元可以在合理的時間內交付足夠的計算來解決給定的問題，這也意味著我們常常想要解決更大的問題(無論如何，在並行或分散式系統中需要使用多個晶元)。因此，設計訓練系統實際上是設計一個更大的、整體的計算機系統，需要考慮單個加速器晶元的設計，以及形成緊密耦合的機器學習超級計算機的高性能互連。谷歌的第二代和第三代tpu, TPUv2和TPUv3，被設計來支持訓練和推理，而基本的單個設備，每一個由四個晶元組成，被設計成連接在一起的更大的配置稱為豆莢。圖5顯示了單個谷歌TPUv2晶元的框圖，該晶元有兩個核心，每個核心的主要計算能力由一個大的矩陣乘法單元提供，每個循環可以產生一對128&#215;128矩陣的乘法結果。每個晶元有16gb (TPUv2)或32gb (TPUv3)的附加高帶寬內存(HBM)。圖6顯示了谷歌的TPUv3 Pod的部署形式，它由1024個加速器晶元組成，包括8個機架的晶元和相應的伺服器，晶元以32&#215;32環形網格連接在一起，提供了超過100 petaflop/s的系統性能峰值。</p>
+<p> <img layer-src="http://p1.pstatp.com/large/pgc-image/RlLt6v6GS2mpHW" src="http://p1.pstatp.com/large/pgc-image/RlLt6v6GS2mpHW" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" /></p>
+<p class="pgc-img-caption"><em>圖5:谷歌張量處理單元v2 (TPUv2)的框圖</em></p>
+<p> <img layer-src="http://p9.pstatp.com/large/pgc-image/RlLt6vT1j0QvuI" src="http://p9.pstatp.com/large/pgc-image/RlLt6vT1j0QvuI" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" /></p>
+<p class="pgc-img-caption"><em>圖6: 谷歌的TPUv3 Pod，由1024個TPUv3晶元組成，峰值性能為&gt;100 petaflop/s</em></p>
+<p><strong>機器學習的低精度數字格式</strong></p>
+<p>TPUv2和TPUv3使用了定製設計的浮點格式bfloat16 [Wang和Kanwar 2019]，它與IEEE半精度的16位格式不同，提供了一種對機器學習更有用的格式，並且支持更便宜的乘法器電路。bfloat16最初是作為一種有損壓縮技術開發的，目的是幫助disbelief系統中機器學習權值和激活的網路通信減少帶寬需求，TensorFlow白皮書(Abadi et al. 2016, sec. 5.5)的5.5節簡要描述了該技術。自2015年以來，它一直是TPUv2和TPUv3中最常用的浮動格式。從2018年12月開始，英特爾宣布計劃為下一代英特爾處理器增加bfloat16支持。</p>
+<p>下面的圖7顯示了IEEE fp32單精度浮點格式、IEEE fp16半精度浮點格式和bfloat16格式的符號、指數和尾數位的分割。</p>
+<p> <img layer-src="http://p3.pstatp.com/large/pgc-image/RlLt6vzAZUVvcJ" src="http://p3.pstatp.com/large/pgc-image/RlLt6vzAZUVvcJ" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" /></p>
+<p>事實證明，深度學習模型中使用的機器學習計算更關心動態範圍，而不是精度。此外,一個主要區域和力量的乘法器電路成本浮點格式與M位尾數是(M + 1)✕(M + 1)所需的完整加法器(數組乘在一起的尾數部分兩個輸入數字。IEEE fp32、IEEE fp16和bfloat16格式分別需要576個全加法器、121個全加法器和<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">64</i>個全加法器。因為bfloat16格式的乘法器需要更少的電路，所以可以在相同的晶元面積和功率預算中放入更多的乘法器，因此，在其他條件相同的情況下，使用這種格式的ML加速器可以有更高的flops/sec和flops/瓦特。降低的精度表示還減少了將數據從內存中移動到內存或將數據發送到互連織物所需的帶寬和能量，從而進一步提高了效率。</p>
+<p><strong>在快速變化的領域中不確定性的挑戰</strong></p>
+<p>構建機器學習加速器硬體的一個挑戰是，ML研究領域的發展速度非常快(從每年發表的研究論文的增長和絕對數量可以看出，如圖4所示)。目前啟動的晶元設計項目通常需要18個月到24個月才能完成設計、製造半導體部件並將其收回，並將其安裝到生產數據中心環境中。為了使這些部件在經濟上可行，它們通常必須至少有三年的壽命。<strong>因此，構建ML硬體的計算機架構師面臨的挑戰是預測在2到5年內機器學習的快速發展領域將在何處。我們的經驗是，將計算機架構師、更高級別的軟體系統構建人員和機器學習研究人員聚集在一起，討論與合作設計相關的主題</strong>，比如「在那個時間框架內，在硬體上有什麼可能?」以及「什麼有趣的研究趨勢開始出現，它們對ML硬體有什麼影響?」是一種有用的方式來確保我們設計和構建有用的硬體來加速ML的研究和生產使用。</p>
+<p><strong>用於晶元設計的機器學習</strong></p>
+<p><strong>有巨大潛力的一個領域是使用機器學習來自動生成高質量的解決方案，解決存在於設計定製asic的整個工作流中的許多不同的NP-hard優化問題。</strong>例如，目前複雜的ASIC設計的布局和路由需要大量的人工布局專家團隊來迭代地從高層布局細化到詳細的布局，因為ASIC的總體設計是充實的。因為在放置過程中有大量的人員參與，一旦完成了最初的高層設計，在不顯著影響晶元項目進度的情況下考慮完全不同的布局是不可想像的。然而，放置和路由是一個適合於那些成功解決遊戲的強化學習方法的問題，比如AlphaGo。在放置和路由中，一系列的放置和路由決策都會影響一組總體指標，如晶元面積、定時和線路長度。通過強化學習演算法學習「玩」這個遊戲的位置和路由,一般來說在許多不同的ASIC設計,或為特定的ASIC設計,與獎勵函數,結合了各種屬性到一個數值獎勵函數,並運用大量的機器學習計算(ML加速器的形式),與使用現有的電子設計工具進行放置和路由的人類專家團隊相比，可能有一種系統可以更快速、更有效地進行放置和路由。我們已經在谷歌內部探索了這些方法，並取得了初步的但看起來很有希望的結果。基於ML的自動化系統還支持快速的設計空間探索，因為獎勵功能可以很容易地進行調整，以優化目標優化指標中的不同權衡。</p>
+<p>此外，<strong>甚至有可能訓練一個機器學習系統來做出一系列的決定，從高層次的綜合到實際的低層次的邏輯表示，然後執行這些低層次電路的放置和路由，以一種更加自動化和端到端的方式實現實際的高層次設計</strong>。如果這種情況發生，那麼複雜的ASIC設計的時間可能會大幅減少，從幾個月減少到幾周。這將極大地改變設計定製晶元所涉及的權衡，因為當前高水平的非經常性工程費用通常意味著定製晶元或電路只用於最高容量和最高價值的應用程序。</p>
+<p><strong>未來的機器學習發展</strong></p>
+<p>將來的機器學習模型可能和現在有一些明顯區別。將來的機器學習系統可能是在大規模機器學習加速硬體上運行的，而且單一模型可以被訓練用來完成上千甚至上百萬的任務。該模型由不同的組件和結構組成，樣本之間的數據流動可能是動態的，每種樣本都不一樣。模型可能使用類似於「稀疏權重門（sparsely-gated）」結構，混合了專家知識和學習路徑，具有很強的能力。但是對於給定的任務或樣本，模型只會激活其中一部分。</p>
+<p> <img layer-src="http://p3.pstatp.com/large/pgc-image/RlLt6wW5ek9GnZ" src="http://p3.pstatp.com/large/pgc-image/RlLt6wW5ek9GnZ" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" /></p>
+<p class="pgc-img-caption"><em>圖 8：描述這一大型、具有稀疏權重且可以完成多任務的模型。</em></p>
+<p><strong>後摩爾定律時代，簡單地壓榨硬體算力不一定能夠讓機器學習再進步了。</strong>相反，通過設計專業的機器學習硬體設備，讓機器學習解決現有的硬體設計、製造和運行方面的痛點才是出路。將來的機器學習模型可能更大，但是會朝著多任務的方向繼續發展。</p>
+<p><strong>結論</strong></p>
+<p>在過去的十年里，機器學習的進步已經影響了大量的科學、工程和其他形式的人類活動，而且這種影響只會越來越大。機器學習的專門計算需求與後摩爾定律時代通用CPU性能提升的放緩相結合，代表著計算硬體行業的一個激動人心的時代[Hennessy and Patterson 2019]: 我們現在有了一套技術，似乎可以應用於跨越大量領域的大量問題，我們希望在這些領域中顯著增加模型和數據集的規模，我們可以在這些模型和數據集上訓練這些模型，這項工作的影響將觸及人類的大部分。<strong>當我們利用大規模多任務的學習系統來擴展到新的任務時，我們將創造出工具，使我們能夠作為一個社會來共同完成更多的任務，並促進人類的進步</strong>。我們確實生活在一個激動人心的時代。</p>
+<p><strong toutiao-origin="strong" class="highlight-text">參考文獻</strong></p>
+<ul>
+<li>
+<p>[Abadi et al. 2016] Abadi, Martín, Ashish Agarwal, Paul Barham, Eugene Brevdo, Zhifeng Chen, Craig Citro, Greg S. Corrado, Andy Davis, Jeffrey Dean, Matthieu Devin, Sanjay Ghemawat, Ian Goodfellow, Andrew Harp, Geoffrey Irving, Michael Isard, Yangqing Jia, Rafal Jozefowicz, Lukasz Kaiser, Manjunath Kudlur, Josh Levenberg, Dan Mane, Rajat Monga, Sherry Moore, Derek Murray, Chris Olah, Mike Schuster, Jonathon Shlens, Benoit Steiner, Ilya Sutskever, Kunal Talwar, Paul Tucker, Vincent Vanhoucke, Vijay Vasudevan, Fernanda Viegas, Oriol Vinyals, Pete Warden, Martin Wattenberg, Martin Wicke, Yuan Yu, and Xiaoqiang Zheng. &#8220;Tensorflow: Large-scale machine learning on heterogeneous distributed systems.&#8221; ar<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">xi</i>v.org/abs/160<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">3.0</i>4467 (2016).</p>
+</li>
+<li>
+<p>[Aho et al. <i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">198</i>6] Aho, Alfred V., Ravi Sethi, and Jeffrey D. Ullman. &#8220;Compilers, principles, techniques.&#8221; A<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">dd</i>ison Wesley (<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">198</i>6). [Angelova et al. 2015] Angelova, Anelia, Alex Krizhevsky, Vincent Vanhoucke, Abhijit Ogale, and Dave Ferguson. &#8220;Real-time pedestrian detection with deep network cascades.&#8221; In Proceedings of BMVC 2015, ai.google/research/pubs/pub43850 (2015).</p>
+</li>
+<li>
+<p>[Ardila et al. 2019] Ardila, Diego, Atilla P. Kiraly, Sujeeth Bharadwaj, Bokyung Choi, Joshua J. Reicher, Lily Peng, Daniel Tse, Mozziyar Etemadi, Wen<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">xi</i>ng Ye, Greg Corrado, David P. Naidich and Shravya Shetty. &#8220;End-to-end lung cancer screening with three-dimensional deep learning on low-dose chest computed tomography.&#8221; Nature Medicine 25, no. 6 (2019): 954.</p>
+</li>
+<li>
+<p>[Baldi et al. 2014] Baldi, Pierre, Peter Sadowski, and Daniel Whiteson. &#8220;Searching for exotic particles in high-energy physics with deep learning.&#8221; Nature Communications 5 (2014): 4308. <i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">www</i>.nature<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-6">.com</i>/articles/ncomms5308 [Bansal et al. 2018] Bansal, Mayank, Alex Krizhevsky, and Abhijit Ogale. &#8220;ChauffeurNet: Learning to drive by imitating the best and synthesizing the worst.&#8221; ar<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">xi</i>v.org/abs/<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">181</i>2.030<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-5">79</i> (2018).</p>
+</li>
+<li>
+<p>Chan et al. 2016] Chan, William, Navdeep Jaitly, Quoc Le, and Oriol Vinyals. &#8220;Listen, attend and spell: A neural network for large vocabulary conversational speech recognition.&#8221; In 2016 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pp. 4960-49<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">64</i>. IEEE, 2016. ar<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">xi</i>v.org/abs/<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">150</i>8.01211</p>
+</li>
+<li>
+<p>[Collobert et al. 2011] Collobert, Ronan, Jason Weston, Léon Bottou, Michael Karlen, Koray Kavukcuoglu, and Pavel Kuksa. &#8220;Natural language processing (almost) from scratch.&#8221; Journal of Machine Learning Research 12, no. Aug (2011): 2493-2537. ar<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">xi</i>v.org/abs/110<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">3.0</i>398</p>
+</li>
+<li>
+<p>[Dean <i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">199</i>0] Dean, Jeffrey. &#8220;Parallel Implementations of neural network training: two back-propagation approaches」. Undergraduate honors thesis, University of Minnesota, <i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">199</i>0. drive.google<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-6">.com</i>/file/d/1I1fs4sczbCaACzA9X<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-6">wx</i>R3DiuXVtqmejL/view</p>
+</li>
+<li>
+<p>[Dean et al. 2012] Dean, Jeffrey, Greg Corrado, Rajat Monga, Kai Chen, Matthieu Devin, Mark <i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-6">Mao</i>, Marc&#8217;aurelio Ranzato et al. &#8220;Large scale distributed deep networks.&#8221; In Advances in Neural Information Processing Systems, pp. 1223-1231. 2012. papers.nips.cc/paper/4687-large-scale-distributed-deep-networks.pdf</p>
+</li>
+<li>
+<p>[Dean et al. 2018] Dean, Jeff, David Patterson, and Cliff Young. &#8220;A new golden age in computer architecture: Empowering the machine-learning revolution.&#8221; IEEE Micro 38, no. 2 (2018): 21-29.</p>
+</li>
+</ul>
+<p>*免責聲明：本文由作者原創。文章內容系作者個人觀點，半導體行業觀察轉載僅為了傳達一種不同的觀點，不代表半導體行業觀察對該觀點贊同或支持，如果有任何異議，歡迎聯繫半導體行業觀察。</p>
+<p><strong>今天是《半導體行業觀察》為您分享的第2<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-6">166</i>期內容，歡迎<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">關注</i>。</strong></p>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="26508" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/26508/"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/26508/";
+		var title='%E3%80%90Jeff%20Dean%E8%AC%9B%E8%BF%B0AI%E6%99%B6%E5%85%83%E7%9A%84%E6%9C%AA%E4%BE%86%E7%99%BC%E5%B1%95%E8%B6%A8%E5%8B%A2%E3%80%91';
+		var qqtitle='%E3%80%90Jeff%20Dean%E8%AC%9B%E8%BF%B0AI%E6%99%B6%E5%85%83%E7%9A%84%E6%9C%AA%E4%BE%86%E7%99%BC%E5%B1%95%E8%B6%A8%E5%8B%A2%E3%80%91';
+		var excerpt='%E3%80%90%E5%B0%8E%E8%AE%80%E3%80%91%E6%B7%B1%E5%BA%A6%E5%AD%B8%E7%BF%92%E5%92%8C%E7%A1%AC%E9%AB%94%E6%80%8E%E6%A8%A3%E7%B5%90%E5%90%88%EF%BC%9F%E8%A8%88%E7%AE%97%E6%A9%9F%E7%95%8C%E7%A5%9E%E7%B4%9A%E4%BA%BA%E7%89%A9%E3%80%81%E8%B0%B7%E6%AD%8C%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%E4%B8%BB%E7%AE%A1Jeff%20Dean%E7%99%BC%E8%A1%A8%E4%BA%86%E7%8D%A8%E8%87%AA%E7%BD%B2%E5%90%8D%E8%AB%96%E6%96%87%E3%80%8AThe%20Deep%20Learning%20Revolution%20and%20Its%20Implications%20for%20Computer%20Architecture%20and%20Chip%20Design%E3%80%8B%EF%BC%8C17%E9%A0%81pdf%E8%AB%96%E6%96%87%EF%BC%8C%E9%95%B7%E6%96%87%E4%BB%8B%E7%B4%B9%E4%BA%86%E5%BE%8C%E6%91%A9%E7%88%BE%E5%AE%9A%E5%BE%8B%E6%99%82%E4%BB%A3%E7%9A%84%E6%A9%9F%E5%99%A8%E5%AD%B8%E2%80%A6%E2%80%A6';
+		var wbexcerpt='%E3%80%90%E5%B0%8E%E8%AE%80%E3%80%91%E6%B7%B1%E5%BA%A6%E5%AD%B8%E7%BF%92%E5%92%8C%E7%A1%AC%E9%AB%94%E6%80%8E%E6%A8%A3%E7%B5%90%E5%90%88%EF%BC%9F%E8%A8%88%E7%AE%97%E6%A9%9F%E7%95%8C%E7%A5%9E%E7%B4%9A%E4%BA%BA%E7%89%A9%E3%80%81%E8%B0%B7%E6%AD%8C%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%E4%B8%BB%E7%AE%A1Jeff%20Dean%E7%99%BC%E8%A1%A8%E4%BA%86%E7%8D%A8%E8%87%AA%E7%BD%B2%E5%90%8D%E8%AB%96%E6%96%87%E3%80%8AThe%20Deep%20Learning%20Revolution%20and%20Its%20Implications%20for%20Computer%20Architecture%20and%20Chip%20Design%E3%80%8B%EF%BC%8C17%E9%A0%81pdf%E8%AB%96%E6%96%87%EF%BC%8C%E9%95%B7%E6%96%87%E4%BB%8B%E7%B4%B9%E4%BA%86%E5%BE%8C%E6%91%A9%E7%88%BE%E5%AE%9A%E5%BE%8B%E6%99%82%E4%BB%A3%E7%9A%84%E6%A9%9F%E5%99%A8%E5%AD%B8%E2%80%A6%E2%80%A6';
+		var pic="http://p3.pstatp.com/large/pgc-image/RlLt6NN7i9xpMO";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="汽車科技的盛會，CES 2020 有什麼看點？" href="https://daynews.cc/technology/26509/">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="鬥魚一姐馮提莫加盟B站，傳簽約費達5000萬，曾一年吸金1.7億" href="https://daynews.cc/technology/26505/">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="/technology/26508/#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='26508' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="冬天補氣養顏，不妨吃點酒釀！養生效果杠杠的，價格還便宜" href="https://daynews.cc/health/28980/" rel="bookmark"><i class="fa  fa-book"></i> 冬天補氣養顏，不妨吃點酒釀！養生效果杠杠的，價格還便宜                            </a>
+                            <a class="list-group-item visible-md" title="冬天補氣養顏，不妨吃點酒釀！養生效果杠杠的，價格還便宜" href="https://daynews.cc/health/28980/" rel="bookmark"><i class="fa  fa-book"></i> 冬天補氣養顏，不妨吃點酒釀！養生效果杠杠的，價格還便宜                            </a>
+                                                    <a class="list-group-item visible-lg" title="睡眠是消除身體疲勞的主要方式，冬天學會這些睡覺養生技巧" href="https://daynews.cc/health/28979/" rel="bookmark"><i class="fa  fa-book"></i> 睡眠是消除身體疲勞的主要方式，冬天學會這些睡覺養生技巧                            </a>
+                            <a class="list-group-item visible-md" title="睡眠是消除身體疲勞的主要方式，冬天學會這些睡覺養生技巧" href="https://daynews.cc/health/28979/" rel="bookmark"><i class="fa  fa-book"></i> 睡眠是消除身體疲勞的主要方式，冬天學會這些睡覺養生技巧                            </a>
+                                                    <a class="list-group-item visible-lg" title="立冬之後，化妝保養不比化瘀保溫更重要" href="https://daynews.cc/health/28981/" rel="bookmark"><i class="fa  fa-book"></i> 立冬之後，化妝保養不比化瘀保溫更重要                            </a>
+                            <a class="list-group-item visible-md" title="立冬之後，化妝保養不比化瘀保溫更重要" href="https://daynews.cc/health/28981/" rel="bookmark"><i class="fa  fa-book"></i> 立冬之後，化妝保養不比化瘀保溫更重要                            </a>
+                                                    <a class="list-group-item visible-lg" title="海鮮，到底養甲狀腺還是傷甲狀腺？專家表示：不同情況，講究不同" href="https://daynews.cc/health/28982/" rel="bookmark"><i class="fa  fa-book"></i> 海鮮，到底養甲狀腺還是傷甲狀腺？專家表示：不同情況，講究不同                            </a>
+                            <a class="list-group-item visible-md" title="海鮮，到底養甲狀腺還是傷甲狀腺？專家表示：不同情況，講究不同" href="https://daynews.cc/health/28982/" rel="bookmark"><i class="fa  fa-book"></i> 海鮮，到底養甲狀腺還是傷甲狀腺？專家表示：不同情況，講究不同                            </a>
+                                                    <a class="list-group-item visible-lg" title="5種素菜比肉還肥，每吃一口都在喝油" href="https://daynews.cc/health/28983/" rel="bookmark"><i class="fa  fa-book"></i> 5種素菜比肉還肥，每吃一口都在喝油                            </a>
+                            <a class="list-group-item visible-md" title="5種素菜比肉還肥，每吃一口都在喝油" href="https://daynews.cc/health/28983/" rel="bookmark"><i class="fa  fa-book"></i> 5種素菜比肉還肥，每吃一口都在喝油                            </a>
+                                                    <a class="list-group-item visible-lg" title="姓氏藏有歷史的痕迹，從你的姓氏可以看出，祖輩從農從商還是從官" href="https://daynews.cc/constellation/29331/" rel="bookmark"><i class="fa  fa-book"></i> 姓氏藏有歷史的痕迹，從你的姓氏可以看出，祖輩從農從商還是從官                            </a>
+                            <a class="list-group-item visible-md" title="姓氏藏有歷史的痕迹，從你的姓氏可以看出，祖輩從農從商還是從官" href="https://daynews.cc/constellation/29331/" rel="bookmark"><i class="fa  fa-book"></i> 姓氏藏有歷史的痕迹，從你的姓氏可以看出，祖輩從農從商還是從官                            </a>
+                                                    <a class="list-group-item visible-lg" title="錯了就是錯了，這些星座認錯從不含糊，做錯要承認，挨打要站穩" href="https://daynews.cc/constellation/29332/" rel="bookmark"><i class="fa  fa-book"></i> 錯了就是錯了，這些星座認錯從不含糊，做錯要承認，挨打要站穩                            </a>
+                            <a class="list-group-item visible-md" title="錯了就是錯了，這些星座認錯從不含糊，做錯要承認，挨打要站穩" href="https://daynews.cc/constellation/29332/" rel="bookmark"><i class="fa  fa-book"></i> 錯了就是錯了，這些星座認錯從不含糊，做錯要承認，挨打要站穩                            </a>
+                                                    <a class="list-group-item visible-lg" title="《戰爭藝術》凜冬節：聖誕星主播招募倒計時" href="https://daynews.cc/game/28439/" rel="bookmark"><i class="fa  fa-book"></i> 《戰爭藝術》凜冬節：聖誕星主播招募倒計時                            </a>
+                            <a class="list-group-item visible-md" title="《戰爭藝術》凜冬節：聖誕星主播招募倒計時" href="https://daynews.cc/game/28439/" rel="bookmark"><i class="fa  fa-book"></i> 《戰爭藝術》凜冬節：聖誕星主播招募倒計時                            </a>
+                                                    <a class="list-group-item visible-lg" title="FPX轉會實力仍是第一！笑笑談到TES也將崛起，EDG多半要涼" href="https://daynews.cc/game/28441/" rel="bookmark"><i class="fa  fa-book"></i> FPX轉會實力仍是第一！笑笑談到TES也將崛起，EDG多半要涼                            </a>
+                            <a class="list-group-item visible-md" title="FPX轉會實力仍是第一！笑笑談到TES也將崛起，EDG多半要涼" href="https://daynews.cc/game/28441/" rel="bookmark"><i class="fa  fa-book"></i> FPX轉會實力仍是第一！笑笑談到TES也將崛起，EDG多半要涼                            </a>
+                                                    <a class="list-group-item visible-lg" title="神將也有弱點？盤點神將們的弱點" href="https://daynews.cc/game/28440/" rel="bookmark"><i class="fa  fa-book"></i> 神將也有弱點？盤點神將們的弱點                            </a>
+                            <a class="list-group-item visible-md" title="神將也有弱點？盤點神將們的弱點" href="https://daynews.cc/game/28440/" rel="bookmark"><i class="fa  fa-book"></i> 神將也有弱點？盤點神將們的弱點                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="24平米房子擠四口人，父母把廚房當卧室，網友：怎敢生養兩個男孩" href="https://daynews.cc/emotion/23804/" rel="bookmark"><i class="fa  fa-book"></i> 24平米房子擠四口人，父母把廚房當卧室，網友：怎敢生養兩個男孩</a><a class="list-group-item visible-md" title="24平米房子擠四口人，父母把廚房當卧室，網友：怎敢生養兩個男孩" href="https://daynews.cc/emotion/23804/" rel="bookmark"><i class="fa  fa-book"></i> 24平米房子擠四口人，父母把廚房當卧室，網友：怎敢生養兩個男孩</a><a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854/" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854/" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="網傳國家電網5G網路建設方案：利用廣電700/60MHz建11.31萬座基站" href="https://daynews.cc/technology/22913/" rel="bookmark"><i class="fa  fa-book"></i> 網傳國家電網5G網路建設方案：利用廣電700/60MHz建11.31萬座基站</a><a class="list-group-item visible-md" title="網傳國家電網5G網路建設方案：利用廣電700/60MHz建11.31萬座基站" href="https://daynews.cc/technology/22913/" rel="bookmark"><i class="fa  fa-book"></i> 網傳國家電網5G網路建設方案：利用廣電700/60MHz建11.31萬座基站</a><a class="list-group-item visible-lg" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134/" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-md" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134/" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098/" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098/" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-lg" title="腰突後，小腿發麻渾身無力怎麼康復好的快？" href="https://daynews.cc/lose/21229/" rel="bookmark"><i class="fa  fa-book"></i> 腰突後，小腿發麻渾身無力怎麼康復好的快？</a><a class="list-group-item visible-md" title="腰突後，小腿發麻渾身無力怎麼康復好的快？" href="https://daynews.cc/lose/21229/" rel="bookmark"><i class="fa  fa-book"></i> 腰突後，小腿發麻渾身無力怎麼康復好的快？</a><a class="list-group-item visible-lg" title="馬克龍放棄退休收益，電力工人野蠻拉閘停電，罷工大戰的好戲還能這般層出不窮？" href="https://daynews.cc/international/25486/" rel="bookmark"><i class="fa  fa-book"></i> 馬克龍放棄退休收益，電力工人野蠻拉閘停電，罷工大戰的好戲還能這般層出不窮？</a><a class="list-group-item visible-md" title="馬克龍放棄退休收益，電力工人野蠻拉閘停電，罷工大戰的好戲還能這般層出不窮？" href="https://daynews.cc/international/25486/" rel="bookmark"><i class="fa  fa-book"></i> 馬克龍放棄退休收益，電力工人野蠻拉閘停電，罷工大戰的好戲還能這般層出不窮？</a><a class="list-group-item visible-lg" title="西部排行：火箭躺著下跌，掘金反超升第2，雷霆3連勝，勇士又贏了" href="https://daynews.cc/nba/27606/" rel="bookmark"><i class="fa  fa-book"></i> 西部排行：火箭躺著下跌，掘金反超升第2，雷霆3連勝，勇士又贏了</a><a class="list-group-item visible-md" title="西部排行：火箭躺著下跌，掘金反超升第2，雷霆3連勝，勇士又贏了" href="https://daynews.cc/nba/27606/" rel="bookmark"><i class="fa  fa-book"></i> 西部排行：火箭躺著下跌，掘金反超升第2，雷霆3連勝，勇士又贏了</a><a class="list-group-item visible-lg" title="天秤座的八大排名第一，進來看看你中幾點" href="https://daynews.cc/constellation/20994/" rel="bookmark"><i class="fa  fa-book"></i> 天秤座的八大排名第一，進來看看你中幾點</a><a class="list-group-item visible-md" title="天秤座的八大排名第一，進來看看你中幾點" href="https://daynews.cc/constellation/20994/" rel="bookmark"><i class="fa  fa-book"></i> 天秤座的八大排名第一，進來看看你中幾點</a><a class="list-group-item visible-lg" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080/" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a><a class="list-group-item visible-md" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080/" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="WTA年度爆冷第一名：106次上網、64次得分！哈勒普氣得直摔拍" href="https://daynews.cc/sports/22761/" rel="bookmark"><i class="fa  fa-book"></i> WTA年度爆冷第一名：106次上網、64次得分！哈勒普氣得直摔拍                            </a>
+                            <a class="list-group-item visible-md" title="WTA年度爆冷第一名：106次上網、64次得分！哈勒普氣得直摔拍" href="https://daynews.cc/sports/22761/" rel="bookmark"><i class="fa  fa-book"></i> WTA年度爆冷第一名：106次上網、64次得分！哈勒普氣得直摔拍                            </a>
+                                                    <a class="list-group-item visible-lg" title="范尼：我英超進了95球，魯尼：我208個進球，那C羅進了多少個呢？" href="https://daynews.cc/sports/19046/" rel="bookmark"><i class="fa  fa-book"></i> 范尼：我英超進了95球，魯尼：我208個進球，那C羅進了多少個呢？                            </a>
+                            <a class="list-group-item visible-md" title="范尼：我英超進了95球，魯尼：我208個進球，那C羅進了多少個呢？" href="https://daynews.cc/sports/19046/" rel="bookmark"><i class="fa  fa-book"></i> 范尼：我英超進了95球，魯尼：我208個進球，那C羅進了多少個呢？                            </a>
+                                                    <a class="list-group-item visible-lg" title="美國通信業工人協會稱Google不公平地解僱了試圖加入該工會的員工" href="https://daynews.cc/international/8967/" rel="bookmark"><i class="fa  fa-book"></i> 美國通信業工人協會稱Google不公平地解僱了試圖加入該工會的員工                            </a>
+                            <a class="list-group-item visible-md" title="美國通信業工人協會稱Google不公平地解僱了試圖加入該工會的員工" href="https://daynews.cc/international/8967/" rel="bookmark"><i class="fa  fa-book"></i> 美國通信業工人協會稱Google不公平地解僱了試圖加入該工會的員工                            </a>
+                                                    <a class="list-group-item visible-lg" title="腦出血最近有點囂張，昨晚又走了一位" href="https://daynews.cc/health/20514/" rel="bookmark"><i class="fa  fa-book"></i> 腦出血最近有點囂張，昨晚又走了一位                            </a>
+                            <a class="list-group-item visible-md" title="腦出血最近有點囂張，昨晚又走了一位" href="https://daynews.cc/health/20514/" rel="bookmark"><i class="fa  fa-book"></i> 腦出血最近有點囂張，昨晚又走了一位                            </a>
+                                                    <a class="list-group-item visible-lg" title="網戀奔現有多“刺激”？長得好看不是錯，出來虐狗就是你的不對了" href="https://daynews.cc/emotion/1895/" rel="bookmark"><i class="fa  fa-book"></i> 網戀奔現有多“刺激”？長得好看不是錯，出來虐狗就是你的不對了                            </a>
+                            <a class="list-group-item visible-md" title="網戀奔現有多“刺激”？長得好看不是錯，出來虐狗就是你的不對了" href="https://daynews.cc/emotion/1895/" rel="bookmark"><i class="fa  fa-book"></i> 網戀奔現有多“刺激”？長得好看不是錯，出來虐狗就是你的不對了                            </a>
+                                                    <a class="list-group-item visible-lg" title="人際交往反差最大的星座，對待熟人和陌生人完全不同" href="https://daynews.cc/constellation/20775/" rel="bookmark"><i class="fa  fa-book"></i> 人際交往反差最大的星座，對待熟人和陌生人完全不同                            </a>
+                            <a class="list-group-item visible-md" title="人際交往反差最大的星座，對待熟人和陌生人完全不同" href="https://daynews.cc/constellation/20775/" rel="bookmark"><i class="fa  fa-book"></i> 人際交往反差最大的星座，對待熟人和陌生人完全不同                            </a>
+                                                    <a class="list-group-item visible-lg" title="2019最討人厭的十大角色：鄭爽baby榜上有名，《陳情令》害苦她？" href="https://daynews.cc/entertainment/12590/" rel="bookmark"><i class="fa  fa-book"></i> 2019最討人厭的十大角色：鄭爽baby榜上有名，《陳情令》害苦她？                            </a>
+                            <a class="list-group-item visible-md" title="2019最討人厭的十大角色：鄭爽baby榜上有名，《陳情令》害苦她？" href="https://daynews.cc/entertainment/12590/" rel="bookmark"><i class="fa  fa-book"></i> 2019最討人厭的十大角色：鄭爽baby榜上有名，《陳情令》害苦她？                            </a>
+                                                    <a class="list-group-item visible-lg" title="一位鐵杆球迷的成長史，偉大的CR-7" href="https://daynews.cc/premier/19695/" rel="bookmark"><i class="fa  fa-book"></i> 一位鐵杆球迷的成長史，偉大的CR-7                            </a>
+                            <a class="list-group-item visible-md" title="一位鐵杆球迷的成長史，偉大的CR-7" href="https://daynews.cc/premier/19695/" rel="bookmark"><i class="fa  fa-book"></i> 一位鐵杆球迷的成長史，偉大的CR-7                            </a>
+                                                    <a class="list-group-item visible-lg" title="他18年被叫“私生子”，今出道爆紅，親生父親厚著臉皮要相認" href="https://daynews.cc/entertainment/10862/" rel="bookmark"><i class="fa  fa-book"></i> 他18年被叫“私生子”，今出道爆紅，親生父親厚著臉皮要相認                            </a>
+                            <a class="list-group-item visible-md" title="他18年被叫“私生子”，今出道爆紅，親生父親厚著臉皮要相認" href="https://daynews.cc/entertainment/10862/" rel="bookmark"><i class="fa  fa-book"></i> 他18年被叫“私生子”，今出道爆紅，親生父親厚著臉皮要相認                            </a>
+                                                    <a class="list-group-item visible-lg" title="願與穆帥歐冠賽場一較高下，薩里稱這支英超球隊將奪得歐冠" href="https://daynews.cc/premier/13157/" rel="bookmark"><i class="fa  fa-book"></i> 願與穆帥歐冠賽場一較高下，薩里稱這支英超球隊將奪得歐冠                            </a>
+                            <a class="list-group-item visible-md" title="願與穆帥歐冠賽場一較高下，薩里稱這支英超球隊將奪得歐冠" href="https://daynews.cc/premier/13157/" rel="bookmark"><i class="fa  fa-book"></i> 願與穆帥歐冠賽場一較高下，薩里稱這支英超球隊將奪得歐冠                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="https://daynews.cc/nba/">NBA</a> (2,054)
+</li>
+	<li class="cat-item cat-item-23"><a href="https://daynews.cc/international/">國際</a> (3,205)
+</li>
+	<li class="cat-item cat-item-14"><a href="https://daynews.cc/entertainment/">娛樂</a> (2,279)
+</li>
+	<li class="cat-item cat-item-15"><a href="https://daynews.cc/emotion/">情感</a> (2,292)
+</li>
+	<li class="cat-item cat-item-22"><a href="https://daynews.cc/constellation/">星座</a> (1,498)
+</li>
+	<li class="cat-item cat-item-17"><a href="https://daynews.cc/history/">歷史</a> (2,441)
+</li>
+	<li class="cat-item cat-item-25"><a href="https://daynews.cc/lose/">減肥</a> (789)
+</li>
+	<li class="cat-item cat-item-24"><a href="https://daynews.cc/technology/">科技</a> (3,150)
+</li>
+	<li class="cat-item cat-item-19"><a href="https://daynews.cc/premier/">英超</a> (1,808)
+</li>
+	<li class="cat-item cat-item-18"><a href="https://daynews.cc/game/">遊戲</a> (2,918)
+</li>
+	<li class="cat-item cat-item-21"><a href="https://daynews.cc/health/">養生</a> (1,588)
+</li>
+	<li class="cat-item cat-item-16"><a href="https://daynews.cc/sports/">體育</a> (2,946)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='https://daynews.cc/date/2019/12/'>2019 年 12 月</a>&nbsp;(23966)</li>
+	<li><a href='https://daynews.cc/date/2019/11/'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='https://daynews.cc/date/2019/10/'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="https://daynews.cc">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.easing.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.qrcode.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/layer.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/modernizr.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.waypoints.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.stellar.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/hoverIntent.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/superfish.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/kratos.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-includes/js/wp-embed.min.js'></script>
+			</body>
+
+</html>
+<!-- This is the static html file -->

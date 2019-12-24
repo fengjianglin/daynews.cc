@@ -1,0 +1,628 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/26889/#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/ff598de60ae848d6ba0e995e8c032713"},{"@type":"WebPage","@id":"https://daynews.cc/technology/26889/#webpage","url":"https://daynews.cc/technology/26889/","inLanguage":"zh-TW","name":"\u9a5a\u9b4248\u5c0f\u6642\uff0c\u963f\u91cc\u5de5\u7a0b\u5e2b\u5982\u4f55\u7dca\u6025\u5b9a\u4f4d\u7dda\u4e0a\u5167\u5b58\u6cc4\u9732\uff1f - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/26889/#primaryimage"},"datePublished":"2019-12-20T12:55:13+00:00","dateModified":"2019-12-20T12:55:13+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="阿里妹導讀：雲計算場景下的大規模分散式系統中，網路異常、磁碟IO異常、時鐘跳變、操作系統異常乃至軟體本身可能存在bugs等，均給分散式系統正確運行帶來了挑戰。持續的監控報警完善是打造穩定高可用分散式系統過程中非常重要的工作，這個也就要求我們研發同學從細節處入手，本文將介紹的場景是針對線上報警的一絲異常，抽絲剝繭找到內存泄露的root ca……" />
+<meta name="twitter:title" content="驚魂48小時，阿里工程師如何緊急定位線上內存泄露？ - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/ff598de60ae848d6ba0e995e8c032713" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="驚魂48小時，阿里工程師如何緊急定位線上內存泄露？ - 天天要聞" />
+<meta property="og:description" content="阿里妹導讀：雲計算場景下的大規模分散式系統中，網路異常、磁碟IO異常、時鐘跳變、操作系統異常乃至軟體本身可能存在bugs等，均給分散式系統正確運行帶來了挑戰。持續的監控報警完善是打造穩定高可用分散式系統過程中非常重要的工作，這個也就要求我們研發同學從細節處入手，本文將介紹的場景是針對線上報警的一絲異常，抽絲剝繭找到內存泄露的root ca……" />
+<meta property="og:url" content="https://daynews.cc/technology/26889/" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-20T12:55:13+00:00" />
+	<title>驚魂48小時，阿里工程師如何緊急定位線上內存泄露？ - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/26889/" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+	.amp-wp-header .amp-wp-canonical-link {
+		font-size: 0.8em;
+		text-decoration: underline;
+		position: absolute;
+		right: 18px;	}
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+	
+</head>
+
+<body class="">
+
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+										<a class="amp-wp-canonical-link" href="https://daynews.cc/technology/26889/">
+				原網頁			</a>
+			</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">驚魂48小時，阿里工程師如何緊急定位線上內存泄露？</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://daynews.cc/wp-content/themes/Kratos/images/default_avatar.jpeg" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-20T20:55:13+00:00">
+		2019-12-20	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		
+		<div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/ff598de60ae848d6ba0e995e8c032713" alt="《驚魂48小時，阿里工程師如何緊急定位線上內存泄露？》" width="640" height="427" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/ff598de60ae848d6ba0e995e8c032713" alt="《驚魂48小時，阿里工程師如何緊急定位線上內存泄露？》" width="640" height="427" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<blockquote>
+<p><strong>阿里妹導讀：</strong>雲計算場景下的大規模分散式系統中，網路異常、磁碟IO異常、時鐘跳變、操作系統異常乃至軟體本身可能存在bugs等，均給分散式系統正確運行帶來了挑戰。持續的監控報警完善是打造穩定高可用分散式系統過程中非常重要的工作，這個也就要求我們研發同學從細節處入手，本文將介紹的場景是針對線上報警的一絲異常，抽絲剝繭找到內存泄露的root cause，全程48小時，跟進修復了潛在風險隱患，並進一步豐富完善監控報警體系的過程。</p>
+</blockquote>
+<h2 class="pgc-h-arrow-right">1、問題初現</h2>
+<p>該風險隱患在2019年10月下旬某天開始浮現，不到24小時的時間裡，值班同學陸續收到多個線上電話報警，顯示某業務集群中分散式協調服務進程異常：</p>
+<ul class="">
+<li>14:04:28，報警顯示一台Follower意外退出當前Quorum，通過選舉重新加入Quorum；</li>
+<li>16:06:35，報警顯示一台Follower發生意外重啟，守護進程拉起後，重新加入Quorum；</li>
+<li>02:56:42，報警顯示一台Follower發生意外重啟，守護進程拉起後，重新加入Quorum；</li>
+<li>12:21:04，報警顯示一台Follower意外退出當前Quorum，通過選舉重新加入Quorum；</li>
+<li>……</li>
+</ul>
+<p>下圖展示了該分散式協調服務的系統架構，後端是基於Paxos實現的一致性維護功能模塊，前端代理客戶端與一致性服務單元的通信，支持服務能力水平擴展性。由於後端分散式一致性服務單元由5台Master機器組成，可以容忍同時2台機器掛掉，因此上述報警均沒有發現對服務可用性產生影響。但是，在短時間之內頻繁發生單個Master服務進程異常，這個對於服務穩定性是個極大隱患，特別是對於作業調度強依賴分散式協調服務的某業務。由此，我們開始集中人力重點調查這個問題。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/37a098b6ebb645698133c59accd8d2c1" alt="《驚魂48小時，阿里工程師如何緊急定位線上內存泄露？》" width="640" height="351" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/37a098b6ebb645698133c59accd8d2c1" alt="《驚魂48小時，阿里工程師如何緊急定位線上內存泄露？》" width="640" height="351" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>我們首先排除了網路問題，通過tsar命令查看機器上網路各項指標正常，通過內部的網路平台查看機器上聯網路設備以及網路鏈路也均是健康狀態。回到日誌來分析，我們從Leader日誌中找到了線索，上述報警時間點，均有「Leader主動關閉了與Follower的通信通道」這麼一個事件。</p>
+<p>很自然地，我們想知道為什麼會頻繁發生Leader關閉與Follower通信通道的事件，答案同樣在日誌中：Follower長時間沒有發送請求給Leader，包括Leader發給過來的心跳包的回復，因此被Leader認定為異常Follower，進而關閉與之通信通道，將其踢出當前Quorum。</p>
+<p>好了，現在可以直觀地解釋觸發報警原因了：Follower長時間與Leader失聯，觸發了退出Quorum邏輯（如果退出Quorum過程比較慢的話，進一步會觸發直接退出進程邏輯，快速恢復）。</p>
+<p>那麼新的問題來了，這些Followers為什麼不回復輕量的心跳請求呢？這次沒有直接的日誌來解答我們的疑惑，還好，有間接信息：出問題前Follower的日誌輸出發生了長時間的中斷（超過了觸發退出Quorum的閾值），這個在對分散式協調服務有著頻繁請求訪問的某業務集群中幾乎是不可想像的！我們更願意相信後端進程hang住了，而不是壓根沒有用戶請求打過來。</p>
+<p>在沒有其它更多調查思路的情況下，基於後端分散式一致性服務單元是基於java實現的事實，我們查看了Follower發生問題時間段的gc日誌，結果找到了原因：java gc相關的ParNew耗時太久（當天日誌已經被清理，下圖是該機器上的類似日誌），我們知道java gc過程是有個STW（Stop-The-World）機制的，除了垃圾收集器，其餘線程全部掛起，這個就能夠解釋為什麼後端Follower線程會短時hang住。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/7b93e1a516c94f82b33b9d8b40026076" alt="《驚魂48小時，阿里工程師如何緊急定位線上內存泄露？》" width="1080" height="220" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/7b93e1a516c94f82b33b9d8b40026076" alt="《驚魂48小時，阿里工程師如何緊急定位線上內存泄露？》" width="1080" height="220" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>雖然我們的java程序申請的初始內存較大，但是實際分配的是虛擬內存，ParNew耗時太久一個很大可能性是機器上實際物理內存不足了。</p>
+<p>按照這個思路，我們進一步在Follower機器上使用top命令查看進程內存佔用情況，結果發現機器上混合部署的前端Proxy進程使用的內存已經達到整機66%+（此時後端一致性進程實際佔用的物理內存也已經達到30%左右）。</p>
+<p>進一步查看系統日誌，發現部分機器上前端Proxy進程已經發生過因為內存不足的OOM錯誤而被系統KILL的事件，至此問題初步定位，我們開始轉向調查前端Proxy內存泄露的問題。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/088d574315664ee18c4f1da5b48356ac" alt="《驚魂48小時，阿里工程師如何緊急定位線上內存泄露？》" width="1080" height="198" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/088d574315664ee18c4f1da5b48356ac" alt="《驚魂48小時，阿里工程師如何緊急定位線上內存泄露？》" width="1080" height="198" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">2、業務風險</h2>
+<p>該業務對分散式協調服務的服務發現功能是重度依賴的。以本次調查的業務集群為例，單集群註冊的服務地址數達到240K，解析地址的活躍會話數總量達到450W，因此，分散式協調服務的穩定性直接影響著集群內業務作業的健康運行。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/a661629517574d01b37acdc85aa1240d" alt="《驚魂48小時，阿里工程師如何緊急定位線上內存泄露？》" width="1080" height="267" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/a661629517574d01b37acdc85aa1240d" alt="《驚魂48小時，阿里工程師如何緊急定位線上內存泄露？》" width="1080" height="267" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>在明確了分散式協調服務Proxy進程存在內存泄露風險之後，我們緊急巡檢了線上其它集群，發現該問題並非個例。大促在即，這個風險隱患不能夠留到雙十一的時間點，在gcore了前端Proxy現場之後，我們做了緊急變更，逐台重啟了上述風險集群的前端Proxy進程，暫且先緩解了線上風險。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/12385861f6e843a6abcbdb4f4e2480ed" alt="《驚魂48小時，阿里工程師如何緊急定位線上內存泄露？》" width="1080" height="261" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/12385861f6e843a6abcbdb4f4e2480ed" alt="《驚魂48小時，阿里工程師如何緊急定位線上內存泄露？》" width="1080" height="261" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">3、深入調查</h2>
+<p>繼續回來調查問題，我們在重啟Proxy進程之前，gcore保留了現場（這裡要強調一下，線上gcore一定要謹慎，特別是內存佔用如此大的進程，很容易造成請求處理hang住，我們基於的考慮是該分散式協調服務的客戶端是有超時重試機制的，因此可以承受一定時長的gcore操作）。</p>
+<p>因為前端Proxy最主要的內存開銷是基於訂閱實現的高效地址緩存，因此，我們首先通過gdb查看了維護了緩存的unordered_map大小，結果這個大小是符合預期的（正如監控指標顯示的，估算下來這個空間佔用不會超過1GB），遠遠達不到能夠撐起如此內存泄漏的地步。這點我們進一步通過strings core文件也得到了證實，string對象空間佔據並不多，一時間，我們的調查陷入了困境。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/38b9ebd94eeb4655848e34d8df3b8606" alt="《驚魂48小時，阿里工程師如何緊急定位線上內存泄露？》" width="1080" height="302" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/38b9ebd94eeb4655848e34d8df3b8606" alt="《驚魂48小時，阿里工程師如何緊急定位線上內存泄露？》" width="1080" height="302" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>這時我們想到了兄弟團隊某大神的大作，介紹了在線上環境調查C/C++應用程序內存泄露問題（可能會有同學提到valgrind這個工具幹嘛不用？首先這個神器在測試環境是必備的，但是終究是可能存在一些漏掉的場景發布上線了導致線上內存泄露。另外，大型項目中會暴露valgrind運行太慢的問題，甚至導致程序不能正常工作），這裡提供了另一個角度來調查內存泄露：虛表。每個有虛函數的類都有個虛表，同一個類的所有對象都會指針指向同一個虛表（通常是每個對象的前8個位元組），因此統計每個虛表指針出現的頻度就可以知道這樣的對象被分配了有多少，數量異常的話那麼就存在內存泄露的可能。</p>
+<p>大神提供了一個內存泄露排查工具（說明一下，這個工具基於規整的tcmalloc的內存管理方式來分析的），通過符號表找到每個vtable，因此可以知道虛表地址，即每個虛函數類的對象前8位元組的內容，這個工具厲害的地方在於擺脫了gdb依賴，直接根據應用程序申請的所有內存塊分析，找到所有泄露內存塊地址，進一步統計出每個虛表對應類的對象數目。具體這個工具實現細節不再贅述，最終我們統計出來的所有出現頻率超過10W的虛表信息，找到了罪魁禍首：這個common::closure的對象泄露了高達16億+。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/faf7ff61172a47a1b61a705cf6397c5d" alt="《驚魂48小時，阿里工程師如何緊急定位線上內存泄露？》" width="1080" height="347" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/faf7ff61172a47a1b61a705cf6397c5d" alt="《驚魂48小時，阿里工程師如何緊急定位線上內存泄露？》" width="1080" height="347" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>根據closure的參數類型信息，我們很快定位到了具體的類CheckCall：</p>
+<pre><code>$grep Closure -r  proxy | grep Envproxy/io_handler.h:    typedef common::Closure&lt;void, Env*&gt;  CheckCall;</code></pre>
+<p>有關這個對象的大面積泄露，定位到最終原因其實是跟我們對Proxy日誌分析有關，我們在日誌中發現了大量非法訪問請求：客戶端嘗試解析某個角色註冊的服務地址，但是卻使用錯誤的集群名參數。在單個Proxy機器上1s時間裡最多刷出4000+這樣的錯誤日誌，那麼會不會是因為持續走到這樣錯誤路徑導致的對象內存泄露呢？</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/a3240fd115104607844c76d51cd19f93" alt="《驚魂48小時，阿里工程師如何緊急定位線上內存泄露？》" width="1080" height="210" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/a3240fd115104607844c76d51cd19f93" alt="《驚魂48小時，阿里工程師如何緊急定位線上內存泄露？》" width="1080" height="210" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>對照這塊的代碼，我們仔細研究了一下，果然，CheckCall對象正常是會走到執行邏輯的（common::closure在執行之後自動會析構掉，釋放內存），但是在異常路徑下，譬如上面的非法集群名，那麼這個函數會直接return掉，相應的CheckCall對象不會被析構，隨著業務持續訪問，也就持續產生內存泄露。</p>
+<h2 class="pgc-h-arrow-right">4、風險修復</h2>
+<p>這個問題的rootcause定位之後，擺在我們面前的修復方法有兩個：</p>
+<p>1）業務方停止錯誤訪問行為，避免分散式協調服務前端Proxy持續走到錯誤路徑，觸發內存泄露；<br>2）從前端Proxy代碼層面徹底修復掉這個bug，然後對線上分散式協調服務Proxy做一輪升級；</p>
+<p>方案二的動靜比較大，大促之前已經沒有足夠的升級、灰度窗口，最終我們選擇了方案一，根據日誌中持續出現的這個非法訪問路徑，我們聯繫了業務方，協助調查確認業務哪些客戶端進程在使用錯誤集群名訪問分散式協調服務，進一步找到了原因。最終業務方通過緊急上線hotfix，消除了錯誤集群名的訪問行為，該業務線分散式協調服務前端Proxy進程內存泄露趨勢因此得以控制，風險解除。</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/be453ff36aba42748d97d1447687b668" alt="《驚魂48小時，阿里工程師如何緊急定位線上內存泄露？》" width="1080" height="268" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/be453ff36aba42748d97d1447687b668" alt="《驚魂48小時，阿里工程師如何緊急定位線上內存泄露？》" width="1080" height="268" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>當然，根本的修復方式還是要從前端Proxy針對CheckCall的異常路徑下的處理，我們的修復方式是遵循函數實現單一出口原則，在異常路徑下也同樣執行該closure，在執行邏輯裡面判斷錯誤碼直接return，即不執行實際的CheckCall邏輯，只觸發自我析構的行為。該修復在雙十一之後將發布上線。</p>
+<h2 class="pgc-h-arrow-right">5、問題小結</h2>
+<p>穩定性工作需要從細節處入手，需要我們針對線上服務的每一條報警或者是服務指標的一絲異常，能夠追根溯源，找到root cause，並持續跟進風險修復，這樣一定可以錘鍊出更加穩定的分散式系統。「路漫漫其修遠兮，吾將上下而求索」，與諸君共勉。</p>
+<p>作者：朱雲鋒</p>
+<p>本文為阿里雲原創內容，未經允許不得轉載。</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		分類: <a href="https://daynews.cc/technology/" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/26889/#comments">
+			寫評論		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">返回頂部</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="354f0d2beeef" type="baiduanalytics"><script type="application/json">{"vars":{"token":"882f12dcdadf8f87fabf76b550649115"},"triggers":{"trackPageview":{"on":"visible","request":"pageview"}}}</script></amp-analytics>
+</body>
+</html>
+<!-- This is the static html file -->

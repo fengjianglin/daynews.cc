@@ -1,0 +1,633 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/26508/#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/RlLt6NN7i9xpMO"},{"@type":"WebPage","@id":"https://daynews.cc/technology/26508/#webpage","url":"https://daynews.cc/technology/26508/","inLanguage":"zh-TW","name":"Jeff Dean\u8b1b\u8ff0AI\u6676\u5143\u7684\u672a\u4f86\u767c\u5c55\u8da8\u52e2 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/26508/#primaryimage"},"datePublished":"2019-12-22T05:55:13+00:00","dateModified":"2019-12-22T05:55:13+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="【導讀】深度學習和硬體怎樣結合？計算機界神級人物、谷歌人工智慧主管Jeff Dean發表了獨自署名論文《The Deep Learning Revolution and Its Implications for Computer Architecture and Chip Design》，17頁pdf論文，長文介紹了後摩爾定律時代的機器學……" />
+<meta name="twitter:title" content="Jeff Dean講述AI晶元的未來發展趨勢 - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/RlLt6NN7i9xpMO" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Jeff Dean講述AI晶元的未來發展趨勢 - 天天要聞" />
+<meta property="og:description" content="【導讀】深度學習和硬體怎樣結合？計算機界神級人物、谷歌人工智慧主管Jeff Dean發表了獨自署名論文《The Deep Learning Revolution and Its Implications for Computer Architecture and Chip Design》，17頁pdf論文，長文介紹了後摩爾定律時代的機器學……" />
+<meta property="og:url" content="https://daynews.cc/technology/26508/" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-22T05:55:13+00:00" />
+	<title>Jeff Dean講述AI晶元的未來發展趨勢 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/26508/" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+	.amp-wp-header .amp-wp-canonical-link {
+		font-size: 0.8em;
+		text-decoration: underline;
+		position: absolute;
+		right: 18px;	}
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+	
+</head>
+
+<body class="">
+
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+										<a class="amp-wp-canonical-link" href="https://daynews.cc/technology/26508/">
+				原網頁			</a>
+			</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">Jeff Dean講述AI晶元的未來發展趨勢</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://daynews.cc/wp-content/themes/Kratos/images/default_avatar.jpeg" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-22T13:55:13+00:00">
+		2019-12-22	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		
+		<div>
+<p>【導讀】深度學習和硬體怎樣結合？計算機界神級人物、谷歌人工智慧主管Jeff Dean發表了獨自署名論文《The Deep Learning Revolution and Its Implications for Computer Architecture and Chip Design》，17頁pdf論文，<strong>長文介紹了後摩爾定律時代的機器學習研究進展，以及他對未來發展趨勢的預測判斷。</strong></p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/RlLt6NN7i9xpMO" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" width="640" height="360" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/RlLt6NN7i9xpMO" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" width="640" height="360" class=""></noscript></amp-img></p>
+<p><strong>摘要</strong></p>
+<p>在過去的十年里，機器學習，<strong>特別是基於人工神經網路的深度學習方法取得了一系列顯著的進步，從而提高了我們在更廣泛的領域建立更精確系統的能力</strong>，包括計算機視覺、語音識別、語言翻譯和自然語言理解任務。這篇論文是2020年國際固態電路會議(ISSCC)的主題演講的配套論文，討論了機器學習的一些進展，以及這些進展對我們需要構建的計算設備的影響，特別是在後摩爾定律時代。它還討論了一些方法，機器學習也可以幫助電路設計過程的某些方面。<strong>最後，它提供了至少一個有趣方向的草圖，朝向更大規模的多任務模型，這些模型是稀疏激活的，並且使用了比今天的機器學習模型更動態的、基於實例和任務的路由</strong>。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/RlLt6O08n9lsKE" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" width="1080" height="318" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/RlLt6O08n9lsKE" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" width="1080" height="318" class=""></noscript></amp-img></p>
+<p><strong>地址鏈接：</strong></p>
+<p>https://<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">www</i>.zhuanzhi.ai/paper/29cfa3ee4438c3f2717c1f5ab41b320c</p>
+<p>https://ar<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">xi</i>v.org/abs/1911.05289</p>
+<p><strong>引言</strong></p>
+<p>在過去的十年中，機器學習(ML)，特別是<strong>基於人工神經網路的深度學習方法取得了一系列顯著的進步，以提高我們在廣泛領域構建更精確系統的能力</strong>[LeCun et al. 2015]。重大進展的主要領域包括<strong>計算機視覺</strong>(Krizhevsky et al. 2012, Szegedy et al. 2015, He et al. 2016, Real et al. 2017, Tan and Le 2019],<strong>語音識別</strong>(Hinton et al. 2012, Chan et al. 2016],<strong>語言翻譯</strong>(Wu et al. 2016)和其他<strong>自然語言任務</strong>[Collobert et al. 2011, Mikolov et al. 2013, Sutskever et al. 2014, Shazeer et al. 2017, Vaswani et al. 2017, Devlin et al. 2018]。機器學習研究社區也能夠訓練系統來完成一些具有挑戰性的任務,<strong>從互動的學習環境中,通常使用強化學習,展示成功和有前途的進步</strong>在玩圍棋等領域[Silver et al. 2017], 玩視頻遊戲如雅達利遊戲[Mnih et al. 2013, Mnih et al. 2015)和《星際爭霸》之類的遊戲(Vinyals et al . 2019年),完成機器人任務，如大幅改善抓取看不見的物體[Levine et al. 2016, Kalashnikov et al. 2018]，模擬觀察到的人類行為[Sermanet et al. 2018]，使用自動駕駛汽車導航複雜的城市環境[Angelova et al. 2015, Bansal et al. 2018]。</p>
+<p><strong>作為計算機視覺領域取得巨大進步的一個例證</strong>，圖1顯示了Imagenet挑戰賽(斯坦福大學[Deng et al. 2009]舉辦的年度競賽)隨時間推移的改進情況。Imagenet挑戰賽向參賽者提供了1000個類別的100萬幅彩色圖像的訓練集，然後使用這些數據來訓練一個模型，以推廣到相同類別的圖像的評估集。在2010年和2011年，在使用深度學習方法之前，獲勝的參賽者使用手工設計的計算機視覺功能，前5名的錯誤率超過25%。2012年，Alex Krishevsky、Ilya Sutskever和Geoffrey Hinton使用一種深度神經網路，通常被稱為「AlexNet」，在競賽中獲得第一名，前5名的出錯率大幅降低到16% [Krishevsky et al. 2012]。<strong>他們的團隊是2012年唯一使用神經網路的團隊</strong>。第二年，<strong>深度學習計算機視覺革命(deep learning computer vision revolution)全面展開，來自使用深度神經網路的團隊的參賽作品占絕大多數</strong>，獲勝錯誤率再次大幅下降至11.7%。我們從一項仔細的研究中得知，Andrej Karpathy在執行這項任務時，如果人類練習約20小時，則人為誤差略高於5%，如果另一個人僅練習幾小時，則人為誤差為12% [Karpathy 2014]。在2011年到2017年間，獲獎的Imagenet的錯誤率從2011年的26%急劇下降到2017年的2.3%。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RlLt6OT5c7Ful0" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" width="640" height="336" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RlLt6OT5c7Ful0" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" width="640" height="336" class=""></noscript></amp-img></p>
+<p class="pgc-img-caption"><em>圖1:ImageNet 分類競賽獲勝者隨時間的準確性</em></p>
+<p><strong>這些在計算機視覺、語音識別、語言理解和大規模強化學習等基礎領域的進步，對許多領域都產生了巨大的影響</strong>。我們已經在許多不同的領域和醫學領域看到了一系列穩定的成果，將過去十年中產生的基礎研究成果應用於這些問題領域。例如，醫學成像診斷任務的前景領域包括糖尿病視網膜病變(Gulshan et al. 2016, Krause et al. 2018)、乳腺癌病理學(Liu et，2017年)、肺癌CT掃描解釋(Ardila et，2019年)和皮膚病學(Esteva et，2017年)。對語言翻譯有用的順序預測方法也有助於對電子病歷中各種不同的與醫學相關的任務進行準確預測[Rajkomar et al. 2018]。這些早期跡象為機器學習在衛生和醫療保健的許多領域產生重大影響指明了道路[Rajkomar等人2019年，Esteva等人2019年]。</p>
+<p>其他通過使用基於深度學習的方法而得到改善的領域包括<strong>量子化學</strong>(Gilmer et，2017年)、<strong>地震預測</strong>(DeVries et，2018年)、<strong>洪水預測</strong>(Nevo et，2019年)、<strong>基因組學</strong>(Poplin et，2018年)、<strong>蛋白質摺疊</strong>(Evans et，2018年)、<strong>高能物理</strong>(Baldi et，2014年)和<strong>農</strong>業(Ramcharan et，2017年)。</p>
+<p>有了這些重大的進展，很明顯ML改變許多不同領域的潛力是巨大的。</p>
+<p><strong>摩爾定律，後摩爾定律，以及機器學習的計算需求</strong></p>
+<p>深度學習和人工神經網路背後的許多關鍵思想和演算法早在20世紀60年代、70年代、80年代和90年代就已經出現了[Minsky and Papert 1969, Rumelhart et al. <i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">198</i>8, Tesauro <i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">199</i>4]。在20世紀<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">80年代末</i>和90年代初，ML和AI社區中出現了一股熱潮，因為人們意識到<strong>神經網路可以用有趣的方式解決一些問題，它們的巨大優勢來自於它們接受非常原始的(有時是異構的)輸入數據的能力，以及在訓練模型執行某些預測任務的過程中讓模型自動建立層次表示的能力</strong>。然而，在那個時候，計算機還沒有強大到可以讓這種方法處理任何小的、幾乎是玩具大小的問題。當時的一些工作試圖使用並行演算法來擴展神經網路訓練的可用計算量[Shaw <i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">198</i>1, Dean <i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">199</i>0]，但在大多數情況下，人工智慧和ML社區中大多數人的<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">關注</i>點從基於神經網路的方法轉移了。<strong>在摩爾定律的推動下，計算性能提高了20多年，直到21世紀的後期，計算機才開始變得足夠強大，能夠在現實和現實問題上訓練大型神經網路</strong>，如Imagenet [Deng等，2009]，而不是MNIST [LeCun et al. 2000]和CIFAR [Krizhevsky et al. 2009]。特別是GPU卡上的通用計算範式(GPGPU) [Luebke et al. 2006]，由於GPU卡相對於cpu的高浮點性能，開始允許神經網路在真正重要的困難問題上顯示有趣的結果。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/RlLt6OmEX4LbhX" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" width="640" height="394" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/RlLt6OmEX4LbhX" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" width="640" height="394" class=""></noscript></amp-img></p>
+<p class="pgc-img-caption"><em>圖2:摩爾定律和後摩爾定律時期的計算性能</em></p>
+<p>這可能是不幸的，正如我們開始有足夠的計算性能來處理有趣的現實世界的問題，<strong>機器學習的規模和適用性的增加導致了需要額外的計算資源的巨大需求來處理更大的問題</strong>，計算行業作為一個整體已經經歷了一個戲劇性的放緩，在一般用途的CPU性能的年復一年的提高。圖2顯示了這種顯著的放緩，我們已經從每1.5年(<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">198</i>5年至2003年)或2年(2003年至2010年)將通用CPU性能翻一番，發展到現在的通用CPU性能預計每20年才會翻一番[Hennessy and Patterson 2017]。圖3顯示了最近一些重要的機器學習進展的計算需求的急劇增加(注意對數y軸，最佳擬合線顯示了這組重要的ML研究結果的計算需求翻倍時間為3.43個月)[OpenAI 2018]。圖4顯示了戲劇性的飆升在機器學習領域的研究成果及其應用,通過論文發表的數量測量machine-learning-related Ar<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">xi</i>v的類別,一個廣受歡迎的紙品預印本託管服務,超過32倍的論文發表在2018年和2009年(每2年)增長率的兩倍多。<strong>現在每天有超過100篇與機器學習相關的研究論文發表在Ar<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">xi</i>v上，而且這種增長沒有放緩的跡象</strong>。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/RlLt6PG1exQDZV" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" width="640" height="394" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/RlLt6PG1exQDZV" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" width="640" height="394" class=""></noscript></amp-img></p>
+<p class="pgc-img-caption"><em>圖3:一些重要的人工智慧進展及其計算需求</em></p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RlLt6uY7XfTSFe" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" width="640" height="379" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RlLt6uY7XfTSFe" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" width="640" height="379" class=""></noscript></amp-img></p>
+<p class="pgc-img-caption"><em>圖4:2009年以來與機器學習相關的Ar<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">xi</i>v論文</em></p>
+<p><strong>機器學習專用硬體</strong></p>
+<p>在2011年和2012年，谷歌的一個小團隊的研究人員和系統工程師建立了一個名為DistBelief的早期分散式系統，以支持對超大規模的神經網路進行並行、分散式訓練，他們將模型和數據並行訓練結合起來，並通過許多不同的計算副本對模型的參數進行非同步更新[Dean et al. 2012]。這使得我們能夠在更大的數據集上訓練更大的神經網路，並且，到2012年年中，使用DistBelief作為基礎框架，我們看到語音識別(Hinton et al. 2012)和圖像分類模型(Le et al. 2012)的精度顯著提高。然而，<strong>這些模型在需要數億用戶的系統設置中的服務是另一回事，因為計算需求非常大。</strong>包絡計算表明，要部署深度神經網路系統，使我們使用基於cpu的計算設備對我們的主要語音識別系統顯示出顯著的字錯誤率改進，就需要將谷歌數據中心的計算機數量增加一倍(有一些大膽但仍然可信的假設，認為由於準確性更高，使用會顯著增加)。如果這在經濟上是合理的，它仍然需要大量的時間，因為它將涉及澆築混凝土，簽訂風車農場合同，訂購和安裝大量的計算機等等，而語音系統只是冰山一角，就我們所看到的神經網路應用於我們的許多核心問題和產品的可能性而言。<strong>這個思維練習讓我們開始考慮為神經網路建立專門的硬體，首先是推理，然後是訓練和推理系統。</strong></p>
+<p><strong>為什麼專門的硬體對深度學習模型有意義?</strong></p>
+<p>深度學習模型有三個特性，這使得它們不同於許多其他類型的通用計算。<strong>首先，他們對低精度的計算非常寬容</strong>。<strong>第二, 除此之外，大多數模型所執行的計算只是一小部分操作的不同組合</strong>，比如矩陣乘法、向量運算、卷積核的應用以及其他密集的線性代數計算[Vanhoucke et al. 2011]。另外，在過去40年中開發的許多機制使得通用程序能夠在現代cpu上以高性能運行，例如分支預測器、推測執行、超線程執行處理核、深度緩存內存層次結構和TLB子系統，<strong>對於機器學習計算來說都是不必要的</strong>。因此，我們有機會構建專門用於密集的、低精度的線性代數的計算硬體，除此之外別無它物，但仍然可以在指定程序的層次上進行編程，這些程序是大多數線性代數式運算的不同組成部分。這些特性的匯合與從20世紀80年代開始為電信應用開發專用數字信號處理器(dsp)的觀察結果並無不同。然而，一個關鍵的區別是，由於深度學習廣泛適用於許多領域和領域的大量計算問題，這種硬體，儘管其支持的操作集很窄，但可以用於各種各樣的重要計算，而不是更狹義的dsp應用。基於我們對深度神經網路在語音識別和圖像分類等高容量推理應用中急劇增加的計算需求的思考實驗，我們決定開始努力設計一系列被稱為張量處理單元的加速器來加速深度學習推理和訓練。<strong>第一個這樣的系統，稱為TPUv1，是一個旨在針對推理加速的單片機設計[Jouppi et，2017]。</strong></p>
+<p>對於推斷(在對一個模型進行了訓練之後，我們希望將已經訓練好的模型應用到新的輸入中，以便進行預測)，<strong>8位整型計算已經被證明對於許多重要的模型來說是足夠的</strong>[Jouppi et，2017]，隨著研究社區中進一步廣泛的工作正在進行，使用更低的精度權重，以及鼓勵權重和/或激活的技術來進一步推動這個邊界。</p>
+<p>TPUv1的核心是一個65,536個8位的乘法累積矩陣乘法單元，最高吞吐量為92 TeraOps/秒(上限)。TPUv1平均比其同時代的GPU或CPU快15 – 30倍，TOPS/Watt大約高30 – 80倍，<strong>能夠運行代表當時谷歌數據中心95%的神經網路推理需求的生產神經網路應用程序</strong>，具有顯著的成本和功率優勢[Jouppi et，2017]。</p>
+<p><strong>在低功耗移動設備上的推理對於機器學習的許多用途也非常重要</strong>。如果能夠在設備上運行機器學習模型(設備本身通常是用於語音或視覺等領域的模型的原始數據輸入的來源)，就會有很大的延遲和隱私方面的好處。可以採用與TPUv1相同的設計原則(一種針對高性能/瓦特的低精度線性代數計算的簡單設計)，並將這些原則應用於更低功耗的環境，例如移動<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">電話</i>。谷歌的Edge TPU就是這種系統的一個例子，它在2W的功率範圍內提供4個陀螺。設備上的計算對於許多有趣的深度學慣用例來說已經是至關重要的，在這些用例中，我們希望計算機視覺、語音和其他類型的模型能夠直接運行在感官輸入上，而不需要連接。一個這樣的例子是在設備上的農業應用，比如在木薯田中間識別疾病，木薯田可能沒有可靠的網路連接[Ramcharan et al. 2017]。</p>
+<p>隨著機器學習在世界範圍內的廣泛應用和它作為一種關鍵計算類型的重要性的日益增長，<strong>一場劍橋式的新型有趣的機器學習計算加速器的爆炸正在進行中</strong>。有超過XX家風險投資支持的初創公司，以及各種大型、成熟的公司，它們都在生產各種用於機器學習的新晶元和系統。例如Cerebras、Graphcore和Nervana(被Intel收購)專註於ML培訓的各種設計。而阿里巴巴等其他公司則在設計專註於推理的晶元。<strong>一些設計避開了更大的內存容量DRAM或HBM，專註於非常高性能的設計，為模型足夠小</strong>，他們的整個參數集和中間值適合SRAM。其他公司則專註於包括DRAM或HBM在內的設計，這些設計使它們適用於更大規模的模型。有些，比如Cerebras，正在探索完整的晶片級集成。其他公司，如谷歌的Edge TPUs，正在為移動<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">電話</i>和分散式感測設備等環境的推理構建非常低功耗的晶元。</p>
+<p><strong>為訓練設計定製的機器學習硬體(而不僅僅是推理)是一項比單片機推理加速器更複雜的工作</strong>。其原因是，單片訓練系統無法解決許多我們希望在合理時間內(如數小時或數天，而不是數周或數月)解決的問題，因為單片系統不能提供足夠的計算能力。此外，在更大的數據集上訓練更大的模型的願望是這樣的，即使單個晶元可以在合理的時間內交付足夠的計算來解決給定的問題，這也意味著我們常常想要解決更大的問題(無論如何，在並行或分散式系統中需要使用多個晶元)。因此，設計訓練系統實際上是設計一個更大的、整體的計算機系統，需要考慮單個加速器晶元的設計，以及形成緊密耦合的機器學習超級計算機的高性能互連。谷歌的第二代和第三代tpu, TPUv2和TPUv3，被設計來支持訓練和推理，而基本的單個設備，每一個由四個晶元組成，被設計成連接在一起的更大的配置稱為豆莢。圖5顯示了單個谷歌TPUv2晶元的框圖，該晶元有兩個核心，每個核心的主要計算能力由一個大的矩陣乘法單元提供，每個循環可以產生一對128×128矩陣的乘法結果。每個晶元有16gb (TPUv2)或32gb (TPUv3)的附加高帶寬內存(HBM)。圖6顯示了谷歌的TPUv3 Pod的部署形式，它由1024個加速器晶元組成，包括8個機架的晶元和相應的伺服器，晶元以32×32環形網格連接在一起，提供了超過100 petaflop/s的系統性能峰值。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RlLt6v6GS2mpHW" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" width="640" height="357" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RlLt6v6GS2mpHW" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" width="640" height="357" class=""></noscript></amp-img></p>
+<p class="pgc-img-caption"><em>圖5:谷歌張量處理單元v2 (TPUv2)的框圖</em></p>
+<p> <amp-img src="http://p9.pstatp.com/large/pgc-image/RlLt6vT1j0QvuI" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" width="1080" height="310" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/RlLt6vT1j0QvuI" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" width="1080" height="310" class=""></noscript></amp-img></p>
+<p class="pgc-img-caption"><em>圖6: 谷歌的TPUv3 Pod，由1024個TPUv3晶元組成，峰值性能為&gt;100 petaflop/s</em></p>
+<p><strong>機器學習的低精度數字格式</strong></p>
+<p>TPUv2和TPUv3使用了定製設計的浮點格式bfloat16 [Wang和Kanwar 2019]，它與IEEE半精度的16位格式不同，提供了一種對機器學習更有用的格式，並且支持更便宜的乘法器電路。bfloat16最初是作為一種有損壓縮技術開發的，目的是幫助disbelief系統中機器學習權值和激活的網路通信減少帶寬需求，TensorFlow白皮書(Abadi et al. 2016, sec. 5.5)的5.5節簡要描述了該技術。自2015年以來，它一直是TPUv2和TPUv3中最常用的浮動格式。從2018年12月開始，英特爾宣布計劃為下一代英特爾處理器增加bfloat16支持。</p>
+<p>下面的圖7顯示了IEEE fp32單精度浮點格式、IEEE fp16半精度浮點格式和bfloat16格式的符號、指數和尾數位的分割。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/RlLt6vzAZUVvcJ" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" width="640" height="255" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/RlLt6vzAZUVvcJ" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" width="640" height="255" class=""></noscript></amp-img></p>
+<p>事實證明，深度學習模型中使用的機器學習計算更關心動態範圍，而不是精度。此外,一個主要區域和力量的乘法器電路成本浮點格式與M位尾數是(M + 1)✕(M + 1)所需的完整加法器(數組乘在一起的尾數部分兩個輸入數字。IEEE fp32、IEEE fp16和bfloat16格式分別需要576個全加法器、121個全加法器和<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">64</i>個全加法器。因為bfloat16格式的乘法器需要更少的電路，所以可以在相同的晶元面積和功率預算中放入更多的乘法器，因此，在其他條件相同的情況下，使用這種格式的ML加速器可以有更高的flops/sec和flops/瓦特。降低的精度表示還減少了將數據從內存中移動到內存或將數據發送到互連織物所需的帶寬和能量，從而進一步提高了效率。</p>
+<p><strong>在快速變化的領域中不確定性的挑戰</strong></p>
+<p>構建機器學習加速器硬體的一個挑戰是，ML研究領域的發展速度非常快(從每年發表的研究論文的增長和絕對數量可以看出，如圖4所示)。目前啟動的晶元設計項目通常需要18個月到24個月才能完成設計、製造半導體部件並將其收回，並將其安裝到生產數據中心環境中。為了使這些部件在經濟上可行，它們通常必須至少有三年的壽命。<strong>因此，構建ML硬體的計算機架構師面臨的挑戰是預測在2到5年內機器學習的快速發展領域將在何處。我們的經驗是，將計算機架構師、更高級別的軟體系統構建人員和機器學習研究人員聚集在一起，討論與合作設計相關的主題</strong>，比如「在那個時間框架內，在硬體上有什麼可能?」以及「什麼有趣的研究趨勢開始出現，它們對ML硬體有什麼影響?」是一種有用的方式來確保我們設計和構建有用的硬體來加速ML的研究和生產使用。</p>
+<p><strong>用於晶元設計的機器學習</strong></p>
+<p><strong>有巨大潛力的一個領域是使用機器學習來自動生成高質量的解決方案，解決存在於設計定製asic的整個工作流中的許多不同的NP-hard優化問題。</strong>例如，目前複雜的ASIC設計的布局和路由需要大量的人工布局專家團隊來迭代地從高層布局細化到詳細的布局，因為ASIC的總體設計是充實的。因為在放置過程中有大量的人員參與，一旦完成了最初的高層設計，在不顯著影響晶元項目進度的情況下考慮完全不同的布局是不可想像的。然而，放置和路由是一個適合於那些成功解決遊戲的強化學習方法的問題，比如AlphaGo。在放置和路由中，一系列的放置和路由決策都會影響一組總體指標，如晶元面積、定時和線路長度。通過強化學習演算法學習「玩」這個遊戲的位置和路由,一般來說在許多不同的ASIC設計,或為特定的ASIC設計,與獎勵函數,結合了各種屬性到一個數值獎勵函數,並運用大量的機器學習計算(ML加速器的形式),與使用現有的電子設計工具進行放置和路由的人類專家團隊相比，可能有一種系統可以更快速、更有效地進行放置和路由。我們已經在谷歌內部探索了這些方法，並取得了初步的但看起來很有希望的結果。基於ML的自動化系統還支持快速的設計空間探索，因為獎勵功能可以很容易地進行調整，以優化目標優化指標中的不同權衡。</p>
+<p>此外，<strong>甚至有可能訓練一個機器學習系統來做出一系列的決定，從高層次的綜合到實際的低層次的邏輯表示，然後執行這些低層次電路的放置和路由，以一種更加自動化和端到端的方式實現實際的高層次設計</strong>。如果這種情況發生，那麼複雜的ASIC設計的時間可能會大幅減少，從幾個月減少到幾周。這將極大地改變設計定製晶元所涉及的權衡，因為當前高水平的非經常性工程費用通常意味著定製晶元或電路只用於最高容量和最高價值的應用程序。</p>
+<p><strong>未來的機器學習發展</strong></p>
+<p>將來的機器學習模型可能和現在有一些明顯區別。將來的機器學習系統可能是在大規模機器學習加速硬體上運行的，而且單一模型可以被訓練用來完成上千甚至上百萬的任務。該模型由不同的組件和結構組成，樣本之間的數據流動可能是動態的，每種樣本都不一樣。模型可能使用類似於「稀疏權重門（sparsely-gated）」結構，混合了專家知識和學習路徑，具有很強的能力。但是對於給定的任務或樣本，模型只會激活其中一部分。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/RlLt6wW5ek9GnZ" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" width="640" height="355" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/RlLt6wW5ek9GnZ" alt="《Jeff Dean講述AI晶元的未來發展趨勢》" width="640" height="355" class=""></noscript></amp-img></p>
+<p class="pgc-img-caption"><em>圖 8：描述這一大型、具有稀疏權重且可以完成多任務的模型。</em></p>
+<p><strong>後摩爾定律時代，簡單地壓榨硬體算力不一定能夠讓機器學習再進步了。</strong>相反，通過設計專業的機器學習硬體設備，讓機器學習解決現有的硬體設計、製造和運行方面的痛點才是出路。將來的機器學習模型可能更大，但是會朝著多任務的方向繼續發展。</p>
+<p><strong>結論</strong></p>
+<p>在過去的十年里，機器學習的進步已經影響了大量的科學、工程和其他形式的人類活動，而且這種影響只會越來越大。機器學習的專門計算需求與後摩爾定律時代通用CPU性能提升的放緩相結合，代表著計算硬體行業的一個激動人心的時代[Hennessy and Patterson 2019]: 我們現在有了一套技術，似乎可以應用於跨越大量領域的大量問題，我們希望在這些領域中顯著增加模型和數據集的規模，我們可以在這些模型和數據集上訓練這些模型，這項工作的影響將觸及人類的大部分。<strong>當我們利用大規模多任務的學習系統來擴展到新的任務時，我們將創造出工具，使我們能夠作為一個社會來共同完成更多的任務，並促進人類的進步</strong>。我們確實生活在一個激動人心的時代。</p>
+<p><strong class="highlight-text">參考文獻</strong></p>
+<ul>
+<li>
+<p>[Abadi et al. 2016] Abadi, Martín, Ashish Agarwal, Paul Barham, Eugene Brevdo, Zhifeng Chen, Craig Citro, Greg S. Corrado, Andy Davis, Jeffrey Dean, Matthieu Devin, Sanjay Ghemawat, Ian Goodfellow, Andrew Harp, Geoffrey Irving, Michael Isard, Yangqing Jia, Rafal Jozefowicz, Lukasz Kaiser, Manjunath Kudlur, Josh Levenberg, Dan Mane, Rajat Monga, Sherry Moore, Derek Murray, Chris Olah, Mike Schuster, Jonathon Shlens, Benoit Steiner, Ilya Sutskever, Kunal Talwar, Paul Tucker, Vincent Vanhoucke, Vijay Vasudevan, Fernanda Viegas, Oriol Vinyals, Pete Warden, Martin Wattenberg, Martin Wicke, Yuan Yu, and Xiaoqiang Zheng. “Tensorflow: Large-scale machine learning on heterogeneous distributed systems.” ar<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">xi</i>v.org/abs/160<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">3.0</i>4467 (2016).</p>
+</li>
+<li>
+<p>[Aho et al. <i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">198</i>6] Aho, Alfred V., Ravi Sethi, and Jeffrey D. Ullman. “Compilers, principles, techniques.” A<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">dd</i>ison Wesley (<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">198</i>6). [Angelova et al. 2015] Angelova, Anelia, Alex Krizhevsky, Vincent Vanhoucke, Abhijit Ogale, and Dave Ferguson. “Real-time pedestrian detection with deep network cascades.” In Proceedings of BMVC 2015, ai.google/research/pubs/pub43850 (2015).</p>
+</li>
+<li>
+<p>[Ardila et al. 2019] Ardila, Diego, Atilla P. Kiraly, Sujeeth Bharadwaj, Bokyung Choi, Joshua J. Reicher, Lily Peng, Daniel Tse, Mozziyar Etemadi, Wen<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">xi</i>ng Ye, Greg Corrado, David P. Naidich and Shravya Shetty. “End-to-end lung cancer screening with three-dimensional deep learning on low-dose chest computed tomography.” Nature Medicine 25, no. 6 (2019): 954.</p>
+</li>
+<li>
+<p>[Baldi et al. 2014] Baldi, Pierre, Peter Sadowski, and Daniel Whiteson. “Searching for exotic particles in high-energy physics with deep learning.” Nature Communications 5 (2014): 4308. <i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">www</i>.nature<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-6">.com</i>/articles/ncomms5308 [Bansal et al. 2018] Bansal, Mayank, Alex Krizhevsky, and Abhijit Ogale. “ChauffeurNet: Learning to drive by imitating the best and synthesizing the worst.” ar<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">xi</i>v.org/abs/<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">181</i>2.030<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-5">79</i> (2018).</p>
+</li>
+<li>
+<p>Chan et al. 2016] Chan, William, Navdeep Jaitly, Quoc Le, and Oriol Vinyals. “Listen, attend and spell: A neural network for large vocabulary conversational speech recognition.” In 2016 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pp. 4960-49<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">64</i>. IEEE, 2016. ar<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">xi</i>v.org/abs/<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">150</i>8.01211</p>
+</li>
+<li>
+<p>[Collobert et al. 2011] Collobert, Ronan, Jason Weston, Léon Bottou, Michael Karlen, Koray Kavukcuoglu, and Pavel Kuksa. “Natural language processing (almost) from scratch.” Journal of Machine Learning Research 12, no. Aug (2011): 2493-2537. ar<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">xi</i>v.org/abs/110<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">3.0</i>398</p>
+</li>
+<li>
+<p>[Dean <i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">199</i>0] Dean, Jeffrey. “Parallel Implementations of neural network training: two back-propagation approaches」. Undergraduate honors thesis, University of Minnesota, <i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">199</i>0. drive.google<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-6">.com</i>/file/d/1I1fs4sczbCaACzA9X<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-6">wx</i>R3DiuXVtqmejL/view</p>
+</li>
+<li>
+<p>[Dean et al. 2012] Dean, Jeffrey, Greg Corrado, Rajat Monga, Kai Chen, Matthieu Devin, Mark <i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-6">Mao</i>, Marc’aurelio Ranzato et al. “Large scale distributed deep networks.” In Advances in Neural Information Processing Systems, pp. 1223-1231. 2012. papers.nips.cc/paper/4687-large-scale-distributed-deep-networks.pdf</p>
+</li>
+<li>
+<p>[Dean et al. 2018] Dean, Jeff, David Patterson, and Cliff Young. “A new golden age in computer architecture: Empowering the machine-learning revolution.” IEEE Micro 38, no. 2 (2018): 21-29.</p>
+</li>
+</ul>
+<p>*免責聲明：本文由作者原創。文章內容系作者個人觀點，半導體行業觀察轉載僅為了傳達一種不同的觀點，不代表半導體行業觀察對該觀點贊同或支持，如果有任何異議，歡迎聯繫半導體行業觀察。</p>
+<p><strong>今天是《半導體行業觀察》為您分享的第2<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-6">166</i>期內容，歡迎<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">關注</i>。</strong></p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		分類: <a href="https://daynews.cc/technology/" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/26508/#comments">
+			寫評論		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">返回頂部</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="354f0d2beeef" type="baiduanalytics"><script type="application/json">{"vars":{"token":"882f12dcdadf8f87fabf76b550649115"},"triggers":{"trackPageview":{"on":"visible","request":"pageview"}}}</script></amp-analytics>
+</body>
+</html>
+<!-- This is the static html file -->

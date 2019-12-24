@@ -1,0 +1,618 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/26469/#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/eab6fd27c3f1418c9f3c51e4169f48c1"},{"@type":"WebPage","@id":"https://daynews.cc/technology/26469/#webpage","url":"https://daynews.cc/technology/26469/","inLanguage":"zh-TW","name":"\u57fa\u65bc\u96fb\u5546\u696d\u52d9\u4e2d\u53f0\u6700\u4f73\u5be6\u8e10\uff1a\u4ea4\u6613\u4e2d\u53f0\u6280\u8853\u8981\u9ede\u8a2d\u8a08\u4e4b\u9ad8\u6027\u80fd - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/26469/#primaryimage"},"datePublished":"2019-12-22T09:50:05+00:00","dateModified":"2019-12-22T09:50:05+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="對於高性能的定義，通常可以理解為系統/服務介面響應時間低（rt）且並發量（qps,tps）高. 提高性能的主要策略有：選擇合理的分散式事務處理機制，資料庫的分庫分表，讀寫分離，非同步化，緩存，複雜查詢走搜索。 選擇合理的分散式事務處理機制 交易業務要求訂單，庫存，優惠券，紅包，支付等數據要強一致，如何保證這些數據之間的一致性是必須要解決的……" />
+<meta name="twitter:title" content="基於電商業務中台最佳實踐：交易中台技術要點設計之高性能 - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/eab6fd27c3f1418c9f3c51e4169f48c1" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="基於電商業務中台最佳實踐：交易中台技術要點設計之高性能 - 天天要聞" />
+<meta property="og:description" content="對於高性能的定義，通常可以理解為系統/服務介面響應時間低（rt）且並發量（qps,tps）高. 提高性能的主要策略有：選擇合理的分散式事務處理機制，資料庫的分庫分表，讀寫分離，非同步化，緩存，複雜查詢走搜索。 選擇合理的分散式事務處理機制 交易業務要求訂單，庫存，優惠券，紅包，支付等數據要強一致，如何保證這些數據之間的一致性是必須要解決的……" />
+<meta property="og:url" content="https://daynews.cc/technology/26469/" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-22T09:50:05+00:00" />
+	<title>基於電商業務中台最佳實踐：交易中台技術要點設計之高性能 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/26469/" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+	.amp-wp-header .amp-wp-canonical-link {
+		font-size: 0.8em;
+		text-decoration: underline;
+		position: absolute;
+		right: 18px;	}
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+	
+</head>
+
+<body class="">
+
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+										<a class="amp-wp-canonical-link" href="https://daynews.cc/technology/26469/">
+				原網頁			</a>
+			</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">基於電商業務中台最佳實踐：交易中台技術要點設計之高性能</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://daynews.cc/wp-content/themes/Kratos/images/default_avatar.jpeg" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-22T17:50:05+00:00">
+		2019-12-22	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		
+		<div>
+<p>對於高性能的定義，通常可以理解為系統/服務介面響應時間低（rt）且並發量（qps,tps）高. 提高性能的主要策略有：選擇合理的分散式事務處理機制，資料庫的分庫分表，讀寫分離，非同步化，緩存，複雜查詢走搜索。</p>
+<p>選擇合理的分散式事務處理機制</p>
+<p>交易業務要求訂單，庫存，優惠券，紅包，支付等數據要強一致，如何保證這些數據之間的一致性是必須要解決的問題，也就是分散式事務的場景。</p>
+<p>業界分散式事務的選擇方案非常多，每種方案之間的差異性非常大。讓我們大概看一下幾種常見的方案和其特點：</p>
+<p>2PC: 二階段提交協議，最大幾個問題是事務管理器（協調者）和資源管理器（參與者）之間的調用是同步阻塞的，如果在一次事務中只有部分資源管理器進行了commit操作，其他超時或者沒有成功，會導致數據的不一致性。</p>
+<p>3PC: 三階段提交協議，是對2PC的改進版本，引入了超時機制，極大的降低了同步阻塞，preCommit 階段協調者和參與者出現通信問題後，仍然會出現數據不一致性的問題。</p>
+<p>TCC: 其實也是2PC的改進版本，TCC將事務參與者從資料庫本身提升到了業務服務粒度，讓每個業務單元實現try,confirm,cancel三個介面，協調者在調用完try介面會，根據返回介面調用confirm還是cancel，其最大問題是業務侵入性非常強，2PC的單點問題，超時問題也都存在，並且需要業務單元考慮各種異常情況，沒法利用資料庫的事務機制。</p>
+<p>阿里GTS: GTS通過將事務協調器集群化的方式解決了單點問題，但這也帶來了另外一個問題，原來本地化的協調者變成了要網路通信的雲協調者，如果不是在同一個數據中心，要跨越公網或者專有網路，性能損耗比較大，此外GTS支持的服務框架也是有限的，如果不支持也需要實現類似於TCC的業務介面。</p>
+<p>SAGA: 在微服務架構下，關注的人越來越多了，但saga早在1987年就提出來了，基本核心思想Saga是一系列本地交易，每筆事務都會更新單個服務中的數據。第一個事務由系統外部請求啟動，然後每個後續步驟由前一個事件完成而觸發。其最常見的兩種實現方式如下：</p>
+<p>1.事件/編排：沒有中央協調器，每個服務產生並聆聽其他服務的事件，然後採取對應的處理動作。通常會使用消息中間件來實現。</p>
+<p>2.命令/協調：中央協調器負責集中處理事件的決策和業務邏輯排序。因引入協調器模式比較重，目前沒有好的框架。</p>
+<p>對saga要詳細理解可以自行google，baidu.</p>
+<p>事務消息最終一致性方案:利用消息中間件的事務性消息/兩階段消息來實現，流程如下：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/eab6fd27c3f1418c9f3c51e4169f48c1" alt="《基於電商業務中台最佳實踐：交易中台技術要點設計之高性能》" width="1000" height="322" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/eab6fd27c3f1418c9f3c51e4169f48c1" alt="《基於電商業務中台最佳實踐：交易中台技術要點設計之高性能》" width="1000" height="322" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>這種模式對業務的侵入性比較比較低，利用消息中間件，性能上有非常好的保障，此外即使遇上網路超時等問題，通過消息中間件的超時回調功能最終都能保證數據的最終一致性。因此我們也選擇了這種方案作為我們的實現。以簡化的確認下單時序來說明這個場景：</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/8e52e1ed309747f880aa0a61e495388b" alt="《基於電商業務中台最佳實踐：交易中台技術要點設計之高性能》" width="640" height="381" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/8e52e1ed309747f880aa0a61e495388b" alt="《基於電商業務中台最佳實踐：交易中台技術要點設計之高性能》" width="640" height="381" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>通過時序圖可以看出，通過事務消息的2階段提交和消息的超時回調極大的提升了各個業務數據的一致性，已經是非常不錯的方案了，但仔細分析這個圖，你還是能發現在極端場景還是有缺點，看個明顯的問題：</p>
+<p>庫存回滾失敗：在本地事務回滾的情況下，調用庫存系統回滾庫存超時或者發生異常，庫存數據將會出現不一致情況。對於這種情況需要通過離線或者實時的庫存對賬系統專門來解決。針對這個問題我們後面可以寫一篇文章單獨討論了。</p>
+<p>資料庫的分庫分表</p>
+<p>對交易來說，數據量最大的是交易主表和子表，這兩個表的數據也是隨著業務量增長最快的，需要在一開始，就要考慮分庫分表策略，不然等到業務發展到一定量再來調整，會非常痛苦，你會從前到後修改一邊，還要遷移數據。對於這塊我們總結了一些比較實用的策略，如下：</p>
+<p>用商家id取模作為分庫分表的欄位：這種策略比較適合平台性的公司，如果淘寶，天貓和拼多多。 但對於一些非常大的商家來說，還是會發生數據傾斜的情況。</p>
+<p>用買家id取模作為分庫分表的欄位：這種策略比較試用於自營性的平台，像京東這樣的。</p>
+<p>自定義分庫分表的規則： 大部分的情況，通過上面兩種策略就能滿足，如果你的業務非常特殊，比如要按照年月日之類的分，那就需要自己寫分庫分表規則函數來做了。</p>
+<p>分庫分表的總原則是：利用交易常用的欄位作為分庫分表的欄位，可以聯合使用，庫和表的數量支持後期修改，對應用代碼透明，後期資料庫擴容，上層應用無感知，至多調整一下分庫分表規則。目前我們利用的是開源mycat來做這塊，這塊好用的還真不多，很多需要自己做額外工作。</p>
+<p>讀寫分離</p>
+<p>讀寫分離不太適用交易的場景，特別是在並發量非常高的時候，資料庫的主備之間通常存在幾ms的延遲，搞不好會造成很大的故障。但是為了節省成本，把備庫的資源利用起來，對於一些規則確定不會造成問題的查詢可以走備庫，如：對交易完成數據的查詢，對實時性要求不是非常高的運營管理系統和客服系統的查詢，都可以切到備庫查詢。 讀寫分離也是需要提前考慮，在一開始就需要制定出規範，明確使用不當的後果。現在很多分庫分表的框架都可以做到對應用透明的主備讀寫比例的調整，但業務代碼必須要評估哪些場景是不能走備庫讀的。</p>
+<p>非同步化</p>
+<p>對於核心系統非同步化的重要性和帶來的好處不用多說，但什麼樣的場景需要非同步化了，就交易來說，像扣減庫存，優惠券使用，支付這些核心鏈路是不能非同步化處理，能非同步化處理的是在交易時刻就不需要立刻確定的場景。如創建物流訂單，傭金計算等。非同步化的總體概覽圖如下：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/3c3dc8e9e6f14e159d573bc4ac73f663" alt="《基於電商業務中台最佳實踐：交易中台技術要點設計之高性能》" width="1000" height="322" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/3c3dc8e9e6f14e159d573bc4ac73f663" alt="《基於電商業務中台最佳實踐：交易中台技術要點設計之高性能》" width="1000" height="322" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>總體原則就是將不在交易核心鏈路的部分，盡量非同步化去處理。</p>
+<p>非同步化常用的手段就是消息機制和分散式定時任務。</p>
+<p>消息機制：首先需要標準化交易事件消息，如交易創建，確認，支付完成等。來看一個樣例代碼片段：</p>
+<p>不要每個交易事件，都單獨搞個事件對象。發消息到消息中間件時，每個event為一個messageType,同一個topic，為了下游系統只訂閱自己感興趣的少部分數據，可以利用消息中間件的tags之類的機制進行訂閱消息過濾。</p>
+<p>分散式定時任務：支付超時關閉交易，失敗重試，異常交易掃描這些場景適應定時任務，延遲在分鐘級別，這塊選用開源界比較優秀的框架就可以了，沒有必要自己搞。</p>
+<p>非同步化帶來的好處主要是：</p>
+<p>將交易系統和非核心系統解耦，從而確保交易的穩定性和響應時間。</p>
+<p>幫下游系統削峰，很多下游系統的容量是非常小的，在大促這樣的高峰期間，是沒有足夠的資源跟上交易的處理速度的，消息中間件集群，會起到非常好的緩衝削峰作用，下游系統按照自己的速度消費就可以了，如果下游消費太慢會出現消息堆積，但消息集群本身就是耐堆積的。</p>
+<p>緩存</p>
+<p>緩存適用於讀多寫少的場景，但交易是以寫為主的場景。所以交易數據本身是沒有緩存需求的，但通過前面的核心鏈路分析可以看出，像交易依賴的商品，優惠，用戶這些信息如果直接走DB, 會非常慢，而這些數據是讀多寫少，是非常適合使用緩存，提高性能的。交易團隊需要通過依賴調用關係分析，推動依賴的上下游系統的技術團隊，使用緩存技術，做性能提升和可靠性保障。常用的緩存策略有前置緩存和後置緩存。</p>
+<p>前置緩存：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/6cd9fce743884e7597d2bcec1fb359c6" alt="《基於電商業務中台最佳實踐：交易中台技術要點設計之高性能》" width="640" height="434" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/6cd9fce743884e7597d2bcec1fb359c6" alt="《基於電商業務中台最佳實踐：交易中台技術要點設計之高性能》" width="640" height="434" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>優點：即使業務系統掛了，也沒有啥影響，</p>
+<p>缺點：後期升級比較麻煩，必須通知依賴client的應用都強制升級。</p>
+<p>後者緩存：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/5498f2988f2946a7ac5502728be17cec" alt="《基於電商業務中台最佳實踐：交易中台技術要點設計之高性能》" width="640" height="429" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/5498f2988f2946a7ac5502728be17cec" alt="《基於電商業務中台最佳實踐：交易中台技術要點設計之高性能》" width="640" height="429" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>優缺點正好和前置緩存相反。</p>
+<p>在實際使用中，如果為了保障非常高的可用性，可以兩者結合使用，通過動態配置開關做切換，在client層的代碼做一下路由切換處理。</p>
+<p>複雜查詢走搜索</p>
+<p>成熟的電商系統，都有自己單獨統一的搜索平台，選擇什麼樣的索引構建方式，完全取決於業務上要多實時的查到最新的數據，目前主流的搜索框架，支持dump DB 和 api 直接推送兩種模式。在我們自己的實踐中，認為交易數據的實時性非常高，需要在1秒之內完成數據索引的構建。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/8a651877bbbf4e568da493a3222d9ae7" alt="《基於電商業務中台最佳實踐：交易中台技術要點設計之高性能》" width="640" height="470" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/8a651877bbbf4e568da493a3222d9ae7" alt="《基於電商業務中台最佳實踐：交易中台技術要點設計之高性能》" width="640" height="470" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>在接受交易事情消息上可以利用批量投遞的策略，提升處理能力，。</p>
+<p>這塊需要特別注意的是消息集群到交易索引的構建系統消息在處理上會出現亂序的問題，必須要通過業務欄位做先後次序處理，忽略過期的數據，一般都用業務發生時間bizTime.</p>
+<p>在推送索引這塊可以利用聚合緩存策略， 減少推送索引的頻率，很多搜索框架都對每次推送數據的大小，每秒的推送次數都有限制，需要利用聚合緩存策略來適應選擇的搜索框架，總的來說就是不能推的太快，也不來太慢，還要保證所有的索引構建完成在業務允許的範圍（1s）之內。</p>
+<p>搜索框架的選型非常多：開源的有ElasticSearch，lucene，nutch，solr，solandra. 商業產品的每個雲平台都有搜索產品提供，默認推薦 elasticsearch, 如果對搜索結果準確性和智能化程度比較高，使用商業化雲產品。</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		分類: <a href="https://daynews.cc/technology/" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/26469/#comments">
+			寫評論		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">返回頂部</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="354f0d2beeef" type="baiduanalytics"><script type="application/json">{"vars":{"token":"882f12dcdadf8f87fabf76b550649115"},"triggers":{"trackPageview":{"on":"visible","request":"pageview"}}}</script></amp-analytics>
+</body>
+</html>
+<!-- This is the static html file -->

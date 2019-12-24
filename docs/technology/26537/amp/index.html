@@ -1,0 +1,618 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/26537/#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/5190fc16492d4c7ab21d778b7d31685a"},{"@type":"WebPage","@id":"https://daynews.cc/technology/26537/#webpage","url":"https://daynews.cc/technology/26537/","inLanguage":"zh-TW","name":"\u524d\u7aef\u958b\u767c-\u9910\u98f2\u5c0f\u7968\u81ea\u4e3b\u5217\u5370\u61c9\u7528\u958b\u767c - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/26537/#primaryimage"},"datePublished":"2019-12-22T02:55:07+00:00","dateModified":"2019-12-22T02:55:07+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="餐飲小票自主列印應用 #程序員乾貨站#餐飲小票是餐廳消費的主要憑證之一，與消費發票共同構成了很多單位財務報銷的依據。對於部分小餐飲企業由於各種原因未能為用戶提供餐飲小票，給消費者帶來麻煩。本例以此需求為背景結合JavaScript、HTML、CSS等設計開發基於Web的餐飲小票BIY軟體，可以低成本幫助商家解決小票列印問題。 實現效果 本……" />
+<meta name="twitter:title" content="前端開發-餐飲小票自主列印應用開發 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/5190fc16492d4c7ab21d778b7d31685a" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="前端開發-餐飲小票自主列印應用開發 - 天天要聞" />
+<meta property="og:description" content="餐飲小票自主列印應用 #程序員乾貨站#餐飲小票是餐廳消費的主要憑證之一，與消費發票共同構成了很多單位財務報銷的依據。對於部分小餐飲企業由於各種原因未能為用戶提供餐飲小票，給消費者帶來麻煩。本例以此需求為背景結合JavaScript、HTML、CSS等設計開發基於Web的餐飲小票BIY軟體，可以低成本幫助商家解決小票列印問題。 實現效果 本……" />
+<meta property="og:url" content="https://daynews.cc/technology/26537/" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-22T02:55:07+00:00" />
+	<title>前端開發-餐飲小票自主列印應用開發 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/26537/" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+	.amp-wp-header .amp-wp-canonical-link {
+		font-size: 0.8em;
+		text-decoration: underline;
+		position: absolute;
+		right: 18px;	}
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+	
+</head>
+
+<body class="">
+
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+										<a class="amp-wp-canonical-link" href="https://daynews.cc/technology/26537/">
+				原網頁			</a>
+			</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">前端開發-餐飲小票自主列印應用開發</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://daynews.cc/wp-content/themes/Kratos/images/default_avatar.jpeg" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-22T10:55:07+00:00">
+		2019-12-22	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		
+		<div>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/5190fc16492d4c7ab21d778b7d31685a" alt="《前端開發-餐飲小票自主列印應用開發》" width="640" height="290" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/5190fc16492d4c7ab21d778b7d31685a" alt="《前端開發-餐飲小票自主列印應用開發》" width="640" height="290" class=""></noscript></amp-img>
+<p class="pgc-img-caption">餐飲小票自主列印應用</p>
+
+</div>
+<p><a class="tteditor-forum" data-name="程序員乾貨站" data-uid="" data-id="" data-concern-id="1653158218766365">#程序員乾貨站#</a>餐飲小票是餐廳消費的主要憑證之一，與消費發票共同構成了很多單位財務報銷的依據。對於部分小餐飲企業由於各種原因未能為用戶提供餐飲小票，給消費者帶來麻煩。本例以此需求為背景結合JavaScript、HTML、CSS等設計開發基於Web的餐飲小票BIY軟體，可以低成本幫助商家解決小票列印問題。</p>
+<hr class="">
+<h2 class="pgc-h-arrow-right">實現效果</h2>
+<p>本例實現餐飲小票DIY應用，主要包括兩方面功能，其一為基本信息的填寫（基本信息、消費信息兩部分），即小票內容的填寫。所填寫基本信息主要包括商家名稱、座號、人數、收銀、日期、金額。消費信信息主要是指實際消費的信息，包括品類、數量及價格。基本信息設置部分運行頁面如下圖：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/0ff032c26f4e47f4a63583e17dbff85e" alt="《前端開發-餐飲小票自主列印應用開發》" width="640" height="384" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/0ff032c26f4e47f4a63583e17dbff85e" alt="《前端開發-餐飲小票自主列印應用開發》" width="640" height="384" class=""></noscript></amp-img>
+<p class="pgc-img-caption">程序基本參數設置部分</p>
+
+</div>
+<p>基本信息設置頁面如上圖所示，在菜單詳情部分支持動態表格的自動添加，用戶點擊添加將自動生成表格，在表格中填寫菜單之後，會自動計算總金額並填寫的總金額欄位部分。填寫菜單詳細信息部分運行截圖如下：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/93cbea724d1844609776df9588e0e268" alt="《前端開發-餐飲小票自主列印應用開發》" width="640" height="530" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/93cbea724d1844609776df9588e0e268" alt="《前端開發-餐飲小票自主列印應用開發》" width="640" height="530" class=""></noscript></amp-img>
+<p class="pgc-img-caption">菜單詳情填寫部分界面</p>
+
+</div>
+<p>在完成基本信息設置之後，商家用戶可直接點擊一鍵生成小票按鈕實現小票的自動生成，並在窗口右側展示小票預覽效果。以上數據對應小票預覽功能實現截圖如下：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/d9f48a46396a46ecb5cc97b607355699" alt="《前端開發-餐飲小票自主列印應用開發》" width="244" height="331" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/d9f48a46396a46ecb5cc97b607355699" alt="《前端開發-餐飲小票自主列印應用開發》" width="244" height="331" class=""></noscript></amp-img>
+<p class="pgc-img-caption">自動小票生成樣式示例</p>
+
+</div>
+<p>小票預覽沒有問題則可以繼續點擊列印按鈕實現小票的列印操作。調用系統的列印功能彈出列印設置窗口並進一步完成列印操作。列印操作頁面如下圖：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/580ee284d7ec456a9b0f95a835e25af1" alt="《前端開發-餐飲小票自主列印應用開發》" width="640" height="407" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/580ee284d7ec456a9b0f95a835e25af1" alt="《前端開發-餐飲小票自主列印應用開發》" width="640" height="407" class=""></noscript></amp-img>
+<p class="pgc-img-caption">列印預覽窗口可設置紙張大小（本例A4）</p>
+
+</div>
+<p>以上給出該應用主要功能及相關操作頁面展示，商家可以使用該程序實現餐飲小票的列印輸出，其操作方便簡潔。</p>
+<hr class="">
+<h2 class="pgc-h-arrow-right">技術與實現說明</h2>
+<p>本例使用Sublime工具開發，主要使用技術包括HTML、CSS、原生JavaScript、前端框架PURE等進行的設計與開發。其中PURE及HTML、CSS主要用於實現前端頁面的架構與布局。JavaScript主要用於實現業務操作。PURE使用主要鏈接其CSS樣式文件，實現代碼如下：</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/42af6dc6cf774864a64ee8b5088f95c0" alt="《前端開發-餐飲小票自主列印應用開發》" width="982" height="183" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/42af6dc6cf774864a64ee8b5088f95c0" alt="《前端開發-餐飲小票自主列印應用開發》" width="982" height="183" class=""></noscript></amp-img>
+<p class="pgc-img-caption">外部框架使用</p>
+
+</div>
+<p>Javascript編程部分主要對添加、重置餐單、一鍵生成、列印四個按鈕進行了JS編程實現。其中一鍵生成主要是獲取左側所填寫的小票基本信息，並在右側顯示出設計的小票樣式。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/4192396baf764bd3a58edafda5434e63" alt="《前端開發-餐飲小票自主列印應用開發》" width="334" height="47" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/4192396baf764bd3a58edafda5434e63" alt="《前端開發-餐飲小票自主列印應用開發》" width="334" height="47" class=""></noscript></amp-img>
+<p class="pgc-img-caption">按鈕設計</p>
+
+</div>
+<p>本例為方便編程，將設置部分頂部基本信息單獨設計類進行描述，詳細菜單部分單獨設置類進行描述。小票按照信息也劃分為兩部分，頭部的基本信息與下方的菜品詳細信息，其中菜品詳細信息為表格布局。添加數據實現部分代碼截圖如下：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/f7f0e3ddc0c74465ac7113e60b5b42e5" alt="《前端開發-餐飲小票自主列印應用開發》" width="640" height="404" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/f7f0e3ddc0c74465ac7113e60b5b42e5" alt="《前端開發-餐飲小票自主列印應用開發》" width="640" height="404" class=""></noscript></amp-img>
+<p class="pgc-img-caption">菜品詳細信息寫入</p>
+
+</div>
+<p>列印功能較為簡單，只需要使用JS中window的print功能即可實現網頁頁面的列印操作。默認情況下將完成整個網頁的列印，本例只列印小票部分，因此在列印之前將其他部分內容隱藏，待列印完成再恢復顯示。列印功能封裝到myPrint方法，該方法代碼如下：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/3fd4f12616cd4c629e855c9e1243eead" alt="《前端開發-餐飲小票自主列印應用開發》" width="637" height="170" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/3fd4f12616cd4c629e855c9e1243eead" alt="《前端開發-餐飲小票自主列印應用開發》" width="637" height="170" class=""></noscript></amp-img>
+<p class="pgc-img-caption">自定義列印函數</p>
+
+</div>
+<p>由於篇幅限制，其他技術部分問題、解決措施及代碼不再一一說明。如有問題可留言探討。</p>
+<hr class="">
+<h2 class="pgc-h-arrow-right">操作演示</h2>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/e201f23032914a95aea2279b6084f408" alt="《前端開發-餐飲小票自主列印應用開發》" width="773" height="612" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/e201f23032914a95aea2279b6084f408" alt="《前端開發-餐飲小票自主列印應用開發》" width="773" height="612" class=""></noscript></amp-img>
+<p class="pgc-img-caption">使用預覽</p>
+
+</div>
+<hr class="">
+<p>本頭條號長期關注編程資訊分享；編程課程、素材、代碼分享及編程培訓。如果您對以上方面有興趣或代碼錯誤、建議與意見，可以聯繫作者，共同探討。期待大家關注！相關文章鏈接如下：</p>
+<p><a class="pgc-link" data-content="mp" href="https://www.toutiao.com/i6751755751351386631/?group_id=6751755751351386631" target="_blank">前端開發-JavaScript DOM動態生成文本框</a></p>
+<p><a class="pgc-link" data-content="mp" href="https://www.toutiao.com/i6733760203575017991/?group_id=6733760203575017991" target="_blank">前端設計-響應式頁面開發基礎</a></p>
+<p><a class="pgc-link" data-content="mp" href="https://www.toutiao.com/i6734515324709765635/?group_id=6734515324709765635" target="_blank">前端設計-Ajax技術及實例展示</a></p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		分類: <a href="https://daynews.cc/technology/" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/26537/#comments">
+			寫評論		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">返回頂部</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="354f0d2beeef" type="baiduanalytics"><script type="application/json">{"vars":{"token":"882f12dcdadf8f87fabf76b550649115"},"triggers":{"trackPageview":{"on":"visible","request":"pageview"}}}</script></amp-analytics>
+</body>
+</html>
+<!-- This is the static html file -->

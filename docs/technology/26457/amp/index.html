@@ -1,0 +1,703 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/26457/#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/a5962a58f55d4c8abcb9af9180f8a20f"},{"@type":"WebPage","@id":"https://daynews.cc/technology/26457/#webpage","url":"https://daynews.cc/technology/26457/","inLanguage":"zh-TW","name":"\u8d85\u751f\u52d5\u5716\u89e3LSTM\u548cGPU\uff0c\u4e00\u6587\u8b80\u61c2\u5faa\u74b0\u795e\u7d93\u7db2\u8def - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/26457/#primaryimage"},"datePublished":"2019-12-22T10:50:06+00:00","dateModified":"2019-12-22T10:50:06+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="AI識別你的語音、回答你的問題、幫你翻譯外語，都離不開一種特殊的循環神經網路（RNN）：長短期記憶網路（Long short-term memory，LSTM）。 最近，國外有一份關於 LSTM 及其變種 GRU （Gated Recurrent Unit）的圖解教程非常火。教程先介紹了這兩種網路的基礎知識，然後解釋了讓LSTM和GRU具……" />
+<meta name="twitter:title" content="超生動圖解LSTM和GPU，一文讀懂循環神經網路 - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/a5962a58f55d4c8abcb9af9180f8a20f" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="超生動圖解LSTM和GPU，一文讀懂循環神經網路 - 天天要聞" />
+<meta property="og:description" content="AI識別你的語音、回答你的問題、幫你翻譯外語，都離不開一種特殊的循環神經網路（RNN）：長短期記憶網路（Long short-term memory，LSTM）。 最近，國外有一份關於 LSTM 及其變種 GRU （Gated Recurrent Unit）的圖解教程非常火。教程先介紹了這兩種網路的基礎知識，然後解釋了讓LSTM和GRU具……" />
+<meta property="og:url" content="https://daynews.cc/technology/26457/" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-22T10:50:06+00:00" />
+	<title>超生動圖解LSTM和GPU，一文讀懂循環神經網路 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/26457/" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+	.amp-wp-header .amp-wp-canonical-link {
+		font-size: 0.8em;
+		text-decoration: underline;
+		position: absolute;
+		right: 18px;	}
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+	
+</head>
+
+<body class="">
+
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+										<a class="amp-wp-canonical-link" href="https://daynews.cc/technology/26457/">
+				原網頁			</a>
+			</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">超生動圖解LSTM和GPU，一文讀懂循環神經網路</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://daynews.cc/wp-content/themes/Kratos/images/default_avatar.jpeg" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-22T18:50:06+00:00">
+		2019-12-22	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		
+		<div>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/a5962a58f55d4c8abcb9af9180f8a20f" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="640" height="360" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/a5962a58f55d4c8abcb9af9180f8a20f" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="640" height="360" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>AI識別你的語音、回答你的問題、幫你翻譯外語，都離不開一種特殊的循環神經網路（RNN）：長短期記憶網路（Long short-term memory，LSTM）。</p>
+<p>最近，國外有一份關於 <strong>LSTM</strong> 及其變種 <strong>GRU</strong> （Gated Recurrent Unit）的圖解教程非常火。教程先介紹了這兩種網路的基礎知識，然後解釋了讓LSTM和GRU具有良好性能的內在機制。當然，通過這篇文章，還可以了解這兩種網路的一些背景。</p>
+<p>圖解教程的作者Michael Nguyen是一名AI語音助理方面的機器學習工程師。</p>
+<p>下面，跟著量子位一起來 <strong>學習一下~</strong></p>
+<h2 class="pgc-h-arrow-right">短期記憶問題</h2>
+<p>RNN受限於短期記憶問題。如果一個序列足夠長，那它們很難把信息從較早的時間步傳輸到後面的時間步。因此，如果你嘗試處理一段文本來進行預測，RNN可能在開始時就會遺漏重要信息。</p>
+<p>在反向傳播過程中，RNN中存在梯度消失問題。梯度是用於更新神經網路權重的值，梯度消失問題是指隨著時間推移，梯度在傳播時會下降，如果梯度值變得非常小，則不會繼續學習。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/6636398f1d0946a58bc3a8a3c2da8ec4" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="550" height="153" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/6636398f1d0946a58bc3a8a3c2da8ec4" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="550" height="153" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>△</strong> 梯度更新規則</p>
+<p>因此，在RNN中，梯度小幅更新的網路層會停止學習，這些通常是較早的層。由於這些層不學習，RNN無法記住它在較長序列中學習到的內容，因此 <strong>它的記憶是短期的。</strong></p>
+<p>關於RNN的更多介紹，可訪問：</p>
+<p>https://towardsdatascience.com/illustrated-guide-to-recurrent-neural-networks-79e5eb8049c9</p>
+<h2 class="pgc-h-arrow-right">解決方案：LSTM和GRU</h2>
+<p>LSTM和GRU是克服短期記憶問題提出的解決方案，它們引入稱作 <strong>「門」</strong> 的內部機制，可以調節信息流。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/2646523468524de7a9bd449c331b3201" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="550" height="350" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/2646523468524de7a9bd449c331b3201" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="550" height="350" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>這些門結構可以學習序列中 <strong>哪些數據是要保留的重要信息，哪些是要刪除的</strong> 。通過這樣做，它可以沿著長鏈序列傳遞相關信息來執行預測。幾乎所有基於RNN的先進結果都是通過這兩個網路實現的。LSTM和GRU經常用在語音識別、語音合成和文本生成等領域，還可用來為視頻生成字幕。</p>
+<p>當你看完這篇文章時，我相信你會對LSTM和GRU在處理長序列的突出能力有充分了解。下面我將通過直觀解釋和插圖來進行介紹，並儘可能繞開數學運算。</p>
+<h2 class="pgc-h-arrow-right">直觀認識</h2>
+<p>我們從一個思考實驗開始。當你在網路上購買生活用品時，一般會先閱讀商品評論來判斷商品好壞，以確定是否要購買這個商品。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/5261cc2758854dbfbd2e71cd748e6736" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="550" height="287" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/5261cc2758854dbfbd2e71cd748e6736" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="550" height="287" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>當你查看評論時，你的大腦下意識地只會記住重要的關鍵詞。你會選擇「amazing」和「perfectly balanced breakfast」這樣的辭彙，而不太關心「this」，「give」，「all」，「should」等字樣。如果有人第二天問你評論內容，你可能不會一字不漏地記住它，而是記住了主要觀點，比如「下次一定還來買」，一些 <strong>次要內容自然會從記憶中逐漸消失。</strong></p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/e2141401e0094afa97a9230826232d51" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="640" height="360" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/e2141401e0094afa97a9230826232d51" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="640" height="360" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>在這種情況下，你記住的這些詞能判定了這個餐廳的好壞。這基本上就是LSTM或GRU的作用，它可以學習 <strong>只保留相關信息來進行預測</strong> ，並忘記不相關的數據。</p>
+<h2 class="pgc-h-arrow-right">RNN回顧</h2>
+<p>為了理解LSTM或GRU如何實現這一點，接下來 <strong>回顧下RNN</strong> 。RNN的工作原理如下：首先單詞被轉換成機器可讀的向量，然後RNN逐個處理向量序列。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/4ef2666247de4e4d8341572b801fb8d7" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="640" height="168" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/4ef2666247de4e4d8341572b801fb8d7" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="640" height="168" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>△</strong> 逐個處理向量序列</p>
+<p>在處理時，它把先前的隱藏狀態傳遞給序列的下一步，其中隱藏狀態作為神經網路記憶，它包含相關網路已處理數據的信息。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/689cf35f5d1147d78edad23f3f215bf8" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="640" height="168" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/689cf35f5d1147d78edad23f3f215bf8" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="640" height="168" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>△</strong> 把隱藏狀態傳遞給下個時間步</p>
+<p>下面來介紹 <strong>RNN中每個cell單元是如何計算隱藏狀態的。</strong></p>
+<p>首先，將輸入和先前隱藏狀態組合成一個向量，向量中含有當前輸入和先前輸入的信息。這個向量再經過激活函數Tanh後，輸出新的隱藏狀態，或網路記憶。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/ee2cc9977d264b07b7bc991782a14f47" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="639" height="253" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/ee2cc9977d264b07b7bc991782a14f47" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="639" height="253" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>△</strong> RNN單元</p>
+<h2 class="pgc-h-arrow-right">激活函數Tanh</h2>
+<p>激活函數Tanh用於幫助調節流經網路的值，且Tanh函數的輸出值始終在區間(-1, 1)內。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/669c26ad4e3644d3ab2116a2a249a4bd" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="639" height="253" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/669c26ad4e3644d3ab2116a2a249a4bd" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="639" height="253" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>當向量流經神經網路時，由於存在各種數學運算，它經歷了許多變換。因此，想像下讓一個值不斷乘以3，它會逐漸變大並變成天文數字，這會讓其他值看起來微不足道。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/8016fd31cc9345bb9c8c644fac0a5398" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="633" height="84" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/8016fd31cc9345bb9c8c644fac0a5398" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="633" height="84" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>△</strong> 無Tanh函數的向量變換</p>
+<p>Tanh函數能讓輸出位於區間(-1, 1)內，從而調節神經網路輸出。 你可以看到這些值是如何保持在Tanh函數的允許範圍內。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/34ae2c0241124a528ca02f5588a38a14" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="633" height="84" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/34ae2c0241124a528ca02f5588a38a14" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="633" height="84" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>△</strong> 有Tanh函數的向量變換</p>
+<p>這就是RNN，它的內部操作很少，但在適當情況下（如短序列分析）效果很好。RNN使用的計算資源比它的演化變體LSTM和GRU少得多。</p>
+<h2 class="pgc-h-arrow-right">LSTM</h2>
+<p>LSTM的控制流程與RNN類似，它們都是在前向傳播過程中處理傳遞信息的數據，區別在於LSTM單元的結構和運算有所變化。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/161b21955436404381887deca828893a" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="550" height="329" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/161b21955436404381887deca828893a" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="550" height="329" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>△</strong> LSTM單元及其運算</p>
+<p><strong>這些運算能讓LSTM具備選擇性保留或遺忘某些信息的能力</strong> ，下面我們將逐步介紹這些看起來有點複雜的運算。</p>
+<h2 class="pgc-h-arrow-right">核心概念</h2>
+<p>LSTM的核心概念為其 <strong>單元狀態</strong> 和各種 <strong>門</strong> 結構。</p>
+<p><strong>單元狀態相當於能傳輸相關信息的通路</strong> ，讓信息在序列鏈中傳遞下去，這部分可看作是網路的「記憶」。理論上，在序列處理過程中，單元狀態能一直攜帶著相關信息。因此，在較早時間步中獲得的信息也能傳輸到較後時間步的單元中，這樣能減弱短期記憶的影響。</p>
+<p>在網路訓練過程中，可通過門結構來添加或移除信息，不同神經網路都可 通過單元狀態上的門結構來決定去記住或遺忘哪些相關信息 。</p>
+<h2 class="pgc-h-arrow-right">Sigmoid</h2>
+<p>門結構中包含Sigmoid函數，這個激活函數與Tanh函數類似。但它的 <strong>輸出區間</strong> 不是(-1, 1)，而是 <strong>(0, 1)</strong> ，這有助於更新或忘記數據，因為任何數字乘以0都為0，這部分信息會被遺忘。同樣，任何數字乘以1都為相同值，這部分信息會完全保留。通過這樣，網路能了解哪些數據不重要需要遺忘，哪些數字很重要需要保留。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/0a1a358f0a574f29973e1f25fb9ac4af" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="639" height="253" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/0a1a358f0a574f29973e1f25fb9ac4af" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="639" height="253" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>△</strong> Sigmoid輸出區間為(0, 1)</p>
+<p>下面會深入介紹下不同門結構的功能。LSTM單元中有 <strong>三種調節信息流的門結構</strong> ：遺忘門、輸入門和輸出門。</p>
+<h2 class="pgc-h-arrow-right">遺忘門</h2>
+<p>遺忘門能決定應丟棄或保留哪些信息。來自先前隱藏狀態的信息和當前輸入的信息同時輸入到Sigmoid函數，輸出值處於0和1之間，越接近0意味著越應該忘記，越接近1意味著越應該保留。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/9aac7e08e9944f4e977d693dd5457fdb" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="638" height="336" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/9aac7e08e9944f4e977d693dd5457fdb" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="638" height="336" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>△</strong> 遺忘門操作</p>
+<h2 class="pgc-h-arrow-right">輸入門</h2>
+<p>輸入門用來更新單元狀態。先將先前隱藏狀態的信息和當前輸入的信息輸入到Sigmoid函數，在0和1之間調整輸出值來決定更新哪些信息，0表示不重要，1表示重要。你也可將隱藏狀態和當前輸入傳輸給Tanh函數，並在-1和1之間壓縮數值以調節網路，然後把Tanh輸出和Sigmoid輸出相乘，Sigmoid輸出將決定在Tanh輸出中哪些信息是重要的且需要進行保留。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/74e193f93ef544599902097f59dc818f" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="640" height="303" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/74e193f93ef544599902097f59dc818f" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="640" height="303" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>△</strong> 輸入門操作</p>
+<h2 class="pgc-h-arrow-right">單元狀態</h2>
+<p>這裡已經具備足夠信息來計算單元狀態。首先把先前的單元狀態和遺忘向量逐點相乘，如果它乘以接近0的值，則意味在新的單元狀態中可能要丟棄這些值；然後把它和輸入門的輸出值逐點相加，把神經網路發現的新信息更新到單元狀態中，這樣就得到了新的單元狀態。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/797b275bae5b4fb9bc1ee2a68c622cc4" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="638" height="336" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/797b275bae5b4fb9bc1ee2a68c622cc4" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="638" height="336" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>△</strong> 計算單元狀態</p>
+<h2 class="pgc-h-arrow-right">輸出門</h2>
+<p>輸出門能決定下個隱藏狀態的值，隱藏狀態中包含了先前輸入的相關信息。當然，隱藏狀態也可用於預測。首先把先前的隱藏狀態和當前輸入傳遞給Sigmoid函數；接著把新得到的單元狀態傳遞給Tanh函數；然後把Tanh輸出和Sigmoid輸出相乘，以確定隱藏狀態應攜帶的信息；最後把隱藏狀態作為當前單元輸出，把新的單元狀態和新的隱藏狀態傳輸給下個時間步。</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/23ed45a175ee45f795a77f3706a22563" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="640" height="303" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/23ed45a175ee45f795a77f3706a22563" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="640" height="303" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>△</strong> 輸出門操作</p>
+<p>這裡 <strong>總結下</strong> ，遺忘門能決定需要保留先前步長中哪些相關信息，輸入門決定在當前輸入中哪些重要信息需要被添加，輸出門決定了下一個隱藏狀態。</p>
+<h2 class="pgc-h-arrow-right">代碼示例</h2>
+<p>這裡還提供了一個用Python寫的示例代碼，來讓大家能更好地理解這個結構。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/5ce8ef27d87f4faeb13252ea7c893cc6" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="550" height="494" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/5ce8ef27d87f4faeb13252ea7c893cc6" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="550" height="494" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<ol start="1">
+<li>首先，我們連接了先前的隱藏狀態和當前輸入，這裡定義為變數combine；</li>
+<li>把combine變數傳遞到遺忘層中，以刪除不相關數據；</li>
+<li>再用combine變數創建一個候選層，用來保留可能要添加到單元狀態中的值；</li>
+<li>變數combine也要傳遞給輸出層，來決定應把候選層中的哪些數據添加到新的單元狀態中；</li>
+<li>新的單元狀態可根據遺忘層、候選層和輸入層和先前的單元狀態來計算得到；</li>
+<li>再計算當前單元輸出；</li>
+<li>最後把輸出和新的單元狀態逐點相乘可得到新的隱藏狀態。</li>
+</ol>
+<p>從上面看出，LSTM網路的控制流程實際上只是 <strong>幾個張量操作和一個for循環</strong> 。你還可以用隱藏狀態進行預測。結合這些機制，LSTM能在序列處理過程中有選擇性地保留或遺忘某些信息。</p>
+<h2 class="pgc-h-arrow-right">GRU</h2>
+<p>介紹完LSTM的工作原理後，下面來看下門控循環單元GRU。GRU是RNN的另一類演化變種，與LSTM非常相似。GRU結構中 <strong>去除了單元狀態，而使用隱藏狀態來傳輸信息。</strong> 它只有兩個門結構，分別是更新門和重置門。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/2420d0d22571410bb4929c97a0547c09" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="550" height="449" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/2420d0d22571410bb4929c97a0547c09" alt="《超生動圖解LSTM和GPU，一文讀懂循環神經網路》" width="550" height="449" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p><strong>△</strong> GRU單元結構</p>
+<h2 class="pgc-h-arrow-right">更新門</h2>
+<p>更新門的作用類似於LSTM中的遺忘門和輸入門，它能決定要丟棄哪些信息和要添加哪些新信息。</p>
+<h2 class="pgc-h-arrow-right">重置門</h2>
+<p>重置門用於決定丟棄先前信息的程度。</p>
+<p>這兩部分組成了GRU，它的張量操作較少，因此 <strong>訓練它比LSTM更快一點</strong> 。在選擇網路時很難判斷哪個更好，研究人員通常會兩個都試下，通過性能比較來選出更適合當前任務的結構。</p>
+<h2 class="pgc-h-arrow-right">總結</h2>
+<p>總而言之，RNN適用於處理序列數據和預測任務，但會受到短期記憶的影響。LSTM和GRU是兩種通過引入門結構來減弱短期記憶影響的演化變體，其中門結構可用來調節流經序列鏈的信息流。目前，LSTM和GRU經常被用於語音識別、語音合成和自然語言理解等多個深度學習應用中。</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		分類: <a href="https://daynews.cc/technology/" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/26457/#comments">
+			寫評論		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">返回頂部</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="354f0d2beeef" type="baiduanalytics"><script type="application/json">{"vars":{"token":"882f12dcdadf8f87fabf76b550649115"},"triggers":{"trackPageview":{"on":"visible","request":"pageview"}}}</script></amp-analytics>
+</body>
+</html>
+<!-- This is the static html file -->

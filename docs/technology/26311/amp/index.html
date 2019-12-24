@@ -1,0 +1,600 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/26311/#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/91efe403cd6c4afc8351d08f2f87113b"},{"@type":"WebPage","@id":"https://daynews.cc/technology/26311/#webpage","url":"https://daynews.cc/technology/26311/","inLanguage":"zh-TW","name":"Python\u6578\u64da\u53ef\u8996\u5316\uff1a\u4e00\u6587\u770b\u61c2\u6c23\u6ce1\u5716\u7e6a\u88fd\u8207\u4f7f\u7528\uff0c\u503c\u5f97\u6536\u85cf - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/26311/#primaryimage"},"datePublished":"2019-12-23T04:15:07+00:00","dateModified":"2019-12-23T04:15:07+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="導讀：什麼是氣泡圖？可以用來呈現哪些數據關係？在數據分析過程中可以解決哪些問題？怎樣用Python繪製氣泡圖？本文逐一為你解答。 作者：屈希峰 來源：華章科技 01 概述 氣泡圖（Bubble）是一種多變數圖表，是散點圖的變體，也可以認為是散點圖和百分比區域圖的組合。其可用於展示三個變數之間的關係，和散點圖一樣，繪製時將一個變數放在橫軸，……" />
+<meta name="twitter:title" content="Python數據可視化：一文看懂氣泡圖繪製與使用，值得收藏 - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/91efe403cd6c4afc8351d08f2f87113b" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Python數據可視化：一文看懂氣泡圖繪製與使用，值得收藏 - 天天要聞" />
+<meta property="og:description" content="導讀：什麼是氣泡圖？可以用來呈現哪些數據關係？在數據分析過程中可以解決哪些問題？怎樣用Python繪製氣泡圖？本文逐一為你解答。 作者：屈希峰 來源：華章科技 01 概述 氣泡圖（Bubble）是一種多變數圖表，是散點圖的變體，也可以認為是散點圖和百分比區域圖的組合。其可用於展示三個變數之間的關係，和散點圖一樣，繪製時將一個變數放在橫軸，……" />
+<meta property="og:url" content="https://daynews.cc/technology/26311/" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-23T04:15:07+00:00" />
+	<title>Python數據可視化：一文看懂氣泡圖繪製與使用，值得收藏 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/26311/" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+	.amp-wp-header .amp-wp-canonical-link {
+		font-size: 0.8em;
+		text-decoration: underline;
+		position: absolute;
+		right: 18px;	}
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+	
+</head>
+
+<body class="">
+
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+										<a class="amp-wp-canonical-link" href="https://daynews.cc/technology/26311/">
+				原網頁			</a>
+			</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">Python數據可視化：一文看懂氣泡圖繪製與使用，值得收藏</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://daynews.cc/wp-content/themes/Kratos/images/default_avatar.jpeg" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-23T12:15:07+00:00">
+		2019-12-23	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		
+		<div>
+<blockquote>
+<p>導讀：什麼是氣泡圖？可以用來呈現哪些數據關係？在數據分析過程中可以解決哪些問題？怎樣用Python繪製氣泡圖？本文逐一為你解答。</p>
+</blockquote>
+<p>作者：屈希峰</p>
+<p>來源：華章科技</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/91efe403cd6c4afc8351d08f2f87113b" alt="《Python數據可視化：一文看懂氣泡圖繪製與使用，值得收藏》" width="640" height="425" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/91efe403cd6c4afc8351d08f2f87113b" alt="《Python數據可視化：一文看懂氣泡圖繪製與使用，值得收藏》" width="640" height="425" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">01 概述</h2>
+<p>氣泡圖（Bubble）是一種多變數圖表，是<a class="pgc-link" data-content="mp" href="https://www.toutiao.com/i6769881981669868040/?group_id=6769881981669868040" target="_blank">散點圖</a>的變體，也可以認為是散點圖和百分比區域圖的組合。<strong>其可用於展示三個變數之間的關係</strong>，和散點圖一樣，繪製時將一個變數放在橫軸，另一個變數放在縱軸，而第三個變數則用氣泡的大小來表示。</p>
+<p>排列在工作表的列中的數據（第一列中列出x值，在相鄰列中列出相應的y值和氣泡大小的值）可以繪製在氣泡圖中。</p>
+<p>氣泡圖與散點圖相似，<strong>不同之處</strong>在於：氣泡圖允許在圖表中額外加入一個表示大小的變數進行對比，而第四維度的數據則可以通過不同的顏色來表示（甚至在漸變中使用陰影來表示)。</p>
+<p>另一種使用氣泡元素的流行方法是使用氣泡地圖。在氣泡地圖中，x和y分別代表一個地理位置的經緯坐標。在不要求定位非常精確的情況下，氣泡地圖可以將數據的相對集中度完美地體現在地理背景中。</p>
+<p>此外，表示時間維度的數據時，可以將時間維度作為直角坐標系中的一個維度，或者結合動畫來表現數據隨著時間的變化情況。</p>
+<p>氣泡圖通常用於比較和展示不同類別圓點（這裡我們稱為氣泡）之間的關係，通過氣泡的位置以及面積大小。<strong>從整體上看，氣泡圖可用於分析數據之間的相關性。</strong></p>
+<p>但需要注意的是，<strong>氣泡圖的數據大小容量有限，氣泡太多會使圖表難以閱讀。</strong>但是可以通過增加一些交互行為彌補：隱藏一些信息，當滑鼠點擊或者懸浮時顯示，或者添加一個選項用於重組或者過濾分組類別。</p>
+<p>最後，<strong>氣泡的大小是映射面積而非半徑或直徑</strong>，如果是基於半徑或者直徑，圓的大小不僅會呈現指數級的變化，而且還會導致視覺上的誤差。如圖1所示。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/1c26a1b4b49f4055a701e9f30ca8043e" alt="《Python數據可視化：一文看懂氣泡圖繪製與使用，值得收藏》" width="640" height="278" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/1c26a1b4b49f4055a701e9f30ca8043e" alt="《Python數據可視化：一文看懂氣泡圖繪製與使用，值得收藏》" width="640" height="278" class=""></noscript></amp-img>
+<p class="pgc-img-caption">▲圖1 氣泡圖</p>
+
+</div>
+<h2 class="pgc-h-arrow-right">02 實例</h2>
+<p>氣泡圖的代碼如代碼示例①所示。</p>
+<p><strong>代碼示例①</strong></p>
+<pre><code>1#簡單氣泡圖2x=[1,2,3,4]3y=[2,4,6,8]4sizes=np.array(y)*5#氣泡大小，單位屏幕像素5p=figure(title="bubblechart")6p.scatter(x,y,marker="circle",size=sizes,color="navy",7#fill_color=None,line_width=28)9show(p)</code></pre>
+<p>運行結果如圖2所示。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/baad63fe67fa4a77beb86127e0f6b189" alt="《Python數據可視化：一文看懂氣泡圖繪製與使用，值得收藏》" width="600" height="600" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/baad63fe67fa4a77beb86127e0f6b189" alt="《Python數據可視化：一文看懂氣泡圖繪製與使用，值得收藏》" width="600" height="600" class=""></noscript></amp-img>
+<p class="pgc-img-caption">▲圖2 代碼示例①運行結果</p>
+
+</div>
+<p>從代碼示例①中的第6行可以看出，氣泡圖的繪製仍使用散點圖法，稍微不同的是在該方法中定義了散點數據的尺寸（size）大小。除此之外，可以再增加一個維度，用不同的氣泡顏色進行數據分類。</p>
+<p><strong>代碼示例②</strong></p>
+<pre><code>  1#複雜氣泡圖，完整代碼  2importpandasaspd  3frombokeh.embedimportfile_html  4frombokeh.ioimportoutput_notebook,show  5frombokeh.layoutsimportlayout  6frombokeh.modelsimport(  7ColumnDataSource,Plot,Circle,Range1d,LinearAxis,HoverTool,  8Text,SingleIntervalTicker,Slider,CustomJS,Legend,LegendItem,CategoricalColorMapper)#底層樣式  9frombokeh.palettesimportSpectral6 10#fromdataimportprocess_data 11importnumpyasnp 12defprocess_data(): 13frombokeh.sampledata.gapminderimportfertility,life_expectancy,population,regions 14 15#Makethecolumnnamesintsnotstringsforhandling 16columns=list(fertility.columns) 17years=list(range(int(columns[0]),int(columns[-1]))) 18rename_dict=dict(zip(columns,years)) 19 20fertility=fertility.rename(columns=rename_dict) 21life_expectancy=life_expectancy.rename(columns=rename_dict) 22population=population.rename(columns=rename_dict) 23regions=regions.rename(columns=rename_dict) 24regions_list=list(regions.Group.unique()) 25 26#Turnpopulationintobubblesizes.Usemin_sizeandfactortotweak. 27scale_factor=200 28population_size=np.sqrt(population/np.pi)/scale_factor 29min_size=3 30population_size=population_size.where(population_size&gt;=min_size).fillna(min_size) 31 32returnfertility,life_expectancy,population_size,regions,years,regions_list 33 34#數據預處理，感興趣的讀者可以在Pandas提前處理好直接載入 35fertility_df,life_expectancy_df,population_df_size,regions_df,years,regions_list=process_data() 36sources={} 37region_name=regions_df.Group 38region_name.name='region' 39foryearinyears: 40fertility=fertility_df[year] 41fertility.name='fertility' 42life=life_expectancy_df[year] 43life.name='life' 44population=population_df_size[year] 45population.name='population' 46new_df=pd.concat([fertility,life,population,region_name],axis=1) 47sources['_'+str(year)]=ColumnDataSource(new_df) 48dictionary_of_sources=dict(zip([xforxinyears],['_%s'%xforxinyears])) 49js_source_array=str(dictionary_of_sources).replace("'","") 50#畫布參數 51xdr=Range1d(1,9) 52ydr=Range1d(20,100) 53plot=Plot( 54x_range=xdr, 55y_range=ydr, 56plot_width=800, 57plot_height=400, 58outline_line_color=None, 59toolbar_location=None, 60min_border=20, 61) 62#坐標軸參數 63AXIS_FORMATS=dict( 64minor_tick_in=None, 65minor_tick_out=None, 66major_tick_in=None, 67major_label_text_font_size="10pt", 68major_label_text_font_style="normal", 69axis_label_text_font_size="10pt", 70 71axis_line_color='#AAAAAA', 72major_tick_line_color='#AAAAAA', 73major_label_text_color='#666666', 74 75major_tick_line_cap="round", 76axis_line_cap="round", 77axis_line_width=1, 78major_tick_line_width=1, 79) 80xaxis=LinearAxis(ticker=SingleIntervalTicker(interval=1),axis_label="Childrenperwoman(totalfertility)",**AXIS_FORMATS) 81yaxis=LinearAxis(ticker=SingleIntervalTicker(interval=20),axis_label="Lifeexpectancyatbirth(years)",**AXIS_FORMATS) 82plot.add_layout(xaxis,'below') 83plot.add_layout(yaxis,'left') 84#添加年份圖層（最底層） 85text_source=ColumnDataSource({'year':['%s'%years[0]]}) 86text=Text(x=2,y=35,text='year',text_font_size='150pt',text_color='#EEEEEE') 87plot.add_glyph(text_source,text) 88#色盤，分類映射 89color_mapper=CategoricalColorMapper(palette=Spectral6,factors=regions_list) 90#繪製氣泡（散點） 91renderer_source=sources['_%s'%years[0]] 92circle_glyph=Circle( 93x='fertility',y='life',size='population', 94fill_color={'field':'region','transform':color_mapper}, 95fill_alpha=0.8, 96line_color='#7c7e71',line_width=0.5,line_alpha=0.5) 97#添加圖層 98circle_renderer=plot.add_glyph(renderer_source,circle_glyph) 99#添加hover工具100tooltips="@index"101plot.add_tools(HoverTool(tooltips=tooltips,renderers=[circle_renderer]))102#添加滾動條空間103code="""104varyear=slider.value,105sources=%s,106new_source_data=sources[year].data;107renderer_source.data=new_source_data;108text_source.data={'year':[String(year)]};109"""%js_source_array110#數據回調111callback=CustomJS(args=sources,code=code)112slider=Slider(start=years[0],end=years[-1],value=1,step=1,title="Year",callback=callback)113callback.args["renderer_source"]=renderer_source114callback.args["slider"]=slider115callback.args["text_source"]=text_source116#顯示117show(layout([[plot],[slider]],sizing_mode='scale_width'))</code></pre>
+<p>運行結果如圖3所示。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/5b7d0053204a4f8fad8ad88a9e17acdf" alt="《Python數據可視化：一文看懂氣泡圖繪製與使用，值得收藏》" width="640" height="354" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/5b7d0053204a4f8fad8ad88a9e17acdf" alt="《Python數據可視化：一文看懂氣泡圖繪製與使用，值得收藏》" width="640" height="354" class=""></noscript></amp-img>
+<p class="pgc-img-caption">▲圖3 代碼示例②運行結果</p>
+
+</div>
+<p>代碼示例②第92行採用models介面進行氣泡繪製，並使用滑塊控制項進行不同年份數據的回調，拖動圖中的滑動塊可以動態顯示不同年份的數據；滑鼠懸停在氣泡上可以查看是哪個國家的數據。</p>
+<p>如果年份數據足夠多，則可以使用while循環回調載入不同年份的數據，其展示效果就是一幅類似於Gif效果的動圖。</p>
+<blockquote>
+<p>關於作者：屈希峰，資深Python工程師，Bokeh領域的實踐者和佈道者，對Bokeh有深入的研究。擅長Flask、MongoDB、Sklearn等技術，實踐經驗豐富。知乎多個專欄（Python中文社區、Python程序員、大數據分析挖掘）作者，專欄累計關注用戶十餘萬人。</p>
+</blockquote>
+<p>本文摘編自《Python數據可視化：基於Bokeh的可視化繪圖》，經出版方授權發布。</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/0163ebf132aa438ba37e3fbb67a24edb" alt="《Python數據可視化：一文看懂氣泡圖繪製與使用，值得收藏》" width="640" height="360" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/0163ebf132aa438ba37e3fbb67a24edb" alt="《Python數據可視化：一文看懂氣泡圖繪製與使用，值得收藏》" width="640" height="360" class=""></noscript></amp-img>
+<p class="pgc-img-caption">延伸閱讀《Python數據可視化》，長按上方二維碼了解及購買</p>
+
+</div>
+<p><strong>推薦語：</strong>從圖形繪製、數據動態展示、Web交互等維度全面講解Bokeh功能和使用，不含複雜數據處理和演算法，深入淺出，適合零基礎入門，包含大量案例。</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		分類: <a href="https://daynews.cc/technology/" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/26311/#comments">
+			寫評論		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">返回頂部</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="354f0d2beeef" type="baiduanalytics"><script type="application/json">{"vars":{"token":"882f12dcdadf8f87fabf76b550649115"},"triggers":{"trackPageview":{"on":"visible","request":"pageview"}}}</script></amp-analytics>
+</body>
+</html>
+<!-- This is the static html file -->

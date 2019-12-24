@@ -1,0 +1,628 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/26734/#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/RlCuBUbJGiPeAA"},{"@type":"WebPage","@id":"https://daynews.cc/technology/26734/#webpage","url":"https://daynews.cc/technology/26734/","inLanguage":"zh-TW","name":"\u6211\u7684AI\u4e0d\u53ef\u80fd\u9019\u9ebc\u50bb\uff1a\u6df1\u5ea6\u5b78\u7fd2\u7684\u81f4\u547d\u5f31\u9ede - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/26734/#primaryimage"},"datePublished":"2019-12-21T05:45:11+00:00","dateModified":"2019-12-21T05:45:11+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="本文由《Nature 自然科研》授權轉載，歡迎訪問關注。 原作者: Douglas Heaven 人工智慧專家正在想辦法修復神經網路的缺陷。 一輛自動駕駛汽車正在靠近一個停車讓行標誌，它非但沒有停下，反而加速沖入了繁忙的十字路口。後續的事故調查發現，停車讓行的標誌上貼了幾張方形標籤，正是這些標籤讓汽車的人工智慧（AI）系統將停車標誌錯誤識……" />
+<meta name="twitter:title" content="我的AI不可能這麼傻：深度學習的致命弱點 - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/RlCuBUbJGiPeAA" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="我的AI不可能這麼傻：深度學習的致命弱點 - 天天要聞" />
+<meta property="og:description" content="本文由《Nature 自然科研》授權轉載，歡迎訪問關注。 原作者: Douglas Heaven 人工智慧專家正在想辦法修復神經網路的缺陷。 一輛自動駕駛汽車正在靠近一個停車讓行標誌，它非但沒有停下，反而加速沖入了繁忙的十字路口。後續的事故調查發現，停車讓行的標誌上貼了幾張方形標籤，正是這些標籤讓汽車的人工智慧（AI）系統將停車標誌錯誤識……" />
+<meta property="og:url" content="https://daynews.cc/technology/26734/" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-21T05:45:11+00:00" />
+	<title>我的AI不可能這麼傻：深度學習的致命弱點 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/26734/" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+	.amp-wp-header .amp-wp-canonical-link {
+		font-size: 0.8em;
+		text-decoration: underline;
+		position: absolute;
+		right: 18px;	}
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+	
+</head>
+
+<body class="">
+
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+										<a class="amp-wp-canonical-link" href="https://daynews.cc/technology/26734/">
+				原網頁			</a>
+			</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">我的AI不可能這麼傻：深度學習的致命弱點</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://daynews.cc/wp-content/themes/Kratos/images/default_avatar.jpeg" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-21T13:45:11+00:00">
+		2019-12-21	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		
+		<div>
+<p><em>本文由《Nature 自然科研》授權轉載，歡迎訪問<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-6">關注</i>。</em></p>
+<p><strong class="highlight-text">原作者: Douglas Heaven</strong></p>
+<p><strong>人工智慧專家正在想辦法修復神經網路的缺陷。</strong></p>
+<p>一輛自動駕駛汽車正在靠近一個停車讓行標誌，它非但沒有停下，反而加速沖入了繁忙的十字路口。後續的事故調查發現，停車讓行的標誌上貼了幾張方形標籤，正是這些標籤讓汽車的人工智慧（AI）系統將停車標誌錯誤識別為「限速45」。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/RlCuBUbJGiPeAA" alt="《我的AI不可能這麼傻：深度學習的致命弱點》" width="640" height="424" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/RlCuBUbJGiPeAA" alt="《我的AI不可能這麼傻：深度學習的致命弱點》" width="640" height="424" class=""></noscript></amp-img></p>
+<p class="pgc-img-caption">插圖：Edgar Bąk</p>
+<p><strong>這一場景沒有真實發生，但AI被蓄意破壞和惡意攻擊的危險卻一直存在。</strong>研究人員已經證實，通過在特定位置放置貼紙，就能讓AI誤讀停車標誌<sup>1</sup>；如果將特定印刷圖案貼在眼鏡或帽子上，就能騙過人臉識別系統；不僅如此，研究人員還嘗試在音頻中加入一定模式的白雜訊，成功讓語音識別系統產生了幻聽。</p>
+<p>上面只是簡單幾例，說明要破壞AI的先進模式識別技術有多麼容易。這種模式識別技術也被稱為深度神經網路（deep neural networks，DNN），它對圖像、語音和消費者數據等各種類型的輸入具有強大的分類能力。從自動電話系統到流媒體網站的用戶推薦，深度神經網路早已融入了我們的日常生活。然而，<strong>只要對輸入做一些微小改變，即使變化小到人類無法辨識，也能使最先進的AI系統懵圈。</strong></p>
+<p>加州大學伯克利分校計算機科學博士生Dan Hendrycks表示，對於一項還不完美的技術來說，這些問題比特異性怪異模式更值得警惕。和許多研究人員一樣，他認為這種問題凸顯出了<strong>深度神經網路根本上的脆弱性——縱使在擅長的工作上表現出色，一旦進入陌生領域，它們將以無法預測的方式崩潰</strong>。</p>
+<p> <amp-img src="http://p9.pstatp.com/large/pgc-image/Rex5sg5GJt3mj0" alt="《我的AI不可能這麼傻：深度學習的致命弱點》" width="640" height="602" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/Rex5sg5GJt3mj0" alt="《我的AI不可能這麼傻：深度學習的致命弱點》" width="640" height="602" class=""></noscript></amp-img></p>
+<p class="pgc-img-caption">來源：停止標誌：參考文獻1；企鵝：參考文獻5</p>
+<p>而這絕不是小問題。隨著深度學習不斷從實驗室走向真實世界，從自動駕駛汽車到罪犯<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>再到疾病診斷無處不在。但正如今年的一項研究指出<sup>2</sup>，只要在醫學掃描影像中惡意增加幾個像素，深度神經網路就會將其誤診為癌症。此外，黑客還能利用這些弱點劫持在線的AI系統，讓它執行自己的演算法<sup>3</sup>。</p>
+<p>在搞清楚深度神經網路為什麼會失敗的過程中，研究人員已經找到了很多原因。谷歌AI工程師Franço<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">is</i> Chollet稱，「對於深度神經網路的這種根本脆弱性，目前沒有修復方法」。想要彌補這些缺陷，他與其他人都認為需要用額外的能力來「增強」善於模式匹配的深度神經網路，比如讓AI自主探索世界、自主編寫代碼並保留記憶。一些專家認為，這樣的系統將塑造今後10年的AI研究。</p>
+<p><strong>實踐的檢驗 </strong></p>
+<p><strong>2011年，谷歌發布的一套系統可以識別YouTube視頻中的貓，隨之掀起了一股深度神經網路分類系統的熱潮。</strong>懷俄明大學的Jeff Clune也是Uber舊金山AI實驗室的高級研究經理，據他回憶，「那時候每個人都在說，『太厲害了，計算機終於可以理解世界了』」。</p>
+<p>但AI研究人員明白，深度神經網路並沒有真正地理解世界。通過對大腦結構的粗略建模，大量的數字神經元被部署在多層結構，這構成了深度神經網路的基本軟體結構，其中每個神經元都與前後層的神經元相連。</p>
+<p>深度學習網路的基本概念是，底層輸入的圖像或像素等原始特徵會激發這些神經元，通過簡單的數學規則產生信號並傳遞給更高層級。訓練深度神經網路需要使用大量樣本，不斷調節神經元之間的連接方式，直到頂層神經元輸出期望的答案——比如將獅子的圖片識別成獅子，即使之前從未見過這張圖片。</p>
+<p>第一次大型實踐檢驗發生在<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">2013</i>年。谷歌研究員Chr<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">is</i>tian Szegedy和同事發表了一篇題為《論神經網路的有趣特性》的預印本論文<sup>4</sup>。<strong>研究人員只改變了少量像素，就讓深度神經網路得出了完全不同的結果，比如把獅子識別成圖書館。</strong>團隊把這種更改過的圖像稱為「對抗樣本」。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/RlCuBVP10dyOpe" alt="《我的AI不可能這麼傻：深度學習的致命弱點》" width="640" height="652" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/RlCuBVP10dyOpe" alt="《我的AI不可能這麼傻：深度學習的致命弱點》" width="640" height="652" class=""></noscript></amp-img></p>
+<p>一年後，Clune和他當時帶的博士生Anh Nguyen與康奈爾大學的Jason Yosinki合作,共同演示了什麼叫做「睜眼說瞎話」，比如讓深度神經網路將曲線條紋識別成企鵝<sup>5</sup>。深度學習領域的先驅、來自加拿大蒙特利爾大學的Yoshua Bengio說：「和機器學習打過交道的人都知道它們經常會犯低級錯誤。但這種錯誤是研究人員意料之外的，我們無法想像這種錯誤會發生。」</p>
+<p>新的錯誤紛至沓來。目前就職於美國奧本大學的Nguyen發現，只要將圖像中的物體稍微轉個方向，就足以把一些最好的圖像分類器搞得團團轉<sup>6</sup>。今年，Hendrycks和同事還報道稱，<strong>即使是未經更改的自然圖像也能讓先進的分類器給出不可預測的錯誤答案，例如將蘑菇識別成了扭結餅，將蜻蜓識別成了井蓋</strong><sup>7</sup>。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RlCuBVvFO4QH7W" alt="《我的AI不可能這麼傻：深度學習的致命弱點》" width="640" height="593" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RlCuBVvFO4QH7W" alt="《我的AI不可能這麼傻：深度學習的致命弱點》" width="640" height="593" class=""></noscript></amp-img></p>
+<p>這一問題不僅出現在物體識別技術上，任何利用深度神經網路為輸入（如語音）進行分類的AI都很容易受騙上當。會玩遊戲的AI也很容易遭到暗算。2017年，加州大學伯克利分校的計算機科學博士生Sandy Huang和同事讓經過訓練的深度神經網路通過「強化學習」的過程打一個名為Atari的電子遊戲<sup>8</sup>。研究人員會先給AI一個目標，再看它對一系列輸入的響應，通過試錯的方式讓它達到目標。</p>
+<p>這種技術成就了具有超人能力的遊戲AI，包括著名的AlphaZero和撲克機器人Pluribus。<strong>即便如此，Huang的團隊還是可以通過在屏幕上添加一兩個隨機像素，讓AI輸掉整場比賽。</strong></p>
+<p>今年早些時候，加州大學伯克利分校的AI博士生Adam Gleave和同事的研究表明，將一個主體引入一個AI環境，就能讓其做出混淆視聽的「對抗策略」<sup>9</sup>。舉例來說，一個AI足球運動員的訓練目標是讓球越過守門員，但在模擬環境中，當守門員表現出無法預料的行為時，如倒在地上，AI足球運動員也會失去進球的能力。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RlCuBWZqBK2Z9" alt="《我的AI不可能這麼傻：深度學習的致命弱點》" width="600" height="225" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RlCuBWZqBK2Z9" alt="《我的AI不可能這麼傻：深度學習的致命弱點》" width="600" height="225" class=""></noscript></amp-img></p>
+<p class="pgc-img-caption">一個AI足球運動員在模擬的點球大戰中被AI守門員的「對抗策略」（倒在地上）迷惑（右）。| 來源：Adam Gleave/參考文獻9</p>
+<p><strong>看透深度神經網路的弱點所在，甚至能讓黑客掌控強大的AI</strong>。去年穀歌的一個團隊就展示了他們不僅可以利用對抗樣本讓深度神經網路犯下特定錯誤，還能對它進行重新編程，讓經過訓練的AI去執行其他不相關的任務<sup>3</sup>。</p>
+<p>原則上，許多學習語言的神經網路可以用於編碼任何其他的計算機程序。Clune表示：「理論上你可以將聊天機器人的程序轉換成任何你想要的程序，而這只是震驚的開始。」他認為在不遠的未來，黑客會劫持雲端的神經網路，運行自己的垃圾郵件演算法。</p>
+<p>對於加州大學伯克利分校的計算機科學家Dawn Song來說，深度神經網路就像活靶子。她說：「攻擊系統的方法太多了，防禦非常非常困難。」</p>
+<p><strong>越強大越脆弱</strong></p>
+<p>深度神經網路的強大之處在於它們的多層結構，可以從一個輸入的不同特徵上提取模式來進行分類。對於一個被訓練用於識別飛機的AI來說，色彩、紋理和背景一類的特徵對它們而言，就像我們眼中的顯著特徵——機翼一樣。這也意味著輸入的微小改變會讓AI的預測結果大相徑庭。</p>
+<p>一個解決辦法是給AI更多數據，讓AI反覆暴露在有問題的例子下，不斷地糾正它的錯誤。在這種「對抗訓練」的方式下，其中一個網路會學習識別物體，另一個網路則嘗試改變前一個網路的輸入來使它出錯。這樣就能把對抗樣本變成深度神經網路訓練數據的一部分。</p>
+<p>Hendrycks和同事<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">建議</i>用大規模對抗樣本來測試深度神經網路的表現，量化深度神經網路抵抗錯誤的魯棒性。但他們也表示，在訓練網路抵抗某種攻擊的同時也會弱化網路對於其他攻擊的抵抗力。谷歌DeepMind倫敦辦公室的一個研究團隊在Pushmeet Kohli的領導下嘗試為深度神經網路「接種」抵抗出錯的「疫苗」。</p>
+<p>很多對抗攻擊都是通過對輸入進行微調來讓深度神經網路產生誤分類的，例如稍微改變圖像像素的顏色，一直到能讓深度神經網路出錯為止。Kohli團隊認為，一個魯棒的深度神經網路其輸出不會因為輸入的微小變化而改變，而這一特性可用數學的方式整合進整個網路，通過限制它學習的方式來實現。</p>
+<p>但目前還沒有人能夠從整體上修復AI這一脆弱性的問題。Bengio說，問題的根源在於深度神經網路沒有一個好的模型來指導它們如何從數據中挑選重要的部分。雖然AI會把修改後的獅子圖片看成圖書館，但人是不會看錯的，因為人類腦中對於獅子的概念是由耳朵、尾巴以及獅鬃等一系列高級特徵構成的，這讓人類能從一些低級屬性或次要細節中抽離出來。Bengio說：「我們的經驗告訴我們哪些特徵才是重要的，而這來自於我們對世界結構的深入理解。」</p>
+<p>想要解決這一問題，<strong>一種嘗試是將深度神經網路和符號學AI相<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">結合</i></strong>——符號學在機器學習之前曾經統治AI領域。利用符號學AI，機器學習可以通過世界運行的硬編碼規則來進行推理，例如不同離散物體間的不同相互作用方式。很多研究人員和紐約大學的心理學家Gary Marcus一樣，認為混合AI是未來前進的方向。Marcus一直是當前深度學習方式的批評者，他說：「深度學習在短期內的用場使得人們失去了長遠的眼光。」今年5月，他在加州帕羅奧圖聯合創立了名為Robust AI的初創公司，致力於<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">結合</i>深度學習與基於規則的AI技術來開發機器人，這種機器人可以與人安全地協作。公司從事的具體業務目前還處於保密狀態。</p>
+<p>即使能將規則嵌入深度神經網路，它們的能力也無法超越其學習的數據。Bengio認為AI智能體需要在更複雜的環境中進行學習和自我探索。大多數計算機視覺系統都無法識別出一聽圓柱形的啤酒，因為它們是通過二維圖像訓練的。這也是為何Nguyen和同事只消讓物體換一個角度，就能騙過深度神經網路了。而在三維環境中學習，無論是真實環境還是模擬環境，都能幫助解決這一問題。</p>
+<p>另一方面，<strong>AI學習的方式也需要改變。</strong>Bengio說：「學會因果推理需要讓主體在真實世界中進行活動，讓他們自由實驗和探索。」另一位深度學習先驅、來自瑞士Dalle Molle人工智慧研究所的Jürgen Schmidhuber也抱有同樣的想法。他認為模式識別太強大了，強大到把阿里巴巴、騰訊、亞馬遜、臉書和谷歌送上了全球最值錢企業的寶座。但緊隨其後的將是更大的浪潮，這次浪潮將以機器為中心，這些機器不但可以操縱世界，還能用自己的行為創造它們自己的數據。</p>
+<p>從某種意義上來說，利用強化學習稱霸電子遊戲的AI已經在人工環境中這麼做了：通過不斷試錯，它們以被允許的方式操作屏幕上的像素直到目標達成。不過，相較於目前用於訓練深度神經網路的模擬環境或整理好的數據來說，現實環境的複雜程度更甚。</p>
+<p><strong>即興機器人</strong></p>
+<p>在加州大學伯克利分校的一間實驗室里，一條機械臂正在翻找著什麼。它撿起一個紅色的碗，並用碗把一個藍色的烤箱手套往右輕推了幾厘米。它扔掉了碗，撿起了一個空的塑料噴瓶，隨後又掂量了一番一本書的質量和外形。在連續多天不休不眠的訓練後，這個機器人開始熟悉這些陌生物品，以及怎麼和它們「玩」。</p>
+<p>這條機械臂利用深度學習教會自己如何使用工具。給它一堆物體，它會一個個撿起來，看看移動它們或用一個物體碰觸另一個物體會發生什麼。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/RlCuC34BGkh5g7" alt="《我的AI不可能這麼傻：深度學習的致命弱點》" width="500" height="209" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/RlCuC34BGkh5g7" alt="《我的AI不可能這麼傻：深度學習的致命弱點》" width="500" height="209" class=""></noscript></amp-img></p>
+<p class="pgc-img-caption">機器人利用深度學習探索三維(形狀)工具的用途。| 來源：Annie Xie。</p>
+<p>當研究人員給機器人設定一個目標，例如給它呈現一張接近空托盤的圖片，並讓機器人整理托盤中的物品以匹配圖片中的狀態，機器人就會開始自己的表演，利用沒有見過的物品來進行操作，例如它會用一塊海綿將所有的東西掃下桌面。它還會發現利用塑料水瓶推開物品比直接拾取這些物品來得更快。「與其他機器學習技術相比，它完成任務的通用性給我留下了十分深刻的印象。」 曾在伯克利實驗室工作、目前在斯坦福大學繼續相關研究的Chelsea Finn說。</p>
+<p>Finn認為，這種學習方式增進了AI對於物體和世界的普遍理解。如果你只在照片中見到過水瓶或者海綿，你也許可以在其他圖像中識別出它們，但你不知道它們到底是什麼、有什麼用。她說：「如果不能與世界進行實際交互，你對世界的認識就只能停留在粗淺的表面。」</p>
+<p>但是，這種學習是一個緩慢的過程。在模擬環境中，AI能以光速遍歷樣本。2017年，DeepMind出品的自主學習遊戲軟體AlphaZero被訓練成了超人大師，僅僅一天就精通了從圍棋到國際象棋再到日本象棋的多個遊戲。當時，對於每一項比賽，AI都在虛擬環境中進行了超過2000萬次的訓練。</p>
+<p>AI機器人無法如此快速地學習。幾乎所有主流的深度學習方法都極度依賴大量的數據，Ambidextrous（一家位於加利福尼亞伯克利的AI和機器人公司）的聯合創始人Jeff Mahler說道，”在單個機器人上收集幾千萬數據點將耗費數年時間。」同時，由於感測器的標定會隨時間變化，硬體也在老化，得到的數據也不一定可靠。</p>
+<p><strong>因此，大多數基於深度學習的機器人工作依然利用模擬環境來加速訓練。</strong>「你能學習到的內容取決於你構建模擬環境的質量。」來自喬治亞理工的機器人學博士生David Kent說。</p>
+<p>模擬器不斷在改進，研究人員也越來越擅長於將虛擬環境中學習到的知識遷移到真實環境中去。不過模擬環境目前還無法與複雜的真實世界相媲美。</p>
+<p>Finn認為，利用機器人學習最終肯定比利用人工數據學習更具擴展性。她的「工具使用」機器人在幾天內學會了相對簡單的任務而無需密集的監督。她說：「你只需要運行機器人，一段時間檢查一次就好。」她期待未來有一天可以有很多機器人，給它們工具夜以繼日的學習。這不是沒有可能，畢竟這也是人類認識世界的方式。Schmidhuber說：「嬰兒不是通過從Facebook上<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">下載</i>數據來學習的。」</p>
+<p><strong>減少學習數據</strong></p>
+<p>嬰兒可以從很少的數據點中學會識別新樣本：即使他們從未見過長頸鹿，卻能在見過一兩次後認出它們。嬰兒學習如此迅速的部分原因在於，它們還見過長頸鹿之外許多其他生物，所以對於物體的顯著特徵也較為熟悉。</p>
+<p>遷移學習為AI提供了類似的能力：其基本概念是將其他任務訓練得到的知識進行遷移。當訓練一個新的任務時，通過復用部分或整體的預訓練網路來作為訓練的起始點，從而實現遷移學習。例如，對一個已經能夠識別一種動物的深度神經網路的一部分加以重複利用，比如那些能識別基本動物體形的層，就能為學習識別長頸鹿的新網路提供更多優勢。</p>
+<p>遷移學習的一種極端形式是僅僅通過幾個樣本甚至是一個樣本就訓練出新的網路。這種稱為少樣本學習或單樣本學習的方法極度依賴於預訓練的深度神經網路。想像一下，你想要構建一個能在刑事資料庫中識別罪犯的人臉識別系統。一個快捷方法是利用一個已經看過數百萬張人臉（無需為新資料庫的人臉）的深度神經網路，因為它已經很好地理解了人臉的顯著特徵，如鼻子和下巴的形狀等。當這個網路掃描一張新的人臉時，就能從圖片中精確提取有用的特徵集，隨後再與罪犯資料庫中的圖像進行相似度比對，找到匹配度最高的對象。</p>
+<p>擁有這樣的預訓練記憶可以幫助AI在無需觀察大量模式的情況下識別新樣本，加速機器人的學習速度。但這樣的深度神經網路在面對與先前經驗相差太遠的實例時也會陷入差錯。目前還不清楚這樣的網路有多強的通用性。</p>
+<p>即便像DeepMind的AlphaZero這樣最為成功的AI，都只局限於非常狹窄的領域。AlphaZero的演算法在訓練後可以下圍棋或國際象棋，但卻無法同時下兩種棋。重新訓練一個模型的連接和反應，讓它打贏國際象棋比賽，這種操作會重置其之前在圍棋上的所有經驗。Finn說：「從人類的角度看，這種學習方式很荒唐。」人類根本不會這麼容易就忘記他們曾經學會的東西。</p>
+<p><strong>學會學習</strong></p>
+<p>AlphaZero在遊戲方面的成功不僅僅來源於有效的強化學習，還要歸功於一種演算法（利用了一種類似於蒙特卡洛樹<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>的技術），這種演算法幫它減少了後續步驟的<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">搜索</i>空間<sup>10</sup>。換句話說，AI是被引導著如何從它所處的環境中最好地學習。Chollet認為，AI接下來最重要的一步是賦予深度學習網路自己寫演算法能力，而不用人類提供的代碼。</p>
+<p>他認為，在基礎的模式匹配能力之餘賦予AI推理能力，有利於AI應對它們不熟悉的輸入數據。讓計算機自動生成代碼的合成技術已經被研究了很多年，Chollet相信，通過與深度學習技術的<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">結合</i>可以讓基於深度神經網路的系統更接近人類的抽象智力模型。</p>
+<p>在機器人領域，臉書AI研究院的計算機科學家、德克薩斯大學奧斯丁分校教授Kr<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">is</i>ten Grauman正在教機器人如何更好地自主探索世界，包括在新場景中應該觀察哪裡，如何操作物體才能更好地掌握它的形狀或用途。這麼做的初衷是讓AI可以預測出哪些新視角可以提供最有利學習的新數據。</p>
+<p>該領域的研究人員表示，他們正在逐步解決深度學習的缺陷，同時也在不斷探尋新的技術提高這一過程的穩定性。目前深度學習還沒有太多的理論支撐，Song說，「如果某個地方不靈了，我們很難找到原因。整個領域依然有賴於經驗，不斷嘗試就對了。」</p>
+<p>目前來說，雖然科學家意識到深度神經網路的脆弱性，以及它們對大量數據的依賴性，但大部分人依然認為這一技術已經建立了起來。研究人員在這十年中，通過巨量的計算資源訓練神經網路，實現了如此優異的模式識別，給我們留下了深刻的啟示。「但沒有人知道如何讓它變得更好。」Clune說。</p>
+<p><em>參考文獻：</em></p>
+<p>1. Eykholt, K. <em>et al.</em><em>IEEE/CVF Conf. Comp. V<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">is</i>ion Pattern Recog. </em><strong>2018</strong>, 1625–1634 (2018).</p>
+<p>2. Finlayson, S. G. <em>et al.</em><em>Science</em>363, 1287–1289 (2019). PubMedArticle G</p>
+<p>3. Elsayed, G. F., Goodfellow, I. &amp; Sohl-Dickstein, J. Preprint at https://arxiv.org/abs/1806.11146 (2018).</p>
+<p>4. Szegedy, C. <em>et al.</em>Preprint at https://arxiv.org/abs/1312.6199v1 (<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">2013</i>).</p>
+<p>5. Nguyen, A., Yosinski, J. &amp; Clune, J.<em> IEEE Conf. Comp. V<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">is</i>ion Pattern Recog. </em><strong>2015</strong>, 427–436 (2015).</p>
+<p>6. Alcorn, M. A.<em> et al.</em><em> IEEE Conf. Comp. V<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">is</i>ion Pattern Recog.</em><strong>2019</strong>, 4845–4854 (2019).</p>
+<p>7. Hendrycks, D., Zhao, K., Basart, S., Steinhardt, J. &amp; Song, D. Preprint at https://arxiv.org/abs/1907.07174 (2019).</p>
+<p>8. Huang, S., Papernot, N., Goodfellow, I., Duan, Y. &amp; Abbeel, P. Preprint at https://arxiv.org/abs/1702.02284 (2017).</p>
+<p>9. Gleave, A. <em>et al.</em>Preprint at https://arxiv.org/abs/1905.10615 (2019).</p>
+<p>10. Silver, D. <em>et al.</em><em>Science </em><strong>362</strong>, 1140–1144 (2018).</p>
+<p><em>原文以</em>Why deep-learning AIs <i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">are</i> so easy to fool<em>為標題</em><em>發表在2019年10月9日的《自然》新聞特寫上</em></p>
+<p><strong>© nature</strong></p>
+<p><strong>Nature|doi:10.1038/d41586-019-0<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">30</i>13-5</strong></p>
+<p class="pgc-end-source">版權聲明：</p>
+<p class="pgc-end-source">本文由施普林格·自然上海辦公室負責翻譯。中文內容僅供參考，一切內容以英文原版為準。歡迎轉發至朋友圈，如需轉載，請郵件 Chinapress@nature<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">.com</i>。未經授權的翻譯是侵權行為，版權方將保留追究法律責任的權利。</p>
+<p class="pgc-end-source">© 2019 Macmillan Publ<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">is</i>hers Limited, part of Springer Nature. <i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">All</i> Rights Reserved</p>
+<p> <amp-img src="http://p9.pstatp.com/large/pgc-image/RJXnijNFpQFVOq" alt="《我的AI不可能這麼傻：深度學習的致命弱點》" width="640" height="228" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/RJXnijNFpQFVOq" alt="《我的AI不可能這麼傻：深度學習的致命弱點》" width="640" height="228" class=""></noscript></amp-img>
+</p></div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		分類: <a href="https://daynews.cc/technology/" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/26734/#comments">
+			寫評論		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">返回頂部</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="354f0d2beeef" type="baiduanalytics"><script type="application/json">{"vars":{"token":"882f12dcdadf8f87fabf76b550649115"},"triggers":{"trackPageview":{"on":"visible","request":"pageview"}}}</script></amp-analytics>
+</body>
+</html>
+<!-- This is the static html file -->

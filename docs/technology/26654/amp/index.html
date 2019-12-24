@@ -1,0 +1,702 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/26654/#primaryimage","url":"http://p9.pstatp.com/large/pgc-image/4233df22d6ad4175bb35630576f71e7f"},{"@type":"WebPage","@id":"https://daynews.cc/technology/26654/#webpage","url":"https://daynews.cc/technology/26654/","inLanguage":"zh-TW","name":"\u4eac\u6771\u57fa\u65bcDPDK\u6280\u8853\u7684\u9ad8\u6027\u80fd\u56db\u5c64\u8ca0\u8f09\u5747\u8861\u5668 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/26654/#primaryimage"},"datePublished":"2019-12-21T15:05:16+00:00","dateModified":"2019-12-21T15:05:16+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="隨著京東業務的高速增長，作為應用入口的負載均衡，大流量大並髮帶來的挑戰越來越嚴峻。本文主要介紹了京東商城設計和實踐的一套高可靠，高性能的負載均衡器，我們命名為SKYLB。是一個使用intel DPDK報文轉發庫，實現運行在通用X86伺服器上自研的分散式負載均衡服務。配合網路路由器的OSPF或者BGP協議，組成承擔京東數據中心核心四層負載均……" />
+<meta name="twitter:title" content="京東基於DPDK技術的高性能四層負載均衡器 - 天天要聞" />
+<meta name="twitter:image" content="http://p9.pstatp.com/large/pgc-image/4233df22d6ad4175bb35630576f71e7f" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="京東基於DPDK技術的高性能四層負載均衡器 - 天天要聞" />
+<meta property="og:description" content="隨著京東業務的高速增長，作為應用入口的負載均衡，大流量大並髮帶來的挑戰越來越嚴峻。本文主要介紹了京東商城設計和實踐的一套高可靠，高性能的負載均衡器，我們命名為SKYLB。是一個使用intel DPDK報文轉發庫，實現運行在通用X86伺服器上自研的分散式負載均衡服務。配合網路路由器的OSPF或者BGP協議，組成承擔京東數據中心核心四層負載均……" />
+<meta property="og:url" content="https://daynews.cc/technology/26654/" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-21T15:05:16+00:00" />
+	<title>京東基於DPDK技術的高性能四層負載均衡器 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/26654/" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+	.amp-wp-header .amp-wp-canonical-link {
+		font-size: 0.8em;
+		text-decoration: underline;
+		position: absolute;
+		right: 18px;	}
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+	
+</head>
+
+<body class="">
+
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+										<a class="amp-wp-canonical-link" href="https://daynews.cc/technology/26654/">
+				原網頁			</a>
+			</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">京東基於DPDK技術的高性能四層負載均衡器</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://daynews.cc/wp-content/themes/Kratos/images/default_avatar.jpeg" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-21T23:05:16+00:00">
+		2019-12-21	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		
+		<div>
+<p>隨著京東業務的高速增長，作為應用入口的負載均衡，大流量大並髮帶來的挑戰越來越嚴峻。本文主要介紹了京東商城設計和實踐的一套高可靠，高性能的負載均衡器，我們命名為SKYLB。是一個使用intel DPDK報文轉發庫，實現運行在通用X86伺服器上自研的分散式負載均衡服務。配合網路路由器的OSPF或者BGP協議，組成承擔京東數據中心核心四層負載均衡的集群。最大限度的發揮普通X86伺服器硬體資源的性能，實現一套適合於京東商城業務的低成本，分散式，高性能，可擴展的智能負載均衡系統。</p>
+<p>介紹</p>
+<p>京東商城目前是國內最大的電商企業。京東的機房內部的流量爆炸式快速的增長。早在2016年初京東商城已經將所有的業務系統全部遷移到容器平台JDOS，線上百萬+容器實例穩定運行。大流量的負載均衡的分配顯得至關重要，也是京東商城新一代軟體定義數據中心的關鍵基礎服務設施之一。</p>
+<p>負載均衡器一般介於網路上的路由器與後端伺服器之間，負責將每個數據包通過一定的服務匹配，將其轉發到後端伺服器節點。充分考慮到京東商城數據中心全容器及全三層BGP組網的模型。以及基於DPDK的幾乎達到網卡限速的性能，我們在設計負載均衡時，僅考慮實現了FULLNAT模式，即出向和入向的流量均通過負載均衡器，基本數據流程圖如下圖1所示：</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/4233df22d6ad4175bb35630576f71e7f" alt="《京東基於DPDK技術的高性能四層負載均衡器》" width="309" height="211" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/4233df22d6ad4175bb35630576f71e7f" alt="《京東基於DPDK技術的高性能四層負載均衡器》" width="309" height="211" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>圖1負載均衡流程圖</p>
+<p>一般根據業務及流量的規模的不同階段來選擇使用不同的負載均衡，通常我們在負載均衡的選擇上大致有以下兩個方向：1)硬體負載均衡，如F5。CitrixNetscaler等；2)軟體負載均衡，如基於LVS，Haproxy，Nginx等開源軟體來實現的負載均衡。對於上述兩種負載均衡的選擇，各有優缺點，如下：</p>
+<p>1）硬體負載均衡</p>
+<p>可擴展性受限，無法跟上業務流量增長的需求。以及如618、雙十一大促等瞬間流量高峰。</p>
+<p>雖然可以成對部署避免單點故障，但是一般只能提供1+1冗餘。</p>
+<p>缺乏互聯網快速迭代的靈活性，升級成本昂貴。</p>
+<p>一般只能根據網路的情況來設定負載均衡，無關乎實際系統和硬體的情況。</p>
+<p>成本較高。</p>
+<p>2）基於開源軟體的負載均衡</p>
+<p>可以根據實際系統和應用的狀態來合理的負載，迭代、擴容和部署相對方便。</p>
+<p>單台負載均衡性能相對較差，需要用集群來支撐負載均衡的整體性能。</p>
+<p>性價比較低。</p>
+<p>我們的目標：</p>
+<ol start="1">
+<li>設計實現一套高可靠、高性能、易維護及性價比高的L4負載均衡系統,。</li>
+<li>基於通用X86_64伺服器框架，以及支持DPDK網卡硬體，易開發和移植。</li>
+<li>方便部署、刪除和維護，集成到京東軟體定義數據中心（JDOS2.0）系統，作為京東下一代軟體定義數據中心的基礎組件。</li>
+<li>負載均衡下的伺服器基於系統應用負載流量均攤，負載均衡器提供N+1 冗餘，藉助OSPF/BGP控制負載均衡器的流量負載。</li>
+<li>基於系統應用級別的探活，自動故障檢測及流量快速恢復。</li>
+</ol>
+<p>本文主要介紹了SKYLB一種基於DPDK平台實現的快速可靠的軟體網路負載均衡系統。不僅可以快速的橫向擴展，還可以最大限度的提升負載均衡單個NIC的處理轉發速度，來實現L4的負載均衡。藉助DPDK的優勢，如便利的多核編程框架、巨頁內存管理、無鎖隊列、無中斷poll-mode 網卡驅動、CPU親和性等等來實現快速的網卡收發及處理報文，後續考慮TCP/IP 用戶態協議實現和優化，進而實現L7負載均衡。</p>
+<p>系統概覽</p>
+<p>工作場景</p>
+<p>SKYLB部署在京東容器集群JDOS的前端，對於一個應用集群，發布一個或多個VIP到SKYLB服務上，當客戶端需要訪問應用節資源URL，首先通過域名訪問JD智能分散式DNS服務（SKYDNS詳見https://github.com/ipdcode/skydns）, SkyDns會智能返回當前最近且狀態正常且負載正常的VIP服務的IP,客戶端就會向VIP去請求連接。</p>
+<p>SKYLB節點上運行了一個路由發布服務agent，我們使用該agent與開啟OSPF/BGP的路由器做路由交互，當SKYLB的上層路由器接收到請求VIP的數據包時，路由器通過（OSPF/BGP）的等價多路徑轉發協議選擇一個可以使用的發布該VIP的SKYLB節點，將報文轉發給一個SKYLB節點。通過這種策略來實現VIP的發布和橫向容量負載能力擴展。</p>
+<p>當報文通過上述步驟到達SKYLB負載均衡後，通過常用的負載均衡策略(round robin，一致性hash ，最小連接數)，將數據包送到相應的後端容器服務。</p>
+<p>系統架構</p>
+<p>JingdongDatacenter Operating System(JDOS) 是基於JDOS提供物理機/虛擬機/容器的統一管理系統、配備靈活的網路互連、可靠的分散式共享存儲，實現軟體定義數據中心的計算資源統一管理和集群管理。通過使用JDOS，可以直接迅速得到任意需要的計算、存儲、網路、安全等方面的資源和能力。SKYLB作為整個JDOS系統的一個重要組成部分，負責提供集群的L4負載均衡能力，通過restful API等介面與JDOS系統交互。用戶可以通過統一調度管理平台便捷的創建、刪除、遷移負載均衡系統。同時多個應用服務進行流量分發的負載均衡服務，從而擴展應用系統對外的服務能力，並且通過消除單點故障提高應用系統的可用性。</p>
+<p>系統的基本架構如下圖2所示，每一個集群配備一組可容災的負載均衡控制中心,主要通過restful api介面負責與JDOS調度中心交互，接收vip的配置請求。同時我們在每一個SKYLB的節點上運行一個代理進程，該代理進程通過gRPC與控制中心連接。接收控制中心下達的創建及刪除vip,後端server endpoint服務等一系列指令，通過load balancer 提供的命令行執行相應的指令。接收load balancer 關於流量及報文的監控信息，對於流量及監控進行告警，並且通知控制中心和調度中心進行擴容等操作。</p>
+<p>代理進程同時還負責後端服務 server endpoint基於服務可用性的健康檢查，及時根據後端服務的狀態通過命令行進行添加和刪除的操作。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/c07eeb26577644389de1156f2fa99e0b" alt="《京東基於DPDK技術的高性能四層負載均衡器》" width="415" height="212" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/c07eeb26577644389de1156f2fa99e0b" alt="《京東基於DPDK技術的高性能四層負載均衡器》" width="415" height="212" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>圖2系統架構圖</p>
+<p>優勢</p>
+<p>1）擴展性</p>
+<p>支持動態添加和刪除後端服務的容器，實現無縫的伸縮；在伸，縮過程中，對相關調用和訪問者無影響。</p>
+<p>2）高可用性</p>
+<p>提供多活負載均衡，有多個VIP，它們對應一個域名，自研DNS服務SKYDNS會根據請求的客戶端IP智能解析可用的VIP，返回給用戶，從而實現更高的可用性；即使一個VIP不可用，也不會影響業務系統對外提供服務。同時藉助OSPF/BGP等協議實現負載均衡的橫向擴充</p>
+<p>3）服務能力自動可調</p>
+<p>SKYLB根據VIP實際接收流量的負載需要調整負載均衡的服務能力，比如流量、連接數的控制等指標。</p>
+<p>功能特點</p>
+<p>1）協議支持</p>
+<p>負載均衡支持包含TCP、UDP協議的四層負載均衡，配備健全的鏈路跟蹤機制，以及多種調度策略，用戶可以根據服務的需要創建合適自己的負載均衡。</p>
+<p>2）高可用性</p>
+<p>支持容器的健康檢查，除傳統的IP+Port，並加入對URL檢查，保證應用可用性： 健康檢查頻率可自定義；一旦探測到異常，則不會將流量再分配到這些異常實例，保證應用可用性。</p>
+<p>3）集群部署，多層次容錯機制： 負載均衡採用集群部署，支持熱升級，機器故障和集群維護對用戶完全透明，結合DNS使用還可支持全局負載均衡。</p>
+<p>4）靈活性</p>
+<p>支持多種流量調度演算法，使得流量分配更均勻： 負載均衡支持加權輪詢和最小連接數這兩種調度演算法，可根據自身需求選擇相應的演算法來分配用戶訪問流量，並支持設置後端容器權重，使得流量調度更均勻，提升負載均衡能力。</p>
+<p>支持會話保持，滿足用戶個性化需求： 負載均衡通過IP地址實現會話保持，可將一定時間內來自同一用戶的訪問請求，轉發到同一個後端容器上進行處理，從而實現用戶訪問的連續性。</p>
+<p>5）易用性</p>
+<p>提供多種管理途徑，輕鬆操縱負載均衡： 用戶可通過控制台輕鬆實現負載均衡器的配置、釋放等功能。後續會開放標準的API或SDK提供給用戶，從而自己開發對負載均衡的控制管理。</p>
+<p>系統設計及技術實現</p>
+<p>負載均衡模式選擇</p>
+<p>常用的負載均衡模式有DR，NAT，TUNNEL，FULLNAT。每種模式都有自己的優勢和使用場景，業內對每種模式的分析比較文檔很多，不再介紹。由於JDOS容器網路需要VLAN隔離，而FULLNAT剛好支持LB和RS跨VLAN通信，結合我們自身容器集群的需求，我們在實現SKYLB時主要考慮支持FULLNAT模式。圖3是SKYLB的FULLNAT負載均衡模式中數據包的流向圖。SKYLB位於客戶端和後端服務之間，對於客戶端的請求報文，將目的地址替換成後端服務的地址，源地址替換成SKYLB的本地地址，對於後端服務的響應報文，將目的地址替換成客戶端地址，源地址替換成SKYLB的VIP地址。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/76f17a25220747be82eb613543140de9" alt="《京東基於DPDK技術的高性能四層負載均衡器》" width="359" height="186" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/76f17a25220747be82eb613543140de9" alt="《京東基於DPDK技術的高性能四層負載均衡器》" width="359" height="186" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>圖3 FULLNAT模式下SKYLB的數據包流向圖</p>
+<p>藉助DPDK實現高速轉發</p>
+<p>Data Plane DevelopmentKit（DPDK）：是運行在Linux 用戶態，實現X86通用平台網路報文快速處理的庫和驅動的集合，如下圖4所示，其主要特點：</p>
+<p>多核編程框架及CPU親和性</p>
+<p>每個NUMA節點有單獨的CPU和本地內存</p>
+<p>CPU訪問本地內存速度比訪問遠端內存快，避免CPU訪問遠端內存</p>
+<p>注意網卡掛載的NUMA節點巨頁內存管理</p>
+<p>巨頁(HugePage)</p>
+<p>普通內存頁面大小4KB，巨頁內存頁面大小2MB/1GB</p>
+<p>減少頁表項數目，降低TLB miss</p>
+<p>使用大頁面比使用4K的頁面性能提高10%~15%</p>
+<p>零拷貝，報文數據及轉發內存零拷貝。</p>
+<p>無鎖隊列</p>
+<p>使用無鎖隊列，入隊出隊無需阻塞等待鎖資源</p>
+<p>poll-mode網卡驅動</p>
+<p>DPDK網卡驅動完全拋棄中斷模式，基於輪詢方式收包</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/a720a3ec54a940ce9c00f70a600d129f" alt="《京東基於DPDK技術的高性能四層負載均衡器》" width="416" height="245" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/a720a3ec54a940ce9c00f70a600d129f" alt="《京東基於DPDK技術的高性能四層負載均衡器》" width="416" height="245" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>圖4 DPDK相關模塊</p>
+<p>包處理架構實現</p>
+<p>圖5是SKYLB基於RTC數據包處理模型實現的架構。SKYLB選擇一個核作為控制核，執行命令配置，與內核交換，ARP表維護等任務。其他的核作為工作核，每個工作核輪詢網卡的一個RX隊列，執行數據包處理任務。SKYLB利用網卡的RSS功能實現客戶端請求報文的分流，利用網卡FDIR功能實現後端服務響應報文的分流。SKYLB對報文分流目的是要保證客戶端的請求報文和其對應的服務端響應報文到達同一個工作核上。在這個目的達成的前提下，SKYLB的業務實現會簡單和高效很多。每個工作核維護一張session表，同於保存客戶端和後端服務的連接信息。SKYLB不需要考慮對session表加鎖，因為每個工作核的session表都是獨立的。</p>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/41adc1c840ed4d29a830908a18e1d9e3" alt="《京東基於DPDK技術的高性能四層負載均衡器》" width="324" height="176" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/41adc1c840ed4d29a830908a18e1d9e3" alt="《京東基於DPDK技術的高性能四層負載均衡器》" width="324" height="176" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>圖5 SKYLB的RTC包處理模型框架圖</p>
+<p>我們設計SKYLB每個工作核獨佔至少一個LIP，並將LIP信息寫入網卡配置。圖6是網卡對IP報文分流的流程圖。圖中dst_ip即SKYLB為每個工作核分配的LIP。網卡對後端服務響應報文的目的地址LIP匹配成功，將報文送到綁定的RX隊列，沒有匹配的報文則可以認為是客戶端的請求報文，按RSS流程分配RX隊列。</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/3aaadcd3edce4d9c9a6d89dd150691b8" alt="《京東基於DPDK技術的高性能四層負載均衡器》" width="357" height="221" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/3aaadcd3edce4d9c9a6d89dd150691b8" alt="《京東基於DPDK技術的高性能四層負載均衡器》" width="357" height="221" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>圖6 網卡對IP報文分流過程圖</p>
+<p>SKYLB在啟動過程中還會為每個物理口創建一個KNI介面，控制核負責輪詢KNI介面。該介面主要用於外部程序quagga向路由器發布VIP信息，Agent檢查後端服務健康狀態。</p>
+<p>SKYLB目前支持的負載均衡調度演算法有一致性hash，round robin和最小連接數演算法。</p>
+<p>Session五元組，SKYLB採用五元組來實現會話的管理功能，如下圖7 所示：</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/c3e12519c3f645db8fbffadb22bc3f2d" alt="《京東基於DPDK技術的高性能四層負載均衡器》" width="354" height="212" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/c3e12519c3f645db8fbffadb22bc3f2d" alt="《京東基於DPDK技術的高性能四層負載均衡器》" width="354" height="212" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>圖7 SKYLB 五元組管理Session</p>
+<p>負載均衡冗餘設計</p>
+<p>SKYLB使用BGP或者OSPF的模式組成集群，通過上述協議將數據包散列到集群中各個節點上，保證單台SKYLB故障或者恢復後能動態的將機器添加及刪除。其冗餘實現設計如下圖6所示：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/7d68876376b04760a2268f12458e12ee" alt="《京東基於DPDK技術的高性能四層負載均衡器》" width="415" height="294" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/7d68876376b04760a2268f12458e12ee" alt="《京東基於DPDK技術的高性能四層負載均衡器》" width="415" height="294" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>圖8 SKYLB的冗餘設計</p>
+<p>性能優化實踐</p>
+<p>良好的流程設計是性能提升的關鍵，這方面的流程涉及和業務相關，缺乏共性，因此不做詳細闡述。主要介紹SKYLB性能優化過程中使用的其他優化方法。</p>
+<p>恰當地使用rte_prefetch0()，可以減少cache-miss次數，避免當前函數成為性能熱點。性能調優工具perf可以幫助我們分析應該在哪處代碼使用預取。例如我們使用perf發現報文處理函數中有一個處代碼是性能熱點，該代碼用於讀取新報文的類型欄位並判斷，分析認為很可能是cache-misses造成的。在進入報文處理函數前使用rte_prefetch0()，有效避免該函數成為熱點。</p>
+<p>恰當地使用likely()和unlikely()，可以減少分支預測失敗的次數。我們在SKYLB代碼的一處分支語句中使用unlikely()優化，性能提升明顯。分支預測優化點可以藉助perf分析確定，也可以根據自己對代碼執行流程的理解確定。</p>
+<p>盡量減少鎖的使用。SKYLB中配置信息不經常變化，我們沒有單獨為每個可能爭用的資源加鎖，而是只用一把DPDK提供的讀寫鎖，每個讀線程在加讀鎖後，處理一批報文，然後釋放讀鎖。既簡化流程，又減少了操作讀寫鎖的開銷(DPDK讀寫鎖的開銷並不是很大)。</p>
+<p>性能數據</p>
+<p>測試環境：</p>
+<p>CPU：Intel(R) Xeon(R) CPU E5-2640 v3</p>
+<p>NIC：intel 82599ES 10-GigabitSFI/SFP+ Network Connection</p>
+<p>測試配置：</p>
+<p>負載均衡模式：FULLNAT</p>
+<p>調度演算法：一致性hash</p>
+<p>配置：CPU佔用8核 內存佔用4G</p>
+<p>性能測試數據：</p>
+<p>1）UDP發包，測試轉發性能，我們使用了SKYDNS作為後端服務，客戶端採用UDP請求DNS</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/4d1dbf157b5e4a45b706af8ad1c3b0a6" alt="《京東基於DPDK技術的高性能四層負載均衡器》" width="681" height="66" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/4d1dbf157b5e4a45b706af8ad1c3b0a6" alt="《京東基於DPDK技術的高性能四層負載均衡器》" width="681" height="66" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>表1 SKYLB基於UDP的DNS性能測試數據</p>
+<p>2）NGINX作為後端服務，壓測HTTP性能。</p>
+<p>配置：CPU佔用8核 內存佔用4G</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/2fd2ff45c1c7473f9774780569a67cb4" alt="《京東基於DPDK技術的高性能四層負載均衡器》" width="678" height="61" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/2fd2ff45c1c7473f9774780569a67cb4" alt="《京東基於DPDK技術的高性能四層負載均衡器》" width="678" height="61" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>表2 SKYLB HTTP性能測試數據</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/b0669326de424480ade35420238830cc" alt="《京東基於DPDK技術的高性能四層負載均衡器》" width="640" height="248" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/b0669326de424480ade35420238830cc" alt="《京東基於DPDK技術的高性能四層負載均衡器》" width="640" height="248" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>圖9 SKYLB HTTP 性能測試指標圖</p>
+<div class="pgc-img">
+  <amp-img src="http://p1.pstatp.com/large/pgc-image/8df35a652a634921a6d61b0459bc2df7" alt="《京東基於DPDK技術的高性能四層負載均衡器》" width="640" height="248" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/8df35a652a634921a6d61b0459bc2df7" alt="《京東基於DPDK技術的高性能四層負載均衡器》" width="640" height="248" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>圖10 SKYLBhttp 性能測試指標圖</p>
+<p>總結</p>
+<p>本文主要介紹了SKYLB，一種的基於intel DPDK平台開發的負載均衡器。其接近網卡線速處理及轉發能力，靈活的部署，多樣的監控以及可靠的穩定性。基本上覆蓋所有4層負載均衡的業務處理需求，配合集群管理以及調度，作為京東數據中心操作系統（JDOS）的一個重要的組成部分，在京東數據中心發揮至關重要的作用。</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		分類: <a href="https://daynews.cc/technology/" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/26654/#comments">
+			寫評論		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">返回頂部</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="354f0d2beeef" type="baiduanalytics"><script type="application/json">{"vars":{"token":"882f12dcdadf8f87fabf76b550649115"},"triggers":{"trackPageview":{"on":"visible","request":"pageview"}}}</script></amp-analytics>
+</body>
+</html>
+<!-- This is the static html file -->

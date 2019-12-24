@@ -1,0 +1,462 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>後端 API 介面文檔 Swagger 使用指南 - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="前言 作為一個以前後端分離為模式開發小組，我們每隔一段時間都進行這樣一個場景：前端人員和後端開發在一起熱烈的討論&#8221;哎,你這參數又變了啊&#8221;,&#8221;介面怎麼又請求不通了啊&#8221;,&#8221;你再試試,我打個斷點調試一下..&#8221;。可以看到在前後端溝通中出現了不少問題。 對於這樣的問題,之前一直……" />
+		<meta name="keywords" content="後端 API 介面文檔 Swagger 使用指南 - 天天要聞,科技," />
+		<meta itemprop="image" content="http://p3.pstatp.com/large/pgc-image/b37c043d691649c8a0276a5f44df1ebf"/>
+		<meta name="description" itemprop="description" content="前言 作為一個以前後端分離為模式開發小組，我們每隔一段時間都進行這樣一個場景：前端人員和後端開發在一起熱烈的討論&#8221;哎,你這參數又變了啊&#8221;,&#8221;介面怎麼又請求不通了啊&#8221;,&#8221;你再試試,我打個斷點調試一下..&#8221;。可以看到在前後端溝通中出現了不少問題。 對於這樣的問題,之前一直……" />
+		
+<!-- This site is optimized with the SEO -->
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="https://daynews.cc/technology/26540/" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="後端 API 介面文檔 Swagger 使用指南 - 天天要聞" />
+<meta property="og:description" content="前言 作為一個以前後端分離為模式開發小組，我們每隔一段時間都進行這樣一個場景：前端人員和後端開發在一起熱烈的討論&#8221;哎,你這參數又變了啊&#8221;,&#8221;介面怎麼又請求不通了啊&#8221;,&#8221;你再試試,我打個斷點調試一下..&#8221;。可以看到在前後端溝通中出現了不少問題。 對於這樣的問題,之前一直……" />
+<meta property="og:url" content="https://daynews.cc/technology/26540/" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-22T02:50:08+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="前言 作為一個以前後端分離為模式開發小組，我們每隔一段時間都進行這樣一個場景：前端人員和後端開發在一起熱烈的討論&#8221;哎,你這參數又變了啊&#8221;,&#8221;介面怎麼又請求不通了啊&#8221;,&#8221;你再試試,我打個斷點調試一下..&#8221;。可以看到在前後端溝通中出現了不少問題。 對於這樣的問題,之前一直……" />
+<meta name="twitter:title" content="後端 API 介面文檔 Swagger 使用指南 - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/b37c043d691649c8a0276a5f44df1ebf" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/26540/#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/b37c043d691649c8a0276a5f44df1ebf"},{"@type":"WebPage","@id":"https://daynews.cc/technology/26540/#webpage","url":"https://daynews.cc/technology/26540/","inLanguage":"zh-TW","name":"\u5f8c\u7aef API \u4ecb\u9762\u6587\u6a94 Swagger \u4f7f\u7528\u6307\u5357 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/26540/#primaryimage"},"datePublished":"2019-12-22T02:50:08+00:00","dateModified":"2019-12-22T02:50:08+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<!-- / SEO. -->
+
+<link rel='stylesheet' id='animate-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/animate.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/bootstrap.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/superfish.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/layer.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='https://daynews.cc/wp-content/themes/Kratos/style.css' type='text/css' media='all' />
+<link rel="amphtml" href="https://daynews.cc/technology/26540/amp/">		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.min.js'></script>
+		
+		<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?882f12dcdadf8f87fabf76b550649115";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+		</script>
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="https://daynews.cc"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="/">首頁</a></li>
+<li><a href="https://daynews.cc/entertainment/">娛樂</a></li>
+<li><a href="https://daynews.cc/emotion/">情感</a></li>
+<li><a href="https://daynews.cc/international/">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="https://daynews.cc/technology/">科技</a></li>
+<li><a href="https://daynews.cc/sports/">體育</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/nba/">NBA</a></li>
+	<li><a href="https://daynews.cc/premier/">英超</a></li>
+</ul>
+</li>
+<li><a href="https://daynews.cc/history/">歷史</a></li>
+<li><a href="https://daynews.cc/game/">遊戲</a></li>
+<li><a href="https://daynews.cc/health/">養生</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/lose/">減肥</a></li>
+</ul>
+</li>
+<li><a href="https://daynews.cc/constellation/">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">後端 API 介面文檔 Swagger 使用指南</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-22				                <i class="fa fa-commenting-o"></i> 146條評論
+				                <i class="fa fa-eye"></i> 1,085次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 94人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+<h2 class="pgc-h-arrow-right">前言</h2>
+<p>作為一個以前後端分離為模式開發小組，我們每隔一段時間都進行這樣一個場景：前端人員和後端開發在一起熱烈的討論&#8221;哎,你這參數又變了啊&#8221;,&#8221;介面怎麼又請求不通了啊&#8221;,&#8221;你再試試,我打個斷點調試一下..&#8221;。可以看到在前後端溝通中出現了不少問題。</p>
+<p>對於這樣的問題,之前一直沒有很好的解決方案，直到它的出現，沒錯&#8230;這就是我們今天要討論的神器:swagger,一款致力於解決介面規範化、標準化、文檔化的開源庫，一款真正的開發神器。</p>
+<h2 class="pgc-h-arrow-right">一：swagger是什麼？</h2>
+<p>Swagger是一款RESTFUL介面的文檔在線自動生成+功能測試功能軟體。Swagger是一個規範和完整的框架,用於生成、描述、調用和可視化RESTful風格的Web服務。目標是使客戶端和文件系統作為伺服器以同樣的速度來更新文件的方法,參數和模型緊密集成到伺服器。</p>
+<p>這個解釋簡單點來講就是說，swagger是一款可以根據resutful風格生成的生成的介面開發文檔，並且支持做測試的一款中間軟體。</p>
+<h2 class="pgc-h-arrow-right">二：為什麼要使用swaager?</h2>
+<h2 class="pgc-h-arrow-right">2.1:對於後端開發人員來說</h2>
+<ul class="list-paddingleft-2">
+<li>不用再手寫WiKi介面拼大量的參數，避免手寫錯誤</li>
+<li>對代碼侵入性低，採用全註解的方式，開發簡單</li>
+<li>方法參數名修改、增加、減少參數都可以直接生效，不用手動維護</li>
+<li>缺點：增加了開發成本，寫介面還得再寫一套參數配置</li>
+</ul>
+<h2 class="pgc-h-arrow-right">2.2:對於前端開發來說</h2>
+<ul class="list-paddingleft-2">
+<li>後端只需要定義好介面，會自動生成文檔，介面功能、參數一目了然</li>
+<li>聯調方便，如果出問題，直接測試介面，實時檢查參數和返回值,就可以快速定位是前端還是後端的問題</li>
+</ul>
+<h2 class="pgc-h-arrow-right">2.3：對於測試</h2>
+<ul class="list-paddingleft-2">
+<li>對於某些沒有前端界面UI的功能，可以用它來測試介面</li>
+<li>操作簡單，不用了解具體代碼就可以操作</li>
+<li>操作簡單，不用了解具體代碼就可以操作</li>
+</ul>
+<h2 class="pgc-h-arrow-right">三：如何搭一個swagger</h2>
+<h2 class="pgc-h-arrow-right">3.1:引入swagger的依賴</h2>
+<p>目前推薦使用2.7.0版本,因為2.6.0版本有bug，而其他版本又沒有經過驗證</p>
+<pre><code>一：引入Swagger依賴庫&lt;!--引入swagger--&gt;&lt;dependency&gt;    &lt;groupId&gt;io.springfox&lt;/groupId&gt;    &lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;    &lt;version&gt;2.7.0&lt;/version&gt;&lt;/dependency&gt;&lt;dependency&gt;    &lt;groupId&gt;io.springfox&lt;/groupId&gt;    &lt;artifactId&gt;springfox-swagger-ui&lt;/artifactId&gt;    &lt;version&gt;2.7.0&lt;/version&gt;&lt;/dependency&gt;</code></pre>
+<h2 class="pgc-h-arrow-right">3.2：springBoot整合swagger</h2>
+<pre><code>@Configuration@EnableSwagger2public class SwaggerConfig {    @Bean    public Docket productApi() {        return new Docket(DocumentationType.SWAGGER_2)                .apiInfo(apiInfo())                .select()                .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))  //添加ApiOperiation註解的被掃描                .paths(PathSelectors.any())                .build();    }    private ApiInfo apiInfo() {        return new ApiInfoBuilder().title(」swagger和springBoot整合「).description(」swagger的API文檔")                .version("1.0").build();    }}</code></pre>
+<h2 class="pgc-h-arrow-right">3.3：swagger的註解</h2>
+<p>swagger的核心在於註解，接下來就著重講一下swagger的註解：</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/b37c043d691649c8a0276a5f44df1ebf" src="http://p3.pstatp.com/large/pgc-image/b37c043d691649c8a0276a5f44df1ebf" alt="《後端 API 介面文檔 Swagger 使用指南》" /></p>
+<p class="pgc-img-caption">
+</div>
+<h2 class="pgc-h-arrow-right">四：在項目中集成swagger</h2>
+<h2 class="pgc-h-arrow-right">4.1:在controller中使用註解</h2>
+<pre><code>package com.youjia.swagger.controller;import com.youjia.swagger.constants.CommonConstants;import com.youjia.swagger.model.Film;import com.youjia.swagger.model.ResultModel;import com.youjia.swagger.service.FilmService;import io.swagger.annotations.Api;import io.swagger.annotations.ApiImplicitParam;import io.swagger.annotations.ApiImplicitParams;import io.swagger.annotations.ApiOperation;import io.swagger.annotations.ApiParam;import io.swagger.annotations.ApiResponse;import io.swagger.annotations.ApiResponses;import org.springframework.beans.factory.annotation.Autowired;import org.springframework.util.CollectionUtils;import org.springframework.util.StringUtils;import org.springframework.web.bind.annotation.GetMapping;import org.springframework.web.bind.annotation.PathVariable;import org.springframework.web.bind.annotation.PostMapping;import org.springframework.web.bind.annotation.RequestBody;import org.springframework.web.bind.annotation.RequestMapping;import org.springframework.web.bind.annotation.RequestParam;import org.springframework.web.bind.annotation.RestController;import javax.servlet.http.HttpServletRequest;import java.text.DateFormat;import java.text.SimpleDateFormat;import java.util.Date;import java.util.List;import java.util.Objects;/** * @Auther: wyq * @Date: 2018/12/29 14:50 */@RestController@Api(value = "電影Controller", tags = { "電影訪問介面" })@RequestMapping("/film")public class FilmController {    @Autowired    private FilmService filmService;    /**     * 添加一個電影數據     *     * @param     * @return     */    @ApiOperation(value = "添加一部電影")    @PostMapping("/addFilm")    @ApiResponses(value = { @ApiResponse(code = 1000, message = "成功"), @ApiResponse(code = 1001, message = "失敗"),            @ApiResponse(code = 1002, response = Film.class,message = "缺少參數") })    public ResultModel addFilm(@ApiParam("電影名稱") @RequestParam("filmName") String filmName,                               @ApiParam(value = "分數", allowEmptyValue = true) @RequestParam("score") Short score,                               @ApiParam("發布時間") @RequestParam(value = "publishTime",required = false) String publishTime,                               @ApiParam("創建者id") @RequestParam("creatorId") Long creatorId) {        if (Objects.isNull(filmName) || Objects.isNull(score) || Objects.isNull(publishTime) || StringUtils                .isEmpty(creatorId)) {            return new ResultModel(ResultModel.failed, "參數錯誤");        }        Film filmPOM = new Film();        filmPOM.setFilmName(filmName);        filmPOM.setScore(score);        DateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");        Date publishTimeDate = null;        try {            publishTimeDate = simpleDateFormat.parse(publishTime);        } catch (Exception ex) {            ex.printStackTrace();        }        filmPOM.setPublishTime(publishTimeDate);        filmPOM.setCreatorId(creatorId);        Boolean result = filmService.addFilm(filmPOM);        if (result) {            return new ResultModel(CommonConstants.SUCCESSMSG);        }        return new ResultModel(CommonConstants.FAILD_MSG);    }    /**     * 根據電影名字獲取電影     *     * @param fileName     * @return     */    @GetMapping("/getFilms")    @ApiOperation(value = "根據名字獲取電影")    @ApiResponses(value = { @ApiResponse(code = 1000, message = "成功"), @ApiResponse(code = 1001, message = "失敗"),            @ApiResponse(code = 1002, message = "缺少參數") })    public ResultModel getFilmsByName(@ApiParam("電影名稱") @RequestParam("fileName") String fileName) {        if (StringUtils.isEmpty(fileName)) {            return CommonConstants.getErrorResultModel();        }        List&lt;Film&gt; films = filmService.getFilmByName(fileName);        if (!CollectionUtils.isEmpty(films)) {            return new ResultModel(films);        }        return CommonConstants.getErrorResultModel();    }    /**     * 根據電影名更新     *     * @return     */    @PostMapping("/updateScore")    @ApiOperation(value = "根據電影名修改分數")    @ApiResponses(value = { @ApiResponse(code = 1000, message = "成功"), @ApiResponse(code = 1001, message = "失敗"),            @ApiResponse(code = 1002, message = "缺少參數") })    public ResultModel updateFilmScore(@ApiParam("電影名稱") @RequestParam("fileName") String fileName,                                       @ApiParam("分數") @RequestParam("score") Short score) {        if (StringUtils.isEmpty(fileName) || Objects.isNull(score)) {            return CommonConstants.getErrorResultModel();        }        filmService.updateScoreByName(fileName, score);        return CommonConstants.getSuccessResultModel();    }    /**     * 根據電影名刪除電影     *     * @param request     * @return     */    @PostMapping("/delFilm")    @ApiOperation(value = "根據電影名刪除電影")    @ApiImplicitParams({ @ApiImplicitParam(name = "filmName",            value = "電影名",            dataType = "String",            paramType = "query",            required = true), @ApiImplicitParam(name = "id", value = "電影id", dataType = "int", paramType = "query") })    public ResultModel deleteFilmByNameOrId(HttpServletRequest request) {        //電影名        String filmName = request.getParameter("filmName");        //電影id        Long filmId = Long.parseLong(request.getParameter("id"));        filmService.deleteFilmOrId(filmName,filmId);        return CommonConstants.getSuccessResultModel();    }    /**     * 根據id獲取電影     *     * @param id     * @return     */    @PostMapping("/{id}")    @ApiOperation("根據id獲取電影")    @ApiImplicitParam(name = "id", value = "電影id", dataType = "long", paramType = "path", required = true)    public ResultModel getFilmById(@PathVariable Long id) {        if (Objects.isNull(id)) {            return CommonConstants.getLessParamResultModel();        }        Film film = filmService.getFilmById(id);        if (Objects.nonNull(film)) {            return new ResultModel(film);        }        return CommonConstants.getErrorResultModel();    }    /**     * 修改整個電影     *     * @param film     * @return     */    @PostMapping("/insertFilm")    @ApiOperation("插入一部電影")    public ResultModel insertFilm(@ApiParam("電影實體對象") @RequestBody Film film) {        if (Objects.isNull(film)) {            return CommonConstants.getLessParamResultModel();        }        Boolean isSuccess = filmService.insertFilm(film);        if (isSuccess) {            return CommonConstants.getSuccessResultModel();        }        return CommonConstants.getErrorResultModel();    }}</code></pre>
+<h2 class="pgc-h-arrow-right">4.2:訪問本地鏈接</h2>
+<blockquote>
+<p>http://localhost:8080/swagger-ui.html#/</p>
+</blockquote>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/5fbe7cbdd00d4afeae92dbc614607167" src="http://p9.pstatp.com/large/pgc-image/5fbe7cbdd00d4afeae92dbc614607167" alt="《後端 API 介面文檔 Swagger 使用指南》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>可以看出訪問的url都很清晰的展示在它最終的頁面上，我們打開一個方法：可以看出方法的請求參數清晰的的羅列出來，包括方法的返回值。並且有一個很重要的功能，只需要點下方的try it out就可以進行介面測試，</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/0916177efbdf4077acdd889d544e9854" src="http://p3.pstatp.com/large/pgc-image/0916177efbdf4077acdd889d544e9854" alt="《後端 API 介面文檔 Swagger 使用指南》" /></p>
+<p class="pgc-img-caption">
+</div>
+<h2 class="pgc-h-arrow-right">五：使用swagger需要注意的問題</h2>
+<ul class="list-paddingleft-2">
+<li>對於只有一個HttpServletRequest參數的方法,如果參數小於5個，推薦使用 @ApiImplicitParams的方式單獨封裝每一個參數；如果參數大於5個，採用定義一個對象去封裝所有參數的屬性，然後使用@APiParam的方式</li>
+<li>默認的訪問地址：ip:port/swagger-ui.html#/,但是在shiro中,會攔截所有的請求，必須加上默認訪問路徑（比如項目中，就是ip:port/context/swagger-ui.html#/），然後登陸後才可以看到</li>
+<li>在GET請求中，參數在Body體裡面,不能使用@RequestBody。在POST請求，可以使用@RequestBody和@RequestParam，如果使用@RequestBody，對於參數轉化的配置必須統一</li>
+<li>controller必須指定請求類型，否則swagger會把所有的類型(6種)都生成出來</li>
+<li>swagger在生產環境不能對外暴露,可以使用@Profile({「dev」, 「prod」,「pre」})指定可以使用的環境</li>
+</ul>
+<h2 class="pgc-h-arrow-right">六：總結</h2>
+<p>swagger作為一款輔助性的工具，能大大提升我們的和前端的溝通效率,介面是一個非常重要的傳遞數據的媒介，每個介面的簽名、方法參數都非常重要。一個良好的文檔非常重要，如果採用手寫的方式非常容易拼寫錯誤，而swagger可以自動化生成參數文檔，這一切都加快了我們的溝通效率。並且可以替代postman的作用。實在是開發編程必備良品啊。</p>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="26540" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/26540/"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/26540/";
+		var title='%E3%80%90%E5%BE%8C%E7%AB%AF%20API%20%E4%BB%8B%E9%9D%A2%E6%96%87%E6%AA%94%20Swagger%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97%E3%80%91';
+		var qqtitle='%E3%80%90%E5%BE%8C%E7%AB%AF%20API%20%E4%BB%8B%E9%9D%A2%E6%96%87%E6%AA%94%20Swagger%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97%E3%80%91';
+		var excerpt='%E5%89%8D%E8%A8%80%20%E4%BD%9C%E7%82%BA%E4%B8%80%E5%80%8B%E4%BB%A5%E5%89%8D%E5%BE%8C%E7%AB%AF%E5%88%86%E9%9B%A2%E7%82%BA%E6%A8%A1%E5%BC%8F%E9%96%8B%E7%99%BC%E5%B0%8F%E7%B5%84%EF%BC%8C%E6%88%91%E5%80%91%E6%AF%8F%E9%9A%94%E4%B8%80%E6%AE%B5%E6%99%82%E9%96%93%E9%83%BD%E9%80%B2%E8%A1%8C%E9%80%99%E6%A8%A3%E4%B8%80%E5%80%8B%E5%A0%B4%E6%99%AF%EF%BC%9A%E5%89%8D%E7%AB%AF%E4%BA%BA%E5%93%A1%E5%92%8C%E5%BE%8C%E7%AB%AF%E9%96%8B%E7%99%BC%E5%9C%A8%E4%B8%80%E8%B5%B7%E7%86%B1%E7%83%88%E7%9A%84%E8%A8%8E%E8%AB%96%26%238221%3B%E5%93%8E%2C%E4%BD%A0%E9%80%99%E5%8F%83%E6%95%B8%E5%8F%88%E8%AE%8A%E4%BA%86%E5%95%8A%26%238221%3B%2C%26%238221%3B%E4%BB%8B%E9%9D%A2%E6%80%8E%E9%BA%BC%E5%8F%88%E8%AB%8B%E6%B1%82%E4%B8%8D%E9%80%9A%E4%BA%86%E5%95%8A%26%238221%3B%2C%26%238221%3B%E4%BD%A0%E5%86%8D%E8%A9%A6%E8%A9%A6%2C%E6%88%91%E6%89%93%E5%80%8B%E6%96%B7%E9%BB%9E%E8%AA%BF%E8%A9%A6%E4%B8%80%E4%B8%8B..%26%238221%3B%E3%80%82%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E5%9C%A8%E5%89%8D%E5%BE%8C%E7%AB%AF%E6%BA%9D%E9%80%9A%E4%B8%AD%E5%87%BA%E7%8F%BE%E4%BA%86%E4%B8%8D%E5%B0%91%E5%95%8F%E9%A1%8C%E3%80%82%20%E5%B0%8D%E6%96%BC%E9%80%99%E6%A8%A3%E7%9A%84%E5%95%8F%E9%A1%8C%2C%E4%B9%8B%E5%89%8D%E4%B8%80%E7%9B%B4%E2%80%A6%E2%80%A6';
+		var wbexcerpt='%E5%89%8D%E8%A8%80%20%E4%BD%9C%E7%82%BA%E4%B8%80%E5%80%8B%E4%BB%A5%E5%89%8D%E5%BE%8C%E7%AB%AF%E5%88%86%E9%9B%A2%E7%82%BA%E6%A8%A1%E5%BC%8F%E9%96%8B%E7%99%BC%E5%B0%8F%E7%B5%84%EF%BC%8C%E6%88%91%E5%80%91%E6%AF%8F%E9%9A%94%E4%B8%80%E6%AE%B5%E6%99%82%E9%96%93%E9%83%BD%E9%80%B2%E8%A1%8C%E9%80%99%E6%A8%A3%E4%B8%80%E5%80%8B%E5%A0%B4%E6%99%AF%EF%BC%9A%E5%89%8D%E7%AB%AF%E4%BA%BA%E5%93%A1%E5%92%8C%E5%BE%8C%E7%AB%AF%E9%96%8B%E7%99%BC%E5%9C%A8%E4%B8%80%E8%B5%B7%E7%86%B1%E7%83%88%E7%9A%84%E8%A8%8E%E8%AB%96%26%238221%3B%E5%93%8E%2C%E4%BD%A0%E9%80%99%E5%8F%83%E6%95%B8%E5%8F%88%E8%AE%8A%E4%BA%86%E5%95%8A%26%238221%3B%2C%26%238221%3B%E4%BB%8B%E9%9D%A2%E6%80%8E%E9%BA%BC%E5%8F%88%E8%AB%8B%E6%B1%82%E4%B8%8D%E9%80%9A%E4%BA%86%E5%95%8A%26%238221%3B%2C%26%238221%3B%E4%BD%A0%E5%86%8D%E8%A9%A6%E8%A9%A6%2C%E6%88%91%E6%89%93%E5%80%8B%E6%96%B7%E9%BB%9E%E8%AA%BF%E8%A9%A6%E4%B8%80%E4%B8%8B..%26%238221%3B%E3%80%82%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E5%9C%A8%E5%89%8D%E5%BE%8C%E7%AB%AF%E6%BA%9D%E9%80%9A%E4%B8%AD%E5%87%BA%E7%8F%BE%E4%BA%86%E4%B8%8D%E5%B0%91%E5%95%8F%E9%A1%8C%E3%80%82%20%E5%B0%8D%E6%96%BC%E9%80%99%E6%A8%A3%E7%9A%84%E5%95%8F%E9%A1%8C%2C%E4%B9%8B%E5%89%8D%E4%B8%80%E7%9B%B4%E2%80%A6%E2%80%A6';
+		var pic="http://p3.pstatp.com/large/pgc-image/b37c043d691649c8a0276a5f44df1ebf";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="C語言I/O標準函數庫怎麼個“標準”法？" href="https://daynews.cc/technology/26542/">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="谷歌官方決議大更改，安卓系統將會滄桑巨變，令蘋果防不勝防" href="https://daynews.cc/technology/26539/">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="/technology/26540/#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='26540' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="冬天補氣養顏，不妨吃點酒釀！養生效果杠杠的，價格還便宜" href="https://daynews.cc/health/28980/" rel="bookmark"><i class="fa  fa-book"></i> 冬天補氣養顏，不妨吃點酒釀！養生效果杠杠的，價格還便宜                            </a>
+                            <a class="list-group-item visible-md" title="冬天補氣養顏，不妨吃點酒釀！養生效果杠杠的，價格還便宜" href="https://daynews.cc/health/28980/" rel="bookmark"><i class="fa  fa-book"></i> 冬天補氣養顏，不妨吃點酒釀！養生效果杠杠的，價格還便宜                            </a>
+                                                    <a class="list-group-item visible-lg" title="睡眠是消除身體疲勞的主要方式，冬天學會這些睡覺養生技巧" href="https://daynews.cc/health/28979/" rel="bookmark"><i class="fa  fa-book"></i> 睡眠是消除身體疲勞的主要方式，冬天學會這些睡覺養生技巧                            </a>
+                            <a class="list-group-item visible-md" title="睡眠是消除身體疲勞的主要方式，冬天學會這些睡覺養生技巧" href="https://daynews.cc/health/28979/" rel="bookmark"><i class="fa  fa-book"></i> 睡眠是消除身體疲勞的主要方式，冬天學會這些睡覺養生技巧                            </a>
+                                                    <a class="list-group-item visible-lg" title="立冬之後，化妝保養不比化瘀保溫更重要" href="https://daynews.cc/health/28981/" rel="bookmark"><i class="fa  fa-book"></i> 立冬之後，化妝保養不比化瘀保溫更重要                            </a>
+                            <a class="list-group-item visible-md" title="立冬之後，化妝保養不比化瘀保溫更重要" href="https://daynews.cc/health/28981/" rel="bookmark"><i class="fa  fa-book"></i> 立冬之後，化妝保養不比化瘀保溫更重要                            </a>
+                                                    <a class="list-group-item visible-lg" title="海鮮，到底養甲狀腺還是傷甲狀腺？專家表示：不同情況，講究不同" href="https://daynews.cc/health/28982/" rel="bookmark"><i class="fa  fa-book"></i> 海鮮，到底養甲狀腺還是傷甲狀腺？專家表示：不同情況，講究不同                            </a>
+                            <a class="list-group-item visible-md" title="海鮮，到底養甲狀腺還是傷甲狀腺？專家表示：不同情況，講究不同" href="https://daynews.cc/health/28982/" rel="bookmark"><i class="fa  fa-book"></i> 海鮮，到底養甲狀腺還是傷甲狀腺？專家表示：不同情況，講究不同                            </a>
+                                                    <a class="list-group-item visible-lg" title="5種素菜比肉還肥，每吃一口都在喝油" href="https://daynews.cc/health/28983/" rel="bookmark"><i class="fa  fa-book"></i> 5種素菜比肉還肥，每吃一口都在喝油                            </a>
+                            <a class="list-group-item visible-md" title="5種素菜比肉還肥，每吃一口都在喝油" href="https://daynews.cc/health/28983/" rel="bookmark"><i class="fa  fa-book"></i> 5種素菜比肉還肥，每吃一口都在喝油                            </a>
+                                                    <a class="list-group-item visible-lg" title="姓氏藏有歷史的痕迹，從你的姓氏可以看出，祖輩從農從商還是從官" href="https://daynews.cc/constellation/29331/" rel="bookmark"><i class="fa  fa-book"></i> 姓氏藏有歷史的痕迹，從你的姓氏可以看出，祖輩從農從商還是從官                            </a>
+                            <a class="list-group-item visible-md" title="姓氏藏有歷史的痕迹，從你的姓氏可以看出，祖輩從農從商還是從官" href="https://daynews.cc/constellation/29331/" rel="bookmark"><i class="fa  fa-book"></i> 姓氏藏有歷史的痕迹，從你的姓氏可以看出，祖輩從農從商還是從官                            </a>
+                                                    <a class="list-group-item visible-lg" title="錯了就是錯了，這些星座認錯從不含糊，做錯要承認，挨打要站穩" href="https://daynews.cc/constellation/29332/" rel="bookmark"><i class="fa  fa-book"></i> 錯了就是錯了，這些星座認錯從不含糊，做錯要承認，挨打要站穩                            </a>
+                            <a class="list-group-item visible-md" title="錯了就是錯了，這些星座認錯從不含糊，做錯要承認，挨打要站穩" href="https://daynews.cc/constellation/29332/" rel="bookmark"><i class="fa  fa-book"></i> 錯了就是錯了，這些星座認錯從不含糊，做錯要承認，挨打要站穩                            </a>
+                                                    <a class="list-group-item visible-lg" title="《戰爭藝術》凜冬節：聖誕星主播招募倒計時" href="https://daynews.cc/game/28439/" rel="bookmark"><i class="fa  fa-book"></i> 《戰爭藝術》凜冬節：聖誕星主播招募倒計時                            </a>
+                            <a class="list-group-item visible-md" title="《戰爭藝術》凜冬節：聖誕星主播招募倒計時" href="https://daynews.cc/game/28439/" rel="bookmark"><i class="fa  fa-book"></i> 《戰爭藝術》凜冬節：聖誕星主播招募倒計時                            </a>
+                                                    <a class="list-group-item visible-lg" title="FPX轉會實力仍是第一！笑笑談到TES也將崛起，EDG多半要涼" href="https://daynews.cc/game/28441/" rel="bookmark"><i class="fa  fa-book"></i> FPX轉會實力仍是第一！笑笑談到TES也將崛起，EDG多半要涼                            </a>
+                            <a class="list-group-item visible-md" title="FPX轉會實力仍是第一！笑笑談到TES也將崛起，EDG多半要涼" href="https://daynews.cc/game/28441/" rel="bookmark"><i class="fa  fa-book"></i> FPX轉會實力仍是第一！笑笑談到TES也將崛起，EDG多半要涼                            </a>
+                                                    <a class="list-group-item visible-lg" title="神將也有弱點？盤點神將們的弱點" href="https://daynews.cc/game/28440/" rel="bookmark"><i class="fa  fa-book"></i> 神將也有弱點？盤點神將們的弱點                            </a>
+                            <a class="list-group-item visible-md" title="神將也有弱點？盤點神將們的弱點" href="https://daynews.cc/game/28440/" rel="bookmark"><i class="fa  fa-book"></i> 神將也有弱點？盤點神將們的弱點                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="24平米房子擠四口人，父母把廚房當卧室，網友：怎敢生養兩個男孩" href="https://daynews.cc/emotion/23804/" rel="bookmark"><i class="fa  fa-book"></i> 24平米房子擠四口人，父母把廚房當卧室，網友：怎敢生養兩個男孩</a><a class="list-group-item visible-md" title="24平米房子擠四口人，父母把廚房當卧室，網友：怎敢生養兩個男孩" href="https://daynews.cc/emotion/23804/" rel="bookmark"><i class="fa  fa-book"></i> 24平米房子擠四口人，父母把廚房當卧室，網友：怎敢生養兩個男孩</a><a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854/" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854/" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="網傳國家電網5G網路建設方案：利用廣電700/60MHz建11.31萬座基站" href="https://daynews.cc/technology/22913/" rel="bookmark"><i class="fa  fa-book"></i> 網傳國家電網5G網路建設方案：利用廣電700/60MHz建11.31萬座基站</a><a class="list-group-item visible-md" title="網傳國家電網5G網路建設方案：利用廣電700/60MHz建11.31萬座基站" href="https://daynews.cc/technology/22913/" rel="bookmark"><i class="fa  fa-book"></i> 網傳國家電網5G網路建設方案：利用廣電700/60MHz建11.31萬座基站</a><a class="list-group-item visible-lg" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134/" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-md" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134/" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098/" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098/" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-lg" title="腰突後，小腿發麻渾身無力怎麼康復好的快？" href="https://daynews.cc/lose/21229/" rel="bookmark"><i class="fa  fa-book"></i> 腰突後，小腿發麻渾身無力怎麼康復好的快？</a><a class="list-group-item visible-md" title="腰突後，小腿發麻渾身無力怎麼康復好的快？" href="https://daynews.cc/lose/21229/" rel="bookmark"><i class="fa  fa-book"></i> 腰突後，小腿發麻渾身無力怎麼康復好的快？</a><a class="list-group-item visible-lg" title="馬克龍放棄退休收益，電力工人野蠻拉閘停電，罷工大戰的好戲還能這般層出不窮？" href="https://daynews.cc/international/25486/" rel="bookmark"><i class="fa  fa-book"></i> 馬克龍放棄退休收益，電力工人野蠻拉閘停電，罷工大戰的好戲還能這般層出不窮？</a><a class="list-group-item visible-md" title="馬克龍放棄退休收益，電力工人野蠻拉閘停電，罷工大戰的好戲還能這般層出不窮？" href="https://daynews.cc/international/25486/" rel="bookmark"><i class="fa  fa-book"></i> 馬克龍放棄退休收益，電力工人野蠻拉閘停電，罷工大戰的好戲還能這般層出不窮？</a><a class="list-group-item visible-lg" title="西部排行：火箭躺著下跌，掘金反超升第2，雷霆3連勝，勇士又贏了" href="https://daynews.cc/nba/27606/" rel="bookmark"><i class="fa  fa-book"></i> 西部排行：火箭躺著下跌，掘金反超升第2，雷霆3連勝，勇士又贏了</a><a class="list-group-item visible-md" title="西部排行：火箭躺著下跌，掘金反超升第2，雷霆3連勝，勇士又贏了" href="https://daynews.cc/nba/27606/" rel="bookmark"><i class="fa  fa-book"></i> 西部排行：火箭躺著下跌，掘金反超升第2，雷霆3連勝，勇士又贏了</a><a class="list-group-item visible-lg" title="天秤座的八大排名第一，進來看看你中幾點" href="https://daynews.cc/constellation/20994/" rel="bookmark"><i class="fa  fa-book"></i> 天秤座的八大排名第一，進來看看你中幾點</a><a class="list-group-item visible-md" title="天秤座的八大排名第一，進來看看你中幾點" href="https://daynews.cc/constellation/20994/" rel="bookmark"><i class="fa  fa-book"></i> 天秤座的八大排名第一，進來看看你中幾點</a><a class="list-group-item visible-lg" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080/" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a><a class="list-group-item visible-md" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080/" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="朱彥西隔空擊掌追悼好兄弟吉喆 感動一幕令無數球迷潸然淚下" href="https://daynews.cc/sports/2161/" rel="bookmark"><i class="fa  fa-book"></i> 朱彥西隔空擊掌追悼好兄弟吉喆 感動一幕令無數球迷潸然淚下                            </a>
+                            <a class="list-group-item visible-md" title="朱彥西隔空擊掌追悼好兄弟吉喆 感動一幕令無數球迷潸然淚下" href="https://daynews.cc/sports/2161/" rel="bookmark"><i class="fa  fa-book"></i> 朱彥西隔空擊掌追悼好兄弟吉喆 感動一幕令無數球迷潸然淚下                            </a>
+                                                    <a class="list-group-item visible-lg" title="致親情：一位平凡女孩的背後，是一位身為姐姐的偉大" href="https://daynews.cc/emotion/1311/" rel="bookmark"><i class="fa  fa-book"></i> 致親情：一位平凡女孩的背後，是一位身為姐姐的偉大                            </a>
+                            <a class="list-group-item visible-md" title="致親情：一位平凡女孩的背後，是一位身為姐姐的偉大" href="https://daynews.cc/emotion/1311/" rel="bookmark"><i class="fa  fa-book"></i> 致親情：一位平凡女孩的背後，是一位身為姐姐的偉大                            </a>
+                                                    <a class="list-group-item visible-lg" title="肖戰排練的春晚小品已過二審，就差終極審核了？粉絲的態度很理智" href="https://daynews.cc/entertainment/12682/" rel="bookmark"><i class="fa  fa-book"></i> 肖戰排練的春晚小品已過二審，就差終極審核了？粉絲的態度很理智                            </a>
+                            <a class="list-group-item visible-md" title="肖戰排練的春晚小品已過二審，就差終極審核了？粉絲的態度很理智" href="https://daynews.cc/entertainment/12682/" rel="bookmark"><i class="fa  fa-book"></i> 肖戰排練的春晚小品已過二審，就差終極審核了？粉絲的態度很理智                            </a>
+                                                    <a class="list-group-item visible-lg" title="港珠澳大橋建設經驗走向英國荷蘭等十餘個國家地區" href="https://daynews.cc/international/12035/" rel="bookmark"><i class="fa  fa-book"></i> 港珠澳大橋建設經驗走向英國荷蘭等十餘個國家地區                            </a>
+                            <a class="list-group-item visible-md" title="港珠澳大橋建設經驗走向英國荷蘭等十餘個國家地區" href="https://daynews.cc/international/12035/" rel="bookmark"><i class="fa  fa-book"></i> 港珠澳大橋建設經驗走向英國荷蘭等十餘個國家地區                            </a>
+                                                    <a class="list-group-item visible-lg" title="亞馬遜未獲美國防部百億合約，稱遭到特朗普"介入"" href="https://daynews.cc/technology/9588/" rel="bookmark"><i class="fa  fa-book"></i> 亞馬遜未獲美國防部百億合約，稱遭到特朗普"介入"                            </a>
+                            <a class="list-group-item visible-md" title="亞馬遜未獲美國防部百億合約，稱遭到特朗普"介入"" href="https://daynews.cc/technology/9588/" rel="bookmark"><i class="fa  fa-book"></i> 亞馬遜未獲美國防部百億合約，稱遭到特朗普"介入"                            </a>
+                                                    <a class="list-group-item visible-lg" title="長安新能源：很多純電平台是“吹”出來的，我們的不是丨汽車產經" href="https://daynews.cc/technology/23004/" rel="bookmark"><i class="fa  fa-book"></i> 長安新能源：很多純電平台是“吹”出來的，我們的不是丨汽車產經                            </a>
+                            <a class="list-group-item visible-md" title="長安新能源：很多純電平台是“吹”出來的，我們的不是丨汽車產經" href="https://daynews.cc/technology/23004/" rel="bookmark"><i class="fa  fa-book"></i> 長安新能源：很多純電平台是“吹”出來的，我們的不是丨汽車產經                            </a>
+                                                    <a class="list-group-item visible-lg" title="部落衝突：女皇飛盾相爭一姐之位，蠻王閉門不出，詠王泡茶看戲" href="https://daynews.cc/game/20185/" rel="bookmark"><i class="fa  fa-book"></i> 部落衝突：女皇飛盾相爭一姐之位，蠻王閉門不出，詠王泡茶看戲                            </a>
+                            <a class="list-group-item visible-md" title="部落衝突：女皇飛盾相爭一姐之位，蠻王閉門不出，詠王泡茶看戲" href="https://daynews.cc/game/20185/" rel="bookmark"><i class="fa  fa-book"></i> 部落衝突：女皇飛盾相爭一姐之位，蠻王閉門不出，詠王泡茶看戲                            </a>
+                                                    <a class="list-group-item visible-lg" title="德國這座酒店居然有4.5公里長，比西安城牆還長" href="https://daynews.cc/international/11953/" rel="bookmark"><i class="fa  fa-book"></i> 德國這座酒店居然有4.5公里長，比西安城牆還長                            </a>
+                            <a class="list-group-item visible-md" title="德國這座酒店居然有4.5公里長，比西安城牆還長" href="https://daynews.cc/international/11953/" rel="bookmark"><i class="fa  fa-book"></i> 德國這座酒店居然有4.5公里長，比西安城牆還長                            </a>
+                                                    <a class="list-group-item visible-lg" title="東契奇領銜傷病潮 盤點NBA近兩日傷病，格里芬最慘" href="https://daynews.cc/nba/16192/" rel="bookmark"><i class="fa  fa-book"></i> 東契奇領銜傷病潮 盤點NBA近兩日傷病，格里芬最慘                            </a>
+                            <a class="list-group-item visible-md" title="東契奇領銜傷病潮 盤點NBA近兩日傷病，格里芬最慘" href="https://daynews.cc/nba/16192/" rel="bookmark"><i class="fa  fa-book"></i> 東契奇領銜傷病潮 盤點NBA近兩日傷病，格里芬最慘                            </a>
+                                                    <a class="list-group-item visible-lg" title="專訪《受益人》製片人，如何運用數據策略找到內容和觀眾的溝通點" href="https://daynews.cc/entertainment/24143/" rel="bookmark"><i class="fa  fa-book"></i> 專訪《受益人》製片人，如何運用數據策略找到內容和觀眾的溝通點                            </a>
+                            <a class="list-group-item visible-md" title="專訪《受益人》製片人，如何運用數據策略找到內容和觀眾的溝通點" href="https://daynews.cc/entertainment/24143/" rel="bookmark"><i class="fa  fa-book"></i> 專訪《受益人》製片人，如何運用數據策略找到內容和觀眾的溝通點                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="https://daynews.cc/nba/">NBA</a> (2,054)
+</li>
+	<li class="cat-item cat-item-23"><a href="https://daynews.cc/international/">國際</a> (3,205)
+</li>
+	<li class="cat-item cat-item-14"><a href="https://daynews.cc/entertainment/">娛樂</a> (2,279)
+</li>
+	<li class="cat-item cat-item-15"><a href="https://daynews.cc/emotion/">情感</a> (2,292)
+</li>
+	<li class="cat-item cat-item-22"><a href="https://daynews.cc/constellation/">星座</a> (1,498)
+</li>
+	<li class="cat-item cat-item-17"><a href="https://daynews.cc/history/">歷史</a> (2,441)
+</li>
+	<li class="cat-item cat-item-25"><a href="https://daynews.cc/lose/">減肥</a> (789)
+</li>
+	<li class="cat-item cat-item-24"><a href="https://daynews.cc/technology/">科技</a> (3,150)
+</li>
+	<li class="cat-item cat-item-19"><a href="https://daynews.cc/premier/">英超</a> (1,808)
+</li>
+	<li class="cat-item cat-item-18"><a href="https://daynews.cc/game/">遊戲</a> (2,918)
+</li>
+	<li class="cat-item cat-item-21"><a href="https://daynews.cc/health/">養生</a> (1,588)
+</li>
+	<li class="cat-item cat-item-16"><a href="https://daynews.cc/sports/">體育</a> (2,946)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='https://daynews.cc/date/2019/12/'>2019 年 12 月</a>&nbsp;(23966)</li>
+	<li><a href='https://daynews.cc/date/2019/11/'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='https://daynews.cc/date/2019/10/'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="https://daynews.cc">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.easing.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.qrcode.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/layer.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/modernizr.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.waypoints.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.stellar.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/hoverIntent.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/superfish.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/kratos.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-includes/js/wp-embed.min.js'></script>
+			</body>
+
+</html>
+<!-- This is the static html file -->

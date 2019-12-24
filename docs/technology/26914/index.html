@@ -1,0 +1,416 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>Lyft透露其自動駕駛汽車決策系統設計細節 學習人類駕駛模式 - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="蓋世汽車訊 據外媒報道，Lyft自動駕駛汽車研發部門L5團隊透露了其自動駕駛汽車規劃的一些細節和進展，並列出了其工程師遇到的一些挑戰。 （圖片來源：Lyft） 想像一下：汽車在高速公路上行駛，遇到了另一輛橫穿多條車道的汽車。如果要防止碰撞，就必須減速，但是如何控制減速的速率呢？Lyft的自動駕駛原型利用「受人類啟發（human-inspi……" />
+		<meta name="keywords" content="Lyft透露其自動駕駛汽車決策系統設計細節 學習人類駕駛模式 - 天天要聞,科技," />
+		<meta itemprop="image" content="http://p1.pstatp.com/large/pgc-image/RlBM1Jm92XxeUq"/>
+		<meta name="description" itemprop="description" content="蓋世汽車訊 據外媒報道，Lyft自動駕駛汽車研發部門L5團隊透露了其自動駕駛汽車規劃的一些細節和進展，並列出了其工程師遇到的一些挑戰。 （圖片來源：Lyft） 想像一下：汽車在高速公路上行駛，遇到了另一輛橫穿多條車道的汽車。如果要防止碰撞，就必須減速，但是如何控制減速的速率呢？Lyft的自動駕駛原型利用「受人類啟發（human-inspi……" />
+		
+<!-- This site is optimized with the SEO -->
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="https://daynews.cc/technology/26914/" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Lyft透露其自動駕駛汽車決策系統設計細節 學習人類駕駛模式 - 天天要聞" />
+<meta property="og:description" content="蓋世汽車訊 據外媒報道，Lyft自動駕駛汽車研發部門L5團隊透露了其自動駕駛汽車規劃的一些細節和進展，並列出了其工程師遇到的一些挑戰。 （圖片來源：Lyft） 想像一下：汽車在高速公路上行駛，遇到了另一輛橫穿多條車道的汽車。如果要防止碰撞，就必須減速，但是如何控制減速的速率呢？Lyft的自動駕駛原型利用「受人類啟發（human-inspi……" />
+<meta property="og:url" content="https://daynews.cc/technology/26914/" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-20T10:05:05+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="蓋世汽車訊 據外媒報道，Lyft自動駕駛汽車研發部門L5團隊透露了其自動駕駛汽車規劃的一些細節和進展，並列出了其工程師遇到的一些挑戰。 （圖片來源：Lyft） 想像一下：汽車在高速公路上行駛，遇到了另一輛橫穿多條車道的汽車。如果要防止碰撞，就必須減速，但是如何控制減速的速率呢？Lyft的自動駕駛原型利用「受人類啟發（human-inspi……" />
+<meta name="twitter:title" content="Lyft透露其自動駕駛汽車決策系統設計細節 學習人類駕駛模式 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/RlBM1Jm92XxeUq" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/26914/#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/RlBM1Jm92XxeUq"},{"@type":"WebPage","@id":"https://daynews.cc/technology/26914/#webpage","url":"https://daynews.cc/technology/26914/","inLanguage":"zh-TW","name":"Lyft\u900f\u9732\u5176\u81ea\u52d5\u99d5\u99db\u6c7d\u8eca\u6c7a\u7b56\u7cfb\u7d71\u8a2d\u8a08\u7d30\u7bc0 \u5b78\u7fd2\u4eba\u985e\u99d5\u99db\u6a21\u5f0f - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/26914/#primaryimage"},"datePublished":"2019-12-20T10:05:05+00:00","dateModified":"2019-12-20T10:05:05+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<!-- / SEO. -->
+
+<link rel='stylesheet' id='animate-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/animate.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/bootstrap.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/superfish.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/layer.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='https://daynews.cc/wp-content/themes/Kratos/style.css' type='text/css' media='all' />
+<link rel="amphtml" href="https://daynews.cc/technology/26914/amp/">		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.min.js'></script>
+		
+		<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?882f12dcdadf8f87fabf76b550649115";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+		</script>
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="https://daynews.cc"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="/">首頁</a></li>
+<li><a href="https://daynews.cc/entertainment/">娛樂</a></li>
+<li><a href="https://daynews.cc/emotion/">情感</a></li>
+<li><a href="https://daynews.cc/international/">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="https://daynews.cc/technology/">科技</a></li>
+<li><a href="https://daynews.cc/sports/">體育</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/nba/">NBA</a></li>
+	<li><a href="https://daynews.cc/premier/">英超</a></li>
+</ul>
+</li>
+<li><a href="https://daynews.cc/history/">歷史</a></li>
+<li><a href="https://daynews.cc/game/">遊戲</a></li>
+<li><a href="https://daynews.cc/health/">養生</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/lose/">減肥</a></li>
+</ul>
+</li>
+<li><a href="https://daynews.cc/constellation/">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">Lyft透露其自動駕駛汽車決策系統設計細節 學習人類駕駛模式</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-20				                <i class="fa fa-commenting-o"></i> 953條評論
+				                <i class="fa fa-eye"></i> 2,944次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 1152人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+<p>蓋世汽車訊 據外媒報道，Lyft自動駕駛汽車研發部門L5團隊透露了其自動駕駛汽車規劃的一些細節和進展，並列出了其工程師遇到的一些挑戰。</p>
+<p> <img layer-src="http://p1.pstatp.com/large/pgc-image/RlBM1Jm92XxeUq" src="http://p1.pstatp.com/large/pgc-image/RlBM1Jm92XxeUq" alt="《Lyft透露其自動駕駛汽車決策系統設計細節 學習人類駕駛模式》" /></p>
+<p><strong>（圖片來源：Lyft）</strong></p>
+<p>想像一下：汽車在高速公路上行駛，遇到了另一輛橫穿多條車道的汽車。如果要防止碰撞，就必須減速，但是如何控制減速的速率呢？Lyft的自動駕駛原型利用「受人類啟發（human-inspired）」的規劃方法，以確定減速速率。最初，該公司使用的基準AI模型不考慮障礙物速度，而最新的模型學習人類駕駛，面對高速超車的汽車時會逐漸減速。</p>
+<p>Lyft Level 5團隊表示，「此種混合方式能根據人類的偏好進行調整，使駕駛體驗更舒適、更自然。我們相信，將基於規則的系統、基於學習的系統，以及人類駕駛數據相結合，可以產生全面的系統級解決方案。」</p>
+<p>L5工程師們表示，他們從馬斯洛的需求層次理論和阿西莫夫的機器人學三定律中獲得靈感，進行自動駕駛汽車決策系統架構設計。該金字塔模型的基礎是安全性和合法性，即在執行操作之前，Lyft車輛會驗證其規划行為是否安全，是否符合當地法律。</p>
+<p>此外，該規劃模型還考慮了感知安全概念，即使在實際安全風險較低時，也會盡量減少乘客和其他駕駛員的不安全感。在實際駕駛中，可能需要拉大與前車的距離，或者確保自動駕駛汽車不會離車道分隔帶過近。該模型的倒數第二層是舒適度，例如減少由於重力導致的噁心。該模型的最頂端是路線效率，例如儘快抵達目的地。</p>
+<p>自動駕駛汽車系統透明化將是提高公眾接受度的關鍵。根據去年因特爾委託PSB Research進行的一項調查，儘管約94%的車禍是由人為失誤造成的，但是仍然只有21%的美國人願意將他們的汽車換成自動駕駛汽車，近一半（43%）的人在自動駕駛汽車附近感到不安全。</p>
+<p><strong>Lyft自動駕駛發展歷程</strong></p>
+<p>Lyft Level 5團隊由一群數據科學家、應用研究人員、產品經理、運營經理和其他人員組成，致力於為拼車服務構建自動駕駛系統。自2017年7月成立以來，該部門開發了新的3D分割框架、評估車輛能效的新方法，以及使用眾包地圖追蹤車輛移動的技術。</p>
+<p>今年早些時候，Lyft在加州帕洛阿爾托（Palo Alto）Level 5總部附近，開設了新的道路測試站點。工程師們將在該中心模擬真實駕駛場景，包括十字路口、紅綠燈、道路合併、行人通道和其他公共道路條件，而且其中的組件將可重置。</p>
+<p>一年前，Lyft在帕洛阿爾托擴大其員工自動駕駛服務範圍，配備人類安全駕駛員的自動駕駛車輛在限定區域內行駛。今年該公司表示，可行駛路線增加了三倍，並計劃迅速擴大該項服務的覆蓋區域。</p>
+<p>11月，Lyft透露，與半年前相比，其每季度的行駛里程增加了4倍，而且致力於自動駕駛汽車技術開發的員工人數由300名增長到400名。據該公司稱，通過Lyft應用嘗試使用自動駕駛汽車的人中，96%表示希望再次使用。</p>
+<p>今年5月，Lyft與Waymo合作，鳳凰城的用戶可以通過Lyft應用叫到Waymo的自動駕駛汽車。此外，Lyft也在與安波福合作，安波福為Lyft拉斯維加斯的客戶提供一小批自動駕駛汽車。最近，Lyft還將其自動駕駛汽車數據集nuScenes全部開源，具有超過55000個人工標註的3D注釋交通主體框架。</p>
+<p><strong>（責任編輯： HN666）</strong></p>
+<p>來源: 蓋世汽車網</p>
+<p>關注同花順財經微信公眾號(ths518)，獲取更多財經資訊</p>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="26914" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/26914/"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/26914/";
+		var title='%E3%80%90Lyft%E9%80%8F%E9%9C%B2%E5%85%B6%E8%87%AA%E5%8B%95%E9%A7%95%E9%A7%9B%E6%B1%BD%E8%BB%8A%E6%B1%BA%E7%AD%96%E7%B3%BB%E7%B5%B1%E8%A8%AD%E8%A8%88%E7%B4%B0%E7%AF%80%20%E5%AD%B8%E7%BF%92%E4%BA%BA%E9%A1%9E%E9%A7%95%E9%A7%9B%E6%A8%A1%E5%BC%8F%E3%80%91';
+		var qqtitle='%E3%80%90Lyft%E9%80%8F%E9%9C%B2%E5%85%B6%E8%87%AA%E5%8B%95%E9%A7%95%E9%A7%9B%E6%B1%BD%E8%BB%8A%E6%B1%BA%E7%AD%96%E7%B3%BB%E7%B5%B1%E8%A8%AD%E8%A8%88%E7%B4%B0%E7%AF%80%20%E5%AD%B8%E7%BF%92%E4%BA%BA%E9%A1%9E%E9%A7%95%E9%A7%9B%E6%A8%A1%E5%BC%8F%E3%80%91';
+		var excerpt='%E8%93%8B%E4%B8%96%E6%B1%BD%E8%BB%8A%E8%A8%8A%20%E6%93%9A%E5%A4%96%E5%AA%92%E5%A0%B1%E9%81%93%EF%BC%8CLyft%E8%87%AA%E5%8B%95%E9%A7%95%E9%A7%9B%E6%B1%BD%E8%BB%8A%E7%A0%94%E7%99%BC%E9%83%A8%E9%96%80L5%E5%9C%98%E9%9A%8A%E9%80%8F%E9%9C%B2%E4%BA%86%E5%85%B6%E8%87%AA%E5%8B%95%E9%A7%95%E9%A7%9B%E6%B1%BD%E8%BB%8A%E8%A6%8F%E5%8A%83%E7%9A%84%E4%B8%80%E4%BA%9B%E7%B4%B0%E7%AF%80%E5%92%8C%E9%80%B2%E5%B1%95%EF%BC%8C%E4%B8%A6%E5%88%97%E5%87%BA%E4%BA%86%E5%85%B6%E5%B7%A5%E7%A8%8B%E5%B8%AB%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8C%91%E6%88%B0%E3%80%82%20%EF%BC%88%E5%9C%96%E7%89%87%E4%BE%86%E6%BA%90%EF%BC%9ALyft%EF%BC%89%20%E6%83%B3%E5%83%8F%E4%B8%80%E4%B8%8B%EF%BC%9A%E6%B1%BD%E8%BB%8A%E5%9C%A8%E9%AB%98%E9%80%9F%E5%85%AC%E8%B7%AF%E4%B8%8A%E8%A1%8C%E9%A7%9B%EF%BC%8C%E9%81%87%E5%88%B0%E4%BA%86%E5%8F%A6%E4%B8%80%E8%BC%9B%E6%A9%AB%E7%A9%BF%E5%A4%9A%E6%A2%9D%E8%BB%8A%E9%81%93%E7%9A%84%E6%B1%BD%E8%BB%8A%E3%80%82%E5%A6%82%E6%9E%9C%E8%A6%81%E9%98%B2%E6%AD%A2%E7%A2%B0%E6%92%9E%EF%BC%8C%E5%B0%B1%E5%BF%85%E9%A0%88%E6%B8%9B%E9%80%9F%EF%BC%8C%E4%BD%86%E6%98%AF%E5%A6%82%E4%BD%95%E6%8E%A7%E5%88%B6%E6%B8%9B%E9%80%9F%E7%9A%84%E9%80%9F%E7%8E%87%E5%91%A2%EF%BC%9FLyft%E7%9A%84%E8%87%AA%E5%8B%95%E9%A7%95%E9%A7%9B%E5%8E%9F%E5%9E%8B%E5%88%A9%E7%94%A8%E3%80%8C%E5%8F%97%E4%BA%BA%E9%A1%9E%E5%95%9F%E7%99%BC%EF%BC%88human-inspi%E2%80%A6%E2%80%A6';
+		var wbexcerpt='%E8%93%8B%E4%B8%96%E6%B1%BD%E8%BB%8A%E8%A8%8A%20%E6%93%9A%E5%A4%96%E5%AA%92%E5%A0%B1%E9%81%93%EF%BC%8CLyft%E8%87%AA%E5%8B%95%E9%A7%95%E9%A7%9B%E6%B1%BD%E8%BB%8A%E7%A0%94%E7%99%BC%E9%83%A8%E9%96%80L5%E5%9C%98%E9%9A%8A%E9%80%8F%E9%9C%B2%E4%BA%86%E5%85%B6%E8%87%AA%E5%8B%95%E9%A7%95%E9%A7%9B%E6%B1%BD%E8%BB%8A%E8%A6%8F%E5%8A%83%E7%9A%84%E4%B8%80%E4%BA%9B%E7%B4%B0%E7%AF%80%E5%92%8C%E9%80%B2%E5%B1%95%EF%BC%8C%E4%B8%A6%E5%88%97%E5%87%BA%E4%BA%86%E5%85%B6%E5%B7%A5%E7%A8%8B%E5%B8%AB%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8C%91%E6%88%B0%E3%80%82%20%EF%BC%88%E5%9C%96%E7%89%87%E4%BE%86%E6%BA%90%EF%BC%9ALyft%EF%BC%89%20%E6%83%B3%E5%83%8F%E4%B8%80%E4%B8%8B%EF%BC%9A%E6%B1%BD%E8%BB%8A%E5%9C%A8%E9%AB%98%E9%80%9F%E5%85%AC%E8%B7%AF%E4%B8%8A%E8%A1%8C%E9%A7%9B%EF%BC%8C%E9%81%87%E5%88%B0%E4%BA%86%E5%8F%A6%E4%B8%80%E8%BC%9B%E6%A9%AB%E7%A9%BF%E5%A4%9A%E6%A2%9D%E8%BB%8A%E9%81%93%E7%9A%84%E6%B1%BD%E8%BB%8A%E3%80%82%E5%A6%82%E6%9E%9C%E8%A6%81%E9%98%B2%E6%AD%A2%E7%A2%B0%E6%92%9E%EF%BC%8C%E5%B0%B1%E5%BF%85%E9%A0%88%E6%B8%9B%E9%80%9F%EF%BC%8C%E4%BD%86%E6%98%AF%E5%A6%82%E4%BD%95%E6%8E%A7%E5%88%B6%E6%B8%9B%E9%80%9F%E7%9A%84%E9%80%9F%E7%8E%87%E5%91%A2%EF%BC%9FLyft%E7%9A%84%E8%87%AA%E5%8B%95%E9%A7%95%E9%A7%9B%E5%8E%9F%E5%9E%8B%E5%88%A9%E7%94%A8%E3%80%8C%E5%8F%97%E4%BA%BA%E9%A1%9E%E5%95%9F%E7%99%BC%EF%BC%88human-inspi%E2%80%A6%E2%80%A6';
+		var pic="http://p1.pstatp.com/large/pgc-image/RlBM1Jm92XxeUq";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="穩居第一梯隊！百度飛槳年底再交亮眼成績單" href="https://daynews.cc/technology/26915/">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="招商銀行APP上線高德打車小程序" href="https://daynews.cc/technology/26912/">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="/technology/26914/#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='26914' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="冬天補氣養顏，不妨吃點酒釀！養生效果杠杠的，價格還便宜" href="https://daynews.cc/health/28980/" rel="bookmark"><i class="fa  fa-book"></i> 冬天補氣養顏，不妨吃點酒釀！養生效果杠杠的，價格還便宜                            </a>
+                            <a class="list-group-item visible-md" title="冬天補氣養顏，不妨吃點酒釀！養生效果杠杠的，價格還便宜" href="https://daynews.cc/health/28980/" rel="bookmark"><i class="fa  fa-book"></i> 冬天補氣養顏，不妨吃點酒釀！養生效果杠杠的，價格還便宜                            </a>
+                                                    <a class="list-group-item visible-lg" title="睡眠是消除身體疲勞的主要方式，冬天學會這些睡覺養生技巧" href="https://daynews.cc/health/28979/" rel="bookmark"><i class="fa  fa-book"></i> 睡眠是消除身體疲勞的主要方式，冬天學會這些睡覺養生技巧                            </a>
+                            <a class="list-group-item visible-md" title="睡眠是消除身體疲勞的主要方式，冬天學會這些睡覺養生技巧" href="https://daynews.cc/health/28979/" rel="bookmark"><i class="fa  fa-book"></i> 睡眠是消除身體疲勞的主要方式，冬天學會這些睡覺養生技巧                            </a>
+                                                    <a class="list-group-item visible-lg" title="立冬之後，化妝保養不比化瘀保溫更重要" href="https://daynews.cc/health/28981/" rel="bookmark"><i class="fa  fa-book"></i> 立冬之後，化妝保養不比化瘀保溫更重要                            </a>
+                            <a class="list-group-item visible-md" title="立冬之後，化妝保養不比化瘀保溫更重要" href="https://daynews.cc/health/28981/" rel="bookmark"><i class="fa  fa-book"></i> 立冬之後，化妝保養不比化瘀保溫更重要                            </a>
+                                                    <a class="list-group-item visible-lg" title="海鮮，到底養甲狀腺還是傷甲狀腺？專家表示：不同情況，講究不同" href="https://daynews.cc/health/28982/" rel="bookmark"><i class="fa  fa-book"></i> 海鮮，到底養甲狀腺還是傷甲狀腺？專家表示：不同情況，講究不同                            </a>
+                            <a class="list-group-item visible-md" title="海鮮，到底養甲狀腺還是傷甲狀腺？專家表示：不同情況，講究不同" href="https://daynews.cc/health/28982/" rel="bookmark"><i class="fa  fa-book"></i> 海鮮，到底養甲狀腺還是傷甲狀腺？專家表示：不同情況，講究不同                            </a>
+                                                    <a class="list-group-item visible-lg" title="5種素菜比肉還肥，每吃一口都在喝油" href="https://daynews.cc/health/28983/" rel="bookmark"><i class="fa  fa-book"></i> 5種素菜比肉還肥，每吃一口都在喝油                            </a>
+                            <a class="list-group-item visible-md" title="5種素菜比肉還肥，每吃一口都在喝油" href="https://daynews.cc/health/28983/" rel="bookmark"><i class="fa  fa-book"></i> 5種素菜比肉還肥，每吃一口都在喝油                            </a>
+                                                    <a class="list-group-item visible-lg" title="姓氏藏有歷史的痕迹，從你的姓氏可以看出，祖輩從農從商還是從官" href="https://daynews.cc/constellation/29331/" rel="bookmark"><i class="fa  fa-book"></i> 姓氏藏有歷史的痕迹，從你的姓氏可以看出，祖輩從農從商還是從官                            </a>
+                            <a class="list-group-item visible-md" title="姓氏藏有歷史的痕迹，從你的姓氏可以看出，祖輩從農從商還是從官" href="https://daynews.cc/constellation/29331/" rel="bookmark"><i class="fa  fa-book"></i> 姓氏藏有歷史的痕迹，從你的姓氏可以看出，祖輩從農從商還是從官                            </a>
+                                                    <a class="list-group-item visible-lg" title="錯了就是錯了，這些星座認錯從不含糊，做錯要承認，挨打要站穩" href="https://daynews.cc/constellation/29332/" rel="bookmark"><i class="fa  fa-book"></i> 錯了就是錯了，這些星座認錯從不含糊，做錯要承認，挨打要站穩                            </a>
+                            <a class="list-group-item visible-md" title="錯了就是錯了，這些星座認錯從不含糊，做錯要承認，挨打要站穩" href="https://daynews.cc/constellation/29332/" rel="bookmark"><i class="fa  fa-book"></i> 錯了就是錯了，這些星座認錯從不含糊，做錯要承認，挨打要站穩                            </a>
+                                                    <a class="list-group-item visible-lg" title="《戰爭藝術》凜冬節：聖誕星主播招募倒計時" href="https://daynews.cc/game/28439/" rel="bookmark"><i class="fa  fa-book"></i> 《戰爭藝術》凜冬節：聖誕星主播招募倒計時                            </a>
+                            <a class="list-group-item visible-md" title="《戰爭藝術》凜冬節：聖誕星主播招募倒計時" href="https://daynews.cc/game/28439/" rel="bookmark"><i class="fa  fa-book"></i> 《戰爭藝術》凜冬節：聖誕星主播招募倒計時                            </a>
+                                                    <a class="list-group-item visible-lg" title="FPX轉會實力仍是第一！笑笑談到TES也將崛起，EDG多半要涼" href="https://daynews.cc/game/28441/" rel="bookmark"><i class="fa  fa-book"></i> FPX轉會實力仍是第一！笑笑談到TES也將崛起，EDG多半要涼                            </a>
+                            <a class="list-group-item visible-md" title="FPX轉會實力仍是第一！笑笑談到TES也將崛起，EDG多半要涼" href="https://daynews.cc/game/28441/" rel="bookmark"><i class="fa  fa-book"></i> FPX轉會實力仍是第一！笑笑談到TES也將崛起，EDG多半要涼                            </a>
+                                                    <a class="list-group-item visible-lg" title="神將也有弱點？盤點神將們的弱點" href="https://daynews.cc/game/28440/" rel="bookmark"><i class="fa  fa-book"></i> 神將也有弱點？盤點神將們的弱點                            </a>
+                            <a class="list-group-item visible-md" title="神將也有弱點？盤點神將們的弱點" href="https://daynews.cc/game/28440/" rel="bookmark"><i class="fa  fa-book"></i> 神將也有弱點？盤點神將們的弱點                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="24平米房子擠四口人，父母把廚房當卧室，網友：怎敢生養兩個男孩" href="https://daynews.cc/emotion/23804/" rel="bookmark"><i class="fa  fa-book"></i> 24平米房子擠四口人，父母把廚房當卧室，網友：怎敢生養兩個男孩</a><a class="list-group-item visible-md" title="24平米房子擠四口人，父母把廚房當卧室，網友：怎敢生養兩個男孩" href="https://daynews.cc/emotion/23804/" rel="bookmark"><i class="fa  fa-book"></i> 24平米房子擠四口人，父母把廚房當卧室，網友：怎敢生養兩個男孩</a><a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854/" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854/" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="網傳國家電網5G網路建設方案：利用廣電700/60MHz建11.31萬座基站" href="https://daynews.cc/technology/22913/" rel="bookmark"><i class="fa  fa-book"></i> 網傳國家電網5G網路建設方案：利用廣電700/60MHz建11.31萬座基站</a><a class="list-group-item visible-md" title="網傳國家電網5G網路建設方案：利用廣電700/60MHz建11.31萬座基站" href="https://daynews.cc/technology/22913/" rel="bookmark"><i class="fa  fa-book"></i> 網傳國家電網5G網路建設方案：利用廣電700/60MHz建11.31萬座基站</a><a class="list-group-item visible-lg" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134/" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-md" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134/" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098/" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098/" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-lg" title="腰突後，小腿發麻渾身無力怎麼康復好的快？" href="https://daynews.cc/lose/21229/" rel="bookmark"><i class="fa  fa-book"></i> 腰突後，小腿發麻渾身無力怎麼康復好的快？</a><a class="list-group-item visible-md" title="腰突後，小腿發麻渾身無力怎麼康復好的快？" href="https://daynews.cc/lose/21229/" rel="bookmark"><i class="fa  fa-book"></i> 腰突後，小腿發麻渾身無力怎麼康復好的快？</a><a class="list-group-item visible-lg" title="馬克龍放棄退休收益，電力工人野蠻拉閘停電，罷工大戰的好戲還能這般層出不窮？" href="https://daynews.cc/international/25486/" rel="bookmark"><i class="fa  fa-book"></i> 馬克龍放棄退休收益，電力工人野蠻拉閘停電，罷工大戰的好戲還能這般層出不窮？</a><a class="list-group-item visible-md" title="馬克龍放棄退休收益，電力工人野蠻拉閘停電，罷工大戰的好戲還能這般層出不窮？" href="https://daynews.cc/international/25486/" rel="bookmark"><i class="fa  fa-book"></i> 馬克龍放棄退休收益，電力工人野蠻拉閘停電，罷工大戰的好戲還能這般層出不窮？</a><a class="list-group-item visible-lg" title="西部排行：火箭躺著下跌，掘金反超升第2，雷霆3連勝，勇士又贏了" href="https://daynews.cc/nba/27606/" rel="bookmark"><i class="fa  fa-book"></i> 西部排行：火箭躺著下跌，掘金反超升第2，雷霆3連勝，勇士又贏了</a><a class="list-group-item visible-md" title="西部排行：火箭躺著下跌，掘金反超升第2，雷霆3連勝，勇士又贏了" href="https://daynews.cc/nba/27606/" rel="bookmark"><i class="fa  fa-book"></i> 西部排行：火箭躺著下跌，掘金反超升第2，雷霆3連勝，勇士又贏了</a><a class="list-group-item visible-lg" title="天秤座的八大排名第一，進來看看你中幾點" href="https://daynews.cc/constellation/20994/" rel="bookmark"><i class="fa  fa-book"></i> 天秤座的八大排名第一，進來看看你中幾點</a><a class="list-group-item visible-md" title="天秤座的八大排名第一，進來看看你中幾點" href="https://daynews.cc/constellation/20994/" rel="bookmark"><i class="fa  fa-book"></i> 天秤座的八大排名第一，進來看看你中幾點</a><a class="list-group-item visible-lg" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080/" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a><a class="list-group-item visible-md" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080/" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="伊麗莎白女王二世時代，皇家有一些人頗具爭議，他們都是哪些人？" href="https://daynews.cc/international/8730/" rel="bookmark"><i class="fa  fa-book"></i> 伊麗莎白女王二世時代，皇家有一些人頗具爭議，他們都是哪些人？                            </a>
+                            <a class="list-group-item visible-md" title="伊麗莎白女王二世時代，皇家有一些人頗具爭議，他們都是哪些人？" href="https://daynews.cc/international/8730/" rel="bookmark"><i class="fa  fa-book"></i> 伊麗莎白女王二世時代，皇家有一些人頗具爭議，他們都是哪些人？                            </a>
+                                                    <a class="list-group-item visible-lg" title="關於環境污染，現代人普遍相信的6個錯誤的傳說" href="https://daynews.cc/international/8626/" rel="bookmark"><i class="fa  fa-book"></i> 關於環境污染，現代人普遍相信的6個錯誤的傳說                            </a>
+                            <a class="list-group-item visible-md" title="關於環境污染，現代人普遍相信的6個錯誤的傳說" href="https://daynews.cc/international/8626/" rel="bookmark"><i class="fa  fa-book"></i> 關於環境污染，現代人普遍相信的6個錯誤的傳說                            </a>
+                                                    <a class="list-group-item visible-lg" title="暖冬養生做好這2點，將旺盛的火氣化為肌瘤調理“火力”" href="https://daynews.cc/health/7213/" rel="bookmark"><i class="fa  fa-book"></i> 暖冬養生做好這2點，將旺盛的火氣化為肌瘤調理“火力”                            </a>
+                            <a class="list-group-item visible-md" title="暖冬養生做好這2點，將旺盛的火氣化為肌瘤調理“火力”" href="https://daynews.cc/health/7213/" rel="bookmark"><i class="fa  fa-book"></i> 暖冬養生做好這2點，將旺盛的火氣化為肌瘤調理“火力”                            </a>
+                                                    <a class="list-group-item visible-lg" title="AG超玩會月光又立下新flag誓做KPL第一榮譽教練，奪雙冠王！" href="https://daynews.cc/game/20375/" rel="bookmark"><i class="fa  fa-book"></i> AG超玩會月光又立下新flag誓做KPL第一榮譽教練，奪雙冠王！                            </a>
+                            <a class="list-group-item visible-md" title="AG超玩會月光又立下新flag誓做KPL第一榮譽教練，奪雙冠王！" href="https://daynews.cc/game/20375/" rel="bookmark"><i class="fa  fa-book"></i> AG超玩會月光又立下新flag誓做KPL第一榮譽教練，奪雙冠王！                            </a>
+                                                    <a class="list-group-item visible-lg" title="三點外撐，上下一線。是螳螂拳對人體靜型技法的要求" href="https://daynews.cc/lose/10681/" rel="bookmark"><i class="fa  fa-book"></i> 三點外撐，上下一線。是螳螂拳對人體靜型技法的要求                            </a>
+                            <a class="list-group-item visible-md" title="三點外撐，上下一線。是螳螂拳對人體靜型技法的要求" href="https://daynews.cc/lose/10681/" rel="bookmark"><i class="fa  fa-book"></i> 三點外撐，上下一線。是螳螂拳對人體靜型技法的要求                            </a>
+                                                    <a class="list-group-item visible-lg" title="喬丹之後，NBA真正做到享譽世界也就3人 庫里杜蘭特不夠格" href="https://daynews.cc/nba/27500/" rel="bookmark"><i class="fa  fa-book"></i> 喬丹之後，NBA真正做到享譽世界也就3人 庫里杜蘭特不夠格                            </a>
+                            <a class="list-group-item visible-md" title="喬丹之後，NBA真正做到享譽世界也就3人 庫里杜蘭特不夠格" href="https://daynews.cc/nba/27500/" rel="bookmark"><i class="fa  fa-book"></i> 喬丹之後，NBA真正做到享譽世界也就3人 庫里杜蘭特不夠格                            </a>
+                                                    <a class="list-group-item visible-lg" title="李佳琪都顫抖！法官直播“帶貨”1小時狂賣1億" href="https://daynews.cc/technology/15620/" rel="bookmark"><i class="fa  fa-book"></i> 李佳琪都顫抖！法官直播“帶貨”1小時狂賣1億                            </a>
+                            <a class="list-group-item visible-md" title="李佳琪都顫抖！法官直播“帶貨”1小時狂賣1億" href="https://daynews.cc/technology/15620/" rel="bookmark"><i class="fa  fa-book"></i> 李佳琪都顫抖！法官直播“帶貨”1小時狂賣1億                            </a>
+                                                    <a class="list-group-item visible-lg" title="差點幹掉微軟的倪光南，如果沒有離開，聯想會否超越今天的華為？" href="https://daynews.cc/technology/15397/" rel="bookmark"><i class="fa  fa-book"></i> 差點幹掉微軟的倪光南，如果沒有離開，聯想會否超越今天的華為？                            </a>
+                            <a class="list-group-item visible-md" title="差點幹掉微軟的倪光南，如果沒有離開，聯想會否超越今天的華為？" href="https://daynews.cc/technology/15397/" rel="bookmark"><i class="fa  fa-book"></i> 差點幹掉微軟的倪光南，如果沒有離開，聯想會否超越今天的華為？                            </a>
+                                                    <a class="list-group-item visible-lg" title="貓和老鼠：多一個小號都有哪些好處？可以抽大號抽不到的皮膚" href="https://daynews.cc/game/4291/" rel="bookmark"><i class="fa  fa-book"></i> 貓和老鼠：多一個小號都有哪些好處？可以抽大號抽不到的皮膚                            </a>
+                            <a class="list-group-item visible-md" title="貓和老鼠：多一個小號都有哪些好處？可以抽大號抽不到的皮膚" href="https://daynews.cc/game/4291/" rel="bookmark"><i class="fa  fa-book"></i> 貓和老鼠：多一個小號都有哪些好處？可以抽大號抽不到的皮膚                            </a>
+                                                    <a class="list-group-item visible-lg" title="風相兒童 雙子座 天秤座 水瓶座" href="https://daynews.cc/constellation/17331/" rel="bookmark"><i class="fa  fa-book"></i> 風相兒童 雙子座 天秤座 水瓶座                            </a>
+                            <a class="list-group-item visible-md" title="風相兒童 雙子座 天秤座 水瓶座" href="https://daynews.cc/constellation/17331/" rel="bookmark"><i class="fa  fa-book"></i> 風相兒童 雙子座 天秤座 水瓶座                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="https://daynews.cc/nba/">NBA</a> (2,054)
+</li>
+	<li class="cat-item cat-item-23"><a href="https://daynews.cc/international/">國際</a> (3,205)
+</li>
+	<li class="cat-item cat-item-14"><a href="https://daynews.cc/entertainment/">娛樂</a> (2,279)
+</li>
+	<li class="cat-item cat-item-15"><a href="https://daynews.cc/emotion/">情感</a> (2,292)
+</li>
+	<li class="cat-item cat-item-22"><a href="https://daynews.cc/constellation/">星座</a> (1,498)
+</li>
+	<li class="cat-item cat-item-17"><a href="https://daynews.cc/history/">歷史</a> (2,441)
+</li>
+	<li class="cat-item cat-item-25"><a href="https://daynews.cc/lose/">減肥</a> (789)
+</li>
+	<li class="cat-item cat-item-24"><a href="https://daynews.cc/technology/">科技</a> (3,150)
+</li>
+	<li class="cat-item cat-item-19"><a href="https://daynews.cc/premier/">英超</a> (1,808)
+</li>
+	<li class="cat-item cat-item-18"><a href="https://daynews.cc/game/">遊戲</a> (2,918)
+</li>
+	<li class="cat-item cat-item-21"><a href="https://daynews.cc/health/">養生</a> (1,588)
+</li>
+	<li class="cat-item cat-item-16"><a href="https://daynews.cc/sports/">體育</a> (2,946)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='https://daynews.cc/date/2019/12/'>2019 年 12 月</a>&nbsp;(23966)</li>
+	<li><a href='https://daynews.cc/date/2019/11/'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='https://daynews.cc/date/2019/10/'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="https://daynews.cc">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.easing.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.qrcode.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/layer.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/modernizr.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.waypoints.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.stellar.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/hoverIntent.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/superfish.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/kratos.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-includes/js/wp-embed.min.js'></script>
+			</body>
+
+</html>
+<!-- This is the static html file -->

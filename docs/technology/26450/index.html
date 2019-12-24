@@ -1,0 +1,592 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>HTTP請求頭-那些你需要記住的基礎知識 - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="引子 通常HTTP消息包括客戶機向伺服器的請求消息和伺服器向客戶機的響應消息。客戶端向伺服器發送一個請求，請求頭包含請求的方法、URI、協議版本、以及包含請求修飾符、客戶信息和內容的類似於MIME的消息結構。伺服器以一個狀態行作為響應，相應的內容包括消息協議的版本，成功或者錯誤編碼加上包含伺服器信息、實體元信息以及可能的實體內容。 Htt……" />
+		<meta name="keywords" content="HTTP請求頭-那些你需要記住的基礎知識 - 天天要聞,科技," />
+		<meta itemprop="image" content="http://p1.pstatp.com/large/pgc-image/820807688e204f1d87e788477e94df43"/>
+		<meta name="description" itemprop="description" content="引子 通常HTTP消息包括客戶機向伺服器的請求消息和伺服器向客戶機的響應消息。客戶端向伺服器發送一個請求，請求頭包含請求的方法、URI、協議版本、以及包含請求修飾符、客戶信息和內容的類似於MIME的消息結構。伺服器以一個狀態行作為響應，相應的內容包括消息協議的版本，成功或者錯誤編碼加上包含伺服器信息、實體元信息以及可能的實體內容。 Htt……" />
+		
+<!-- This site is optimized with the SEO -->
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="https://daynews.cc/technology/26450/" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="HTTP請求頭-那些你需要記住的基礎知識 - 天天要聞" />
+<meta property="og:description" content="引子 通常HTTP消息包括客戶機向伺服器的請求消息和伺服器向客戶機的響應消息。客戶端向伺服器發送一個請求，請求頭包含請求的方法、URI、協議版本、以及包含請求修飾符、客戶信息和內容的類似於MIME的消息結構。伺服器以一個狀態行作為響應，相應的內容包括消息協議的版本，成功或者錯誤編碼加上包含伺服器信息、實體元信息以及可能的實體內容。 Htt……" />
+<meta property="og:url" content="https://daynews.cc/technology/26450/" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-22T12:45:06+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="引子 通常HTTP消息包括客戶機向伺服器的請求消息和伺服器向客戶機的響應消息。客戶端向伺服器發送一個請求，請求頭包含請求的方法、URI、協議版本、以及包含請求修飾符、客戶信息和內容的類似於MIME的消息結構。伺服器以一個狀態行作為響應，相應的內容包括消息協議的版本，成功或者錯誤編碼加上包含伺服器信息、實體元信息以及可能的實體內容。 Htt……" />
+<meta name="twitter:title" content="HTTP請求頭-那些你需要記住的基礎知識 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/820807688e204f1d87e788477e94df43" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/26450/#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/820807688e204f1d87e788477e94df43"},{"@type":"WebPage","@id":"https://daynews.cc/technology/26450/#webpage","url":"https://daynews.cc/technology/26450/","inLanguage":"zh-TW","name":"HTTP\u8acb\u6c42\u982d-\u90a3\u4e9b\u4f60\u9700\u8981\u8a18\u4f4f\u7684\u57fa\u790e\u77e5\u8b58 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/26450/#primaryimage"},"datePublished":"2019-12-22T12:45:06+00:00","dateModified":"2019-12-22T12:45:06+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<!-- / SEO. -->
+
+<link rel='stylesheet' id='animate-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/animate.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/bootstrap.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/superfish.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/layer.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='https://daynews.cc/wp-content/themes/Kratos/style.css' type='text/css' media='all' />
+<link rel="amphtml" href="https://daynews.cc/technology/26450/amp/">		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.min.js'></script>
+		
+		<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?882f12dcdadf8f87fabf76b550649115";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+		</script>
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="https://daynews.cc"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="/">首頁</a></li>
+<li><a href="https://daynews.cc/entertainment/">娛樂</a></li>
+<li><a href="https://daynews.cc/emotion/">情感</a></li>
+<li><a href="https://daynews.cc/international/">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="https://daynews.cc/technology/">科技</a></li>
+<li><a href="https://daynews.cc/sports/">體育</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/nba/">NBA</a></li>
+	<li><a href="https://daynews.cc/premier/">英超</a></li>
+</ul>
+</li>
+<li><a href="https://daynews.cc/history/">歷史</a></li>
+<li><a href="https://daynews.cc/game/">遊戲</a></li>
+<li><a href="https://daynews.cc/health/">養生</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/lose/">減肥</a></li>
+</ul>
+</li>
+<li><a href="https://daynews.cc/constellation/">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">HTTP請求頭--那些你需要記住的基礎知識</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-22				                <i class="fa fa-commenting-o"></i> 813條評論
+				                <i class="fa fa-eye"></i> 3,183次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 2246人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+<h2 class="pgc-h-arrow-right">引子</h2>
+<p>通常HTTP消息包括客戶機向伺服器的請求消息和伺服器向客戶機的響應消息。客戶端向伺服器發送一個請求，請求頭包含請求的方法、URI、協議版本、以及包含請求修飾符、客戶信息和內容的類似於MIME的消息結構。伺服器以一個狀態行作為響應，相應的內容包括消息協議的版本，成功或者錯誤編碼加上包含伺服器信息、實體元信息以及可能的實體內容。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/820807688e204f1d87e788477e94df43" src="http://p1.pstatp.com/large/pgc-image/820807688e204f1d87e788477e94df43" alt="《HTTP請求頭--那些你需要記住的基礎知識》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>Http協議定義了很多與伺服器交互的方法，最基本的有4種，分別是GET、POST、PUT、DELETE。一個URL地址用於描述一個網路上的資源，而HTTP中的GET、POST、PUT、 DELETE就對應著對這個資源的查、改、增、刪4個操作，我們最常見的就是GET和POST了。GET一般用於獲取/查詢資源信息，而POST一般用於更新資源信息。</p>
+<h2 class="pgc-h-arrow-right">一、HTTP頭信息解讀</h2>
+<p>　　HTTP的頭域包括通用頭、請求頭、響應頭和實體頭四個部分。每個頭域由一個域名，冒號（:）和域值三部分組成。</p>
+<p>　　通用頭部：是客戶端和伺服器都可以使用的頭部，可以在客戶端、伺服器和其他應用程序之間提供一些非常有用的通用功能，如Date頭部。</p>
+<p>　　請求頭部：是請求報文特有的，它們為伺服器提供了一些額外信息，比如客戶端希望接收什麼類型的數據，如Accept頭部。</p>
+<p>　　響應頭部：便於客戶端提供信息，比如，客服端在與哪種類型的伺服器進行交互，如Server頭部。</p>
+<p>　　實體頭部：指的是用於應對實體主體部分的頭部，比如，可以用實體頭部來說明實體主體部分的數據類型，如Content-Type頭部。</p>
+<hr>
+<p><strong>HTTP通用頭</strong></p>
+<p>　　通用頭域包含請求和響應消息都支持的頭域，通用頭域包含緩存頭部Cache-Control、Pragma及信息性頭部Connection、Date、Transfer-Encoding、Update、Via。</p>
+<p>　　1、Cache-Control</p>
+<p>　　Cache-Control指定請求和響應遵循的緩存機制。在請求消息或響應消息中設置 Cache-Control並不會修改另一個消息處理過程中的緩存處理過程。請求時的緩存指令包括no-cache、no-store、max-age、 max-stale、min-fresh、only-if-cached，響應消息中的指令包括public、private、no-cache、no- store、no-transform、must-revalidate、proxy-revalidate、max-age。各個消息中的指令含義如下：</p>
+<p>　　no-cache：指示請求或響應消息不能緩存，實際上是可以存儲在本地緩存區中的，只是在與原始伺服器進行新鮮度驗證之前，緩存不能將其提供給客戶端使用。　</p>
+<p>　　no-store：緩存應該儘快從存儲器中刪除文檔的所有痕迹，因為其中可能會包含敏感信息。</p>
+<p>　　max-age：緩存無法返回緩存時間長於max-age規定秒的文檔，若不超規定秒瀏覽器將不會發送對應的請求到伺服器，數據由緩存直接返回；超過這一時間段才進一步由伺服器決定是返回新數據還是仍由緩存提供。若同時還發送了max-stale指令，則使用期可能會超過其過期時間。</p>
+<p>　　min-fresh：至少在未來規定秒內文檔要保持新鮮，接受其新鮮生命期大於其當前 Age 跟 min-fresh 值之和的緩存對象。</p>
+<p>　　max-stale：指示客戶端可以接收過期響應消息，如果指定max-stale消息的值，那麼客戶端可以接收過期但在指定值之內的響應消息。</p>
+<p>　　only-if-cached：只有當緩存中有副本存在時，客戶端才會獲得一份副本。</p>
+<p>　　Public：指示響應可被任何緩存區緩存，可以用緩存內容回應任何用戶。</p>
+<p>　　Private：指示對於單個用戶的整個或部分響應消息，不能被共享緩存處理，只能用緩存內容回應先前請求該內容的那個用戶。</p>
+<p>　　2、Pragma</p>
+<p>　　Pragma頭域用來包含實現特定的指令，最常用的是Pragma:no-cache。在HTTP/1.1協議中，它的含義和Cache- Control:no-cache相同。</p>
+<p>　　3、Connection</p>
+<p>　　Connection表示是否需要持久連接。如果Servlet看到這裡的值為「Keep-Alive」，或者看到請求使用的是HTTP 1.1（HTTP 1.1默認進行持久連接），它就可以利用持久連接的優點，當頁面包含多個元素時（例如Applet，圖片），顯著地減少下載所需要的時間。要實現這一點，Servlet需要在應答中發送一個Content-Length頭，最簡單的實現方法是：先把內容寫入ByteArrayOutputStream，然後在正式寫出內容之前計算它的大小。</p>
+<p>　　Close：告訴WEB伺服器或者代理伺服器，在完成本次請求的響應後，斷開連接，不要等待本次連接的後續請求了。</p>
+<p>　　Keepalive：告訴WEB伺服器或者代理伺服器，在完成本次請求的響應後，保持連接，等待本次連接的後續請求。</p>
+<p>　　Keep-Alive：如果瀏覽器請求保持連接，則該頭部表明希望 WEB 伺服器保持連接多長時間（秒），如Keep-Alive：300。</p>
+<p>　　4、Date</p>
+<p>　　Date頭域表示消息發送的時間，伺服器響應中要包含這個頭部，因為緩存在評估響應的新鮮度時要用到，其時間的描述格式由RFC822定義。例如，Date:Mon, 31 Dec 2001 04:25:57 GMT。Date描述的時間表示世界標準時，換算成本地時間，需要知道用戶所在的時區。</p>
+<p>　　5、Transfer-Encoding</p>
+<p>　　WEB 伺服器表明自己對本響應消息體（不是消息體裡面的對象）作了怎樣的編碼，比如是否分塊（chunked），例如：Transfer-Encoding: chunked</p>
+<p>　　6、Upgrade</p>
+<p>　　它可以指定另一種可能完全不同的協議，如HTTP/1.1客戶端可以向伺服器發送一條HTTP/1.0請求，其中包含值為「HTTP/1.1」的Update頭部，這樣客戶端就可以測試一下伺服器是否也使用HTTP/1.1了。</p>
+<p>　　7、Via</p>
+<p>　　列出從客戶端到 OCS 或者相反方向的響應經過了哪些代理伺服器，他們用什麼協議（和版本）發送的請求。</p>
+<p>　　當客戶端請求到達第一個代理伺服器時，該伺服器會在自己發出的請求裡面添加 Via 頭部，並填上自己的相關信息，當下一個代理伺服器 收到第一個代理伺服器的請求時，會在自己發出的請求裡面複製前一個代理伺服器的請求的Via頭部，並把自己的相關信息加到後面，以此類推，當 OCS 收到最後一個代理伺服器的請求時，檢查 Via 頭部，就知道該請求所經過的路由。例如：Via：1.0 236-81.D07071953.sina.com.cn:80 (squid/2.6.STABLE13)</p>
+<hr>
+<p><strong>HTTP請求頭</strong></p>
+<p>　　請求頭用於說明是誰或什麼在發送請求、請求源於何處，或者客戶端的喜好及能力。伺服器可以根據請求頭部給出的客戶端信息，試著為客戶端提供更好的響應。請求頭域可能包含下列欄位Accept、Accept-Charset、Accept- Encoding、Accept-Language、Authorization、From、Host、If-Modified-Since、If-Match、If-None-Match、If-Range、If-Range、If-Unmodified-Since、Max-Forwards、Proxy-Authorization、Range、Referer、User-Agent。對請求頭域的擴展要求通訊雙方都支持，如果存在不支持的請求頭域，一般將會作為實體頭域處理。</p>
+<p>　　8、Accept</p>
+<p>　　告訴WEB伺服器自己接受什麼介質類型，*/* 表示任何類型，type/* 表示該類型下的所有子類型，type/sub-type。</p>
+<p>　　9、Accept-Charset</p>
+<p>　　瀏覽器告訴伺服器自己能接收的字符集。</p>
+<p>　　10、Accept-Encoding</p>
+<p>　　瀏覽器申明自己接收的編碼方法，通常指定壓縮方法，是否支持壓縮，支持什麼壓縮方法（gzip，deflate）。</p>
+<p>　　11、Accept-Language</p>
+<p>　　瀏覽器申明自己接收的語言。語言跟字符集的區別：中文是語言，中文有多種字符集，比如big5，gb2312，gbk等等。</p>
+<p>　　12、Authorization</p>
+<p>　　當客戶端接收到來自WEB伺服器的 WWW-Authenticate 響應時，用該頭部來回應自己的身份驗證信息給WEB伺服器。</p>
+<p>　　13、If-Match</p>
+<p>　　如果對象的 ETag 沒有改變，其實也就意味著對象沒有改變，才執行請求的動作，獲取文檔。</p>
+<p>　　14、If-None-Match</p>
+<p>　　如果對象的 ETag 改變了，其實也就意味著對象也改變了，才執行請求的動作，獲取文檔。</p>
+<p>　　15、If-Modified-Since</p>
+<p>　　如果請求的對象在該頭部指定的時間之後修改了，才執行請求的動作（比如返回對象），否則返回代碼304，告訴瀏覽器該對象沒有修改。例如：If-Modified-Since：Thu, 10 Apr 2008 09:14:42 GMT</p>
+<p>　　16、If-Unmodified-Since</p>
+<p>　　如果請求的對象在該頭部指定的時間之後沒修改過，才執行請求的動作（比如返回對象）。</p>
+<p>　　17、If-Range</p>
+<p>　　瀏覽器告訴 WEB 伺服器，如果我請求的對象沒有改變，就把我缺少的部分給我，如果對象改變了，就把整個對象給我。瀏覽器通過發送請求對象的ETag 或者自己所知道的最後修改時間給 WEB 伺服器，讓其判斷對象是否改變了。總是跟 Range 頭部一起使用。</p>
+<p>　　18、Range</p>
+<p>　　瀏覽器（比如 Flashget 多線程下載時）告訴 WEB 伺服器自己想取對象的哪部分。例如：Range: bytes=1173546</p>
+<p>　　19、Proxy-Authenticate</p>
+<p>　　代理伺服器響應瀏覽器，要求其提供代理身份驗證信息。</p>
+<p>　　20、Proxy-Authorization</p>
+<p>　　瀏覽器響應代理伺服器的身份驗證請求，提供自己的身份信息。</p>
+<p>　　21、Host</p>
+<p>　　客戶端指定自己想訪問的WEB伺服器的域名/IP 地址和埠號。如Host：rss.sina.com.cn</p>
+<p>　　22、Referer</p>
+<p>　　瀏覽器向WEB 伺服器表明自己是從哪個網頁URL獲得點擊當前請求中的網址/URL，例如：Referer：http://www.ecdoer.com/</p>
+<p>　　23、User-Agent</p>
+<p>　　瀏覽器表明自己的身份（是哪種瀏覽器）。例如：User-Agent：Mozilla/5.0 (Windows; U; Windows NT 5.1; zh-CN;rv:1.8.1.14) Gecko/20080404 Firefox/2.0.0.14</p>
+<hr>
+<p><strong>HTTP響應頭</strong></p>
+<p>　　響應頭向客戶端提供一些額外信息，比如誰在發送響應、響應者的功能，甚至與響應相關的一些特殊指令。這些頭部有助於客戶端處理響應，並在將來發起更好的請求。響應頭域包含Age、Location、Proxy-Authenticate、Public、Retry- After、Server、Vary、Warning、WWW-Authenticate。對響應頭域的擴展要求通訊雙方都支持，如果存在不支持的響應頭域，一般將會作為實體頭域處理。</p>
+<p>　　24、Age</p>
+<p>　　當代理伺服器用自己緩存的實體去響應請求時，用該頭部表明該實體從產生到現在經過多長時間了。</p>
+<p>　　25、Server</p>
+<p>　　WEB 伺服器表明自己是什麼軟體及版本等信息。例如：Server：Apache/2.0.61 (Unix)</p>
+<p>　　26、Accept-Ranges</p>
+<p>　　WEB伺服器表明自己是否接受獲取其某個實體的一部分（比如文件的一部分）的請求。bytes：表示接受，none：表示不接受。</p>
+<p>　　27、Vary</p>
+<p>　　WEB伺服器用該頭部的內容告訴 Cache 伺服器，在什麼條件下才能用本響應所返回的對象響應後續的請求。假如源WEB伺服器在接到第一個請求消息時，其響應消息的頭部為：Content-Encoding: gzip; Vary: Content-Encoding，那麼Cache伺服器會分析後續請求消息的頭部，檢查其Accept-Encoding，是否跟先前響應的Vary頭部值一致，即是否使用相同的內容編碼方法，這樣就可以防止Cache伺服器用自己Cache 裡面壓縮後的實體響應給不具備解壓能力的瀏覽器。例如：Vary：Accept-Encoding。</p>
+<hr>
+<p><strong>HTTP實體頭</strong></p>
+<p>　　實體頭部提供了有關實體及其內容的大量信息，從有關對象類型的信息，到能夠對資源使用的各種有效的請求方法。總之，實體頭部可以告知接收者它在對什麼進行處理。請求消息和響應消息都可以包含實體信息，實體信息一般由實體頭域和實體組成。實體頭域包含關於實體的原信息，實體頭包括信息性頭部Allow、Location，內容頭部Content-Base、Content-Encoding、Content-Language、Content-Length、Content-Location、Content-MD5、Content-Range、Content-Type，緩存頭部Etag、Expires、Last-Modified、extension-header。</p>
+<p>　　28、Allow</p>
+<p>　　伺服器支持哪些請求方法（如GET、POST等）。</p>
+<p>　　29、Location</p>
+<p>　　表示客戶應當到哪裡去提取文檔，用於將接收端定位到資源的位置（URL）上。Location通常不是直接設置的，而是通過HttpServletResponse的sendRedirect方法，該方法同時設置狀態代碼為302。</p>
+<p>　　30、Content-Base</p>
+<p>　　解析主體中的相對URL時使用的基礎URL。</p>
+<p>　　31、Content-Encoding</p>
+<p>　　WEB伺服器表明自己使用了什麼壓縮方法（gzip，deflate）壓縮響應中的對象。例如：Content-Encoding：gzip</p>
+<p>　　32、Content-Language</p>
+<p>　　WEB 伺服器告訴瀏覽器理解主體時最適宜使用的自然語言。</p>
+<p>　　33、Content-Length</p>
+<p>　　WEB伺服器告訴瀏覽器自己響應的對象的長度或尺寸，例如：Content-Length: 26012</p>
+<p>　　34、Content-Location</p>
+<p>　　資源實際所處的位置。</p>
+<p>　　35、Content-MD5</p>
+<p>　　主體的MD5校驗和。</p>
+<p>　　36、Content-Range</p>
+<p>　　實體頭用於指定整個實體中的一部分的插入位置，他也指示了整個實體的長度。在伺服器向客戶返回一個部分響應，它必須描述響應覆蓋的範圍和整個實體長度。一般格式： Content-Range:bytes-unitSPfirst-byte-pos-last-byte-pos/entity-legth。例如，傳送頭500個位元組次欄位的形式：Content-Range:bytes0- 499/1234如果一個http消息包含此節（例如，對範圍請求的響應或對一系列範圍的重疊請求），Content-Range表示傳送的範圍，Content-Length表示實際傳送的位元組數。</p>
+<p>　　37、Content-Type</p>
+<p>　　WEB 伺服器告訴瀏覽器自己響應的對象的類型。例如：Content-Type：application/xml</p>
+<p>　　38、Etag</p>
+<p>　　就是一個對象（比如URL）的標誌值，就一個對象而言，比如一個html文件，如果被修改了，其Etag也會別修改，所以，ETag的作用跟Last-Modified的作用差不多，主要供WEB伺服器判斷一個對象是否改變了。比如前一次請求某個html文件時，獲得了其 ETag，當這次又請求這個文件時，瀏覽器就會把先前獲得ETag值發送給WEB伺服器，然後WEB伺服器會把這個ETag跟該文件的當前ETag進行對比，然後就知道這個文件有沒有改變了。</p>
+<p>　　39、Expires</p>
+<p>　　WEB伺服器表明該實體將在什麼時候過期，對於過期了的對象，只有在跟WEB伺服器驗證了其有效性後，才能用來響應客戶請求。是 HTTP/1.0 的頭部。例如：Expires：Sat, 23 May 2009 10:02:12 GMT</p>
+<p>　　40、Last-Modified</p>
+<p>　　WEB伺服器認為對象的最後修改時間，比如文件的最後修改時間，動態頁面的最後產生時間等等。例如：Last-Modified：Tue, 06 May 2008 02:42:43 GMT</p>
+<h2 class="pgc-h-arrow-right">二、HTTP Request的Header信息</h2>
+<p><strong>1、HTTP請求方式</strong></p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/1bcb5ba7d6c346ada1485798446c41f4" src="http://p3.pstatp.com/large/pgc-image/1bcb5ba7d6c346ada1485798446c41f4" alt="《HTTP請求頭--那些你需要記住的基礎知識》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p> 說明：主要使用到「GET」和「POST」。</p>
+<p>　　實例： POST /test/tupian/cm HTTP/1.1</p>
+<p>　　分成三部分：</p>
+<p>　　(1)POST：HTTP請求方式</p>
+<p>　　(2)/test/tupian/cm：請求Web伺服器的目錄地址(或者指令)</p>
+<p>　　(3)HTTP/1.1: URI(Uniform Resource Identifier，統一資源標識符)及其版本</p>
+<p>　　備註：在Ajax中，對應method屬性設置。</p>
+<p><strong>2、Host</strong></p>
+<p>　　說明：請求的web伺服器域名地址</p>
+<p><strong>3、User-Agent</strong></p>
+<p>　　說明：HTTP客戶端運行的瀏覽器類型的詳細信息。通過該頭部信息，web伺服器可以判斷到當前HTTP請求的客戶端瀏覽器類別。</p>
+<p>　　實例：User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; zh-CN; rv:1.8.1.11) Gecko/20071127 Firefox/2.0.0.11</p>
+<p><strong>4、Accept</strong></p>
+<p>　　說明：指定客戶端能夠接收的內容類型，內容類型中的先後次序表示客戶端接收的先後次序。</p>
+<p>　　實例：Accept:text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5</p>
+<p>　　備註：在Prototyp(1.5)的Ajax代碼封裝中，將Accept默認設置為「text/javascript, text/html, application/xml, text/xml, */*」。這是因為Ajax默認獲取伺服器返回的Json數據模式。在Ajax代碼中，可以使用XMLHttpRequest 對象中setRequestHeader函數方法來動態設置這些Header信息。</p>
+<p><strong>5、Accept-Language</strong></p>
+<p>　　說明：指定HTTP客戶端瀏覽器用來展示返回信息所優先選擇的語言。</p>
+<p>　　實例：Accept-Language: zh-cn,zh;q=0.5 這裡默認為中文。</p>
+<p><strong>6、Accept-Encoding</strong></p>
+<p>　　說明：指定客戶端瀏覽器可以支持的web伺服器返回內容壓縮編碼類型。表示允許伺服器在將輸出內容發送到客戶端以前進行壓縮，以節約帶寬。而這裡設置的就是客戶端瀏覽器所能夠支持的返回壓縮格式。</p>
+<p>　　實例：Accept-Encoding: gzip,deflate</p>
+<p>　　備註：其實在百度很多產品線中，apache在給客戶端返回頁面數據之前，將數據以gzip格式進行壓縮。</p>
+<p><strong>7、Accept-Charset</strong></p>
+<p>　　說明：瀏覽器可以接受的字元編碼集。</p>
+<p>　　實例：Accept-Charset: gb2312,utf-8;q=0.7,*;q=0.7</p>
+<p><strong>8、Content-Type</strong></p>
+<p>　　說明：顯示此HTTP請求提交的內容類型。一般只有post提交時才需要設置該屬性。</p>
+<p>　　實例：Content-type: application/x-www-form-urlencoded;charset:UTF-8</p>
+<p>　　備註：有關Content-Type屬性值可以如下兩種編碼類型：</p>
+<p>　　(1)「application/x-www-form-urlencoded」： 表單數據向伺服器提交時所採用的編碼類型，默認的預設值就是「application/x-www-form-urlencoded」。 然而，在向伺服器發送大量的文本、包含非ASCII字元的文本或二進位數據時這種編碼方式效率很低。</p>
+<p>　　(2)「multipart/form-data」： 在文件上載時，所使用的編碼類型應當是「multipart/form-data」，它既可以發送文本數據，也支持二進位數據上載。</p>
+<p>　　當提交為單單數據時，可以使用「application/x-www-form-urlencoded」;當提交的是文件時，就需要使用「multipart/form-data」編碼類型。</p>
+<p>　　在Content-Type屬性當中還是指定提交內容的charset字元編碼。一般不進行設置，它只是告訴web伺服器post提交的數據採用的何種字元編碼。</p>
+<p>　　一般在開發過程，是由前端工程與後端UI工程師商量好使用什麼字元編碼格式來post提交的，然後後端ui工程師按照固定的字元編碼來解析提交的數據。所以這裡設置的charset沒有多大作用。</p>
+<p><strong>9、Connection</strong></p>
+<p>　　說明：表示是否需要持久連接。如果web伺服器端看到這裡的值為「Keep-Alive」，或者看到請求使用的是HTTP 1.1(HTTP 1.1默認進行持久連接)，它就可以利用持久連接的優點，當頁面包含多個元素時(例如Applet，圖片)，顯著地減少下載所需要的時間。要實現這一點， web伺服器需要在返回給客戶端HTTP頭信息中發送一個Content-Length(返回信息正文的長度)頭，最簡單的實現方法是：先把內容寫入ByteArrayOutputStream，然 後在正式寫出內容之前計算它的大小。</p>
+<p>　　實例：Connection: keep-alive</p>
+<p><strong>10、Keep-Alive</strong></p>
+<p>　　說明：顯示此HTTP連接的Keep-Alive時間。使客戶端到伺服器端的連接持續有效，當出現對伺服器的後繼請求時，Keep-Alive功能避免了建立或者重新建立連接。以前HTTP請求是一站式連接，從HTTP/1.1協議之後，就有了長連接，即在規定的Keep-Alive時間內，連接是不會斷開的。</p>
+<p>　　實例：Keep-Alive: 300</p>
+<p><strong>11、cookie</strong></p>
+<p>　　說明：HTTP請求發送時，會把保存在該請求域名下的所有cookie值一起發送給web伺服器。</p>
+<p><strong>12、Referer</strong></p>
+<p>　　說明：包含一個URL，用戶從該URL代表的頁面出發訪問當前請求的頁面</p>
+<h2 class="pgc-h-arrow-right">三、HTTP Response的Header信息</h2>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/f01d8441d01a4fb38cfb483976b35fc3" src="http://p1.pstatp.com/large/pgc-image/f01d8441d01a4fb38cfb483976b35fc3" alt="《HTTP請求頭--那些你需要記住的基礎知識》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/48ebd6db56954c06b7fff58a4c13b9be" src="http://p3.pstatp.com/large/pgc-image/48ebd6db56954c06b7fff58a4c13b9be" alt="《HTTP請求頭--那些你需要記住的基礎知識》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/60b74143393d4e959c3ea5ad0af2a209" src="http://p1.pstatp.com/large/pgc-image/60b74143393d4e959c3ea5ad0af2a209" alt="《HTTP請求頭--那些你需要記住的基礎知識》" /></p>
+<p class="pgc-img-caption">
+</div>
+<h2 class="pgc-h-arrow-right">四、http返回錯誤碼</h2>
+<p>　　HTTP響應碼響應碼由三位十進位數字組成，它們出現在由HTTP伺服器發送的響應的第一行。響應碼分五種類型，由它們的第一位數字表示：</p>
+<p>　　1xx：信息，請求收到，繼續處理</p>
+<p>　　2xx：成功，行為被成功地接受、理解和採納</p>
+<p>　　3xx：重定向，為了完成請求，必須進一步執行的動作</p>
+<p>　　4xx：客戶端錯誤，請求包含語法錯誤或者請求無法實現</p>
+<p>　　5xx：伺服器錯誤，伺服器不能實現一種明顯無效的請求</p>
+<p>　　下表顯示每個響應碼及其含義：</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/0998d44553ef4fd69bb02e4a607ea9b1" src="http://p3.pstatp.com/large/pgc-image/0998d44553ef4fd69bb02e4a607ea9b1" alt="《HTTP請求頭--那些你需要記住的基礎知識》" /></p>
+<p class="pgc-img-caption">
+</div>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="26450" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/26450/"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/26450/";
+		var title='%E3%80%90HTTP%E8%AB%8B%E6%B1%82%E9%A0%AD--%E9%82%A3%E4%BA%9B%E4%BD%A0%E9%9C%80%E8%A6%81%E8%A8%98%E4%BD%8F%E7%9A%84%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98%E3%80%91';
+		var qqtitle='%E3%80%90HTTP%E8%AB%8B%E6%B1%82%E9%A0%AD--%E9%82%A3%E4%BA%9B%E4%BD%A0%E9%9C%80%E8%A6%81%E8%A8%98%E4%BD%8F%E7%9A%84%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98%E3%80%91';
+		var excerpt='%E5%BC%95%E5%AD%90%20%E9%80%9A%E5%B8%B8HTTP%E6%B6%88%E6%81%AF%E5%8C%85%E6%8B%AC%E5%AE%A2%E6%88%B6%E6%A9%9F%E5%90%91%E4%BC%BA%E6%9C%8D%E5%99%A8%E7%9A%84%E8%AB%8B%E6%B1%82%E6%B6%88%E6%81%AF%E5%92%8C%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%90%91%E5%AE%A2%E6%88%B6%E6%A9%9F%E7%9A%84%E9%9F%BF%E6%87%89%E6%B6%88%E6%81%AF%E3%80%82%E5%AE%A2%E6%88%B6%E7%AB%AF%E5%90%91%E4%BC%BA%E6%9C%8D%E5%99%A8%E7%99%BC%E9%80%81%E4%B8%80%E5%80%8B%E8%AB%8B%E6%B1%82%EF%BC%8C%E8%AB%8B%E6%B1%82%E9%A0%AD%E5%8C%85%E5%90%AB%E8%AB%8B%E6%B1%82%E7%9A%84%E6%96%B9%E6%B3%95%E3%80%81URI%E3%80%81%E5%8D%94%E8%AD%B0%E7%89%88%E6%9C%AC%E3%80%81%E4%BB%A5%E5%8F%8A%E5%8C%85%E5%90%AB%E8%AB%8B%E6%B1%82%E4%BF%AE%E9%A3%BE%E7%AC%A6%E3%80%81%E5%AE%A2%E6%88%B6%E4%BF%A1%E6%81%AF%E5%92%8C%E5%85%A7%E5%AE%B9%E7%9A%84%E9%A1%9E%E4%BC%BC%E6%96%BCMIME%E7%9A%84%E6%B6%88%E6%81%AF%E7%B5%90%E6%A7%8B%E3%80%82%E4%BC%BA%E6%9C%8D%E5%99%A8%E4%BB%A5%E4%B8%80%E5%80%8B%E7%8B%80%E6%85%8B%E8%A1%8C%E4%BD%9C%E7%82%BA%E9%9F%BF%E6%87%89%EF%BC%8C%E7%9B%B8%E6%87%89%E7%9A%84%E5%85%A7%E5%AE%B9%E5%8C%85%E6%8B%AC%E6%B6%88%E6%81%AF%E5%8D%94%E8%AD%B0%E7%9A%84%E7%89%88%E6%9C%AC%EF%BC%8C%E6%88%90%E5%8A%9F%E6%88%96%E8%80%85%E9%8C%AF%E8%AA%A4%E7%B7%A8%E7%A2%BC%E5%8A%A0%E4%B8%8A%E5%8C%85%E5%90%AB%E4%BC%BA%E6%9C%8D%E5%99%A8%E4%BF%A1%E6%81%AF%E3%80%81%E5%AF%A6%E9%AB%94%E5%85%83%E4%BF%A1%E6%81%AF%E4%BB%A5%E5%8F%8A%E5%8F%AF%E8%83%BD%E7%9A%84%E5%AF%A6%E9%AB%94%E5%85%A7%E5%AE%B9%E3%80%82%20Htt%E2%80%A6%E2%80%A6';
+		var wbexcerpt='%E5%BC%95%E5%AD%90%20%E9%80%9A%E5%B8%B8HTTP%E6%B6%88%E6%81%AF%E5%8C%85%E6%8B%AC%E5%AE%A2%E6%88%B6%E6%A9%9F%E5%90%91%E4%BC%BA%E6%9C%8D%E5%99%A8%E7%9A%84%E8%AB%8B%E6%B1%82%E6%B6%88%E6%81%AF%E5%92%8C%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%90%91%E5%AE%A2%E6%88%B6%E6%A9%9F%E7%9A%84%E9%9F%BF%E6%87%89%E6%B6%88%E6%81%AF%E3%80%82%E5%AE%A2%E6%88%B6%E7%AB%AF%E5%90%91%E4%BC%BA%E6%9C%8D%E5%99%A8%E7%99%BC%E9%80%81%E4%B8%80%E5%80%8B%E8%AB%8B%E6%B1%82%EF%BC%8C%E8%AB%8B%E6%B1%82%E9%A0%AD%E5%8C%85%E5%90%AB%E8%AB%8B%E6%B1%82%E7%9A%84%E6%96%B9%E6%B3%95%E3%80%81URI%E3%80%81%E5%8D%94%E8%AD%B0%E7%89%88%E6%9C%AC%E3%80%81%E4%BB%A5%E5%8F%8A%E5%8C%85%E5%90%AB%E8%AB%8B%E6%B1%82%E4%BF%AE%E9%A3%BE%E7%AC%A6%E3%80%81%E5%AE%A2%E6%88%B6%E4%BF%A1%E6%81%AF%E5%92%8C%E5%85%A7%E5%AE%B9%E7%9A%84%E9%A1%9E%E4%BC%BC%E6%96%BCMIME%E7%9A%84%E6%B6%88%E6%81%AF%E7%B5%90%E6%A7%8B%E3%80%82%E4%BC%BA%E6%9C%8D%E5%99%A8%E4%BB%A5%E4%B8%80%E5%80%8B%E7%8B%80%E6%85%8B%E8%A1%8C%E4%BD%9C%E7%82%BA%E9%9F%BF%E6%87%89%EF%BC%8C%E7%9B%B8%E6%87%89%E7%9A%84%E5%85%A7%E5%AE%B9%E5%8C%85%E6%8B%AC%E6%B6%88%E6%81%AF%E5%8D%94%E8%AD%B0%E7%9A%84%E7%89%88%E6%9C%AC%EF%BC%8C%E6%88%90%E5%8A%9F%E6%88%96%E8%80%85%E9%8C%AF%E8%AA%A4%E7%B7%A8%E7%A2%BC%E5%8A%A0%E4%B8%8A%E5%8C%85%E5%90%AB%E4%BC%BA%E6%9C%8D%E5%99%A8%E4%BF%A1%E6%81%AF%E3%80%81%E5%AF%A6%E9%AB%94%E5%85%83%E4%BF%A1%E6%81%AF%E4%BB%A5%E5%8F%8A%E5%8F%AF%E8%83%BD%E7%9A%84%E5%AF%A6%E9%AB%94%E5%85%A7%E5%AE%B9%E3%80%82%20Htt%E2%80%A6%E2%80%A6';
+		var pic="http://p1.pstatp.com/large/pgc-image/820807688e204f1d87e788477e94df43";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="移動支付給銀行帶來了什麼衝擊，銀行自助設備服務還有未來嗎？" href="https://daynews.cc/technology/26451/">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="今天冬至 區塊鏈現在的樣子：像極了當年的DOS操作系統" href="https://daynews.cc/technology/26449/">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="/technology/26450/#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='26450' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="冬天補氣養顏，不妨吃點酒釀！養生效果杠杠的，價格還便宜" href="https://daynews.cc/health/28980/" rel="bookmark"><i class="fa  fa-book"></i> 冬天補氣養顏，不妨吃點酒釀！養生效果杠杠的，價格還便宜                            </a>
+                            <a class="list-group-item visible-md" title="冬天補氣養顏，不妨吃點酒釀！養生效果杠杠的，價格還便宜" href="https://daynews.cc/health/28980/" rel="bookmark"><i class="fa  fa-book"></i> 冬天補氣養顏，不妨吃點酒釀！養生效果杠杠的，價格還便宜                            </a>
+                                                    <a class="list-group-item visible-lg" title="睡眠是消除身體疲勞的主要方式，冬天學會這些睡覺養生技巧" href="https://daynews.cc/health/28979/" rel="bookmark"><i class="fa  fa-book"></i> 睡眠是消除身體疲勞的主要方式，冬天學會這些睡覺養生技巧                            </a>
+                            <a class="list-group-item visible-md" title="睡眠是消除身體疲勞的主要方式，冬天學會這些睡覺養生技巧" href="https://daynews.cc/health/28979/" rel="bookmark"><i class="fa  fa-book"></i> 睡眠是消除身體疲勞的主要方式，冬天學會這些睡覺養生技巧                            </a>
+                                                    <a class="list-group-item visible-lg" title="立冬之後，化妝保養不比化瘀保溫更重要" href="https://daynews.cc/health/28981/" rel="bookmark"><i class="fa  fa-book"></i> 立冬之後，化妝保養不比化瘀保溫更重要                            </a>
+                            <a class="list-group-item visible-md" title="立冬之後，化妝保養不比化瘀保溫更重要" href="https://daynews.cc/health/28981/" rel="bookmark"><i class="fa  fa-book"></i> 立冬之後，化妝保養不比化瘀保溫更重要                            </a>
+                                                    <a class="list-group-item visible-lg" title="海鮮，到底養甲狀腺還是傷甲狀腺？專家表示：不同情況，講究不同" href="https://daynews.cc/health/28982/" rel="bookmark"><i class="fa  fa-book"></i> 海鮮，到底養甲狀腺還是傷甲狀腺？專家表示：不同情況，講究不同                            </a>
+                            <a class="list-group-item visible-md" title="海鮮，到底養甲狀腺還是傷甲狀腺？專家表示：不同情況，講究不同" href="https://daynews.cc/health/28982/" rel="bookmark"><i class="fa  fa-book"></i> 海鮮，到底養甲狀腺還是傷甲狀腺？專家表示：不同情況，講究不同                            </a>
+                                                    <a class="list-group-item visible-lg" title="5種素菜比肉還肥，每吃一口都在喝油" href="https://daynews.cc/health/28983/" rel="bookmark"><i class="fa  fa-book"></i> 5種素菜比肉還肥，每吃一口都在喝油                            </a>
+                            <a class="list-group-item visible-md" title="5種素菜比肉還肥，每吃一口都在喝油" href="https://daynews.cc/health/28983/" rel="bookmark"><i class="fa  fa-book"></i> 5種素菜比肉還肥，每吃一口都在喝油                            </a>
+                                                    <a class="list-group-item visible-lg" title="姓氏藏有歷史的痕迹，從你的姓氏可以看出，祖輩從農從商還是從官" href="https://daynews.cc/constellation/29331/" rel="bookmark"><i class="fa  fa-book"></i> 姓氏藏有歷史的痕迹，從你的姓氏可以看出，祖輩從農從商還是從官                            </a>
+                            <a class="list-group-item visible-md" title="姓氏藏有歷史的痕迹，從你的姓氏可以看出，祖輩從農從商還是從官" href="https://daynews.cc/constellation/29331/" rel="bookmark"><i class="fa  fa-book"></i> 姓氏藏有歷史的痕迹，從你的姓氏可以看出，祖輩從農從商還是從官                            </a>
+                                                    <a class="list-group-item visible-lg" title="錯了就是錯了，這些星座認錯從不含糊，做錯要承認，挨打要站穩" href="https://daynews.cc/constellation/29332/" rel="bookmark"><i class="fa  fa-book"></i> 錯了就是錯了，這些星座認錯從不含糊，做錯要承認，挨打要站穩                            </a>
+                            <a class="list-group-item visible-md" title="錯了就是錯了，這些星座認錯從不含糊，做錯要承認，挨打要站穩" href="https://daynews.cc/constellation/29332/" rel="bookmark"><i class="fa  fa-book"></i> 錯了就是錯了，這些星座認錯從不含糊，做錯要承認，挨打要站穩                            </a>
+                                                    <a class="list-group-item visible-lg" title="《戰爭藝術》凜冬節：聖誕星主播招募倒計時" href="https://daynews.cc/game/28439/" rel="bookmark"><i class="fa  fa-book"></i> 《戰爭藝術》凜冬節：聖誕星主播招募倒計時                            </a>
+                            <a class="list-group-item visible-md" title="《戰爭藝術》凜冬節：聖誕星主播招募倒計時" href="https://daynews.cc/game/28439/" rel="bookmark"><i class="fa  fa-book"></i> 《戰爭藝術》凜冬節：聖誕星主播招募倒計時                            </a>
+                                                    <a class="list-group-item visible-lg" title="FPX轉會實力仍是第一！笑笑談到TES也將崛起，EDG多半要涼" href="https://daynews.cc/game/28441/" rel="bookmark"><i class="fa  fa-book"></i> FPX轉會實力仍是第一！笑笑談到TES也將崛起，EDG多半要涼                            </a>
+                            <a class="list-group-item visible-md" title="FPX轉會實力仍是第一！笑笑談到TES也將崛起，EDG多半要涼" href="https://daynews.cc/game/28441/" rel="bookmark"><i class="fa  fa-book"></i> FPX轉會實力仍是第一！笑笑談到TES也將崛起，EDG多半要涼                            </a>
+                                                    <a class="list-group-item visible-lg" title="神將也有弱點？盤點神將們的弱點" href="https://daynews.cc/game/28440/" rel="bookmark"><i class="fa  fa-book"></i> 神將也有弱點？盤點神將們的弱點                            </a>
+                            <a class="list-group-item visible-md" title="神將也有弱點？盤點神將們的弱點" href="https://daynews.cc/game/28440/" rel="bookmark"><i class="fa  fa-book"></i> 神將也有弱點？盤點神將們的弱點                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="24平米房子擠四口人，父母把廚房當卧室，網友：怎敢生養兩個男孩" href="https://daynews.cc/emotion/23804/" rel="bookmark"><i class="fa  fa-book"></i> 24平米房子擠四口人，父母把廚房當卧室，網友：怎敢生養兩個男孩</a><a class="list-group-item visible-md" title="24平米房子擠四口人，父母把廚房當卧室，網友：怎敢生養兩個男孩" href="https://daynews.cc/emotion/23804/" rel="bookmark"><i class="fa  fa-book"></i> 24平米房子擠四口人，父母把廚房當卧室，網友：怎敢生養兩個男孩</a><a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854/" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854/" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="網傳國家電網5G網路建設方案：利用廣電700/60MHz建11.31萬座基站" href="https://daynews.cc/technology/22913/" rel="bookmark"><i class="fa  fa-book"></i> 網傳國家電網5G網路建設方案：利用廣電700/60MHz建11.31萬座基站</a><a class="list-group-item visible-md" title="網傳國家電網5G網路建設方案：利用廣電700/60MHz建11.31萬座基站" href="https://daynews.cc/technology/22913/" rel="bookmark"><i class="fa  fa-book"></i> 網傳國家電網5G網路建設方案：利用廣電700/60MHz建11.31萬座基站</a><a class="list-group-item visible-lg" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134/" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-md" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134/" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098/" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098/" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-lg" title="腰突後，小腿發麻渾身無力怎麼康復好的快？" href="https://daynews.cc/lose/21229/" rel="bookmark"><i class="fa  fa-book"></i> 腰突後，小腿發麻渾身無力怎麼康復好的快？</a><a class="list-group-item visible-md" title="腰突後，小腿發麻渾身無力怎麼康復好的快？" href="https://daynews.cc/lose/21229/" rel="bookmark"><i class="fa  fa-book"></i> 腰突後，小腿發麻渾身無力怎麼康復好的快？</a><a class="list-group-item visible-lg" title="馬克龍放棄退休收益，電力工人野蠻拉閘停電，罷工大戰的好戲還能這般層出不窮？" href="https://daynews.cc/international/25486/" rel="bookmark"><i class="fa  fa-book"></i> 馬克龍放棄退休收益，電力工人野蠻拉閘停電，罷工大戰的好戲還能這般層出不窮？</a><a class="list-group-item visible-md" title="馬克龍放棄退休收益，電力工人野蠻拉閘停電，罷工大戰的好戲還能這般層出不窮？" href="https://daynews.cc/international/25486/" rel="bookmark"><i class="fa  fa-book"></i> 馬克龍放棄退休收益，電力工人野蠻拉閘停電，罷工大戰的好戲還能這般層出不窮？</a><a class="list-group-item visible-lg" title="西部排行：火箭躺著下跌，掘金反超升第2，雷霆3連勝，勇士又贏了" href="https://daynews.cc/nba/27606/" rel="bookmark"><i class="fa  fa-book"></i> 西部排行：火箭躺著下跌，掘金反超升第2，雷霆3連勝，勇士又贏了</a><a class="list-group-item visible-md" title="西部排行：火箭躺著下跌，掘金反超升第2，雷霆3連勝，勇士又贏了" href="https://daynews.cc/nba/27606/" rel="bookmark"><i class="fa  fa-book"></i> 西部排行：火箭躺著下跌，掘金反超升第2，雷霆3連勝，勇士又贏了</a><a class="list-group-item visible-lg" title="天秤座的八大排名第一，進來看看你中幾點" href="https://daynews.cc/constellation/20994/" rel="bookmark"><i class="fa  fa-book"></i> 天秤座的八大排名第一，進來看看你中幾點</a><a class="list-group-item visible-md" title="天秤座的八大排名第一，進來看看你中幾點" href="https://daynews.cc/constellation/20994/" rel="bookmark"><i class="fa  fa-book"></i> 天秤座的八大排名第一，進來看看你中幾點</a><a class="list-group-item visible-lg" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080/" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a><a class="list-group-item visible-md" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080/" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="雲頂之弈9.24版本前瞻：盧錫安有兩套打法，阿木木會成為主C" href="https://daynews.cc/game/13882/" rel="bookmark"><i class="fa  fa-book"></i> 雲頂之弈9.24版本前瞻：盧錫安有兩套打法，阿木木會成為主C                            </a>
+                            <a class="list-group-item visible-md" title="雲頂之弈9.24版本前瞻：盧錫安有兩套打法，阿木木會成為主C" href="https://daynews.cc/game/13882/" rel="bookmark"><i class="fa  fa-book"></i> 雲頂之弈9.24版本前瞻：盧錫安有兩套打法，阿木木會成為主C                            </a>
+                                                    <a class="list-group-item visible-lg" title="【凈網2019】僅需105元，就能買到200張萌妹子的生活照和400條語音" href="https://daynews.cc/emotion/2081/" rel="bookmark"><i class="fa  fa-book"></i> 【凈網2019】僅需105元，就能買到200張萌妹子的生活照和400條語音                            </a>
+                            <a class="list-group-item visible-md" title="【凈網2019】僅需105元，就能買到200張萌妹子的生活照和400條語音" href="https://daynews.cc/emotion/2081/" rel="bookmark"><i class="fa  fa-book"></i> 【凈網2019】僅需105元，就能買到200張萌妹子的生活照和400條語音                            </a>
+                                                    <a class="list-group-item visible-lg" title="捷成股份，華為獨家內容合作夥伴" href="https://daynews.cc/technology/22875/" rel="bookmark"><i class="fa  fa-book"></i> 捷成股份，華為獨家內容合作夥伴                            </a>
+                            <a class="list-group-item visible-md" title="捷成股份，華為獨家內容合作夥伴" href="https://daynews.cc/technology/22875/" rel="bookmark"><i class="fa  fa-book"></i> 捷成股份，華為獨家內容合作夥伴                            </a>
+                                                    <a class="list-group-item visible-lg" title="星座CP深度解析：巨蟹座&amp;摩羯座" href="https://daynews.cc/constellation/17372/" rel="bookmark"><i class="fa  fa-book"></i> 星座CP深度解析：巨蟹座&amp;摩羯座                            </a>
+                            <a class="list-group-item visible-md" title="星座CP深度解析：巨蟹座&amp;摩羯座" href="https://daynews.cc/constellation/17372/" rel="bookmark"><i class="fa  fa-book"></i> 星座CP深度解析：巨蟹座&amp;摩羯座                            </a>
+                                                    <a class="list-group-item visible-lg" title="三國志9：用最簡單的勢力統一還是最困難的勢力統一呢？" href="https://daynews.cc/game/4430/" rel="bookmark"><i class="fa  fa-book"></i> 三國志9：用最簡單的勢力統一還是最困難的勢力統一呢？                            </a>
+                            <a class="list-group-item visible-md" title="三國志9：用最簡單的勢力統一還是最困難的勢力統一呢？" href="https://daynews.cc/game/4430/" rel="bookmark"><i class="fa  fa-book"></i> 三國志9：用最簡單的勢力統一還是最困難的勢力統一呢？                            </a>
+                                                    <a class="list-group-item visible-lg" title="卡達世界盃基本準備就緒，郝海東重回故地感慨萬千" href="https://daynews.cc/sports/27082/" rel="bookmark"><i class="fa  fa-book"></i> 卡達世界盃基本準備就緒，郝海東重回故地感慨萬千                            </a>
+                            <a class="list-group-item visible-md" title="卡達世界盃基本準備就緒，郝海東重回故地感慨萬千" href="https://daynews.cc/sports/27082/" rel="bookmark"><i class="fa  fa-book"></i> 卡達世界盃基本準備就緒，郝海東重回故地感慨萬千                            </a>
+                                                    <a class="list-group-item visible-lg" title="中年男子上網交友，最後發現是自己女兒，網友：看你怎麼辦！" href="https://daynews.cc/emotion/1835/" rel="bookmark"><i class="fa  fa-book"></i> 中年男子上網交友，最後發現是自己女兒，網友：看你怎麼辦！                            </a>
+                            <a class="list-group-item visible-md" title="中年男子上網交友，最後發現是自己女兒，網友：看你怎麼辦！" href="https://daynews.cc/emotion/1835/" rel="bookmark"><i class="fa  fa-book"></i> 中年男子上網交友，最後發現是自己女兒，網友：看你怎麼辦！                            </a>
+                                                    <a class="list-group-item visible-lg" title="曼聯冬窗深度分析（1）前鋒補誰？伊布、曼祖基奇，還是哈蘭德？" href="https://daynews.cc/premier/5649/" rel="bookmark"><i class="fa  fa-book"></i> 曼聯冬窗深度分析（1）前鋒補誰？伊布、曼祖基奇，還是哈蘭德？                            </a>
+                            <a class="list-group-item visible-md" title="曼聯冬窗深度分析（1）前鋒補誰？伊布、曼祖基奇，還是哈蘭德？" href="https://daynews.cc/premier/5649/" rel="bookmark"><i class="fa  fa-book"></i> 曼聯冬窗深度分析（1）前鋒補誰？伊布、曼祖基奇，還是哈蘭德？                            </a>
+                                                    <a class="list-group-item visible-lg" title="年度黑馬！六歲小朋友接住了陳冲的對手戲，難怪預估票房近六億" href="https://daynews.cc/entertainment/14433/" rel="bookmark"><i class="fa  fa-book"></i> 年度黑馬！六歲小朋友接住了陳冲的對手戲，難怪預估票房近六億                            </a>
+                            <a class="list-group-item visible-md" title="年度黑馬！六歲小朋友接住了陳冲的對手戲，難怪預估票房近六億" href="https://daynews.cc/entertainment/14433/" rel="bookmark"><i class="fa  fa-book"></i> 年度黑馬！六歲小朋友接住了陳冲的對手戲，難怪預估票房近六億                            </a>
+                                                    <a class="list-group-item visible-lg" title="首秀慘敗30分！廣廈新大外援卻選對了？他能徹底解放CBA餅王" href="https://daynews.cc/sports/15822/" rel="bookmark"><i class="fa  fa-book"></i> 首秀慘敗30分！廣廈新大外援卻選對了？他能徹底解放CBA餅王                            </a>
+                            <a class="list-group-item visible-md" title="首秀慘敗30分！廣廈新大外援卻選對了？他能徹底解放CBA餅王" href="https://daynews.cc/sports/15822/" rel="bookmark"><i class="fa  fa-book"></i> 首秀慘敗30分！廣廈新大外援卻選對了？他能徹底解放CBA餅王                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="https://daynews.cc/nba/">NBA</a> (2,054)
+</li>
+	<li class="cat-item cat-item-23"><a href="https://daynews.cc/international/">國際</a> (3,205)
+</li>
+	<li class="cat-item cat-item-14"><a href="https://daynews.cc/entertainment/">娛樂</a> (2,279)
+</li>
+	<li class="cat-item cat-item-15"><a href="https://daynews.cc/emotion/">情感</a> (2,292)
+</li>
+	<li class="cat-item cat-item-22"><a href="https://daynews.cc/constellation/">星座</a> (1,498)
+</li>
+	<li class="cat-item cat-item-17"><a href="https://daynews.cc/history/">歷史</a> (2,441)
+</li>
+	<li class="cat-item cat-item-25"><a href="https://daynews.cc/lose/">減肥</a> (789)
+</li>
+	<li class="cat-item cat-item-24"><a href="https://daynews.cc/technology/">科技</a> (3,150)
+</li>
+	<li class="cat-item cat-item-19"><a href="https://daynews.cc/premier/">英超</a> (1,808)
+</li>
+	<li class="cat-item cat-item-18"><a href="https://daynews.cc/game/">遊戲</a> (2,918)
+</li>
+	<li class="cat-item cat-item-21"><a href="https://daynews.cc/health/">養生</a> (1,588)
+</li>
+	<li class="cat-item cat-item-16"><a href="https://daynews.cc/sports/">體育</a> (2,946)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='https://daynews.cc/date/2019/12/'>2019 年 12 月</a>&nbsp;(23966)</li>
+	<li><a href='https://daynews.cc/date/2019/11/'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='https://daynews.cc/date/2019/10/'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="https://daynews.cc">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.easing.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.qrcode.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/layer.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/modernizr.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.waypoints.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.stellar.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/hoverIntent.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/superfish.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/kratos.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-includes/js/wp-embed.min.js'></script>
+			</body>
+
+</html>
+<!-- This is the static html file -->

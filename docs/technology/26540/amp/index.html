@@ -1,0 +1,609 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/26540/#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/b37c043d691649c8a0276a5f44df1ebf"},{"@type":"WebPage","@id":"https://daynews.cc/technology/26540/#webpage","url":"https://daynews.cc/technology/26540/","inLanguage":"zh-TW","name":"\u5f8c\u7aef API \u4ecb\u9762\u6587\u6a94 Swagger \u4f7f\u7528\u6307\u5357 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/26540/#primaryimage"},"datePublished":"2019-12-22T02:50:08+00:00","dateModified":"2019-12-22T02:50:08+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="前言 作為一個以前後端分離為模式開發小組，我們每隔一段時間都進行這樣一個場景：前端人員和後端開發在一起熱烈的討論&#8221;哎,你這參數又變了啊&#8221;,&#8221;介面怎麼又請求不通了啊&#8221;,&#8221;你再試試,我打個斷點調試一下..&#8221;。可以看到在前後端溝通中出現了不少問題。 對於這樣的問題,之前一直……" />
+<meta name="twitter:title" content="後端 API 介面文檔 Swagger 使用指南 - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/b37c043d691649c8a0276a5f44df1ebf" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="後端 API 介面文檔 Swagger 使用指南 - 天天要聞" />
+<meta property="og:description" content="前言 作為一個以前後端分離為模式開發小組，我們每隔一段時間都進行這樣一個場景：前端人員和後端開發在一起熱烈的討論&#8221;哎,你這參數又變了啊&#8221;,&#8221;介面怎麼又請求不通了啊&#8221;,&#8221;你再試試,我打個斷點調試一下..&#8221;。可以看到在前後端溝通中出現了不少問題。 對於這樣的問題,之前一直……" />
+<meta property="og:url" content="https://daynews.cc/technology/26540/" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-22T02:50:08+00:00" />
+	<title>後端 API 介面文檔 Swagger 使用指南 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/26540/" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+	.amp-wp-header .amp-wp-canonical-link {
+		font-size: 0.8em;
+		text-decoration: underline;
+		position: absolute;
+		right: 18px;	}
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+	
+</head>
+
+<body class="">
+
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+										<a class="amp-wp-canonical-link" href="https://daynews.cc/technology/26540/">
+				原網頁			</a>
+			</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">後端 API 介面文檔 Swagger 使用指南</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://daynews.cc/wp-content/themes/Kratos/images/default_avatar.jpeg" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-22T10:50:08+00:00">
+		2019-12-22	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		
+		<div>
+<h2 class="pgc-h-arrow-right">前言</h2>
+<p>作為一個以前後端分離為模式開發小組，我們每隔一段時間都進行這樣一個場景：前端人員和後端開發在一起熱烈的討論”哎,你這參數又變了啊”,”介面怎麼又請求不通了啊”,”你再試試,我打個斷點調試一下..”。可以看到在前後端溝通中出現了不少問題。</p>
+<p>對於這樣的問題,之前一直沒有很好的解決方案，直到它的出現，沒錯…這就是我們今天要討論的神器:swagger,一款致力於解決介面規範化、標準化、文檔化的開源庫，一款真正的開發神器。</p>
+<h2 class="pgc-h-arrow-right">一：swagger是什麼？</h2>
+<p>Swagger是一款RESTFUL介面的文檔在線自動生成+功能測試功能軟體。Swagger是一個規範和完整的框架,用於生成、描述、調用和可視化RESTful風格的Web服務。目標是使客戶端和文件系統作為伺服器以同樣的速度來更新文件的方法,參數和模型緊密集成到伺服器。</p>
+<p>這個解釋簡單點來講就是說，swagger是一款可以根據resutful風格生成的生成的介面開發文檔，並且支持做測試的一款中間軟體。</p>
+<h2 class="pgc-h-arrow-right">二：為什麼要使用swaager?</h2>
+<h2 class="pgc-h-arrow-right">2.1:對於後端開發人員來說</h2>
+<ul class="list-paddingleft-2">
+<li>不用再手寫WiKi介面拼大量的參數，避免手寫錯誤</li>
+<li>對代碼侵入性低，採用全註解的方式，開發簡單</li>
+<li>方法參數名修改、增加、減少參數都可以直接生效，不用手動維護</li>
+<li>缺點：增加了開發成本，寫介面還得再寫一套參數配置</li>
+</ul>
+<h2 class="pgc-h-arrow-right">2.2:對於前端開發來說</h2>
+<ul class="list-paddingleft-2">
+<li>後端只需要定義好介面，會自動生成文檔，介面功能、參數一目了然</li>
+<li>聯調方便，如果出問題，直接測試介面，實時檢查參數和返回值,就可以快速定位是前端還是後端的問題</li>
+</ul>
+<h2 class="pgc-h-arrow-right">2.3：對於測試</h2>
+<ul class="list-paddingleft-2">
+<li>對於某些沒有前端界面UI的功能，可以用它來測試介面</li>
+<li>操作簡單，不用了解具體代碼就可以操作</li>
+<li>操作簡單，不用了解具體代碼就可以操作</li>
+</ul>
+<h2 class="pgc-h-arrow-right">三：如何搭一個swagger</h2>
+<h2 class="pgc-h-arrow-right">3.1:引入swagger的依賴</h2>
+<p>目前推薦使用2.7.0版本,因為2.6.0版本有bug，而其他版本又沒有經過驗證</p>
+<pre><code>一：引入Swagger依賴庫&lt;!--引入swagger--&gt;&lt;dependency&gt;    &lt;groupId&gt;io.springfox&lt;/groupId&gt;    &lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;    &lt;version&gt;2.7.0&lt;/version&gt;&lt;/dependency&gt;&lt;dependency&gt;    &lt;groupId&gt;io.springfox&lt;/groupId&gt;    &lt;artifactId&gt;springfox-swagger-ui&lt;/artifactId&gt;    &lt;version&gt;2.7.0&lt;/version&gt;&lt;/dependency&gt;</code></pre>
+<h2 class="pgc-h-arrow-right">3.2：springBoot整合swagger</h2>
+<pre><code>@Configuration@EnableSwagger2public class SwaggerConfig {    @Bean    public Docket productApi() {        return new Docket(DocumentationType.SWAGGER_2)                .apiInfo(apiInfo())                .select()                .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))  //添加ApiOperiation註解的被掃描                .paths(PathSelectors.any())                .build();    }    private ApiInfo apiInfo() {        return new ApiInfoBuilder().title(」swagger和springBoot整合「).description(」swagger的API文檔")                .version("1.0").build();    }}</code></pre>
+<h2 class="pgc-h-arrow-right">3.3：swagger的註解</h2>
+<p>swagger的核心在於註解，接下來就著重講一下swagger的註解：</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/b37c043d691649c8a0276a5f44df1ebf" alt="《後端 API 介面文檔 Swagger 使用指南》" width="640" height="313" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/b37c043d691649c8a0276a5f44df1ebf" alt="《後端 API 介面文檔 Swagger 使用指南》" width="640" height="313" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">四：在項目中集成swagger</h2>
+<h2 class="pgc-h-arrow-right">4.1:在controller中使用註解</h2>
+<pre><code>package com.youjia.swagger.controller;import com.youjia.swagger.constants.CommonConstants;import com.youjia.swagger.model.Film;import com.youjia.swagger.model.ResultModel;import com.youjia.swagger.service.FilmService;import io.swagger.annotations.Api;import io.swagger.annotations.ApiImplicitParam;import io.swagger.annotations.ApiImplicitParams;import io.swagger.annotations.ApiOperation;import io.swagger.annotations.ApiParam;import io.swagger.annotations.ApiResponse;import io.swagger.annotations.ApiResponses;import org.springframework.beans.factory.annotation.Autowired;import org.springframework.util.CollectionUtils;import org.springframework.util.StringUtils;import org.springframework.web.bind.annotation.GetMapping;import org.springframework.web.bind.annotation.PathVariable;import org.springframework.web.bind.annotation.PostMapping;import org.springframework.web.bind.annotation.RequestBody;import org.springframework.web.bind.annotation.RequestMapping;import org.springframework.web.bind.annotation.RequestParam;import org.springframework.web.bind.annotation.RestController;import javax.servlet.http.HttpServletRequest;import java.text.DateFormat;import java.text.SimpleDateFormat;import java.util.Date;import java.util.List;import java.util.Objects;/** * @Auther: wyq * @Date: 2018/12/29 14:50 */@RestController@Api(value = "電影Controller", tags = { "電影訪問介面" })@RequestMapping("/film")public class FilmController {    @Autowired    private FilmService filmService;    /**     * 添加一個電影數據     *     * @param     * @return     */    @ApiOperation(value = "添加一部電影")    @PostMapping("/addFilm")    @ApiResponses(value = { @ApiResponse(code = 1000, message = "成功"), @ApiResponse(code = 1001, message = "失敗"),            @ApiResponse(code = 1002, response = Film.class,message = "缺少參數") })    public ResultModel addFilm(@ApiParam("電影名稱") @RequestParam("filmName") String filmName,                               @ApiParam(value = "分數", allowEmptyValue = true) @RequestParam("score") Short score,                               @ApiParam("發布時間") @RequestParam(value = "publishTime",required = false) String publishTime,                               @ApiParam("創建者id") @RequestParam("creatorId") Long creatorId) {        if (Objects.isNull(filmName) || Objects.isNull(score) || Objects.isNull(publishTime) || StringUtils                .isEmpty(creatorId)) {            return new ResultModel(ResultModel.failed, "參數錯誤");        }        Film filmPOM = new Film();        filmPOM.setFilmName(filmName);        filmPOM.setScore(score);        DateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");        Date publishTimeDate = null;        try {            publishTimeDate = simpleDateFormat.parse(publishTime);        } catch (Exception ex) {            ex.printStackTrace();        }        filmPOM.setPublishTime(publishTimeDate);        filmPOM.setCreatorId(creatorId);        Boolean result = filmService.addFilm(filmPOM);        if (result) {            return new ResultModel(CommonConstants.SUCCESSMSG);        }        return new ResultModel(CommonConstants.FAILD_MSG);    }    /**     * 根據電影名字獲取電影     *     * @param fileName     * @return     */    @GetMapping("/getFilms")    @ApiOperation(value = "根據名字獲取電影")    @ApiResponses(value = { @ApiResponse(code = 1000, message = "成功"), @ApiResponse(code = 1001, message = "失敗"),            @ApiResponse(code = 1002, message = "缺少參數") })    public ResultModel getFilmsByName(@ApiParam("電影名稱") @RequestParam("fileName") String fileName) {        if (StringUtils.isEmpty(fileName)) {            return CommonConstants.getErrorResultModel();        }        List&lt;Film&gt; films = filmService.getFilmByName(fileName);        if (!CollectionUtils.isEmpty(films)) {            return new ResultModel(films);        }        return CommonConstants.getErrorResultModel();    }    /**     * 根據電影名更新     *     * @return     */    @PostMapping("/updateScore")    @ApiOperation(value = "根據電影名修改分數")    @ApiResponses(value = { @ApiResponse(code = 1000, message = "成功"), @ApiResponse(code = 1001, message = "失敗"),            @ApiResponse(code = 1002, message = "缺少參數") })    public ResultModel updateFilmScore(@ApiParam("電影名稱") @RequestParam("fileName") String fileName,                                       @ApiParam("分數") @RequestParam("score") Short score) {        if (StringUtils.isEmpty(fileName) || Objects.isNull(score)) {            return CommonConstants.getErrorResultModel();        }        filmService.updateScoreByName(fileName, score);        return CommonConstants.getSuccessResultModel();    }    /**     * 根據電影名刪除電影     *     * @param request     * @return     */    @PostMapping("/delFilm")    @ApiOperation(value = "根據電影名刪除電影")    @ApiImplicitParams({ @ApiImplicitParam(name = "filmName",            value = "電影名",            dataType = "String",            paramType = "query",            required = true), @ApiImplicitParam(name = "id", value = "電影id", dataType = "int", paramType = "query") })    public ResultModel deleteFilmByNameOrId(HttpServletRequest request) {        //電影名        String filmName = request.getParameter("filmName");        //電影id        Long filmId = Long.parseLong(request.getParameter("id"));        filmService.deleteFilmOrId(filmName,filmId);        return CommonConstants.getSuccessResultModel();    }    /**     * 根據id獲取電影     *     * @param id     * @return     */    @PostMapping("/{id}")    @ApiOperation("根據id獲取電影")    @ApiImplicitParam(name = "id", value = "電影id", dataType = "long", paramType = "path", required = true)    public ResultModel getFilmById(@PathVariable Long id) {        if (Objects.isNull(id)) {            return CommonConstants.getLessParamResultModel();        }        Film film = filmService.getFilmById(id);        if (Objects.nonNull(film)) {            return new ResultModel(film);        }        return CommonConstants.getErrorResultModel();    }    /**     * 修改整個電影     *     * @param film     * @return     */    @PostMapping("/insertFilm")    @ApiOperation("插入一部電影")    public ResultModel insertFilm(@ApiParam("電影實體對象") @RequestBody Film film) {        if (Objects.isNull(film)) {            return CommonConstants.getLessParamResultModel();        }        Boolean isSuccess = filmService.insertFilm(film);        if (isSuccess) {            return CommonConstants.getSuccessResultModel();        }        return CommonConstants.getErrorResultModel();    }}</code></pre>
+<h2 class="pgc-h-arrow-right">4.2:訪問本地鏈接</h2>
+<blockquote>
+<p>http://localhost:8080/swagger-ui.html#/</p>
+</blockquote>
+<div class="pgc-img">
+  <amp-img src="http://p9.pstatp.com/large/pgc-image/5fbe7cbdd00d4afeae92dbc614607167" alt="《後端 API 介面文檔 Swagger 使用指南》" width="640" height="266" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/5fbe7cbdd00d4afeae92dbc614607167" alt="《後端 API 介面文檔 Swagger 使用指南》" width="640" height="266" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<p>可以看出訪問的url都很清晰的展示在它最終的頁面上，我們打開一個方法：可以看出方法的請求參數清晰的的羅列出來，包括方法的返回值。並且有一個很重要的功能，只需要點下方的try it out就可以進行介面測試，</p>
+<div class="pgc-img">
+  <amp-img src="http://p3.pstatp.com/large/pgc-image/0916177efbdf4077acdd889d544e9854" alt="《後端 API 介面文檔 Swagger 使用指南》" width="640" height="667" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/0916177efbdf4077acdd889d544e9854" alt="《後端 API 介面文檔 Swagger 使用指南》" width="640" height="667" class=""></noscript></amp-img>
+<p class="pgc-img-caption">
+</p></div>
+<h2 class="pgc-h-arrow-right">五：使用swagger需要注意的問題</h2>
+<ul class="list-paddingleft-2">
+<li>對於只有一個HttpServletRequest參數的方法,如果參數小於5個，推薦使用 @ApiImplicitParams的方式單獨封裝每一個參數；如果參數大於5個，採用定義一個對象去封裝所有參數的屬性，然後使用@APiParam的方式</li>
+<li>默認的訪問地址：ip:port/swagger-ui.html#/,但是在shiro中,會攔截所有的請求，必須加上默認訪問路徑（比如項目中，就是ip:port/context/swagger-ui.html#/），然後登陸後才可以看到</li>
+<li>在GET請求中，參數在Body體裡面,不能使用@RequestBody。在POST請求，可以使用@RequestBody和@RequestParam，如果使用@RequestBody，對於參數轉化的配置必須統一</li>
+<li>controller必須指定請求類型，否則swagger會把所有的類型(6種)都生成出來</li>
+<li>swagger在生產環境不能對外暴露,可以使用@Profile({「dev」, 「prod」,「pre」})指定可以使用的環境</li>
+</ul>
+<h2 class="pgc-h-arrow-right">六：總結</h2>
+<p>swagger作為一款輔助性的工具，能大大提升我們的和前端的溝通效率,介面是一個非常重要的傳遞數據的媒介，每個介面的簽名、方法參數都非常重要。一個良好的文檔非常重要，如果採用手寫的方式非常容易拼寫錯誤，而swagger可以自動化生成參數文檔，這一切都加快了我們的溝通效率。並且可以替代postman的作用。實在是開發編程必備良品啊。</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		分類: <a href="https://daynews.cc/technology/" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/26540/#comments">
+			寫評論		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">返回頂部</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="354f0d2beeef" type="baiduanalytics"><script type="application/json">{"vars":{"token":"882f12dcdadf8f87fabf76b550649115"},"triggers":{"trackPageview":{"on":"visible","request":"pageview"}}}</script></amp-analytics>
+</body>
+</html>
+<!-- This is the static html file -->

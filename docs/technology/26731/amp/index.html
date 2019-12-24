@@ -1,0 +1,625 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/26731/#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/RlEtIAq4iprjoS"},{"@type":"WebPage","@id":"https://daynews.cc/technology/26731/#webpage","url":"https://daynews.cc/technology/26731/","inLanguage":"zh-TW","name":"AI\u6676\u5143\u5728GPU\u9762\u524d\u800d\u6d41\u6c13\uff0c\u8b93CPU\u5f88\u53d7\u50b7 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/26731/#primaryimage"},"datePublished":"2019-12-21T05:50:08+00:00","dateModified":"2019-12-21T05:50:08+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="感覺這大半年參加晶元發布活動，觀察一件很有意思的事：GPU 廠商說 AI 算力的時候，都喜歡拿自己跟 CPU 去比;AI 晶元廠商在說 AI 算力的時候，又很喜歡拿自己去跟 GPU 比。CPU 在 AI 時代成為了鄙視鏈最底層。看起來不僅絕對性能跑不過人家，而且能效比還差那麼遠。 好像只要參加 AI 晶元相關的會，一定會有人提 AlexN……" />
+<meta name="twitter:title" content="AI晶元在GPU面前耍流氓，讓CPU很受傷 - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/RlEtIAq4iprjoS" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="AI晶元在GPU面前耍流氓，讓CPU很受傷 - 天天要聞" />
+<meta property="og:description" content="感覺這大半年參加晶元發布活動，觀察一件很有意思的事：GPU 廠商說 AI 算力的時候，都喜歡拿自己跟 CPU 去比;AI 晶元廠商在說 AI 算力的時候，又很喜歡拿自己去跟 GPU 比。CPU 在 AI 時代成為了鄙視鏈最底層。看起來不僅絕對性能跑不過人家，而且能效比還差那麼遠。 好像只要參加 AI 晶元相關的會，一定會有人提 AlexN……" />
+<meta property="og:url" content="https://daynews.cc/technology/26731/" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-21T05:50:08+00:00" />
+	<title>AI晶元在GPU面前耍流氓，讓CPU很受傷 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/26731/" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+	.amp-wp-header .amp-wp-canonical-link {
+		font-size: 0.8em;
+		text-decoration: underline;
+		position: absolute;
+		right: 18px;	}
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+	
+</head>
+
+<body class="">
+
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+										<a class="amp-wp-canonical-link" href="https://daynews.cc/technology/26731/">
+				原網頁			</a>
+			</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">AI晶元在GPU面前耍流氓，讓CPU很受傷</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://daynews.cc/wp-content/themes/Kratos/images/default_avatar.jpeg" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-21T13:50:08+00:00">
+		2019-12-21	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		
+		<div>
+<p>感覺這大半年參加晶元發布活動，觀察一件很有意思的事：GPU 廠商說 AI 算力的時候，都喜歡拿自己跟 CPU 去比;AI 晶元廠商在說 AI 算力的時候，又很喜歡拿自己去跟 GPU 比。CPU 在 AI 時代成為了鄙視鏈最底層。看起來不僅絕對性能跑不過人家，而且能效比還差那麼遠。</p>
+<p>好像只要參加 AI 晶元相關的會，一定會有人提 AlexNet 創世紀般的存在，也一定有人提 OpenAI 在 2018 年年中發布的《AI 與計算》分析報告[1]。因為裡面說，從 2012 年至今，最大型的 AI training 計算量每 3.4 個月就會翻一倍——所以到 2018 年實際已經漲了超過 30 萬倍。如果按照摩爾定律兩年翻番來算，那麼其實，2012-2018 年理論上晶元性能只能漲 7 倍。</p>
+<p>看看，「只能」漲 7 倍，CPU 是應該哭一哭的——雖然實際上就摩爾定律，這裡援引的數據都不準確，人家也不是說性能翻番不是?當然了，這些都不重要。重點在於，AI 算力需求這些年大幅攀升。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/RlEtIAq4iprjoS" alt="《AI晶元在GPU面前耍流氓，讓CPU很受傷》" width="640" height="427" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/RlEtIAq4iprjoS" alt="《AI晶元在GPU面前耍流氓，讓CPU很受傷》" width="640" height="427" class=""></noscript></amp-img></p>
+<p><strong class="highlight-text">AI 晶元是某一類專用晶元</strong></p>
+<p>感覺這大半年我都在客觀上探討一件事，在剛進入 EE Times 不久，就看到 MIT 2018 年出的一篇 paper。這篇 paper 也在我這大半年寫的文章里，被反覆提及，題為《通用技術計算機的衰落：為何深度學習和摩爾定律的終結正致使計算碎片化》。在整體觀點上，這篇 paper 其實還十分有趣。幾個月前，我把這篇 paper 的觀點做了濃縮和重構，再加了一些額外的料，構成了一篇<strong>《深度學習的興起，是通用計算的輓歌?》</strong>。</p>
+<p>各位有興趣可以去看一下，這篇文章真的細節動人、論據充分、觀點鮮明、語句通順……這裡再總結一下，其實觀點很簡單，就是既然 CPU 現在性能漲幅這麼小，工藝節點都難推進，那這條路差不多就快走完了;然鵝，還有專用計算這條路啊：就是針對不同的應用場景，咱們開發專門的晶元，量身定製、量體裁衣：這樣的話就能做到性能持續大幅攀升，與此同時效率高、功耗還大幅降低。</p>
+<p>其實論證這個觀點的過程還是非常有趣的，比如說谷歌 TPU 出現了，就是專用晶元的最佳例證，它就真的只能做一件事。</p>
+<p>這篇 paper 看起來美好而高級、優雅而低調。不過在隨後工作的時間裡，我基本上是在花全部的時間，嘗試聽取行業內的參與者們是否贊同這一點。很遺憾的是，幾乎我聽到的絕大部分聲音，都在徹底否定這個論調。有關這一點，實際還可以從 1 月份即將發行的《觀點》雜誌，我的文章《AI晶元專用好還是通用好?遙想20年前GPU也面臨這一抉擇》中看到比較詳細的論述。這裡就不提太多了(下個月就和大家見面喲)。</p>
+<p>絕對專用晶元也就是 ASIC，的確效率高、算力也高。但它實際受到兩個巨大問題的影響：</p>
+<p><strong>第一是成本</strong></p>
+<p>這是個看起來非常廢話的原因。像 CPU 這種全銀河系通用、只在大麥哲倫星系不通用的晶元，你在上面幹什麼不行啊?都可以，裝個 Windows，然後跑個虛擬機，還能裝 macOS，寫文檔、做設計、修圖、剪視頻、炒股票，各種軟體都能跑，醫療、交通、<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-6">政府</i>、金融，咱都能幹。甚至，如果你一定要跑 AI 任務，CPU 其實也可以干。</p>
+<p>所以 CPU 的特點，就決定了，這一類產品是全局適用的。它的銷量非常大，滲透在人類生活的方方面面。所以即便新製程的設計和工藝成本都在指數級攀升，造個工廠花幾十億美金才可以——未來還要更多。不過這麼昂貴的製造成本，實際能夠消受得起的產品類型就不多。到最具體的產品上，手機、PC 都是可以承擔這個成本的，因為它們每年的銷量特別大，單 iPhone 一年就賣超過 2 億台…每個手機、PC 至少都需要 CPU 才能跑得起來。CPU 有充足的量來攤薄設計與製造成本(實際情況比這還要複雜一些，還是推薦各位去看[2]這篇文章)。</p>
+<p>而專用晶元是完全不具備這種成本攤薄特性的：因為它只針對某一個領域。絕大部分特定領域都不具備走量來攤薄最先進位程工藝成本的能力。比如汽車，這是個看起來十分龐大的市場了，但全球銷量最好的車型，年銷量也不過區區兩三百萬——這個量對一個車型就一顆專用晶元的設計和製造成本而言，實在不是個划算的數字——採用最先進位程則幾乎是沒有可能的。</p>
+<p>當然，汽車專用晶元仍然可以考慮用成本更低、更早的製程來造晶元(以及某一顆晶元用在大量車型上)——這也是現在絕大部分專用晶元的常規方案。不過當「專用」晶元所覆蓋的市場容量本身就不大，以及可能比汽車市場還要小很多的時候，尤其是很多 B 端市場——天花板是明擺著的，又靠什麼來抵消晶元設計與製造成本?</p>
+<p>這個問題在 MIT 的那篇 paper 中實則有著非常翔實的論述，其中詳細列出了關乎特定市場容量、專用晶元產量、專用晶元相較通用處理器的性能與效率優勢有多大，這些變數相互之間是什麼樣的關係。在滿足怎樣的條件時，專用晶元可以提供更高的成本效益。</p>
+<p>在我更早期撰寫的採訪文章中，針對 ASIC 製造耗費成本這件事，我們有一個更準確地認識，即<strong>《摩爾定律失效，FPGA 迎來黃金時代?》</strong>[3]。不過這篇採訪文章實則忽視了一個重要事實，就是 MIT 提到的上述這幾個變數關係。而且專用晶元其實沒有必要採用最新的製程，依然可以在性能和能效上碾壓通用晶元(或 FPGA)。我在<strong>《深度學習的興起，是通用計算的輓歌?》</strong>文中同樣濃縮了這部分理論，在文章的第三部分「專用處理器市場過小?」章節內——不過當時為了理解方便，我沒有將 MIT 提到的所有變數都放到我的這篇文章中，所以仍然建議去看 MIT 的原文。</p>
+<p><strong>第二是通用性差異</strong></p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/RlEtIErBlcP1RH" alt="《AI晶元在GPU面前耍流氓，讓CPU很受傷》" width="640" height="427" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/RlEtIErBlcP1RH" alt="《AI晶元在GPU面前耍流氓，讓CPU很受傷》" width="640" height="427" class=""></noscript></amp-img></p>
+<p><strong class="highlight-text">雙重標準：</strong><strong class="highlight-text">通用與性能</strong></p>
+<p>CPU 的通用屬性就決定了，它在任何一個方面，其實都很難做到精通，或者說針對任何具體應用場景的算力和效率表現其實都一般。因為 CPU 需要耗費大量面積來做多層級 cache，微架構前端也很重要，真正的執行單元所佔尺寸就那麼點。因為 CPU 需要處理各種類型的工作，各種條件分支之類的東西。</p>
+<p>但 CPU 的設計和工藝都是具備相當難度的，至少顯著難於絕大部分專用晶元。用 GPU 去比 CPU 的 AI 算力，這種對比的價值顯然是不大的。這其中的核心就在於，GPU 實際上本來就算是一種專用晶元。至少早年，GPU 就用於圖形計算，它只做這一件事。而且實際在 GPU 誕生的更早期，它本來就以 ASIC 的面貌出現——它從骨子裡是一種專用晶元。用 CPU 這樣絕對通用的晶元，去比較 GPU 這種專用晶元，又有什麼價值?尤其如果你還比較浮點運算能力，那就更奇特了。</p>
+<p>不過 GPU 這個類型的晶元，在發展中後期發生了一些很顯著的變化。它開始越來越具備通用屬性(這個轉變原因也可以從《觀點》雜誌中找)，shader 核心這種非固定功能單元的地位越來越重要。即便 GPU 仍然沒有 CPU 那麼通用，但 cuda 編程這種東西是現如今人盡皆知的;GPU 的可編程性，或者叫靈活性變得越來越高。所以 GPU 現在早就不只用於圖形計算了。</p>
+<p>我們說將 GPU 應用於 AI 計算，不管是雲端 training 還是終端 inferencing，其本質都是 GPU 通用屬性的某一個方向;AI 計算在 GPGPU 世界裡，不過是其中一個組成部分罷了。只不過是因為 AI 計算這個方向實在是潛力太大了，所以 GPU 廠商開始將 AI 計算作為一個著重發展的方向來對待，以及還針對 AI 計算特別加入了一些專用單元，比如張量核心。</p>
+<p>然鵝這個時候，AI 專用晶元華麗麗地出現了，比如谷歌的 TPU、比如特斯拉的 FSD(Full Self-Driving Computer)，以及一眾國內外的 AI 晶元新品。</p>
+<p>AI 專用晶元如果專用、固化到 TPU 那樣的程度，只針對卷積神經網路，採用 Systolic Array 技術;前述第一個成本問題之外，它具有的第二個局限性就在於幾乎沒有靈活性可言。尤其在 AI 演算法每個月甚至每周都可能發生變化的情況下，晶元 18 個月開發周期，當晶元問世的時候，這顆晶元就極有可能已經落後了。</p>
+<p>但我們仍然不得不承認，AI 晶元在它所擅長的任務上，可能具備在效能與算力上大幅領先 GPU 的能力。所以 AI 晶元廠商幾乎清一色地會在發布會上宣布，自家產品可以吊打某 N 字頭企業的 GPU 某明星產品。</p>
+<p>這件事，本質上約等於拿 GPU 去和 CPU 比浮點運算能力。而且實際上，AI 晶元比較的「AI 算力」大部分情況下是低精度的，比如很多終端 inferencing 晶元 INT8 計算能力很強——那你怎麼不比比雙精度?因為你不能做雙精度運算?這種對比是將 GPU 放在通用計算的地位上，用專用計算的 AI 晶元——包括專門設計的 cache 或 HBM、低精度執行單元等——來吊打 GPU。這同樣是件沒有價值的事情。</p>
+<p>不過更有意思的是，GPU 此刻為自己辯駁的方式，大部分是說：我能做的事情更多啊，比 TPU 之流的 AI 晶元能做的事情多太多了，它們那些 AI 晶元就只能做一件事。</p>
+<p>這屬於典型的雙標，在和 CPU 比較時，宣稱自己 AI 算力高出一大截;在和 AI 晶元比較時，宣稱自己更通用。這不是雙標嗎?</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RlEtIBY1bIrNMd" alt="《AI晶元在GPU面前耍流氓，讓CPU很受傷》" width="640" height="480" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RlEtIBY1bIrNMd" alt="《AI晶元在GPU面前耍流氓，讓CPU很受傷》" width="640" height="480" class=""></noscript></amp-img></p>
+<p><strong class="highlight-text">是否存在第三類通用晶元?</strong></p>
+<p>其實我花了比較長的時間去理解，為什麼 MIT 的這篇 paper 並不能成立;至少它成立的概率會很低。因為就歷史經驗來看，它是不對的：當我們參考 CPU 和 GPU 的興衰史，其實就很容易發現，專用晶元在大部分歷史條件下都不會成為主流，而只能成為某個歷史時期的特定過渡產品。有關這一點仍然推薦去看 1 月份即將發布的《觀點》雜誌文章，這在前文已經提到了。</p>
+<p>不過 AI 晶元是順應時代潮流產生的一種晶元類型——除了前文提到的 TPU、FSD 這類相對極端的絕對專用 AI 晶元，當代越來越多的 AI 晶元都已經產生弱編程特性了，就跟當年的 GPU 一樣。就連 Arm 的 NPU IP 實則都融入了一定的靈活性。也就是說，如今有一大批 AI 晶元實際是具備靈活性或通用性的，它們不只能做一件事，從結構上它還為未出現的演算法做考量。</p>
+<p>Graphcore IPU、華為昇騰都在其列。也就是說，AI 晶元在 AI 計算時，不僅效率相較 GPU 更出色，而且它還具備一定的通用性。這實則才是很多 AI 晶元企業在宣傳中提到，在 CPU、GPU 之外，第三類晶元出現的原因，就是 AI 晶元。它可能將擁有自己的適用領域、迭代周期、開發生態。未來 CPU、GPU 和 AI 晶元就要成為三條並行的線了。</p>
+<p>從應用場景來看，這個觀念好像是成立的。至少我覺得，它比 MIT 說的專用晶元成為未來這一點要靠譜多了。</p>
+<p>但我仍然覺得，這種暢想的實現概率也會比較低——至少在雲端 AI training 這部分市場，GPU 可能將長期佔據壟斷地位，且難以撼動。因為 GPU 不僅具備製程優勢(有能力採用最先進位程的少數派)，而且具備開發生態優勢——大量開發者都願意投入其中，因為它相比 AI 晶元，具備了先天的生態基礎，且發展多年。GPU 開發生態優勢巨大的程度在從上至下、上天入地、貫徹電子科技行業，GPU 是無處不在的。</p>
+<p>當開始拼開發軟體棧的時候，一場全新的廝殺戰就要上演了。某種晶元進入可編程時代，經營這類晶元的公司就不只是一家晶元公司了，它對軟體人力物力的投入極有可能大於硬體，以 1:10 的硬體、軟體工程師比例存在於世。這個時候，企業和行業都會變得越來越龐大。在行業整體價值的複合年增長率無法滿足企業的成本投入攀升時，市場會逐漸步入寡頭時代。GPU 市場就是如此發展至今的。</p>
+<p>某 N 字頭企業在如今的 AI training 市場已經佔據了絕對統領地位，這種地位的不可撼動性就體現在開發生態的絕對優勢上。且其發展經驗積累，又令其具備了充足的資本優勢可持續完善這個閉環生態，從軟體到硬體。這就不是哪家 AI 晶元廠商隨便對比一下性能、能效足以完事兒的了。生態優勢可以徹底無視性能、能效的那點差別，尤其當這種性能、能效差別並沒有數量級差別時。</p>
+<p>所以，很多 AI 晶元初創企業暢想中的第三類晶元究竟能不能成立，或許要打一個問號。</p>
+<p>好了，本文的 YY 差不多就到這裡了。很多時候，歷史經驗是沒有任何價值的，尤其我們說「具體問題具體分析」的時候，每一個事件的發展過程都有其特殊性，那些依據歷史經驗做推斷的過程，本質上都是在胡說八道;在新事物面前，一切規律總結都只是在博君一笑——比如上面說的這麼多東西。比如在終端小型 inferencing 現場，AI 晶元是能夠長期發揮價值的，這仍然可以促成生態的持續反向完善。</p>
+<p>不過至少，AI 晶元用自己的標準去和 GPU 比算力，GPU 又用自己的標準去和 CPU 比算力，同時還宣稱自己比 AI 晶元能做更多的事，本質上都是耍流氓。</p>
+<p class="pgc-end-source">作者：歐陽洋蔥</p>
+<p class="pgc-end-source">來源：麵包板社區</p>
+<p class="pgc-end-source">（原文標題：AI晶元說自己性能比GPU好，GPU說自己性能比CPU好，這不是耍流氓嗎？）</p>
+<blockquote>
+<p>
+  <strong>‧</strong><br>
+  <strong>‧</strong><br>
+  <strong>‧</strong><br>
+  <strong>‧</strong><br>
+  <strong>‧</strong><br>
+  <strong>‧</strong><br>
+  <strong>‧</strong><br>
+  <strong>‧</strong><br>
+  <strong>‧</strong><br>
+  <strong>‧</strong><br>
+  <strong>‧</strong><br>
+  <strong>‧</strong><br>
+  <strong>‧</strong><br>
+  <strong>‧</strong><br>
+  <strong>‧</strong>‧ END<br>
+  <strong>‧</strong><br>
+  <strong>‧</strong><br>
+  <strong>‧</strong><br>
+  <strong>‧</strong><br>
+  <strong>‧</strong><br>
+  <strong>‧</strong><br>
+  <strong>‧</strong><br>
+  <strong>‧</strong><br>
+  <strong>‧</strong><br>
+  <strong>‧</strong><br>
+  <strong>‧</strong><br>
+  <strong>‧</strong><br>
+  <strong>‧</strong><br>
+  <strong>‧</strong><br>
+  <strong>‧</strong>‧
+ </p>
+</blockquote>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		分類: <a href="https://daynews.cc/technology/" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/26731/#comments">
+			寫評論		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">返回頂部</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="354f0d2beeef" type="baiduanalytics"><script type="application/json">{"vars":{"token":"882f12dcdadf8f87fabf76b550649115"},"triggers":{"trackPageview":{"on":"visible","request":"pageview"}}}</script></amp-analytics>
+</body>
+</html>
+<!-- This is the static html file -->

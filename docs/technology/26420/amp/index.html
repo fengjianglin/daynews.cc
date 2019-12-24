@@ -1,0 +1,616 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/26420/#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/Rl5oXhV97U1DWX"},{"@type":"WebPage","@id":"https://daynews.cc/technology/26420/#webpage","url":"https://daynews.cc/technology/26420/","inLanguage":"zh-TW","name":"\u6642\u9593\u53ef\u4ee5\u662f\u4e8c\u7dad\u7684\uff1f\u57fa\u65bc\u4e8c\u7dad\u6642\u9593\u5716\u7684\u8996\u983b\u5167\u5bb9\u7247\u6bb5\u6aa2\u6e2c | AAAI 2020 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/26420/#primaryimage"},"datePublished":"2019-12-22T16:45:09+00:00","dateModified":"2019-12-22T16:45:09+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="作者 | 彭厚文、傅建龍 來源 | 微軟研究院AI頭條（ID: MSRAsia） 編者按：當時間從一維走向二維，時序信息處理問題中一種全新的建模思路由此產生。根據這種新思路及其產生的二維時間圖概念，微軟亞洲研究院提出一種新的解決時間定位問題的通用方法：二維時域鄰近網路 2D-TAN，在基於自然語言描述的視頻內容定位和視頻內人體動作檢測兩個……" />
+<meta name="twitter:title" content="時間可以是二維的？基於二維時間圖的視頻內容片段檢測 | AAAI 2020 - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/Rl5oXhV97U1DWX" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="時間可以是二維的？基於二維時間圖的視頻內容片段檢測 | AAAI 2020 - 天天要聞" />
+<meta property="og:description" content="作者 | 彭厚文、傅建龍 來源 | 微軟研究院AI頭條（ID: MSRAsia） 編者按：當時間從一維走向二維，時序信息處理問題中一種全新的建模思路由此產生。根據這種新思路及其產生的二維時間圖概念，微軟亞洲研究院提出一種新的解決時間定位問題的通用方法：二維時域鄰近網路 2D-TAN，在基於自然語言描述的視頻內容定位和視頻內人體動作檢測兩個……" />
+<meta property="og:url" content="https://daynews.cc/technology/26420/" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-22T16:45:09+00:00" />
+	<title>時間可以是二維的？基於二維時間圖的視頻內容片段檢測 | AAAI 2020 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/26420/" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+	.amp-wp-header .amp-wp-canonical-link {
+		font-size: 0.8em;
+		text-decoration: underline;
+		position: absolute;
+		right: 18px;	}
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+	
+</head>
+
+<body class="">
+
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+										<a class="amp-wp-canonical-link" href="https://daynews.cc/technology/26420/">
+				原網頁			</a>
+			</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">時間可以是二維的？基於二維時間圖的視頻內容片段檢測 | AAAI 2020</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://daynews.cc/wp-content/themes/Kratos/images/default_avatar.jpeg" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-23T00:45:09+00:00">
+		2019-12-23	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		
+		<div>
+ <amp-img src="http://p1.pstatp.com/large/pgc-image/Rl5oXhV97U1DWX" alt="《時間可以是二維的？基於二維時間圖的視頻內容片段檢測 | AAAI 2020》" width="640" height="333" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/Rl5oXhV97U1DWX" alt="《時間可以是二維的？基於二維時間圖的視頻內容片段檢測 | AAAI 2020》" width="640" height="333" class=""></noscript></amp-img>
+<p>作者 | 彭厚文、傅建龍</p>
+<p>來源 | 微軟研究院AI頭條（<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-5">ID:</i> MSRAsia）</p>
+<p>編者按：當時間從一維走向二維，時序信息處理問題中一種全新的建模思路由此產生。根據這種新思路及其產生的二維時間圖概念，微軟亞洲研究院提出一種新的解決時間定位問題的通用方法：二維時域鄰近網路 2D-TAN，在基於自然語言描述的視頻內容定位和視頻內人體動作檢測兩個任務上驗證了其有效性，並在 ICCV 2019 中的 HACS Action Localization Challenge 比賽中獲得了第一，相關技術細節將發表於 AAAI 2020 論文「Learning 2D Temporal Adjacent Network for Moment Localization with Natural Language」。本文將對這一研究進行深入解讀。</p>
+<p>時間可以是二維的嗎？這是一個好問題！</p>
+<p>我們常常將物理世界定義為三維空間，將時間定義為一維空間。但是，這不是唯一的定義方式。最近，研究院的童鞋們大開腦洞，提出了一種新的時間表示方式，<strong>將時間定義成了二維的</strong>！</p>
+<p>在二維空間里，時間是如何表達的呢？童鞋們給出的答案是這樣的：<strong>在二維空間中，我們定義其中一個維度表示時間的開始時刻，另外一個維度表示時間的結束時刻</strong>；從而，二維空間中的每一個坐標點就可以表達一個時間片段（例如，從 A 時刻開始到 B 時刻結束的時間片），也可以是一個特定的時間點（例如，從 A 時刻開到 A 時刻結束，即為 A 時刻）。</p>
+<p>這種二維時間定義的用途和意義在哪裡呢？童鞋們認為這種新的時間定義方式，可以為時序信息處理問題提供一種新的建模思路，例如視頻、語音、軌跡等時序信息的分析與處理。近期，他們已將這種新的時間表達方式，應用於視頻內容理解中，並在視頻內人體動作檢測、視頻內容片段定位任務中取得了優異的性能。值得一提的是，他們應用這種新的時間表達方式，<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-3">結合</i>最新的深度學習模型，在視頻行為識別與檢測競賽（HACS Temporal Action Localization Challenge）中取得了第1名的成績。</p>
+<p><i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">下面</i>，就讓我們了解一下這種二維時間表達方式是如何應用在視頻內容理解任務中的。</p>
+<p><strong>基於二維時間圖的視頻內容片段定位</strong></p>
+<p>視頻內容片段定位包含多個子任務，例如，基於自然語言描述的視頻片段定位（moment localization with natural language）與視頻內人體動作檢測（temporal action localization）。前者需要根據用戶給定的描述語句，從視頻中定位文字所描述的視頻片段的開始和結束時間點；後者則需要在給定的長視頻中，檢測出其存在的動作片段類別，並定位出動作開始和結束的時間點。</p>
+<p>在這些任務中，一個通用的做法是預先設定一些候選視頻片段（proposals/moments/ segments），再對每個片段的可能性進行相應的預測。然而在預測過程中，前人的工作通常只是對每個片段獨立預測，卻忽略了片段之間的依賴關係。為此，本文提出了<strong>二維時間圖</strong>的概念，並通過<strong>二維時域鄰近網路（2D Temporal Adjacent Network, i.e. 2D-TAN）</strong>來解決這一問題。該方法是一個解決時間定位問題的通用方法，不僅可以學習出片段之間的時域鄰近關係，同時也能學習出更具有區分性的特徵表達。</p>
+<p>我們的方法在上述的視頻內容片段定位任務上進行了驗證。在基於自然語言描述的視頻片段定位任務中，我們提出的 2D-TAN 方法在三個基準數據集均獲得了良好的性能結果，相關論文已經被 AAAI 2020 接收[1]。在視頻內人體動作檢測中，我們基於 2D-TAN 的改進方案[2]在 HACS Temporal Action Localization Challenge 中獲得第一。</p>
+<p><i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">下面</i>以自然語言描述的視頻內容片段定位為例介紹我們的工作，並簡要介紹人體動作檢測方面的拓展。</p>
+<p><strong>基於自然語言描述的視頻片段定位</strong></p>
+<p>基於自然語言描述的視頻片段定位任務是根據用戶給定的描述語句，從視頻中定位文字所描述的視頻片段，並返回該片段的開始和結束時間，如圖1所示。前人的工作都是獨立地匹配句子和一個片段，而忽略了其他片段對其影響。當要處理涉及多片段的情況，尤其是片段之間存在依賴關係的時候，這種做法很難得到精確的結果。例如，當我們要定位「這個人又吹起了薩克斯 The guy plays the saxophone again」，如果只看後面的視頻而不看前面的，我們不可能在視頻中定位到這個片段。另一方面，有很多候選片段都與目標片段有重疊，例如圖1中 Query B <i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">下面</i>所對應的多種片段。這些片段有著相似的視頻內容，但是語義上會略有所不同。如果不將這些片段綜合考慮來區分其中的細微差別，同樣很難得到精確的結果。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/Rl2lQexFmVhneL" alt="《時間可以是二維的？基於二維時間圖的視頻內容片段檢測 | AAAI 2020》" width="611" height="569" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/Rl2lQexFmVhneL" alt="《時間可以是二維的？基於二維時間圖的視頻內容片段檢測 | AAAI 2020》" width="611" height="569" class=""></noscript></amp-img></p>
+<p class="pgc-img-caption">圖1：任務示意圖。在二維時間圖中，黑色坐標軸上的數字表示開始和結束的序號，灰色坐標軸上的數字表示序號所對應的時間點。二維時間圖中方格的紅色程度反映該片段與目標片段的重疊程度，取決於視頻長度及採樣比例。</p>
+<p>為解決這一問題，我們提出了二維時域鄰近網路（2D-TAN）。其核心思想是在二維時間圖中做視頻片段定位，如圖1所示。具體來說，圖中(i,j)表示的是一個從 i 到 (j+1) 的時間片段。該圖包含多種長度的片段，並通過圖中坐標的遠近，我們可以定義這些片段之間的鄰近關係。有了這些關係，我們的 2D-TAN 模型便可以對依賴關係進行建模。與此同時，不同片段與目標片段之間的重疊程度會有所不同。2D-TAN 通過整體考慮這些重疊上的差異，而非單獨考慮每個片段，可以學習更具有區分性的特徵，如圖2。</p>
+<p> <amp-img src="http://p9.pstatp.com/large/pgc-image/Rl2lQfX9FBAJTJ" alt="《時間可以是二維的？基於二維時間圖的視頻內容片段檢測 | AAAI 2020》" width="640" height="292" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/Rl2lQfX9FBAJTJ" alt="《時間可以是二維的？基於二維時間圖的視頻內容片段檢測 | AAAI 2020》" width="640" height="292" class=""></noscript></amp-img></p>
+<p class="pgc-img-caption">圖2：與前人方法的對比。綠色長方體表示候選片段與句子融合後的相似度特徵。方框表示得分，方框紅色的程度表示該片段與目標片段的重疊程度。左圖表示前人的方法，獨立預測各個片段的得分。右圖表示我們的方法，預測當前片段的得分時，綜合考慮了鄰近片段的關係。</p>
+<p><strong>二維時域鄰近網路（2D-TAN）</strong></p>
+<p>我們的 2D-TAN 模型如圖3所示。該網路由三部分構成：一個用來提取自然語言文本特徵的編碼器，一個用來提取視頻特徵圖的編碼器，及一個用來定位的時域鄰近網路。我們在下文具體介紹各部分。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/Rl2lQfy6PMBplK" alt="《時間可以是二維的？基於二維時間圖的視頻內容片段檢測 | AAAI 2020》" width="640" height="233" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/Rl2lQfy6PMBplK" alt="《時間可以是二維的？基於二維時間圖的視頻內容片段檢測 | AAAI 2020》" width="640" height="233" class=""></noscript></amp-img></p>
+<p class="pgc-img-caption">圖3：2D-TAN的框架示意圖</p>
+<p><strong>語句的文本特徵</strong></p>
+<p>我們將每個文本單詞轉換成 GloVe 詞向量表達[4]，再將詞向量依次通過 LSTM 網路[5]，使用其最後一層輸出作為文本語句的特徵。</p>
+<p><strong>視頻的二維特徵圖</strong></p>
+<p>我們首先將視頻分割成小的單元片段（clip），之後等距降採樣到統一長度，再通過預訓練好的網路抽取其特徵。抽取好的特徵通過卷積、池化操作獲得最終的單元片段特徵（clip feature），大小是 N×d^v。候選片段由一段連續的單元片段構成，不同候選片段長度可能會不同。為獲得統一的特徵表示，對於每一個候選片段，我們通過對其相應的單元片段序列最大池化（max-pooling）獲得其最終特證。根據每個候選片段的始末時間點，我們將所有的候選片段重新排列成一個二維特徵圖，大小是 N×N×d^v。因為開始時間永遠小於結束時間，特徵圖的下三角部分是無效的，因此我們將它們填充成0，且不參與後續的計算。</p>
+<p>當 N 較大時，特徵圖的計算量也會隨之增大，為解決此問題，我們還提出了一種稀疏圖的構造策略，如圖4所示。在該圖中，我們根據片段的長短進行不同密度的採樣。對於短片段，我們枚舉出所有可能，進行密集採樣。對於中等長度的片段，我們採樣的步長設為2。對於長片段，我們採樣的步長設為4。通過這種方式，我們可以降低因枚舉所帶來的計算開銷，同時保證精度。所有未被選中的片段被填充為0，不參與後續的計算。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/Rl2lQgTGaSphtY" alt="《時間可以是二維的？基於二維時間圖的視頻內容片段檢測 | AAAI 2020》" width="491" height="389" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/Rl2lQgTGaSphtY" alt="《時間可以是二維的？基於二維時間圖的視頻內容片段檢測 | AAAI 2020》" width="491" height="389" class=""></noscript></amp-img></p>
+<p class="pgc-img-caption">圖4：當 N=64 時的候選片段。藍色的方格表示選中參與候選的片段，灰色的方格表示未選中的片段。白色的方格表示無效的片段。</p>
+<p><strong>通過時間鄰近網路定位</strong></p>
+<p>有了視頻的二維特徵圖（圖3中的藍色立方體）和語句的文本特徵（圖3中的黃色長方體），我們首先將其特徵圖中每個位置的視頻特徵與文本特徵融合，獲得相似度的特徵圖（圖3右圖中左側的綠色立方體）。然後，將融合後的相似度特徵圖通過一系列的卷積層，逐層建立其每個片段與周邊片段之間的關係。最後，我們將這種考慮了鄰近關係的相似度特徵輸入到全聯接層中，獲得最終的得分。</p>
+<p><strong>損失函數</strong></p>
+<p>在訓練整個 2D-TAN 網路時，我們採用二元交叉熵（binary cross-entropy）作為損失函數，並使用經過線性變換的 intersection-over-union (IoU)值作為損失函數中的標籤（label）。</p>
+<p><strong>實驗結果</strong></p>
+<p>我們在 Charades-STA [6]、ActivityNet Captions [7] 和 TACoS [8] 三個數據集中進行了測試。實驗結果如表1-3所示。從實驗結果中我們可以看出，在不同數據集的多種評價指標下，我們的方法均取得了優異的性能。值得注意的是，我們的方法在更苛刻的評價標準下的提升更為明顯（如表1-3中 rank{1,5}@{0.5,0.7} 的表現），尤其是在 TACoS、Rank1@0.5 和 Rank5@0.5 兩個上獲得了5和14個百分點的提升。這些實驗結果說明基於二維時間圖鄰近關係的建模對性能提升有很大的幫助。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/Rl2lQgw7pfhreA" alt="《時間可以是二維的？基於二維時間圖的視頻內容片段檢測 | AAAI 2020》" width="446" height="424" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/Rl2lQgw7pfhreA" alt="《時間可以是二維的？基於二維時間圖的視頻內容片段檢測 | AAAI 2020》" width="446" height="424" class=""></noscript></amp-img></p>
+<p class="pgc-img-caption">表1：Charades-STA 的實驗結果。Pool 和 Conv 表示兩種不同的片段特徵提取方式，下表同。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/Rl2lRA71SmnwZg" alt="《時間可以是二維的？基於二維時間圖的視頻內容片段檢測 | AAAI 2020》" width="479" height="416" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/Rl2lRA71SmnwZg" alt="《時間可以是二維的？基於二維時間圖的視頻內容片段檢測 | AAAI 2020》" width="479" height="416" class=""></noscript></amp-img></p>
+<p class="pgc-img-caption">表2：ActivityNet Captions 的實驗結果</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/Rl2lRAY4UAGVn9" alt="《時間可以是二維的？基於二維時間圖的視頻內容片段檢測 | AAAI 2020》" width="490" height="284" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/Rl2lRAY4UAGVn9" alt="《時間可以是二維的？基於二維時間圖的視頻內容片段檢測 | AAAI 2020》" width="490" height="284" class=""></noscript></amp-img></p>
+<p class="pgc-img-caption">表3：TACoS 的實驗結果</p>
+<p><strong>基於二維時間圖的人體動作檢測</strong></p>
+<p>考慮到 2D-TAN 方法的通用性和其在基於自然語言的時間定位任務上的優異性能，我們在後續的工作中將其拓展到了視頻內人體動作檢測任務中。該任務需要在給定的長視頻中，檢測出視頻中預定義的動作片段類別及其開始和結束時間點。一種通常的做法是將該任務拆分成兩步，首先檢測出哪些片段可能存在預定義動作的片段（proposal generation），然後預測這些候選片段可能所屬的類別（classification）。考慮到這類做法的第一步和我們提出的 2D-TAN 方法很相關，本質上都是要解決片段之間的相互依賴關係的問題，因此我們用 2D-TAN 方法針對該任務進行了改進，如圖5。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/Rl2lRB2D4cJbbQ" alt="《時間可以是二維的？基於二維時間圖的視頻內容片段檢測 | AAAI 2020》" width="570" height="222" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/Rl2lRB2D4cJbbQ" alt="《時間可以是二維的？基於二維時間圖的視頻內容片段檢測 | AAAI 2020》" width="570" height="222" class=""></noscript></amp-img></p>
+<p class="pgc-img-caption">圖5：S-2D-TAN 框架示意圖</p>
+<p>相較於基於自然語言描述的視頻片段定位，視頻內動作定位的目標片段往往比較短。因此需要的採樣頻率更高，採樣的單元片段個數 N 也因此更大。相應地，在特徵圖中長片段的採樣步長也會比較大，底層的卷積層往往感受不到足夠的上下文信息。在圖5中，紅色虛線方框表示的是中等長度片段在第一層涉及到的鄰近片段，而黃色虛線方框表示的是短片段要涉及的鄰近片段。我們可以看出，黃色框涉及的上下文信息要比紅色框的多。因此我們在 2D-TAN 的基礎上，針對長片段上下文信息較少，設計了一個稀疏二維時域鄰近網路（Sparse 2D Temporal Adjacent Network， i.e. S-2D-TAN）。該網路將稀疏圖按照採樣的步長，拆分成三個更緊湊的時域特徵圖。通過將不同特徵圖分別通過一個共享內核的卷積網路，從而使得長片段可從周圍的特徵中獲得更多的上下文信息。</p>
+<p>我們的演算法在 ICCV 2019 中的 HACS Action Localization Challenge 比賽中獲得了第一名的成績。值得一提的是，HACS 目前是視頻內人體動作檢測任務中最大的數據集 [2]。更多細節請參考技術報告[3]。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RlORteeDKzpdbM" alt="《時間可以是二維的？基於二維時間圖的視頻內容片段檢測 | AAAI 2020》" width="496" height="342" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RlORteeDKzpdbM" alt="《時間可以是二維的？基於二維時間圖的視頻內容片段檢測 | AAAI 2020》" width="496" height="342" class=""></noscript></amp-img></p>
+<p class="pgc-img-caption">圖6：比賽獲獎證書</p>
+<p><strong>結語</strong></p>
+<p>本文針對視頻內容片段定位問題提出了一種二維時間圖表示方式與一種新的時域鄰近網路（2D-TAN），其有效性已在基於自然語言描述的視頻內容定位和人體動作檢測兩個任務上得到了初步的驗證。該方法目前仍處於一個初步探索的階段：從網路結構的角度來說，當前的結構僅採用簡單地堆疊卷積層的方式，相信進一步優化網路結構本身會帶來性能上的提升。另一方面，從方法的通用性角度來說，目前我們僅驗證了兩個任務，仍有許多相關任務值得拓展，例如視頻文本描述，視頻內容問答，亦或是語音等其他包含時序信息的任務。</p>
+<p>更多技術細節，詳見論文：</p>
+<p>Learning 2D Temporal Adjacent Network for Moment Localization with Natural Language</p>
+<p>論文鏈接: https://arxiv.org/abs/1912.03590</p>
+<p>代碼鏈接: https://github<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-4">.com</i>/microsoft/2D-TAN</p>
+<p>本文作者：彭厚文、張宋揚、傅建龍、羅傑波</p>
+<p><strong>參考文獻</strong></p>
+<p class="pgc-end-literature">1. Songyang Zhang, Houwen Peng, JianlongFu and Jiebo Luo, 「Learning 2D Temporal Adjacent Networks forMoment Localization with Natural Language」, AAAI 2020</p>
+<p class="pgc-end-literature">2. Hang Zhao, Zhicheng Yan, Lorenzo Torresani and Antonio Torralba, 「HACS: Human Action Clips and Segments Dataset for Recognition and Temporal Localization」, ICCV 2019</p>
+<p class="pgc-end-literature">3. Songyang Zhang, Houwen Peng, Le Yang, Jianlong Fu and Jiebo Luo, 「Learning Sparse 2D Temporal Adjacent Networks for Temporal Action Localization」, Technical Report</p>
+<p class="pgc-end-literature">4. Jeffrey Pennington, Richard Socher and Christopher D. Manning, 「GloVe: Global Vectors for Word Representation」, EMNLP 2014</p>
+<p class="pgc-end-literature">5. Hochreiter, Sepp and Schmidhuber,Jurgen, 「Long short-term memory」, Neural computation 1997</p>
+<p class="pgc-end-literature">6. Jiyang Gao, Chen Sun, Zhenheng Yang and Ram Nevatia, 「TALL: Temporal activity localization via language query」, ICCV2017</p>
+<p class="pgc-end-literature">7. Ranjay Krishna, Kenji Hata, Frederic Ren, <i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-5">Li</i> Fei-Fei, and Juan Carlos Niebles, 「Dense-Captioning Events in Videos」, ICCV 2017</p>
+<p class="pgc-end-literature">8. Michaela Regneri, Marcus Rohrbach, Dominikus Wetzel, Stefan Thater, and Bernt Schiele, and Manfred Pinkal, 「Grounding action descriptions in videos」, TACL <i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">2013</i></p>
+<p><em>（*本文為AI科技大本營轉載文章，</em><em>轉載</em><em>請</em><em>聯繫原作者）</em></p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/RlIbAU71ZX90rR" alt="《時間可以是二維的？基於二維時間圖的視頻內容片段檢測 | AAAI 2020》" width="640" height="1138" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/RlIbAU71ZX90rR" alt="《時間可以是二維的？基於二維時間圖的視頻內容片段檢測 | AAAI 2020》" width="640" height="1138" class=""></noscript></amp-img>
+</p></div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		分類: <a href="https://daynews.cc/technology/" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/26420/#comments">
+			寫評論		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">返回頂部</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="354f0d2beeef" type="baiduanalytics"><script type="application/json">{"vars":{"token":"882f12dcdadf8f87fabf76b550649115"},"triggers":{"trackPageview":{"on":"visible","request":"pageview"}}}</script></amp-analytics>
+</body>
+</html>
+<!-- This is the static html file -->

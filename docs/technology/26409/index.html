@@ -1,0 +1,751 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏） - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="Java 鎖分類 Java 中的鎖有很多，可以按照不同的功能、種類進行分類，下面是我對 Java 中一些常用鎖的分類，包括一些基本的概述 從線程是否需要對資源加鎖可以分為 悲觀鎖 和 樂觀鎖 從資源已被鎖定，線程是否阻塞可以分為 自旋鎖 從多個線程並發訪問資源，也就是 Synchronized 可以分為 無鎖、偏向鎖、 輕量級鎖 和 重量……" />
+		<meta name="keywords" content="不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏） - 天天要聞,科技," />
+		<meta itemprop="image" content="http://p3.pstatp.com/large/pgc-image/8515855ee76442f5be93e758a285fc7c"/>
+		<meta name="description" itemprop="description" content="Java 鎖分類 Java 中的鎖有很多，可以按照不同的功能、種類進行分類，下面是我對 Java 中一些常用鎖的分類，包括一些基本的概述 從線程是否需要對資源加鎖可以分為 悲觀鎖 和 樂觀鎖 從資源已被鎖定，線程是否阻塞可以分為 自旋鎖 從多個線程並發訪問資源，也就是 Synchronized 可以分為 無鎖、偏向鎖、 輕量級鎖 和 重量……" />
+		
+<!-- This site is optimized with the SEO -->
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="https://daynews.cc/technology/26409/" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏） - 天天要聞" />
+<meta property="og:description" content="Java 鎖分類 Java 中的鎖有很多，可以按照不同的功能、種類進行分類，下面是我對 Java 中一些常用鎖的分類，包括一些基本的概述 從線程是否需要對資源加鎖可以分為 悲觀鎖 和 樂觀鎖 從資源已被鎖定，線程是否阻塞可以分為 自旋鎖 從多個線程並發訪問資源，也就是 Synchronized 可以分為 無鎖、偏向鎖、 輕量級鎖 和 重量……" />
+<meta property="og:url" content="https://daynews.cc/technology/26409/" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-22T17:50:06+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="Java 鎖分類 Java 中的鎖有很多，可以按照不同的功能、種類進行分類，下面是我對 Java 中一些常用鎖的分類，包括一些基本的概述 從線程是否需要對資源加鎖可以分為 悲觀鎖 和 樂觀鎖 從資源已被鎖定，線程是否阻塞可以分為 自旋鎖 從多個線程並發訪問資源，也就是 Synchronized 可以分為 無鎖、偏向鎖、 輕量級鎖 和 重量……" />
+<meta name="twitter:title" content="不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏） - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/8515855ee76442f5be93e758a285fc7c" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/26409/#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/8515855ee76442f5be93e758a285fc7c"},{"@type":"WebPage","@id":"https://daynews.cc/technology/26409/#webpage","url":"https://daynews.cc/technology/26409/","inLanguage":"zh-TW","name":"\u4e0d\u61c2\u4ec0\u9ebc\u662f\u9396\uff1f\u770b\u5b8c\u9019\u7bc7\u4f60\u5c31\u5fb9\u5e95\u660e\u767d\u4e86\uff01\uff08\u5efa\u8b70\u5148\u6536\u85cf\uff09 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/26409/#primaryimage"},"datePublished":"2019-12-22T17:50:06+00:00","dateModified":"2019-12-22T17:50:06+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<!-- / SEO. -->
+
+<link rel='stylesheet' id='animate-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/animate.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/bootstrap.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/superfish.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/layer.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='https://daynews.cc/wp-content/themes/Kratos/style.css' type='text/css' media='all' />
+<link rel="amphtml" href="https://daynews.cc/technology/26409/amp/">		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.min.js'></script>
+		
+		<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?882f12dcdadf8f87fabf76b550649115";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+		</script>
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="https://daynews.cc"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="/">首頁</a></li>
+<li><a href="https://daynews.cc/entertainment/">娛樂</a></li>
+<li><a href="https://daynews.cc/emotion/">情感</a></li>
+<li><a href="https://daynews.cc/international/">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="https://daynews.cc/technology/">科技</a></li>
+<li><a href="https://daynews.cc/sports/">體育</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/nba/">NBA</a></li>
+	<li><a href="https://daynews.cc/premier/">英超</a></li>
+</ul>
+</li>
+<li><a href="https://daynews.cc/history/">歷史</a></li>
+<li><a href="https://daynews.cc/game/">遊戲</a></li>
+<li><a href="https://daynews.cc/health/">養生</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/lose/">減肥</a></li>
+</ul>
+</li>
+<li><a href="https://daynews.cc/constellation/">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏）</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-23				                <i class="fa fa-commenting-o"></i> 3,256條評論
+				                <i class="fa fa-eye"></i> 4,248次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 2323人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+<h2 class="pgc-h-arrow-right">Java 鎖分類</h2>
+<p>Java 中的鎖有很多，可以按照不同的功能、種類進行分類，下面是我對 Java 中一些常用鎖的分類，包括一些基本的概述</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/8515855ee76442f5be93e758a285fc7c" src="http://p3.pstatp.com/large/pgc-image/8515855ee76442f5be93e758a285fc7c" alt="《不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏）》" /></p>
+<p class="pgc-img-caption">
+</div>
+<ul class="">
+<li>從線程是否需要對資源加鎖可以分為 悲觀鎖 和 樂觀鎖</li>
+<li>從資源已被鎖定，線程是否阻塞可以分為 自旋鎖</li>
+<li>從多個線程並發訪問資源，也就是 Synchronized 可以分為 無鎖、偏向鎖、 輕量級鎖 和 重量級鎖</li>
+<li>從鎖的公平性進行區分，可以分為公平鎖 和 非公平鎖</li>
+<li>從根據鎖是否重複獲取可以分為 可重入鎖 和 不可重入鎖</li>
+<li>從那個多個線程能否獲取同一把鎖分為 共享鎖 和 排他鎖</li>
+</ul>
+<p>下面我們依次對各個鎖的分類進行詳細闡述。</p>
+<h2 class="pgc-h-arrow-right">線程是否需要對資源加鎖</h2>
+<p>Java 按照是否對資源加鎖分為樂觀鎖和悲觀鎖，樂觀鎖和悲觀鎖並不是一種真實存在的鎖，而是一種設計思想，樂觀鎖和悲觀鎖對於理解 Java 多線程和資料庫來說至關重要，下面就來探討一下這兩種實現方式的區別和優缺點</p>
+<h3 class="pgc-h-arrow-right">悲觀鎖</h3>
+<p>悲觀鎖是一種悲觀思想，它總認為最壞的情況可能會出現，它認為數據很可能會被其他人所修改，所以悲觀鎖在持有數據的時候總會把資源 或者 數據 鎖住，這樣其他線程想要請求這個資源的時候就會阻塞，直到等到悲觀鎖把資源釋放為止。傳統的關係型資料庫裡邊就用到了很多這種鎖機制，<strong>比如行鎖，表鎖等，讀鎖，寫鎖等，都是在做操作之前先上鎖。</strong>悲觀鎖的實現往往依靠資料庫本身的鎖功能實現。</p>
+<p>Java 中的 Synchronized 和 ReentrantLock 等獨佔鎖(排他鎖)也是一種悲觀鎖思想的實現，因為 Synchronzied 和 ReetrantLock 不管是否持有資源，它都會嘗試去加鎖，生怕自己心愛的寶貝被別人拿走。</p>
+<h3 class="pgc-h-arrow-right">樂觀鎖</h3>
+<p>樂觀鎖的思想與悲觀鎖的思想相反，它總認為資源和數據不會被別人所修改，所以讀取不會上鎖，但是樂觀鎖在進行寫入操作的時候會判斷當前數據是否被修改過(具體如何判斷我們下面再說)。樂觀鎖的實現方案一般來說有兩種： 版本號機制 和 CAS實現 。樂觀鎖多適用於多度的應用類型，這樣可以提高吞吐量。</p>
+<p>在Java中java.util.concurrent.atomic包下面的原子變數類就是使用了樂觀鎖的一種實現方式 CAS 實現的。</p>
+<h3 class="pgc-h-arrow-right">兩種鎖的使用場景</h3>
+<p>上面介紹了兩種鎖的基本概念，並提到了兩種鎖的適用場景，一般來說，悲觀鎖不僅會對寫操作加鎖還會對讀操作加鎖，一個典型的悲觀鎖調用：</p>
+<pre><code>select*fromstudentwherename="cxuan"forupdate</code></pre>
+<p>這條 sql 語句從 Student 表中選取 name = &#8220;cxuan&#8221; 的記錄並對其加鎖，那麼其他寫操作再這個事務提交之前都不會對這條數據進行操作，起到了獨佔和排他的作用。</p>
+<p>悲觀鎖因為對讀寫都加鎖，所以它的性能比較低，對於現在互聯網提倡的三高(高性能、高可用、高並發)來說，悲觀鎖的實現用的越來越少了，但是一般多讀的情況下還是需要使用悲觀鎖的，因為雖然加鎖的性能比較低，但是也阻止了像樂觀鎖一樣，遇到寫不一致的情況下一直重試的時間。</p>
+<p>相對而言，樂觀鎖用於讀多寫少的情況，即很少發生衝突的場景，這樣可以省去鎖的開銷，增加系統的吞吐量。</p>
+<p>樂觀鎖的適用場景有很多，典型的比如說成本系統，櫃員要對一筆金額做修改，為了保證數據的準確性和實效性，使用悲觀鎖鎖住某個數據後，再遇到其他需要修改數據的操作，那麼此操作就無法完成金額的修改，對產品來說是災難性的一刻，使用樂觀鎖的版本號機制能夠解決這個問題，我們下面說。</p>
+<h3 class="pgc-h-arrow-right">樂觀鎖的實現方式</h3>
+<p>樂觀鎖一般有兩種實現方式：採用版本號機制 和 CAS（Compare-and-Swap，即比較並替換）演算法實現。</p>
+<h4 class="pgc-h-arrow-right">版本號機制</h4>
+<p>版本號機制是在數據表中加上一個 version 欄位來實現的，表示數據被修改的次數，當執行寫操作並且寫入成功後，version = version + 1，當線程A要更新數據時，在讀取數據的同時也會讀取 version 值，在提交更新時，若剛才讀取到的 version 值為當前資料庫中的version值相等時才更新，否則重試更新操作，直到更新成功。</p>
+<p>我們以上面的金融系統為例，來簡述一下這個過程。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/42922c129c864648897421839c0f4183" src="http://p1.pstatp.com/large/pgc-image/42922c129c864648897421839c0f4183" alt="《不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏）》" /></p>
+<p class="pgc-img-caption">
+</div>
+<ul class="">
+<li>成本系統中有一個數據表，表中有兩個欄位分別是 金額 和 version，金額的屬性是能夠實時變化，而 version 表示的是金額每次發生變化的版本，一般的策略是，當金額發生改變時，version 採用遞增的策略每次都在上一個版本號的基礎上 + 1。</li>
+<li>在了解了基本情況和基本信息之後，我們來看一下這個過程：公司收到回款後，需要把這筆錢放在金庫中，假如金庫中存有100 元錢下面開啟事務一：當男櫃員執行回款寫入操作前，他會先查看(讀)一下金庫中還有多少錢，此時讀到金庫中有 100 元，可以執行寫操作，並把資料庫中的錢更新為 120 元，提交事務，金庫中的錢由 100 -&gt; 120，version的版本號由 0 -&gt; 1。開啟事務二：女櫃員收到給員工發工資的請求後，需要先執行讀請求，查看金庫中的錢還有多少，此時的版本號是多少，然後從金庫中取出員工的工資進行發放，提交事務，成功後版本 + 1，此時版本由 1 -&gt; 2。</li>
+</ul>
+<p><strong>上面兩種情況是最樂觀的情況，上面的兩個事務都是順序執行的，也就是事務一和事務二互不干擾，那麼事務要並行執行會如何呢？</strong></p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/ba6bc137d2a64743aa9cdc2467e2b046" src="http://p1.pstatp.com/large/pgc-image/ba6bc137d2a64743aa9cdc2467e2b046" alt="《不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏）》" /></p>
+<p class="pgc-img-caption">
+</div>
+<ul class="">
+<li>事務一開啟，男櫃員先執行讀操作，取出金額和版本號，執行寫操作begin update 表 set 金額 = 120,version = version + 1 where 金額 = 100 and version = 0此時金額改為 120，版本號為1，事務還沒有提交事務二開啟，女櫃員先執行讀操作，取出金額和版本號，執行寫操作begin update 表 set 金額 = 50,version = version + 1 where 金額 = 100 and version = 0此時金額改為 50，版本號變為 1，事務未提交現在提交事務一，金額改為 120，版本變為1，提交事務。理想情況下應該變為 金額 = 50，版本號 = 2，但是實際上事務二 的更新是建立在金額為 100 和 版本號為 0 的基礎上的，所以事務二不會提交成功，應該重新讀取金額和版本號，再次進行寫操作。這樣，就避免了女櫃員 用基於 version = 0 的舊數據修改的結果覆蓋男操作員操作結果的可能。</li>
+</ul>
+<h4 class="pgc-h-arrow-right">CAS 演算法</h4>
+<p><strong>省略代碼，完整代碼請參照 看完你就應該能明白的悲觀鎖和樂觀鎖</strong></p>
+<p>CAS 即 compare and swap（比較與交換），是一種有名的無鎖演算法。即不使用鎖的情況下實現多線程之間的變數同步，也就是在沒有線程被阻塞的情況下實現變數的同步，所以也叫非阻塞同步（Non-blocking Synchronization</p>
+<p>Java 從 JDK1.5 開始支持，java.util.concurrent 包里提供了很多面向並發編程的類，也提供了 CAS 演算法的支持，一些以 Atomic 為開頭的一些原子類都使用 CAS 作為其實現方式。使用這些類在多核 CPU 的機器上會有比較好的性能。</p>
+<p>如果要把證它們的原子性，必須進行加鎖，使用 Synchronzied 或者 ReentrantLock，我們前面介紹它們是悲觀鎖的實現，我們現在討論的是樂觀鎖，那麼用哪種方式保證它們的原子性呢？請繼續往下看</p>
+<p>CAS 中涉及三個要素：</p>
+<ul class="">
+<li>需要讀寫的內存值 V</li>
+<li>進行比較的值 A</li>
+<li>擬寫入的新值 B</li>
+</ul>
+<p>當且僅當預期值A和內存值V相同時，將內存值V修改為B，否則什麼都不做。</p>
+<p>我們以 java.util.concurrent 中的 AtomicInteger 為例，看一下在不用鎖的情況下是如何保證線程安全的</p>
+<pre><code>public class AtomicCounter {    private AtomicInteger integer = new AtomicInteger();    public AtomicInteger getInteger() {        return integer;    }    public void setInteger(AtomicInteger integer) {        this.integer = integer;    }    public void increment(){        integer.incrementAndGet();    }    public void decrement(){        integer.decrementAndGet();    }}public class AtomicProducer extends Thread{    private AtomicCounter atomicCounter;    public AtomicProducer(AtomicCounter atomicCounter){        this.atomicCounter = atomicCounter;    }    @Override    public void run() {        for(int j = 0; j &lt; AtomicTest.LOOP; j++) {            System.out.println("producer : " + atomicCounter.getInteger());            atomicCounter.increment();        }    }}public class AtomicConsumer extends Thread{    private AtomicCounter atomicCounter;    public AtomicConsumer(AtomicCounter atomicCounter){        this.atomicCounter = atomicCounter;    }    @Override    public void run() {        for(int j = 0; j &lt; AtomicTest.LOOP; j++) {            System.out.println("consumer : " + atomicCounter.getInteger());            atomicCounter.decrement();        }    }}public class AtomicTest {    final static int LOOP = 10000;    public static void main(String[] args) throws InterruptedException {        AtomicCounter counter = new AtomicCounter();        AtomicProducer producer = new AtomicProducer(counter);        AtomicConsumer consumer = new AtomicConsumer(counter);        producer.start();        consumer.start();        producer.join();        consumer.join();        System.out.println(counter.getInteger());    }}</code></pre>
+<p>經測試可得，不管循環多少次最後的結果都是0，也就是多線程並行的情況下，使用 AtomicInteger 可以保證線程安全性。 incrementAndGet 和 decrementAndGet 都是原子性操作。</p>
+<h3 class="pgc-h-arrow-right">樂觀鎖的缺點</h3>
+<p>任何事情都是有利也有弊，軟體行業沒有完美的解決方案只有最優的解決方案，所以樂觀鎖也有它的弱點和缺陷：</p>
+<h4 class="pgc-h-arrow-right">ABA 問題</h4>
+<p>ABA 問題說的是，如果一個變數第一次讀取的值是 A，準備好需要對 A 進行寫操作的時候，發現值還是 A，那麼這種情況下，能認為 A 的值沒有被改變過嗎？可以是由 A -&gt; B -&gt; A 的這種情況，但是 AtomicInteger 卻不會這麼認為，它只相信它看到的，它看到的是什麼就是什麼。</p>
+<p>JDK 1.5 以後的 AtomicStampedReference 類就提供了此種能力，其中的 compareAndSet 方法就是首先檢查當前引用是否等於預期引用，並且當前標誌是否等於預期標誌，如果全部相等，則以原子方式將該引用和該標誌的值設置為給定的更新值。</p>
+<p>也可以採用CAS的一個變種DCAS來解決這個問題。<br />DCAS，是對於每一個V增加一個引用的表示修改次數的標記符。對於每個V，如果引用修改了一次，這個計數器就加1。然後再這個變數需要update的時候，就同時檢查變數的值和計數器的值。</p>
+<h4 class="pgc-h-arrow-right">循環開銷大</h4>
+<p>我們知道樂觀鎖在進行寫操作的時候會判斷是否能夠寫入成功，如果寫入不成功將觸發等待 -&gt; 重試機制，這種情況是一個自旋鎖，簡單來說就是適用於短期內獲取不到，進行等待重試的鎖，它不適用於長期獲取不到鎖的情況，另外，自旋循環對於性能開銷比較大。</p>
+<h3 class="pgc-h-arrow-right">CAS與synchronized的使用情景</h3>
+<p>簡單的來說 CAS 適用於寫比較少的情況下（多讀場景，衝突一般較少），synchronized 適用於寫比較多的情況下（多寫場景，衝突一般較多）</p>
+<ul class="">
+<li>對於資源競爭較少（線程衝突較輕）的情況，使用 Synchronized 同步鎖進行線程阻塞和喚醒切換以及用戶態內核態間的切換操作額外浪費消耗 cpu 資源；而 CAS 基於硬體實現，不需要進入內核，不需要切換線程，操作自旋幾率較少，因此可以獲得更高的性能。</li>
+<li>對於資源競爭嚴重（線程衝突嚴重）的情況，CAS 自旋的概率會比較大，從而浪費更多的 CPU 資源，效率低於 synchronized。</li>
+</ul>
+<h2 class="pgc-h-arrow-right">資源已被鎖定，線程是否阻塞</h2>
+<h3 class="pgc-h-arrow-right">自旋鎖的提出背景</h3>
+<p>由於在多處理器環境中某些資源的有限性，有時需要互斥訪問(mutual exclusion)，這時候就需要引入鎖的概念，只有獲取了鎖的線程才能夠對資源進行訪問，由於多線程的核心是CPU的時間分片，所以同一時刻只能有一個線程獲取到鎖。那麼就面臨一個問題，那麼沒有獲取到鎖的線程應該怎麼辦？</p>
+<p>通常有兩種處理方式：一種是沒有獲取到鎖的線程就一直循環等待判斷該資源是否已經釋放鎖，這種鎖叫做自旋鎖，它不用將線程阻塞起來(NON-BLOCKING)；還有一種處理方式就是把自己阻塞起來，等待重新調度請求，這種叫做互斥鎖。</p>
+<h3 class="pgc-h-arrow-right">什麼是自旋鎖</h3>
+<p>自旋鎖的定義：當一個線程嘗試去獲取某一把鎖的時候，如果這個鎖此時已經被別人獲取(佔用)，那麼此線程就無法獲取到這把鎖，該線程將會等待，間隔一段時間後會再次嘗試獲取。這種採用循環加鎖 -&gt; 等待的機制被稱為自旋鎖(spinlock)。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/3e1c8bb63f064702b1ecc68e5ef5f0dc" src="http://p1.pstatp.com/large/pgc-image/3e1c8bb63f064702b1ecc68e5ef5f0dc" alt="《不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏）》" /></p>
+<p class="pgc-img-caption">
+</div>
+<h3 class="pgc-h-arrow-right">自旋鎖的原理</h3>
+<p>自旋鎖的原理比較簡單，如果持有鎖的線程能在短時間內釋放鎖資源，那麼那些等待競爭鎖的線程就不需要做內核態和用戶態之間的切換進入阻塞狀態，它們只需要等一等(自旋)，等到持有鎖的線程釋放鎖之後即可獲取，這樣就避免了用戶進程和內核切換的消耗。</p>
+<p>因為自旋鎖避免了操作系統進程調度和線程切換，所以自旋鎖通常適用在時間比較短的情況下。由於這個原因，<strong>操作系統的內核經常使用自旋鎖</strong>。但是，如果長時間上鎖的話，自旋鎖會非常耗費性能，它阻止了其他線程的運行和調度。線程持有鎖的時間越長，則持有該鎖的線程將被 OS(Operating System) 調度程序中斷的風險越大。如果發生中斷情況，那麼其他線程將保持旋轉狀態(反覆嘗試獲取鎖)，而持有該鎖的線程並不打算釋放鎖，這樣導致的是結果是無限期推遲，直到持有鎖的線程可以完成並釋放它為止。</p>
+<p>解決上面這種情況一個很好的方式是給自旋鎖設定一個自旋時間，等時間一到立即釋放自旋鎖。自旋鎖的目的是占著CPU資源不進行釋放，等到獲取鎖立即進行處理。但是如何去選擇自旋時間呢？如果自旋執行時間太長，會有大量的線程處於自旋狀態佔用 CPU 資源，進而會影響整體系統的性能。因此自旋的周期選的額外重要！JDK在1.6 引入了適應性自旋鎖，適應性自旋鎖意味著自旋時間不是固定的了，而是由前一次在同一個鎖上的自旋時間以及鎖擁有的狀態來決定，基本認為一個線程上下文切換的時間是最佳的一個時間。</p>
+<h3 class="pgc-h-arrow-right">自旋鎖的優缺點</h3>
+<p>自旋鎖儘可能的減少線程的阻塞，這對於鎖的競爭不激烈，且佔用鎖時間非常短的代碼塊來說性能能大幅度的提升，因為自旋的消耗會小於線程阻塞掛起再喚醒的操作的消耗，這些操作會導致線程發生兩次上下文切換！</p>
+<p>但是如果鎖的競爭激烈，或者持有鎖的線程需要長時間佔用鎖執行同步塊，這時候就不適合使用自旋鎖了，因為自旋鎖在獲取鎖前一直都是佔用 cpu 做無用功，占著 XX 不 XX，同時有大量線程在競爭一個鎖，會導致獲取鎖的時間很長，線程自旋的消耗大於線程阻塞掛起操作的消耗，其它需要 cpu 的線程又不能獲取到 cpu，造成 cpu 的浪費。所以這種情況下我們要關閉自旋鎖。</p>
+<h3 class="pgc-h-arrow-right">自旋鎖的實現</h3>
+<p>下面我們用Java 代碼來實現一個簡單的自旋鎖</p>
+<pre><code>public class SpinLockTest {    private AtomicBoolean available = new AtomicBoolean(false);    public void lock(){        // 循環檢測嘗試獲取鎖        while (!tryLock()){            // doSomething...        }    }    public boolean tryLock(){        // 嘗試獲取鎖，成功返回true，失敗返回false        return available.compareAndSet(false,true);    }    public void unLock(){        if(!available.compareAndSet(true,false)){            throw new RuntimeException("釋放鎖失敗");        }    }}</code></pre>
+<p>這種簡單的自旋鎖有一個問題：<strong>無法保證多線程競爭的公平性</strong>。對於上面的 SpinlockTest，當多個線程想要獲取鎖時，誰最先將available設為false誰就能最先獲得鎖，這可能會造成某些線程一直都未獲取到鎖造成線程飢餓。就像我們下課後蜂擁的跑向食堂，下班後蜂擁地擠向地鐵，通常我們會採取排隊的方式解決這樣的問題，類似地，我們把這種鎖叫<strong>排隊自旋鎖(QueuedSpinlock)</strong>。計算機科學家們使用了各種方式來實現排隊自旋鎖，如TicketLock，MCSLock，CLHLock。接下來我們分別對這幾種鎖做個大致的介紹。</p>
+<h4 class="pgc-h-arrow-right">TicketLock</h4>
+<p>在計算機科學領域中，TicketLock 是一種同步機制或鎖定演算法，它是一種自旋鎖，它使用ticket 來控制線程執行順序。</p>
+<p>就像票據隊列管理系統一樣。麵包店或者服務機構(例如銀行)都會使用這種方式來為每個先到達的顧客記錄其到達的順序，而不用每次都進行排隊。通常，這種地點都會有一個分配器(叫號器，挂號器等等都行)，先到的人需要在這個機器上取出自己現在排隊的號碼，這個號碼是按照自增的順序進行的，旁邊還會有一個標牌顯示的是正在服務的標誌，這通常是代表目前正在服務的隊列號，當前的號碼完成服務後，標誌牌會顯示下一個號碼可以去服務了。</p>
+<p>像上面系統一樣，TicketLock 是基於先進先出(FIFO) 隊列的機制。它增加了鎖的公平性，其設計原則如下：TicketLock 中有兩個 int 類型的數值，開始都是0，第一個值是隊列ticket(隊列票據)， 第二個值是 出隊(票據)。隊列票據是線程在隊列中的位置，而出隊票據是現在持有鎖的票證的隊列位置。可能有點模糊不清，簡單來說，<strong>就是隊列票據是你取票號的位置，出隊票據是你距離叫號的位置</strong>。現在應該明白一些了吧。</p>
+<p>當叫號叫到你的時候，不能有相同的號碼同時辦業務，必須只有一個人可以去辦，辦完後，叫號機叫到下一個人，這就叫做原子性。你在辦業務的時候不能被其他人所干擾，而且不可能會有兩個持有相同號碼的人去同時辦業務。然後，下一個人看自己的號是否和叫到的號碼保持一致，如果一致的話，那麼就輪到你去辦業務，否則只能繼續等待。<strong>上面這個流程的關鍵點在於，每個辦業務的人在辦完業務之後，他必須丟棄自己的號碼，叫號機才能繼續叫到下面的人，如果這個人沒有丟棄這個號碼，那麼其他人只能繼續等待</strong>。下面來實現一下這個票據排隊方案</p>
+<pre><code>public class TicketLock {    // 隊列票據(當前排隊號碼)    private AtomicInteger queueNum = new AtomicInteger();    // 出隊票據(當前需等待號碼)    private AtomicInteger dueueNum = new AtomicInteger();    // 獲取鎖：如果獲取成功，返回當前線程的排隊號    public int lock(){        int currentTicketNum = dueueNum.incrementAndGet();        while (currentTicketNum != queueNum.get()){            // doSomething...        }        return currentTicketNum;    }    // 釋放鎖：傳入當前排隊的號碼    public void unLock(int ticketNum){        queueNum.compareAndSet(ticketNum,ticketNum + 1);    }}</code></pre>
+<p>每次叫號機在叫號的時候，都會判斷自己是不是被叫的號，並且每個人在辦完業務的時候，叫號機根據在當前號碼的基礎上 + 1，讓隊列繼續往前走。</p>
+<p>但是上面這個設計是有問題的，因為獲得自己的號碼之後，是可以對號碼進行更改的，這就造成系統紊亂，鎖不能及時釋放。這時候就需要有一個能確保每個人按會著自己號碼排隊辦業務的角色，在得知這一點之後，我們重新設計一下這個邏輯</p>
+<pre><code>public class TicketLock2 {    // 隊列票據(當前排隊號碼)    private AtomicInteger queueNum = new AtomicInteger();    // 出隊票據(當前需等待號碼)    private AtomicInteger dueueNum = new AtomicInteger();    private ThreadLocal&lt;Integer&gt; ticketLocal = new ThreadLocal&lt;&gt;();    public void lock(){        int currentTicketNum = dueueNum.incrementAndGet();        // 獲取鎖的時候，將當前線程的排隊號保存起來        ticketLocal.set(currentTicketNum);        while (currentTicketNum != queueNum.get()){            // doSomething...        }    }    // 釋放鎖：從排隊緩衝池中取    public void unLock(){        Integer currentTicket = ticketLocal.get();        queueNum.compareAndSet(currentTicket,currentTicket + 1);    }}</code></pre>
+<p>這次就不再需要返回值，辦業務的時候，要將當前的這一個號碼緩存起來，在辦完業務後，需要釋放緩存的這條票據。</p>
+<p><strong>缺點</strong></p>
+<p>TicketLock 雖然解決了公平性的問題，但是多處理器系統上，每個進程/線程佔用的處理器都在讀寫同一個變數queueNum ，每次讀寫操作都必須在多個處理器緩存之間進行緩存同步，這會導致繁重的系統匯流排和內存的流量，大大降低系統整體的性能。</p>
+<p>為了解決這個問題，MCSLock 和 CLHLock 應運而生。</p>
+<h4 class="pgc-h-arrow-right">CLHLock</h4>
+<p>上面說到TicketLock 是基於隊列的，那麼 CLHLock 就是基於鏈表設計的，CLH的發明人是：Craig，Landin and Hagersten，用它們各自的字母開頭命名。CLH 是一種基於鏈表的可擴展，高性能，公平的自旋鎖，申請線程只能在本地變數上自旋，它會不斷輪詢前驅的狀態，如果發現前驅釋放了鎖就結束自旋。</p>
+<pre><code>public class CLHLock {    public static class CLHNode{        private volatile boolean isLocked = true;    }    // 尾部節點    private volatile CLHNode tail;    private static final ThreadLocal&lt;CLHNode&gt; LOCAL = new ThreadLocal&lt;&gt;();    private static final AtomicReferenceFieldUpdater&lt;CLHLock,CLHNode&gt; UPDATER =            AtomicReferenceFieldUpdater.newUpdater(CLHLock.class,CLHNode.class,"tail");    public void lock(){        // 新建節點並將節點與當前線程保存起來        CLHNode node = new CLHNode();        LOCAL.set(node);        // 將新建的節點設置為尾部節點，並返回舊的節點（原子操作），這裡舊的節點實際上就是當前節點的前驅節點        CLHNode preNode = UPDATER.getAndSet(this,node);        if(preNode != null){            // 前驅節點不為null表示當鎖被其他線程佔用，通過不斷輪詢判斷前驅節點的鎖標誌位等待前驅節點釋放鎖            while (preNode.isLocked){            }            preNode = null;            LOCAL.set(node);        }        // 如果不存在前驅節點，表示該鎖沒有被其他線程佔用，則當前線程獲得鎖    }    public void unlock() {        // 獲取當前線程對應的節點        CLHNode node = LOCAL.get();        // 如果tail節點等於node，則將tail節點更新為null，同時將node的lock狀態職位false，表示當前線程釋放了鎖        if (!UPDATER.compareAndSet(this, node, null)) {            node.isLocked = false;        }        node = null;    }}</code></pre>
+<h4 class="pgc-h-arrow-right">MCSLock</h4>
+<p>MCS Spinlock 是一種基於鏈表的可擴展、高性能、公平的自旋鎖，申請線程只在本地變數上自旋，直接前驅負責通知其結束自旋，從而極大地減少了不必要的處理器緩存同步的次數，降低了匯流排和內存的開銷。MCS 來自於其發明人名字的首字母： John Mellor-Crummey 和 Michael Scott。</p>
+<pre><code>public class MCSLock {    public static class MCSNode {        volatile MCSNode next;        volatile boolean isLocked = true;    }    private static final ThreadLocal&lt;MCSNode&gt; NODE = new ThreadLocal&lt;&gt;();    // 隊列    @SuppressWarnings("unused")    private volatile MCSNode queue;    private static final AtomicReferenceFieldUpdater&lt;MCSLock,MCSNode&gt; UPDATE =            AtomicReferenceFieldUpdater.newUpdater(MCSLock.class,MCSNode.class,"queue");    public void lock(){        // 創建節點並保存到ThreadLocal中        MCSNode currentNode = new MCSNode();        NODE.set(currentNode);        // 將queue設置為當前節點，並且返回之前的節點        MCSNode preNode = UPDATE.getAndSet(this, currentNode);        if (preNode != null) {            // 如果之前節點不為null，表示鎖已經被其他線程持有            preNode.next = currentNode;            // 循環判斷，直到當前節點的鎖標誌位為false            while (currentNode.isLocked) {            }        }    }    public void unlock() {        MCSNode currentNode = NODE.get();        // next為null表示沒有正在等待獲取鎖的線程        if (currentNode.next == null) {            // 更新狀態並設置queue為null            if (UPDATE.compareAndSet(this, currentNode, null)) {                // 如果成功了，表示queue==currentNode,即當前節點後面沒有節點了                return;            } else {                // 如果不成功，表示queue!=currentNode,即當前節點後面多了一個節點，表示有線程在等待                // 如果當前節點的後續節點為null，則需要等待其不為null（參考加鎖方法）                while (currentNode.next == null) {                }            }        } else {            // 如果不為null，表示有線程在等待獲取鎖，此時將等待線程對應的節點鎖狀態更新為false，同時將當前線程的後繼節點設為null            currentNode.next.isLocked = false;            currentNode.next = null;        }    }}</code></pre>
+<h4 class="pgc-h-arrow-right">CLHLock 和 MCSLock</h4>
+<ul class="">
+<li>都是基於鏈表，不同的是CLHLock是基於隱式鏈表，沒有真正的後續節點屬性，MCSLock是顯示鏈表，有一個指向後續節點的屬性。</li>
+<li>將獲取鎖的線程狀態藉助節點(node)保存,每個線程都有一份獨立的節點，這樣就解決了TicketLock多處理器緩存同步的問題。</li>
+</ul>
+<h2 class="pgc-h-arrow-right">多個線程並發訪問資源</h2>
+<h3 class="pgc-h-arrow-right">鎖狀態的分類</h3>
+<p>Java 語言專門針對 synchronized 關鍵字設置了四種狀態，它們分別是：<strong>無鎖、偏向鎖、輕量級鎖和重量級鎖</strong>，但是在了解這些鎖之前還需要先了解一下 Java 對象頭和 Monitor。</p>
+<h3 class="pgc-h-arrow-right">Java 對象頭</h3>
+<p>我們知道 synchronized 是悲觀鎖，在操作同步之前需要給資源加鎖，這把鎖就是對象頭裡面的，而Java 對象頭又是什麼呢？我們以 Hotspot 虛擬機為例，Hopspot 對象頭主要包括兩部分數據：Mark Word（標記欄位） 和 class Pointer（類型指針）。</p>
+<p><strong>Mark Word</strong>：默認存儲對象的HashCode，分代年齡和鎖標誌位信息。這些信息都是與對象自身定義無關的數據，所以Mark Word被設計成一個非固定的數據結構以便在極小的空間內存存儲盡量多的數據。它會根據對象的狀態復用自己的存儲空間，也就是說在運行期間Mark Word里存儲的數據會隨著鎖標誌位的變化而變化。</p>
+<p><strong>class Point</strong>：對象指向它的類元數據的指針，虛擬機通過這個指針來確定這個對象是哪個類的實例。</p>
+<p>在32位虛擬機和64位虛擬機的 Mark Word 所佔用的位元組大小不一樣，32位虛擬機的 Mark Word 和 class Pointer 分別佔用 32bits 的位元組，而 64位虛擬機的 Mark Word 和 class Pointer 佔用了64bits 的位元組，下面我們以 32位虛擬機為例，來看一下其 Mark Word 的位元組具體是如何分配的</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/d490cffa63d2418aa5e1bbc9db8bfb2d" src="http://p3.pstatp.com/large/pgc-image/d490cffa63d2418aa5e1bbc9db8bfb2d" alt="《不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏）》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/a6f68fcbb2fc4d578aa04d136d345d3f" src="http://p9.pstatp.com/large/pgc-image/a6f68fcbb2fc4d578aa04d136d345d3f" alt="《不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏）》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>用中文翻譯過來就是</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/a8250c31559841eeb876a77f04ea200f" src="http://p1.pstatp.com/large/pgc-image/a8250c31559841eeb876a77f04ea200f" alt="《不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏）》" /></p>
+<p class="pgc-img-caption">
+</div>
+<ul class="">
+<li>無狀態也就是無鎖的時候，對象頭開闢 25bit 的空間用來存儲對象的 hashcode ，4bit 用於存放分代年齡，1bit 用來存放是否偏向鎖的標識位，2bit 用來存放鎖標識位為01</li>
+<li>偏向鎖 中劃分更細，還是開闢25bit 的空間，其中23bit 用來存放線程ID，2bit 用來存放 epoch，4bit 存放分代年齡，1bit 存放是否偏向鎖標識， 0表示無鎖，1表示偏向鎖，鎖的標識位還是01</li>
+<li>輕量級鎖中直接開闢 30bit 的空間存放指向棧中鎖記錄的指針，2bit 存放鎖的標誌位，其標誌位為00</li>
+<li>重量級鎖中和輕量級鎖一樣，30bit 的空間用來存放指向重量級鎖的指針，2bit 存放鎖的標識位，為11</li>
+<li>GC標記開闢30bit 的內存空間卻沒有佔用，2bit 空間存放鎖標誌位為11。</li>
+</ul>
+<p>其中無鎖和偏向鎖的鎖標誌位都是01，只是在前面的1bit區分了這是無鎖狀態還是偏向鎖狀態。</p>
+<p>關於為什麼這麼分配的內存，我們可以從 OpenJDK 中的markOop.hpp類中的枚舉窺出端倪</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/bd7b4313486245178c2d86e588732c8b" src="http://p1.pstatp.com/large/pgc-image/bd7b4313486245178c2d86e588732c8b" alt="《不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏）》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>來解釋一下</p>
+<ul class="">
+<li>age_bits 就是我們說的分代回收的標識，佔用4位元組</li>
+<li>lock_bits 是鎖的標誌位，佔用2個位元組</li>
+<li>biased_lock_bits 是是否偏向鎖的標識，佔用1個位元組</li>
+<li>max_hash_bits 是針對無鎖計算的hashcode 佔用位元組數量，如果是32位虛擬機，就是 32 &#8211; 4 &#8211; 2 -1 = 25 byte，如果是64 位虛擬機，64 &#8211; 4 &#8211; 2 &#8211; 1 = 57 byte，但是會有 25 位元組未使用，所以64位的 hashcode 佔用 31 byte</li>
+<li>hash_bits 是針對 64 位虛擬機來說，如果最大位元組數大於 31，則取31，否則取真實的位元組數</li>
+<li>cms_bits 我覺得應該是不是64位虛擬機就佔用 0 byte，是64位就佔用 1byte</li>
+<li>epoch_bits 就是 epoch 所佔用的位元組大小，2位元組。</li>
+</ul>
+<h3 class="pgc-h-arrow-right">Synchronized鎖</h3>
+<p>synchronized用的鎖記錄是存在Java對象頭裡的。</p>
+<p>JVM基於進入和退出 Monitor 對象來實現方法同步和代碼塊同步。代碼塊同步是使用 monitorenter 和 monitorexit 指令實現的，monitorenter 指令是在編譯後插入到同步代碼塊的開始位置，而 monitorexit 是插入到方法結束處和異常處。任何對象都有一個 monitor 與之關聯，當且一個 monitor 被持有後，它將處於鎖定狀態。</p>
+<p>根據虛擬機規範的要求，在執行 monitorenter 指令時，首先要去嘗試獲取對象的鎖，如果這個對象沒被鎖定，或者當前線程已經擁有了那個對象的鎖，把鎖的計數器加1，相應地，在執行 monitorexit 指令時會將鎖計數器減1，當計數器被減到0時，鎖就釋放了。如果獲取對象鎖失敗了，那當前線程就要阻塞等待，直到對象鎖被另一個線程釋放為止。</p>
+<h3 class="pgc-h-arrow-right">Monitor</h3>
+<p>Synchronized是通過對象內部的一個叫做監視器鎖（monitor）來實現的，監視器鎖本質又是依賴於底層的操作系統的 Mutex Lock（互斥鎖）來實現的。而操作系統實現線程之間的切換需要從用戶態轉換到核心態，這個成本非常高，狀態之間的轉換需要相對比較長的時間，這就是為什麼 Synchronized 效率低的原因。因此，這種依賴於操作系統 Mutex Lock 所實現的鎖我們稱之為重量級鎖。</p>
+<p>Java SE 1.6為了減少獲得鎖和釋放鎖帶來的性能消耗，引入了偏向鎖和輕量級鎖：鎖一共有4種狀態，級別從低到高依次是：無鎖狀態、偏向鎖狀態、輕量級鎖狀態和重量級鎖狀態。鎖可以升級但不能降級。</p>
+<p>所以鎖的狀態總共有四種：無鎖狀態、偏向鎖、輕量級鎖和重量級鎖。隨著鎖的競爭，鎖可以從偏向鎖升級到輕量級鎖，再升級的重量級鎖（但是鎖的升級是單向的，也就是說只能從低到高升級，不會出現鎖的降級）。JDK 1.6中默認是開啟偏向鎖和輕量級鎖的，我們也可以通過-XX:-UseBiasedLocking=false來禁用偏向鎖。</p>
+<h3 class="pgc-h-arrow-right">鎖的分類及其解釋</h3>
+<p>先來個大體的流程圖來感受一下這個過程，然後下面我們再分開來說</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/859171159b6e4021a623ce669af1debb" src="http://p1.pstatp.com/large/pgc-image/859171159b6e4021a623ce669af1debb" alt="《不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏）》" /></p>
+<p class="pgc-img-caption">
+</div>
+<h4 class="pgc-h-arrow-right">無鎖</h4>
+<p>無鎖狀態，無鎖即沒有對資源進行鎖定，所有的線程都可以對同一個資源進行訪問，但是只有一個線程能夠成功修改資源。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/1fe77e6b9ddf4de0898e7d58c7d7283c" src="http://p1.pstatp.com/large/pgc-image/1fe77e6b9ddf4de0898e7d58c7d7283c" alt="《不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏）》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>無鎖的特點就是在循環內進行修改操作，線程會不斷的嘗試修改共享資源，直到能夠成功修改資源並退出，在此過程中沒有出現衝突的發生，這很像我們在之前文章中介紹的 CAS 實現，CAS 的原理和應用就是無鎖的實現。無鎖無法全面代替有鎖，但無鎖在某些場合下的性能是非常高的。</p>
+<h4 class="pgc-h-arrow-right">偏向鎖</h4>
+<p>HotSpot 的作者經過研究發現，大多數情況下，鎖不僅不存在多線程競爭，還存在鎖由同一線程多次獲得的情況，偏向鎖就是在這種情況下出現的，它的出現是為了解決只有在一個線程執行同步時提高性能。</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/263a31eeebd14b76acf9169c1c5086b6" src="http://p3.pstatp.com/large/pgc-image/263a31eeebd14b76acf9169c1c5086b6" alt="《不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏）》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>可以從對象頭的分配中看到，偏向鎖要比無鎖多了線程ID 和 epoch，下面我們就來描述一下偏向鎖的獲取過程</p>
+<p><strong>偏向鎖獲取過程</strong></p>
+<ol start="1">
+<li>首先線程訪問同步代碼塊，會通過檢查對象頭 Mark Word 的鎖標誌位判斷目前鎖的狀態，如果是 01，說明就是無鎖或者偏向鎖，然後再根據是否偏向鎖 的標示判斷是無鎖還是偏向鎖，如果是無鎖情況下，執行下一步</li>
+<li>線程使用 CAS 操作來嘗試對對象加鎖，如果使用 CAS 替換 ThreadID 成功，就說明是第一次上鎖，那麼當前線程就會獲得對象的偏向鎖，此時會在對象頭的 Mark Word 中記錄當前線程 ID 和獲取鎖的時間 epoch 等信息，然後執行同步代碼塊。</li>
+</ol>
+<blockquote>
+<p>全局安全點（Safe Point）：全局安全點的理解會涉及到 C 語言底層的一些知識，這裡簡單理解 SafePoint 是 Java 代碼中的一個線程可能暫停執行的位置。</p>
+</blockquote>
+<p>等到下一次線程在進入和退出同步代碼塊時就不需要進行 CAS 操作進行加鎖和解鎖，只需要簡單判斷一下對象頭的 Mark Word 中是否存儲著指向當前線程的線程ID，判斷的標誌當然是根據鎖的標誌位來判斷的。如果用流程圖來表示的話就是下面這樣 </p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/26a84b8659b84a98ae0d875ae3d8ab7d" src="http://p1.pstatp.com/large/pgc-image/26a84b8659b84a98ae0d875ae3d8ab7d" alt="《不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏）》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p><strong>關閉偏向鎖</strong></p>
+<p>偏向鎖在Java 6 和Java 7 里是默認啟用的。由於偏向鎖是為了在只有一個線程執行同步塊時提高性能，如果你確定應用程序里所有的鎖通常情況下處於競爭狀態，可以通過JVM參數關閉偏向鎖：-XX:-UseBiasedLocking=false，那麼程序默認會進入輕量級鎖狀態。</p>
+<p><strong>關於 epoch</strong></p>
+<p>偏向鎖的對象頭中有一個被稱為 epoch 的值，它作為偏差有效性的時間戳。</p>
+<h4 class="pgc-h-arrow-right">輕量級鎖</h4>
+<p>輕量級鎖是指當前鎖是偏向鎖的時候，資源被另外的線程所訪問，那麼偏向鎖就會升級為輕量級鎖，其他線程會通過自旋的形式嘗試獲取鎖，不會阻塞，從而提高性能，下面是詳細的獲取過程。</p>
+<p><strong>輕量級鎖加鎖過程</strong></p>
+<ol start="1">
+<li>緊接著上一步，如果 CAS 操作替換 ThreadID 沒有獲取成功，執行下一步</li>
+<li>如果使用 CAS 操作替換 ThreadID 失敗（這時候就切換到另外一個線程的角度）說明該資源已被同步訪問過，這時候就會執行鎖的撤銷操作，撤銷偏向鎖，然後等原持有偏向鎖的線程到達全局安全點（SafePoint）時，會暫停原持有偏向鎖的線程，然後會檢查原持有偏向鎖的狀態，如果已經退出同步，就會喚醒持有偏向鎖的線程，執行下一步</li>
+<li>檢查對象頭中的 Mark Word 記錄的是否是當前線程 ID，如果是，執行同步代碼，如果不是，執行<strong>偏向鎖獲取流程</strong> 的第2步。</li>
+</ol>
+<p>如果用流程表示的話就是下面這樣（已經包含偏向鎖的獲取）</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/5531c0d454fa426f89b42b3e0cb74aab" src="http://p1.pstatp.com/large/pgc-image/5531c0d454fa426f89b42b3e0cb74aab" alt="《不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏）》" /></p>
+<p class="pgc-img-caption">
+</div>
+<h4 class="pgc-h-arrow-right">重量級鎖</h4>
+<p>重量級鎖的獲取流程比較複雜，小夥伴們做好準備，其實多看幾遍也沒那麼麻煩，呵呵。</p>
+<p><strong>重量級鎖的獲取流程</strong></p>
+<ol start="1">
+<li>接著上面偏向鎖的獲取過程，由偏向鎖升級為輕量級鎖，執行下一步</li>
+<li>會在原持有偏向鎖的線程的棧中分配鎖記錄，將對象頭中的 Mark Word 拷貝到原持有偏向鎖線程的記錄中，然後原持有偏向鎖的線程獲得輕量級鎖，然後喚醒原持有偏向鎖的線程，從安全點處繼續執行，執行完畢後，執行下一步，當前線程執行第4步</li>
+<li>執行完畢後，開始輕量級解鎖操作，解鎖需要判斷兩個條件判斷對象頭中的 Mark Word 中鎖記錄指針是否指向當前棧中記錄的指針</li>
+</ol>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/0e25187ecddb472a9218650e6a21f673" src="http://p3.pstatp.com/large/pgc-image/0e25187ecddb472a9218650e6a21f673" alt="《不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏）》" /></p>
+<p class="pgc-img-caption">
+</div>
+<ul class="">
+<li>拷貝在當前線程鎖記錄的 Mark Word 信息是否與對象頭中的 Mark Word 一致。</li>
+</ul>
+<p>如果上面兩個判斷條件都符合的話，就進行鎖釋放，如果其中一個條件不符合，就會釋放鎖，並喚起等待的線程，進行新一輪的鎖競爭。</p>
+<ol start="1">
+<li>在當前線程的棧中分配鎖記錄，拷貝對象頭中的 MarkWord 到當前線程的鎖記錄中，執行 CAS 加鎖操作，會把對象頭 Mark Word 中鎖記錄指針指向當前線程鎖記錄，如果成功，獲取輕量級鎖，執行同步代碼，然後執行第3步，如果不成功，執行下一步</li>
+<li>當前線程沒有使用 CAS 成功獲取鎖，就會自旋一會兒，再次嘗試獲取，如果在多次自旋到達上限後還沒有獲取到鎖，那麼輕量級鎖就會升級為 重量級鎖</li>
+</ol>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/9408d4e574d94505beb044b210a9e207" src="http://p3.pstatp.com/large/pgc-image/9408d4e574d94505beb044b210a9e207" alt="《不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏）》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>如果用流程圖表示是這樣的</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/a7f640ff7c9945b3b56cb62435c5dd30" src="http://p3.pstatp.com/large/pgc-image/a7f640ff7c9945b3b56cb62435c5dd30" alt="《不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏）》" /></p>
+<p class="pgc-img-caption">
+</div>
+<h2 class="pgc-h-arrow-right">鎖的公平性與非公平性</h2>
+<p>我們知道，在並發環境中，多個線程需要對同一資源進行訪問，同一時刻只能有一個線程能夠獲取到鎖並進行資源訪問，那麼剩下的這些線程怎麼辦呢？這就好比食堂排隊打飯的模型，最先到達食堂的人擁有最先買飯的權利，那麼剩下的人就需要在第一個人後面排隊，這是理想的情況，即每個人都能夠買上飯。那麼現實情況是，在你排隊的過程中，就有個別不老實的人想走捷徑，插隊打飯，如果插隊的這個人後面沒有人制止他這種行為，他就能夠順利買上飯，如果有人制止，他就也得去隊伍後面排隊。</p>
+<p>對於正常排隊的人來說，沒有人插隊，每個人都在等待排隊打飯的機會，那麼這種方式對每個人來說都是公平的，先來後到嘛。這種鎖也叫做公平鎖。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/ef8e70408f6941c4867d782511562fdb" src="http://p1.pstatp.com/large/pgc-image/ef8e70408f6941c4867d782511562fdb" alt="《不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏）》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>那麼假如插隊的這個人成功買上飯並且在買飯的過程不管有沒有人制止他，他的這種行為對正常排隊的人來說都是不公平的，這在鎖的世界中也叫做非公平鎖。</p>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/cf2bf7d8a1c44576b2e7753f8bdb2722" src="http://p3.pstatp.com/large/pgc-image/cf2bf7d8a1c44576b2e7753f8bdb2722" alt="《不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏）》" /></p>
+<p class="pgc-img-caption">
+</div>
+<div class="pgc-img">
+  <img layer-src="http://p3.pstatp.com/large/pgc-image/1b938305cbb44789a5deb14c92dec2ad" src="http://p3.pstatp.com/large/pgc-image/1b938305cbb44789a5deb14c92dec2ad" alt="《不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏）》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>那麼我們根據上面的描述可以得出下面的結論</p>
+<p><strong>公平鎖</strong>表示線程獲取鎖的順序是按照線程加鎖的順序來分配的，即先來先得的FIFO先進先出順序。而<strong>非公平鎖</strong>就是一種獲取鎖的搶佔機制，是隨機獲得鎖的，和公平鎖不一樣的就是先來的不一定先得到鎖，這個方式可能造成某些線程一直拿不到鎖，結果也就是不公平的了。</p>
+<h3 class="pgc-h-arrow-right">鎖公平性的實現</h3>
+<p>在 Java 中，我們一般通過 ReetrantLock 來實現鎖的公平性</p>
+<p>我們分別通過兩個例子來講解一下鎖的公平性和非公平性</p>
+<p><strong>鎖的公平性</strong></p>
+<pre><code>public class MyFairLock extends Thread{    private ReentrantLock lock = new ReentrantLock(true);    public void fairLock(){        try {            lock.lock();            System.out.println(Thread.currentThread().getName()  + "正在持有鎖");        }finally {            System.out.println(Thread.currentThread().getName()  + "釋放了鎖");            lock.unlock();        }    }    public static void main(String[] args) {        MyFairLock myFairLock = new MyFairLock();        Runnable runnable = () -&gt; {            System.out.println(Thread.currentThread().getName() + "啟動");            myFairLock.fairLock();        };        Thread[] thread = new Thread[10];        for(int i = 0;i &lt; 10;i++){            thread[i] = new Thread(runnable);        }        for(int i = 0;i &lt; 10;i++){            thread[i].start();        }    }}</code></pre>
+<p>我們創建了一個 ReetrantLock，並給構造函數傳了一個 true，我們可以查看 ReetrantLock 的構造函數</p>
+<pre><code>public ReentrantLock(boolean fair) {  sync = fair ? new FairSync() : new NonfairSync();}</code></pre>
+<p>根據 JavaDoc 的注釋可知，如果是 true 的話，那麼就會創建一個 ReentrantLock 的公平鎖，然後並創建一個 FairSync ，FairSync 其實是一個 Sync 的內部類，它的主要作用是同步對象以獲取公平鎖。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/5ddd661e60c94d54a4ea3dafa6c6c2cf" src="http://p1.pstatp.com/large/pgc-image/5ddd661e60c94d54a4ea3dafa6c6c2cf" alt="《不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏）》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>而 Sync 是 ReentrantLock 中的內部類，Sync 繼承 AbstractQueuedSynchronizer 類，AbstractQueuedSynchronizer 就是我們常說的 AQS ，它是 JUC（java.util.concurrent） 中最重要的一個類，通過它來實現獨佔鎖和共享鎖。</p>
+<pre><code>abstractstaticclassSyncextendsAbstractQueuedSynchronizer{...}</code></pre>
+<p>也就是說，我們把 fair 參數設置為 true 之後，就可以實現一個公平鎖了，是這樣嗎？我們回到示例代碼，我們可以執行一下這段代碼，它的輸出是順序獲取的（礙於篇幅的原因，這裡就暫不貼出了）,也就是說我們創建了一個公平鎖</p>
+<p><strong>鎖的非公平性</strong></p>
+<p>與公平性相對的就是非公平性，我們通過設置 fair 參數為 true，便實現了一個公平鎖，與之相對的，我們把 fair 參數設置為 false，是不是就是非公平鎖了？用事實證明一下</p>
+<pre><code>privateReentrantLock lock =newReentrantLock(false);</code></pre>
+<p>其他代碼不變，我們執行一下看看輸出（部分輸出）</p>
+<pre><code>Thread-1啟動Thread-4啟動Thread-1正在持有鎖Thread-1釋放了鎖Thread-5啟動Thread-6啟動Thread-3啟動Thread-7啟動Thread-2啟動</code></pre>
+<p>可以看到，線程的啟動並沒有按順序獲取，可以看出非公平鎖對鎖的獲取是亂序的，即有一個搶佔鎖的過程。也就是說，我們把 fair 參數設置為 false 便實現了一個非公平鎖。</p>
+<h3 class="pgc-h-arrow-right">ReentrantLock 基本概述</h3>
+<p>ReentrantLock 是一把可重入鎖，也是一把互斥鎖，它具有與 synchronized 相同的方法和監視器鎖的語義，但是它比 synchronized 有更多可擴展的功能。</p>
+<p>ReentrantLock 的可重入性是指它可以由上次成功鎖定但還未解鎖的線程擁有。當只有一個線程嘗試加鎖時，該線程調用 lock() 方法會立刻返回成功並直接獲取鎖。如果當前線程已經擁有這把鎖，這個方法會立刻返回。可以使用 isHeldByCurrentThread 和 getHoldCount 進行檢查。</p>
+<p>這個類的構造函數接受可選擇的 fairness 參數，當 fairness 設置為 true 時，在多線程爭奪嘗試加鎖時，鎖傾向於對等待時間最長的線程訪問，這也是公平性的一種體現。否則，鎖不能保證每個線程的訪問順序，也就是非公平鎖。與使用默認設置的程序相比，使用許多線程訪問的公平鎖的程序可能會顯示較低的總體吞吐量（即較慢；通常要慢得多）。但是獲取鎖並保證線程不會飢餓的次數比較小。無論如何請注意：鎖的公平性不能保證線程調度的公平性。因此，使用公平鎖的多線程之一可能會連續多次獲得它，而其他活動線程沒有進行且當前未持有該鎖。這也是互斥性 的一種體現。</p>
+<p>也要注意的 tryLock() 方法不支持公平性。如果鎖是可以獲取的，那麼即使其他線程等待，它仍然能夠返回成功。</p>
+<p>推薦使用下面的代碼來進行加鎖和解鎖</p>
+<pre><code>class MyFairLock {  private final ReentrantLock lock = new ReentrantLock();  public void m() {    lock.lock();      try {      // ...     } finally {      lock.unlock()    }  }}</code></pre>
+<p>ReentrantLock 鎖通過同一線程最多支持2147483647個遞歸鎖。 嘗試超過此限制會導致鎖定方法引發錯誤。</p>
+<h3 class="pgc-h-arrow-right">ReentrantLock 如何實現鎖公平性</h3>
+<p>我們在上面的簡述中提到，ReentrantLock 是可以實現鎖的公平性的，那麼原理是什麼呢？下面我們通過其源碼來了解一下 ReentrantLock 是如何實現鎖的公平性的</p>
+<p>跟蹤其源碼發現，調用 Lock.lock() 方法其實是調用了 sync 的內部的方法</p>
+<pre><code>abstractvoidlock();</code></pre>
+<p>而 sync 是最基礎的同步控制 Lock 的類，它有公平鎖和非公平鎖的實現。它繼承 AbstractQueuedSynchronizer 即 使用 AQS 狀態代表鎖持有的數量。</p>
+<p>lock 是抽象方法是需要被子類實現的，而繼承了 AQS 的類主要有</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/a747de0f08d64588a1072f5d1779a029" src="http://p1.pstatp.com/large/pgc-image/a747de0f08d64588a1072f5d1779a029" alt="《不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏）》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>我們可以看到，所有實現了 AQS 的類都位於 JUC 包下，主要有五類：ReentrantLock、ReentrantReadWriteLock、Semaphore、CountDownLatch 和 ThreadPoolExecutor，其中 ReentrantLock、ReentrantReadWriteLock、Semaphore 都可以實現公平鎖和非公平鎖。</p>
+<p>下面是公平鎖 FairSync 的繼承關係</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/8d0cfcb48e9f4d13a979dad2a689a675" src="http://p1.pstatp.com/large/pgc-image/8d0cfcb48e9f4d13a979dad2a689a675" alt="《不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏）》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>非公平鎖的NonFairSync 的繼承關係</p>
+<div class="pgc-img">
+  <img layer-src="http://p9.pstatp.com/large/pgc-image/5e82b19db59a4c9aa6ffd636b1a63c65" src="http://p9.pstatp.com/large/pgc-image/5e82b19db59a4c9aa6ffd636b1a63c65" alt="《不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏）》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>由繼承圖可以看到，兩個類的繼承關係都是相同的，我們從源碼發現，公平鎖和非公平鎖的實現就是下面這段代碼的區別（下一篇文章我們會從原理角度分析一下公平鎖和非公平鎖的實現）</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/de2bcc8fe1ac40a7987dc20e8a6ed04a" src="http://p1.pstatp.com/large/pgc-image/de2bcc8fe1ac40a7987dc20e8a6ed04a" alt="《不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏）》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>通過上圖中的源代碼對比，我們可以明顯的看出公平鎖與非公平鎖的lock()方法唯一的區別就在於公平鎖在獲取同步狀態時多了一個限制條件：hasQueuedPredecessors()。</p>
+<p>hasQueuedPredecessors() 也是 AQS 中的方法，它主要是用來 <strong>查詢是否有任何線程在等待獲取鎖的時間比當前線程長</strong>，也就是說每個等待線程都是在一個隊列中，此方法就是判斷隊列中在當前線程獲取鎖時，是否有等待鎖時間比自己還長的隊列，如果當前線程之前有排隊的線程，返回 true，如果當前線程位於隊列的開頭或隊列為空，返回 false。</p>
+<p>綜上，公平鎖就是通過同步隊列來實現多個線程按照申請鎖的順序來獲取鎖，從而實現公平的特性。非公平鎖加鎖時不考慮排隊等待問題，直接嘗試獲取鎖，所以存在後申請卻先獲得鎖的情況。</p>
+<h2 class="pgc-h-arrow-right">根據鎖是否可重入進行區分</h2>
+<h3 class="pgc-h-arrow-right">可重入鎖</h3>
+<p>可重入鎖又稱為遞歸鎖，是指在同一個線程在外層方法獲取鎖的時候，再進入該線程的內層方法會自動獲取鎖（前提鎖對象得是同一個對象或者class），不會因為之前已經獲取過還沒釋放而阻塞。Java 中 ReentrantLock 和synchronized 都是可重入鎖，可重入鎖的一個優點是在一定程度上可以避免死鎖。</p>
+<p>我們先來看一段代碼來說明一下 synchronized 的可重入性</p>
+<pre><code>private synchronized void doSomething(){  System.out.println("doSomething...");  doSomethingElse();}private synchronized void doSomethingElse(){  System.out.println("doSomethingElse...");}</code></pre>
+<p>在上面這段代碼中，我們對 doSomething() 和 doSomethingElse() 分別使用了 synchronized 進行鎖定，doSomething() 方法中調用了 doSomethingElse() 方法，因為 synchronized 是可重入鎖，所以同一個線程在調用 doSomething() 方法時，也能夠進入 doSomethingElse() 方法中。</p>
+<h3 class="pgc-h-arrow-right">不可重入鎖</h3>
+<p>如果 synchronized 是不可重入鎖的話，那麼在調用 doSomethingElse() 方法的時候，必須把 doSomething() 的鎖丟掉，實際上該對象鎖已被當前線程所持有，且無法釋放。所以此時會出現死鎖。</p>
+<p>也就是說，不可重入鎖會造成死鎖</p>
+<h2 class="pgc-h-arrow-right">多個線程能夠共享同一把鎖</h2>
+<h3 class="pgc-h-arrow-right">獨佔鎖和共享鎖</h3>
+<p>獨佔多和共享鎖一般對應 JDK 源碼的 ReentrantLock 和 ReentrantReadWriteLock 源碼來介紹獨佔鎖和共享鎖。</p>
+<p>獨佔鎖又叫做排他鎖，是指鎖在同一時刻只能被一個線程擁有，其他線程想要訪問資源，就會被阻塞。JDK 中 synchronized和 JUC 中 Lock 的實現類就是互斥鎖。</p>
+<p>共享鎖指的是鎖能夠被多個線程所擁有，如果某個線程對資源加上共享鎖後，則其他線程只能對資源再加共享鎖，不能加排它鎖。<strong>獲得共享鎖的線程只能讀數據，不能修改數據</strong>。</p>
+<div class="pgc-img">
+  <img layer-src="http://p1.pstatp.com/large/pgc-image/0e6e598f92fc487b87b2b62d6f155f58" src="http://p1.pstatp.com/large/pgc-image/0e6e598f92fc487b87b2b62d6f155f58" alt="《不懂什麼是鎖？看完這篇你就徹底明白了！（建議先收藏）》" /></p>
+<p class="pgc-img-caption">
+</div>
+<p>我們看到 ReentrantReadWriteLock 有兩把鎖：ReadLock 和 WriteLock，也就是一個讀鎖一個寫鎖，合在一起叫做讀寫鎖。再進一步觀察可以發現 ReadLock 和 WriteLock 是靠內部類 Sync 實現的鎖。Sync 是繼承於 AQS 子類的，AQS 是並發的根本，這種結構在CountDownLatch、ReentrantLock、Semaphore裡面也都存在。</p>
+<p>在 ReentrantReadWriteLock 裡面，讀鎖和寫鎖的鎖主體都是 Sync，但讀鎖和寫鎖的加鎖方式不一樣。讀鎖是共享鎖，寫鎖是獨享鎖。讀鎖的共享鎖可保證並發讀非常高效，而讀寫、寫讀、寫寫的過程互斥，因為讀鎖和寫鎖是分離的。所以ReentrantReadWriteLock的並發性相比一般的互斥鎖有了很大提升。</p>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="26409" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/26409/"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/26409/";
+		var title='%E3%80%90%E4%B8%8D%E6%87%82%E4%BB%80%E9%BA%BC%E6%98%AF%E9%8E%96%EF%BC%9F%E7%9C%8B%E5%AE%8C%E9%80%99%E7%AF%87%E4%BD%A0%E5%B0%B1%E5%BE%B9%E5%BA%95%E6%98%8E%E7%99%BD%E4%BA%86%EF%BC%81%EF%BC%88%E5%BB%BA%E8%AD%B0%E5%85%88%E6%94%B6%E8%97%8F%EF%BC%89%E3%80%91';
+		var qqtitle='%E3%80%90%E4%B8%8D%E6%87%82%E4%BB%80%E9%BA%BC%E6%98%AF%E9%8E%96%EF%BC%9F%E7%9C%8B%E5%AE%8C%E9%80%99%E7%AF%87%E4%BD%A0%E5%B0%B1%E5%BE%B9%E5%BA%95%E6%98%8E%E7%99%BD%E4%BA%86%EF%BC%81%EF%BC%88%E5%BB%BA%E8%AD%B0%E5%85%88%E6%94%B6%E8%97%8F%EF%BC%89%E3%80%91';
+		var excerpt='Java%20%E9%8E%96%E5%88%86%E9%A1%9E%20Java%20%E4%B8%AD%E7%9A%84%E9%8E%96%E6%9C%89%E5%BE%88%E5%A4%9A%EF%BC%8C%E5%8F%AF%E4%BB%A5%E6%8C%89%E7%85%A7%E4%B8%8D%E5%90%8C%E7%9A%84%E5%8A%9F%E8%83%BD%E3%80%81%E7%A8%AE%E9%A1%9E%E9%80%B2%E8%A1%8C%E5%88%86%E9%A1%9E%EF%BC%8C%E4%B8%8B%E9%9D%A2%E6%98%AF%E6%88%91%E5%B0%8D%20Java%20%E4%B8%AD%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E9%8E%96%E7%9A%84%E5%88%86%E9%A1%9E%EF%BC%8C%E5%8C%85%E6%8B%AC%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%A6%82%E8%BF%B0%20%E5%BE%9E%E7%B7%9A%E7%A8%8B%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E5%B0%8D%E8%B3%87%E6%BA%90%E5%8A%A0%E9%8E%96%E5%8F%AF%E4%BB%A5%E5%88%86%E7%82%BA%20%E6%82%B2%E8%A7%80%E9%8E%96%20%E5%92%8C%20%E6%A8%82%E8%A7%80%E9%8E%96%20%E5%BE%9E%E8%B3%87%E6%BA%90%E5%B7%B2%E8%A2%AB%E9%8E%96%E5%AE%9A%EF%BC%8C%E7%B7%9A%E7%A8%8B%E6%98%AF%E5%90%A6%E9%98%BB%E5%A1%9E%E5%8F%AF%E4%BB%A5%E5%88%86%E7%82%BA%20%E8%87%AA%E6%97%8B%E9%8E%96%20%E5%BE%9E%E5%A4%9A%E5%80%8B%E7%B7%9A%E7%A8%8B%E4%B8%A6%E7%99%BC%E8%A8%AA%E5%95%8F%E8%B3%87%E6%BA%90%EF%BC%8C%E4%B9%9F%E5%B0%B1%E6%98%AF%20Synchronized%20%E5%8F%AF%E4%BB%A5%E5%88%86%E7%82%BA%20%E7%84%A1%E9%8E%96%E3%80%81%E5%81%8F%E5%90%91%E9%8E%96%E3%80%81%20%E8%BC%95%E9%87%8F%E7%B4%9A%E9%8E%96%20%E5%92%8C%20%E9%87%8D%E9%87%8F%E2%80%A6%E2%80%A6';
+		var wbexcerpt='Java%20%E9%8E%96%E5%88%86%E9%A1%9E%20Java%20%E4%B8%AD%E7%9A%84%E9%8E%96%E6%9C%89%E5%BE%88%E5%A4%9A%EF%BC%8C%E5%8F%AF%E4%BB%A5%E6%8C%89%E7%85%A7%E4%B8%8D%E5%90%8C%E7%9A%84%E5%8A%9F%E8%83%BD%E3%80%81%E7%A8%AE%E9%A1%9E%E9%80%B2%E8%A1%8C%E5%88%86%E9%A1%9E%EF%BC%8C%E4%B8%8B%E9%9D%A2%E6%98%AF%E6%88%91%E5%B0%8D%20Java%20%E4%B8%AD%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E9%8E%96%E7%9A%84%E5%88%86%E9%A1%9E%EF%BC%8C%E5%8C%85%E6%8B%AC%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%A6%82%E8%BF%B0%20%E5%BE%9E%E7%B7%9A%E7%A8%8B%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E5%B0%8D%E8%B3%87%E6%BA%90%E5%8A%A0%E9%8E%96%E5%8F%AF%E4%BB%A5%E5%88%86%E7%82%BA%20%E6%82%B2%E8%A7%80%E9%8E%96%20%E5%92%8C%20%E6%A8%82%E8%A7%80%E9%8E%96%20%E5%BE%9E%E8%B3%87%E6%BA%90%E5%B7%B2%E8%A2%AB%E9%8E%96%E5%AE%9A%EF%BC%8C%E7%B7%9A%E7%A8%8B%E6%98%AF%E5%90%A6%E9%98%BB%E5%A1%9E%E5%8F%AF%E4%BB%A5%E5%88%86%E7%82%BA%20%E8%87%AA%E6%97%8B%E9%8E%96%20%E5%BE%9E%E5%A4%9A%E5%80%8B%E7%B7%9A%E7%A8%8B%E4%B8%A6%E7%99%BC%E8%A8%AA%E5%95%8F%E8%B3%87%E6%BA%90%EF%BC%8C%E4%B9%9F%E5%B0%B1%E6%98%AF%20Synchronized%20%E5%8F%AF%E4%BB%A5%E5%88%86%E7%82%BA%20%E7%84%A1%E9%8E%96%E3%80%81%E5%81%8F%E5%90%91%E9%8E%96%E3%80%81%20%E8%BC%95%E9%87%8F%E7%B4%9A%E9%8E%96%20%E5%92%8C%20%E9%87%8D%E9%87%8F%E2%80%A6%E2%80%A6';
+		var pic="http://p3.pstatp.com/large/pgc-image/8515855ee76442f5be93e758a285fc7c";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="衛寧健康：傳統與創新業務雙輪驅動，醫療IT龍頭凸顯高成長性" href="https://daynews.cc/technology/26410/">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="年關難過，你借出去的錢，要回來了嗎" href="https://daynews.cc/technology/26408/">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="/technology/26409/#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='26409' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="冬天補氣養顏，不妨吃點酒釀！養生效果杠杠的，價格還便宜" href="https://daynews.cc/health/28980/" rel="bookmark"><i class="fa  fa-book"></i> 冬天補氣養顏，不妨吃點酒釀！養生效果杠杠的，價格還便宜                            </a>
+                            <a class="list-group-item visible-md" title="冬天補氣養顏，不妨吃點酒釀！養生效果杠杠的，價格還便宜" href="https://daynews.cc/health/28980/" rel="bookmark"><i class="fa  fa-book"></i> 冬天補氣養顏，不妨吃點酒釀！養生效果杠杠的，價格還便宜                            </a>
+                                                    <a class="list-group-item visible-lg" title="睡眠是消除身體疲勞的主要方式，冬天學會這些睡覺養生技巧" href="https://daynews.cc/health/28979/" rel="bookmark"><i class="fa  fa-book"></i> 睡眠是消除身體疲勞的主要方式，冬天學會這些睡覺養生技巧                            </a>
+                            <a class="list-group-item visible-md" title="睡眠是消除身體疲勞的主要方式，冬天學會這些睡覺養生技巧" href="https://daynews.cc/health/28979/" rel="bookmark"><i class="fa  fa-book"></i> 睡眠是消除身體疲勞的主要方式，冬天學會這些睡覺養生技巧                            </a>
+                                                    <a class="list-group-item visible-lg" title="立冬之後，化妝保養不比化瘀保溫更重要" href="https://daynews.cc/health/28981/" rel="bookmark"><i class="fa  fa-book"></i> 立冬之後，化妝保養不比化瘀保溫更重要                            </a>
+                            <a class="list-group-item visible-md" title="立冬之後，化妝保養不比化瘀保溫更重要" href="https://daynews.cc/health/28981/" rel="bookmark"><i class="fa  fa-book"></i> 立冬之後，化妝保養不比化瘀保溫更重要                            </a>
+                                                    <a class="list-group-item visible-lg" title="海鮮，到底養甲狀腺還是傷甲狀腺？專家表示：不同情況，講究不同" href="https://daynews.cc/health/28982/" rel="bookmark"><i class="fa  fa-book"></i> 海鮮，到底養甲狀腺還是傷甲狀腺？專家表示：不同情況，講究不同                            </a>
+                            <a class="list-group-item visible-md" title="海鮮，到底養甲狀腺還是傷甲狀腺？專家表示：不同情況，講究不同" href="https://daynews.cc/health/28982/" rel="bookmark"><i class="fa  fa-book"></i> 海鮮，到底養甲狀腺還是傷甲狀腺？專家表示：不同情況，講究不同                            </a>
+                                                    <a class="list-group-item visible-lg" title="5種素菜比肉還肥，每吃一口都在喝油" href="https://daynews.cc/health/28983/" rel="bookmark"><i class="fa  fa-book"></i> 5種素菜比肉還肥，每吃一口都在喝油                            </a>
+                            <a class="list-group-item visible-md" title="5種素菜比肉還肥，每吃一口都在喝油" href="https://daynews.cc/health/28983/" rel="bookmark"><i class="fa  fa-book"></i> 5種素菜比肉還肥，每吃一口都在喝油                            </a>
+                                                    <a class="list-group-item visible-lg" title="姓氏藏有歷史的痕迹，從你的姓氏可以看出，祖輩從農從商還是從官" href="https://daynews.cc/constellation/29331/" rel="bookmark"><i class="fa  fa-book"></i> 姓氏藏有歷史的痕迹，從你的姓氏可以看出，祖輩從農從商還是從官                            </a>
+                            <a class="list-group-item visible-md" title="姓氏藏有歷史的痕迹，從你的姓氏可以看出，祖輩從農從商還是從官" href="https://daynews.cc/constellation/29331/" rel="bookmark"><i class="fa  fa-book"></i> 姓氏藏有歷史的痕迹，從你的姓氏可以看出，祖輩從農從商還是從官                            </a>
+                                                    <a class="list-group-item visible-lg" title="錯了就是錯了，這些星座認錯從不含糊，做錯要承認，挨打要站穩" href="https://daynews.cc/constellation/29332/" rel="bookmark"><i class="fa  fa-book"></i> 錯了就是錯了，這些星座認錯從不含糊，做錯要承認，挨打要站穩                            </a>
+                            <a class="list-group-item visible-md" title="錯了就是錯了，這些星座認錯從不含糊，做錯要承認，挨打要站穩" href="https://daynews.cc/constellation/29332/" rel="bookmark"><i class="fa  fa-book"></i> 錯了就是錯了，這些星座認錯從不含糊，做錯要承認，挨打要站穩                            </a>
+                                                    <a class="list-group-item visible-lg" title="《戰爭藝術》凜冬節：聖誕星主播招募倒計時" href="https://daynews.cc/game/28439/" rel="bookmark"><i class="fa  fa-book"></i> 《戰爭藝術》凜冬節：聖誕星主播招募倒計時                            </a>
+                            <a class="list-group-item visible-md" title="《戰爭藝術》凜冬節：聖誕星主播招募倒計時" href="https://daynews.cc/game/28439/" rel="bookmark"><i class="fa  fa-book"></i> 《戰爭藝術》凜冬節：聖誕星主播招募倒計時                            </a>
+                                                    <a class="list-group-item visible-lg" title="FPX轉會實力仍是第一！笑笑談到TES也將崛起，EDG多半要涼" href="https://daynews.cc/game/28441/" rel="bookmark"><i class="fa  fa-book"></i> FPX轉會實力仍是第一！笑笑談到TES也將崛起，EDG多半要涼                            </a>
+                            <a class="list-group-item visible-md" title="FPX轉會實力仍是第一！笑笑談到TES也將崛起，EDG多半要涼" href="https://daynews.cc/game/28441/" rel="bookmark"><i class="fa  fa-book"></i> FPX轉會實力仍是第一！笑笑談到TES也將崛起，EDG多半要涼                            </a>
+                                                    <a class="list-group-item visible-lg" title="神將也有弱點？盤點神將們的弱點" href="https://daynews.cc/game/28440/" rel="bookmark"><i class="fa  fa-book"></i> 神將也有弱點？盤點神將們的弱點                            </a>
+                            <a class="list-group-item visible-md" title="神將也有弱點？盤點神將們的弱點" href="https://daynews.cc/game/28440/" rel="bookmark"><i class="fa  fa-book"></i> 神將也有弱點？盤點神將們的弱點                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="24平米房子擠四口人，父母把廚房當卧室，網友：怎敢生養兩個男孩" href="https://daynews.cc/emotion/23804/" rel="bookmark"><i class="fa  fa-book"></i> 24平米房子擠四口人，父母把廚房當卧室，網友：怎敢生養兩個男孩</a><a class="list-group-item visible-md" title="24平米房子擠四口人，父母把廚房當卧室，網友：怎敢生養兩個男孩" href="https://daynews.cc/emotion/23804/" rel="bookmark"><i class="fa  fa-book"></i> 24平米房子擠四口人，父母把廚房當卧室，網友：怎敢生養兩個男孩</a><a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854/" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854/" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="網傳國家電網5G網路建設方案：利用廣電700/60MHz建11.31萬座基站" href="https://daynews.cc/technology/22913/" rel="bookmark"><i class="fa  fa-book"></i> 網傳國家電網5G網路建設方案：利用廣電700/60MHz建11.31萬座基站</a><a class="list-group-item visible-md" title="網傳國家電網5G網路建設方案：利用廣電700/60MHz建11.31萬座基站" href="https://daynews.cc/technology/22913/" rel="bookmark"><i class="fa  fa-book"></i> 網傳國家電網5G網路建設方案：利用廣電700/60MHz建11.31萬座基站</a><a class="list-group-item visible-lg" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134/" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-md" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134/" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098/" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098/" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-lg" title="腰突後，小腿發麻渾身無力怎麼康復好的快？" href="https://daynews.cc/lose/21229/" rel="bookmark"><i class="fa  fa-book"></i> 腰突後，小腿發麻渾身無力怎麼康復好的快？</a><a class="list-group-item visible-md" title="腰突後，小腿發麻渾身無力怎麼康復好的快？" href="https://daynews.cc/lose/21229/" rel="bookmark"><i class="fa  fa-book"></i> 腰突後，小腿發麻渾身無力怎麼康復好的快？</a><a class="list-group-item visible-lg" title="馬克龍放棄退休收益，電力工人野蠻拉閘停電，罷工大戰的好戲還能這般層出不窮？" href="https://daynews.cc/international/25486/" rel="bookmark"><i class="fa  fa-book"></i> 馬克龍放棄退休收益，電力工人野蠻拉閘停電，罷工大戰的好戲還能這般層出不窮？</a><a class="list-group-item visible-md" title="馬克龍放棄退休收益，電力工人野蠻拉閘停電，罷工大戰的好戲還能這般層出不窮？" href="https://daynews.cc/international/25486/" rel="bookmark"><i class="fa  fa-book"></i> 馬克龍放棄退休收益，電力工人野蠻拉閘停電，罷工大戰的好戲還能這般層出不窮？</a><a class="list-group-item visible-lg" title="西部排行：火箭躺著下跌，掘金反超升第2，雷霆3連勝，勇士又贏了" href="https://daynews.cc/nba/27606/" rel="bookmark"><i class="fa  fa-book"></i> 西部排行：火箭躺著下跌，掘金反超升第2，雷霆3連勝，勇士又贏了</a><a class="list-group-item visible-md" title="西部排行：火箭躺著下跌，掘金反超升第2，雷霆3連勝，勇士又贏了" href="https://daynews.cc/nba/27606/" rel="bookmark"><i class="fa  fa-book"></i> 西部排行：火箭躺著下跌，掘金反超升第2，雷霆3連勝，勇士又贏了</a><a class="list-group-item visible-lg" title="天秤座的八大排名第一，進來看看你中幾點" href="https://daynews.cc/constellation/20994/" rel="bookmark"><i class="fa  fa-book"></i> 天秤座的八大排名第一，進來看看你中幾點</a><a class="list-group-item visible-md" title="天秤座的八大排名第一，進來看看你中幾點" href="https://daynews.cc/constellation/20994/" rel="bookmark"><i class="fa  fa-book"></i> 天秤座的八大排名第一，進來看看你中幾點</a><a class="list-group-item visible-lg" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080/" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a><a class="list-group-item visible-md" title="“九州”和“禹跡”是什麼含義？從大禹治水說起" href="https://daynews.cc/history/20080/" rel="bookmark"><i class="fa  fa-book"></i> “九州”和“禹跡”是什麼含義？從大禹治水說起</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="5天後，運程大旺，迎財神進門，添財又添福，年底展開新一年好運" href="https://daynews.cc/constellation/20900/" rel="bookmark"><i class="fa  fa-book"></i> 5天後，運程大旺，迎財神進門，添財又添福，年底展開新一年好運                            </a>
+                            <a class="list-group-item visible-md" title="5天後，運程大旺，迎財神進門，添財又添福，年底展開新一年好運" href="https://daynews.cc/constellation/20900/" rel="bookmark"><i class="fa  fa-book"></i> 5天後，運程大旺，迎財神進門，添財又添福，年底展開新一年好運                            </a>
+                                                    <a class="list-group-item visible-lg" title="手感不佳罰球仍穩 小卡硬鑿殺出賽季新高" href="https://daynews.cc/nba/16233/" rel="bookmark"><i class="fa  fa-book"></i> 手感不佳罰球仍穩 小卡硬鑿殺出賽季新高                            </a>
+                            <a class="list-group-item visible-md" title="手感不佳罰球仍穩 小卡硬鑿殺出賽季新高" href="https://daynews.cc/nba/16233/" rel="bookmark"><i class="fa  fa-book"></i> 手感不佳罰球仍穩 小卡硬鑿殺出賽季新高                            </a>
+                                                    <a class="list-group-item visible-lg" title="王者榮耀冬冠杯：XQ，TS首日都是全勝，eStar輸掉一場後前景不妙" href="https://daynews.cc/game/28673/" rel="bookmark"><i class="fa  fa-book"></i> 王者榮耀冬冠杯：XQ，TS首日都是全勝，eStar輸掉一場後前景不妙                            </a>
+                            <a class="list-group-item visible-md" title="王者榮耀冬冠杯：XQ，TS首日都是全勝，eStar輸掉一場後前景不妙" href="https://daynews.cc/game/28673/" rel="bookmark"><i class="fa  fa-book"></i> 王者榮耀冬冠杯：XQ，TS首日都是全勝，eStar輸掉一場後前景不妙                            </a>
+                                                    <a class="list-group-item visible-lg" title="喝水也有大學問！您應該學會並教給孩子的“養肝喝水法”在這兒" href="https://daynews.cc/health/7556/" rel="bookmark"><i class="fa  fa-book"></i> 喝水也有大學問！您應該學會並教給孩子的“養肝喝水法”在這兒                            </a>
+                            <a class="list-group-item visible-md" title="喝水也有大學問！您應該學會並教給孩子的“養肝喝水法”在這兒" href="https://daynews.cc/health/7556/" rel="bookmark"><i class="fa  fa-book"></i> 喝水也有大學問！您應該學會並教給孩子的“養肝喝水法”在這兒                            </a>
+                                                    <a class="list-group-item visible-lg" title="世界首位劫機者，帶著20萬贖金跳機逃去，現如今怎樣？" href="https://daynews.cc/international/25999/" rel="bookmark"><i class="fa  fa-book"></i> 世界首位劫機者，帶著20萬贖金跳機逃去，現如今怎樣？                            </a>
+                            <a class="list-group-item visible-md" title="世界首位劫機者，帶著20萬贖金跳機逃去，現如今怎樣？" href="https://daynews.cc/international/25999/" rel="bookmark"><i class="fa  fa-book"></i> 世界首位劫機者，帶著20萬贖金跳機逃去，現如今怎樣？                            </a>
+                                                    <a class="list-group-item visible-lg" title="女兒奴再添一員！王一博給小女孩整理頭髮，動作溫柔眼神寵溺" href="https://daynews.cc/entertainment/24822/" rel="bookmark"><i class="fa  fa-book"></i> 女兒奴再添一員！王一博給小女孩整理頭髮，動作溫柔眼神寵溺                            </a>
+                            <a class="list-group-item visible-md" title="女兒奴再添一員！王一博給小女孩整理頭髮，動作溫柔眼神寵溺" href="https://daynews.cc/entertainment/24822/" rel="bookmark"><i class="fa  fa-book"></i> 女兒奴再添一員！王一博給小女孩整理頭髮，動作溫柔眼神寵溺                            </a>
+                                                    <a class="list-group-item visible-lg" title="良心企業！三星電機崑山公司關停！員工賠償方案獲點贊" href="https://daynews.cc/technology/18619/" rel="bookmark"><i class="fa  fa-book"></i> 良心企業！三星電機崑山公司關停！員工賠償方案獲點贊                            </a>
+                            <a class="list-group-item visible-md" title="良心企業！三星電機崑山公司關停！員工賠償方案獲點贊" href="https://daynews.cc/technology/18619/" rel="bookmark"><i class="fa  fa-book"></i> 良心企業！三星電機崑山公司關停！員工賠償方案獲點贊                            </a>
+                                                    <a class="list-group-item visible-lg" title="養生就喝冬瓜肉丸湯，營養價值高，噴香可口不油膩" href="https://daynews.cc/health/7748/" rel="bookmark"><i class="fa  fa-book"></i> 養生就喝冬瓜肉丸湯，營養價值高，噴香可口不油膩                            </a>
+                            <a class="list-group-item visible-md" title="養生就喝冬瓜肉丸湯，營養價值高，噴香可口不油膩" href="https://daynews.cc/health/7748/" rel="bookmark"><i class="fa  fa-book"></i> 養生就喝冬瓜肉丸湯，營養價值高，噴香可口不油膩                            </a>
+                                                    <a class="list-group-item visible-lg" title="歐冠杯 04:00 國際米蘭VS巴塞羅那 巴塞羅主力輪休 藍黑勢在必得" href="https://daynews.cc/premier/5037/" rel="bookmark"><i class="fa  fa-book"></i> 歐冠杯 04:00 國際米蘭VS巴塞羅那 巴塞羅主力輪休 藍黑勢在必得                            </a>
+                            <a class="list-group-item visible-md" title="歐冠杯 04:00 國際米蘭VS巴塞羅那 巴塞羅主力輪休 藍黑勢在必得" href="https://daynews.cc/premier/5037/" rel="bookmark"><i class="fa  fa-book"></i> 歐冠杯 04:00 國際米蘭VS巴塞羅那 巴塞羅主力輪休 藍黑勢在必得                            </a>
+                                                    <a class="list-group-item visible-lg" title="“娃不要了，先保我家兒媳婦”患難顯真情，引得眾人掌聲一片" href="https://daynews.cc/emotion/1453/" rel="bookmark"><i class="fa  fa-book"></i> “娃不要了，先保我家兒媳婦”患難顯真情，引得眾人掌聲一片                            </a>
+                            <a class="list-group-item visible-md" title="“娃不要了，先保我家兒媳婦”患難顯真情，引得眾人掌聲一片" href="https://daynews.cc/emotion/1453/" rel="bookmark"><i class="fa  fa-book"></i> “娃不要了，先保我家兒媳婦”患難顯真情，引得眾人掌聲一片                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="https://daynews.cc/nba/">NBA</a> (2,054)
+</li>
+	<li class="cat-item cat-item-23"><a href="https://daynews.cc/international/">國際</a> (3,205)
+</li>
+	<li class="cat-item cat-item-14"><a href="https://daynews.cc/entertainment/">娛樂</a> (2,279)
+</li>
+	<li class="cat-item cat-item-15"><a href="https://daynews.cc/emotion/">情感</a> (2,292)
+</li>
+	<li class="cat-item cat-item-22"><a href="https://daynews.cc/constellation/">星座</a> (1,498)
+</li>
+	<li class="cat-item cat-item-17"><a href="https://daynews.cc/history/">歷史</a> (2,441)
+</li>
+	<li class="cat-item cat-item-25"><a href="https://daynews.cc/lose/">減肥</a> (789)
+</li>
+	<li class="cat-item cat-item-24"><a href="https://daynews.cc/technology/">科技</a> (3,150)
+</li>
+	<li class="cat-item cat-item-19"><a href="https://daynews.cc/premier/">英超</a> (1,808)
+</li>
+	<li class="cat-item cat-item-18"><a href="https://daynews.cc/game/">遊戲</a> (2,918)
+</li>
+	<li class="cat-item cat-item-21"><a href="https://daynews.cc/health/">養生</a> (1,588)
+</li>
+	<li class="cat-item cat-item-16"><a href="https://daynews.cc/sports/">體育</a> (2,946)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='https://daynews.cc/date/2019/12/'>2019 年 12 月</a>&nbsp;(23966)</li>
+	<li><a href='https://daynews.cc/date/2019/11/'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='https://daynews.cc/date/2019/10/'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="https://daynews.cc">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.easing.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.qrcode.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/layer.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/modernizr.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.waypoints.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.stellar.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/hoverIntent.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/superfish.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/kratos.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-includes/js/wp-embed.min.js'></script>
+			</body>
+
+</html>
+<!-- This is the static html file -->

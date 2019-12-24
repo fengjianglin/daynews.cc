@@ -1,0 +1,720 @@
+<!doctype html>
+<html amp lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+	<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/26821/#primaryimage","url":"http://p3.pstatp.com/large/pgc-image/RiJ27FMATu1s0"},{"@type":"WebPage","@id":"https://daynews.cc/technology/26821/#webpage","url":"https://daynews.cc/technology/26821/","inLanguage":"zh-TW","name":"\u9577\u6587\u56de\u9867 | \u54c8\u4f5b\u5927\u5b78\u5728\u8b80\u535a\u58eb\u8463\u946b\uff1a\u6a21\u578b\u91cf\u5316\u2014\u2014\u66f4\u5c0f\u66f4\u5feb\u66f4\u5f37 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/26821/#primaryimage"},"datePublished":"2019-12-20T20:10:09+00:00","dateModified":"2019-12-20T20:10:09+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="本文為將門技術社群線上直播第179期的文字內容整理 分享嘉賓：哈佛大學在讀博士 董鑫 感謝整理人：Datafun社區 秋林津渡 導讀： 本次分享嘉賓是 董鑫老師，現在 哈佛大學就讀博士二年級，主要研究方向是efficient machine learning，包括但不限於模型的壓縮、量化，硬體和軟體的協同設計。本次分享的主題為 神經網路中……" />
+<meta name="twitter:title" content="長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強 - 天天要聞" />
+<meta name="twitter:image" content="http://p3.pstatp.com/large/pgc-image/RiJ27FMATu1s0" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強 - 天天要聞" />
+<meta property="og:description" content="本文為將門技術社群線上直播第179期的文字內容整理 分享嘉賓：哈佛大學在讀博士 董鑫 感謝整理人：Datafun社區 秋林津渡 導讀： 本次分享嘉賓是 董鑫老師，現在 哈佛大學就讀博士二年級，主要研究方向是efficient machine learning，包括但不限於模型的壓縮、量化，硬體和軟體的協同設計。本次分享的主題為 神經網路中……" />
+<meta property="og:url" content="https://daynews.cc/technology/26821/" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-20T20:10:09+00:00" />
+	<title>長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強 - 天天要聞</title>
+		<link rel="canonical" href="https://daynews.cc/technology/26821/" />
+	<script type='text/javascript' src='https://cdn.ampproject.org/v0.js' async></script>
+<script type='text/javascript' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js' async custom-element="amp-analytics"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><meta name="generator" content="AMP Plugin v1.4.1; mode=reader; experiences=website"><meta name="generator" content="WordPress 5.2.4" />
+	<style amp-custom>
+		/* Generic WP styling */
+
+.alignright {
+	float: right;
+}
+
+.alignleft {
+	float: left;
+}
+
+.aligncenter {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.amp-wp-enforced-sizes {
+	/** Our sizes fallback is 100vw, and we have a padding on the container; the max-width here prevents the element from overflowing. **/
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+/*
+ * Prevent cases of amp-img converted from img to appear with stretching by using object-fit to scale.
+ * See <https://github.com/ampproject/amphtml/issues/21371#issuecomment-475443219>.
+ * Also use object-fit:contain in worst case scenario when we can't figure out dimensions for an image.
+ * Additionally, in side of \AMP_Img_Sanitizer::determine_dimensions() it could $amp_img->setAttribute( 'object-fit', 'contain' )
+ * so that the following rules wouldn't be needed.
+ */
+amp-img.amp-wp-enforced-sizes[layout="intrinsic"] > img,
+amp-anim.amp-wp-enforced-sizes[layout="intrinsic"] > img {
+	object-fit: contain;
+}
+
+amp-fit-text blockquote,
+amp-fit-text h1,
+amp-fit-text h2,
+amp-fit-text h3,
+amp-fit-text h4,
+amp-fit-text h5,
+amp-fit-text h6 {
+	font-size: inherit;
+}
+
+/**
+ * Override a style rule in Twenty Sixteen and Twenty Seventeen.
+ * It set display:none for audio elements.
+ * This selector is the same, though it adds body and uses amp-audio instead of audio.
+ */
+body amp-audio:not([controls]) {
+	display: inline-block;
+	height: auto;
+}
+
+/*
+ * Style the default template messages for submit-success, submit-error, and submitting. These elements are inserted
+ * by the form sanitizer when a POST form lacks the action-xhr attribute.
+ */
+.amp-wp-default-form-message > p {
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.amp-wp-default-form-message[submitting] > p,
+.amp-wp-default-form-message[submit-success] > p.amp-wp-form-redirecting {
+	font-style: italic;
+}
+
+.amp-wp-default-form-message[submit-success] > p:not(.amp-wp-form-redirecting) {
+	border: solid 1px #008000;
+	background-color: #90ee90;
+	color: #000;
+}
+
+.amp-wp-default-form-message[submit-error] > p {
+	border: solid 1px #f00;
+	background-color: #ffb6c1;
+	color: #000;
+}
+
+/* Prevent showing empty success message in the case of an AMP-Redirect-To response header. */
+.amp-wp-default-form-message[submit-success] > p:empty {
+	display: none;
+}
+
+amp-carousel .amp-wp-gallery-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 1rem;
+}
+
+.wp-block-gallery[data-amp-carousel="true"] {
+	display: block;
+	flex-wrap: unset;
+}
+
+/* Template Styles */
+
+.amp-wp-content,
+.amp-wp-title-bar div {
+		margin: 0 auto;
+	max-width: 600px;
+	}
+
+html {
+	background: #0a89c0;
+}
+
+body {
+	background: #fff;
+	color: #353535;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-weight: 300;
+	line-height: 1.75em;
+}
+
+p,
+ol,
+ul,
+figure {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a,
+a:visited {
+	color: #0a89c0;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #353535;
+}
+
+/* Quotes */
+
+blockquote {
+	color: #353535;
+	background: rgba(127,127,127,.125);
+	border-left: 2px solid #0a89c0;
+	margin: 8px 0 24px 0;
+	padding: 16px;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* UI Fonts */
+
+.amp-wp-meta,
+.amp-wp-header div,
+.amp-wp-title,
+.wp-caption-text,
+.amp-wp-tax-category,
+.amp-wp-tax-tag,
+.amp-wp-comments-link,
+.amp-wp-footer p,
+.back-to-top {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+
+.amp-wp-header {
+	background-color: #0a89c0;
+}
+
+.amp-wp-header div {
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: .875em 16px;
+	position: relative;
+}
+
+.amp-wp-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+	.amp-wp-header .amp-wp-canonical-link {
+		font-size: 0.8em;
+		text-decoration: underline;
+		position: absolute;
+		right: 18px;	}
+
+.amp-wp-header .amp-wp-site-icon {
+	/** site icon is 32px **/
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 18px;
+	top: 10px;
+}
+
+/* Article */
+
+.amp-wp-article {
+	color: #353535;
+	font-weight: 400;
+	margin: 1.5em auto;
+	max-width: 840px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+/* Article Header */
+
+.amp-wp-article-header {
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1.5em 16px 0;
+}
+
+.amp-wp-title {
+	color: #353535;
+	display: block;
+	flex: 1 0 100%;
+	font-weight: 900;
+	margin: 0 0 .625em;
+	width: 100%;
+}
+
+/* Article Meta */
+
+.amp-wp-meta {
+	color: #696969;
+	display: inline-block;
+	flex: 2 1 50%;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.amp-wp-article-header .amp-wp-meta:last-of-type {
+	text-align: right;
+}
+
+.amp-wp-article-header .amp-wp-meta:first-of-type {
+	text-align: left;
+}
+
+.amp-wp-byline amp-img,
+.amp-wp-byline .amp-wp-author {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.amp-wp-byline amp-img {
+	border: 1px solid #0a89c0;
+	border-radius: 50%;
+	position: relative;
+	margin-right: 6px;
+}
+
+.amp-wp-posted-on {
+	text-align: right;
+}
+
+/* Featured image */
+
+.amp-wp-article-featured-image {
+	margin: 0 0 1em;
+}
+.amp-wp-article-featured-image amp-img {
+	margin: 0 auto;
+}
+.amp-wp-article-featured-image.wp-caption .wp-caption-text {
+	margin: 0 18px;
+}
+
+/* Article Content */
+
+.amp-wp-article-content {
+	margin: 0 16px;
+}
+
+.amp-wp-article-content ul,
+.amp-wp-article-content ol {
+	margin-left: 1em;
+}
+
+.amp-wp-article-content .wp-caption {
+	max-width: 100%;
+}
+
+.amp-wp-article-content amp-img {
+	margin: 0 auto;
+}
+
+.amp-wp-article-content amp-img.alignright {
+	margin: 0 0 1em 16px;
+}
+
+.amp-wp-article-content amp-img.alignleft {
+	margin: 0 16px 1em 0;
+}
+
+/* Captions */
+
+.wp-caption {
+	padding: 0;
+}
+
+.wp-caption.alignleft {
+	margin-right: 16px;
+}
+
+.wp-caption.alignright {
+	margin-left: 16px;
+}
+
+.wp-caption .wp-caption-text {
+	border-bottom: 1px solid #c2c2c2;
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 0;
+	padding: .66em 10px .75em;
+}
+
+/* AMP Media */
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+amp-carousel {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+amp-iframe,
+amp-youtube,
+amp-instagram,
+amp-vine {
+	background: #c2c2c2;
+	margin: 0 -16px 1.5em;
+}
+
+.amp-wp-article-content amp-carousel amp-img {
+	border: none;
+}
+
+amp-carousel > amp-img > img {
+	object-fit: contain;
+}
+
+.amp-wp-iframe-placeholder {
+	background: #c2c2c2 url( https://daynews.cc/wp-content/plugins/amp/assets/images/placeholder-icon.png ) no-repeat center 40%;
+	background-size: 48px 48px;
+	min-height: 48px;
+}
+
+/* Article Footer Meta */
+
+.amp-wp-article-footer .amp-wp-meta {
+	display: block;
+}
+
+.amp-wp-tax-category,
+.amp-wp-tax-tag {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	margin: 1.5em 16px;
+}
+
+.amp-wp-comments-link {
+	color: #696969;
+	font-size: .875em;
+	line-height: 1.5em;
+	text-align: center;
+	margin: 2.25em 0 1.5em;
+}
+
+.amp-wp-comments-link a {
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px 1px 2px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #0a89c0;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 200px;
+	padding: 11px 16px;
+	text-decoration: none;
+	width: 50%;
+	-webkit-transition: background-color 0.2s ease;
+			transition: background-color 0.2s ease;
+}
+
+/* AMP Footer */
+
+.amp-wp-footer {
+	border-top: 1px solid #c2c2c2;
+	margin: calc(1.5em - 1px) 0 0;
+}
+
+.amp-wp-footer div {
+	margin: 0 auto;
+	max-width: calc(840px - 32px);
+	padding: 1.25em 16px 1.25em;
+	position: relative;
+}
+
+.amp-wp-footer h2 {
+	font-size: 1em;
+	line-height: 1.375em;
+	margin: 0 0 .5em;
+}
+
+.amp-wp-footer p {
+	color: #696969;
+	font-size: .8em;
+	line-height: 1.5em;
+	margin: 0 85px 0 0;
+}
+
+.amp-wp-footer a {
+	text-decoration: none;
+}
+
+.back-to-top {
+	bottom: 1.275em;
+	font-size: .8em;
+	font-weight: 600;
+	line-height: 2em;
+	position: absolute;
+	right: 16px;
+}
+		td, th {
+	text-align: left;
+}
+
+a, a:active, a:visited {
+	text-decoration: underline;
+}
+
+	</style>
+	
+</head>
+
+<body class="">
+
+
+<header id="top" class="amp-wp-header">
+	<div>
+		<a href="https://daynews.cc/">
+									<span class="amp-site-title">
+				天天要聞			</span>
+		</a>
+
+										<a class="amp-wp-canonical-link" href="https://daynews.cc/technology/26821/">
+				原網頁			</a>
+			</div>
+</header>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title">長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強</h1>
+			<div class="amp-wp-meta amp-wp-byline">
+					<amp-img src="https://daynews.cc/wp-content/themes/Kratos/images/default_avatar.jpeg" alt="天天要聞" width="24" height="24" layout="fixed"></amp-img>
+				<span class="amp-wp-author author vcard">天天要聞</span>
+	</div>
+<div class="amp-wp-meta amp-wp-posted-on">
+	<time datetime="2019-12-21T04:10:09+00:00">
+		2019-12-21	</time>
+</div>
+	</header>
+
+	
+	<div class="amp-wp-article-content">
+		
+		<div>
+ <amp-img src="http://p3.pstatp.com/large/pgc-image/RiJ27FMATu1s0" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="480" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/RiJ27FMATu1s0" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="480" class=""></noscript></amp-img>
+<blockquote class="pgc-blockquote-abstract">
+<div>
+<div>
+<p>本文為將門技術社群線上直播第1<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-5">79</i>期的文字內容整理</p>
+<p>分享嘉賓：哈佛大學在讀博士 董鑫</p>
+<p>感謝整理人：Datafun社區 秋林津渡</p>
+
+</div>
+</div>
+</blockquote>
+<p>導讀：</p>
+<blockquote>
+<p>
+  本次分享嘉賓是<br>
+  <strong>董鑫</strong>老師，現在<br>
+  <strong>哈佛大學就讀博士二年級</strong>，主要研究方向是efficient machine learning，包括但不限於模型的壓縮、量化，硬體和軟體的協同設計。本次分享的主題為
+ </p>
+</blockquote>
+<p><strong>神經網路中的模型量化問題</strong>。</p>
+<p>本次介紹會圍繞下面六點展開：</p>
+<ul>
+<li>
+<p>什麼是量化和為什麼需要做量化</p>
+</li>
+<li>
+<p>模型量化常見的問題和挑戰</p>
+</li>
+<li>
+<p>模型量化問題的3種解決方法</p>
+</li>
+<li>
+<p>量化網路的進一步剪枝</p>
+</li>
+<li>
+<p>彌補量化網路剪枝後性能下降的問題</p>
+</li>
+<li>
+<p>量化網路的擴展與延伸</p>
+</li>
+</ul>
+<p><strong class="highlight-text">▌一、什麼是量化和為什麼需要做量化</strong></p>
+<p><strong>1.1、什麼是量化</strong></p>
+<p> <amp-img src="http://p9.pstatp.com/large/pgc-image/Rl999TL3UEqcBH" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/Rl999TL3UEqcBH" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class=""></noscript></amp-img></p>
+<p>先定義一下什麼是量化，在IEEE standard 中，大部分的操作系統和編程語言默認使用單精度來表示數值，單精度的數值是由32位浮點數構成，所謂浮點數是其小數點的位數可以根據實際情況來確定。</p>
+<p>在standard表達體系當中，所表達的範圍和精度是非常高的，精度指2個數之間他們的差別能有多小，這個差別越小，說明他們的精度越高。在IEEE 32位單精度標準當中，數值精度大概是1.2*10^38，這樣的精度已經非常高了。這是為什麼在計算編程中，實際上用的是離散的數，當然計算機不能表示連續的數，由於這些離散的數精度非常高，所以不管在做優化和其他事情的時候，是直接當作連續的數來處理的。</p>
+<p>但當把浮點數變成定點數，或者用更少的比特數來表示這個數時，情況就會發生比較大的改變，這個數的精度變低了，同時這個數從連續的數變成了離散的數。舉個例子，K比特的數字，一共有2^K個不同的取值，這些取值均勻的分布在數軸上面，針對8比特的量化，一個數只有256種不同的數值，一般在量化中，希望有正有負，而且在表示一個數的時候，為了在硬體計算方便，一般用2的補碼來表示，所以對於一個8比特的定點數來說，有128個負數，1個0，以及127個正數，也就是這個數在梯度下降優化的時候只能取256個數值的某一個，專業上這256個數值叫做quantization levels,就是在量化之後有多少種可能的選擇。</p>
+<p>用更少的比特數，quantization levels就越少，最極端的情況是1比特，每個數只有2個可以選擇的數，一般可以認為是+1或-1。其實不一定是+1或-1，前面可以有一個乘數來調節範圍，更嚴格的來說，應該是+A或-A，這個A是可以調節的因子。</p>
+<p>在研究量化問題的時候，本質來講是要搞清楚如何優化一個離散數，離散變數。優化離散變數在計算機領域一直是一個比較困難的問題，有各種各樣的方法，針對量化網路也提出了一些特殊的方法。</p>
+<p><strong>1.2、為什麼需要做量化</strong></p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/Rl999TvJF2r6xd" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/Rl999TvJF2r6xd" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class=""></noscript></amp-img></p>
+<p>其實壓縮或加速網路的方法有很多，比較常見的有三種：</p>
+<ul>
+<li>
+<p><strong>矩陣分解</strong></p>
+</li>
+</ul>
+<p>比較早的一種，如上圖，假如X是某一層的參數，大小是IÍJ，在做完矩陣分解後，將其分解成2個小的矩陣，T和P，T的大小是IÍR，P轉置之後的大小是RÍJ，當R比較小的時候，比如I和J等於100，R等於2，那在分解之前X的大小是100*100，X有10000個值，但是在分解之後，是2個2*100的矩陣，那參數數量就變成400，這個就是矩陣分解能夠帶來的優化。矩陣分解更多是在memory內存上的優化，對計算加速影響是比較小的，因為在分解之後，矩陣的大小就不是一個方陣了，計算上可能會有一些問題，所以這種方法現在用的已經比較少了。</p>
+<ul>
+<li>
+<p><strong>網路剪枝</strong></p>
+</li>
+</ul>
+<p>目前用的最多的一種方法是剪枝，因為剪枝這種方法非常的直觀，如果把神經網路想像成一個樹枝，可以把一些無用的樹枝拿掉。比如上圖剪枝後，就變成了稀疏的網路，這個稀疏網路可以用稀疏矩陣存取的方法來存取。</p>
+<p>但網路剪枝也有一定的問題，假如做的是非結構化的剪枝，比如不是把整個channel或者整個layer都剪掉，而是把某些參數置成0，把參數矩陣變成稀疏的，這種情況下，同時又使用了cuda或普通的GPU進行編程，是很難看到性能的提升。在我的實驗當中，可能性能還有一定的下降，這個性能是指計算速度和延遲。</p>
+<p>另一種現在用的比較多的方法是做結構化的剪枝，就是把整個channel都拿掉，相當於給網路做了一個瘦身，這樣的話，一般能夠起到加速的效果。但是加速比並不一定是和壓縮比成正比的，也就是說，即使剪掉一半的channel數，也不一定能把延遲降低到之前的1/2。壓縮這種方法用的比較多，由於比較直觀，簡單好用。另外壓縮帶來的更多是內存方面的優勢，所以加速的優勢也是來源於內存，因為存取內存的時間變少了。</p>
+<ul>
+<li>
+<p><strong>AutoML的方法</strong></p>
+</li>
+</ul>
+<p>利用神經網路自動搜索的方法來搜索出一個比較小的網路。</p>
+<ul>
+<li>
+<p><strong>為什麼有了這些方法，仍需要做量化？</strong></p>
+</li>
+</ul>
+<p>量化不僅能在內存壓縮上起到作用，還能在計算方面進行加速，因為算2個32比特的浮點數時間，肯定要比2個4比特定點數的時間多得多。</p>
+<p>另外從本質上來講，量化是硬體友好的。不管是通用的硬體，還是特殊的硬體，內部結構都是位操作，都是一些加法器、乘法器，那這些加法器、乘法器都是由一個一個比特構成的。量化就是在減少使用的比特數，在硬體上自然就能起到加速的效果，量化帶來的加速是與生俱來的。</p>
+<p>一個好的量化演算法不僅要考慮模型的performance,模型的準確率，還要考慮模型的efficiency。模型量化後能帶來的壓縮比、加速比，以及在硬體中是否容易實現。比如非均勻量化，非均勻量化在硬體上特別不好實現，現在大部分量化的文章，都是在講均勻量化。</p>
+<p><strong class="highlight-text">▌二、模型量化常見的問題和挑戰</strong></p>
+<p>在做量化過程中可能會遇到很多問題。這些問題可以分成2個部分，一個是forward前向傳播部分，一個是backward反向傳播部分。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/Rl999UR5TyHEy" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/Rl999UR5TyHEy" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class=""></noscript></amp-img></p>
+<p><strong>2.1、在前向傳播中模型量化常見的問題</strong></p>
+<p>forward部分，主要有3個待解決的問題，分別是：</p>
+<ul>
+<li>
+<p><strong>離散值帶來的網路表達能力的下降</strong></p>
+</li>
+</ul>
+<p>最大的也是最顯而易見的問題是，在做完量化之後，一個連續的值變成了離散值，而且這個離散值可選的數值<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-6">大大</i>變少了。比如用2比特做量化，一個值最多有4種可選的數值。對於一個長度為100的向量，每個值最多有4種可選的數值時，那這個向量最多能表示4^100個方向，就可能帶來網路表達能力的下降。</p>
+<ul>
+<li>
+<p>量化範圍和量化精度之間的平衡</p>
+</li>
+</ul>
+<p>在做量化的過程中有一個trade-of，即量化範圍和量化精度之間的抉擇。量化範圍，是量化後最大的數減最小的數，也等於resolution乘以總共的quautization levels。，簡單理解，resolution解析度是每個小格長度，每個小格的長度越小，解析度越高，總共有多少個小格是由量化的比特來決定的。量化範圍和量化精度是成反比的，由於參數分布是比較廣的，在量化範圍和量化精度如何做一個抉擇也是一個比較重要的問題。</p>
+<ul>
+<li>
+<p>使用均勻量化還是非均勻量化</p>
+</li>
+</ul>
+<p>非均勻量化對硬體不太友好，但每個quantization levels之間的間隔不用做到一致，自由度就更高了。在實際實驗中，非均勻量化達到的模型準確性比均勻量化好，所以選擇均勻量化還是非均勻量化是一個值得思考的問題。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/Rl999UnHDNBSXN" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/Rl999UnHDNBSXN" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class=""></noscript></amp-img></p>
+<p><strong>2.2、在反向傳播中模型量化常見的問題</strong></p>
+<p>在backward中量化最大的問題是，將神經網路的參數值變成了離散值，離散值的求導非常麻煩。舉一個例子，如上圖公式所示，一個普通的全鏈接層，x是這層的輸入，y是這層的輸出。對於一個量化網路，首先要量化參數，用一個Q函數去量化全精度的,其中f是全精度的意思，是量化參數，x是上一層量化的輸出，是這一層的輸入，得到的h已經不是量化的結果，需要用P函數對h進行量化，最後得到的y是量化後的輸出。</p>
+<p>優化這個網路，就要去訓練這個網路的，就要得到這個的梯度。的梯度通過如上鏈式方程式計算得到，的梯度由下面4項組成，第1、3項比較好計算，用線性求導就能算出。紅框框出來的2項，本質是對Q，,P函數來求導的，但是對於一個量化函數來說，基本上是一個階梯函數，階梯函數的梯隊幾乎在所有位置上都等於0。那紅框的這2項他們的梯度都為0，所以相乘的結果是的梯度一直為0。那也就是說w的梯度很難通過P,Q函數計算得到。梯度為0，無法優化這個網路，所以要想辦法去解決這個問題。</p>
+<p>一般的，在forward階段，使用了Q，P函數，在backward階段，Q，P不存在了。一個比較常見的解決辦法是，紅框中的梯度強行等於1。如上圖右邊部分，在forward階段，我們使用階梯函數來量化，在backward階段，量化函數變成y=x，不做任何量化，y=x函數導數為1，契合了梯度強行為1的這個常見的做法。</p>
+<p>這種方法叫做straight-forward estimator，STE方法，由hinton在一門課上提出來的，在實際應用中，效果還是不錯的。雖然強行處理的方法可以訓練和優化網路，但還是有弊端。當把loss curb損失走向曲線畫出來，可以明顯的觀察到量化網路的loss波動是非常大的，訓練非常不穩定。那這個不穩定到底是從哪來的？可以回過頭來看一看，紅框的部分強行賦值為1後，量化前和量化後的梯度值是一樣的，量化之前和量化之後的參數也是一樣的。這樣的假設叫做gradientmissing match,實際只能算出量化之後的參數梯度，用這個參數梯度去更新量化前的參數梯度，這就有不匹配的問題。另外，在使用這個STE過程中，不管是理論還是實驗的表明不能簡簡單單的把紅框的梯度賦值為1，還需要做一個clip,當參數或activation特別大的時候，相應的梯度是0，否則網路收斂性就大打折扣，這是使用STE時需要處理的細節。</p>
+<p><strong class="highlight-text">▌三、模型量化問題的3種解決方法</strong></p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/Rl99Cf97Ytb5vK" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/Rl99Cf97Ytb5vK" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class=""></noscript></amp-img></p>
+<p>如何解決在量化中出現的問題，目前關於量化的論文是非常多的，從一個更高的角度來看這些文章，在處理量化過程中分為3個部分。如上圖所示，橙色的曲線是參數在量化之前的分布，極少的論文處理pre-quanttransform這個問題，即在量化參數之前，先對參數分布做下調整，綠色曲線就是調整後參數分布。做完參數分布調整後，下面一步，是最多paper<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">關注</i>的內容，也是量化當中比較關鍵的一步，即projectation，就是把之前連續的參數，project到預先設定好的quantization levels上面。比如使用一個3個值的量化，+1，-1，0，就要決定哪些參數量化成+1，哪些參數量化成-1，哪些參數量化成0，這個過程就叫做projectation，其本質就是一個分段函數，這個過程的梯度也是最難處理的。最後一個過程叫post quant transform，在做完projectation後，所有的參數都聚集在+1,-1,0這3個值上了，需要對這3個值再處理，最簡單的方法是對這3個值乘以一個quantization factor,比如0.15，也可以做更多的操作。幾乎所有量化的問題都可以歸類到這3類中的某幾類，大部分的paper還是在做projectation,post-quant transform是最少的。</p>
+<p><strong>3.1、提高量化網路表達能力</strong></p>
+<p>總結完量化過程遇到的問題之後，現在來講一下，有沒有辦法去處理這些問題，讓這些問題變得沒那麼嚴重，或者是解決這些問題。第一個問題，在量化之後精度是非常受限的，quantization levels的數量是有限的，8比特量化也只有256個值，2比特量化只有4個值，4個值的表達能力肯定是很弱的。量化之後的網路性能很差的原因在於量化的levels太少了，實際在實驗過程中，發現了另外一個比較有趣的現象，就是網路性能變差不僅僅是因為quantization levels太少，還有可能是在量化之後網路的參數範圍變小了。舉一個例子，量化之前，尤其是對activation，其範圍最大可以到5、6，最小也能到-5、-6，當然是relu之前。但做完量化之後，比如1比特量化，activation的範圍最大是+1，最小是-1，範圍<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-6">大大</i>折扣，會對網路性能造成影響。為了驗證這個想法，我們做了一個簡單的實驗，一個非常簡單模型來說明問題。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/Rl99CYgHFuFAq" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/Rl99CYgHFuFAq" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class=""></noscript></amp-img></p>
+<p>如上圖，輸入X1,X2是從0-1分布中隨機採樣采出來的，加一個隨機雜訊，就造了一個數據集，為網路的輸入，最後網路的結果是對X1,X2做異或操作（XOR），或同或操作（XNOR）。由於X1,X2是有雜訊的0-1數據，希望這個網路能夠先把這個雜訊過濾掉，學到一個正確的輸出結果。這個問題比較簡單，用的網路也很簡單，只有2層網路。三角形的部分是activation，嘗試了幾種不同的activation。接下來看看圖中幾條曲線代表什麼意思，綠色的曲線代表的是一個量化的激活函數，是一個3值的量化函數，0，-a,+a，這個a值是通過計算得到的，可以參考基本的baseline演算法。綠色的結果是最差的，也符合預期，因為精度很低，range也非常小，所以效果是最差的，相應的loss也是最高的。比較有意思的是這條紅色的曲線，紅色的曲線使用的是tanh激活函數，tanh不是一個量化函數，是一個連續函數，只不過會把結果限制在-1，+1之間，所以tanh也是一個具有壓縮功能的激活函數。其實在早期，sigmoid、tanh激活函數使用的比較多，但使用過程中發現了很多弊端，後面轉成使用relu激活函數。可以看到，tanh這個激活函數可表示的範圍也是非常小的，只有-1到+1，即使使用了一個全精度的激活函數，可表示範圍很小，對應精度依舊是很差的。這條藍色的線，範圍也只是3個數，+1，-1，0，但對這3個數加了一個乘數，而且還加了一個bias（偏置），讓其範圍可以更加自由的變化。可以看到，在這種情況下，即使只有3個值，仍然比全精度表現的更好。這個橙色的曲線是對tanh激活函數按照下面論文的方法進行改造，讓其範圍更大，對應的loss是最低的。通過這個實驗，是想證明在量化之後，quantization levels變得特別少，這是個嚴重的問題，但量化範圍<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-6">大大</i>受限，這個問題也是需要解決的。在比特數確定下來之後，實際上是沒有辦法去解決quantization levels數量太少的這個問題的，但實際上，可以在quantizationrange上做更多的探索。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/Rl99CZ3J6qMniL" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/Rl99CZ3J6qMniL" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class=""></noscript></amp-img></p>
+<p>上圖這篇文章的解決方法也比較簡單，range太窄了，不能自動的調節，那可以在quantize之後的激活函數加上一個scale factor,和一個bias,即乘以γ，再加上β，這個過程叫做再參數化。再參數化之前量化值是-1，+1，0，再參數化後雖然還是3個值，但變成了-γ+β,+ γ+β, β，這個範圍是可以調整了，每一層都有這2個參數。同樣的道理，對W也加上一個scanlefactor，這裡乘以a，沒有增加一個bias，因為增加一個bias，會導致計算複雜，所以w只乘以α。這樣做完之後，也是一個對稱的均勻的量化，當然會引入一些額外的計算量，但引入的計算量是很低的。如上圖所示，可以對計算公式稍做出來，就是浮點數的相乘相加操作，並且後面這部分，是可以提前計算存在硬體上面的，所以引入的額外計算量（compulation overhead）非常小，帶來的效果是能動態的調整量化的範圍。其中，γ, β, α是可以被loss訓練，這樣網路的表達能力會更強一些。此外，在使用relu激活函數時，γ, β也可以起到sparsity的作用。在[1]這篇文章提到，最優稀疏度並不是50%，直接用relu，稀疏度基本上是50%，但實驗發現60%左右才是最優的稀疏度。但稀疏度太高比如90%，網路的性能肯定也是不好的。</p>
+<p>經過這樣一個操作之後，如上圖右邊部分，綠色的部分是baseline的方法的稀疏度曲線，直接做3值處理，藍色的曲線是這篇[1]paper中用手工調整稀疏度的可能最優稀疏度的曲線結果，橙色的曲線是使用我們的方法自動調節稀疏度曲線，可以看到通過優化的方法自動調節稀疏度和通過手工的方法，吻合層度是比較高的。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/Rl99CZOI5uaXHZ" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/Rl99CZOI5uaXHZ" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class=""></noscript></amp-img></p>
+<p>如上圖是做完優化後帶來的一些好處和效果。在ResNet-18裡面，TTQ是非均勻的3值量化函數，效果比其他均勻量化的效果都要好，我們的方法RTN-R是均勻量化，經過優化，達到的效果比TTQ的要好，提高了2個百分點，同時也縮小了和全精度量化精度的差距。在其他方面，我們的方法也體現出來一定的優勢，當把activation和weigth都變成3值的時候，精度達到<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">64</i>.5%，和全精度差距只有4.7，這個提高還是蠻大的。在AlexNet和MobileNet上，我們的方法也有至少1個百分點的提高，可以看到我們的方法還是比較有效的。</p>
+<p>另外一個，我們的方法還提到一個關於3值量化的計算問題，之前3值網路計算是用2比特實現的，2比特可以表示4個數值，這就浪費了一個數值。在計算過程中，引入特殊硬體設計專門對3值進行計算。如上圖圖(a)是baseline的方法，通過2比特網路實現的，圖（b）是我們設計的硬體圖，可以看到(b)中沒有32bit counter,所以是可以加速計算的。</p>
+<p><strong>3.2、在量化範圍和量化精度之間如何取捨</strong></p>
+<p>第2個問題是在量化過程中關於如何選著量化範圍及量化精度。在確定比特之後，量化範圍和量化精度呈一個反比關係，精度越高，每個小格的長度越小，所能表達的範圍越低。</p>
+<p> <amp-img src="http://p9.pstatp.com/large/pgc-image/Rl99CZw72pYqps" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/Rl99CZw72pYqps" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class=""></noscript></amp-img></p>
+<p>這個量化範圍和前面講的範圍有區別的，這個量化範圍指的是在量化之前對哪個部分做clip操作。在量化之前，不管是activation還是參數，分布都呈現2個特點，一個是長尾效應，有幾個別參數的絕對值可能會很大，脫離了大部分的情況，大部分的數值都集中在0附近，如上圖所示，像一個中型的分布。假如現在要量化這個網路，首先要確定量化哪個部分，範圍越寬，精度就越低，反之，量化的範圍越窄，量化的範圍越高。那假如把量化的範圍定的很窄，問題在於雖然中間這部分的精度變得很高了，但是外圍數值很大的參數都會被很粗略的quantize到邊界，這種處理時比較粗糙的，對網路精度的影響也是比較大的。另外一種方法是，把量化的範圍定的很大，這樣外圍的很大的一些數（outliers）的量化誤差就會變小，但是帶來的問題是中間這個部分值很多，量化範圍很大的時候，中間部分的解析度就會變的很低，中間部分的精度就變的有問題了，所以如何選取量化範圍是一個很棘手的問題，選著太小，outliers不好處理，選擇太大，中間的數值又非常多，他們的精度又變的很低，網路準確率下降也很大。那怎麼去選這個量化範圍，到底要在哪個範圍做量化。</p>
+<p>其實一個最好的方法就是，就是直接用loss function決定量化範圍落在哪個區間，希望得到這2個範圍的梯度，通過梯度優化的方法去優化結果。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/Rl99DHlD22b0Wv" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/Rl99DHlD22b0Wv" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class=""></noscript></amp-img></p>
+<p>如上圖所示，這種方法最早出現在paper[1]上，α就是clipping threshold,首先對參數進行clip,之後再做量化，α其實就是剛剛提到的範圍，假如對α進行求導，可以看到，只有一部分對α的導數是不等於0，也就是說，只有落在外部的outliers才會對α的大小有貢獻，落在內部的參數對α的優化沒有作用的，因為gradient為0。這個顯然不是最好的結果，一個理想的clipping threshold,應該同時考慮這些outliers和inside weigths,內部的和外部的參數應該都能考慮得到。經過改寫之後，重新定義了這個公式，梯度2個部分都不是0了，outliers和內部的參數都能對α的優化起到作用，那通過這種方法,統一的全局的考慮到了所有的參數，具體的推導可以參考[2]文獻。</p>
+<p><strong>3.3、均勻量化和非均勻量化的選擇</strong></p>
+<p> <amp-img src="http://p9.pstatp.com/large/pgc-image/Rl99DIP5a2o2Xh" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p9.pstatp.com/large/pgc-image/Rl99DIP5a2o2Xh" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class=""></noscript></amp-img></p>
+<p>如上圖參數的分布，是長尾和中型分布的，有些區域參數量特別多，有些區域參數量特別少，不是均勻分布。目前使用的仍然是均勻的量化，因為均勻的量化在硬體上是比較友好的，但想一下用均勻量化去量化一個非均勻的參數分布，不是一個優化的做法。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/Rl99DIv8XN03EM" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/Rl99DIv8XN03EM" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class=""></noscript></amp-img></p>
+<p>那能不能找一個非均勻的量化函數，並且在硬體上非常高效？power-of-two演算法，量化是2的多少次方，和一個數相乘，因為2的x次方和r相乘實際上是對r做位移，可以在一個時鐘周期結束，所以是非常快的。2的x次方的量化函數是非均勻的，在0附近的精度會很高，隨著這個數值越來越大，精度就變得越來越低了，這個也符合之前講的參數分布，0附近數很多，希望精度高一些，在外面的數很少，希望精度低一些。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/Rl99DJQEKAZpGf" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/Rl99DJQEKAZpGf" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class=""></noscript></amp-img></p>
+<p>但是2的n次方這種量化其實是有問題的，隨著不斷增加比特數，0的部分精度會越來越高，但後面部分的精度是不會改變的，這就有點過猶不及。0附近的精度太高了，高到已經不需要那麼高的精度了，但外部的精度又太低了，那能不能把0附近的精度拿一部分來補償後面的精度，其實是可以把2個power-of-two加在一塊的。把2個power-of-two加在一塊有3個方面的優點：</p>
+<p>– 第1個硬體實現特別方便，只需要做2次shift operation。</p>
+<p>– 第2個表達範圍增加了，power-of-two是一個非均勻的量化，在0附近精度依然是很高的，在外面部分的精度相對比較低，也符合參數的分布。</p>
+<p>– 第3個是沒有單個power-of-two的問題，在0附近精度特別高，高到已經不需要的那種層度。</p>
+<p>所以用2個power-of-two加在一起的方法，就解決了之前的一序列的問題。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/Rl99DJv26WcUKz" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/Rl99DJv26WcUKz" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class=""></noscript></amp-img></p>
+<p>如上圖是最新結果，紅色的部分是我們的方法，在5比特的ResNet-18上，已經能大幅超過全精度網路了，上面的那個藍色虛線是全精度的準確率。在ResNet-34上面，5比特的網路也能超過全精度的網路。在3精度的網路中，跟全精度的網路的差距也在進一步減少，所以我們的方法還是比較有效的，而且計算量也比其它的演算法要小，不用做乘法了，所有的操作只需要做2次shift operation。</p>
+<p><strong class="highlight-text">▌四、量化網路的進一步剪枝</strong></p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/Rl99GSL9LrT0KN" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/Rl99GSL9LrT0KN" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class=""></noscript></amp-img></p>
+<p>在做工程過程中，很關心的一個問題是，做完量化後還能不能進一步的做一個剪枝，或者做完剪枝後能不能去做量化。這個問題，其實可以從3個角度去分析，先做量化再做剪枝，先做剪枝再做量化，或者剪枝和量化一起做，這裡重點說一下第3種，量化剪枝一起做。實際上，剪枝一般是把參數置成0，而在大部分量化函數中，0已經是其中的一個quantilation levels,所以量化和剪枝一起做的思路還是正常做量化，只是期望更多的參數值被量化到0這個值上。這也許是一個比較好的方向，目前沒有paper是這麼做的。在CVPR 2019我寫了一篇文章，嘗試去量化一個二值網路，就是一個binaryneural network，二值網路已經非常高效了，但我還在想他是不是還是冗餘的，是不是可能量化他。其實這篇paper的idea也是比較簡單的，訓練2個二值網路，一個二值網路叫主網路，是一個正常的二值網路，另外一個二值網路用來指示上面這個二值網路的某個channel是不是被去掉了，下面這個二值網路的值為0，那上面主網路對應的channel是被刪去的，如果值為1，就保留某個channel。下面那個二值網路起到的是一個門的作用，這個門控制著上面主網路的channel是不是被去掉了，這個網路叫做main/subsidiar network。實際上下二個網路都是二值網路，他們可以使用相同的優化方法同時被優化。</p>
+<p> <amp-img src="http://p1.pstatp.com/large/pgc-image/Rl99GT08P8xnyl" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p1.pstatp.com/large/pgc-image/Rl99GT08P8xnyl" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class=""></noscript></amp-img></p>
+<p>如上圖是實驗結果，在ResNet-18當中，去掉了大概21.4%的filter,精度比不去做pruning還要提高了一些。對一個二值網路，做完去邊之後精度有非常小的提升，非但沒有下降，還有微小的提升，說明二值網路也存在冗餘，也可以被量化。</p>
+<p><strong class="highlight-text">▌五、彌補量化網路剪枝後性能下降的問題</strong></p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/Rl99GUlEKgJyuh" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/Rl99GUlEKgJyuh" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class=""></noscript></amp-img></p>
+<p>在工程中大家比較關心的另一個問題，是在做完量化，剪枝，去邊後，尤其是當使用非常激進的量化策略，比如1比特，2比特，3比特的量化，網路性能不可避免的都有些下降，有沒有方法去補足這些性能的下降？這裡總結了4種可以嘗試的方法：</p>
+<p>第1種方法，使用更少的比特來量化網路，表達能力是下降了，那能不能把寬度變得更寬一點，這是上圖paper[1]的方法，這個idea特別簡單。給層加寬度這種方法是很有效的，即使只加一點點寬度，性能就能達到一個很好的增長。加寬度這種方法總體來講性價比是比較高的，而且實際操作也比較容易。總結一下，當精度下降了，就用寬一點的網路。</p>
+<p>第2種方法，是對activation和參數做一個mixed precision。網路中的不同的參數，不同的層，不同的filter，他們的重要層度是不一樣的，這個在剪枝的文章中多次被驗證。那能不能給不同的參數賦予不同的比特數，重要的參數，給多一點比特，精度高一點，不重要的參數給低一點的比特數，精度低一點。paper[2]就是用的learning的方法去學習到每個參數的比特數的，但是這樣做硬體上可能會有問題，2個不同位數的參數相乘相加，低位數的都需要補位後再操作，這樣帶來的性能提升就沒有那麼明顯，或者設計一種新的硬體結構支持2個精度的數值做運算。</p>
+<p>第3種方法，單一某一層帶來的精度比較低，能不能將這一層copy成3份，這3份用的比特數是一樣的，比如都是1比特，當然他們的量化方式是不一樣的，把這3個結果合到一塊輸出，paper[3]用的這種方法，但目前我還沒有復現出來。</p>
+<p>第4種方法，是我們在cvpr2019上提出的，是單個的1比特的結果不太好，能不能把多個網路合在一塊，最後輸出的結果通過投票，boosting，bagging的方法把3個網路的結果合在一塊，得到一個更高的準確率。這個方法在硬體上是比較友好的，因為這3個網路是可以並行處理的，當硬體比較強大的時候，3個網路訓練的時間和1個網路訓練的時間是差不多的。</p>
+<p><strong class="highlight-text">▌六、量化網路的擴展與延伸</strong></p>
+<p>最後講一下future work，在模型量化過程中，有哪些有趣的問題是可以擴展的，還有一些沒有解決的open problem。</p>
+<p> <amp-img src="http://p3.pstatp.com/large/pgc-image/Rl99GTR1WiMZDO" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class="amp-wp-enforced-sizes" layout="intrinsic"><noscript><img src="http://p3.pstatp.com/large/pgc-image/Rl99GTR1WiMZDO" alt="《長文回顧 | 哈佛大學在讀博士董鑫：模型量化——更小更快更強》" width="640" height="359" class=""></noscript></amp-img></p>
+<p><strong>6.1、量化方法應用到複雜網路</strong></p>
+<p>現在的一個發展趨勢是量化的方法開始和各種各樣的方法結合起來，比如NLP模型，RNN已經有人做過了。另外，embe<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">dd</i>inglayers，transformer，bert這些比較大的，比較耗內存的模型，能不能通過量化的方法，來減少訓練時間，或者推理的時間。</p>
+<p>在哈佛的另一個組研究了對RL systems量化的方法，這個問題之前沒有人做，是因為RL裡面用到的backbone network都比較簡單，都是一個全鏈接層的網路或者網路規模不是很大。但現在隨著RL網路規模不斷變大，其量化也是值得做一做的。現有的量化的方法也不能直接套用到RL模型上去，因為有些數值上的特點有些不太一樣。</p>
+<p>在Detection,GAN具有不同用途網路中的量化應用，他們的網路結構不像CNN，feature map不斷減少，最後輸出某一類，Detection,GAN的輸出結果，維度都是比較高的，數值精度可能也需要比較高，GAN輸出精度至少是8比特，因為他輸出的是圖片，圖片的像素至少要用8比特來表示，對GAN,Detection模型的量化方法也是比較有用的。</p>
+<p>量化和AutoML的結合，在設計網路結構的時候，直接確定用的比特數，在低比特的情況下，網路是不是有新的特點，跟全精度網路結構是不一樣的。</p>
+<p><strong>6.2、1比特網路</strong></p>
+<p>隨著量化網路的不斷推進，也應該<i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-1">關注</i>binary neural networks，即1比特的網路。binary neural network沒有乘法，沒有加法，只有bool操作，比如and,or操作，非常的快。</p>
+<p>之前提到的方法在5比特的時候已經可以打敗全精度的網路，但實際第一層或最後一層，要麼沒有用量化，要麼用的是8比特量化，這個也是很多paper裡面沿用的一種方法，因為大家都發現，在第一層或最後一層做量化是非常敏感的，這個問題能不能被解決掉。</p>
+<p><strong>6.3、訓練量化</strong></p>
+<p>現在的方法是做推理的時候用量化方法，在訓練的時候做量化是更麻煩，因為在訓練的時候，backward裡面會有一些梯度，中間結果，這些梯度和中間結果能不能用低比特量化，以及怎麼量化也是一個很重要的問題。</p>
+<p><strong><i class="chrome-extension-mutihighlight chrome-extension-mutihighlight-style-2">6.4</i>、梯度不匹配優化方法</strong></p>
+<p>能不能提出一個更好的優化方法去解決剛剛提到的梯度不匹配的問題，已經有些paper在嘗試分析這些問題了，但這個問題實際上沒有被完全解決掉。</p>
+<p><strong>6.5、最小比特的理論分析</strong></p>
+<p>對於一個給定的模型或任務，能不能分析出最少使用的精度是多少。</p>
+<p><strong>6.6、量化與硬體，TVM結合加速</strong></p>
+<p>FPGA相關會議有很多paper都是在講如何將量化和FPGA的加速器結合，以及比較火的TVM怎麼去結合量化做一些更好的加速。</p>
+<p>另外還有很多的工程問題，比如在量化中，batchnorm參數怎麼解決，量化的batchnorm的4個參數對誤差的影響還是特別大的，怎麼去解決這個問題也是非常有意思的研究方向。</p>
+</div>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+			<div class="amp-wp-meta amp-wp-tax-category">
+		分類: <a href="https://daynews.cc/technology/" rel="category tag">科技</a>	</div>
+
+		<div class="amp-wp-meta amp-wp-comments-link">
+		<a href="https://daynews.cc/technology/26821/#comments">
+			寫評論		</a>
+	</div>
+	</footer>
+</article>
+
+<footer class="amp-wp-footer">
+	<div>
+		<h2>天天要聞</h2>
+		<a href="#top" class="back-to-top">返回頂部</a>
+	</div>
+</footer>
+
+
+<amp-analytics id="354f0d2beeef" type="baiduanalytics"><script type="application/json">{"vars":{"token":"882f12dcdadf8f87fabf76b550649115"},"triggers":{"trackPageview":{"on":"visible","request":"pageview"}}}</script></amp-analytics>
+</body>
+</html>
+<!-- This is the static html file -->
