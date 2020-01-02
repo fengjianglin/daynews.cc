@@ -1,0 +1,967 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+	<head>
+		<title>手把手教你用 Flask, Docker 和 Kubernetes 部署Python機器學習模型（附代碼） - 天天要聞</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="zh-tw">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="description" content="將機器學習（ML）模型部署到生產環境中的一個常見模式是將這些模型作為 RESTful API 微服務公開，這些微服務從 Docker 容器中託管，例如使用 SciKit Learn 或 Keras 包訓練的 ML 模型，這些模型可以提供對新數據的預測。然後，可以將它們部署到雲環境中，以處理維護連續可用性所需的所有事情，例如容錯、自動縮放、……" />
+		<meta name="keywords" content="手把手教你用 Flask, Docker 和 Kubernetes 部署Python機器學習模型（附代碼） - 天天要聞,科技," />
+		<meta itemprop="image" content="http://p1.pstatp.com/large/pgc-image/RlOEGYe87qAENi"/>
+		<meta name="description" itemprop="description" content="將機器學習（ML）模型部署到生產環境中的一個常見模式是將這些模型作為 RESTful API 微服務公開，這些微服務從 Docker 容器中託管，例如使用 SciKit Learn 或 Keras 包訓練的 ML 模型，這些模型可以提供對新數據的預測。然後，可以將它們部署到雲環境中，以處理維護連續可用性所需的所有事情，例如容錯、自動縮放、……" />
+		
+<!-- This site is optimized with the SEO -->
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="https://daynews.cc/technology/33508/" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="手把手教你用 Flask, Docker 和 Kubernetes 部署Python機器學習模型（附代碼） - 天天要聞" />
+<meta property="og:description" content="將機器學習（ML）模型部署到生產環境中的一個常見模式是將這些模型作為 RESTful API 微服務公開，這些微服務從 Docker 容器中託管，例如使用 SciKit Learn 或 Keras 包訓練的 ML 模型，這些模型可以提供對新數據的預測。然後，可以將它們部署到雲環境中，以處理維護連續可用性所需的所有事情，例如容錯、自動縮放、……" />
+<meta property="og:url" content="https://daynews.cc/technology/33508/" />
+<meta property="og:site_name" content="天天要聞" />
+<meta property="article:section" content="科技" />
+<meta property="article:published_time" content="2019-12-23T06:45:08+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="將機器學習（ML）模型部署到生產環境中的一個常見模式是將這些模型作為 RESTful API 微服務公開，這些微服務從 Docker 容器中託管，例如使用 SciKit Learn 或 Keras 包訓練的 ML 模型，這些模型可以提供對新數據的預測。然後，可以將它們部署到雲環境中，以處理維護連續可用性所需的所有事情，例如容錯、自動縮放、……" />
+<meta name="twitter:title" content="手把手教你用 Flask, Docker 和 Kubernetes 部署Python機器學習模型（附代碼） - 天天要聞" />
+<meta name="twitter:image" content="http://p1.pstatp.com/large/pgc-image/RlOEGYe87qAENi" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://daynews.cc/#website","url":"https://daynews.cc/","name":"\u5929\u5929\u8981\u805e","description":"\u4e00\u7db2\u6253\u76e1\u5168\u7db2\u6700\u65b0\u8cc7\u8a0a\u6700\u71b1\u982d\u689d\u65b0","potentialAction":{"@type":"SearchAction","target":"https://daynews.cc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://daynews.cc/technology/33508/#primaryimage","url":"http://p1.pstatp.com/large/pgc-image/RlOEGYe87qAENi"},{"@type":"WebPage","@id":"https://daynews.cc/technology/33508/#webpage","url":"https://daynews.cc/technology/33508/","inLanguage":"zh-TW","name":"\u624b\u628a\u624b\u6559\u4f60\u7528 Flask, Docker \u548c Kubernetes \u90e8\u7f72Python\u6a5f\u5668\u5b78\u7fd2\u6a21\u578b\uff08\u9644\u4ee3\u78bc\uff09 - \u5929\u5929\u8981\u805e","isPartOf":{"@id":"https://daynews.cc/#website"},"primaryImageOfPage":{"@id":"https://daynews.cc/technology/33508/#primaryimage"},"datePublished":"2019-12-23T06:45:08+00:00","dateModified":"2019-12-23T06:45:08+00:00","author":{"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d"}},{"@type":["Person"],"@id":"https://daynews.cc/#/schema/person/038ceb5ed68cf11f9ec94ba43c7ff55d","name":"\u5929\u5929\u8981\u805e","image":{"@type":"ImageObject","@id":"https://daynews.cc/#authorlogo","url":"https://secure.gravatar.com/avatar/e786821a74ef0467825a7d60183307bc?s=96&d=mm&r=g","caption":"\u5929\u5929\u8981\u805e"},"sameAs":[]}]}</script>
+<!-- / SEO. -->
+
+<link rel='stylesheet' id='animate-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/animate.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/bootstrap.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='superfish-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/superfish.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='https://daynews.cc/wp-content/themes/Kratos/css/layer.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='https://daynews.cc/wp-content/themes/Kratos/style.css' type='text/css' media='all' />
+<link rel="amphtml" href="https://daynews.cc/technology/33508/amp/">		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.min.js'></script>
+		
+		<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?882f12dcdadf8f87fabf76b550649115";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+		</script>
+		
+	</head>
+		<body data-spy="scroll" data-target=".scrollspy">
+		<div id="kratos-wrapper">
+			<div id="kratos-page">
+				<div id="kratos-header">
+					<header id="kratos-header-section">
+						<div class="container">
+							<div class="nav-header">
+																	<a href="#" class="js-kratos-nav-toggle kratos-nav-toggle"><i></i></a>
+																																	<h1 id="kratos-logo"><a href="https://daynews.cc"><i class="fa fa-globe" style="font-size: 30px;"></i> 天天要聞</a></h1>
+																							 <nav id="kratos-menu-wrap" class="menu-daohang-container"><ul id="kratos-primary-menu" class="sf-menu"><li><a href="/">首頁</a></li>
+<li><a href="https://daynews.cc/entertainment/">娛樂</a></li>
+<li><a href="https://daynews.cc/emotion/">情感</a></li>
+<li><a href="https://daynews.cc/international/">國際</a></li>
+<li class="current-post-ancestor current-menu-parent"><a href="https://daynews.cc/technology/">科技</a></li>
+<li><a href="https://daynews.cc/sports/">體育</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/nba/">NBA</a></li>
+	<li><a href="https://daynews.cc/premier/">英超</a></li>
+</ul>
+</li>
+<li><a href="https://daynews.cc/history/">歷史</a></li>
+<li><a href="https://daynews.cc/game/">遊戲</a></li>
+<li><a href="https://daynews.cc/health/">養生</a>
+<ul class="sub-menu">
+	<li><a href="https://daynews.cc/lose/">減肥</a></li>
+</ul>
+</li>
+<li><a href="https://daynews.cc/constellation/">星座</a></li>
+</ul></nav>							</div>
+						</div>
+					</header>
+				</div><div class="kratos-start kratos-hero-2 kratos-post-header"><div class="kratos-overlay kratos-post" style="background:#00a2ff"></div></div><div id="kratos-blog-post" style="background:#f5f5f5">
+	<div class="container">
+		<div class="row">
+			            <section id="main" class='col-md-8'>
+								<article>
+					<div class="kratos-hentry kratos-post-inner clearfix">
+						<header class="kratos-entry-header">
+							<h1 class="kratos-entry-title text-center">手把手教你用 Flask, Docker 和 Kubernetes 部署Python機器學習模型（附代碼）</h1>
+							<div class="kratos-post-meta text-center">
+								<span>
+								<i class="fa fa-calendar"></i> 2019-12-23				                <i class="fa fa-commenting-o"></i> 603條評論
+				                <i class="fa fa-eye"></i> 2,261次閱讀
+				                <i class="fa fa-thumbs-o-up"></i> 106人點贊
+								</span>
+							</div>
+						</header>
+						<div class="kratos-post-content">
+						                        <div>
+ <img layer-src="http://p1.pstatp.com/large/pgc-image/RlOEGYe87qAENi" src="http://p1.pstatp.com/large/pgc-image/RlOEGYe87qAENi" alt="《手把手教你用 Flask, Docker 和 Kubernetes 部署Python機器學習模型（附代碼）》" /></p>
+<p>將機器學習（ML）模型部署到生產環境中的一個常見模式是將這些模型作為 RESTful API 微服務公開，這些微服務從 Docker 容器中託管，例如使用 SciKit Learn 或 Keras 包訓練的 ML 模型，這些模型可以提供對新數據的預測。然後，可以將它們部署到雲環境中，以處理維護連續可用性所需的所有事情，例如容錯、自動縮放、負載平衡和滾動服務更新。</p>
+<p>持續可用的雲部署的配置詳細信息對於不同的目標雲提供商來說是不一樣的——例如，Amazon Web 服務的部署過程和拓撲結構與微軟 Azure 不同，後者又與谷歌雲平台不同。這構成了每個雲提供商需要獲取的知識。此外，在本地測試整個部署策略是困難的（有些人會說幾乎不可能），它使得網路等問題難以調試。</p>
+<p>Kubernetes 是一個容器編排平台，旨在解決這些問題。簡而言之，它提供了一種機制，用於定義整個基於微服務的應用程序部署拓撲及其維護連續可用性的服務級別要求。對於目標雲提供商來說，它可以在本地運行，甚至可以在你的筆記本電腦上運行，而這一切所需的只是運行 Kubernetes 的虛擬機集群，即 Kubernetes 集群。</p>
+<p>這篇博客適合與 GitHub 存儲庫中的代碼一起閱讀，其中包含 Python 模塊、Docker 配置文件和 Kubernetes 指令，用於演示如何使用 Docker 和 Kubernetes 將簡單的 Python ML 模型轉換為生產級 RESTful 模型評分（或預測）API 服務。這不是一個全面的指南，但它會幫助你快速啟動和運行，熟悉基本概念和模式。</p>
+<p>我們將使用兩種不同的方法演示 ML 模型部署：使用 Docker 和 Kubernetes 的第一原則方法；然後使用 Seldon Core Kubernetes 本機框架來簡化 ML 服務的部署。前者將有助於理解後者，後者構成一個強大的框架，用於部署和監視許多複雜的 ML 模型管道的性能。</p>
+<p><strong>使用 Flask 和 Docker 容器化一個簡單的 ML 模型評分伺服器</strong></p>
+<p>我們首先演示如何使用 api.py 模塊中包含的簡單 Python ML 模型評分 REST API 和 Dockerfile 來實現這一基本功能，這兩個文件都位於 py-flask-ml-score-api 目錄中，其核心內容如下：</p>
+<blockquote>
+<p>py-flask-ml-score-api/ </p>
+<p>| Dockerfile </p>
+<p>| Pipfile </p>
+<p>| Pipfile.lock </p>
+<p>| api.py</p>
+</blockquote>
+<p><strong>在 api.py 模塊中定義 Flask Service</strong></p>
+<p>這是一個 Python 模塊，它使用 Flask 框架定義一個 web 服務（app），帶有一個函數（score），該函數在響應對特定 URL（或「route」）的 HTTP 請求時執行，這要歸功於 app.route 函數的封裝。相關代碼複製如下，以供參考：</p>
+<blockquote>
+<p>from flask import Flask, jsonify, make_response, request</p>
+</p>
+<p>app = Flask(__name__)</p>
+</p>
+<p>@app.route(&#8216;/score&#8217;, methods=[&#8216;POST&#8217;])</p>
+<p>def score:</p>
+<p>features = request.json[&#8216;X&#8217;]</p>
+<p>return make_response(jsonify({&#8216;score&#8217;: features}))</p>
+</p>
+<p>if __name__ == &#8216;__main__&#8217;: app.run(host=&#8217;0.0.0.0&#8242;, port=5000</p>
+</blockquote>
+<p>如果在本地運行（例如，使用 python run api.py 啟動 web 服務），我們就可以在 http://localhost:5000/score訪問我們的函數。此函數接受以 JSON 形式發送給它的數據（該數據已自動反序列化為 Python dict，在函數定義中用作請求變數），並返迴響應（自動序列化為 JSON）。</p>
+<p>在我們的示例函數中，我們期望傳遞給 ML 模型一組特性 X，在我們的示例中，ML 模型將這些相同的特性返回給調用者，即我們選擇的 ML 模型是 identity 函數，我們選擇它純粹是為了演示。我們可以很容易地載入一個 pickled SciKit Learn 或 Keras 模型，並將數據傳遞給 approproate predict 方法，以 JSON 的形式返回特性數據的分數。</p>
+<p><strong>用 Dockerfile 定義 Docker 映像</strong></p>
+<p>Dockerfile 本質上是 Docker 使用的配置文件，它允許你在操作時定義 Docker 容器的內容並配置其操作。此靜態數據在未作為容器執行時稱為「image」。作為參考，Dockerfile 複製如下：</p>
+<blockquote>
+<p>FROM python:3.6-slim</p>
+<p>WORKDIR /usr/src/app</p>
+<p>COPY . .</p>
+<p>RUN pip install pipenv</p>
+<p>RUN pipenv install</p>
+<p>EXPOSE 5000</p>
+<p>CMD [&#8220;pipenv&#8221;, &#8220;run&#8221;, &#8220;python&#8221;, &#8220;api.py&#8221;]</p>
+</blockquote>
+<p>在我們的示例 Dockerfile 中，我們：</p>
+<ul>
+<li>
+<p>首先使用一個預先配置好的 Docker 鏡像（python:3.6-slim），它已經安裝了 python 的 Alpine Linux 發行版；</p>
+</li>
+<li>
+<p>然後將 py-flask-ml-score-api 本地目錄的內容複製到圖像上名為 /usr/src/app 的目錄中；</p>
+</li>
+<li>
+<p>然後使用 pip 為 Python 依賴管理安裝 Pipenv 包；</p>
+</li>
+<li>
+<p>然後使用 Pipenv 將 Pipfile.lock 中描述的依賴項安裝到映像上的虛擬環境中；</p>
+</li>
+<li>
+<p>將埠 5000 配置為暴露在運行容器上的「外部世界」；</p>
+</li>
+<li>
+<p>啟動 Flask RESTful web 服務——api.py。注意，這裡我們依賴 Flask 的內部 WSGI 伺服器，而在生產環境中，我們建議配置一個更魯棒的選項（例如 Gunicorn）。</p>
+</li>
+</ul>
+<p>構建此自定義映像並要求 Docker 進程運行它（請記住，正在運行的映像是一個「容器」），將在埠 5000 上公開我們的 RESTful ML 模型評分服務，就像它在專用虛擬機上運行一樣。有關這些核心概念的更全面的討論，請參閱 Docker 官方文檔。</p>
+<p><strong>為 ML Scoring Service 構建 Docker 映像</strong></p>
+<p>我們假設 Docker 在本地運行，客戶端登錄到 DockerHub 上的一個帳戶，並且在這個項目的根目錄中有一個打開的終端。要構建 Dockerfile 運行中描述的映像：</p>
+<blockquote>
+<p>docker build &#8211;tag alexioannides/test-ml-score-api py-flask-ml-score-api</p>
+</blockquote>
+<p>其中「AlxiiNANIDs」指的是 DockerHub 帳戶的名稱，我們將在對圖像進行測試之後上傳它。</p>
+<p><strong>測試</strong></p>
+<p>要測試印象是否可以用於創建一個 Docker 容器，該容器的功能與我們預期的一樣，</p>
+<blockquote>
+<p>docker run &#8211;rm &#8211;name test-api -p 5000:5000 -d alexioannides/test-ml-score-ap</p>
+</blockquote>
+<p>我們已經從 Docker 容器（即我們的 ML 模型評分伺服器正在監聽的埠）映射到主機（localhost）上的埠 5000：</p>
+<blockquote>
+<p>docker ps</p>
+</blockquote>
+<p>然後檢查容器是否正在使用：</p>
+<blockquote>
+<p>curl http://localhost:5000/score \</p>
+<p>&#8211;request POST \</p>
+<p>&#8211;header &#8220;Content-Type: application/json&#8221; \</p>
+<p>&#8211;data &#8216;{&#8220;X&#8221;: [1, 2]}</p>
+</blockquote>
+<p>你應該得到的輸出是：</p>
+<blockquote>
+<p>{&#8220;score&#8221;:[1,2]}</p>
+</blockquote>
+<p>我們的測試模型所做的只是返回輸入數據，即它是 identity 函數。修改此服務以從磁碟載入 SciKit Learn 模型並將新數據傳遞給生成預測的「predict」方法只需要幾行額外的代碼。現在容器已經確認可以使用了，我們可以停止它：</p>
+<blockquote>
+<p>docker stop test-api</p>
+</blockquote>
+<p><strong>將印象推送到 DockerHub 註冊表</strong></p>
+<p>為了讓遠程 Docker 主機或 Kubernetes 群集能夠訪問我們創建的映像，我們需要將其發布到映像註冊表。所有能提供基於託管 Docker 服務的雲計算提供商都將提供私有印象註冊，但為了方便起見，我們將使用 DockerHub 的公共印象註冊。將我們的新印象推到 DockerHub（我的帳戶 ID 是「AlxiiNANIDs」）。</p>
+<blockquote>
+<p>docker push alexioannides/test-ml-score-api</p>
+</blockquote>
+<p>我們現在可以看到，我們為印象選擇的命名約定與我們的目標圖像註冊表有內在的聯繫（需要時，你需要插入自己的帳戶 ID）。上傳完成後，登錄 DockerHub，通過 DockerHub 用戶界面確認上傳成功。</p>
+<p><strong>安裝 Kubernetes 供本機開發和測試</strong></p>
+<p>安裝單節點 Kubernetes 集群有兩個適合本機開發和測試的選項：通過 Docker 桌面客戶端，或者通過 Minikube。</p>
+<p><strong>通過 Docker 桌面安裝 Kubernetes</strong></p>
+<p>如果你一直在 Mac 電腦上使用 Docker，那麼你很有可能是通過 Docker 桌面應用程序來完成的。如果沒有，則可以在此處下載 Docker 桌面。Docker 桌面現在與 Kubernetes 捆綁在一起，可以通過進入 Preferences-&gt;Kubernetes 並選擇 Enable Kubernetes 來激活它。Docker 桌面需要一段時間才能下載運行 Kubernetes 所需的 Docker 印象，所以請耐心等待。完成後，轉到 Preferences-&gt;Advanced，確保至少為 Docker 引擎分配了 2 個 CPU 和 4 個 GiB，這是部署單個 Seldon ML 組件所需的最低資源。</p>
+<p>要與 Kubernetes 集群交互，你需要 kubectl 命令行界面（CLI）工具，該工具需要單獨下載。在 Mac 上執行此操作的最簡單方法是使用 brew install kubernetes-cli。一旦安裝了 kubectl 並啟動並運行了 Kubernetes 集群，就可以通過運行它來測試是否能按預期工作。</p>
+<blockquote>
+<p>kubectl cluster-info</p>
+</blockquote>
+<p>返回應該如下：</p>
+<blockquote>
+<p>Kubernetes master is running at https://kubernetes.docker.internal:6443KubeDNS is running at https://kubernetes.docker.internal:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy</p>
+</p>
+<p>To further debug and diagnose cluster problems, use &#8216;kubectl cluster-info dump&#8217;.</p>
+</blockquote>
+<p><strong>通過 Minikube 安裝 Kubernetes</strong></p>
+<p>在 Mac OS X 上，啟動和運行 Minikube 所需的步驟如下：</p>
+<ul>
+<li>
+<p>確保安裝了安裝包管理器</p>
+</li>
+<li>
+<p>使用安裝 VirtualBox，使用 brew cask 安裝 VirtualBox</p>
+</li>
+<li>
+<p>使用安裝 Minikube，使用 brew cask 安裝 minicube</p>
+</li>
+</ul>
+<p>要啟動測試群集：</p>
+<blockquote>
+<p>minikube start &#8211;memory 409</p>
+</blockquote>
+<p>其中，我們指定了部署單個 Seldon ML 組件所需的最小內存量。耐心點，Minikube 可能需要一段時間才能開始，要先測試該群集是否運行正常。</p>
+<blockquote>
+<p>kubectl cluster-info</p>
+</blockquote>
+<p>其中 kubectl 是用於與 Kubernetes API 交互的標準命令行界面（CLI）客戶機。</p>
+<p><strong>將容器化的 ML 模型評分服務部署到 Kubernetes </strong></p>
+<p>要在 Kubernetes 上啟動我們的測試模型評分服務，我們將首先在 Kubernetes Pod 中部署容器化服務，它的推出由部署管理，而部署又會創建一個 ReplicaSet，這是通過下面的代碼實現的：</p>
+<blockquote>
+<p>kubectl create deployment test-ml-score-api &#8211;image=alexioannides/test-ml-score-api:lates</p>
+</blockquote>
+<p>要檢查部署運行的狀態，</p>
+<blockquote>
+<p>kubectl rollout status deployment test-ml-score-api</p>
+</blockquote>
+<p>為了看到運行的 pod，</p>
+<blockquote>
+<p>kubectl get pod</p>
+</blockquote>
+<p>可以使用埠轉發來測試單個容器，而無需將其公開到公共網路。要使用此功能，請打開一個單獨的終端並運行。例如，</p>
+<blockquote>
+<p>kubectl port-forward test-ml-score-api-szd4j 5000:500</p>
+</blockquote>
+<p>其中 body-ml-score-api-szd4j 是集群上當前活動的 pod 的確切名稱，由 kubectl get pods 命令確定。然後從原來的終端，對運行在 Kubernetes 上的同一個容器重複我們的測試請求，</p>
+<blockquote>
+<p>curl http://localhost:5000/score \</p>
+<p>&#8211;request POST \</p>
+<p>&#8211;header &#8220;Content-Type: application/json&#8221; \</p>
+<p>&#8211;data &#8216;{&#8220;X&#8221;: [1, 2]}</p>
+</blockquote>
+<p>要將容器作為（負載平衡）服務公開，我們必須創建引用它的 Kubernetes 服務。這是通過以下命令實現的：</p>
+<blockquote>
+<p>kubectl expose deployment test-ml-score-api &#8211;port 5000 &#8211;type=LoadBalancer &#8211;name test-ml-score-api-lb</p>
+</blockquote>
+<p>如果你使用的是 Docker 桌面，那麼這將自動模擬 http://localhost:5000上的負載平衡器。查找 Minikube 在何處公開其模擬負載平衡器運行：</p>
+<blockquote>
+<p>minikube service list</p>
+</blockquote>
+<p>現在我們測試我們的新伺服器，例如，使用 Docker 桌面：</p>
+<blockquote>
+<p>curl http://localhost:5000/score \</p>
+<p>&#8211;request POST \</p>
+<p>&#8211;header &#8220;Content-Type: application/json&#8221; \</p>
+<p>&#8211;data &#8216;{&#8220;X&#8221;: [1, 2]}</p>
+</blockquote>
+<p>注意，Docker Desktop 和 Minikube 都沒有設置一個真實的負載平衡器（如果我們在雲平台上提出這個請求，就會發生這種情況）。要拆下負載平衡器，請依次運行以下命令：</p>
+<blockquote>
+<p>kubectl delete deployment test-ml-score-apikubectl delete service test-ml-score-api-l</p>
+</blockquote>
+<p><strong>在 Google 雲平台上配置多節點集群</strong></p>
+<p>該集群的資源遠遠大於筆記本電腦上 Kubernetes 管理器平台。我們將在 Google 雲平台（GCP）上使用 Kubernetes 引擎。</p>
+<p><strong>啟動並運行 Google 雲平台</strong></p>
+<p>在使用 Google 雲平台之前，請註冊一個帳戶並創建一個專門用於此工作的項目。接下來，確保 GCP SDK 安裝在本地計算機上，例如：</p>
+<blockquote>
+<p>brew cask install google-cloud-sdk</p>
+</blockquote>
+<p>或者直接從 GCP 下載安裝映像。注意，如果你還沒有安裝 Kubectl，那麼現在就需要安裝，這可以使用 GCP SDK 完成：</p>
+<blockquote>
+<p>gcloud components install kubectl</p>
+</blockquote>
+<p>然後我們需要初始化 SDK</p>
+<blockquote>
+<p>gcloud init</p>
+</blockquote>
+<p>它將打開瀏覽器並指導你完成必要的身份驗證步驟，確保選擇創建的項目以及默認區域。</p>
+<p><strong>初始化 Kubernetes 群集</strong></p>
+<p>首先，在 GCP UI 中，訪問 Kubernetes 引擎頁面以觸發 Kubernetes API 啟動。然後從命令行啟動一個集群：</p>
+<blockquote>
+<p>gcloud container clusters create k8s-test-cluster &#8211;num-nodes 3 &#8211;machine-type g1-small</p>
+</blockquote>
+<p>然後，在等待集群創建的同時，你可以泡杯咖啡。注意，這將自動切換 kubectl 上下文以指向 GCP 上的集群，如果運行 kubectl config get-contexts，你將看到這一點。要切換回 Docker 桌面客戶端，請使用 kubectl config use-context docker-desktop。</p>
+<p><strong>在 GCP 上啟動容器化 ML 模型評分伺服器</strong></p>
+<p>這在很大程度上與我們在本地運行測試服務時所做的相同-依次運行以下命令：</p>
+<blockquote>
+<p>kubectl create deployment test-ml-score-api &#8211;image=alexioannides/test-ml-score-api:latest</p>
+<p>kubectl expose deployment test-ml-score-api &#8211;port 5000 &#8211;type=LoadBalancer &#8211;name test-ml-score-api-lb</p>
+</blockquote>
+<p>但是，要找到我們需要使用的 GCP 集群的外部 IP 地址：</p>
+<blockquote>
+<p>kubectl get services</p>
+</blockquote>
+<p>然後我們可以在 GCP 上測試我們的伺服器，例如：</p>
+<blockquote>
+<p>curl http://35.246.92.213:5000/score \</p>
+<p>&#8211;request POST \</p>
+<p>&#8211;header &#8220;Content-Type: application/json&#8221; \</p>
+<p>&#8211;data &#8216;{&#8220;X&#8221;: [1, 2]}』</p>
+</blockquote>
+<p>或者，我們可以再次使用埠來連接到單個 pod，例如：</p>
+<blockquote>
+<p>kubectl port-forward test-ml-score-api-nl4sc 5000:5000</p>
+</blockquote>
+<p>然後在一個單獨的終端上：</p>
+<blockquote>
+<p>curl http://localhost:5000/score \</p>
+<p>&#8211;request POST \</p>
+<p>&#8211;header &#8220;Content-Type: application/json&#8221; \</p>
+<p>&#8211;data &#8216;{&#8220;X&#8221;: [1, 2]}&#8217;</p>
+</blockquote>
+<p>最後，我們拆除複製控制器和負載平衡器，</p>
+<blockquote>
+<p>kubectl delete deployment test-ml-score-apikubectl delete service test-ml-score-api-lb</p>
+</blockquote>
+<p><strong>在 Kubectl 上下文之間切換</strong></p>
+<p>如果在本地運行 Kubernetes 和 GCP 上運行一個集群，那麼可以將 Kubectl 上下文從一個集群切換到另一個集群，如下所示：</p>
+<blockquote>
+<p>kubectl config use-context docker-desktop</p>
+</blockquote>
+<p>其中上下文的列表可以使用，</p>
+<blockquote>
+<p>kubectl config get-contexts</p>
+</blockquote>
+<p><strong>使用 YAML 文件定義和部署 ML 模型評分伺服器</strong></p>
+<p>到目前為止，我們一直在使用 Kubectl 命令來定義和部署我們的 ML 模型評分伺服器的基本版本。這對於演示來說是很好的，但是很快就受限，且無法控制。實際上，定義整個 Kubernetes 部署的標準方法是使用發布到 Kubernetes API 的 YAML 文件。py-flask-ml-score-api 目錄中的 py-flask-ml-score.yaml 文件是一個示例，它說明了如何在單個 yaml 文件中定義我們的 ML 模型評分伺服器。現在可以使用一個命令部署它：</p>
+<blockquote>
+<p>kubectl apply -f py-flask-ml-score-api/py-flask-ml-score.yaml</p>
+</blockquote>
+<p>注意，我們在這個文件中定義了三個單獨的 Kubernetes 組件：一個名稱空間、一個部署和一個負載平衡伺服器，對於所有這些組件（及其子組件），使用 &#8212; 來限定每個單獨組件的定義。要查看部署到此命名空間中的所有組件的使用方法：</p>
+<blockquote>
+<p>kubectl get all &#8211;namespace test-ml-app</p>
+</blockquote>
+<p>同樣，當使用任何 kubectl get 命令檢查測試應用程序的不同組件時，設置 &#8211;namespace 標誌。或者，我們可以將新的名稱空間設置為默認上下文：</p>
+<blockquote>
+<p>kubectl config set-context $(kubectl config current-context) &#8211;namespace=test-ml-app</p>
+</blockquote>
+<p>然後運行：</p>
+<blockquote>
+<p>kubectl get all</p>
+</blockquote>
+<p>在這裡，我們可以使用</p>
+<blockquote>
+<p>kubectl config set-context $(kubectl config current-context) &#8211;namespace=default</p>
+</blockquote>
+<p>拆掉我們可以使用的應用程序，</p>
+<blockquote>
+<p>kubectl delete -f py-flask-ml-score-api/py-flask-ml-score.yaml</p>
+</blockquote>
+<p>這樣我們就不必使用多個命令單獨刪除每個組件。請參閱 Kubernetes API 的官方文檔，以更深入地了解此 YAML 文件的內容。</p>
+<p><strong>使用 Helm 圖表定義和部署 ML 模型評分伺服器</strong></p>
+<p>為 Kubernetes 編寫 YAML 文件可能是重複性的工作，且難以管理，特別是如果涉及到大量的「複製粘貼」，那麼從一個部署到下一個部署只需要更改少數參數，但有一堵「YAML 牆」需要修改。輸入 Helm——一個用於創建、執行和管理 Kubernetes 部署模板的框架。下面是一個非常棒的演示，它是關於如何使用 Helm 來部署我們的 ML 模型評分伺服器。要全面討論 Helm 的全部功能，請參考官方文檔。Seldon Core 也可以使用 Helm 部署，稍後我們將更詳細地介紹這一點。</p>
+<p><strong>安裝 Helm</strong></p>
+<p>和以前一樣，在 Mac OS X 上安裝 Helm 的最簡單方法是使用自製包管理器，</p>
+<blockquote>
+<p>brew install kubernetes-helm</p>
+</blockquote>
+<p>Helm 依賴於一個專用的部署伺服器，稱為「Tiller」，它運行在我們希望部署應用程序的 Kubernetes 集群中。在部署 Tiller 之前，我們需要創建一個在集群範圍內的超級用戶角色來分配給它，以便它可以在任何命名空間中創建和修改 Kubernetes 資源。為了實現這一點，我們首先創建一個服務帳戶，通過此方法，pod 在與服務帳戶關聯時，可以向 Kubernetes API 進行驗證，以便能夠查看、創建和修改資源。我們在 kube 系統名稱空間中創建它，如下所示，</p>
+<blockquote>
+<p>kubectl &#8211;namespace kube-system create serviceaccount tiller</p>
+</blockquote>
+<p>然後在此服務帳戶和群集角色之間創建綁定，顧名思義，該綁定會授予群集範圍內的管理許可權：</p>
+<blockquote>
+<p>kubectl create clusterrolebinding tiller \</p>
+<p>&#8211;clusterrole cluster-admin \</p>
+<p>&#8211;serviceaccount=kube-system:tiller</p>
+</blockquote>
+<p>我們現在可以將 Helm Tiller 部署到 Kubernetes 集群，並使用所需的訪問許可權，</p>
+<blockquote>
+<p>helm init &#8211;service-account tiller</p>
+</blockquote>
+<p><strong>使用 Helm 進行部署</strong></p>
+<p>要創建新的 Helm 布署定義，</p>
+<blockquote>
+<p>helm create NAME-OF-YOUR-HELM-CHART</p>
+</blockquote>
+<p>這將創建一個新的目錄，例如 helm-ml-score-app，它包含在這個存儲庫中，具有以下高級目錄結構，</p>
+<blockquote>
+<p>helm-ml-score-app/</p>
+<p>| &#8212; charts/</p>
+<p>| &#8212; templates/</p>
+<p>| Chart.yaml</p>
+<p>| values.yaml</p>
+</blockquote>
+<p>簡而言之，charts 目錄包含我們的新表所依賴的其他表（我們不會使用這個），templates 目錄包含我們的 Helm 模板，Chart.yaml 包含圖表的核心信息（例如名稱和版本信息），values.yaml 包含用於呈現模板的默認值的信息（如果沒有從命令行設置值）。</p>
+<p>下一步是刪除模板目錄中的所有文件（NOTES.txt 除外），並用我們自己的文件替換它們。我們從 namespace.yaml 開始為應用程序聲明命名空間，</p>
+<blockquote>
+<p>apiVersion: v1</p>
+<p>kind: Namespace</p>
+<p>metadata:</p>
+<p>name: {{ .Values.app.namespace }}</p>
+</blockquote>
+<p>在此特定實例中 .Values.app.namespace 插入 app.namespace 變數，其默認值在 Values.yaml 中定義。接下來，我們在 deployment.yaml 中定義 pods 的部署：</p>
+<blockquote>
+<p>apiVersion: apps/v1</p>
+<p>kind: Deployment</p>
+<p>metadata:</p>
+<p>labels:</p>
+<p>app: {{ .Values.app.name }}</p>
+<p>env: {{ .Values.app.env }}</p>
+<p>name: {{ .Values.app.name }}</p>
+<p>namespace: {{ .Values.app.namespace }}</p>
+<p>spec:</p>
+<p>replicas: 1</p>
+<p>selector:</p>
+<p>matchLabels:</p>
+<p>app: {{ .Values.app.name }}</p>
+<p>template:</p>
+<p>metadata:</p>
+<p>labels:</p>
+<p>app: {{ .Values.app.name }}</p>
+<p>env: {{ .Values.app.env }}</p>
+<p>spec:</p>
+<p>containers:</p>
+<p>&#8211; image: {{ .Values.app.image }}</p>
+<p>name: {{ .Values.app.name }}</p>
+<p>ports:</p>
+<p>&#8211; containerPort: {{ .Values.containerPort }}</p>
+<p>protocol: TCP</p>
+</blockquote>
+<p>以及 service.yaml 中的負載平衡器服務的詳細信息，</p>
+<blockquote>
+<p>apiVersion: v1kind: Servicemetadata:</p>
+<p>name: {{ .Values.app.name }}-lb</p>
+<p>labels:</p>
+<p>app: {{ .Values.app.name }}</p>
+<p>namespace: {{ .Values.app.namespace }}spec:</p>
+<p>type: LoadBalancer</p>
+<p>ports:</p>
+<p>&#8211; port: {{ .Values.containerPort }}</p>
+<p>targetPort: {{ .Values.targetPort }}</p>
+<p>selector:</p>
+<p>app: {{ .Values.app.name }}</p>
+</blockquote>
+<p>實際上，我們所做的是將部署細節的每個組件從 py-flask-ml-score.yaml 拆分到自己的文件中，然後為配置的每個參數定義模板變數。要測試和檢查呈現的模板，請運行：</p>
+<blockquote>
+<p>helm install helm-ml-score-app &#8211;debug &#8211;dry-run</p>
+</blockquote>
+<p>如果您對「dry run」的結果感到滿意，則執行部署並使用：</p>
+<blockquote>
+<p>helm install helm-ml-score-app &#8211;name test-ml-app</p>
+</blockquote>
+<p>這將自動列印發布的狀態，以及 Helm 賦予它的名稱和呈現給終端的 NOTES.txt 的內容。列出所有可用的 Helm 版本及其名稱：</p>
+<blockquote>
+<p>helm list</p>
+</blockquote>
+<p>以及其所有組成組件（如 pod、複製控制器、伺服器等）的狀態，例如：</p>
+<blockquote>
+<p>helm status test-ml-app</p>
+</blockquote>
+<p>ML 評分伺服器現在可以用與上面完全相同的方式進行測試。一旦你確信它按預期工作，就可以使用了：</p>
+<blockquote>
+<p>helm delete test-ml-app</p>
+</blockquote>
+<p><strong>使用 Seldon 將 ML 模型評分伺服器部署到 Kubernetes</strong></p>
+<p>Seldon 的核心任務是簡化 Kubernetes 上複雜 ML 預測管道的重複部署和管理。在本演示中，我們將重點介紹最簡單的示例，即我們已經使用的簡單的 ML 模型評分 API。</p>
+<p><strong>為 Seldon 構建 ML 組件</strong></p>
+<p>要使用 Seldon 部署 ML 組件，我們需要創建 Seldon 兼容的 Docker 映像。我們首先遵循相關指導原則來定義一個 Python 類，該類封裝了一個用於 Seldon 部署的 ML 模型。它包含在 seldon-ml-score-component 目錄中，其內容類似於 py-flask-ml-score-api 中的內容：</p>
+<blockquote>
+<p>seldon-ml-score-component/</p>
+<p>| Dockerfile</p>
+<p>| MLScore.py</p>
+<p>| Pipfile</p>
+<p>| Pipfile.lock</p>
+</blockquote>
+<p><strong>構建 Docker 印像以用於 Seldon</strong></p>
+<p>Seldon 要求 ML 評分伺服器的 Docker 映像以特定的方式構造：</p>
+<ul>
+<li>
+<p>ML 模型必須封裝在一個 Python 類中，其中包含一個帶有特定簽名（或介面）的 predict 方法，例如，在 MLScore.py（故意以其中包含的 Python 類命名）中：</p>
+</li>
+</ul>
+<blockquote>
+<p>class MLScore:</p>
+<p>&#8220;&#8221;&#8221;</p>
+<p>Model template. You can load your model parameters in __init__ from</p>
+<p>a location accessible at runtime</p>
+<p>&#8220;&#8221;&#8221;</p>
+<p>def __init__(self):</p>
+<p>&#8220;&#8221;&#8221;</p>
+<p>Load models and add any initialization parameters (these will</p>
+<p>be passed at runtime from the graph definition parameters</p>
+<p>defined in your seldondeployment kubernetes resource manifest).</p>
+<p>&#8220;&#8221;&#8221;</p>
+<p>print(&#8220;Initializing&#8221;)</p>
+<p>def predict(self, X, features_names):</p>
+<p>&#8220;&#8221;&#8221;</p>
+<p>Return a prediction.</p>
+<p>Parameters</p>
+<p>&#8212;&#8212;&#8212;-</p>
+<p>X : array-like</p>
+<p>feature_names : array of feature names (optional)</p>
+<p>&#8220;&#8221;&#8221;</p>
+<p>print(&#8220;Predict called &#8211; will run identity function&#8221;)</p>
+<p>return X</p>
+</blockquote>
+<ul>
+<li>
+<p>必須安裝 seldon core Python 包</p>
+</li>
+<li>
+<p>容器首先使用 seldon-core 包提供的 Seldon core microservice 入口點運行 Seldon 服務，它和上面的點都可以看到 DockerFile</p>
+</li>
+</ul>
+<blockquote>
+<p>FROM python:3.6-slim</p>
+<p>COPY . /app</p>
+<p>WORKDIR /app</p>
+<p>RUN pip install pipenv</p>
+<p>RUN pipenv install</p>
+<p>EXPOSE 5000</p>
+<p># Define environment variable</p>
+<p>ENV MODEL_NAME MLScore</p>
+<p>ENV API_TYPE REST</p>
+<p>ENV SERVICE_TYPE MODEL</p>
+<p>ENV PERSISTENCE 0</p>
+<p>CMD pipenv run seldon-core-microservice $MODEL_NAME $API_TYPE &#8211;service-type $SERVICE_TYPE &#8211;persistence $PERSISTENCE</p>
+</blockquote>
+<p>有關詳細信息，請參閱 Seldon 官方文件。接下來，建立這個印象：</p>
+<blockquote>
+<p>docker build seldon-ml-score-component -t alexioannides/test-ml-score-seldon-api:latest</p>
+</blockquote>
+<p>在將此印像推送到註冊表之前，我們需要確保它按預期工作。在本地 Docker 守護進程上啟動映像：</p>
+<blockquote>
+<p>docker run &#8211;rm -p 5000:5000 -d alexioannides/test-ml-score-seldon-api:latest</p>
+</blockquote>
+<p>然後向它發送一個請求：</p>
+<blockquote>
+<p>curl -g http://localhost:5000/predict \ &#8211;data-urlencode &#8216;json={&#8220;data&#8221;:{&#8220;names&#8221;:[&#8220;a&#8221;,&#8221;b&#8221;],&#8221;tensor&#8221;:{&#8220;shape&#8221;:[2,2],&#8221;values&#8221;:[0,0,1,1]}}}&#8217;</p>
+</blockquote>
+<p>如果響應與預期一致（即它包含與請求相同的負載），則推送印象：</p>
+<blockquote>
+<p>docker push alexioannides/test-ml-score-seldon-api:latest</p>
+</blockquote>
+<p><strong>使用 Seldon Core 部署 ML 組件</strong></p>
+<p>我們現在繼續將 Seldon 兼容的 ML 組件部署到 Kubernetes 集群，並從中創建一個容錯和可縮放的伺服器。為了實現這一目標，我們將使用 Helm 表部署 Seldon Core。我們首先創建一個包含 seldon core 操作符的命名空間，這是使用 seldon 部署任何 ML 模型所需的自定義 Kubernetes 資源：</p>
+<blockquote>
+<p>kubectl create namespace seldon-core</p>
+</blockquote>
+<p>然後我們使用 Helm 部署 Seldon Core，並在 https://storage.googleapis.com/Seldon-charts上部署 Seldon Helm 圖表庫：</p>
+<blockquote>
+<p>helm install seldon-core-operator \</p>
+<p>&#8211;name seldon-core \</p>
+<p>&#8211;repo https://storage.googleapis.com/seldon-charts \</p>
+<p>&#8211;set usageMetrics.enabled=false \</p>
+<p>&#8211;namespace seldon-core</p>
+</blockquote>
+<p>接下來，我們為 Kubernetes 部署 Ambassador API 網關，它將充當 Kubernetes 集群的入口點。我們將為 Ambassador 部署創建一個專用名稱空間：</p>
+<blockquote>
+<p>kubectl create namespace ambassador</p>
+</blockquote>
+<p>然後使用 Helm 官方庫中最新的圖表部署 Ambassador：</p>
+<blockquote>
+<p>helm install stable/ambassador \</p>
+<p>&#8211;name ambassador \</p>
+<p>&#8211;set crds.keep=false \</p>
+<p>&#8211;namespace ambassador</p>
+</blockquote>
+<p>如果我們現在運行 helm list &#8211;namespace seldon-core，我們應該看到 seldon core 已經部署好了，並且正在等待 seldon ML 組件的部署。為了部署我們的 Seldon ML 模型評分伺服器，我們為它創建了一個單獨的名稱空間：</p>
+<blockquote>
+<p>kubectl create namespace test-ml-seldon-app</p>
+</blockquote>
+<p>然後配置並部署另一個官方 Seldon Helm，如下所示：</p>
+<blockquote>
+<p>helm install seldon-single-model \</p>
+<p>&#8211;name test-ml-seldon-app \</p>
+<p>&#8211;repo https://storage.googleapis.com/seldon-charts \</p>
+<p>&#8211;set model.image.name=alexioannides/test-ml-score-seldon-api:latest \</p>
+<p>&#8211;namespace test-ml-seldon-app</p>
+</blockquote>
+<p>注意，通過重複最後兩個步驟，現在可以使用 Seldon 部署多個 ML 模型，它們都將通過同一個 Ambassador API 網關自動訪問，我們現在將使用該網關測試 Seldon ML 模型評分伺服器。</p>
+<p><strong>通過 Ambassador 網關 API 測試 API</strong></p>
+<p>為了測試基於 Seldon 的 ML 模型評分伺服器，我們遵循與上面 Kubernetes 部署相同的方法，但是我們將通過 Ambassador API 網關路由我們的請求。要查找 Ambassador 服務運行的 IP 地址：</p>
+<blockquote>
+<p>kubectl -n ambassador get service ambassador</p>
+</blockquote>
+<p>如果使用 Docker 桌面，則為 localhost:80；如果在 GCP 或 Minikube 上運行，則為 IP 地址（如果在後一種情況下需要記住使用 minikuke 服務列表）。現在測試預測的終結點，例如：</p>
+<blockquote>
+<p>curl http://35.246.28.247:80/seldon/test-ml-seldon-app/test-ml-seldon-app/api/v0.1/predictions \</p>
+<p>&#8211;request POST \</p>
+<p>&#8211;header &#8220;Content-Type: application/json&#8221; \</p>
+<p>&#8211;data &#8216;{&#8220;data&#8221;:{&#8220;names&#8221;:[&#8220;a&#8221;,&#8221;b&#8221;],&#8221;tensor&#8221;:{&#8220;shape&#8221;:[2,2],&#8221;values&#8221;:[0,0,1,1]}}}&#8217;</p>
+</blockquote>
+<p>如果你想了解路由背後的完整邏輯，請參閱 Seldon 文檔，但 URL 實際上使用的是：</p>
+<blockquote>
+<p>http://</p>
+</blockquote>
+<p>如果你的請求成功了，那麼你應該會看到如下的結果：</p>
+<blockquote>
+<p>{</p>
+<p>&#8220;meta&#8221;: {</p>
+<p>&#8220;puid&#8221;: &#8220;hsu0j9c39a4avmeonhj2ugllh9&#8221;,</p>
+<p>&#8220;tags&#8221;: {</p>
+<p>},</p>
+<p>&#8220;routing&#8221;: {</p>
+<p>},</p>
+<p>&#8220;requestPath&#8221;: {</p>
+<p>&#8220;classifier&#8221;: &#8220;alexioannides/test-ml-score-seldon-api:latest&#8221;</p>
+<p>},</p>
+<p>&#8220;metrics&#8221;: </p>
+<p>},</p>
+<p>&#8220;data&#8221;: {</p>
+<p>&#8220;names&#8221;: [&#8220;t:0&#8221;, &#8220;t:1&#8221;],</p>
+<p>&#8220;tensor&#8221;: {</p>
+<p>&#8220;shape&#8221;: [2, 2],</p>
+<p>&#8220;values&#8221;: [0.0, 0.0, 1.0, 1.0]</p>
+<p>}</p>
+<p>}</p>
+<p>}</p>
+</blockquote>
+<p><strong>清理</strong></p>
+<p>要刪除使用上述步驟部署的單個 Seldon ML 模型及其命名空間，請運行：</p>
+<blockquote>
+<p>helm delete test-ml-seldon-app &#8211;purge &amp;&amp; kubectl delete namespace test-ml-seldon-app</p>
+</blockquote>
+<p>按照同樣的模式移除 Seldon 核心操作器和 Ambassador：</p>
+<blockquote>
+<p>helm delete seldon-core &#8211;purge &amp;&amp; kubectl delete namespace seldon-corehelm delete ambassador &#8211;purge &amp;&amp; kubectl delete namespace ambassador</p>
+</blockquote>
+<p>如果有一個 GCP 集群需要終止運行：</p>
+<blockquote>
+<p>gcloud container clusters delete k8s-test-cluster</p>
+</blockquote>
+<p>同樣，如果使用 Minikube：</p>
+<blockquote>
+<p>minikube stop</p>
+<p>minikube delete</p>
+</blockquote>
+<p>如果在 Docker 桌面上運行，導航到 Preferences-&gt;Reset 重置集群。</p>
+<p><strong>接下來做什麼</strong></p>
+<p>以下資源列表將幫助你深入了解我們在上面略過的主題：</p>
+<ul>
+<li>
+<p>the full set of functionality provided by Seldon;</p>
+</li>
+<li>
+<p>running multi-stage containerised workflows (e.g. for data engineering and model training) using Argo Workflows;</p>
+</li>
+<li>
+<p>the excellent 『Kubernetes in Action『 by Marko Lukša available from Manning Publications;</p>
+</li>
+<li>
+<p>『Docker in Action『 by Jeff Nickoloff and Stephen Kuenzli also available from Manning Publications;</p>
+</li>
+<li>
+<p>『Flask Web Development』 by Miguel Grinberg O』Reilly.</p>
+</li>
+</ul>
+<p>via：https://alexioannides.com/2019/01/10/deploying-python-ml-models-with-flask-docker-and-kubernetes/</p>
+<p>雷鋒網雷鋒網雷鋒網 </p>
+</div>
+												</div>
+						<footer class="kratos-entry-footer clearfix">
+							<div class="post-like-donate text-center clearfix" id="post-like-donate">
+											   			<a href="javascript:;" id="btn" data-action="love" data-id="33508" class="Love " ><i class="fa fa-thumbs-o-up"></i> 点赞</a>
+														<a href="javascript:;"  class="Share" ><i class="fa fa-share-alt"></i> 分享</a>
+								<div class="share-wrap" style="display: none;">
+	<div class="share-group">
+		<a href="javascript:;" class="share-plain twitter" onclick="share('qq');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-qq"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weibo"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-facebook"></i>
+			</div>
+		</a>
+		<a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+			<div class="icon-wrap">
+				<i class="fa fa-weixin"></i>
+			</div>
+			<div class="share-int">
+				<div class="qrcode" data-url="https://daynews.cc/technology/33508/"></div>
+				<p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+			</div>
+		</a>
+	</div>
+	<script type="text/javascript">
+	function share(obj){
+		var qqShareURL="http://connect.qq.com/widget/shareqq/index.html?";
+		var weiboShareURL="http://service.weibo.com/share/share.php?";
+		var facebookShareURL="https://www.facebook.com/sharer/sharer.php?";
+		var twitterShareURL="https://twitter.com/intent/tweet?";
+		var host_url="https://daynews.cc/technology/33508/";
+		var title='%E3%80%90%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%94%A8%20Flask%2C%20Docker%20%E5%92%8C%20Kubernetes%20%E9%83%A8%E7%BD%B2Python%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E6%A8%A1%E5%9E%8B%EF%BC%88%E9%99%84%E4%BB%A3%E7%A2%BC%EF%BC%89%E3%80%91';
+		var qqtitle='%E3%80%90%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%94%A8%20Flask%2C%20Docker%20%E5%92%8C%20Kubernetes%20%E9%83%A8%E7%BD%B2Python%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E6%A8%A1%E5%9E%8B%EF%BC%88%E9%99%84%E4%BB%A3%E7%A2%BC%EF%BC%89%E3%80%91';
+		var excerpt='%E5%B0%87%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%EF%BC%88ML%EF%BC%89%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E5%88%B0%E7%94%9F%E7%94%A2%E7%92%B0%E5%A2%83%E4%B8%AD%E7%9A%84%E4%B8%80%E5%80%8B%E5%B8%B8%E8%A6%8B%E6%A8%A1%E5%BC%8F%E6%98%AF%E5%B0%87%E9%80%99%E4%BA%9B%E6%A8%A1%E5%9E%8B%E4%BD%9C%E7%82%BA%20RESTful%20API%20%E5%BE%AE%E6%9C%8D%E5%8B%99%E5%85%AC%E9%96%8B%EF%BC%8C%E9%80%99%E4%BA%9B%E5%BE%AE%E6%9C%8D%E5%8B%99%E5%BE%9E%20Docker%20%E5%AE%B9%E5%99%A8%E4%B8%AD%E8%A8%97%E7%AE%A1%EF%BC%8C%E4%BE%8B%E5%A6%82%E4%BD%BF%E7%94%A8%20SciKit%20Learn%20%E6%88%96%20Keras%20%E5%8C%85%E8%A8%93%E7%B7%B4%E7%9A%84%20ML%20%E6%A8%A1%E5%9E%8B%EF%BC%8C%E9%80%99%E4%BA%9B%E6%A8%A1%E5%9E%8B%E5%8F%AF%E4%BB%A5%E6%8F%90%E4%BE%9B%E5%B0%8D%E6%96%B0%E6%95%B8%E6%93%9A%E7%9A%84%E9%A0%90%E6%B8%AC%E3%80%82%E7%84%B6%E5%BE%8C%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%B0%87%E5%AE%83%E5%80%91%E9%83%A8%E7%BD%B2%E5%88%B0%E9%9B%B2%E7%92%B0%E5%A2%83%E4%B8%AD%EF%BC%8C%E4%BB%A5%E8%99%95%E7%90%86%E7%B6%AD%E8%AD%B7%E9%80%A3%E7%BA%8C%E5%8F%AF%E7%94%A8%E6%80%A7%E6%89%80%E9%9C%80%E7%9A%84%E6%89%80%E6%9C%89%E4%BA%8B%E6%83%85%EF%BC%8C%E4%BE%8B%E5%A6%82%E5%AE%B9%E9%8C%AF%E3%80%81%E8%87%AA%E5%8B%95%E7%B8%AE%E6%94%BE%E3%80%81%E2%80%A6%E2%80%A6';
+		var wbexcerpt='%E5%B0%87%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%EF%BC%88ML%EF%BC%89%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E5%88%B0%E7%94%9F%E7%94%A2%E7%92%B0%E5%A2%83%E4%B8%AD%E7%9A%84%E4%B8%80%E5%80%8B%E5%B8%B8%E8%A6%8B%E6%A8%A1%E5%BC%8F%E6%98%AF%E5%B0%87%E9%80%99%E4%BA%9B%E6%A8%A1%E5%9E%8B%E4%BD%9C%E7%82%BA%20RESTful%20API%20%E5%BE%AE%E6%9C%8D%E5%8B%99%E5%85%AC%E9%96%8B%EF%BC%8C%E9%80%99%E4%BA%9B%E5%BE%AE%E6%9C%8D%E5%8B%99%E5%BE%9E%20Docker%20%E5%AE%B9%E5%99%A8%E4%B8%AD%E8%A8%97%E7%AE%A1%EF%BC%8C%E4%BE%8B%E5%A6%82%E4%BD%BF%E7%94%A8%20SciKit%20Learn%20%E6%88%96%20Keras%20%E5%8C%85%E8%A8%93%E7%B7%B4%E7%9A%84%20ML%20%E6%A8%A1%E5%9E%8B%EF%BC%8C%E9%80%99%E4%BA%9B%E6%A8%A1%E5%9E%8B%E5%8F%AF%E4%BB%A5%E6%8F%90%E4%BE%9B%E5%B0%8D%E6%96%B0%E6%95%B8%E6%93%9A%E7%9A%84%E9%A0%90%E6%B8%AC%E3%80%82%E7%84%B6%E5%BE%8C%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%B0%87%E5%AE%83%E5%80%91%E9%83%A8%E7%BD%B2%E5%88%B0%E9%9B%B2%E7%92%B0%E5%A2%83%E4%B8%AD%EF%BC%8C%E4%BB%A5%E8%99%95%E7%90%86%E7%B6%AD%E8%AD%B7%E9%80%A3%E7%BA%8C%E5%8F%AF%E7%94%A8%E6%80%A7%E6%89%80%E9%9C%80%E7%9A%84%E6%89%80%E6%9C%89%E4%BA%8B%E6%83%85%EF%BC%8C%E4%BE%8B%E5%A6%82%E5%AE%B9%E9%8C%AF%E3%80%81%E8%87%AA%E5%8B%95%E7%B8%AE%E6%94%BE%E3%80%81%E2%80%A6%E2%80%A6';
+		var pic="http://p1.pstatp.com/large/pgc-image/RlOEGYe87qAENi";
+		var _URL;
+		if(obj=="qq"){
+			_URL=qqShareURL+"url="+host_url+"&title="+qqtitle+"&pics="+pic+"&desc=&summary="+excerpt+"&site=vtrois";
+		}else if(obj=="weibo"){
+			_URL=weiboShareURL+"url="+host_url+"&title="+title+wbexcerpt+"&pic="+pic;
+		}else if(obj=="facebook"){
+	 		_URL=facebookShareURL+"u="+host_url;
+		}else if(obj=="twitter"){
+	 		_URL=twitterShareURL+"text="+title+excerpt+"&url="+host_url;
+		}
+		window.open(_URL);
+	}
+	</script>
+</div>											    		</div>
+							<div class="footer-tag clearfix">
+								<div class="pull-left">
+								<i class="fa fa-tags"></i>
+																</div>
+							</div>
+						</footer>
+					</div>
+										<nav class="navigation post-navigation clearfix" role="navigation">
+												<div class="nav-previous clearfix">
+							<a title="還是要學習啊，程序員200行代碼價值6億美刀" href="https://daynews.cc/technology/33509/">&lt; 上一篇</a>
+						</div>
+																		<div class="nav-next">
+							<a title="12306崩了？客服：旅客過多，可重裝App或切換網路" href="https://daynews.cc/technology/33507/">下一篇 &gt;</a>
+						</div>
+											</nav>
+					<div id="comments" class="comments-area">
+			<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+    function grin(tag) {
+        var myField;
+        tag = ' ' + tag + ' ';
+        if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+            myField = document.getElementById('comment');
+        } else {
+            return false;
+        }
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = tag;
+            myField.focus();
+        }
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            var cursorPos = endPos;
+            myField.value = myField.value.substring(0, startPos)
+                          + tag
+                          + myField.value.substring(endPos, myField.value.length);
+            cursorPos += tag.length;
+            myField.focus();
+            myField.selectionStart = cursorPos;
+            myField.selectionEnd = cursorPos;
+        }
+        else {
+            myField.value += tag;
+            myField.focus();
+        }
+    }
+/* ]]> */
+</script>
+		<div id="respond" class="comment-respond">
+		<h4 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="/technology/33508/#respond" style="display:none;">取消回覆</a></small></h4>			<form action="https://daynews.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span></p><div class="comment form-group has-feedback"><div class="input-group"><p>
+<a href="javascript:grin(':razz:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/razz.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':evil:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/evil.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':exclaim:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/exclaim.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':smile:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/smile.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':redface:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/redface.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':biggrin:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/biggrin.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':surprised:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/surprised.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':eek:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/eek.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':confused:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/confused.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':idea:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/idea.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':lol:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/lol.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mad:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mad.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':twisted:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/twisted.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':rolleyes:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/rolleyes.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':wink:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/wink.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cool:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cool.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':arrow:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/arrow.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':neutral:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/neutral.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cry:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cry.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':mrgreen:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/mrgreen.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':drooling:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/drooling.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':cowboy:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/cowboy.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':persevering:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/persevering.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':symbols:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/symbols.png" alt="" class="size-smiley"/></a>
+<a href="javascript:grin(':shit:')"><img src="https://daynews.cc/wp-content/themes/Kratos/images/smilies/shit.png" alt="" class="size-smiley"/></a>
+</p><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById('submit').click();return false}};"></textarea></div></div><div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="暱稱" id="author" name="author" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="郵箱" id="email" name="email" type="text" value="" size="30" /><span class="form-control-feedback required">*</span></div></div>
+<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="網站" id="url" name="url" type="text" value="" size="30" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary" value="發佈留言" /> <input type='hidden' name='comment_post_ID' value='33508' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div>				</article>
+							</section>
+							<aside id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scrollspy">
+	                <div id="sidebar">
+	                            <aside class="widget widget_kratos_poststab">
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-lg">
+                <li><a href="#newest" data-toggle="tab">最新文章</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點文章</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機文章</a></li>
+            </ul>
+            <ul id="tabul" class="nav nav-tabs nav-justified visible-md">
+                <li><a href="#newest" data-toggle="tab">最新</a></li>
+                <li class="active"><a href="#hot" data-toggle="tab">熱點</a></li>
+                <li><a href="#rand" data-toggle="tab">隨機</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="newest">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="熱火無緣聖誕大戰，巴特勒或是偽巨星，韋德：戰績好也不行？" href="https://daynews.cc/nba/34699/" rel="bookmark"><i class="fa  fa-book"></i> 熱火無緣聖誕大戰，巴特勒或是偽巨星，韋德：戰績好也不行？                            </a>
+                            <a class="list-group-item visible-md" title="熱火無緣聖誕大戰，巴特勒或是偽巨星，韋德：戰績好也不行？" href="https://daynews.cc/nba/34699/" rel="bookmark"><i class="fa  fa-book"></i> 熱火無緣聖誕大戰，巴特勒或是偽巨星，韋德：戰績好也不行？                            </a>
+                                                    <a class="list-group-item visible-lg" title="如果科比再不生個兒子，他的傳奇靠誰續寫呢" href="https://daynews.cc/nba/34701/" rel="bookmark"><i class="fa  fa-book"></i> 如果科比再不生個兒子，他的傳奇靠誰續寫呢                            </a>
+                            <a class="list-group-item visible-md" title="如果科比再不生個兒子，他的傳奇靠誰續寫呢" href="https://daynews.cc/nba/34701/" rel="bookmark"><i class="fa  fa-book"></i> 如果科比再不生個兒子，他的傳奇靠誰續寫呢                            </a>
+                                                    <a class="list-group-item visible-lg" title="全明星後衛瘋狂出手，恰恰證明了哈登的獨一無二，8年前差點互換" href="https://daynews.cc/nba/34700/" rel="bookmark"><i class="fa  fa-book"></i> 全明星後衛瘋狂出手，恰恰證明了哈登的獨一無二，8年前差點互換                            </a>
+                            <a class="list-group-item visible-md" title="全明星後衛瘋狂出手，恰恰證明了哈登的獨一無二，8年前差點互換" href="https://daynews.cc/nba/34700/" rel="bookmark"><i class="fa  fa-book"></i> 全明星後衛瘋狂出手，恰恰證明了哈登的獨一無二，8年前差點互換                            </a>
+                                                    <a class="list-group-item visible-lg" title="是誰在說謊？萊昂納德回應不正當要求：人們都喜歡編故事" href="https://daynews.cc/nba/34703/" rel="bookmark"><i class="fa  fa-book"></i> 是誰在說謊？萊昂納德回應不正當要求：人們都喜歡編故事                            </a>
+                            <a class="list-group-item visible-md" title="是誰在說謊？萊昂納德回應不正當要求：人們都喜歡編故事" href="https://daynews.cc/nba/34703/" rel="bookmark"><i class="fa  fa-book"></i> 是誰在說謊？萊昂納德回應不正當要求：人們都喜歡編故事                            </a>
+                                                    <a class="list-group-item visible-lg" title="刺激！洛城德比聖誕大戰，3大核心帶傷復出，小卡說出比賽的不同" href="https://daynews.cc/nba/34702/" rel="bookmark"><i class="fa  fa-book"></i> 刺激！洛城德比聖誕大戰，3大核心帶傷復出，小卡說出比賽的不同                            </a>
+                            <a class="list-group-item visible-md" title="刺激！洛城德比聖誕大戰，3大核心帶傷復出，小卡說出比賽的不同" href="https://daynews.cc/nba/34702/" rel="bookmark"><i class="fa  fa-book"></i> 刺激！洛城德比聖誕大戰，3大核心帶傷復出，小卡說出比賽的不同                            </a>
+                                                    <a class="list-group-item visible-lg" title="詹姆斯和戴維斯將出戰聖誕大戰 湖人主帥直言缺乏訓練導致三連敗" href="https://daynews.cc/nba/34705/" rel="bookmark"><i class="fa  fa-book"></i> 詹姆斯和戴維斯將出戰聖誕大戰 湖人主帥直言缺乏訓練導致三連敗                            </a>
+                            <a class="list-group-item visible-md" title="詹姆斯和戴維斯將出戰聖誕大戰 湖人主帥直言缺乏訓練導致三連敗" href="https://daynews.cc/nba/34705/" rel="bookmark"><i class="fa  fa-book"></i> 詹姆斯和戴維斯將出戰聖誕大戰 湖人主帥直言缺乏訓練導致三連敗                            </a>
+                                                    <a class="list-group-item visible-lg" title="倫納德成背鍋俠，卡舅才是罪魁禍首，湖人猛龍都被算計了？" href="https://daynews.cc/nba/34704/" rel="bookmark"><i class="fa  fa-book"></i> 倫納德成背鍋俠，卡舅才是罪魁禍首，湖人猛龍都被算計了？                            </a>
+                            <a class="list-group-item visible-md" title="倫納德成背鍋俠，卡舅才是罪魁禍首，湖人猛龍都被算計了？" href="https://daynews.cc/nba/34704/" rel="bookmark"><i class="fa  fa-book"></i> 倫納德成背鍋俠，卡舅才是罪魁禍首，湖人猛龍都被算計了？                            </a>
+                                                    <a class="list-group-item visible-lg" title="“中華禪文化泰國行”福建交流團拜訪泰國前副總理、泰中友好協會會長功·塔帕蘭氏" href="https://daynews.cc/international/34176/" rel="bookmark"><i class="fa  fa-book"></i> “中華禪文化泰國行”福建交流團拜訪泰國前副總理、泰中友好協會會長功·塔帕蘭氏                            </a>
+                            <a class="list-group-item visible-md" title="“中華禪文化泰國行”福建交流團拜訪泰國前副總理、泰中友好協會會長功·塔帕蘭氏" href="https://daynews.cc/international/34176/" rel="bookmark"><i class="fa  fa-book"></i> “中華禪文化泰國行”福建交流團拜訪泰國前副總理、泰中友好協會會長功·塔帕蘭氏                            </a>
+                                                    <a class="list-group-item visible-lg" title="英國脫歐、難民潮、金融危機、特朗普搗蛋，動蕩的歐盟會解散嗎？" href="https://daynews.cc/international/34178/" rel="bookmark"><i class="fa  fa-book"></i> 英國脫歐、難民潮、金融危機、特朗普搗蛋，動蕩的歐盟會解散嗎？                            </a>
+                            <a class="list-group-item visible-md" title="英國脫歐、難民潮、金融危機、特朗普搗蛋，動蕩的歐盟會解散嗎？" href="https://daynews.cc/international/34178/" rel="bookmark"><i class="fa  fa-book"></i> 英國脫歐、難民潮、金融危機、特朗普搗蛋，動蕩的歐盟會解散嗎？                            </a>
+                                                    <a class="list-group-item visible-lg" title="約翰遜稱英軍4個月攔截56架俄軍機，俄大使館：毫無意義，浪費人力物力" href="https://daynews.cc/international/34177/" rel="bookmark"><i class="fa  fa-book"></i> 約翰遜稱英軍4個月攔截56架俄軍機，俄大使館：毫無意義，浪費人力物力                            </a>
+                            <a class="list-group-item visible-md" title="約翰遜稱英軍4個月攔截56架俄軍機，俄大使館：毫無意義，浪費人力物力" href="https://daynews.cc/international/34177/" rel="bookmark"><i class="fa  fa-book"></i> 約翰遜稱英軍4個月攔截56架俄軍機，俄大使館：毫無意義，浪費人力物力                            </a>
+                                            </ul>
+                </div>
+                <div class="tab-pane fade  in active" id="hot">
+                    <ul class="list-group">
+                        <a class="list-group-item visible-lg" title="24平米房子擠四口人，父母把廚房當卧室，網友：怎敢生養兩個男孩" href="https://daynews.cc/emotion/23804/" rel="bookmark"><i class="fa  fa-book"></i> 24平米房子擠四口人，父母把廚房當卧室，網友：怎敢生養兩個男孩</a><a class="list-group-item visible-md" title="24平米房子擠四口人，父母把廚房當卧室，網友：怎敢生養兩個男孩" href="https://daynews.cc/emotion/23804/" rel="bookmark"><i class="fa  fa-book"></i> 24平米房子擠四口人，父母把廚房當卧室，網友：怎敢生養兩個男孩</a><a class="list-group-item visible-lg" title="打鷹被鷹啄，烏克蘭特種行動小組赴烏匈邊境緝私卻遭團滅" href="https://daynews.cc/international/34272/" rel="bookmark"><i class="fa  fa-book"></i> 打鷹被鷹啄，烏克蘭特種行動小組赴烏匈邊境緝私卻遭團滅</a><a class="list-group-item visible-md" title="打鷹被鷹啄，烏克蘭特種行動小組赴烏匈邊境緝私卻遭團滅" href="https://daynews.cc/international/34272/" rel="bookmark"><i class="fa  fa-book"></i> 打鷹被鷹啄，烏克蘭特種行動小組赴烏匈邊境緝私卻遭團滅</a><a class="list-group-item visible-lg" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854/" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-md" title="泰國老婦用水溶解冰毒，遭毒販暴打活燒" href="https://daynews.cc/international/8854/" rel="bookmark"><i class="fa  fa-book"></i> 泰國老婦用水溶解冰毒，遭毒販暴打活燒</a><a class="list-group-item visible-lg" title="挖幣與炒幣哪個能讓你賺錢？不要再盲目的入坑啦" href="https://daynews.cc/technology/33386/" rel="bookmark"><i class="fa  fa-book"></i> 挖幣與炒幣哪個能讓你賺錢？不要再盲目的入坑啦</a><a class="list-group-item visible-md" title="挖幣與炒幣哪個能讓你賺錢？不要再盲目的入坑啦" href="https://daynews.cc/technology/33386/" rel="bookmark"><i class="fa  fa-book"></i> 挖幣與炒幣哪個能讓你賺錢？不要再盲目的入坑啦</a><a class="list-group-item visible-lg" title="網傳國家電網5G網路建設方案：利用廣電700/60MHz建11.31萬座基站" href="https://daynews.cc/technology/22913/" rel="bookmark"><i class="fa  fa-book"></i> 網傳國家電網5G網路建設方案：利用廣電700/60MHz建11.31萬座基站</a><a class="list-group-item visible-md" title="網傳國家電網5G網路建設方案：利用廣電700/60MHz建11.31萬座基站" href="https://daynews.cc/technology/22913/" rel="bookmark"><i class="fa  fa-book"></i> 網傳國家電網5G網路建設方案：利用廣電700/60MHz建11.31萬座基站</a><a class="list-group-item visible-lg" title="RW俠爆冷輸給CW，親手送EStarpro晉級" href="https://daynews.cc/game/29791/" rel="bookmark"><i class="fa  fa-book"></i> RW俠爆冷輸給CW，親手送EStarpro晉級</a><a class="list-group-item visible-md" title="RW俠爆冷輸給CW，親手送EStarpro晉級" href="https://daynews.cc/game/29791/" rel="bookmark"><i class="fa  fa-book"></i> RW俠爆冷輸給CW，親手送EStarpro晉級</a><a class="list-group-item visible-lg" title="皇馬冬窗尋槍，最熱門的5個人選" href="https://daynews.cc/premier/32836/" rel="bookmark"><i class="fa  fa-book"></i> 皇馬冬窗尋槍，最熱門的5個人選</a><a class="list-group-item visible-md" title="皇馬冬窗尋槍，最熱門的5個人選" href="https://daynews.cc/premier/32836/" rel="bookmark"><i class="fa  fa-book"></i> 皇馬冬窗尋槍，最熱門的5個人選</a><a class="list-group-item visible-lg" title="預防眼乾眼澀妙招，護眼秘笈學起來" href="https://daynews.cc/health/33082/" rel="bookmark"><i class="fa  fa-book"></i> 預防眼乾眼澀妙招，護眼秘笈學起來</a><a class="list-group-item visible-md" title="預防眼乾眼澀妙招，護眼秘笈學起來" href="https://daynews.cc/health/33082/" rel="bookmark"><i class="fa  fa-book"></i> 預防眼乾眼澀妙招，護眼秘笈學起來</a><a class="list-group-item visible-lg" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134/" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-md" title="留學生在美國就讀的比例越來越下降，背後的原因是什麼？" href="https://daynews.cc/international/12134/" rel="bookmark"><i class="fa  fa-book"></i> 留學生在美國就讀的比例越來越下降，背後的原因是什麼？</a><a class="list-group-item visible-lg" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098/" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a><a class="list-group-item visible-md" title="黃芪的十八種配伍一覽表！（收藏版）" href="https://daynews.cc/health/7098/" rel="bookmark"><i class="fa  fa-book"></i> 黃芪的十八種配伍一覽表！（收藏版）</a>                    </ul>
+                </div>
+                <div class="tab-pane fade" id="rand">
+                    <ul class="list-group">
+                                                    <a class="list-group-item visible-lg" title="告別皇馬？莫德里奇或登陸中超，金球先生冬窗被傳離開" href="https://daynews.cc/premier/27910/" rel="bookmark"><i class="fa  fa-book"></i> 告別皇馬？莫德里奇或登陸中超，金球先生冬窗被傳離開                            </a>
+                            <a class="list-group-item visible-md" title="告別皇馬？莫德里奇或登陸中超，金球先生冬窗被傳離開" href="https://daynews.cc/premier/27910/" rel="bookmark"><i class="fa  fa-book"></i> 告別皇馬？莫德里奇或登陸中超，金球先生冬窗被傳離開                            </a>
+                                                    <a class="list-group-item visible-lg" title="水瓶座明年運勢：福命臨門，吉祥天成，錢途似錦，旺運一整年" href="https://daynews.cc/constellation/12330/" rel="bookmark"><i class="fa  fa-book"></i> 水瓶座明年運勢：福命臨門，吉祥天成，錢途似錦，旺運一整年                            </a>
+                            <a class="list-group-item visible-md" title="水瓶座明年運勢：福命臨門，吉祥天成，錢途似錦，旺運一整年" href="https://daynews.cc/constellation/12330/" rel="bookmark"><i class="fa  fa-book"></i> 水瓶座明年運勢：福命臨門，吉祥天成，錢途似錦，旺運一整年                            </a>
+                                                    <a class="list-group-item visible-lg" title="漢武帝心思最難琢磨，為何張湯審的案子，件件都讓漢武帝滿意" href="https://daynews.cc/history/16743/" rel="bookmark"><i class="fa  fa-book"></i> 漢武帝心思最難琢磨，為何張湯審的案子，件件都讓漢武帝滿意                            </a>
+                            <a class="list-group-item visible-md" title="漢武帝心思最難琢磨，為何張湯審的案子，件件都讓漢武帝滿意" href="https://daynews.cc/history/16743/" rel="bookmark"><i class="fa  fa-book"></i> 漢武帝心思最難琢磨，為何張湯審的案子，件件都讓漢武帝滿意                            </a>
+                                                    <a class="list-group-item visible-lg" title="成功出海卻“浪”不起來的王者榮耀，究竟是哪裡得罪了國外玩家？" href="https://daynews.cc/game/14131/" rel="bookmark"><i class="fa  fa-book"></i> 成功出海卻“浪”不起來的王者榮耀，究竟是哪裡得罪了國外玩家？                            </a>
+                            <a class="list-group-item visible-md" title="成功出海卻“浪”不起來的王者榮耀，究竟是哪裡得罪了國外玩家？" href="https://daynews.cc/game/14131/" rel="bookmark"><i class="fa  fa-book"></i> 成功出海卻“浪”不起來的王者榮耀，究竟是哪裡得罪了國外玩家？                            </a>
+                                                    <a class="list-group-item visible-lg" title="真的酸了！日本希望之星為巴薩梅開二度，帶領球隊10輪不敗" href="https://daynews.cc/sports/19230/" rel="bookmark"><i class="fa  fa-book"></i> 真的酸了！日本希望之星為巴薩梅開二度，帶領球隊10輪不敗                            </a>
+                            <a class="list-group-item visible-md" title="真的酸了！日本希望之星為巴薩梅開二度，帶領球隊10輪不敗" href="https://daynews.cc/sports/19230/" rel="bookmark"><i class="fa  fa-book"></i> 真的酸了！日本希望之星為巴薩梅開二度，帶領球隊10輪不敗                            </a>
+                                                    <a class="list-group-item visible-lg" title="中國一人被處死，兒子被人冒死救下，於是兩家約定永遠不通婚" href="https://daynews.cc/history/16631/" rel="bookmark"><i class="fa  fa-book"></i> 中國一人被處死，兒子被人冒死救下，於是兩家約定永遠不通婚                            </a>
+                            <a class="list-group-item visible-md" title="中國一人被處死，兒子被人冒死救下，於是兩家約定永遠不通婚" href="https://daynews.cc/history/16631/" rel="bookmark"><i class="fa  fa-book"></i> 中國一人被處死，兒子被人冒死救下，於是兩家約定永遠不通婚                            </a>
+                                                    <a class="list-group-item visible-lg" title="完美的食材搭配會讓您越吃越瘦，吃出健康" href="https://daynews.cc/health/29134/" rel="bookmark"><i class="fa  fa-book"></i> 完美的食材搭配會讓您越吃越瘦，吃出健康                            </a>
+                            <a class="list-group-item visible-md" title="完美的食材搭配會讓您越吃越瘦，吃出健康" href="https://daynews.cc/health/29134/" rel="bookmark"><i class="fa  fa-book"></i> 完美的食材搭配會讓您越吃越瘦，吃出健康                            </a>
+                                                    <a class="list-group-item visible-lg" title="韓國接收首架全球鷹，一舉進入戰略偵察時代，未服役就亮出了肌肉" href="https://daynews.cc/international/34215/" rel="bookmark"><i class="fa  fa-book"></i> 韓國接收首架全球鷹，一舉進入戰略偵察時代，未服役就亮出了肌肉                            </a>
+                            <a class="list-group-item visible-md" title="韓國接收首架全球鷹，一舉進入戰略偵察時代，未服役就亮出了肌肉" href="https://daynews.cc/international/34215/" rel="bookmark"><i class="fa  fa-book"></i> 韓國接收首架全球鷹，一舉進入戰略偵察時代，未服役就亮出了肌肉                            </a>
+                                                    <a class="list-group-item visible-lg" title="NBA東西部最新排名：掘金升至第2開拓者殺進前8" href="https://daynews.cc/nba/27604/" rel="bookmark"><i class="fa  fa-book"></i> NBA東西部最新排名：掘金升至第2開拓者殺進前8                            </a>
+                            <a class="list-group-item visible-md" title="NBA東西部最新排名：掘金升至第2開拓者殺進前8" href="https://daynews.cc/nba/27604/" rel="bookmark"><i class="fa  fa-book"></i> NBA東西部最新排名：掘金升至第2開拓者殺進前8                            </a>
+                                                    <a class="list-group-item visible-lg" title="為公司賣命十幾年，他們最後連姓名也不配擁有？" href="https://daynews.cc/entertainment/14623/" rel="bookmark"><i class="fa  fa-book"></i> 為公司賣命十幾年，他們最後連姓名也不配擁有？                            </a>
+                            <a class="list-group-item visible-md" title="為公司賣命十幾年，他們最後連姓名也不配擁有？" href="https://daynews.cc/entertainment/14623/" rel="bookmark"><i class="fa  fa-book"></i> 為公司賣命十幾年，他們最後連姓名也不配擁有？                            </a>
+                                            </ul>
+                </div>
+            </div>
+        </aside>
+        <aside id="categories-2" class="widget widget_categories clearfix"><h4 class="widget-title">分類</h4>		<ul>
+				<li class="cat-item cat-item-20"><a href="https://daynews.cc/nba/">NBA</a> (2,244)
+</li>
+	<li class="cat-item cat-item-23"><a href="https://daynews.cc/international/">國際</a> (3,527)
+</li>
+	<li class="cat-item cat-item-14"><a href="https://daynews.cc/entertainment/">娛樂</a> (2,703)
+</li>
+	<li class="cat-item cat-item-15"><a href="https://daynews.cc/emotion/">情感</a> (2,517)
+</li>
+	<li class="cat-item cat-item-22"><a href="https://daynews.cc/constellation/">星座</a> (1,639)
+</li>
+	<li class="cat-item cat-item-17"><a href="https://daynews.cc/history/">歷史</a> (2,735)
+</li>
+	<li class="cat-item cat-item-25"><a href="https://daynews.cc/lose/">減肥</a> (918)
+</li>
+	<li class="cat-item cat-item-24"><a href="https://daynews.cc/technology/">科技</a> (3,486)
+</li>
+	<li class="cat-item cat-item-19"><a href="https://daynews.cc/premier/">英超</a> (1,923)
+</li>
+	<li class="cat-item cat-item-18"><a href="https://daynews.cc/game/">遊戲</a> (3,260)
+</li>
+	<li class="cat-item cat-item-21"><a href="https://daynews.cc/health/">養生</a> (1,676)
+</li>
+	<li class="cat-item cat-item-16"><a href="https://daynews.cc/sports/">體育</a> (3,278)
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget widget_archive clearfix"><h4 class="widget-title">歸檔</h4>		<ul>
+				<li><a href='https://daynews.cc/date/2019/12/'>2019 年 12 月</a>&nbsp;(26904)</li>
+	<li><a href='https://daynews.cc/date/2019/11/'>2019 年 11 月</a>&nbsp;(2817)</li>
+	<li><a href='https://daynews.cc/date/2019/10/'>2019 年 10 月</a>&nbsp;(185)</li>
+		</ul>
+			</aside>	                </div>
+	            </aside>
+					</div>
+	</div>
+</div>
+				<footer>
+					<div id="footer">
+                        <div class="cd-tool text-center">
+                                                        <div class="gotop-box"><div class="gotop-btn"><span class="fa fa-chevron-up"></span></div></div>
+                                                        <div class="search-box">
+                                <span class="fa fa-search"></span>
+                                <form class="search-form" role="search" method="get" id="searchform" 
+                                	  target="_blank" action="https://google.com/search">
+                                    <input type="text" name="q" id="search" placeholder="搜索..." style="display:none"/>
+                                    <input type="hidden" name="sitesearch" value="daynews.cc" />
+                                </form>
+                            </div>
+                        </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 footer-list text-center">
+									<p class="kratos-social-icons">
+																																																															</p>
+									<p>Copyright © 2019 <a href="https://daynews.cc">天天要聞</a>. All Rights Reserved.
+									</a></p><p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.easing.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.qrcode.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/layer.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/modernizr.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.waypoints.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/jquery.stellar.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/hoverIntent.min.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/superfish.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/daynews.cc"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://daynews.cc/wp-content/themes/Kratos/js/kratos.js'></script>
+<script type='text/javascript' src='https://daynews.cc/wp-includes/js/wp-embed.min.js'></script>
+			</body>
+
+</html>
+<!-- This is the static html file -->
